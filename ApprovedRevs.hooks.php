@@ -280,4 +280,16 @@ class ApprovedRevsHooks {
 		$extensions_row->addItem( ALItem::newFromSpecialPage( 'ApprovedPages' ) );
 		return true;
 	}
+
+	public static function onLoadExtensionSchemaUpdates() {
+		global $wgExtNewTables, $wgDBtype;
+
+		$dir = dirname( __FILE__ );
+
+		// DB updates
+		if ( $wgDBtype == 'mysql' ) {
+			$wgExtNewTables[] = array( 'approved_revs', "$dir/ApprovedRevs.sql" );
+		}
+		return true;
+	}
 }
