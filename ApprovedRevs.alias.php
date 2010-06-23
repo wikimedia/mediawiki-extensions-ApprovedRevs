@@ -1,6 +1,6 @@
 <?php
 /**
- * Aliases for special pages of ApprovedPages extension.
+ * Aliases for special pages of Approved Revs extension.
  *
  */
 
