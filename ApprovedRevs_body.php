@@ -1,7 +1,4 @@
 <?php
-
-if (!defined('MEDIAWIKI')) die();
-
 /**
  * Main class for the Approved Revs extension.
  *
@@ -12,7 +9,6 @@ if (!defined('MEDIAWIKI')) die();
  */
 
 class ApprovedRevs {
-
 	/**
 	 * Gets the approved revision ID for this page, or null if there isn't
 	 * one.
@@ -78,7 +74,7 @@ class ApprovedRevs {
 		$article = new Article( $title, $rev_id );
 		$text = $article->getContent();
 		$options = new ParserOptions();
-		$parser->parse( $text, $title, $options, true, true, $rev_id);
+		$parser->parse( $text, $title, $options, true, true, $rev_id );
 		$u = new LinksUpdate( $title, $parser->getOutput() );
 		$u->doUpdate();
 

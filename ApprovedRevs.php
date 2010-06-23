@@ -1,6 +1,6 @@
 <?php
 
-if (!defined('MEDIAWIKI')) die();
+if ( !defined( 'MEDIAWIKI' ) ) die();
 
 /**
  * @file
@@ -27,6 +27,7 @@ $egApprovedRevsExcludedNamespaces = array();
 
 // internationalization
 $wgExtensionMessagesFiles['ApprovedRevs'] = $egApprovedRevsIP . 'ApprovedRevs.i18n.php';
+$wgExtensionAliasesFiles['ApprovedRevs'] = $egApprovedRevsIP . 'ApprovedRevs.alias.php';
 
 // register all classes
 $wgAutoloadClasses['ApprovedRevs'] = $egApprovedRevsIP . 'ApprovedRevs_body.php';

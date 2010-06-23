@@ -261,7 +261,7 @@ class ApprovedRevsHooks {
 	 * Deletes the approval record in the database if the page itself is
 	 * deleted.
 	 */
-	static function deleteRevisionApproval( &$article, &$user, $reason, $id) {
+	static function deleteRevisionApproval( &$article, &$user, $reason, $id ) {
 		ApprovedRevs::deleteRevisionApproval( $article->getTitle() );
 		return true;
 	}
