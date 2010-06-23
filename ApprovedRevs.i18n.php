@@ -32,3 +32,36 @@ Instead, the most recent revision will be shown.',
 	'right-viewlinktolatest' => 'View explanatory text at the top of pages that have an approved revision',
 );
 
+/** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
+ * @author Wizardist
+ */
+$messages['be-tarask'] = array(
+	'approvedrevs-logdesc' => 'Тут месьціцца журнал прынятых рэвізіяў.',
+	'approvedrevs-approve' => 'зацьвердзіць',
+	'approvedrevs-unapprove' => 'адхіліць',
+);
+
+/** Dutch (Nederlands)
+ * @author Siebrand
+ */
+$messages['nl'] = array(
+	'approvedrevs-desc' => 'Een versie van een pagina als goedgekeurd instellen',
+	'approvedrevs-logname' => 'Logboek versiegoedkeuring',
+	'approvedrevs-logdesc' => 'Dit is het logboek met de versies die zijn goedgekeurd.',
+	'approvedrevs-approve' => 'goedkeuren',
+	'approvedrevs-unapprove' => 'afkeuren',
+	'approvedrevs-approvesuccess' => 'Deze versie van de pagina is ingesteld als de goedgekeurde versie.',
+	'approvedrevs-unapprovesuccess' => 'Deze pagina heeft niet langer een goedgekeurde versie.
+Daarom wordt de laatste versie weergegeven.',
+	'approvedrevs-approveaction' => 'heeft $2 ingesteld als de goedgekeurde versie voor "[[$1]]"',
+	'approvedrevs-unapproveaction' => 'heeft de goedgekeurde versie verwijderd voor "[[$1]]"',
+	'approvedrevs-notlatest' => 'Dit is de goedgekeurde versie van deze pagina.
+Het is niet de meeste recente versie.',
+	'approvedrevs-approvedandlatest' => 'Dit is de goedgekeurde versie van deze pagina. Er is geen nieuwere versie.',
+	'approvedrevs-viewlatest' => 'Laatste versie bekijken',
+	'approvedpages' => "Goedgekeurde pagina's",
+	'approvedrevs-approvedpages-docu' => "De volgende pagina's in de wiki hebben een goedgekeurde versie.",
+	'right-approverevisions' => 'Een versie van een wikipagina markeren als goedgekeurd.',
+	'right-viewlinktolatest' => "De verklarende tekst bovenaan pagina's zien die die een goedgekeurde versie hebben",
+);
+
