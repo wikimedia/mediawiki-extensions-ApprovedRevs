@@ -35,7 +35,7 @@ class ARApprovedPagesPage extends QueryPage {
 	function isSyndicated() { return false; }
 
 	function getPageHeader() {
-		$header .= '<p>' . wfMsg( 'approvedrevs-approvedpages-docu' ) . "</p><br />\n";
+		$header = Xml::element( 'p', null, wfMsg( 'approvedrevs-approvedpages-docu' ) ) . "<br />\n";
 		return $header;
 	}
 
