@@ -13,6 +13,7 @@ define( 'APPROVED_REVS_VERSION', '0.1' );
 
 // credits
 $wgExtensionCredits['other'][] = array(
+	'path'            => __FILE__,
 	'name'            => 'Approved Revs',
 	'version'         => APPROVED_REVS_VERSION,
 	'author'          => 'Yaron Koren',
