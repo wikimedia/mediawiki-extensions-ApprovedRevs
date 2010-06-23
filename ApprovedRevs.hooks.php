@@ -74,6 +74,7 @@ class ApprovedRevsHooks {
 			return false;
 		}
 
+		wfLoadExtensionMessages( 'ApprovedRevs' );
 		if ( $revisionID == $article->getLatest() ) {
 			$text = wfMsg( 'approvedrevs-approvedandlatest' );
 		} else {
@@ -121,6 +122,8 @@ class ApprovedRevsHooks {
 		// this will be null if there's no ID
 		$approvedRevID = ApprovedRevs::getApprovedRevID( $article->getTitle() );
 		$article->approvedRevID = $approvedRevID;
+		// also load extension messages, while we're at it
+		wfLoadExtensionMessages( 'ApprovedRevs' );
 		return true;
 	}
 	
