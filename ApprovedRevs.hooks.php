@@ -281,15 +281,15 @@ class ApprovedRevsHooks {
 		return true;
 	}
 
-	public static function onLoadExtensionSchemaUpdates() {
+	public static function describeDBSchema() {
 		global $wgExtNewTables, $wgDBtype;
 
 		$dir = dirname( __FILE__ );
 
 		// DB updates
-		if ( $wgDBtype == 'mysql' ) {
+		//if ( $wgDBtype == 'mysql' ) {
 			$wgExtNewTables[] = array( 'approved_revs', "$dir/ApprovedRevs.sql" );
-		}
+		//}
 		return true;
 	}
 }

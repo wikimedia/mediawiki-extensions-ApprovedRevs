@@ -48,7 +48,7 @@ $wgHooks['UnknownAction'][] = 'ApprovedRevsHooks::unsetAsApproved';
 $wgHooks['BeforeParserFetchTemplateAndtitle'][] = 'ApprovedRevsHooks::setTranscludedPageRev';
 $wgHooks['ArticleDeleteComplete'][] = 'ApprovedRevsHooks::deleteRevisionApproval';
 $wgHooks['AdminLinks'][] = 'ApprovedRevsHooks::addToAdminLinks';
-$wgHooks['LoadExtensionSchemaUpdates'][] = 'ApprovedRevsHooks::onLoadExtensionSchemaUpdates';
+$wgHooks['LoadExtensionSchemaUpdates'][] = 'ApprovedRevsHooks::describeDBSchema';
 
 // logging
 $wgLogTypes['approval'] = 'approval';
