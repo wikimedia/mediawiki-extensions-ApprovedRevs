@@ -48,6 +48,7 @@ $messages['af'] = array(
 
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
  * @author EugeneZelenko
+ * @author Jim-by
  * @author Wizardist
  */
 $messages['be-tarask'] = array(
@@ -57,6 +58,16 @@ $messages['be-tarask'] = array(
 	'approvedrevs-approve' => 'зацьвердзіць',
 	'approvedrevs-unapprove' => 'адхіліць',
 	'approvedrevs-approvesuccess' => 'Гэтая вэрсія старонкі была зацьверджаная.',
+	'approvedrevs-unapprovesuccess' => 'Болей не існуе зацьверджанай вэрсіі гэтай старонкі.
+Замест яе будзе паказаная апошняя вэрсія.',
+	'approvedrevs-approveaction' => 'зацьвердзіць $2 як зацьверджаную вэрсію старонкі «[[$1]]»',
+	'approvedrevs-unapproveaction' => 'зьняць зацьверджаньне з вэрсіі старонкі «[[$1]]»',
+	'approvedrevs-notlatest' => 'Гэта зацьверджаная вэрсія гэтай старонкі; гэта не апошняя вэрсія.',
+	'approvedrevs-approvedandlatest' => 'Гэта зацьверджаная вэрсія гэтай старонкі, адначасова яна зьяўляецца апошняй вэрсіяй.',
+	'approvedrevs-viewlatest' => 'Паказаць апошнюю вэрсію.',
+	'approvedpages' => 'Зацьверджаныя старонкі',
+	'approvedrevs-approvedpages-docu' => 'Ніжэй пададзеныя старонкі {{GRAMMAR:родны|{{SITENAME}}}}, якія маюць зацьверджаныя вэрсіі.',
+	'right-approverevisions' => 'зацьверджаньне вызначаных вэрсіяў вікі-старонак',
 );
 
 /** French (Français)
