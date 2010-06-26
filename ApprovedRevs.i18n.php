@@ -44,6 +44,8 @@ $messages['qqq'] = array(
  */
 $messages['af'] = array(
 	'approvedrevs-approve' => 'keur goed',
+	'approvedrevs-viewlatest' => 'Wys mees onlangse hersiening.',
+	'approvedpages' => 'Goedgekeurde bladsye',
 );
 
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
