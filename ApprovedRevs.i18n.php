@@ -72,6 +72,28 @@ $messages['be-tarask'] = array(
 	'right-approverevisions' => 'зацьверджаньне вызначаных вэрсіяў вікі-старонак',
 );
 
+/** Finnish (Suomi)
+ * @author Centerlink
+ * @author Crt
+ */
+$messages['fi'] = array(
+	'approvedrevs-desc' => 'Aseta yksittäinen sivuversio hyväksytyksi',
+	'approvedrevs-logname' => 'Versiohyväksynnän loki',
+	'approvedrevs-logdesc' => 'Tämä on hyväksyttyjen versioiden loki.',
+	'approvedrevs-approve' => 'hyväksy',
+	'approvedrevs-unapprove' => 'älä hyväksy',
+	'approvedrevs-approvesuccess' => 'Tämä sivuversio on asetettu hyväksytyksi versioksi.',
+	'approvedrevs-unapprovesuccess' => 'Tästä sivusta ei ole enää hyväksyttyä versiota.
+Sen sijaan, viimeisin versio näytetään.',
+	'approvedrevs-notlatest' => 'Tämä on  tämän sivun hyväksytty versio; se ei ole viimeisin.',
+	'approvedrevs-approvedandlatest' => 'Tämä on tämän sivun hyväksytty versio, joka on myös viimeisin versio.',
+	'approvedrevs-viewlatest' => 'Näytä viimeisin versio.',
+	'approvedpages' => 'Hyväksytyt sivut',
+	'approvedrevs-approvedpages-docu' => 'Seuraavat ovat wikisivuja, joilla on hyväksytty versio.',
+	'right-approverevisions' => 'Aseta wikisivun tietty versio hyväksytyksi',
+	'right-viewlinktolatest' => 'Näytä selittävä teksti niiden sivujen yläosassa, joilla on hyväksytty versio',
+);
+
 /** French (Français)
  * @author Peter17
  */
@@ -124,6 +146,7 @@ In loco de isto, le version le plus recente essera monstrate.',
 $messages['lb'] = array(
 	'approvedrevs-desc' => 'Eng eenzel Versioun vun enger Säit als nogekuckt markéieren',
 	'approvedrevs-logname' => 'Logbuch vun den nogekuckt Säiten déi fräigi sinn',
+	'approvedrevs-logdesc' => "Dëst ass d'Logbuch vun de Versiounen déi nogekuckt sinn.",
 	'approvedrevs-approve' => 'zoustëmmen',
 	'approvedrevs-approvesuccess' => 'Dës Versioun vun der Säit gouf als nogekuckte Versioun fräiginn.',
 	'approvedrevs-unapprovesuccess' => 'Et gëtt vun dëser Säit  keng nogekuckte Versioun méi.
