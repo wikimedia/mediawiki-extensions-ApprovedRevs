@@ -75,6 +75,7 @@ $messages['be-tarask'] = array(
 /** Finnish (Suomi)
  * @author Centerlink
  * @author Crt
+ * @author Nike
  */
 $messages['fi'] = array(
 	'approvedrevs-desc' => 'Aseta yksittäinen sivuversio hyväksytyksi',
@@ -86,12 +87,12 @@ $messages['fi'] = array(
 	'approvedrevs-unapprovesuccess' => 'Tästä sivusta ei ole enää hyväksyttyä versiota.
 Sen sijaan, viimeisin versio näytetään.',
 	'approvedrevs-notlatest' => 'Tämä on  tämän sivun hyväksytty versio; se ei ole viimeisin.',
-	'approvedrevs-approvedandlatest' => 'Tämä on tämän sivun hyväksytty versio, joka on myös viimeisin versio.',
+	'approvedrevs-approvedandlatest' => 'Tämä on tämän sivun hyväksytty ja samalla viimeisin versio.',
 	'approvedrevs-viewlatest' => 'Näytä viimeisin versio.',
 	'approvedpages' => 'Hyväksytyt sivut',
 	'approvedrevs-approvedpages-docu' => 'Seuraavat ovat wikisivuja, joilla on hyväksytty versio.',
-	'right-approverevisions' => 'Aseta wikisivun tietty versio hyväksytyksi',
-	'right-viewlinktolatest' => 'Näytä selittävä teksti niiden sivujen yläosassa, joilla on hyväksytty versio',
+	'right-approverevisions' => 'Asettaa wikisivun tietty versio hyväksytyksi',
+	'right-viewlinktolatest' => 'Nähdä selittävä teksti niiden sivujen yläosassa, joilla on hyväksytty versio',
 );
 
 /** French (Français)
