@@ -72,6 +72,29 @@ $messages['be-tarask'] = array(
 	'right-approverevisions' => 'зацьверджаньне вызначаных вэрсіяў вікі-старонак',
 );
 
+/** Breton (Brezhoneg)
+ * @author Y-M D
+ */
+$messages['br'] = array(
+	'approvedrevs-desc' => 'Merkañ un adweladenn hepken eus ur bajenn evel aprouet',
+	'approvedrevs-logname' => 'Marilh aprouadennoù an adweladennoù',
+	'approvedrevs-logdesc' => 'Marilh an adweladennoù bet merket evel aprouet eo.',
+	'approvedrevs-approve' => 'aprouiñ',
+	'approvedrevs-unapprove' => 'Dizaprouiñ',
+	'approvedrevs-approvesuccess' => 'An adweladenn-mañ eus ar bajenn a zo bet merket evel ar stumm aprouet.',
+	'approvedrevs-unapprovesuccess' => "N'eus stumm aprouet ebet ken eus ar bajenn-mañ.
+E plas e vo lakaet an adweladenn nevesañ.",
+	'approvedrevs-approveaction' => 'en deus merket $2 evel adweladenn aprouet "[[$1]]"',
+	'approvedrevs-unapproveaction' => 'en deus nullet merkadur un adweladenn aprouet evit "[[$1]]"',
+	'approvedrevs-notlatest' => "Adweladenn aprouet ar bajenn-mañ eo ; n'eo ket an hini nevesañ.",
+	'approvedrevs-approvedandlatest' => 'Adweladenn aprouet ar bajenn-mañ eo, hag ivez an hini nevesañ.',
+	'approvedrevs-viewlatest' => 'Gwelet an adweladenn nevesañ.',
+	'approvedpages' => 'Pajennoù aprouet',
+	'approvedrevs-approvedpages-docu' => 'Setu ar pajennoù wiki hag o deus un adweladenn aprouet.',
+	'right-approverevisions' => 'Merkañ un adweladenn bennak eus ur bajenn wiki evel aprouet',
+	'right-viewlinktolatest' => 'Gwelet an destenn displegañ e penn uhelañ ar pajennoù hag o deus un adweladenn aprouet',
+);
+
 /** Finnish (Suomi)
  * @author Centerlink
  * @author Crt
@@ -118,6 +141,29 @@ Au lieu de cela, la révision la plus récente sera affichée.',
 	'right-viewlinktolatest' => 'Voir le texte explicatif en haut des pages qui ont une révision approuvée',
 );
 
+/** Swiss German (Alemannisch)
+ * @author Als-Holder
+ */
+$messages['gsw'] = array(
+	'approvedrevs-desc' => 'E Version vun eree Syte as „aagluegt“ markiere',
+	'approvedrevs-logname' => 'Versions-Markierigs-Logbuech',
+	'approvedrevs-logdesc' => 'Des isch s Logbuech vu dr aagluegte Version',
+	'approvedrevs-approve' => "As ''aagluegt'' markiere",
+	'approvedrevs-unapprove' => 'nit frejgee',
+	'approvedrevs-approvesuccess' => 'Die Version vu dr Syte isch as „aagluegti Version“ gsetzt wore.',
+	'approvedrevs-unapprovesuccess' => 'S git kei aaglkeugti Version me vu däre Syte. 
+Statt däm wird di nejscht Version aazeigt.',
+	'approvedrevs-approveaction' => '$2 as aaglugti Version fir „[[$1]]“ setze',
+	'approvedrevs-unapproveaction' => 'd Markierig as aagluegti Version fir „[[$1]]“ uuseneh',
+	'approvedrevs-notlatest' => 'Des isch di aagluegt Version vu däre Syte; s isch nit di nejscht Version.',
+	'approvedrevs-approvedandlatest' => 'Des isch di aagluegt Version vu däre Syte un au di nejscht.',
+	'approvedrevs-viewlatest' => 'Di nejscht Version aaluege.',
+	'approvedpages' => 'Aagluegti Syte',
+	'approvedrevs-approvedpages-docu' => 'Des sin d Syte, wu s e aagluegti Version het.',
+	'right-approverevisions' => 'E sicheri Version vun ere Wikisyte as aagluegt markiere',
+	'right-viewlinktolatest' => 'Dr Erklerigstext aaluege obe uf Syte, wu s e aagluegti Version git',
+);
+
 /** Interlingua (Interlingua)
  * @author McDutchie
  */
@@ -154,6 +200,8 @@ $messages['lb'] = array(
 Dofir gëtt déi rezentst Versioun gewisen.',
 	'approvedrevs-viewlatest' => 'Déi rezentst Versioun weisen.',
 	'approvedpages' => 'Nogekuckte Säiten',
+	'approvedrevs-approvedpages-docu' => 'Dës Säiten an der Wiki hunn eng nogekuckte Versioun.',
+	'right-approverevisions' => 'Eng bestëmmte Versioun vun enger Säit als nogekuckt markéieren',
 );
 
 /** Macedonian (Македонски)
