@@ -107,7 +107,15 @@ class ApprovedRevsHooks {
 			return true;
 		}
 		if ( ApprovedRevs::hasApprovedRevision( $skin->getTitle() ) ) {
-			$contentActions['views']['edit']['href'] = $skin->getTitle()->getLocalUrl( array( 'action' => 'edit' ) );
+			// the URL is the same regardless of whether the tab
+			// is 'edit' or 'view source', but the "action" is
+			// different
+			if ( array_key_exists( 'edit', $contentActions['views'] ) ) {
+				$contentActions['views']['edit']['href'] = $skin->getTitle()->getLocalUrl( array( 'action' => 'edit' ) );
+			}
+			if ( array_key_exists( 'viewsource', $contentActions['views'] ) ) {
+				$contentActions['views']['viewsource']['href'] = $skin->getTitle()->getLocalUrl( array( 'action' => 'edit' ) );
+			}
 		}
 		return true;
 	}
