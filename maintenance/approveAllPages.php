@@ -1,7 +1,8 @@
 <?php
 
 /**
- * This script approves all current revisions.
+ * This script approves the current revision of all pages that are in an
+ * approvable namespace, and do not already have an approved revision.
  *
  * Usage:
  *  no parameters
@@ -25,17 +26,18 @@
  * @ingroup Maintenance
  */
 
-require_once( dirname( __FILE__ ) . '/../../maintenance/Maintenance.php' );
+require_once( dirname( __FILE__ ) . '/../../../maintenance/Maintenance.php' );
 
-class ApproveRevisions extends Maintenance {
+class ApproveAllPages extends Maintenance {
 	
 	public function __construct() {
 		parent::__construct();
 		
-		$this->mDescription = "Approve all current revisions";
+		$this->mDescription = "Approve the current revision of all pages that do not yet have an approved revision.";
 	}
 	
 	public function execute() {
+		global $wgTitle;
 		
 		$dbr = wfGetDB( DB_SLAVE );
 		
@@ -49,8 +51,14 @@ class ApproveRevisions extends Maintenance {
 		
 		while ( $page = $pages->fetchObject() ) {
 			$title = Title::newFromID( $page->page_id );
-			ApprovedRevs::setApprovedRevID( $title, $page->page_latest );
-			$this->output( "\n" . wfTimestamp( TS_DB ) . ' Page ' . $title->getFullText() . ' now has ' . $page->page_latest . ' as approved revision.' );
+			// some extensions, like Semantic Forms, need $wgTitle
+			// set as well
+			$wgTitle = $title;
+			if ( ! ApprovedRevs::hasUnsupportedNamespace( $title ) &&
+				! ApprovedRevs::hasApprovedRevision( $title ) ) {
+				ApprovedRevs::setApprovedRevID( $title, $page->page_latest );
+				$this->output( wfTimestamp( TS_DB ) . ' Approved the last revision of page "' . $title->getFullText() . '".' );
+			}
 		}
 		
 		
@@ -59,5 +67,5 @@ class ApproveRevisions extends Maintenance {
 	
 }
 
-$maintClass = "ApproveRevisions";
+$maintClass = "ApproveAllPages";
 require_once( DO_MAINTENANCE );
