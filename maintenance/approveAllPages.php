@@ -23,6 +23,7 @@
  * http://www.gnu.org/copyleft/gpl.html
  *
  * @author Jeroen De Dauw
+ * @author Yaron Koren
  * @ingroup Maintenance
  */
 
