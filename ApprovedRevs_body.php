@@ -50,6 +50,7 @@ class ApprovedRevs {
 		$unsupported_namespaces = $egApprovedRevsUnsupportedNamespaces;
 		$unsupported_namespaces[] = NS_FILE;
 		$unsupported_namespaces[] = NS_CATEGORY;
+		$unsupported_namespaces[] = NS_MEDIAWIKI;
 		return( in_array( $title->getNamespace(), $unsupported_namespaces ) );
 	}
 
