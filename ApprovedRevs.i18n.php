@@ -164,6 +164,29 @@ Statt däm wird di nejscht Version aazeigt.',
 	'right-viewlinktolatest' => 'Dr Erklerigstext aaluege obe uf Syte, wu s e aagluegti Version git',
 );
 
+/** Upper Sorbian (Hornjoserbsce)
+ * @author Michawiki
+ */
+$messages['hsb'] = array(
+	'approvedrevs-desc' => 'Jednotliwu wersiju strony jako schwalenu stajić',
+	'approvedrevs-logname' => 'Protokol schwalenja wersijow',
+	'approvedrevs-logdesc' => 'To je protokol wersije, kotrež buchu schwalene.',
+	'approvedrevs-approve' => 'schwalić',
+	'approvedrevs-unapprove' => 'zakazać',
+	'approvedrevs-approvesuccess' => 'Tuta wersija strony je so jako schwalena wersija stajiła.',
+	'approvedrevs-unapprovesuccess' => 'Schwalena wersija za tutu stronu wjace njeje.
+Město toho so najnowša wersija pokaza.',
+	'approvedrevs-approveaction' => 'je $2 jako schwalenu wersiju za "[[$1]]" nastajił',
+	'approvedrevs-unapproveaction' => 'je status schwalena wersija za "[[$1]]" wotstronił',
+	'approvedrevs-notlatest' => 'To je schwalena wersija tuteje strony; njeje najnowša.',
+	'approvedrevs-approvedandlatest' => 'To je schwalena wersija tuteje strony, kotraž je tež najnowša.',
+	'approvedrevs-viewlatest' => 'Najnowšu wersiju pokazać',
+	'approvedpages' => 'Schwalene wersije',
+	'approvedrevs-approvedpages-docu' => 'Slědowace strony we wikiju maja schwalenu wersiju.',
+	'right-approverevisions' => 'Wěstu wersiju wikistrony jako schwalenu nastajić',
+	'right-viewlinktolatest' => 'Rozłožowacy tekst horjeka na stronach pokazać, kotrež maja schwalenu wersiju.',
+);
+
 /** Interlingua (Interlingua)
  * @author McDutchie
  */
