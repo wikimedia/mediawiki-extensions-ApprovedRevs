@@ -70,6 +70,7 @@ $messages['be-tarask'] = array(
 	'approvedpages' => 'Зацьверджаныя старонкі',
 	'approvedrevs-approvedpages-docu' => 'Ніжэй пададзеныя старонкі {{GRAMMAR:родны|{{SITENAME}}}}, якія маюць зацьверджаныя вэрсіі.',
 	'right-approverevisions' => 'зацьверджаньне вызначаных вэрсіяў вікі-старонак',
+	'right-viewlinktolatest' => 'прагляд тлумачальнага тэксту ў версе старонак, якія маюць зацьверджаныя вэрсіі',
 );
 
 /** Breton (Brezhoneg)
