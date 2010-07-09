@@ -96,6 +96,49 @@ E plas e vo lakaet an adweladenn nevesañ.",
 	'right-viewlinktolatest' => 'Gwelet an destenn displegañ e penn uhelañ ar pajennoù hag o deus un adweladenn aprouet',
 );
 
+/** German (Deutsch)
+ * @author Kghbln
+ */
+$messages['de'] = array(
+	'approvedrevs-desc' => 'Ermöglicht es, stets eine bestimmte Version einer Seite als bestätigte Version anzuzeigen',
+	'approvedrevs-logname' => 'Versionsbestätigungs-Logbuch',
+	'approvedrevs-logdesc' => 'In diesem Logbuch werden die Versionsbestätigungen von Seiten protokolliert.',
+	'approvedrevs-approve' => 'bestätigen',
+	'approvedrevs-unapprove' => 'ablehnen',
+	'approvedrevs-approvesuccess' => 'Diese Version der Seite wurde als bestätigte Version festgelegt.',
+	'approvedrevs-unapprovesuccess' => 'Nunmehr existiert keine bestätigte Version dieser Seite.
+Stattdessen wird die neueste Version angezeigt.',
+	'approvedrevs-approveaction' => '$2 als bestätigte Version für „[[$1]]“ festlegen',
+	'approvedrevs-unapproveaction' => 'bestätigte Version für „[[$1]]“ zurücknehmen',
+	'approvedrevs-notlatest' => 'Dies ist die bestätigte Version dieser Seite, allerdings nicht die neueste Version.',
+	'approvedrevs-approvedandlatest' => 'Dies ist die bestätigte sowie die neueste Version dieser Seite.',
+	'approvedrevs-viewlatest' => 'Die neueste Version ansehen.',
+	'approvedpages' => 'Bestätigte Seiten',
+	'approvedrevs-approvedpages-docu' => 'Die folgenden Seiten, sind die Seiten dieses Wikis, die eine bestätigte Version haben.',
+	'right-approverevisions' => 'Eine bestimmte Version einer Wikiseite als bestätigt festlegen',
+	'right-viewlinktolatest' => 'Erläuternde Hinweise im Kopf der Seiten anzeigen, die eine bestätigte Version haben.',
+);
+
+/** Lower Sorbian (Dolnoserbski)
+ * @author Michawiki
+ */
+$messages['dsb'] = array(
+	'approvedrevs-desc' => 'Wěstu wersiju boka ako pśizwólonu nastajiś',
+	'approvedrevs-logname' => 'Protokol pśizwólonych wersijow',
+	'approvedrevs-logdesc' => 'To jo protokol wersijow, kótarež su se pśizwólili.',
+	'approvedrevs-approve' => 'pśizwóliś',
+	'approvedrevs-unapprove' => 'zakazaś',
+	'approvedrevs-approvesuccess' => 'Toś ta wersija boka jo se ako pśizwólona wersija nastajiła.',
+	'approvedrevs-approveaction' => '$2 ako pśizwólonu wersiju za "[[$1]]" nastajiś',
+	'approvedrevs-unapproveaction' => 'Pśizwólonu wersiju za "[[$1]]" anulěrowaś',
+	'approvedrevs-notlatest' => 'To jo pśizwólona wersija toś togo boka; njejo nejnowša.',
+	'approvedrevs-approvedandlatest' => 'To jo pśizwólona wersija toś togo boka a teke nejnowša.',
+	'approvedrevs-viewlatest' => 'Nejnowšu wersiju pokazaś',
+	'approvedpages' => 'Pśizwólone boki',
+	'approvedrevs-approvedpages-docu' => 'Slědujuce boki we wikiju maju pśizwólonu wersiju.',
+	'right-approverevisions' => 'Wěstu wersiju wikiboka ako pśizwólonu nastajiś',
+);
+
 /** Finnish (Suomi)
  * @author Centerlink
  * @author Crt
@@ -140,6 +183,29 @@ Au lieu de cela, la révision la plus récente sera affichée.',
 	'approvedrevs-approvedpages-docu' => 'Voici les pages du wiki qui ont une révision approuvée.',
 	'right-approverevisions' => 'Marquer une révision précise d’une page comme approuvée',
 	'right-viewlinktolatest' => 'Voir le texte explicatif en haut des pages qui ont une révision approuvée',
+);
+
+/** Galician (Galego)
+ * @author Toliño
+ */
+$messages['gl'] = array(
+	'approvedrevs-desc' => 'Marcar como aprobada unha única revisión dunha páxina',
+	'approvedrevs-logname' => 'Rexistro de aprobación de revisións',
+	'approvedrevs-logdesc' => 'Este é o rexistro das revisións aprobadas.',
+	'approvedrevs-approve' => 'aprobar',
+	'approvedrevs-unapprove' => 'desaprobar',
+	'approvedrevs-approvesuccess' => 'Esta é a revisión aprobada da páxina.',
+	'approvedrevs-unapprovesuccess' => 'Esta páxina xa non ten ningunha versión aprobada.
+No canto dela, móstrase a revisión máis recente.',
+	'approvedrevs-approveaction' => 'marcou $2 como a revisión aprobada de "[[$1]]"',
+	'approvedrevs-unapproveaction' => 'anulou unha revisión aprobada de "[[$1]]"',
+	'approvedrevs-notlatest' => 'Esta é a revisión aprobada da páxina, pero non é a máis recente.',
+	'approvedrevs-approvedandlatest' => 'Esta é a revisión aprobada da páxina, e tamén a máis recente.',
+	'approvedrevs-viewlatest' => 'Ollar a revisión máis recente.',
+	'approvedpages' => 'Páxinas aprobadas',
+	'approvedrevs-approvedpages-docu' => 'A continuación están as páxinas do wiki que posúen unha revisión aprobada.',
+	'right-approverevisions' => 'Marcar como aprobada unha revisión específica dunha páxina do wiki',
+	'right-viewlinktolatest' => 'Ollar o texto explicativo ao comezo das páxinas que posúen unha revisión aprobada',
 );
 
 /** Swiss German (Alemannisch)
