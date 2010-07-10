@@ -139,6 +139,14 @@ $messages['dsb'] = array(
 	'right-approverevisions' => 'Wěstu wersiju wikiboka ako pśizwólonu nastajiś',
 );
 
+/** Spanish (Español)
+ * @author Crazymadlover
+ */
+$messages['es'] = array(
+	'approvedrevs-approve' => 'aprobar',
+	'approvedrevs-unapprove' => 'desaprobar',
+);
+
 /** Finnish (Suomi)
  * @author Centerlink
  * @author Crt
