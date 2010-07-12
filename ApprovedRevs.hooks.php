@@ -144,7 +144,7 @@ class ApprovedRevsHooks {
 	 */
 	static function addApprovalLink( $historyPage, &$row , &$s )  {
 		$title = $historyPage->getTitle();
-		if ( ApprovedRevs::hasUnsupportedNamespace( $title ) ) {
+		if ( ! ApprovedRevs::hasSupportedNamespace( $title ) ) {
 			return true;
 		}
 
@@ -188,7 +188,7 @@ class ApprovedRevsHooks {
 			return true;
 		}
 		$title = $article->getTitle();
-		if ( ApprovedRevs::hasUnsupportedNamespace( $title ) ) {
+		if ( ! ApprovedRevs::hasSupportedNamespace( $title ) ) {
 			return true;
 		}
 		if ( ! $title->userCan( 'approverevisions' ) ) {

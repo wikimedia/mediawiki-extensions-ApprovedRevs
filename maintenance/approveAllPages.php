@@ -55,7 +55,7 @@ class ApproveAllPages extends Maintenance {
 			// some extensions, like Semantic Forms, need $wgTitle
 			// set as well
 			$wgTitle = $title;
-			if ( ! ApprovedRevs::hasUnsupportedNamespace( $title ) &&
+			if ( ApprovedRevs::hasSupportedNamespace( $title ) &&
 				! ApprovedRevs::hasApprovedRevision( $title ) ) {
 				ApprovedRevs::setApprovedRevID( $title, $page->page_latest );
 				$this->output( wfTimestamp( TS_DB ) . ' Approved the last revision of page "' . $title->getFullText() . '".' );

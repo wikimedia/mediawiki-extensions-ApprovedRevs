@@ -14,7 +14,7 @@ class ApprovedRevs {
 	 * one.
 	 */
 	public static function getApprovedRevID( $title ) {
-		if ( self::hasUnsupportedNamespace( $title ) ) {
+		if ( ! self::hasSupportedNamespace( $title ) ) {
 			return null;
 		}
 		$dbr = wfGetDB( DB_SLAVE );
@@ -48,13 +48,9 @@ class ApprovedRevs {
 	 * Returns whether this page is in a namespace that the Approved Revs
 	 * extension doesn't support.
 	 */
-	public static function hasUnsupportedNamespace( $title ) {
-		global $egApprovedRevsExcludedNamespaces;
-		$unsupported_namespaces = $egApprovedRevsExcludedNamespaces;
-		$unsupported_namespaces[] = NS_FILE;
-		$unsupported_namespaces[] = NS_CATEGORY;
-		$unsupported_namespaces[] = NS_MEDIAWIKI;
-		return( in_array( $title->getNamespace(), $unsupported_namespaces ) );
+	public static function hasSupportedNamespace( $title ) {
+		global $egApprovedRevsNamespaces;
+		return( in_array( $title->getNamespace(), $egApprovedRevsNamespaces ) );
 	}
 
 	/**

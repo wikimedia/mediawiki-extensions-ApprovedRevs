@@ -9,7 +9,7 @@ if ( !defined( 'MEDIAWIKI' ) ) die();
  * @author Yaron Koren
  */
 
-define( 'APPROVED_REVS_VERSION', '0.2' );
+define( 'APPROVED_REVS_VERSION', '0.3' );
 
 // credits
 $wgExtensionCredits['other'][] = array(
@@ -23,7 +23,7 @@ $wgExtensionCredits['other'][] = array(
 
 // global variables
 $egApprovedRevsIP = dirname( __FILE__ ) . '/';
-$egApprovedRevsExcludedNamespaces = array();
+$egApprovedRevsNamespaces = array( NS_MAIN, NS_TEMPLATE, NS_HELP, NS_PROJECT );
 
 // internationalization
 $wgExtensionMessagesFiles['ApprovedRevs'] = $egApprovedRevsIP . 'ApprovedRevs.i18n.php';
