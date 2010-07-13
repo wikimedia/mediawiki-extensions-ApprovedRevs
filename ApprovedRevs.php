@@ -47,6 +47,9 @@ $wgHooks['UnknownAction'][] = 'ApprovedRevsHooks::setAsApproved';
 $wgHooks['UnknownAction'][] = 'ApprovedRevsHooks::unsetAsApproved';
 $wgHooks['BeforeParserFetchTemplateAndtitle'][] = 'ApprovedRevsHooks::setTranscludedPageRev';
 $wgHooks['ArticleDeleteComplete'][] = 'ApprovedRevsHooks::deleteRevisionApproval';
+$wgHooks['MagicWordwgVariableIDs'][] = 'ApprovedRevsHooks::addMagicWordVariableIDs';
+$wgHooks['LanguageGetMagic'][] = 'ApprovedRevsHooks::addMagicWordLanguage';
+$wgHooks['ParserBeforeTidy'][] = 'ApprovedRevsHooks::handleMagicWords';
 $wgHooks['AdminLinks'][] = 'ApprovedRevsHooks::addToAdminLinks';
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'ApprovedRevsHooks::describeDBSchema';
 

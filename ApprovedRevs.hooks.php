@@ -144,7 +144,7 @@ class ApprovedRevsHooks {
 	 */
 	static function addApprovalLink( $historyPage, &$row , &$s )  {
 		$title = $historyPage->getTitle();
-		if ( ! ApprovedRevs::hasSupportedNamespace( $title ) ) {
+		if ( ! ApprovedRevs::pageIsApprovable( $title ) ) {
 			return true;
 		}
 
@@ -188,7 +188,7 @@ class ApprovedRevsHooks {
 			return true;
 		}
 		$title = $article->getTitle();
-		if ( ! ApprovedRevs::hasSupportedNamespace( $title ) ) {
+		if ( ! ApprovedRevs::pageIsApprovable( $title ) ) {
 			return true;
 		}
 		if ( ! $title->userCan( 'approverevisions' ) ) {
@@ -271,6 +271,38 @@ class ApprovedRevsHooks {
 	 */
 	static function deleteRevisionApproval( &$article, &$user, $reason, $id ) {
 		ApprovedRevs::deleteRevisionApproval( $article->getTitle() );
+		return true;
+	}
+
+	/**
+	 * Register magic-word variable IDs
+	 */
+	static function addMagicWordVariableIDs( &$magicWordVariableIDs ) {
+		$magicWordVariableIDs[] = 'MAG_APPROVEDREVS';
+		return true;
+	}
+ 
+	/**
+	 * Set the actual value of the magic words
+	 */
+	static function addMagicWordLanguage( &$magicWords, $langCode ) {
+		switch( $langCode ) {
+		default:
+			$magicWords['MAG_APPROVEDREVS'] = array( 0, '__APPROVEDREVS__' );
+		}
+		return true;
+	}
+
+	/**
+	 * Set values in the page_props table based on the presence of the
+	 * 'APPROVEDREVS' magic word in a page
+	 */
+	static function handleMagicWords( &$parser, &$text ) {
+		global $wgOut, $wgAction;
+		$mw_hide = MagicWord::get( 'MAG_APPROVEDREVS' );
+		if ( $mw_hide->matchAndRemove( $text ) ) {
+			$parser->mOutput->setProperty( 'approvedrevs', 'y' );
+		}
 		return true;
 	}
 
