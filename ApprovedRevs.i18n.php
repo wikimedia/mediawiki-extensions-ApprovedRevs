@@ -48,6 +48,16 @@ $messages['af'] = array(
 	'approvedpages' => 'Goedgekeurde bladsye',
 );
 
+/** Arabic (العربية)
+ * @author Moemin05
+ */
+$messages['ar'] = array(
+	'approvedrevs-approve' => 'موافقة',
+	'approvedrevs-unapprove' => 'إزالة موافقة',
+	'approvedpages' => 'صفحات تمّت الموافقة عليها',
+	'approvedrevs-approvedpages-docu' => 'صفحات الويكي التالية لها مراجعات موافق عليها.',
+);
+
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
  * @author EugeneZelenko
  * @author Jim-by
@@ -129,6 +139,8 @@ $messages['dsb'] = array(
 	'approvedrevs-approve' => 'pśizwóliś',
 	'approvedrevs-unapprove' => 'zakazaś',
 	'approvedrevs-approvesuccess' => 'Toś ta wersija boka jo se ako pśizwólona wersija nastajiła.',
+	'approvedrevs-unapprovesuccess' => 'Njejo wěcej pśizwólona wersija za toś ten bok.
+Město togo nejnowša wersija se pokažo.',
 	'approvedrevs-approveaction' => '$2 ako pśizwólonu wersiju za "[[$1]]" nastajiś',
 	'approvedrevs-unapproveaction' => 'Pśizwólonu wersiju za "[[$1]]" anulěrowaś',
 	'approvedrevs-notlatest' => 'To jo pśizwólona wersija toś togo boka; njejo nejnowša.',
@@ -137,6 +149,7 @@ $messages['dsb'] = array(
 	'approvedpages' => 'Pśizwólone boki',
 	'approvedrevs-approvedpages-docu' => 'Slědujuce boki we wikiju maju pśizwólonu wersiju.',
 	'right-approverevisions' => 'Wěstu wersiju wikiboka ako pśizwólonu nastajiś',
+	'right-viewlinktolatest' => 'Tekst wujasnjenja górjejce na bokach pokazaś, kótarež maju pśizwólonu wersiju',
 );
 
 /** Spanish (Español)
@@ -357,6 +370,29 @@ $messages['pt'] = array(
 	'approvedrevs-desc' => 'Marcar como aprovada uma das revisões de uma página',
 	'approvedrevs-logname' => 'Registo de revisões aprovadas',
 	'approvedrevs-logdesc' => 'Este é o registo das revisões que foram aprovadas.',
+	'approvedrevs-approve' => 'aprovar',
+	'approvedrevs-unapprove' => 'reprovar',
+	'approvedrevs-approvesuccess' => 'Esta revisão da página foi definida como a versão aprovada.',
+	'approvedrevs-unapprovesuccess' => 'Deixou de existir uma versão aprovada para esta página.
+Em vez dela, será apresentada a revisão mais recente.',
+	'approvedrevs-approveaction' => 'definir $2 como a revisão aprovada de "[[$1]]"',
+	'approvedrevs-unapproveaction' => 'desfazer a definição da revisão aprovada de "[[$1]]"',
+	'approvedrevs-notlatest' => 'Esta é a revisão aprovada desta página; não é a revisão mais recente.',
+	'approvedrevs-approvedandlatest' => 'Esta é a revisão aprovada desta página e também a revisão mais recente.',
+	'approvedrevs-viewlatest' => 'Ver a revisão mais recente.',
+	'approvedpages' => 'Páginas aprovadas',
+	'approvedrevs-approvedpages-docu' => 'As seguintes páginas desta wiki têm uma revisão aprovada.',
+	'right-approverevisions' => 'Definir como aprovada uma revisão específica de uma página da wiki',
+	'right-viewlinktolatest' => 'Ver um texto explicativo no topo das páginas que têm uma revisão aprovada',
+);
+
+/** Brazilian Portuguese (Português do Brasil)
+ * @author Giro720
+ */
+$messages['pt-br'] = array(
+	'approvedrevs-desc' => 'Marcar como aprovada uma das revisões de uma página',
+	'approvedrevs-logname' => 'Registro de revisões aprovadas',
+	'approvedrevs-logdesc' => 'Este é o registro das revisões que foram aprovadas.',
 	'approvedrevs-approve' => 'aprovar',
 	'approvedrevs-unapprove' => 'reprovar',
 	'approvedrevs-approvesuccess' => 'Esta revisão da página foi definida como a versão aprovada.',
