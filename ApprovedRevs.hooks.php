@@ -20,7 +20,7 @@ class ApprovedRevsHooks {
 		if ( $action == 'submit' ) {
 			$title = $parser->getTitle();
 			$approvedText = ApprovedRevs::getApprovedContent( $title );
-			if ( ! is_null( $approvedText ) ) {
+			if ( !is_null( $approvedText ) ) {
 				$text = $approvedText;
 			}
 		}
@@ -259,7 +259,7 @@ class ApprovedRevsHooks {
 	 */
 	static function setTranscludedPageRev( $parser, &$title, &$skip, &$id ) {
 		$revision_id = ApprovedRevs::getApprovedRevID( $title );
-		if ( ! is_null( $revision_id ) ) {
+		if ( !is_null( $revision_id ) ) {
 			$id = $revision_id;
 		}
 		return true;
@@ -298,7 +298,6 @@ class ApprovedRevsHooks {
 	 * 'APPROVEDREVS' magic word in a page
 	 */
 	static function handleMagicWords( &$parser, &$text ) {
-		global $wgOut, $wgAction;
 		$mw_hide = MagicWord::get( 'MAG_APPROVEDREVS' );
 		if ( $mw_hide->matchAndRemove( $text ) ) {
 			$parser->mOutput->setProperty( 'approvedrevs', 'y' );
