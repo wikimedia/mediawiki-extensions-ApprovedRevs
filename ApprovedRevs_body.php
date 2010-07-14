@@ -68,10 +68,14 @@ class ApprovedRevs {
 		// property - for some reason, calling the standard
 		// getProperty() function doesn't work, so we just do a DB
 		// query on the page_props table
-                $dbr = wfGetDB( DB_SLAVE );
-		extract( $dbr->tableNames( 'page', 'page_props' ) );
-                $sql = "SELECT COUNT(*) FROM $page_props WHERE pp_page = {$title->getArticleID()} AND pp_propname = 'approvedrevs' AND pp_value = 'y'";
-		$res = $dbr->query( $sql );
+		$dbr = wfGetDB( DB_SLAVE );
+		$res = $dbr->select( 'page_props', 'COUNT(*)',
+			array(
+				'pp_page' => $title->getArticleID(),
+				'pp_propname' => 'approvedrevs',
+				'pp_value' => 'y'
+			)
+		);
 		$row = $dbr->fetchRow( $res );
 		$isApprovable = ( $row[0] == '1' );
 		$title->isApprovable = $isApprovable;
