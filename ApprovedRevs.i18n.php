@@ -106,6 +106,24 @@ E plas e vo lakaet an adweladenn nevesañ.",
 	'right-viewlinktolatest' => 'Gwelet an destenn displegañ e penn uhelañ ar pajennoù hag o deus un adweladenn aprouet',
 );
 
+/** Bosnian (Bosanski)
+ * @author Palapa
+ */
+$messages['bs'] = array(
+	'approvedrevs-logdesc' => 'Ovo je zapis revizija koje su odobrene.',
+	'approvedrevs-approve' => 'odobri',
+	'approvedrevs-unapprove' => 'neodobreno',
+	'approvedrevs-approvesuccess' => 'Ova revizija stranice je postavljena kao odobrena verzija.',
+	'approvedrevs-unapprovesuccess' => 'Više ne postoji odobrena verzija ove stranice.
+Umjesto toga, zadnja revizija će biti prikazana.',
+	'approvedrevs-approveaction' => 'postavi $2 kao odobrenu reviziju za "[[$1]]"',
+	'approvedrevs-notlatest' => 'Ovo je odobrena verzija ove stranice; to nije najnovija verzija.',
+	'approvedrevs-approvedandlatest' => 'Ovo je odobrena verzija ove stranice, a ujedno i najnovija.',
+	'approvedrevs-viewlatest' => 'Pogledaj zadnju reviziju.',
+	'approvedpages' => 'Odobrene stranice',
+	'right-approverevisions' => 'Postavi određenu reviziju wiki stranice kao odobrenu',
+);
+
 /** German (Deutsch)
  * @author Kghbln
  */
