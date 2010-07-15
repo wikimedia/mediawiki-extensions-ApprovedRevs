@@ -53,7 +53,7 @@ class ApprovedRevs {
 	public static function pageIsApprovable( $title ) {
 		// if this function was already called for this page, the
 		// value should have been stored as a field in the $title object
-		if ( ! is_null( $title->isApprovable ) ) {
+		if ( isset( $title->isApprovable ) ) {
 			return $title->isApprovable;
 		}
 
