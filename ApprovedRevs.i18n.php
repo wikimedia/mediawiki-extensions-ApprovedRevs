@@ -176,6 +176,8 @@ Město togo nejnowša wersija se pokažo.',
 $messages['es'] = array(
 	'approvedrevs-approve' => 'aprobar',
 	'approvedrevs-unapprove' => 'desaprobar',
+	'approvedrevs-viewlatest' => 'Ver revisión más reciente.',
+	'approvedpages' => 'Páginas aprobadas',
 );
 
 /** Finnish (Suomi)
