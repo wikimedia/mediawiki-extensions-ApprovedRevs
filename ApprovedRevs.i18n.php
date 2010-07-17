@@ -318,6 +318,29 @@ In loco de isto, le version le plus recente essera monstrate.',
 	'right-viewlinktolatest' => 'Vider le texto explicative in alto del paginas que ha un version approbate',
 );
 
+/** Indonesian (Bahasa Indonesia)
+ * @author Farras
+ */
+$messages['id'] = array(
+	'approvedrevs-desc' => 'Tetapkan revisi tunggal halaman ini sebagai disetujui',
+	'approvedrevs-logname' => 'Log penyetujuan revisi',
+	'approvedrevs-logdesc' => 'Ini adalah log revisi yang telah disetujui.',
+	'approvedrevs-approve' => 'setujui',
+	'approvedrevs-unapprove' => 'tidak setujui',
+	'approvedrevs-approvesuccess' => 'Revisi halaman ini telah ditetapkan sebagai revisi disetujui.',
+	'approvedrevs-unapprovesuccess' => 'Tidak ada lagi versi disetujui untuk halaman ini.
+Revisi terkini akan ditampilkan.',
+	'approvedrevs-approveaction' => 'tetapkan $2 sebagai revisi disetujui untuk "[[$1]]"',
+	'approvedrevs-unapproveaction' => 'jangan tetapkan revisi disetujui untuk "[[$1]]"',
+	'approvedrevs-notlatest' => 'Ini adalah revisi disetujui dari halaman ini; bukan revisi terkini.',
+	'approvedrevs-approvedandlatest' => 'Ini adalah revisi disetujui dari halaman ini, juga revisi terkini.',
+	'approvedrevs-viewlatest' => 'Lihat revisi terkini.',
+	'approvedpages' => 'Halaman yang disetujui',
+	'approvedrevs-approvedpages-docu' => 'Berikut adalah halaman di wiki yang memiliki revisi disetujui.',
+	'right-approverevisions' => 'Tetapkan revisi tertentu dari halaman wiki sebagai disetujui',
+	'right-viewlinktolatest' => 'Lihat penjelasan di atas halaman yang memiliki revisi disetujui',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */
@@ -329,6 +352,7 @@ $messages['lb'] = array(
 	'approvedrevs-approvesuccess' => 'Dës Versioun vun der Säit gouf als nogekuckte Versioun fräiginn.',
 	'approvedrevs-unapprovesuccess' => 'Et gëtt vun dëser Säit  keng nogekuckte Versioun méi.
 Dofir gëtt déi rezentst Versioun gewisen.',
+	'approvedrevs-notlatest' => 'Dëst ass déi nogekuckte Versioun vun dëser Säit; et ass net déi rezentst.',
 	'approvedrevs-viewlatest' => 'Déi rezentst Versioun weisen.',
 	'approvedpages' => 'Nogekuckte Säiten',
 	'approvedrevs-approvedpages-docu' => 'Dës Säiten an der Wiki hunn eng nogekuckte Versioun.',
