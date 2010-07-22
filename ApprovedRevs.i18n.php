@@ -172,12 +172,26 @@ Město togo nejnowša wersija se pokažo.',
 
 /** Spanish (Español)
  * @author Crazymadlover
+ * @author Locos epraix
  */
 $messages['es'] = array(
+	'approvedrevs-desc' => 'Establecer una revisión única de una página como aprovada',
+	'approvedrevs-logname' => 'Registro de revisiones aprobadas',
+	'approvedrevs-logdesc' => 'Este es el registro de las revisiones que han sido aprobadas.',
 	'approvedrevs-approve' => 'aprobar',
 	'approvedrevs-unapprove' => 'desaprobar',
+	'approvedrevs-approvesuccess' => 'Esta revisión de la página ha sido establecida como la versión aprobada.',
+	'approvedrevs-unapprovesuccess' => 'Ya no hay una versión aprobada para esta página.
+En su lugar, se muestra la revisión más reciente.',
+	'approvedrevs-approveaction' => 'establecer $2 como la revisión aprobada para para "[[$1]]"',
+	'approvedrevs-unapproveaction' => 'desestablecer la revisión aprobada para "[[$1]]"',
+	'approvedrevs-notlatest' => 'Esta es la revisión aprobada de esta página, no es la más reciente.',
+	'approvedrevs-approvedandlatest' => 'Esta es la revisión aprobada de esta página, siendo también la más reciente.',
 	'approvedrevs-viewlatest' => 'Ver revisión más reciente.',
 	'approvedpages' => 'Páginas aprobadas',
+	'approvedrevs-approvedpages-docu' => 'Las siguientes son las páginas en la wiki que tienen una versión aprobada.',
+	'right-approverevisions' => 'Establecer una cierta revisión de una página wiki como aprobada',
+	'right-viewlinktolatest' => 'Ver texto explicativo en la parte superior de las páginas que tienen una revisión aprobada',
 );
 
 /** Finnish (Suomi)
@@ -404,6 +418,29 @@ Het is niet de meeste recente versie.',
 	'approvedrevs-approvedpages-docu' => "De volgende pagina's in de wiki hebben een goedgekeurde versie.",
 	'right-approverevisions' => 'Een versie van een wikipagina markeren als goedgekeurd.',
 	'right-viewlinktolatest' => "De verklarende tekst bovenaan pagina's zien die die een goedgekeurde versie hebben",
+);
+
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+ * @author Nghtwlkr
+ */
+$messages['no'] = array(
+	'approvedrevs-desc' => 'Sett en enkelt revisjon av en side som godkjent',
+	'approvedrevs-logname' => 'Godkjenningslogg for revisjoner',
+	'approvedrevs-logdesc' => 'Dette er loggen over revisjoner som har blitt godkjent.',
+	'approvedrevs-approve' => 'godkjenn',
+	'approvedrevs-unapprove' => 'ikke godkjenn',
+	'approvedrevs-approvesuccess' => 'Denne revisjonen av siden har blitt satt som den godkjente versjonen.',
+	'approvedrevs-unapprovesuccess' => 'Det er ikke lenger en godkjent versjon av denne siden.
+I stedet vil den nyeste revisjonen bli vist.',
+	'approvedrevs-approveaction' => 'sett $2 som den godkjente revisjonen for «[[$1]]»',
+	'approvedrevs-unapproveaction' => 'fjern godkjenning av revisjon for «[[$1]]»',
+	'approvedrevs-notlatest' => 'Dette er den godkjente revisjonen av denne siden; det er ikke den nyeste.',
+	'approvedrevs-approvedandlatest' => 'Dette er den godkjente revisjonen av denne siden, samt den nyeste.',
+	'approvedrevs-viewlatest' => 'Se den nyeste revisjonen.',
+	'approvedpages' => 'Godkjente sider',
+	'approvedrevs-approvedpages-docu' => 'De følgende sidene er de som har en godkjent revisjon i wikien.',
+	'right-approverevisions' => 'Sett en viss revisjon av en wikiside som godkjent',
+	'right-viewlinktolatest' => 'Vis forklarende tekst på toppen av sider som har en godkjent revisjon',
 );
 
 /** Portuguese (Português)
