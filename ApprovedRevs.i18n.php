@@ -513,6 +513,15 @@ $messages['ru'] = array(
 	'right-viewlinktolatest' => 'просмотр пояснительного текста в верхней части страниц, имеющих утверждённые версии',
 );
 
+/** Telugu (తెలుగు)
+ * @author Veeven
+ */
+$messages['te'] = array(
+	'approvedrevs-logname' => 'కూర్పుల అనుమతులు చిట్టా',
+	'approvedrevs-approve' => 'అనుమతించు',
+	'approvedpages' => 'అనుమతించిన పుటలు',
+);
+
 /** Turkish (Türkçe)
  * @author Srhat
  */
