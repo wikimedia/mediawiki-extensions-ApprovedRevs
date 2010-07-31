@@ -363,6 +363,7 @@ $messages['lb'] = array(
 	'approvedrevs-logname' => 'Logbuch vun den nogekuckt Säiten déi fräigi sinn',
 	'approvedrevs-logdesc' => "Dëst ass d'Logbuch vun de Versiounen déi nogekuckt sinn.",
 	'approvedrevs-approve' => 'zoustëmmen',
+	'approvedrevs-unapprove' => 'Zoustëmmung zréckzéien',
 	'approvedrevs-approvesuccess' => 'Dës Versioun vun der Säit gouf als nogekuckte Versioun fräiginn.',
 	'approvedrevs-unapprovesuccess' => 'Et gëtt vun dëser Säit  keng nogekuckte Versioun méi.
 Dofir gëtt déi rezentst Versioun gewisen.',
