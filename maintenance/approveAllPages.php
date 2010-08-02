@@ -57,7 +57,7 @@ class ApproveAllPages extends Maintenance {
 			$wgTitle = $title;
 			if ( ApprovedRevs::pageIsApprovable( $title ) &&
 				! ApprovedRevs::hasApprovedRevision( $title ) ) {
-				ApprovedRevs::setApprovedRevID( $title, $page->page_latest );
+				ApprovedRevs::setApprovedRevID( $title, $page->page_latest, true );
 				$this->output( wfTimestamp( TS_DB ) . ' Approved the last revision of page "' . $title->getFullText() . '".' );
 			}
 		}

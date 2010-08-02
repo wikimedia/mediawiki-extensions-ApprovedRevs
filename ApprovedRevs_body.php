@@ -88,7 +88,7 @@ class ApprovedRevs {
 	 * so that category information can be stored correctly, as well as
 	 * info for extensions such as Semantic MediaWiki; and logs the action.
 	 */
-	public static function setApprovedRevID( $title, $rev_id ) {
+	public static function setApprovedRevID( $title, $rev_id, $is_latest = false ) {
 		$dbr = wfGetDB( DB_MASTER );
 		$page_id = $title->getArticleId();
 		$old_rev_id = $dbr->selectField( 'approved_revs', 'rev_id', array( 'page_id' => $page_id ) );
@@ -98,14 +98,18 @@ class ApprovedRevs {
 			$dbr->insert( 'approved_revs', array( 'page_id' => $page_id, 'rev_id' => $rev_id ) );
 		}
 
-		$parser = new Parser();
-		$parser->setTitle( $title );
-		$article = new Article( $title, $rev_id );
-		$text = $article->getContent();
-		$options = new ParserOptions();
-		$parser->parse( $text, $title, $options, true, true, $rev_id );
-		$u = new LinksUpdate( $title, $parser->getOutput() );
-		$u->doUpdate();
+		// if the revision being approved is definitely the latest
+		// one, there's no need to call the parser on it
+		if ( !$is_latest ) {
+			$parser = new Parser();
+			$parser->setTitle( $title );
+			$article = new Article( $title, $rev_id );
+			$text = $article->getContent();
+			$options = new ParserOptions();
+			$parser->parse( $text, $title, $options, true, true, $rev_id );
+			$u = new LinksUpdate( $title, $parser->getOutput() );
+			$u->doUpdate();
+		}
 
 		$log = new LogPage( 'approval' );
 		$rev_url = $title->getFullURL( array( 'old_id' => $rev_id ) );
