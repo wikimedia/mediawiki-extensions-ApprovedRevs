@@ -1,6 +1,6 @@
 Approved Revs Extension
 
-        Version 0.3
+        Version 0.3.1
         Yaron Koren
 
 This is free software licensed under the GNU General Public License. Please
@@ -19,7 +19,8 @@ http://www.mediawiki.org/wiki/Extension:Approved_Revs
 == Requirements ==
 
 This version of the Approved Revs extension requires MediaWiki 1.11 or
-higher.
+higher, except for the approveAllPages.php script, which requires
+MediaWiki 1.16 or higher.
 
 == Installation ==
 
