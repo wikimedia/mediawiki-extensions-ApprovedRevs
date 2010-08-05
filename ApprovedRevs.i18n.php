@@ -355,6 +355,15 @@ Revisi terkini akan ditampilkan.',
 	'right-viewlinktolatest' => 'Lihat penjelasan di atas halaman yang memiliki revisi disetujui',
 );
 
+/** Igbo (Igbo)
+ * @author Ukabia
+ */
+$messages['ig'] = array(
+	'approvedrevs-approve' => 'kwé',
+	'approvedrevs-unapprove' => 'ékwèkwàlà',
+	'approvedpages' => 'Ihü hé kwèrè',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */
