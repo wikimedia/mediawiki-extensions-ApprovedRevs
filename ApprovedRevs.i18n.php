@@ -453,6 +453,29 @@ I stedet vil den nyeste revisjonen bli vist.',
 	'right-viewlinktolatest' => 'Vis forklarende tekst på toppen av sider som har en godkjent revisjon',
 );
 
+/** Piedmontese (Piemontèis)
+ * @author Dragonòt
+ */
+$messages['pms'] = array(
+	'approvedrevs-desc' => 'Ampòsta na sola revision ëd na pàgina com aprovà',
+	'approvedrevs-logname' => "Registr d'aprovassion dle revision",
+	'approvedrevs-logdesc' => "Sto-sì a l'é ël registr dle revision ch'a son ëstàite aprovà.",
+	'approvedrevs-approve' => 'apreuva',
+	'approvedrevs-unapprove' => 'apreuva pa',
+	'approvedrevs-approvesuccess' => "Sta revision-sì ëd la pàgina a l'é stàita ampostà com la vërsion aprovà.",
+	'approvedrevs-unapprovesuccess' => 'A-i é pa pi na vërsion aprovà për sta pàgina-sì.
+Anvece, a sarà mostà la revision pi recenta.',
+	'approvedrevs-approveaction' => 'Ampòsta $2 con la revision aprovà për "[[$1]]"',
+	'approvedrevs-unapproveaction' => 'gava ampostassion ëd la revision aprovà për "[[$1]]"',
+	'approvedrevs-notlatest' => "Sta-sì a l'é la revision aprovà ëd costa pàgina; a l'é pa la pi recenta.",
+	'approvedrevs-approvedandlatest' => "Sta-sì a l'é la revision aprovà ëd costa pàgina; da bin an essend la pi recenta.",
+	'approvedrevs-viewlatest' => 'Varda la revision pi recenta.',
+	'approvedpages' => 'Pàgine aprovà',
+	'approvedrevs-approvedpages-docu' => "Cole ch'a ven-o a son le pàgine ant la wiki che a l'han na revision aprovà.",
+	'right-approverevisions' => 'Ampòsta na certa revision ëd na pàgina wiki com aprovà',
+	'right-viewlinktolatest' => "Varda test dë spiegassion a la sima dle pàgine ch'a l'han na revision aprovà",
+);
+
 /** Portuguese (Português)
  * @author Alchimista
  * @author Hamilton Abreu
