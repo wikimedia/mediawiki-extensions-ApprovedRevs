@@ -376,11 +376,15 @@ $messages['lb'] = array(
 	'approvedrevs-approvesuccess' => 'Dës Versioun vun der Säit gouf als nogekuckte Versioun fräiginn.',
 	'approvedrevs-unapprovesuccess' => 'Et gëtt vun dëser Säit  keng nogekuckte Versioun méi.
 Dofir gëtt déi rezentst Versioun gewisen.',
+	'approvedrevs-approveaction' => '$2 als nogekuckt Versioun fir "[[$1]]" festleeën',
+	'approvedrevs-unapproveaction' => 'nogekuckt Versioun fir "[[$1]]" zréckzéien',
 	'approvedrevs-notlatest' => 'Dëst ass déi nogekuckte Versioun vun dëser Säit; et ass net déi rezentst.',
+	'approvedrevs-approvedandlatest' => 'Dëst ass esouwuel déi nogekuckt wéi och déi rezentst Versioun vun dëser Säit.',
 	'approvedrevs-viewlatest' => 'Déi rezentst Versioun weisen.',
 	'approvedpages' => 'Nogekuckte Säiten',
 	'approvedrevs-approvedpages-docu' => 'Dës Säiten an der Wiki hunn eng nogekuckte Versioun.',
 	'right-approverevisions' => 'Eng bestëmmte Versioun vun enger Säit als nogekuckt markéieren',
+	'right-viewlinktolatest' => 'Kuckt den Erklärungstext uewen op de Säiten déi nogekuckt Versiounen hunn',
 );
 
 /** Macedonian (Македонски)
