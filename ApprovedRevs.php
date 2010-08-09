@@ -65,3 +65,5 @@ $wgAvailableRights[] = 'approverevisions';
 $wgGroupPermissions['sysop']['approverevisions'] = true;
 $wgAvailableRights[] = 'viewlinktolatest';
 $wgGroupPermissions['*']['viewlinktolatest'] = true;
+
+$wgPageProps['approvedrevs'] = 'Whether or not the page is approvable';
