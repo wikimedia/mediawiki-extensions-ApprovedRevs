@@ -458,6 +458,7 @@ I stedet vil den nyeste revisjonen bli vist.',
 );
 
 /** Piedmontese (Piemontèis)
+ * @author Borichèt
  * @author Dragonòt
  */
 $messages['pms'] = array(
@@ -466,18 +467,18 @@ $messages['pms'] = array(
 	'approvedrevs-logdesc' => "Sto-sì a l'é ël registr dle revision ch'a son ëstàite aprovà.",
 	'approvedrevs-approve' => 'apreuva',
 	'approvedrevs-unapprove' => 'apreuva pa',
-	'approvedrevs-approvesuccess' => "Sta revision-sì ëd la pàgina a l'é stàita ampostà com la vërsion aprovà.",
-	'approvedrevs-unapprovesuccess' => 'A-i é pa pi na vërsion aprovà për sta pàgina-sì.
-Anvece, a sarà mostà la revision pi recenta.',
-	'approvedrevs-approveaction' => 'Ampòsta $2 con la revision aprovà për "[[$1]]"',
+	'approvedrevs-approvesuccess' => "Costa revision-sì ëd la pàgina a l'é stàita ampostà com la version aprovà.",
+	'approvedrevs-unapprovesuccess' => 'A-i é pa pi na version aprovà për sta pàgina-sì.
+Al pòst, a sarà mostrà la revision pi recenta.',
+	'approvedrevs-approveaction' => 'a l\'ha marcà $2 tanme revision aprovà për "[[$1]]"',
 	'approvedrevs-unapproveaction' => 'gava ampostassion ëd la revision aprovà për "[[$1]]"',
-	'approvedrevs-notlatest' => "Sta-sì a l'é la revision aprovà ëd costa pàgina; a l'é pa la pi recenta.",
-	'approvedrevs-approvedandlatest' => "Sta-sì a l'é la revision aprovà ëd costa pàgina; da bin an essend la pi recenta.",
+	'approvedrevs-notlatest' => "Costa a l'é la revision aprovà ëd sa pàgina; a l'é pa la pi recenta.",
+	'approvedrevs-approvedandlatest' => "Costa a l'é la revision aprovà ëd sa pàgina, e a l'é ëdcò la pi recenta.",
 	'approvedrevs-viewlatest' => 'Varda la revision pi recenta.',
 	'approvedpages' => 'Pàgine aprovà',
-	'approvedrevs-approvedpages-docu' => "Cole ch'a ven-o a son le pàgine ant la wiki che a l'han na revision aprovà.",
+	'approvedrevs-approvedpages-docu' => "Cole sì-sota a son le pàgine ant la wiki che a l'han na revision aprovà.",
 	'right-approverevisions' => 'Ampòsta na certa revision ëd na pàgina wiki com aprovà',
-	'right-viewlinktolatest' => "Varda test dë spiegassion a la sima dle pàgine ch'a l'han na revision aprovà",
+	'right-viewlinktolatest' => "Vëdde ël test dë spiegassion an cò dle pàgine ch'a l'han na revision aprovà",
 );
 
 /** Portuguese (Português)
