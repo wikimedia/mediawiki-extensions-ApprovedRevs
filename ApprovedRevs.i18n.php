@@ -364,6 +364,28 @@ $messages['ig'] = array(
 	'approvedpages' => 'Ihü hé kwèrè',
 );
 
+/** Japanese (日本語)
+ * @author W.CC
+ */
+$messages['ja'] = array(
+	'approvedrevs-desc' => '履歴からページの版に承認済みとして印をつける',
+	'approvedrevs-logname' => '特定版の承認記録',
+	'approvedrevs-logdesc' => '以下は、承認された版の記録です。',
+	'approvedrevs-approve' => '承認',
+	'approvedrevs-unapprove' => '承認の取り消し',
+	'approvedrevs-approvesuccess' => 'この版は承認済みとしてマークされました。',
+	'approvedrevs-unapprovesuccess' => 'このページには承認された版はありません。代わりに最新版が表示されます。',
+	'approvedrevs-approveaction' => '"[[$1]]" の第$2版を承認済みとしてマーク',
+	'approvedrevs-unapproveaction' => '"[[$1]]" の承認を取り消し',
+	'approvedrevs-notlatest' => 'このページは承認されています;この版の変更はまだ承認されていません',
+	'approvedrevs-approvedandlatest' => 'このページは承認されています;この版は承認されています',
+	'approvedrevs-viewlatest' => '承認されている最新の版を見る',
+	'approvedpages' => '承認されたページ',
+	'approvedrevs-approvedpages-docu' => '次のページには承認された版があります。',
+	'right-approverevisions' => 'ページの特定版を承認',
+	'right-viewlinktolatest' => '承認された最新の版へのリンクを上部に表示する',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */
