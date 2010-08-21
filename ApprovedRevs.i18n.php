@@ -107,9 +107,12 @@ E plas e vo lakaet an adweladenn nevesañ.",
 );
 
 /** Bosnian (Bosanski)
+ * @author CERminator
  * @author Palapa
  */
 $messages['bs'] = array(
+	'approvedrevs-desc' => 'Postavljanje jedne revizije stranice kao odobrene',
+	'approvedrevs-logname' => 'Zapisnik odobravanje revizija',
 	'approvedrevs-logdesc' => 'Ovo je zapis revizija koje su odobrene.',
 	'approvedrevs-approve' => 'odobri',
 	'approvedrevs-unapprove' => 'neodobreno',
@@ -117,11 +120,14 @@ $messages['bs'] = array(
 	'approvedrevs-unapprovesuccess' => 'Više ne postoji odobrena verzija ove stranice.
 Umjesto toga, zadnja revizija će biti prikazana.',
 	'approvedrevs-approveaction' => 'postavi $2 kao odobrenu reviziju za "[[$1]]"',
+	'approvedrevs-unapproveaction' => 'ukloni odobrenu reviziju za "[[$1]]"',
 	'approvedrevs-notlatest' => 'Ovo je odobrena verzija ove stranice; to nije najnovija verzija.',
 	'approvedrevs-approvedandlatest' => 'Ovo je odobrena verzija ove stranice, a ujedno i najnovija.',
 	'approvedrevs-viewlatest' => 'Pogledaj zadnju reviziju.',
 	'approvedpages' => 'Odobrene stranice',
+	'approvedrevs-approvedpages-docu' => 'Slijede stranice na ovoj wiki koje imaju odobrene revizije.',
 	'right-approverevisions' => 'Postavi određenu reviziju wiki stranice kao odobrenu',
+	'right-viewlinktolatest' => 'Vidi tekst objašnjenja na vrhu stranica koje imaju odobrenu reviziju',
 );
 
 /** German (Deutsch)
