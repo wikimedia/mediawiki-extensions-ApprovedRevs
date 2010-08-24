@@ -176,6 +176,20 @@ Město togo nejnowša wersija se pokažo.',
 	'right-viewlinktolatest' => 'Tekst wujasnjenja górjejce na bokach pokazaś, kótarež maju pśizwólonu wersiju',
 );
 
+/** Greek (Ελληνικά)
+ * @author Περίεργος
+ */
+$messages['el'] = array(
+	'approvedrevs-desc' => 'Καθορίζει μια ενιαία αναθεώρηση μιας σελίδας όπως έχει εγκριθεί',
+	'approvedrevs-logname' => 'Ημερολόγιο καταγραφής της αποδοχής των αναθεωρήσεων',
+	'approvedrevs-logdesc' => 'Αυτό είναι το ημερολόγιο των αναθεωρήσεων που έχουν εγκριθεί.',
+	'approvedrevs-approve' => 'έγκριση',
+	'approvedrevs-unapprove' => 'μη έγκριση',
+	'approvedrevs-approvesuccess' => 'Αυτή η αναθεώρηση της σελίδας έχει οριστεί ως η εγκεκριμένη έκδοση.',
+	'approvedrevs-unapprovesuccess' => 'Δεν υπάρχει πλέον μια εγκεκριμένη έκδοση για αυτή τη σελίδα.
+Σε αντικατάσταση, θα εμφανιστεί η πιο πρόσφατη αναθεώρηση.',
+);
+
 /** Spanish (Español)
  * @author Crazymadlover
  * @author Locos epraix
