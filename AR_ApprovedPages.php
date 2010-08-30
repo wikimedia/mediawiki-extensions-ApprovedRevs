@@ -12,7 +12,7 @@ class ARApprovedPages extends SpecialPage {
 	/**
 	 * Constructor
 	 */
-	function ARApprovedPages() {
+	function __construct() {
 		SpecialPage::SpecialPage( 'ApprovedPages' );
 		wfLoadExtensionMessages( 'ApprovedRevs' );
 	}
