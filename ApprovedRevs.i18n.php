@@ -413,11 +413,12 @@ $messages['ja'] = array(
 );
 
 /** Luxembourgish (Lëtzebuergesch)
+ * @author Les Meloures
  * @author Robby
  */
 $messages['lb'] = array(
 	'approvedrevs-desc' => 'Eng eenzel Versioun vun enger Säit als nogekuckt markéieren',
-	'approvedrevs-logname' => 'Logbuch vun den nogekuckt Säiten déi fräigi sinn',
+	'approvedrevs-logname' => 'Logbuch vun den nogekuckte Säiten déi fräigi sinn',
 	'approvedrevs-logdesc' => "Dëst ass d'Logbuch vun de Versiounen déi nogekuckt sinn.",
 	'approvedrevs-approve' => 'zoustëmmen',
 	'approvedrevs-unapprove' => 'Zoustëmmung zréckzéien',
