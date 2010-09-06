@@ -506,6 +506,29 @@ I stedet vil den nyeste revisjonen bli vist.',
 	'right-viewlinktolatest' => 'Vis forklarende tekst på toppen av sider som har en godkjent revisjon',
 );
 
+/** Polish (Polski)
+ * @author Sp5uhe
+ */
+$messages['pl'] = array(
+	'approvedrevs-desc' => 'Pozwala na zatwierdzenie pojedynczej wersji strony',
+	'approvedrevs-logname' => 'Rejestr zatwierdzonych wersji',
+	'approvedrevs-logdesc' => 'To jest rejestr wersji, które zostały zatwierdzone.',
+	'approvedrevs-approve' => 'zatwierdź',
+	'approvedrevs-unapprove' => 'cofnij zatwierdzenie',
+	'approvedrevs-approvesuccess' => 'Ta wersja strony została zatwierdzona.',
+	'approvedrevs-unapprovesuccess' => 'Dla tej strony brak jest wersji zatwierdzonej.
+W zamian prezentowana będzie ostatnia wersja.',
+	'approvedrevs-approveaction' => 'zatwierdził wersję $2 strony „[[$1]]”',
+	'approvedrevs-unapproveaction' => 'usunął zatwierdzenie strony „[[$1]]”',
+	'approvedrevs-notlatest' => 'To jest zatwierdzona wersja strony. To nie jest ostatnia jej wersja.',
+	'approvedrevs-approvedandlatest' => 'To jest nie tylko zatwierdzona wersja strony, ale również ostatnia jej wersja.',
+	'approvedrevs-viewlatest' => 'Zobacz najnowsze zmiany.',
+	'approvedpages' => 'Zatwierdzone strony',
+	'approvedrevs-approvedpages-docu' => 'Poniższe strony wiki mają jakąś zatwierdzoną wersję.',
+	'right-approverevisions' => 'Zatwierdzenie wybranych wersji stron wiki',
+	'right-viewlinktolatest' => 'Pokazuj tekst wyjaśniający w górnej części tych stron, które mają zatwierdzoną wersję',
+);
+
 /** Piedmontese (Piemontèis)
  * @author Borichèt
  * @author Dragonòt
