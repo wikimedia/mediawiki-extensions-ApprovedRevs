@@ -130,6 +130,11 @@ Umjesto toga, zadnja revizija će biti prikazana.',
 	'right-viewlinktolatest' => 'Vidi tekst objašnjenja na vrhu stranica koje imaju odobrenu reviziju',
 );
 
+/** Czech (Česky) */
+$messages['cs'] = array(
+	'approvedrevs-approve' => 'schválit',
+);
+
 /** German (Deutsch)
  * @author Kghbln
  */
