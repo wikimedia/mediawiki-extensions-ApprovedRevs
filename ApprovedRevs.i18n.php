@@ -340,6 +340,11 @@ Město toho so najnowša wersija pokaza.',
 	'right-viewlinktolatest' => 'Rozłožowacy tekst horjeka na stronach pokazać, kotrež maja schwalenu wersiju.',
 );
 
+/** Hungarian (Magyar) */
+$messages['hu'] = array(
+	'approvedrevs-approve' => 'elfogadás',
+);
+
 /** Interlingua (Interlingua)
  * @author McDutchie
  */
