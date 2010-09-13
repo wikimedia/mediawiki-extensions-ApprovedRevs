@@ -665,3 +665,18 @@ Onun yerine, en son revizyon gösterilecektir.',
 	'right-viewlinktolatest' => 'Onaylanmış revizyonu bulunan sayfaların başındaki açıklayıcı metni görüntüle',
 );
 
+/** Vietnamese (Tiếng Việt)
+ * @author Minh Nguyen
+ */
+$messages['vi'] = array(
+	'approvedrevs-logname' => 'Nhật trình chấp nhận phiên bản',
+	'approvedrevs-approve' => 'chấp nhận',
+	'approvedrevs-unapprove' => 'bỏ chấp nhận',
+	'approvedrevs-approveaction' => 'đặt $2 là phiên bản chấp nhận của “[[$1]]”',
+	'approvedrevs-unapproveaction' => 'bỏ phiên bản chấp nhận của “[[$1]]”',
+	'approvedrevs-viewlatest' => 'Xem phiên bản gần đây nhất.',
+	'approvedpages' => 'Các trang đã chấp nhận',
+	'right-approverevisions' => 'Đặt một phiên bản của trang wiki là phiên bản chấp nhận',
+	'right-viewlinktolatest' => 'Xem văn bản giải thích ở đầu các trang có phiên bản chấp nhận',
+);
+
