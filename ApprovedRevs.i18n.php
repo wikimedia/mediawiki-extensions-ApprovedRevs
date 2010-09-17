@@ -340,9 +340,13 @@ Město toho so najnowša wersija pokaza.',
 	'right-viewlinktolatest' => 'Rozłožowacy tekst horjeka na stronach pokazać, kotrež maja schwalenu wersiju.',
 );
 
-/** Hungarian (Magyar) */
+/** Hungarian (Magyar)
+ * @author Misibacsi
+ */
 $messages['hu'] = array(
 	'approvedrevs-approve' => 'elfogadás',
+	'approvedpages' => 'Ellenőrzött lapok',
+	'approvedrevs-approvedpages-docu' => 'Ezen a wikin a következő lapoknak létezik ellenőrzött változata.',
 );
 
 /** Interlingua (Interlingua)
