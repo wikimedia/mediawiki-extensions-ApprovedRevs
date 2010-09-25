@@ -646,6 +646,29 @@ $messages['te'] = array(
 	'approvedpages' => 'అనుమతించిన పుటలు',
 );
 
+/** Tagalog (Tagalog)
+ * @author AnakngAraw
+ */
+$messages['tl'] = array(
+	'approvedrevs-desc' => 'Itakda ang isang nagiisang rebisyon ng isang pahina bilang pinayagan',
+	'approvedrevs-logname' => 'Tala ng pagpayag sa rebisyon',
+	'approvedrevs-logdesc' => 'Ito ang tala ng mga rebisyon na pinayagan na.',
+	'approvedrevs-approve' => 'payagan',
+	'approvedrevs-unapprove' => 'huwag payagan',
+	'approvedrevs-approvesuccess' => 'Ang rebisyon ng pahina ay naitakda bilang pinayagang bersyon.',
+	'approvedrevs-unapprovesuccess' => 'Wala nang isang pinayagang bersyon para sa pahinang ito.
+Sa halip, ang pinaka kamakailang rebisyon ang ipapakita.',
+	'approvedrevs-approveaction' => 'itakda ang $2 bilang pinayagang rebisyon para sa "[[$1]]"',
+	'approvedrevs-unapproveaction' => 'huwag itakda ang rebisyon para sa "[[$1]]"',
+	'approvedrevs-notlatest' => 'Ito ang pinayagang rebisyon ng pahinang ito; hindi ito ang pinaka kamakailan.',
+	'approvedrevs-approvedandlatest' => 'Ito ang pinayagang rebisyon ng pahinang ito, pati na ang pagiging pinaka kamakailan.',
+	'approvedrevs-viewlatest' => 'Tingan ang pinaka kamakailang rebisyon.',
+	'approvedpages' => 'Mga pahinang pinayagan',
+	'approvedrevs-approvedpages-docu' => 'Ang sumusunod ay ang mga pahina sa wiki na may rebisyong pinayagan.',
+	'right-approverevisions' => 'Itakda ang isang partikular na rebisyon ng isang pahina ng wiki bilang pinayagan',
+	'right-viewlinktolatest' => 'Tingnan ang teksto ng paliwanag na nasa itaas ng mga pahina na may pinayagang rebisyon',
+);
+
 /** Turkish (Türkçe)
  * @author Srhat
  */
