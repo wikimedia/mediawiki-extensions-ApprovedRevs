@@ -46,21 +46,18 @@ class ARApprovedPagesPage extends QueryPage {
 		$dbr = wfGetDB( DB_SLAVE );
 		$approved_revs = $dbr->tableName( 'approved_revs' );
 		$page = $dbr->tableName( 'page' );
-		// QueryPage uses the value from this SQL in an ORDER clause,
-		// so return page_title as title.
 		return "SELECT 'Page' AS type,
-			p.page_title AS title,
-			p.page_id AS value
+			p.page_id AS id
 			FROM $approved_revs ar JOIN $page p
 			ON ar.page_id = p.page_id";
 	}
 
-	function sortDescending() {
-		return false;
+	function getOrder() {
+		return ' ORDER BY p.page_namespace, p.page_title ASC';
 	}
 
 	function formatResult( $skin, $result ) {
-		$title = Title::newFromId( $result->value );
+		$title = Title::newFromId( $result->id );
 		return $skin->makeLinkObj( $title );
 	}
 }
