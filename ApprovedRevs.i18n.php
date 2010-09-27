@@ -31,6 +31,8 @@ Instead, a blank page will be shown.',
 	'approvedrevs-blankpageshown' => 'No revision has been approved for this page.',
 	'approvedpages' => 'Approved pages',
 	'approvedrevs-approvedpages-docu' => 'The following are the pages in the wiki that have an approved revision.',
+	'unapprovedpages' => 'Unapproved pages',
+	'approvedrevs-unapprovedpages-docu' => 'The following are the pages in the wiki that do not have an approved revision.',
 	'right-approverevisions' => 'Set a certain revision of a wiki page as approved',
 	'right-viewlinktolatest' => 'View explanatory text at the top of pages that have an approved revision',
 );
