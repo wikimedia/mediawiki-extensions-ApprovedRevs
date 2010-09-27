@@ -21,11 +21,14 @@ $messages['en'] = array(
 	'approvedrevs-approvesuccess' => 'This revision of the page has been set as the approved version.',
 	'approvedrevs-unapprovesuccess' => 'There is no longer an approved version for this page.
 Instead, the most recent revision will be shown.',
+	'approvedrevs-unapprovesuccess2' => 'There is no longer an approved version for this page.
+Instead, a blank page will be shown.',
 	'approvedrevs-approveaction' => 'set $2 as the approved revision for "[[$1]]"',
 	'approvedrevs-unapproveaction' => 'unset approved revision for "[[$1]]"',
 	'approvedrevs-notlatest' => 'This is the approved revision of this page; it is not the most recent.',
 	'approvedrevs-approvedandlatest' => 'This is the approved revision of this page, as well as being the most recent.',
 	'approvedrevs-viewlatest' => 'View most recent revision.',
+	'approvedrevs-blankpageshown' => 'No revision has been approved for this page.',
 	'approvedpages' => 'Approved pages',
 	'approvedrevs-approvedpages-docu' => 'The following are the pages in the wiki that have an approved revision.',
 	'right-approverevisions' => 'Set a certain revision of a wiki page as approved',
