@@ -152,13 +152,18 @@ $messages['de'] = array(
 	'approvedrevs-approvesuccess' => 'Diese Version der Seite wurde als bestätigte Version festgelegt.',
 	'approvedrevs-unapprovesuccess' => 'Nunmehr existiert keine bestätigte Version dieser Seite.
 Stattdessen wird die neueste Version angezeigt.',
+	'approvedrevs-unapprovesuccess2' => 'Nunmehr existiert keine bestätigte Version dieser Seite.
+Stattdessen wird eine leere Seite angezeigt.',
 	'approvedrevs-approveaction' => '$2 als bestätigte Version für „[[$1]]“ festlegen',
 	'approvedrevs-unapproveaction' => 'bestätigte Version für „[[$1]]“ zurücknehmen',
 	'approvedrevs-notlatest' => 'Dies ist die bestätigte Version dieser Seite, allerdings nicht die neueste Version.',
 	'approvedrevs-approvedandlatest' => 'Dies ist die bestätigte sowie die neueste Version dieser Seite.',
 	'approvedrevs-viewlatest' => 'Die neueste Version ansehen.',
+	'approvedrevs-blankpageshown' => 'Keine Version dieser Seite wurde bislang bestätigt.',
 	'approvedpages' => 'Bestätigte Seiten',
-	'approvedrevs-approvedpages-docu' => 'Die folgenden Seiten, sind die Seiten dieses Wikis, die eine bestätigte Version haben.',
+	'approvedrevs-approvedpages-docu' => 'Die folgenden Seiten sind die Seiten dieses Wikis, die eine bestätigte Version haben.',
+	'unapprovedpages' => 'Nicht bestätigte Seiten',
+	'approvedrevs-unapprovedpages-docu' => 'Die folgenden Seiten sind die Seiten dieses Wikis, die keine bestätigte Version haben.',
 	'right-approverevisions' => 'Eine bestimmte Version einer Wikiseite als bestätigt festlegen',
 	'right-viewlinktolatest' => 'Erläuternde Hinweise im Kopf der Seiten anzeigen, die eine bestätigte Version haben.',
 );
@@ -288,13 +293,18 @@ $messages['gl'] = array(
 	'approvedrevs-approvesuccess' => 'Esta é a revisión aprobada da páxina.',
 	'approvedrevs-unapprovesuccess' => 'Esta páxina xa non ten ningunha versión aprobada.
 No canto dela, móstrase a revisión máis recente.',
+	'approvedrevs-unapprovesuccess2' => 'Esta páxina xa non ten ningunha versión aprobada.
+No canto dela, móstrase unha páxina en branco.',
 	'approvedrevs-approveaction' => 'marcou $2 como a revisión aprobada de "[[$1]]"',
 	'approvedrevs-unapproveaction' => 'anulou unha revisión aprobada de "[[$1]]"',
 	'approvedrevs-notlatest' => 'Esta é a revisión aprobada da páxina, pero non é a máis recente.',
 	'approvedrevs-approvedandlatest' => 'Esta é a revisión aprobada da páxina, e tamén a máis recente.',
 	'approvedrevs-viewlatest' => 'Ollar a revisión máis recente.',
+	'approvedrevs-blankpageshown' => 'Esta páxina non ten ningunha revisión aprobada.',
 	'approvedpages' => 'Páxinas aprobadas',
 	'approvedrevs-approvedpages-docu' => 'A continuación están as páxinas do wiki que posúen unha revisión aprobada.',
+	'unapprovedpages' => 'Páxinas suspendidas',
+	'approvedrevs-unapprovedpages-docu' => 'A continuación están as páxinas do wiki que non posúen unha revisión aprobada.',
 	'right-approverevisions' => 'Marcar como aprobada unha revisión específica dunha páxina do wiki',
 	'right-viewlinktolatest' => 'Ollar o texto explicativo ao comezo das páxinas que posúen unha revisión aprobada',
 );
@@ -365,14 +375,19 @@ $messages['ia'] = array(
 	'approvedrevs-unapprove' => 'disapprobar',
 	'approvedrevs-approvesuccess' => 'Iste version del pagina ha essite marcate como le version approbate.',
 	'approvedrevs-unapprovesuccess' => 'Il non ha plus un version approbate de iste pagina.
-In loco de isto, le version le plus recente essera monstrate.',
+In loco de illo, le version le plus recente essera monstrate.',
+	'approvedrevs-unapprovesuccess2' => 'Il non ha plus un version approbate de iste pagina.
+In loco de illo, un pagina vacue essera monstrate.',
 	'approvedrevs-approveaction' => 'marcava $2 como le version approbate de "[[$1]]"',
 	'approvedrevs-unapproveaction' => 'dismarcava le version approbate de "[[$1]]"',
 	'approvedrevs-notlatest' => 'Isto es le version approbate de iste pagina; non es le plus recente.',
 	'approvedrevs-approvedandlatest' => 'Isto es le version approbate de iste pagina, e tamben le plus recente.',
 	'approvedrevs-viewlatest' => 'Vider le version le plus recente.',
+	'approvedrevs-blankpageshown' => 'Nulle version de iste pagina ha essite approbate.',
 	'approvedpages' => 'Paginas approbate',
 	'approvedrevs-approvedpages-docu' => 'Le sequente paginas in le wiki ha un version approbate.',
+	'unapprovedpages' => 'Paginas non approbate',
+	'approvedrevs-unapprovedpages-docu' => 'Le sequente paginas in le wiki non ha un version approbate.',
 	'right-approverevisions' => 'Marcar un certe version de un pagina wiki como approbate',
 	'right-viewlinktolatest' => 'Vider le texto explicative in alto del paginas que ha un version approbate',
 );
@@ -467,13 +482,18 @@ $messages['mk'] = array(
 	'approvedrevs-approvesuccess' => 'Оваа ревизија на страницата е поставена како одобрена.',
 	'approvedrevs-unapprovesuccess' => 'Оваа страница повеќе нема одобрена верзија.
 Наместо тоа ќе се прикажува најновата верзија.',
+	'approvedrevs-unapprovesuccess2' => 'Оваа страница повеќе нема одобрена верзија.
+Наместо тоа ќе се прикажува празна страница.',
 	'approvedrevs-approveaction' => 'постави ја $2 за одобрена верзија на „[[$1]]“',
 	'approvedrevs-unapproveaction' => 'отстрани одобрена верзија на „[[$1]]“',
 	'approvedrevs-notlatest' => 'Ова е одобрената ревизија на страницава, но не е најновата.',
 	'approvedrevs-approvedandlatest' => 'Ова е одобрената ревизија на страницава, а воедно и најновата.',
 	'approvedrevs-viewlatest' => 'Види најнова ревизија.',
+	'approvedrevs-blankpageshown' => 'Нема одобрена ревизија за страницава.',
 	'approvedpages' => 'Одобрени страници',
 	'approvedrevs-approvedpages-docu' => 'Ова се страници на викито што имаат одобрена ревизија.',
+	'unapprovedpages' => 'Неодобрени страници',
+	'approvedrevs-unapprovedpages-docu' => 'Ова се страници на викито што немаат одобрена ревизија.',
 	'right-approverevisions' => 'Поставете извесна ревизија на вики-страница како одобрена',
 	'right-viewlinktolatest' => 'Погледајте го објаснувањето на врвот од страниците што имаат одобрена верзија',
 );
@@ -561,13 +581,18 @@ $messages['pms'] = array(
 	'approvedrevs-approvesuccess' => "Costa revision-sì ëd la pàgina a l'é stàita ampostà com la version aprovà.",
 	'approvedrevs-unapprovesuccess' => 'A-i é pa pi na version aprovà për sta pàgina-sì.
 Al pòst, a sarà mostrà la revision pi recenta.',
+	'approvedrevs-unapprovesuccess2' => 'A-i é pa pi na version aprovà për sta pàgina-sì.
+Al pòst, a sarà mostrà na pàgina bianca.',
 	'approvedrevs-approveaction' => 'a l\'ha marcà $2 tanme revision aprovà për "[[$1]]"',
 	'approvedrevs-unapproveaction' => 'gava ampostassion ëd la revision aprovà për "[[$1]]"',
 	'approvedrevs-notlatest' => "Costa a l'é la revision aprovà ëd sa pàgina; a l'é pa la pi recenta.",
 	'approvedrevs-approvedandlatest' => "Costa a l'é la revision aprovà ëd sa pàgina, e a l'é ëdcò la pi recenta.",
 	'approvedrevs-viewlatest' => 'Varda la revision pi recenta.',
+	'approvedrevs-blankpageshown' => 'Pa gnun-e revision a son ëstaàite aprovà për sta pàgina.',
 	'approvedpages' => 'Pàgine aprovà',
 	'approvedrevs-approvedpages-docu' => "Cole sì-sota a son le pàgine ant la wiki che a l'han na revision aprovà.",
+	'unapprovedpages' => 'Pàgine pa aprovà',
+	'approvedrevs-unapprovedpages-docu' => "Cole sì-sota a son le pàgine ant la wiki che a l'han pa na revision aprovà.",
 	'right-approverevisions' => 'Ampòsta na certa revision ëd na pàgina wiki com aprovà',
 	'right-viewlinktolatest' => "Vëdde ël test dë spiegassion an cò dle pàgine ch'a l'han na revision aprovà",
 );
@@ -631,13 +656,18 @@ $messages['ru'] = array(
 	'approvedrevs-approvesuccess' => 'Это версия страницы была отмечена как подтверждённая.',
 	'approvedrevs-unapprovesuccess' => 'Не существует подтверждённой версии этой страницы.
 Вместо неё будет показана последняя версия.',
+	'approvedrevs-unapprovesuccess2' => 'Больше не существует подтверждённой версии этой страницы.
+Вместо неё будет показана пустая страница.',
 	'approvedrevs-approveaction' => 'установить $2 как подтверждённую версию «[[$1]]»',
 	'approvedrevs-unapproveaction' => 'снять утверждённую версию для «[[$1]]»',
 	'approvedrevs-notlatest' => 'Это утверждённая версия страницы. Существуют более свежие версии.',
 	'approvedrevs-approvedandlatest' => 'Это утверждённая версия страницы. Она же является наиболее свежей версией.',
 	'approvedrevs-viewlatest' => 'Просмотреть самую свежую версию.',
+	'approvedrevs-blankpageshown' => 'Для этой страницы нет утверждённых версий.',
 	'approvedpages' => 'Подтверждённые страницы',
 	'approvedrevs-approvedpages-docu' => 'Ниже показан список вики-страниц, имеющих подтверждённые версии.',
+	'unapprovedpages' => 'Неутверждённые страницы',
+	'approvedrevs-unapprovedpages-docu' => 'Ниже показан список вики-страниц, не имеющих подтверждённых версий.',
 	'right-approverevisions' => 'отметка определённых версий вики-страниц как подтверждённых',
 	'right-viewlinktolatest' => 'просмотр пояснительного текста в верхней части страниц, имеющих утверждённые версии',
 );
