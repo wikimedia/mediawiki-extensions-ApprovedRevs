@@ -45,6 +45,33 @@ class ApprovedRevs {
 	}
 
 	/**
+	 * Helper function - returns whether the user is currently requesting
+	 * a page via the simple URL for it - not specfying a version number,
+	 * not editing the page, etc.
+	 */
+	public static function isDefaultPageRequest() {
+		// this first test seems to no longer work with MW 1.16
+		/*
+		if ( $title->mArticleID > -1 ) {
+			return true;
+		}
+		*/
+		global $wgRequest;
+		if ( $wgRequest->getCheck( 'oldid' ) ) {
+			return false;
+		}
+		// check if it's an action other than viewing
+		global $wgRequest;
+		if ( $wgRequest->getCheck( 'action' ) &&
+			$wgRequest->getVal( 'action' ) != 'view' &&
+			$wgRequest->getVal( 'action' ) != 'purge' &&
+			$wgRequest->getVal( 'action' ) != 'render' ) {
+				return false;
+		}
+		return true;
+	}
+
+	/**
 	 * Returns whether this page can be approved - either because it's in
 	 * a supported namespace, or because it's been specially marked as
 	 * approvable. Also stores the boolean answer as a field in the page
@@ -82,13 +109,7 @@ class ApprovedRevs {
 		return $isApprovable;
 	}
 
-	/**
-	 * Sets a certain revision as the approved one for this page in the
-	 * approved_revs DB table; calls a "links update" on this revision
-	 * so that category information can be stored correctly, as well as
-	 * info for extensions such as Semantic MediaWiki; and logs the action.
-	 */
-	public static function setApprovedRevID( $title, $rev_id, $is_latest = false ) {
+	public static function saveApprovedRevIDInDB( $title, $rev_id ) {
 		$dbr = wfGetDB( DB_MASTER );
 		$page_id = $title->getArticleId();
 		$old_rev_id = $dbr->selectField( 'approved_revs', 'rev_id', array( 'page_id' => $page_id ) );
@@ -97,7 +118,16 @@ class ApprovedRevs {
 		} else {
 			$dbr->insert( 'approved_revs', array( 'page_id' => $page_id, 'rev_id' => $rev_id ) );
 		}
+	}
 
+	/**
+	 * Sets a certain revision as the approved one for this page in the
+	 * approved_revs DB table; calls a "links update" on this revision
+	 * so that category information can be stored correctly, as well as
+	 * info for extensions such as Semantic MediaWiki; and logs the action.
+	 */
+	public static function setApprovedRevID( $title, $rev_id, $is_latest = false ) {
+		self::saveApprovedRevIDInDB( $title, $rev_id );
 		// if the revision being approved is definitely the latest
 		// one, there's no need to call the parser on it
 		if ( !$is_latest ) {

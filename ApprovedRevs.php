@@ -9,7 +9,7 @@ if ( !defined( 'MEDIAWIKI' ) ) die();
  * @author Yaron Koren
  */
 
-define( 'APPROVED_REVS_VERSION', '0.3.1' );
+define( 'APPROVED_REVS_VERSION', '0.4' );
 
 // credits
 $wgExtensionCredits['other'][] = array(
@@ -24,6 +24,7 @@ $wgExtensionCredits['other'][] = array(
 // global variables
 $egApprovedRevsIP = dirname( __FILE__ ) . '/';
 $egApprovedRevsNamespaces = array( NS_MAIN, NS_TEMPLATE, NS_HELP, NS_PROJECT );
+$egApprovedRevsBlankIfUnapproved = false;
 
 // internationalization
 $wgExtensionMessagesFiles['ApprovedRevs'] = $egApprovedRevsIP . 'ApprovedRevs.i18n.php';
@@ -35,10 +36,15 @@ $wgAutoloadClasses['ApprovedRevsHooks'] = $egApprovedRevsIP . 'ApprovedRevs.hook
 $wgSpecialPages['ApprovedPages'] = 'ARApprovedPages';
 $wgAutoloadClasses['ARApprovedPages'] = $egApprovedRevsIP . 'AR_ApprovedPages.php';
 $wgSpecialPageGroups['ApprovedPages'] = 'pages';
+$wgSpecialPages['UnapprovedPages'] = 'ARUnapprovedPages';
+$wgAutoloadClasses['ARUnapprovedPages'] = $egApprovedRevsIP . 'AR_UnapprovedPages.php';
+$wgSpecialPageGroups['UnapprovedPages'] = 'pages';
 
 // hooks
 $wgHooks['ParserBeforeInternalParse'][] = 'ApprovedRevsHooks::setApprovedRevForParsing';
+$wgHooks['ArticleSaveComplete'][] = 'ApprovedRevsHooks::setLatestAsApproved';
 $wgHooks['ArticleFromTitle'][] = 'ApprovedRevsHooks::showApprovedRevision';
+$wgHooks['ArticleAfterFetchContent'][] = 'ApprovedRevsHooks::showBlankIfUnapproved';
 $wgHooks['DisplayOldSubtitle'][] = 'ApprovedRevsHooks::setSubtitle';
 $wgHooks['SkinTemplateNavigation'][] = 'ApprovedRevsHooks::changeEditLink';
 $wgHooks['PageHistoryBeforeList'][] = 'ApprovedRevsHooks::storeApprovedRevisionForHistoryPage';
@@ -66,4 +72,5 @@ $wgGroupPermissions['sysop']['approverevisions'] = true;
 $wgAvailableRights[] = 'viewlinktolatest';
 $wgGroupPermissions['*']['viewlinktolatest'] = true;
 
+// page properties
 $wgPageProps['approvedrevs'] = 'Whether or not the page is approvable';

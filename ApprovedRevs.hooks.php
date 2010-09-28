@@ -1,7 +1,5 @@
 <?php
 
-if ( ! defined( 'MEDIAWIKI' ) ) die();
-
 /**
  * Functions for the Approved Revs extension called by hooks in the MediaWiki
  * code.
@@ -14,15 +12,60 @@ if ( ! defined( 'MEDIAWIKI' ) ) die();
 
 class ApprovedRevsHooks {
 
+	/**
+	 * If the page is being saved, set the text of the approved revision
+	 * as the text to be parsed, for correct saving of categories,
+	 * Semantic MediaWiki properties, etc.
+	 */
 	static public function setApprovedRevForParsing( &$parser, &$text, &$stripState ) {
 		global $wgRequest;
 		$action = $wgRequest->getVal( 'action' );
 		if ( $action == 'submit' ) {
 			$title = $parser->getTitle();
+			if ( ! ApprovedRevs::pageIsApprovable( $title ) ) {
+				return true;
+			}
+			// if this is someone with approval power editing the
+			// page, exit now, because this will become the
+			// approved revision anyway
+			if ( $title->userCan( 'approverevisions' ) ) {
+				return true;
+			}
 			$approvedText = ApprovedRevs::getApprovedContent( $title );
 			if ( !is_null( $approvedText ) ) {
 				$text = $approvedText;
 			}
+			// if there's no approved revision, and 'blank if
+			// unapproved' is set to true, set the text to blank
+			if ( is_null( $approvedText ) ) {
+				global $egApprovedRevsBlankIfUnapproved;
+				if ( $egApprovedRevsBlankIfUnapproved ) {
+					$text = '';
+				}
+			}
+		}
+		return true;
+	}
+
+	/**
+	 * If the user saving this page has approval power, automatically
+	 * set this latest revision to be the approved one - don't bother
+	 * logging the approval, though; the log is reserved for manual
+	 * approvals.
+	 */
+	static public function setLatestAsApproved( &$article ) {
+		$title = $article->getTitle();
+		if ( ! ApprovedRevs::pageIsApprovable( $title ) ) {
+			return true;
+		}
+		if ( $title->userCan( 'approverevisions' ) ) {
+			// the rev ID is actually passed in via the hook, but
+			// it's at the end of a very long set of parameters,
+			// so for the sake of sanity we'll just re-get it
+			// here instead
+			$latestRevisionID = $title->getLatestRevID();
+			// save approval without logging
+			ApprovedRevs::saveApprovedRevIDInDB( $title, $latestRevisionID );
 		}
 		return true;
 	}
@@ -33,22 +76,31 @@ class ApprovedRevsHooks {
 	 * been requested.
 	 */
 	static function showApprovedRevision( &$title, &$article ) {
-		// if a revision ID is set, exit
-		if ( $title->mArticleID > -1 ) {
+		if ( ! ApprovedRevs::isDefaultPageRequest() ) {
 			return true;
 		}
-		// if it's any action other than viewing, exit
-		global $wgRequest;
-		if ( $wgRequest->getCheck( 'action' ) &&
-			$wgRequest->getVal( 'action' ) != 'view' &&
-			$wgRequest->getVal( 'action' ) != 'purge' &&
-			$wgRequest->getVal( 'action' ) != 'render' ) {
-				return true;
-		}
-	
+
 		$revisionID = ApprovedRevs::getApprovedRevID( $title );
 		if ( ! empty( $revisionID ) ) {
 			$article = new Article( $title, $revisionID );
+		}
+		return true;
+	}
+
+	public static function showBlankIfUnapproved( &$article, &$content ) {
+		if ( ! ApprovedRevs::isDefaultPageRequest() ) {
+			return true;
+		}
+
+		$title = $article->getTitle();
+		$revisionID = ApprovedRevs::getApprovedRevID( $title );
+		if ( empty( $revisionID ) ) {
+			global $egApprovedRevsBlankIfUnapproved;
+			if ( $egApprovedRevsBlankIfUnapproved ) {
+				$content = '';
+				global $wgOut;
+				$wgOut->setSubtitle( wfMsg( 'approvedrevs-blankpageshown' ) );
+			}
 		}
 		return true;
 	}
@@ -236,11 +288,20 @@ class ApprovedRevsHooks {
 
 		ApprovedRevs::unsetApproval( $title );
 
+		// the message depends on whether the page should display
+		// a blank right now or not
+		global $egApprovedRevsBlankIfUnapproved;
+		if ( $egApprovedRevsBlankIfUnapproved ) {
+			$successMsg = wfMsg( 'approvedrevs-unapprovesuccess2' );
+		} else {
+			$successMsg = wfMsg( 'approvedrevs-unapprovesuccess' );
+		}
+
 		global $wgOut;
 		$wgOut->addHTML( '		' . Xml::element(
 			'div',
 			array( 'class' => 'successbox' ),
-			wfMsg( 'approvedrevs-unapprovesuccess' )
+			$successMsg
 		) . "\n" );
 		$wgOut->addHTML( '		' . Xml::element(
 			'p',
@@ -266,7 +327,7 @@ class ApprovedRevsHooks {
 	}
 
 	/**
-	 * Deletes the approval record in the database if the page itself is
+	 * Delete the approval record in the database if the page itself is
 	 * deleted.
 	 */
 	static function deleteRevisionApproval( &$article, &$user, $reason, $id ) {
@@ -306,7 +367,7 @@ class ApprovedRevsHooks {
 	}
 
 	/**
-	 * Adds a link to 'Special:ApprovedPages' to the the page
+	 * Add a link to 'Special:ApprovedPages' to the the page
 	 * 'Special:AdminLinks', defined by the Admin Links extension.
 	 */
 	function addToAdminLinks( &$admin_links_tree ) {
@@ -317,6 +378,7 @@ class ApprovedRevsHooks {
 			$general_section->addRow( $extensions_row );
 		}
 		$extensions_row->addItem( ALItem::newFromSpecialPage( 'ApprovedPages' ) );
+		$extensions_row->addItem( ALItem::newFromSpecialPage( 'UnapprovedPages' ) );
 		return true;
 	}
 
@@ -326,6 +388,7 @@ class ApprovedRevsHooks {
 		$dir = dirname( __FILE__ );
 
 		// DB updates
+		// For now, there's just a single SQL file for all DB types.
 		//if ( $wgDBtype == 'mysql' ) {
 			$wgExtNewTables[] = array( 'approved_revs', "$dir/ApprovedRevs.sql" );
 		//}
