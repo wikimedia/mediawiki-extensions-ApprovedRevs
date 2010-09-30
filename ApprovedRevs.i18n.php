@@ -577,13 +577,18 @@ $messages['pl'] = array(
 	'approvedrevs-approvesuccess' => 'Ta wersja strony została zatwierdzona.',
 	'approvedrevs-unapprovesuccess' => 'Dla tej strony brak jest wersji zatwierdzonej.
 W zamian prezentowana będzie ostatnia wersja.',
+	'approvedrevs-unapprovesuccess2' => 'Nie ma już zatwierdzonej wersji tej strony.
+W zamian zostanie wyświetlona pusta strona.',
 	'approvedrevs-approveaction' => 'zatwierdził wersję $2 strony „[[$1]]”',
 	'approvedrevs-unapproveaction' => 'usunął zatwierdzenie strony „[[$1]]”',
 	'approvedrevs-notlatest' => 'To jest zatwierdzona wersja strony. To nie jest ostatnia jej wersja.',
 	'approvedrevs-approvedandlatest' => 'To jest nie tylko zatwierdzona wersja strony, ale również ostatnia jej wersja.',
 	'approvedrevs-viewlatest' => 'Zobacz najnowsze zmiany.',
+	'approvedrevs-blankpageshown' => 'Żadna wersja tej strony nie została zatwierdzona.',
 	'approvedpages' => 'Zatwierdzone strony',
 	'approvedrevs-approvedpages-docu' => 'Poniższe strony wiki mają jakąś zatwierdzoną wersję.',
+	'unapprovedpages' => 'Niezatwierdzone strony',
+	'approvedrevs-unapprovedpages-docu' => 'Następujące strony w tej wiki nie mają żadnej zatwierdzonej wersji.',
 	'right-approverevisions' => 'Zatwierdzenie wybranych wersji stron wiki',
 	'right-viewlinktolatest' => 'Pokazuj tekst wyjaśniający w górnej części tych stron, które mają zatwierdzoną wersję',
 );
