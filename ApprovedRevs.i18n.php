@@ -296,6 +296,20 @@ $messages['fr'] = array(
 	'right-viewlinktolatest' => 'Voir le texte explicatif en haut des pages qui ont une révision approuvée',
 );
 
+/** Franco-Provençal (Arpetan)
+ * @author ChrisPtDe
+ */
+$messages['frp'] = array(
+	'approvedrevs-logname' => 'Jornal de les aprobacions de vèrsions',
+	'approvedrevs-approve' => 'aprovar',
+	'approvedrevs-unapprove' => 'dèsaprovar',
+	'approvedrevs-approveaction' => 'at marcâ $2 coment la vèrsion aprovâ de « [[$1]] »',
+	'approvedrevs-unapproveaction' => 'at anulâ lo marcâjo d’una vèrsion aprovâ por « [[$1]] »',
+	'approvedrevs-viewlatest' => 'Vêre la vèrsion la ples novèla.',
+	'approvedpages' => 'Pâges aprovâs',
+	'unapprovedpages' => 'Pâges pas aprovâs',
+);
+
 /** Galician (Galego)
  * @author Toliño
  */
@@ -334,15 +348,20 @@ $messages['gsw'] = array(
 	'approvedrevs-approve' => "As ''aagluegt'' markiere",
 	'approvedrevs-unapprove' => 'nit frejgee',
 	'approvedrevs-approvesuccess' => 'Die Version vu dr Syte isch as „aagluegti Version“ gsetzt wore.',
-	'approvedrevs-unapprovesuccess' => 'S git kei aaglkeugti Version me vu däre Syte. 
+	'approvedrevs-unapprovesuccess' => 'S git kei bstetigti Version me vu däre Syte. 
 Statt däm wird di nejscht Version aazeigt.',
+	'approvedrevs-unapprovesuccess2' => 'S git kei bstetigti Version me vu däre Syte. 
+Statt däm wird e lääri Syte aazeigt.',
 	'approvedrevs-approveaction' => '$2 as aaglugti Version fir „[[$1]]“ setze',
 	'approvedrevs-unapproveaction' => 'd Markierig as aagluegti Version fir „[[$1]]“ uuseneh',
 	'approvedrevs-notlatest' => 'Des isch di aagluegt Version vu däre Syte; s isch nit di nejscht Version.',
 	'approvedrevs-approvedandlatest' => 'Des isch di aagluegt Version vu däre Syte un au di nejscht.',
 	'approvedrevs-viewlatest' => 'Di nejscht Version aaluege.',
+	'approvedrevs-blankpageshown' => 'Kei Version vu däre Syte isch bishär bstetigt wore.',
 	'approvedpages' => 'Aagluegti Syte',
 	'approvedrevs-approvedpages-docu' => 'Des sin d Syte, wu s e aagluegti Version het.',
+	'unapprovedpages' => 'Nit bstetigti Syte',
+	'approvedrevs-unapprovedpages-docu' => 'Die Syte sin d Syte vu däm Wiki, wu kei bstetigti Version hän.',
 	'right-approverevisions' => 'E sicheri Version vun ere Wikisyte as aagluegt markiere',
 	'right-viewlinktolatest' => 'Dr Erklerigstext aaluege obe uf Syte, wu s e aagluegti Version git',
 );
@@ -659,17 +678,22 @@ $messages['pt-br'] = array(
 	'approvedrevs-logname' => 'Registro de revisões aprovadas',
 	'approvedrevs-logdesc' => 'Este é o registro das revisões que foram aprovadas.',
 	'approvedrevs-approve' => 'aprovar',
-	'approvedrevs-unapprove' => 'reprovar',
+	'approvedrevs-unapprove' => 'desaprovar',
 	'approvedrevs-approvesuccess' => 'Esta revisão da página foi definida como a versão aprovada.',
-	'approvedrevs-unapprovesuccess' => 'Deixou de existir uma versão aprovada para esta página.
+	'approvedrevs-unapprovesuccess' => 'Não há mais uma versão aprovada para esta página.
 Em vez dela, será apresentada a revisão mais recente.',
+	'approvedrevs-unapprovesuccess2' => 'Não há mais uma versão aprovada para esta página.
+Em vez dela, será apresentada uma página em branco.',
 	'approvedrevs-approveaction' => 'definir $2 como a revisão aprovada de "[[$1]]"',
 	'approvedrevs-unapproveaction' => 'desfazer a definição da revisão aprovada de "[[$1]]"',
 	'approvedrevs-notlatest' => 'Esta é a revisão aprovada desta página; não é a revisão mais recente.',
 	'approvedrevs-approvedandlatest' => 'Esta é a revisão aprovada desta página e também a revisão mais recente.',
 	'approvedrevs-viewlatest' => 'Ver a revisão mais recente.',
+	'approvedrevs-blankpageshown' => 'Esta página não tem nenhuma revisão aprovada.',
 	'approvedpages' => 'Páginas aprovadas',
 	'approvedrevs-approvedpages-docu' => 'As seguintes páginas desta wiki têm uma revisão aprovada.',
+	'unapprovedpages' => 'Páginas não aprovadas',
+	'approvedrevs-unapprovedpages-docu' => 'As seguintes páginas desta wiki não têm uma revisão aprovada.',
 	'right-approverevisions' => 'Definir como aprovada uma revisão específica de uma página da wiki',
 	'right-viewlinktolatest' => 'Ver um texto explicativo no topo das páginas que têm uma revisão aprovada',
 );
