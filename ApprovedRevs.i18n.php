@@ -94,26 +94,32 @@ $messages['be-tarask'] = array(
 );
 
 /** Breton (Brezhoneg)
+ * @author Fulup
  * @author Y-M D
  */
 $messages['br'] = array(
-	'approvedrevs-desc' => 'Merkañ un adweladenn hepken eus ur bajenn evel aprouet',
+	'approvedrevs-desc' => 'Na verkañ nemet un adweladenn eus ur bajenn evel aprouet',
 	'approvedrevs-logname' => 'Marilh aprouadennoù an adweladennoù',
-	'approvedrevs-logdesc' => 'Marilh an adweladennoù bet merket evel aprouet eo.',
+	'approvedrevs-logdesc' => 'Hemañ eo Marilh an adweladennoù bet aprouet.',
 	'approvedrevs-approve' => 'aprouiñ',
-	'approvedrevs-unapprove' => 'Dizaprouiñ',
-	'approvedrevs-approvesuccess' => 'An adweladenn-mañ eus ar bajenn a zo bet merket evel ar stumm aprouet.',
+	'approvedrevs-unapprove' => 'dizaprouiñ',
+	'approvedrevs-approvesuccess' => 'An adweladenn-mañ eus ar bajenn eo zo bet merket evel ar stumm aprouet.',
 	'approvedrevs-unapprovesuccess' => "N'eus stumm aprouet ebet ken eus ar bajenn-mañ.
-E plas e vo lakaet an adweladenn nevesañ.",
+En e lec'h e vo lakaet an adweladenn nevesañ.",
+	'approvedrevs-unapprovesuccess2' => "N'eus stumm aprouet ebet ken eus ar bajenn-mañ.
+En e lec'h e vo lakaet ur bajenn wenn.",
 	'approvedrevs-approveaction' => 'en deus merket $2 evel adweladenn aprouet "[[$1]]"',
 	'approvedrevs-unapproveaction' => 'en deus nullet merkadur un adweladenn aprouet evit "[[$1]]"',
-	'approvedrevs-notlatest' => "Adweladenn aprouet ar bajenn-mañ eo ; n'eo ket an hini nevesañ.",
-	'approvedrevs-approvedandlatest' => 'Adweladenn aprouet ar bajenn-mañ eo, hag ivez an hini nevesañ.',
-	'approvedrevs-viewlatest' => 'Gwelet an adweladenn nevesañ.',
+	'approvedrevs-notlatest' => "Homañ eo an adweladenn aprouet evit ar bajenn-mañ; n'eo ket ar stumm nevesañ.",
+	'approvedrevs-approvedandlatest' => "Homañ eo an adweladenn aprouet evit ar bajenn-mañ; bez' eo ivez ar stumm nevesañ.",
+	'approvedrevs-viewlatest' => 'Gwelet an adweladenn diwezhañ.',
+	'approvedrevs-blankpageshown' => "N'eus bet aprouet adweladenn ebet evit ar bajenn-mañ.",
 	'approvedpages' => 'Pajennoù aprouet',
-	'approvedrevs-approvedpages-docu' => 'Setu ar pajennoù wiki hag o deus un adweladenn aprouet.',
+	'approvedrevs-approvedpages-docu' => 'Setu aze pajennoù ar wiki zo bet aprouet un adweladenn anezho.',
+	'unapprovedpages' => "Pajennoù n'int ket bet aprouet",
+	'approvedrevs-unapprovedpages-docu' => "Setu aze pajennoù ar wiki n'eus bet aprouet adweladenn ebet anezho.",
 	'right-approverevisions' => 'Merkañ un adweladenn bennak eus ur bajenn wiki evel aprouet',
-	'right-viewlinktolatest' => 'Gwelet an destenn displegañ e penn uhelañ ar pajennoù hag o deus un adweladenn aprouet',
+	'right-viewlinktolatest' => 'Gwelet an destenn displegañ e penn uhelañ ar pajennoù zo bet aprouet un adweladenn anezho',
 );
 
 /** Bosnian (Bosanski)
@@ -747,13 +753,18 @@ $messages['tl'] = array(
 	'approvedrevs-approvesuccess' => 'Ang rebisyon ng pahina ay naitakda bilang pinayagang bersyon.',
 	'approvedrevs-unapprovesuccess' => 'Wala nang isang pinayagang bersyon para sa pahinang ito.
 Sa halip, ang pinaka kamakailang rebisyon ang ipapakita.',
+	'approvedrevs-unapprovesuccess2' => 'Wala na ngayong isang pinayagang bersyon ng pahinang ito.
+Sa halip, ipapakita ang isang pahinang walang laman.',
 	'approvedrevs-approveaction' => 'itakda ang $2 bilang pinayagang rebisyon para sa "[[$1]]"',
 	'approvedrevs-unapproveaction' => 'huwag itakda ang rebisyon para sa "[[$1]]"',
 	'approvedrevs-notlatest' => 'Ito ang pinayagang rebisyon ng pahinang ito; hindi ito ang pinaka kamakailan.',
 	'approvedrevs-approvedandlatest' => 'Ito ang pinayagang rebisyon ng pahinang ito, pati na ang pagiging pinaka kamakailan.',
 	'approvedrevs-viewlatest' => 'Tingan ang pinaka kamakailang rebisyon.',
+	'approvedrevs-blankpageshown' => 'Wala pang rebisyong pinayagan para sa pahinang ito.',
 	'approvedpages' => 'Mga pahinang pinayagan',
 	'approvedrevs-approvedpages-docu' => 'Ang sumusunod ay ang mga pahina sa wiki na may rebisyong pinayagan.',
+	'unapprovedpages' => 'Hindi pinayagang mga pahina',
+	'approvedrevs-unapprovedpages-docu' => 'Ang sumusunod ay mga pahinang nasa loob ng wiki na walang pinayagang rebisyon.',
 	'right-approverevisions' => 'Itakda ang isang partikular na rebisyon ng isang pahina ng wiki bilang pinayagan',
 	'right-viewlinktolatest' => 'Tingnan ang teksto ng paliwanag na nasa itaas ng mga pahina na may pinayagang rebisyon',
 );
