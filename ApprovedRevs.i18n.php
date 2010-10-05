@@ -444,13 +444,18 @@ $messages['id'] = array(
 	'approvedrevs-approvesuccess' => 'Revisi halaman ini telah ditetapkan sebagai revisi disetujui.',
 	'approvedrevs-unapprovesuccess' => 'Tidak ada lagi versi disetujui untuk halaman ini.
 Revisi terkini akan ditampilkan.',
+	'approvedrevs-unapprovesuccess2' => 'Tidak ada lagi versi disetujui untuk halaman ini.
+Halaman kosong akan ditampilkan.',
 	'approvedrevs-approveaction' => 'tetapkan $2 sebagai revisi disetujui untuk "[[$1]]"',
 	'approvedrevs-unapproveaction' => 'jangan tetapkan revisi disetujui untuk "[[$1]]"',
 	'approvedrevs-notlatest' => 'Ini adalah revisi disetujui dari halaman ini; bukan revisi terkini.',
 	'approvedrevs-approvedandlatest' => 'Ini adalah revisi disetujui dari halaman ini, juga revisi terkini.',
 	'approvedrevs-viewlatest' => 'Lihat revisi terkini.',
+	'approvedrevs-blankpageshown' => 'Tidak ada revisi yang disetujui untuk halaman ini.',
 	'approvedpages' => 'Halaman yang disetujui',
 	'approvedrevs-approvedpages-docu' => 'Berikut adalah halaman di wiki yang memiliki revisi disetujui.',
+	'unapprovedpages' => 'Halaman tidak disetujui',
+	'approvedrevs-unapprovedpages-docu' => 'Berikut adalah halaman di wiki yang tidak punya revisi disetujui.',
 	'right-approverevisions' => 'Tetapkan revisi tertentu dari halaman wiki sebagai disetujui',
 	'right-viewlinktolatest' => 'Lihat penjelasan di atas halaman yang memiliki revisi disetujui',
 );
@@ -730,6 +735,13 @@ $messages['ru'] = array(
 	'approvedrevs-unapprovedpages-docu' => 'Ниже показан список вики-страниц, не имеющих подтверждённых версий.',
 	'right-approverevisions' => 'отметка определённых версий вики-страниц как подтверждённых',
 	'right-viewlinktolatest' => 'просмотр пояснительного текста в верхней части страниц, имеющих утверждённые версии',
+);
+
+/** Tamil (தமிழ்)
+ * @author TRYPPN
+ */
+$messages['ta'] = array(
+	'approvedpages' => 'ஏற்றுக் கொள்ளப்பட்ட பக்கங்கள்',
 );
 
 /** Telugu (తెలుగు)
