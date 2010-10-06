@@ -742,7 +742,11 @@ $messages['ru'] = array(
  * @author TRYPPN
  */
 $messages['ta'] = array(
+	'approvedrevs-approve' => 'அனுமதிக்கவும்',
+	'approvedrevs-unapprove' => 'அனுமதிக்க வேண்டாம்',
+	'approvedrevs-viewlatest' => 'மிக அண்மையில் செய்யப்பட்ட திருத்தங்களை பார்க்கவும்.',
 	'approvedpages' => 'ஏற்றுக் கொள்ளப்பட்ட பக்கங்கள்',
+	'unapprovedpages' => 'ஏற்றுக் கொள்ளப்படாத பக்கங்கள்',
 );
 
 /** Telugu (తెలుగు)
