@@ -46,7 +46,10 @@ $wgHooks['ArticleSaveComplete'][] = 'ApprovedRevsHooks::setLatestAsApproved';
 $wgHooks['ArticleFromTitle'][] = 'ApprovedRevsHooks::showApprovedRevision';
 $wgHooks['ArticleAfterFetchContent'][] = 'ApprovedRevsHooks::showBlankIfUnapproved';
 $wgHooks['DisplayOldSubtitle'][] = 'ApprovedRevsHooks::setSubtitle';
-$wgHooks['SkinTemplateNavigation'][] = 'ApprovedRevsHooks::changeEditLink';
+// it's 'SkinTemplateNavigation' for the Vector skin, 'SkinTemplateTabs' for
+// most other skins
+$wgHooks['SkinTemplateTabs'][] = 'ApprovedRevsHooks::changeEditLink';
+$wgHooks['SkinTemplateNavigation'][] = 'ApprovedRevsHooks::changeEditLinkVector';
 $wgHooks['PageHistoryBeforeList'][] = 'ApprovedRevsHooks::storeApprovedRevisionForHistoryPage';
 $wgHooks['PageHistoryLineEnding'][] = 'ApprovedRevsHooks::addApprovalLink';
 $wgHooks['UnknownAction'][] = 'ApprovedRevsHooks::setAsApproved';
@@ -58,6 +61,8 @@ $wgHooks['LanguageGetMagic'][] = 'ApprovedRevsHooks::addMagicWordLanguage';
 $wgHooks['ParserBeforeTidy'][] = 'ApprovedRevsHooks::handleMagicWords';
 $wgHooks['AdminLinks'][] = 'ApprovedRevsHooks::addToAdminLinks';
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'ApprovedRevsHooks::describeDBSchema';
+$wgHooks['EditPage::showEditForm:initial'][] = 'ApprovedRevsHooks::addWarningToEditPage';
+$wgHooks['sfHTMLBeforeForm'][] = 'ApprovedRevsHooks::addWarningToSFForm';
 
 // logging
 $wgLogTypes['approval'] = 'approval';

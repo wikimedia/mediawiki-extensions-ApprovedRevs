@@ -147,7 +147,45 @@ class ApprovedRevsHooks {
 		$wgOut->setSubtitle( $text );
 		return false;
 	}
-	
+
+	/**
+	 * Add a warning to the top of the 'edit' page if the approved
+	 * revision is not the same as the latest one, so that users don't
+	 * get confused, since they'll be seeing the latest one.
+	 */
+	public static function addWarningToEditPage( &$editPage ) {
+		// only show the warning if it's not an old revision
+		global $wgRequest;
+		if ( $wgRequest->getCheck( 'oldid' ) ) {
+			return true;
+		}
+		$title = $editPage->getArticle()->getTitle();
+		$approvedRevID = ApprovedRevs::getApprovedRevID( $title );
+		$latestRevID = $title->getLatestRevID();
+		if ( ! empty( $approvedRevID ) && $approvedRevID != $latestRevID ) {
+			global $wgOut;
+		        $wgOut->addHTML( '<p><strong>' .  wfMsg( 'approvedrevs-editwarning' ) . "</strong></p>\n" );
+		}
+		return true;
+	}
+
+	/**
+	 * Same as addWarningToEditPage(), but for the Semantic Foms
+	 * 'edit with form' tab
+	 */
+	public static function addWarningToSFForm( &$pageName, &$preFormHTML ) {
+		// The title could be obtained via $pageName in theory - the
+		// problem is that, pre-SF 2.0.2, that variable wasn't set
+		// correctly.
+		global $wgTitle;
+		$approvedRevID = ApprovedRevs::getApprovedRevID( $wgTitle );
+		$latestRevID = $wgTitle->getLatestRevID();
+		if ( ! empty( $approvedRevID ) && $approvedRevID != $latestRevID ) {
+		        $preFormHTML .= '<p><strong>' .  wfMsg( 'approvedrevs-editwarning' ) . "</strong></p>\n";
+		}
+		return true;
+	}
+
 	/**
 	 * If user is looking at a revision through a main 'view' URL (no
 	 * revision specified), have the 'edit' tab link to the basic
@@ -163,13 +201,24 @@ class ApprovedRevsHooks {
 			// the URL is the same regardless of whether the tab
 			// is 'edit' or 'view source', but the "action" is
 			// different
-			if ( array_key_exists( 'edit', $contentActions['views'] ) ) {
-				$contentActions['views']['edit']['href'] = $skin->getTitle()->getLocalUrl( array( 'action' => 'edit' ) );
+			if ( array_key_exists( 'edit', $contentActions ) ) {
+				$contentActions['edit']['href'] = $skin->getTitle()->getLocalUrl( array( 'action' => 'edit' ) );
 			}
-			if ( array_key_exists( 'viewsource', $contentActions['views'] ) ) {
-				$contentActions['views']['viewsource']['href'] = $skin->getTitle()->getLocalUrl( array( 'action' => 'edit' ) );
+			if ( array_key_exists( 'viewsource', $contentActions ) ) {
+				$contentActions['viewsource']['href'] = $skin->getTitle()->getLocalUrl( array( 'action' => 'edit' ) );
 			}
 		}
+		return true;
+	}
+
+	/**
+	 * Same as changedEditLink(), but only for the Vector skin (and
+	 * related skins).
+	 */
+	static function changeEditLinkVector( &$skin, &$links ) {
+		// the old '$content_actions' array is thankfully just a
+		// sub-array of this one
+		self::changeEditLink( $skin, $links['views'] );
 		return true;
 	}
 
@@ -321,7 +370,7 @@ class ApprovedRevsHooks {
 	 */
 	static function setTranscludedPageRev( $parser, &$title, &$skip, &$id ) {
 		$revision_id = ApprovedRevs::getApprovedRevID( $title );
-		if ( !is_null( $revision_id ) ) {
+		if ( ! empty( $revision_id ) ) {
 			$id = $revision_id;
 		}
 		return true;
