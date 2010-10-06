@@ -48,14 +48,15 @@ class ApprovedRevsHooks {
 	}
 
 	/**
-	 * If the user saving this page has approval power, automatically
-	 * set this latest revision to be the approved one - don't bother
-	 * logging the approval, though; the log is reserved for manual
-	 * approvals.
+	 * If this page already has an approved revision, and the user
+	 * saving this page has approval power, automatically set this
+	 * latest revision to be the approved one - don't bother logging
+	 * the approval, though; the log is reserved for manual approvals.
 	 */
 	static public function setLatestAsApproved( &$article ) {
 		$title = $article->getTitle();
-		if ( ! ApprovedRevs::pageIsApprovable( $title ) ) {
+		$approvedRevID = ApprovedRevs::getApprovedRevID( $title );
+		if ( empty( $approvedRevID ) ) {
 			return true;
 		}
 		if ( $title->userCan( 'approverevisions' ) ) {
