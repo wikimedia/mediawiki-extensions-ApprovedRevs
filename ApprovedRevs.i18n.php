@@ -86,6 +86,7 @@ $messages['be-tarask'] = array(
 	'approvedrevs-approvedandlatest' => 'Гэта зацьверджаная вэрсія гэтай старонкі, адначасова яна зьяўляецца апошняй вэрсіяй.',
 	'approvedrevs-viewlatest' => 'Паказаць апошнюю вэрсію.',
 	'approvedrevs-blankpageshown' => 'Для гэтай старонкі няма зацьверджанай вэрсіі.',
+	'approvedrevs-editwarning' => 'Калі ласка, памятайце, што зараз Вы рэдагуеце апошнюю вэрсію гэтай старонкі, якая яшчэ не зьяўляецца зацьверджанай і не паказваецца па змоўчваньні.',
 	'approvedpages' => 'Зацьверджаныя старонкі',
 	'approvedrevs-approvedpages-docu' => 'Ніжэй пададзеныя старонкі {{GRAMMAR:родны|{{SITENAME}}}}, якія маюць зацьверджаныя вэрсіі.',
 	'unapprovedpages' => 'Незацьверджаныя старонкі',
@@ -565,6 +566,7 @@ Het is niet de meeste recente versie.',
 	'approvedrevs-approvedandlatest' => 'Dit is de goedgekeurde versie van deze pagina. Er is geen nieuwere versie.',
 	'approvedrevs-viewlatest' => 'Laatste versie bekijken',
 	'approvedrevs-blankpageshown' => 'Deze pagina heeft geen goedgekeurde versie.',
+	'approvedrevs-editwarning' => 'U bewerkt de meest recente versie van deze pagina die nog niet goedgekeurd is en standaard niet wordt weergegeven.',
 	'approvedpages' => "Goedgekeurde pagina's",
 	'approvedrevs-approvedpages-docu' => "De volgende pagina's in de wiki hebben een goedgekeurde versie.",
 	'unapprovedpages' => "Niet-goedgekeurde pagina's",
@@ -747,6 +749,7 @@ $messages['ta'] = array(
 	'approvedrevs-viewlatest' => 'மிக அண்மையில் செய்யப்பட்ட திருத்தங்களை பார்க்கவும்.',
 	'approvedpages' => 'ஏற்றுக் கொள்ளப்பட்ட பக்கங்கள்',
 	'unapprovedpages' => 'ஏற்றுக் கொள்ளப்படாத பக்கங்கள்',
+	'right-approverevisions' => 'விக்கி பக்கத்தில் ஒரு சில மாற்றங்களை அனுமதிக்கப்பட்டதாக குறித்துக்கொள்ளவும்',
 );
 
 /** Telugu (తెలుగు)
