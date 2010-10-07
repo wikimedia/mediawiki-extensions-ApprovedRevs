@@ -48,26 +48,31 @@ class ApprovedRevsHooks {
 	}
 
 	/**
-	 * If this page already has an approved revision, and the user
-	 * saving this page has approval power, automatically set this
+	 * If the user saving this page has approval power, and either
+	 * (a) this page already has an approved revision, or (b) unapproved
+	 * pages are shown as blank on this wiki, automatically set this
 	 * latest revision to be the approved one - don't bother logging
 	 * the approval, though; the log is reserved for manual approvals.
 	 */
 	static public function setLatestAsApproved( &$article ) {
 		$title = $article->getTitle();
-		$approvedRevID = ApprovedRevs::getApprovedRevID( $title );
-		if ( empty( $approvedRevID ) ) {
+		if ( ! $title->userCan( 'approverevisions' ) ) {
 			return true;
 		}
-		if ( $title->userCan( 'approverevisions' ) ) {
-			// the rev ID is actually passed in via the hook, but
-			// it's at the end of a very long set of parameters,
-			// so for the sake of sanity we'll just re-get it
-			// here instead
-			$latestRevisionID = $title->getLatestRevID();
-			// save approval without logging
-			ApprovedRevs::saveApprovedRevIDInDB( $title, $latestRevisionID );
+
+		global $egApprovedRevsBlankIfUnapproved;
+		if ( !$egApprovedRevsBlankIfUnapproved ) {
+			$approvedRevID = ApprovedRevs::getApprovedRevID( $title );
+			if ( empty( $approvedRevID ) ) {
+				return true;
+			}
 		}
+		// the rev ID is actually passed in via the hook, but it's
+		// at the end of a very long set of parameters, so for the
+		// sake of sanity we'll just re-get it here instead
+		$latestRevisionID = $title->getLatestRevID();
+		// save approval without logging
+		ApprovedRevs::saveApprovedRevIDInDB( $title, $latestRevisionID );
 		return true;
 	}
 
