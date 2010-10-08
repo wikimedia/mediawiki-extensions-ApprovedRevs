@@ -207,15 +207,22 @@ class ApprovedRevsHooks {
 		if ( $wgRequest->getCheck( 'oldid' ) ) {
 			return true;
 		}
-		if ( ApprovedRevs::hasApprovedRevision( $skin->getTitle() ) ) {
+		// Skin::getTitle was only added in MW 1.16
+		if ( method_exists( $skin, 'getTitle' ) ) {
+			$title = $skin->getTitle();
+		} else {
+			global $wgTitle;
+			$title = $wgTitle;
+		}
+		if ( ApprovedRevs::hasApprovedRevision( $title ) ) {
 			// the URL is the same regardless of whether the tab
 			// is 'edit' or 'view source', but the "action" is
 			// different
 			if ( array_key_exists( 'edit', $contentActions ) ) {
-				$contentActions['edit']['href'] = $skin->getTitle()->getLocalUrl( array( 'action' => 'edit' ) );
+				$contentActions['edit']['href'] = $title->getLocalUrl( array( 'action' => 'edit' ) );
 			}
 			if ( array_key_exists( 'viewsource', $contentActions ) ) {
-				$contentActions['viewsource']['href'] = $skin->getTitle()->getLocalUrl( array( 'action' => 'edit' ) );
+				$contentActions['viewsource']['href'] = $title->getLocalUrl( array( 'action' => 'edit' ) );
 			}
 		}
 		return true;
