@@ -426,6 +426,7 @@ In loco de illo, un pagina vacue essera monstrate.',
 	'approvedrevs-approvedandlatest' => 'Isto es le version approbate de iste pagina, e tamben le plus recente.',
 	'approvedrevs-viewlatest' => 'Vider le version le plus recente.',
 	'approvedrevs-blankpageshown' => 'Nulle version de iste pagina ha essite approbate.',
+	'approvedrevs-editwarning' => 'Nota ben que tu modifica ora le ultime version de iste pagina, le qual non es le version approbate que es monstrate normalmente.',
 	'approvedpages' => 'Paginas approbate',
 	'approvedrevs-approvedpages-docu' => 'Le sequente paginas in le wiki ha un version approbate.',
 	'unapprovedpages' => 'Paginas non approbate',
@@ -473,24 +474,32 @@ $messages['ig'] = array(
 
 /** Japanese (日本語)
  * @author W.CC
+ * @author 青子守歌
  */
 $messages['ja'] = array(
-	'approvedrevs-desc' => '履歴からページの版に承認済みとして印をつける',
-	'approvedrevs-logname' => '特定版の承認記録',
+	'approvedrevs-desc' => 'ページから版を1つだけ選んで、承認済みに設定する',
+	'approvedrevs-logname' => '版承認の記録',
 	'approvedrevs-logdesc' => '以下は、承認された版の記録です。',
 	'approvedrevs-approve' => '承認',
-	'approvedrevs-unapprove' => '承認の取り消し',
-	'approvedrevs-approvesuccess' => 'この版は承認済みとしてマークされました。',
-	'approvedrevs-unapprovesuccess' => 'このページには承認された版はありません。代わりに最新版が表示されます。',
-	'approvedrevs-approveaction' => '"[[$1]]" の第$2版を承認済みとしてマーク',
-	'approvedrevs-unapproveaction' => '"[[$1]]" の承認を取り消し',
-	'approvedrevs-notlatest' => 'このページは承認されています;この版の変更はまだ承認されていません',
-	'approvedrevs-approvedandlatest' => 'このページは承認されています;この版は承認されています',
-	'approvedrevs-viewlatest' => '承認されている最新の版を見る',
+	'approvedrevs-unapprove' => '非承認',
+	'approvedrevs-approvesuccess' => 'この版は承認済みの版として設定されました。',
+	'approvedrevs-unapprovesuccess' => 'このページには承認済みの版がなくなりました。
+代わりに、最新版が表示されます。',
+	'approvedrevs-unapprovesuccess2' => 'このページには承認済みの版がなくなりました。
+代わりに、空白のページが表示されます。',
+	'approvedrevs-approveaction' => '$2を「[[$1]]」の承認済み版として設定',
+	'approvedrevs-unapproveaction' => '「[[$1]]」の承認版を取り消し',
+	'approvedrevs-notlatest' => 'これは、このページの承認済み版です。最新版ではありません。',
+	'approvedrevs-approvedandlatest' => 'これは、このページの承認済み版で、また、最新版です。',
+	'approvedrevs-viewlatest' => '最新版を閲覧する。',
+	'approvedrevs-blankpageshown' => 'このページには、承認済みの版がありません。',
+	'approvedrevs-editwarning' => '現在編集中のものは、このページの最新版であり、既定で表示されている承認済みの版ではありません。',
 	'approvedpages' => '承認されたページ',
-	'approvedrevs-approvedpages-docu' => '次のページには承認された版があります。',
-	'right-approverevisions' => 'ページの特定版を承認',
-	'right-viewlinktolatest' => '承認された最新の版へのリンクを上部に表示する',
+	'approvedrevs-approvedpages-docu' => '以下は、承認済みの版があるウィキのページです。',
+	'unapprovedpages' => '未承認ページ',
+	'approvedrevs-unapprovedpages-docu' => '以下は、承認済みの版がないウィキのページです。',
+	'right-approverevisions' => 'ウィキページの特定の版を承認済みに設定',
+	'right-viewlinktolatest' => '承認済みの版があるページの冒頭に説明文を表示',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
