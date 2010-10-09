@@ -296,6 +296,7 @@ $messages['fr'] = array(
 	'approvedrevs-approvedandlatest' => 'Ceci est la révision approuvée de la page, et aussi la plus récente.',
 	'approvedrevs-viewlatest' => 'Voir la révision la plus récente.',
 	'approvedrevs-blankpageshown' => 'Aucune version n’a été approuvée pour cette page.',
+	'approvedrevs-editwarning' => "Veuillez noter que vous modifiez actuellement la dernière version de cette page, qui n'est pas celle approuvée affichée par défaut.",
 	'approvedpages' => 'Pages approuvées',
 	'approvedrevs-approvedpages-docu' => 'Voici les pages du wiki qui ont une révision approuvée.',
 	'unapprovedpages' => 'Pages non approuvées',
