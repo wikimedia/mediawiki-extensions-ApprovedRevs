@@ -449,16 +449,21 @@ class ApprovedRevsHooks {
 		return true;
 	}
 
-	public static function describeDBSchema() {
-		global $wgExtNewTables, $wgDBtype;
-
+	public static function describeDBSchema( $updater = null ) {
 		$dir = dirname( __FILE__ );
 
 		// DB updates
 		// For now, there's just a single SQL file for all DB types.
-		//if ( $wgDBtype == 'mysql' ) {
-			$wgExtNewTables[] = array( 'approved_revs', "$dir/ApprovedRevs.sql" );
-		//}
+		if ( $updater === null ) {
+			global $wgExtNewTables, $wgDBtype;
+			//if ( $wgDBtype == 'mysql' ) {
+				$wgExtNewTables[] = array( 'approved_revs', "$dir/ApprovedRevs.sql" );
+			//}
+		} else {
+			//if ( $updater->getDB()->getType() == 'mysql' ) {
+				$updater->addExtensionUpdate( array( 'addTable', 'approved_revs', "$dir/ApprovedRevs.sql", true ) );
+			//}
+		}
 		return true;
 	}
 }
