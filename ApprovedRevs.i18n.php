@@ -516,13 +516,19 @@ $messages['lb'] = array(
 	'approvedrevs-approvesuccess' => 'Dës Versioun vun der Säit gouf als nogekuckte Versioun fräiginn.',
 	'approvedrevs-unapprovesuccess' => 'Et gëtt vun dëser Säit  keng nogekuckte Versioun méi.
 Dofir gëtt déi rezentst Versioun gewisen.',
+	'approvedrevs-unapprovesuccess2' => 'Et gëtt vun dëser Säit keng nogekuckte Versioun méi.
+Aplaz, gëtt eng eidel Säit gewisen.',
 	'approvedrevs-approveaction' => '$2 als nogekuckt Versioun fir "[[$1]]" festleeën',
 	'approvedrevs-unapproveaction' => 'nogekuckt Versioun fir "[[$1]]" zréckzéien',
 	'approvedrevs-notlatest' => 'Dëst ass déi nogekuckte Versioun vun dëser Säit; et ass net déi rezentst.',
 	'approvedrevs-approvedandlatest' => 'Dëst ass esouwuel déi nogekuckt wéi och déi rezentst Versioun vun dëser Säit.',
 	'approvedrevs-viewlatest' => 'Déi rezentst Versioun weisen.',
+	'approvedrevs-blankpageshown' => 'Keng Versioun vun dëser Säit gouf nogekuckt.',
+	'approvedrevs-editwarning' => 'Informatioun: Dir ännert déi lescht Versioun vun dëser Säit, déi net déi nogekuckten ass déi standardméisseg gewise gëtt.',
 	'approvedpages' => 'Nogekuckte Säiten',
 	'approvedrevs-approvedpages-docu' => 'Dës Säiten an der Wiki hunn eng nogekuckte Versioun.',
+	'unapprovedpages' => 'Net nogekuckte Säiten',
+	'approvedrevs-unapprovedpages-docu' => 'Dës Säiten an der Wiki hu keng nogekuckte Versioun.',
 	'right-approverevisions' => 'Eng bestëmmte Versioun vun enger Säit als nogekuckt markéieren',
 	'right-viewlinktolatest' => 'Kuckt den Erklärungstext uewen op de Säiten déi nogekuckt Versiounen hunn',
 );
@@ -748,6 +754,18 @@ $messages['ru'] = array(
 	'approvedrevs-unapprovedpages-docu' => 'Ниже показан список вики-страниц, не имеющих подтверждённых версий.',
 	'right-approverevisions' => 'отметка определённых версий вики-страниц как подтверждённых',
 	'right-viewlinktolatest' => 'просмотр пояснительного текста в верхней части страниц, имеющих утверждённые версии',
+);
+
+/** Swedish (Svenska)
+ * @author Ainali
+ */
+$messages['sv'] = array(
+	'approvedrevs-desc' => 'Sätt en enskild version av en sida till godkänd',
+	'approvedrevs-approve' => 'godkänn',
+	'approvedrevs-approvesuccess' => 'Denna version av sidan har ställts in som den godkända versionen.',
+	'approvedrevs-unapprovesuccess' => 'Det finns inte längre en godkänd version för den här sidan. 
+ Istället kommer den senaste redigeringen att visas.',
+	'approvedpages' => 'Godkända sidor',
 );
 
 /** Tamil (தமிழ்)
