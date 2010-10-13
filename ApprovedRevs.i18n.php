@@ -249,6 +249,7 @@ En su lugar, se muestra la revisión más reciente.',
 	'approvedrevs-viewlatest' => 'Ver revisión más reciente.',
 	'approvedpages' => 'Páginas aprobadas',
 	'approvedrevs-approvedpages-docu' => 'Las siguientes son las páginas en la wiki que tienen una versión aprobada.',
+	'unapprovedpages' => 'Páginas reprobadas',
 	'right-approverevisions' => 'Establecer una cierta revisión de una página wiki como aprobada',
 	'right-viewlinktolatest' => 'Ver texto explicativo en la parte superior de las páginas que tienen una revisión aprobada',
 );
