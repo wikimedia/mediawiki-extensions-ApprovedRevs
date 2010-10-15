@@ -145,6 +145,7 @@ Umjesto toga, bit će prikazana prazna stranica.',
 	'approvedrevs-approvedandlatest' => 'Ovo je odobrena verzija ove stranice, a ujedno i najnovija.',
 	'approvedrevs-viewlatest' => 'Pogledaj zadnju reviziju.',
 	'approvedrevs-blankpageshown' => 'Nijedna revizija nije odobrena za ovu stranicu.',
+	'approvedrevs-editwarning' => 'Molimo vas da imate u vidu da sada uređujete posljednju reviziju ove stranice, koja nije odobrena što je prikazano po postavkama.',
 	'approvedpages' => 'Odobrene stranice',
 	'approvedrevs-approvedpages-docu' => 'Slijede stranice na ovoj wiki koje imaju odobrene revizije.',
 	'unapprovedpages' => 'Neodobrene stranice',
@@ -168,9 +169,9 @@ $messages['de'] = array(
 	'approvedrevs-approve' => 'bestätigen',
 	'approvedrevs-unapprove' => 'ablehnen',
 	'approvedrevs-approvesuccess' => 'Diese Version der Seite wurde als bestätigte Version festgelegt.',
-	'approvedrevs-unapprovesuccess' => 'Nunmehr existiert keine bestätigte Version dieser Seite.
+	'approvedrevs-unapprovesuccess' => 'Nunmehr gibt es keine bestätigte Version dieser Seite.
 Stattdessen wird die neueste Version angezeigt.',
-	'approvedrevs-unapprovesuccess2' => 'Nunmehr existiert keine bestätigte Version dieser Seite.
+	'approvedrevs-unapprovesuccess2' => 'Nunmehr gibt es keine bestätigte Version dieser Seite.
 Stattdessen wird eine leere Seite angezeigt.',
 	'approvedrevs-approveaction' => '$2 als bestätigte Version für „[[$1]]“ festlegen',
 	'approvedrevs-unapproveaction' => 'bestätigte Version für „[[$1]]“ zurücknehmen',
@@ -178,6 +179,7 @@ Stattdessen wird eine leere Seite angezeigt.',
 	'approvedrevs-approvedandlatest' => 'Dies ist die bestätigte sowie die neueste Version dieser Seite.',
 	'approvedrevs-viewlatest' => 'Die neueste Version ansehen.',
 	'approvedrevs-blankpageshown' => 'Keine Version dieser Seite wurde bislang bestätigt.',
+	'approvedrevs-editwarning' => 'Beachte bitte, dass du gerade die neueste Version dieser Seite bearbeitest. Sie entspricht nicht der bestätigten Version, die standardmäßig angezeigt wird.',
 	'approvedpages' => 'Bestätigte Seiten',
 	'approvedrevs-approvedpages-docu' => 'Die folgenden Seiten sind die Seiten dieses Wikis, die eine bestätigte Version haben.',
 	'unapprovedpages' => 'Nicht bestätigte Seiten',
@@ -340,6 +342,7 @@ No canto dela, móstrase unha páxina en branco.',
 	'approvedrevs-approvedandlatest' => 'Esta é a revisión aprobada da páxina, e tamén a máis recente.',
 	'approvedrevs-viewlatest' => 'Ollar a revisión máis recente.',
 	'approvedrevs-blankpageshown' => 'Esta páxina non ten ningunha revisión aprobada.',
+	'approvedrevs-editwarning' => 'Teña en conta que está a editar a última revisión desta páxina, e non a aprobada que se mostra por defecto.',
 	'approvedpages' => 'Páxinas aprobadas',
 	'approvedrevs-approvedpages-docu' => 'A continuación están as páxinas do wiki que posúen unha revisión aprobada.',
 	'unapprovedpages' => 'Páxinas suspendidas',
@@ -554,6 +557,7 @@ $messages['mk'] = array(
 	'approvedrevs-approvedandlatest' => 'Ова е одобрената ревизија на страницава, а воедно и најновата.',
 	'approvedrevs-viewlatest' => 'Види најнова ревизија.',
 	'approvedrevs-blankpageshown' => 'Нема одобрена ревизија за страницава.',
+	'approvedrevs-editwarning' => 'Имајте предвид дека сега ја уредувате најновата верзија на страницава, која не е одобрената што се прикажува по основно.',
 	'approvedpages' => 'Одобрени страници',
 	'approvedrevs-approvedpages-docu' => 'Ова се страници на викито што имаат одобрена ревизија.',
 	'unapprovedpages' => 'Неодобрени страници',
@@ -635,6 +639,7 @@ W zamian zostanie wyświetlona pusta strona.',
 	'approvedrevs-approvedandlatest' => 'To jest nie tylko zatwierdzona wersja strony, ale również ostatnia jej wersja.',
 	'approvedrevs-viewlatest' => 'Zobacz najnowsze zmiany.',
 	'approvedrevs-blankpageshown' => 'Żadna wersja tej strony nie została zatwierdzona.',
+	'approvedrevs-editwarning' => 'Zauważ, że edytujesz ostatnią wersję strony. Wersję, która nie została zatwierdzona i nie jest pokazywana domyślnie.',
 	'approvedpages' => 'Zatwierdzone strony',
 	'approvedrevs-approvedpages-docu' => 'Poniższe strony wiki mają jakąś zatwierdzoną wersję.',
 	'unapprovedpages' => 'Niezatwierdzone strony',
@@ -674,6 +679,7 @@ Al pòst, a sarà mostrà na pàgina bianca.',
 
 /** Portuguese (Português)
  * @author Alchimista
+ * @author GoEThe
  * @author Hamilton Abreu
  */
 $messages['pt'] = array(
@@ -693,6 +699,7 @@ Em vez dela, será apresentada uma página em branco.',
 	'approvedrevs-approvedandlatest' => 'Esta é a revisão aprovada desta página e também a revisão mais recente.',
 	'approvedrevs-viewlatest' => 'Ver a revisão mais recente.',
 	'approvedrevs-blankpageshown' => 'Esta página não tem nenhuma revisão aprovada.',
+	'approvedrevs-editwarning' => 'Por favor, note que está a editar agora a revisão mais recente desta página, que não é a edição aprovada mostrada por padrão.',
 	'approvedpages' => 'Páginas aprovadas',
 	'approvedrevs-approvedpages-docu' => 'As seguintes páginas desta wiki têm uma revisão aprovada.',
 	'unapprovedpages' => 'Páginas reprovadas',
@@ -730,6 +737,7 @@ Em vez dela, será apresentada uma página em branco.',
 );
 
 /** Russian (Русский)
+ * @author MaxSem
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
@@ -749,6 +757,7 @@ $messages['ru'] = array(
 	'approvedrevs-approvedandlatest' => 'Это утверждённая версия страницы. Она же является наиболее свежей версией.',
 	'approvedrevs-viewlatest' => 'Просмотреть самую свежую версию.',
 	'approvedrevs-blankpageshown' => 'Для этой страницы нет утверждённых версий.',
+	'approvedrevs-editwarning' => 'Пожалуйста, обратите внимание, сейчас вы редактируете последнюю версию этой страницы, но она не показывается по умолчанию, так как не подтверждена.',
 	'approvedpages' => 'Подтверждённые страницы',
 	'approvedrevs-approvedpages-docu' => 'Ниже показан список вики-страниц, имеющих подтверждённые версии.',
 	'unapprovedpages' => 'Неутверждённые страницы',
