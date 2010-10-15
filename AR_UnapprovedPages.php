@@ -13,7 +13,7 @@ class ARUnapprovedPages extends SpecialPage {
 	 * Constructor
 	 */
 	function ARUnapprovedPages() {
-		SpecialPage::SpecialPage( 'UnapprovedPages' );
+		parent::__construct( 'UnapprovedPages' );
 		wfLoadExtensionMessages( 'ApprovedRevs' );
 	}
 
