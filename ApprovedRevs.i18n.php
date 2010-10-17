@@ -235,6 +235,7 @@ $messages['el'] = array(
 /** Spanish (Español)
  * @author Crazymadlover
  * @author Locos epraix
+ * @author Translationista
  */
 $messages['es'] = array(
 	'approvedrevs-desc' => 'Establecer una revisión única de una página como aprovada',
@@ -245,14 +246,19 @@ $messages['es'] = array(
 	'approvedrevs-approvesuccess' => 'Esta revisión de la página ha sido establecida como la versión aprobada.',
 	'approvedrevs-unapprovesuccess' => 'Ya no hay una versión aprobada para esta página.
 En su lugar, se muestra la revisión más reciente.',
+	'approvedrevs-unapprovesuccess2' => 'Ya no hay una versión aprobada para esta página. 
+En su lugar, se mostrará una página en blanco.',
 	'approvedrevs-approveaction' => 'establecer $2 como la revisión aprobada para para "[[$1]]"',
 	'approvedrevs-unapproveaction' => 'desestablecer la revisión aprobada para "[[$1]]"',
 	'approvedrevs-notlatest' => 'Esta es la revisión aprobada de esta página, no es la más reciente.',
 	'approvedrevs-approvedandlatest' => 'Esta es la revisión aprobada de esta página, siendo también la más reciente.',
 	'approvedrevs-viewlatest' => 'Ver revisión más reciente.',
+	'approvedrevs-blankpageshown' => 'No se ha aprobado una revisión de esta página.',
+	'approvedrevs-editwarning' => 'Tenga en cuenta que ahora está editando la última revisión de esta página, que no es la aprobada, que es la que se muestra de forma predeterminada.',
 	'approvedpages' => 'Páginas aprobadas',
 	'approvedrevs-approvedpages-docu' => 'Las siguientes son las páginas en la wiki que tienen una versión aprobada.',
 	'unapprovedpages' => 'Páginas reprobadas',
+	'approvedrevs-unapprovedpages-docu' => 'Las siguientes son las páginas en la wiki que tienen una versión aprobada.',
 	'right-approverevisions' => 'Establecer una cierta revisión de una página wiki como aprobada',
 	'right-viewlinktolatest' => 'Ver texto explicativo en la parte superior de las páginas que tienen una revisión aprobada',
 );
@@ -609,13 +615,19 @@ $messages['no'] = array(
 	'approvedrevs-approvesuccess' => 'Denne revisjonen av siden har blitt satt som den godkjente versjonen.',
 	'approvedrevs-unapprovesuccess' => 'Det er ikke lenger en godkjent versjon av denne siden.
 I stedet vil den nyeste revisjonen bli vist.',
+	'approvedrevs-unapprovesuccess2' => 'Det er ikke lenger en godkjent versjon av denne siden.
+I stedet vil en blank side bli vist.',
 	'approvedrevs-approveaction' => 'sett $2 som den godkjente revisjonen for «[[$1]]»',
 	'approvedrevs-unapproveaction' => 'fjern godkjenning av revisjon for «[[$1]]»',
 	'approvedrevs-notlatest' => 'Dette er den godkjente revisjonen av denne siden; det er ikke den nyeste.',
 	'approvedrevs-approvedandlatest' => 'Dette er den godkjente revisjonen av denne siden, samt den nyeste.',
 	'approvedrevs-viewlatest' => 'Se den nyeste revisjonen.',
+	'approvedrevs-blankpageshown' => 'Ingen revisjon har blitt godkjent for denne siden.',
+	'approvedrevs-editwarning' => 'Merk at du nå redigerer den nyeste revisjonen av denne siden, som ikke er den godkjente siden som vises som standard.',
 	'approvedpages' => 'Godkjente sider',
 	'approvedrevs-approvedpages-docu' => 'De følgende sidene er de som har en godkjent revisjon i wikien.',
+	'unapprovedpages' => 'Ikke-godkjente sider',
+	'approvedrevs-unapprovedpages-docu' => 'De følgende sidene er de som ikke har en godkjent revisjon i wikien.',
 	'right-approverevisions' => 'Sett en viss revisjon av en wikiside som godkjent',
 	'right-viewlinktolatest' => 'Vis forklarende tekst på toppen av sider som har en godkjent revisjon',
 );
@@ -670,6 +682,7 @@ Al pòst, a sarà mostrà na pàgina bianca.',
 	'approvedrevs-approvedandlatest' => "Costa a l'é la revision aprovà ëd sa pàgina, e a l'é ëdcò la pi recenta.",
 	'approvedrevs-viewlatest' => 'Varda la revision pi recenta.',
 	'approvedrevs-blankpageshown' => 'Gnun-e revision a son ëstàite aprovà për sta pàgina.',
+	'approvedrevs-editwarning' => "Për piasì, ch'a nòta ch'a l'é an camin ch'a modìfica l'ùltima revision ëd la pàgina, ch'a l'é pa cola aprovà smonùa për stàndard.",
 	'approvedpages' => 'Pàgine aprovà',
 	'approvedrevs-approvedpages-docu' => "Cole sì-sota a son le pàgine ant la wiki che a l'han na revision aprovà.",
 	'unapprovedpages' => 'Pàgine pa aprovà',
@@ -738,6 +751,19 @@ Em vez dela, será apresentada uma página em branco.',
 	'right-viewlinktolatest' => 'Ver um texto explicativo no topo das páginas que têm uma revisão aprovada',
 );
 
+/** Romanian (Română)
+ * @author Stelistcristi
+ */
+$messages['ro'] = array(
+	'approvedrevs-approve' => 'aprobă',
+	'approvedrevs-unapprove' => 'dezaprobă',
+	'approvedrevs-approvesuccess' => 'Această revizie a paginii a fost stabilită ca versiunea aprobată.',
+	'approvedpages' => 'Pagini aprobate',
+	'approvedrevs-approvedpages-docu' => 'Următoarele sunt pagini în wiki care au o revizie aprobată.',
+	'unapprovedpages' => 'Pagini neaprobate',
+	'approvedrevs-unapprovedpages-docu' => 'Următoarele sunt pagini în wiki care nu au o revizie aprobată.',
+);
+
 /** Russian (Русский)
  * @author MaxSem
  * @author Александр Сигачёв
@@ -770,14 +796,30 @@ $messages['ru'] = array(
 
 /** Swedish (Svenska)
  * @author Ainali
+ * @author Cohan
  */
 $messages['sv'] = array(
 	'approvedrevs-desc' => 'Sätt en enskild version av en sida till godkänd',
+	'approvedrevs-logname' => 'Godkänningslogg för revisioner',
+	'approvedrevs-logdesc' => 'Detta är loggen över revisioner som har godkänts.',
 	'approvedrevs-approve' => 'godkänn',
 	'approvedrevs-approvesuccess' => 'Denna version av sidan har ställts in som den godkända versionen.',
 	'approvedrevs-unapprovesuccess' => 'Det finns inte längre en godkänd version för den här sidan. 
  Istället kommer den senaste redigeringen att visas.',
+	'approvedrevs-unapprovesuccess2' => 'Det finns inte längre en godkänd version av den här sidan. 
+Istället kommer en tom sida att visas.',
+	'approvedrevs-approveaction' => 'sätt $2 som den godkända revisionen av "[[$1]]"',
+	'approvedrevs-notlatest' => 'Detta är den godkända version av denna sida; det är inte den senaste.',
+	'approvedrevs-approvedandlatest' => 'Detta är den godkända version av denna sida, samt den senaste.',
+	'approvedrevs-viewlatest' => 'Visa senaste versionen.',
+	'approvedrevs-blankpageshown' => 'Ingen revidering har godkänts för denna sida.',
+	'approvedrevs-editwarning' => 'Observera att du nu redigerar den senaste versionen av denna sida, vilket inte är den godkända som visas som standard.',
 	'approvedpages' => 'Godkända sidor',
+	'approvedrevs-approvedpages-docu' => 'Följande sidor i wikin har en godkänd revision.',
+	'unapprovedpages' => 'Icke godkända sidor',
+	'approvedrevs-unapprovedpages-docu' => 'Följande sidor i wikin saknar en godkänd revision.',
+	'right-approverevisions' => 'Sätt en viss revidering av en wiki-sida som godkänd',
+	'right-viewlinktolatest' => 'Se förklarande text högst upp på sidor som har en godkänd revision',
 );
 
 /** Tamil (தமிழ்)
@@ -850,6 +892,35 @@ Onun yerine, en son revizyon gösterilecektir.',
 	'approvedrevs-approvedpages-docu' => 'Aşağıdakiler, onaylanmış revizyonu bulunan viki sayfalardır.',
 	'right-approverevisions' => 'Bir viki sayfasının belirli bir revizyonunu onaylanmış olarak ayarla',
 	'right-viewlinktolatest' => 'Onaylanmış revizyonu bulunan sayfaların başındaki açıklayıcı metni görüntüle',
+);
+
+/** Ukrainian (Українська)
+ * @author Alex Khimich
+ */
+$messages['uk'] = array(
+	'approvedrevs-desc' => 'Встановити єдиний перегляд сторінки як затверджуючий',
+	'approvedrevs-logname' => 'Журнал одобрень та переглядів',
+	'approvedrevs-logdesc' => 'Це протокол переглядів, які були затверджуючими.',
+	'approvedrevs-approve' => 'Затвердити',
+	'approvedrevs-unapprove' => 'Відхилити',
+	'approvedrevs-approvesuccess' => 'Цей перегляд сторінки був встановлений як затверджуючий.',
+	'approvedrevs-unapprovesuccess' => 'Існує не затверджений варіант для цієї сторінки. 
+Замість цього, самий останній затверджений варіант буде показаний.',
+	'approvedrevs-unapprovesuccess2' => 'Існує не затверджений варіант для цієї сторінки. 
+Замість цього буде показано порожню сторінку.',
+	'approvedrevs-approveaction' => 'встановити $2 як затверджену версію для "[[$1]]"',
+	'approvedrevs-unapproveaction' => 'відкликати стверджену версію для "[[$1]]"',
+	'approvedrevs-notlatest' => 'Це затверджений перегляд цієї сторінки, це не остання версія.',
+	'approvedrevs-approvedandlatest' => 'Це затверджений перегляд цієї сторінки, вын э найновішим.',
+	'approvedrevs-viewlatest' => 'Відкрити найсвіжіший перегляд.',
+	'approvedrevs-blankpageshown' => 'Не було знайдено схвалювальних переглядів для цієї сторінки.',
+	'approvedrevs-editwarning' => 'Зверніть увагу, що в даний час ви редагуєте найновіший перегляд цієї сторінки, який не є схваленим і відображатися за замовчуванням.',
+	'approvedpages' => 'Затверджені сторінки',
+	'approvedrevs-approvedpages-docu' => 'Наступні сторінки у вікі є схваленими при перегляді.',
+	'unapprovedpages' => 'Несхвалені сторінки',
+	'approvedrevs-unapprovedpages-docu' => 'Наступні сторінки у вікі, які не не мають схвалених версій.',
+	'right-approverevisions' => 'Встановити єдиний перегляд сторінки як затверджуючий',
+	'right-viewlinktolatest' => 'Переглянути пояснювальний текст у верхній частині сторінки яка має схвалену версію.',
 );
 
 /** Vietnamese (Tiếng Việt)
