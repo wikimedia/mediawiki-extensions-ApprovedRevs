@@ -232,6 +232,21 @@ $messages['el'] = array(
 	'right-viewlinktolatest' => 'Προβολή επεξηγηματικού κειμένου στο επάνω μέρος των σελίδων που έχουν εγκεκριμένη αναθεώρηση',
 );
 
+/** Esperanto (Esperanto)
+ * @author Yekrats
+ */
+$messages['eo'] = array(
+	'approvedrevs-approve' => 'aprobi',
+	'approvedrevs-unapprove' => 'malaprobi',
+	'approvedrevs-approvesuccess' => 'Ĉi tiu revizio de la paĝo estis aprobita kiel la aprobita versio.',
+	'approvedrevs-unapprovesuccess' => 'Ne plu estas aprobita versio por ĉi tiu paĝo.
+Anstataŭe, la plej lasta revizio estos montrita.',
+	'approvedpages' => 'Aprobitaj paĝoj',
+	'approvedrevs-approvedpages-docu' => 'Jen paĝoj en la vikio kiu havas aprobitan revizion.',
+	'unapprovedpages' => 'Malaprobitaj paĝoj',
+	'approvedrevs-unapprovedpages-docu' => 'Jen paĝoj en la vikio tiu ne havas aprobitan revizion.',
+);
+
 /** Spanish (Español)
  * @author Crazymadlover
  * @author Locos epraix
