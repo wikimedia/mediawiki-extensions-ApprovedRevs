@@ -64,6 +64,16 @@ $messages['ar'] = array(
 	'approvedrevs-approvedpages-docu' => 'صفحات الويكي التالية لها مراجعات موافق عليها.',
 );
 
+/** Aramaic (ܐܪܡܝܐ)
+ * @author Basharh
+ */
+$messages['arc'] = array(
+	'approvedrevs-approve' => 'ܩܘܒܠܐ',
+	'approvedrevs-unapprove' => 'ܠܐ ܩܘܒܠܐ',
+	'approvedpages' => 'ܕܦ̈ܐ ܩܒܝܠ̈ܐ',
+	'unapprovedpages' => 'ܕܦ̈ܐ ܠܐ ܩܒܝܠ̈ܐ',
+);
+
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
  * @author EugeneZelenko
  * @author Jim-by
@@ -586,6 +596,35 @@ $messages['mk'] = array(
 	'approvedrevs-unapprovedpages-docu' => 'Ова се страници на викито што немаат одобрена ревизија.',
 	'right-approverevisions' => 'Поставете извесна ревизија на вики-страница како одобрена',
 	'right-viewlinktolatest' => 'Погледајте го објаснувањето на врвот од страниците што имаат одобрена верзија',
+);
+
+/** Malayalam (മലയാളം)
+ * @author Praveenp
+ */
+$messages['ml'] = array(
+	'approvedrevs-desc' => 'ഒരു താളിന്റെ ഒരൊറ്റ നാൾപ്പതിപ്പ് അംഗീകരിച്ചതായി സജ്ജീകരിക്കുക',
+	'approvedrevs-logname' => 'നാൾപ്പതിപ്പ് അംഗീകരണ രേഖ',
+	'approvedrevs-logdesc' => 'ഇത് നാൾപ്പതിപ്പുകൾ അംഗീകരിച്ചതിന്റെ രേഖയാണ്.',
+	'approvedrevs-approve' => 'അംഗീകരിക്കുക',
+	'approvedrevs-unapprove' => 'അംഗീകാരം നീക്കുക',
+	'approvedrevs-approvesuccess' => 'താളിന്റെ ഈ നാൾപ്പതിപ്പ് അംഗീകരിച്ച പതിപ്പായി സജ്ജീകരിച്ചിരിക്കുന്നു.',
+	'approvedrevs-unapprovesuccess' => 'ഈ താളിൽ അംഗീകരിച്ച പതിപ്പ് ഇല്ല.
+പകരം, ഏറ്റവും പുതിയ നാൾപ്പതിപ്പ് പ്രദർശിപ്പിക്കുന്നു.',
+	'approvedrevs-unapprovesuccess2' => 'ഈ താളിന് അംഗീകരിച്ച പതിപ്പ് ഇല്ല.
+പകരം, ശൂന്യമായ താൾ പ്രദർശിപ്പിക്കുന്നു.',
+	'approvedrevs-approveaction' => '"[[$1]]" താളിന്റെ അംഗീകരിച്ച പതിപ്പായി $2 സജ്ജീകരിക്കുക',
+	'approvedrevs-unapproveaction' => '"[[$1]]" എന്നതിന്റെ അംഗീകൃത നാൾപ്പതിപ്പ് സജ്ജീകരണം നീക്കുക',
+	'approvedrevs-notlatest' => 'ഇത് ഈ താളിന്റെ അംഗീകരിച്ച നാൾപ്പതിപ്പ് ആണ്; ഇത് ഏറ്റവും പുതിയത് അല്ല.',
+	'approvedrevs-approvedandlatest' => 'ഇത് ഈ താളിന്റെ അംഗീകരിച്ച പതിപ്പ് ആണ്, അതേ പോലെ ഏറ്റവും പുതിയതുമാണ്.',
+	'approvedrevs-viewlatest' => 'ഏറ്റവും പുതിയ നാൾപ്പതിപ്പ് കാണുക.',
+	'approvedrevs-blankpageshown' => 'ഈ താളിന്റെ ഒരു നാൾപ്പതിപ്പും അംഗീകരിച്ചിട്ടില്ല.',
+	'approvedrevs-editwarning' => 'ഈ താളിന്റെ ഏറ്റവും പുതിയ നാൾപ്പതിപ്പ് അല്ല താങ്കൾ തിരുത്തുന്നതെന്ന് ശ്രദ്ധിക്കുക, അത് സ്വതേ പ്രദർശിപ്പിച്ചിരിക്കുന്ന പതിപ്പ് അല്ല.',
+	'approvedpages' => 'അംഗീകരിച്ച താളുകൾ',
+	'approvedrevs-approvedpages-docu' => 'വിക്കിയിലെ താഴെ കൊടുത്തിരിക്കുന്ന താളുകൾക്ക് അംഗീകരിച്ച നാൾപ്പതിപ്പ് ഉണ്ട്.',
+	'unapprovedpages' => 'അംഗീകരിച്ചിട്ടില്ലാത്ത താളുകൾ',
+	'approvedrevs-unapprovedpages-docu' => 'വിക്കിയിലെ താഴെ കൊടുത്തിരിക്കുന്ന താളുകൾക്ക് അംഗീകരിച്ച നാൾപ്പതിപ്പ് ഇല്ല.',
+	'right-approverevisions' => 'വിക്കി താളിന്റെ ഒരു പ്രത്യേക നാൾപ്പതിപ്പ് അംഗീകരിച്ചതായി സജ്ജീകരിക്കുക',
+	'right-viewlinktolatest' => 'അംഗീകരിച്ച നാൾപ്പതിപ്പുള്ള താളുകളുടെ മുകളിലായി ഒരു വിശദീകരണ കുറിപ്പ് പ്രദർശിപ്പിക്കുക',
 );
 
 /** Dutch (Nederlands)
