@@ -74,6 +74,35 @@ $messages['arc'] = array(
 	'unapprovedpages' => 'ܕܦ̈ܐ ܠܐ ܩܒܝܠ̈ܐ',
 );
 
+/** Bashkir (Башҡорт)
+ * @author Assele
+ */
+$messages['ba'] = array(
+	'approvedrevs-desc' => 'Биттең бер өлгөһөн раҫланған тип билдәләү',
+	'approvedrevs-logname' => 'Өлгөләрҙе раҫлау яҙмалары журналы',
+	'approvedrevs-logdesc' => 'Был — биттәрҙең раҫланған өлгөләре журналы.',
+	'approvedrevs-approve' => 'раҫларға',
+	'approvedrevs-unapprove' => 'раҫлауҙы алырға',
+	'approvedrevs-approvesuccess' => 'Биттең был өлгөһө раҫланған тип билдәләнде.',
+	'approvedrevs-unapprovesuccess' => 'Был биттең раҫланған өлгөһө юҡ.
+Уның урынына һуңғы өлгө күрһәтеләсәк.',
+	'approvedrevs-unapprovesuccess2' => 'Был биттең башҡа раҫланған өлгөһө юҡ.
+Уның урынына буш бит күрһәтеләсәк.',
+	'approvedrevs-approveaction' => '$2 өлгөһөн "[[$1]]" битенең раҫланған өлгөһө тип билдәләргә',
+	'approvedrevs-unapproveaction' => '"[[$1]]" битенең раҫланған өлгөһөнөң раҫланыуын алырға',
+	'approvedrevs-notlatest' => 'Был — биттең раҫланған өлгөһө. Яңыраҡ өлгөләр бар.',
+	'approvedrevs-approvedandlatest' => 'Был — биттең раҫланған өлгөһө, ул — шулай уҡ биттең яңы өлгөһө.',
+	'approvedrevs-viewlatest' => 'Һуңғы өлгөнө ҡарарға.',
+	'approvedrevs-blankpageshown' => 'Был бит өсөн раҫланған өлгөләр юҡ.',
+	'approvedrevs-editwarning' => 'Зинһар, иғтибар итегеҙ, һеҙ хәҙер был биттең һуңғы өлгөһөн мөхәррирләйһегеҙ, әммә ул күрһәтелмәй, сөнки ул раҫланмаған.',
+	'approvedpages' => 'Раҫланған биттәр',
+	'approvedrevs-approvedpages-docu' => 'Түбәндә раҫланған өлгөләре булған биттәр исемлеге килтерлгән.',
+	'unapprovedpages' => 'Раҫланмаған биттәр',
+	'approvedrevs-unapprovedpages-docu' => 'Түбәндә раҫланған өлгөләре булмаған биттәр исемлеге килтерлгән.',
+	'right-approverevisions' => 'Вики-биттәрҙең ҡайһы бер өлгөләрен раҫланған тип билдәләү',
+	'right-viewlinktolatest' => 'Раҫланған өлгөләре булған биттәрҙең өҫкө өлөшөндә аңлатманы ҡарау',
+);
+
 /** Belarusian (Taraškievica orthography) (Беларуская (тарашкевіца))
  * @author EugeneZelenko
  * @author Jim-by
@@ -246,11 +275,19 @@ $messages['el'] = array(
  * @author Yekrats
  */
 $messages['eo'] = array(
+	'approvedrevs-logname' => 'Protokolo pri aprobado de revizioj',
+	'approvedrevs-logdesc' => 'Jen protokolo de revizioj aprobitaj.',
 	'approvedrevs-approve' => 'aprobi',
 	'approvedrevs-unapprove' => 'malaprobi',
 	'approvedrevs-approvesuccess' => 'Ĉi tiu revizio de la paĝo estis aprobita kiel la aprobita versio.',
 	'approvedrevs-unapprovesuccess' => 'Ne plu estas aprobita versio por ĉi tiu paĝo.
 Anstataŭe, la plej lasta revizio estos montrita.',
+	'approvedrevs-unapprovesuccess2' => 'Ne plu estas aprobita verzio de ĉi tiu paĝo.
+Anstataŭe, nula paĝo estos montrita.',
+	'approvedrevs-approveaction' => 'Establi $2 kiel la aprobita revizio por "[[$1]]"',
+	'approvedrevs-unapproveaction' => 'malestabli apbrobitan revizion por "[[$1]]"',
+	'approvedrevs-notlatest' => 'Jen la aprobita revizio de ĉi tiu paĝo; ĝi ne estas la plej lastatempa.',
+	'approvedrevs-approvedandlatest' => 'Jen la aprobita revizio de ĉi tiu paĝo, kaj ankaŭ estis la plej lastatempa.',
 	'approvedpages' => 'Aprobitaj paĝoj',
 	'approvedrevs-approvedpages-docu' => 'Jen paĝoj en la vikio kiu havas aprobitan revizion.',
 	'unapprovedpages' => 'Malaprobitaj paĝoj',
@@ -846,6 +883,13 @@ $messages['ru'] = array(
 	'approvedrevs-unapprovedpages-docu' => 'Ниже показан список вики-страниц, не имеющих подтверждённых версий.',
 	'right-approverevisions' => 'отметка определённых версий вики-страниц как подтверждённых',
 	'right-viewlinktolatest' => 'просмотр пояснительного текста в верхней части страниц, имеющих утверждённые версии',
+);
+
+/** Slovak (Slovenčina)
+ * @author Helix84
+ */
+$messages['sk'] = array(
+	'approvedrevs-desc' => 'Stanoviť jedinú revíziu stránky ako schválenú',
 );
 
 /** Swedish (Svenska)
