@@ -19,8 +19,7 @@ class ApprovedRevsHooks {
 	 */
 	static public function setApprovedRevForParsing( &$parser, &$text, &$stripState ) {
 		global $wgRequest;
-		$action = $wgRequest->getVal( 'action' );
-		if ( $action == 'submit' ) {
+		if ( $wgRequest->getCheck( 'wpSave' ) ) {
 			$title = $parser->getTitle();
 			if ( ! ApprovedRevs::pageIsApprovable( $title ) ) {
 				return true;
@@ -110,7 +109,11 @@ class ApprovedRevsHooks {
 			if ( $egApprovedRevsBlankIfUnapproved ) {
 				$content = '';
 				global $wgOut;
-				$wgOut->setSubtitle( wfMsg( 'approvedrevs-blankpageshown' ) );
+				if ( $wgOut->getSubtitle() != '' ) {
+					$wgOut->appendSubtitle( "<br />" . wfMsg( 'approvedrevs-blankpageshown' ) );
+				} else {
+					$wgOut->setSubtitle( wfMsg( 'approvedrevs-blankpageshown' ) );
+				}
 			}
 		}
 		return true;
@@ -154,7 +157,11 @@ class ApprovedRevsHooks {
 			$text .= ' ' . $curRevLink;
 		}
 		global $wgOut;
-		$wgOut->setSubtitle( $text );
+		if ( $wgOut->getSubtitle() != '' ) {
+			$wgOut->appendSubtitle( "<br />" . $text );
+		} else {
+			$wgOut->setSubtitle( $text );
+		}
 		return false;
 	}
 
