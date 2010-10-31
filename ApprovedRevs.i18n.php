@@ -228,6 +228,13 @@ Stattdessen wird eine leere Seite angezeigt.',
 	'right-viewlinktolatest' => 'Erläuternde Hinweise im Kopf der Seiten anzeigen, die eine bestätigte Version haben.',
 );
 
+/** German (formal address) (Deutsch (Sie-Form))
+ * @author Kghbln
+ */
+$messages['de-formal'] = array(
+	'approvedrevs-editwarning' => 'Beachten Sie bitte, dass Sie gerade die neueste Version dieser Seite bearbeiten. Sie entspricht nicht der bestätigten Version, die standardmäßig angezeigt wird.',
+);
+
 /** Lower Sorbian (Dolnoserbski)
  * @author Michawiki
  */
