@@ -1044,3 +1044,11 @@ $messages['vi'] = array(
 	'right-viewlinktolatest' => 'Xem văn bản giải thích ở đầu các trang có phiên bản chấp nhận',
 );
 
+/** Simplified Chinese (‪中文(简体)‬)
+ * @author Hydra
+ */
+$messages['zh-hans'] = array(
+	'approvedpages' => '被批准的页面',
+	'unapprovedpages' => '不备批准的页面',
+);
+
