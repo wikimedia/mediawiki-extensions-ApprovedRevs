@@ -9,7 +9,7 @@ if ( !defined( 'MEDIAWIKI' ) ) die();
  * @author Yaron Koren
  */
 
-define( 'APPROVED_REVS_VERSION', '0.4.1' );
+define( 'APPROVED_REVS_VERSION', '0.5' );
 
 // credits
 $wgExtensionCredits['other'][] = array(
@@ -23,6 +23,7 @@ $wgExtensionCredits['other'][] = array(
 
 // global variables
 $egApprovedRevsIP = dirname( __FILE__ ) . '/';
+$egApprovedRevsScriptPath = $wgScriptPath . '/extensions/ApprovedRevs';
 $egApprovedRevsNamespaces = array( NS_MAIN, NS_TEMPLATE, NS_HELP, NS_PROJECT );
 $egApprovedRevsBlankIfUnapproved = false;
 
@@ -33,12 +34,9 @@ $wgExtensionAliasesFiles['ApprovedRevs'] = $egApprovedRevsIP . 'ApprovedRevs.ali
 // register all classes
 $wgAutoloadClasses['ApprovedRevs'] = $egApprovedRevsIP . 'ApprovedRevs_body.php';
 $wgAutoloadClasses['ApprovedRevsHooks'] = $egApprovedRevsIP . 'ApprovedRevs.hooks.php';
-$wgSpecialPages['ApprovedPages'] = 'ARApprovedPages';
-$wgAutoloadClasses['ARApprovedPages'] = $egApprovedRevsIP . 'AR_ApprovedPages.php';
-$wgSpecialPageGroups['ApprovedPages'] = 'pages';
-$wgSpecialPages['UnapprovedPages'] = 'ARUnapprovedPages';
-$wgAutoloadClasses['ARUnapprovedPages'] = $egApprovedRevsIP . 'AR_UnapprovedPages.php';
-$wgSpecialPageGroups['UnapprovedPages'] = 'pages';
+$wgSpecialPages['ApprovedRevs'] = 'SpecialApprovedRevs';
+$wgAutoloadClasses['SpecialApprovedRevs'] = $egApprovedRevsIP . 'SpecialApprovedRevs.php';
+$wgSpecialPageGroups['ApprovedRevs'] = 'pages';
 
 // hooks
 $wgHooks['ParserBeforeInternalParse'][] = 'ApprovedRevsHooks::setApprovedRevForParsing';
