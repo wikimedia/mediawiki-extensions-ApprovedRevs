@@ -8,24 +8,22 @@ $specialPageAliases = array();
 
 /** English (English) */
 $specialPageAliases['en'] = array(
-	'ApprovedPages' => array( 'ApprovedPages' ),
-	'UnapprovedPages' => array( 'UnapprovedPages' ),
+	'ApprovedRevs' => array( 'ApprovedRevs', 'ApprovedPages', 'UnapprovedPages' ),
 );
 
 /** Malayalam (മലയാളം) */
 $specialPageAliases['ml'] = array(
-	'ApprovedPages' => array( 'അംഗീകൃതതാളുകൾ' ),
-	'UnapprovedPages' => array( 'അംഗീകൃതമല്ലാത്തതാളുകൾ' ),
+	'ApprovedRevs' => array( 'അംഗീകൃതതാളുകൾ', 'അംഗീകൃതമല്ലാത്തതാളുകൾ' ),
 );
 
 /** Dutch (Nederlands) */
 $specialPageAliases['nl'] = array(
-	'ApprovedPages' => array( 'GoedgekeurdePaginas', 'GoedgekeurdePagina\'s' ),
+	'ApprovedRevs' => array( 'GoedgekeurdePaginas', 'GoedgekeurdePagina\'s' ),
 );
 
 /** Sanskrit (संस्कृत) */
 $specialPageAliases['sa'] = array(
-	'ApprovedPages' => array( 'अंगीकृत_पृष्टानि' ),
+	'ApprovedRevs' => array( 'अंगीकृत_पृष्टानि' ),
 );
 
 /**
