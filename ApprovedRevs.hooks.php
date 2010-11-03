@@ -463,8 +463,7 @@ class ApprovedRevsHooks {
 			$extensions_row = new ALRow( 'extensions' );
 			$general_section->addRow( $extensions_row );
 		}
-		$extensions_row->addItem( ALItem::newFromSpecialPage( 'ApprovedPages' ) );
-		$extensions_row->addItem( ALItem::newFromSpecialPage( 'UnapprovedPages' ) );
+		$extensions_row->addItem( ALItem::newFromSpecialPage( 'ApprovedRevs' ) );
 		return true;
 	}
 
