@@ -192,4 +192,16 @@ class ApprovedRevs {
 
 		wfRunHooks( 'ApprovedRevsRevisionUnapproved', array( $parser, $title ) );
 	}
+
+	public static function addCSS() {
+		global $wgOut, $egApprovedRevsScriptPath;
+		$link = array(
+			'rel' => 'stylesheet',
+			'type' => 'text/css',
+			'media' => "screen",
+			'href' => "$egApprovedRevsScriptPath/ApprovedRevs.css"
+		);
+		$wgOut->addLink( $link );
+	}
+
 }
