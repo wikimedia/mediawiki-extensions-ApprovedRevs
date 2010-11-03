@@ -140,9 +140,14 @@ class ApprovedRevsHooks {
 			return false;
 		}
 
+		ApprovedRevs::addCSS();
 		wfLoadExtensionMessages( 'ApprovedRevs' );
 		if ( $revisionID == $article->getLatest() ) {
-			$text = wfMsg( 'approvedrevs-approvedandlatest' );
+			$text = Xml::element(
+				'span',
+				array( 'class' => 'approvedAndLatestMsg' ),
+				wfMsg( 'approvedrevs-approvedandlatest' )
+			);
 		} else {
 			$text = wfMsg( 'approvedrevs-notlatest' );
 			global $wgUser;
@@ -155,6 +160,11 @@ class ApprovedRevsHooks {
 				array( 'known', 'noclasses' )
 			);
 			$text .= ' ' . $curRevLink;
+			$text = Xml::tags(
+				'span',
+				array( 'class' => 'notLatestMsg' ),
+				$text
+			);
 		}
 		global $wgOut;
 		if ( $wgOut->getSubtitle() != '' ) {
@@ -180,8 +190,9 @@ class ApprovedRevsHooks {
 		$approvedRevID = ApprovedRevs::getApprovedRevID( $title );
 		$latestRevID = $title->getLatestRevID();
 		if ( ! empty( $approvedRevID ) && $approvedRevID != $latestRevID ) {
+			ApprovedRevs::addCSS();
 			global $wgOut;
-		        $wgOut->addHTML( '<p><strong>' .  wfMsg( 'approvedrevs-editwarning' ) . "</strong></p>\n" );
+		        $wgOut->addHTML( '<p class="approvedRevsEditWarning">' .  wfMsg( 'approvedrevs-editwarning' ) . "</p>\n" );
 		}
 		return true;
 	}
@@ -198,6 +209,7 @@ class ApprovedRevsHooks {
 		$approvedRevID = ApprovedRevs::getApprovedRevID( $wgTitle );
 		$latestRevID = $wgTitle->getLatestRevID();
 		if ( ! empty( $approvedRevID ) && $approvedRevID != $latestRevID ) {
+			ApprovedRevs::addCSS();
 		        $preFormHTML .= '<p><strong>' .  wfMsg( 'approvedrevs-editwarning' ) . "</strong></p>\n";
 		}
 		return true;
