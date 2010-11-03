@@ -707,13 +707,16 @@ W zamian prezentowana będzie ostatnia wersja.',
 W zamian zostanie wyświetlona pusta strona.',
 	'approvedrevs-approveaction' => 'zatwierdził wersję $2 strony „[[$1]]”',
 	'approvedrevs-unapproveaction' => 'usunął zatwierdzenie strony „[[$1]]”',
-	'approvedrevs-notlatest' => 'To jest zatwierdzona wersja strony. To nie jest ostatnia jej wersja.',
+	'approvedrevs-notlatest' => 'Strony, których zatwierdzona wersja nie jest ich ostatnią',
 	'approvedrevs-approvedandlatest' => 'To jest nie tylko zatwierdzona wersja strony, ale również ostatnia jej wersja.',
 	'approvedrevs-viewlatest' => 'Zobacz najnowsze zmiany.',
 	'approvedrevs-blankpageshown' => 'Żadna wersja tej strony nie została zatwierdzona.',
 	'approvedrevs-editwarning' => 'Zauważ, że edytujesz ostatnią wersję strony. Wersję, która nie została zatwierdzona i nie jest pokazywana domyślnie.',
+	'approvedrevs' => 'Zatwierdzone wersje',
 	'approvedrevs-approvedpages' => 'Zatwierdzone strony',
 	'approvedrevs-unapprovedpages' => 'Niezatwierdzone strony',
+	'approvedrevs-view' => 'Widok',
+	'approvedrevs-revisionnumber' => 'wersja $1',
 	'right-approverevisions' => 'Zatwierdzenie wybranych wersji stron wiki',
 	'right-viewlinktolatest' => 'Pokazuj tekst wyjaśniający w górnej części tych stron, które mają zatwierdzoną wersję',
 );
@@ -945,6 +948,7 @@ Onun yerine, en son revizyon gösterilecektir.',
 
 /** Ukrainian (Українська)
  * @author Alex Khimich
+ * @author Тест
  */
 $messages['uk'] = array(
 	'approvedrevs-desc' => 'Встановити єдиний перегляд сторінки як затверджуючий',
@@ -959,7 +963,7 @@ $messages['uk'] = array(
 Замість цього буде показано порожню сторінку.',
 	'approvedrevs-approveaction' => 'встановити $2 як затверджену версію для "[[$1]]"',
 	'approvedrevs-unapproveaction' => 'відкликати стверджену версію для "[[$1]]"',
-	'approvedrevs-notlatest' => 'Це затверджений перегляд цієї сторінки, це не остання версія.',
+	'approvedrevs-notlatest' => 'Сторінки, чиї затверджені версії не є останніми',
 	'approvedrevs-approvedandlatest' => 'Це затверджений перегляд цієї сторінки, вын э найновішим.',
 	'approvedrevs-viewlatest' => 'Відкрити найсвіжіший перегляд.',
 	'approvedrevs-blankpageshown' => 'Не було знайдено схвалювальних переглядів для цієї сторінки.',
