@@ -36,6 +36,8 @@ Instead, a blank page will be shown.',
 	'approvedrevs-unapprovedpages' => 'Unapproved pages',
 	'approvedrevs-view' => 'View:',
 	'approvedrevs-revisionnumber' => 'revision $1',
+	'approvedrevs-approvedby' => 'approved by $1 on $2',
+	'approvedrevs-difffromlatest' => 'diff from latest',
 	'right-approverevisions' => 'Set a certain revision of a wiki page as approved',
 	'right-viewlinktolatest' => 'View explanatory text at the top of pages that have an approved revision',
 );
