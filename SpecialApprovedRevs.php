@@ -66,12 +66,12 @@ class SpecialApprovedRevsPage extends QueryPage {
 		if ( $this->mMode == 'notlatest' ) {
 			$navLine .= Xml::element( 'strong',
 				null,
-				wfMsg( 'approvedrevs-notlatest' )
+				wfMsg( 'approvedrevs-notlatestpages' )
 			);
 		} else {
 			$navLine .= Xml::element( 'a',
 				array( 'href' => $approvedPagesTitle->getLocalURL( array( 'show' => 'notlatest' ) ) ),
-				wfMsg( 'approvedrevs-notlatest' )
+				wfMsg( 'approvedrevs-notlatestpages' )
 			);
 		}
 		$navLine .= " | ";
