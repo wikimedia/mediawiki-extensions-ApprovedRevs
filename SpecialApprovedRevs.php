@@ -144,18 +144,43 @@ class SpecialApprovedRevsPage extends QueryPage {
 		$pageLink = $skin->makeLinkObj( $title );
 		if ( $this->mMode == 'unapproved' ) {
 			return $pageLink;
+		} elseif ( $this->mMode == 'notlatest' ) {
+			$diffLink = Xml::element( 'a',
+				array( 'href' => $title->getLocalUrl(
+					array(
+						'diff' => $result->latest_id,
+						'oldid' => $result->rev_id
+					)
+				) ),
+				wfMsg( 'approvedrevs-difffromlatest' )
+			);
+			return "$pageLink ($diffLink)";
 		} else {
+			global $wgUser, $wgOut, $wgLang;
 			if ( $result->rev_id == $result->latest_id ) {
 				$class = "approvedRevIsLatest";
 			} else {
 				$class = "approvedRevNotLatest";
 			}
-			return $pageLink . ' (' .
-				Xml::element( 'span',
-					array ( 'class' => $class ),
-					wfMsg( 'approvedrevs-revisionnumber', $result->rev_id )
-				) .
-				')';
+			$additionalInfo = Xml::element( 'span',
+				array ( 'class' => $class ),
+				wfMsg( 'approvedrevs-revisionnumber', $result->rev_id )
+			);
+
+			// Get data on the most recent approval from the
+			// 'approval' log, and display it if it's there.
+			$sk = $wgUser->getSkin();
+			$loglist = new LogEventsList( $sk, $wgOut );
+			$pager = new LogPager( $loglist, array( 'approval' ), '', $title->getText() );
+			$pager->mLimit = 1;
+			$pager->doQuery();
+			$row = $pager->mResult->fetchObject();
+			if ( !empty( $row ) ) {
+				$time = $wgLang->timeanddate( wfTimestamp( TS_MW, $row->log_timestamp ), true );
+				$userLink = $sk->userLink( $row->log_user, $row->user_name );
+				$additionalInfo .= ', ' . wfMsg( 'approvedrevs-approvedby', $userLink, $time );
+			}
+			return "$pageLink ($additionalInfo)";
 		}
 	}
 }
