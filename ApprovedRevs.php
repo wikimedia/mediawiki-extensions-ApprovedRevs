@@ -26,6 +26,7 @@ $egApprovedRevsIP = dirname( __FILE__ ) . '/';
 $egApprovedRevsScriptPath = $wgScriptPath . '/extensions/ApprovedRevs';
 $egApprovedRevsNamespaces = array( NS_MAIN, NS_TEMPLATE, NS_HELP, NS_PROJECT );
 $egApprovedRevsBlankIfUnapproved = false;
+$egApprovedRevsAutomaticApprovals = true;
 
 // internationalization
 $wgExtensionMessagesFiles['ApprovedRevs'] = $egApprovedRevsIP . 'ApprovedRevs.i18n.php';

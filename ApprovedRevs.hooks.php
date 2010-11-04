@@ -47,16 +47,21 @@ class ApprovedRevsHooks {
 	}
 
 	/**
-	 * If the user saving this page has approval power, and the page
-	 * is approvable, and either (a) this page already has an approved
-	 * revision, or (b) unapproved pages are shown as blank on this
-	 * wiki, automatically set this latest revision to be the approved
-	 * one - don't bother logging the approval, though; the log is
-	 * reserved for manual approvals.
+	 * If the user saving this page has approval power, and automatic
+	 * approvals are enabled, and the page is approvable, and either
+	 * (a) this page already has an approved revision, or (b) unapproved
+	 * pages are shown as blank on this wiki, automatically set this
+	 * latest revision to be the approved one - don't bother logging
+	 * the approval, though; the log is reserved for manual approvals.
 	 */
 	static public function setLatestAsApproved( &$article ) {
 		$title = $article->getTitle();
 		if ( ! $title->userCan( 'approverevisions' ) ) {
+			return true;
+		}
+
+		global $egApprovedRevsAutomaticApprovals;
+		if ( ! $egApprovedRevsAutomaticApprovals ) {
 			return true;
 		}
 
