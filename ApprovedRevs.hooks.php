@@ -146,6 +146,7 @@ class ApprovedRevsHooks {
 		}
 
 		ApprovedRevs::addCSS();
+		wfLoadExtensionMessages( 'ApprovedRevs' );
 		if ( $revisionID == $article->getLatest() ) {
 			$text = Xml::element(
 				'span',
@@ -272,6 +273,8 @@ class ApprovedRevsHooks {
 		// this will be null if there's no ID
 		$approvedRevID = ApprovedRevs::getApprovedRevID( $article->getTitle() );
 		$article->approvedRevID = $approvedRevID;
+		// also load extension messages, while we're at it
+		wfLoadExtensionMessages( 'ApprovedRevs' );
 		return true;
 	}
 	
