@@ -225,7 +225,7 @@ class ApprovedRevsHooks {
 	 * 'action=edit' URL (i.e., the latest revision), no matter which
 	 * revision they're actually on.
 	 */
-	static function changeEditLink( &$skin, &$contentActions ) {
+	static function changeEditLink( $skin, &$contentActions ) {
 		global $wgRequest;
 		if ( $wgRequest->getCheck( 'oldid' ) ) {
 			return true;
