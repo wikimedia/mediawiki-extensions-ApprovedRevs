@@ -138,6 +138,8 @@ $messages['be-tarask'] = array(
 	'approvedrevs-unapprovedpages' => 'Незацьверджаныя старонкі',
 	'approvedrevs-view' => 'Прагляд:',
 	'approvedrevs-revisionnumber' => 'вэрсія $1',
+	'approvedrevs-approvedby' => 'зацьверджаная $1 $2',
+	'approvedrevs-difffromlatest' => 'адрозьненьне з апошняй',
 	'right-approverevisions' => 'зацьверджаньне вызначаных вэрсіяў вікі-старонак',
 	'right-viewlinktolatest' => 'прагляд тлумачальнага тэксту ў версе старонак, якія маюць зацьверджаныя вэрсіі',
 );
@@ -232,6 +234,8 @@ Stattdessen wird eine leere Seite angezeigt.',
 	'approvedrevs-unapprovedpages' => 'Nicht bestätigte Seiten',
 	'approvedrevs-view' => 'Ansehen:',
 	'approvedrevs-revisionnumber' => 'Version $1',
+	'approvedrevs-approvedby' => 'von $1 am $2 bestätigt',
+	'approvedrevs-difffromlatest' => 'Unterschied zur neuesten Version',
 	'right-approverevisions' => 'Eine bestimmte Version einer Wikiseite als bestätigt festlegen',
 	'right-viewlinktolatest' => 'Erläuternde Hinweise im Kopf der Seiten anzeigen, die eine bestätigte Version haben.',
 );
@@ -520,6 +524,8 @@ In loco de illo, un pagina vacue essera monstrate.',
 	'approvedrevs-unapprovedpages' => 'Paginas non approbate',
 	'approvedrevs-view' => 'Vider:',
 	'approvedrevs-revisionnumber' => 'version $1',
+	'approvedrevs-approvedby' => 'approbate per $1 le $2',
+	'approvedrevs-difffromlatest' => 'differentias del ultime version',
 	'right-approverevisions' => 'Marcar un certe version de un pagina wiki como approbate',
 	'right-viewlinktolatest' => 'Vider le texto explicative in alto del paginas que ha un version approbate',
 );
@@ -651,6 +657,8 @@ $messages['mk'] = array(
 	'approvedrevs-unapprovedpages' => 'Неодобрени страници',
 	'approvedrevs-view' => 'Преглед:',
 	'approvedrevs-revisionnumber' => 'ревизија $1',
+	'approvedrevs-approvedby' => 'одобрено од $1 на $2',
+	'approvedrevs-difffromlatest' => 'разл. од послед.',
 	'right-approverevisions' => 'Поставете извесна ревизија на вики-страница како одобрена',
 	'right-viewlinktolatest' => 'Погледајте го објаснувањето на врвот од страниците што имаат одобрена верзија',
 );
@@ -1037,6 +1045,7 @@ $messages['uk'] = array(
 	'approvedrevs-approvedpages' => 'Затверджені сторінки',
 	'approvedrevs-notlatestpages' => 'Сторінки, чиї затверджені версії не є останніми',
 	'approvedrevs-unapprovedpages' => 'Несхвалені сторінки',
+	'approvedrevs-revisionnumber' => 'версія $1',
 	'right-approverevisions' => 'Встановити єдиний перегляд сторінки як затверджуючий',
 	'right-viewlinktolatest' => 'Переглянути пояснювальний текст у верхній частині сторінки яка має схвалену версію.',
 );
