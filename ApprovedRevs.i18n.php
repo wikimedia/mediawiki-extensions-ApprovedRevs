@@ -428,9 +428,14 @@ No canto dela, móstrase unha páxina en branco.',
 	'approvedrevs-viewlatest' => 'Ollar a revisión máis recente.',
 	'approvedrevs-blankpageshown' => 'Esta páxina non ten ningunha revisión aprobada.',
 	'approvedrevs-editwarning' => 'Teña en conta que está a editar a última revisión desta páxina, e non a aprobada que se mostra por defecto.',
-	'approvedrevs-approvedpages' => 'Páxinas aprobadas',
-	'approvedrevs-notlatestpages' => 'Esta é a revisión aprobada da páxina, pero non é a máis recente.',
+	'approvedrevs' => 'Revisións aprobadas',
+	'approvedrevs-approvedpages' => 'Todas as páxinas cunha revisión aprobada',
+	'approvedrevs-notlatestpages' => 'Páxinas cuxa revisión aprobada non é a máis recente',
 	'approvedrevs-unapprovedpages' => 'Páxinas suspendidas',
+	'approvedrevs-view' => 'Ver:',
+	'approvedrevs-revisionnumber' => 'revisión $1',
+	'approvedrevs-approvedby' => 'aprobada por $1 o $2',
+	'approvedrevs-difffromlatest' => 'diferenzas coa última',
 	'right-approverevisions' => 'Marcar como aprobada unha revisión específica dunha páxina do wiki',
 	'right-viewlinktolatest' => 'Ollar o texto explicativo ao comezo das páxinas que posúen unha revisión aprobada',
 );
@@ -462,6 +467,8 @@ Statt däm wird e lääri Syte aazeigt.',
 	'approvedrevs-unapprovedpages' => 'Nit bstetigti Syte',
 	'approvedrevs-view' => 'Aaluege:',
 	'approvedrevs-revisionnumber' => 'Version $1',
+	'approvedrevs-approvedby' => 'vu $1 am $2 bstetigt',
+	'approvedrevs-difffromlatest' => 'Unterschid zue dr nejschte Version',
 	'right-approverevisions' => 'E sicheri Version vun ere Wikisyte as aagluegt markiere',
 	'right-viewlinktolatest' => 'Dr Erklerigstext aaluege obe uf Syte, wu s e aagluegti Version git',
 );
@@ -567,6 +574,7 @@ $messages['ig'] = array(
 );
 
 /** Japanese (日本語)
+ * @author Iwai.masaharu
  * @author W.CC
  * @author 青子守歌
  */
@@ -594,6 +602,8 @@ $messages['ja'] = array(
 	'approvedrevs-unapprovedpages' => '未承認ページ',
 	'approvedrevs-view' => '表示：',
 	'approvedrevs-revisionnumber' => '版$1',
+	'approvedrevs-approvedby' => '$2 の $1 によって承認されています',
+	'approvedrevs-difffromlatest' => '最新版との差分',
 	'right-approverevisions' => 'ウィキページの特定の版を承認済みに設定',
 	'right-viewlinktolatest' => '承認済みの版があるページの冒頭に説明文を表示',
 );
@@ -719,6 +729,8 @@ Het is niet de meeste recente versie.',
 	'approvedrevs-unapprovedpages' => "Niet-goedgekeurde pagina's",
 	'approvedrevs-view' => 'Weergave:',
 	'approvedrevs-revisionnumber' => 'versie $1',
+	'approvedrevs-approvedby' => 'goedgekeurd door $1 op $2',
+	'approvedrevs-difffromlatest' => 'verschil met de meest recente versie',
 	'right-approverevisions' => 'Een versie van een wikipagina markeren als goedgekeurd.',
 	'right-viewlinktolatest' => "De verklarende tekst bovenaan pagina's zien die die een goedgekeurde versie hebben",
 );
@@ -868,9 +880,13 @@ Em vez dela, será apresentada uma página em branco.',
 	'approvedrevs-viewlatest' => 'Ver a revisão mais recente.',
 	'approvedrevs-blankpageshown' => 'Esta página não tem nenhuma revisão aprovada.',
 	'approvedrevs-editwarning' => 'Note, por favor, que agora você está editando a revisão mais recente desta página e não a versão aprovada que é mostrada por padrão.',
+	'approvedrevs' => 'Revisões aprovadas',
 	'approvedrevs-approvedpages' => 'Páginas aprovadas',
 	'approvedrevs-notlatestpages' => 'Esta é a revisão aprovada desta página; não é a revisão mais recente.',
 	'approvedrevs-unapprovedpages' => 'Páginas não aprovadas',
+	'approvedrevs-revisionnumber' => 'revisão $1',
+	'approvedrevs-approvedby' => 'aprovada por $1 em $2',
+	'approvedrevs-difffromlatest' => 'diff da última versão',
 	'right-approverevisions' => 'Definir como aprovada uma revisão específica de uma página da wiki',
 	'right-viewlinktolatest' => 'Ver um texto explicativo no topo das páginas que têm uma revisão aprovada',
 );
