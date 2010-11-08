@@ -171,7 +171,7 @@ class SpecialApprovedRevsPage extends QueryPage {
 			// 'approval' log, and display it if it's there.
 			$sk = $wgUser->getSkin();
 			$loglist = new LogEventsList( $sk, $wgOut );
-			$pager = new LogPager( $loglist, array( 'approval' ), '', $title->getText() );
+			$pager = new LogPager( $loglist, 'approval', '', $title->getText() );
 			$pager->mLimit = 1;
 			$pager->doQuery();
 			$row = $pager->mResult->fetchObject();
