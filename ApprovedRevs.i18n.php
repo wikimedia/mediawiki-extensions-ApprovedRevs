@@ -849,6 +849,8 @@ Al pòst, a sarà mostrà na pàgina bianca.',
 	'approvedrevs-unapprovedpages' => 'Pàgine pa aprovà',
 	'approvedrevs-view' => 'Vardé:',
 	'approvedrevs-revisionnumber' => 'revision $1',
+	'approvedrevs-approvedby' => 'aprovà da $1 su $2',
+	'approvedrevs-difffromlatest' => "diferense da l'ùltima",
 	'right-approverevisions' => 'Ampòsta na certa revision ëd na pàgina wiki com aprovà',
 	'right-viewlinktolatest' => "Vëdde ël test dë spiegassion an cò dle pàgine ch'a l'han na revision aprovà",
 );
