@@ -666,6 +666,8 @@ Aplaz, gëtt eng eidel Säit gewisen.',
 	'approvedrevs-unapprovedpages' => 'Net nogekuckte Säiten',
 	'approvedrevs-view' => 'Weisen:',
 	'approvedrevs-revisionnumber' => 'Versioun $1',
+	'approvedrevs-approvedby' => 'confirméiert vum $1 de(n) $2',
+	'approvedrevs-difffromlatest' => 'Ënnerscheed vun der rezenster',
 	'right-approverevisions' => 'Eng bestëmmte Versioun vun enger Säit als nogekuckt markéieren',
 	'right-viewlinktolatest' => 'Kuckt den Erklärungstext uewen op de Säiten déi nogekuckt Versiounen hunn',
 );
