@@ -54,7 +54,10 @@ class ApprovedRevsHooks {
 	 * latest revision to be the approved one - don't bother logging
 	 * the approval, though; the log is reserved for manual approvals.
 	 */
-	static public function setLatestAsApproved( &$article ) {
+	static public function setLatestAsApproved( &$article , &$user, $text,
+		$summary, $flags, $unused1, $unused2, &$flags, $revision,
+		&$status, $baseRevId ) {
+
 		$title = $article->getTitle();
 		if ( ! $title->userCan( 'approverevisions' ) ) {
 			return true;
@@ -76,12 +79,8 @@ class ApprovedRevsHooks {
 				return true;
 			}
 		}
-		// the rev ID is actually passed in via the hook, but it's
-		// at the end of a very long set of parameters, so for the
-		// sake of sanity we'll just re-get it here instead
-		$latestRevisionID = $title->getLatestRevID();
 		// save approval without logging
-		ApprovedRevs::saveApprovedRevIDInDB( $title, $latestRevisionID );
+		ApprovedRevs::saveApprovedRevIDInDB( $title, $revision->getID() );
 		return true;
 	}
 
