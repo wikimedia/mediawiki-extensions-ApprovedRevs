@@ -207,7 +207,7 @@ Umjesto toga, bit će prikazana prazna stranica.',
 	'approvedrevs-editwarning' => 'Molimo vas da imate u vidu da sada uređujete posljednju reviziju ove stranice, koja nije odobrena što je prikazano po postavkama.',
 	'approvedrevs' => 'Odobrene revizije',
 	'approvedrevs-approvedpages' => 'Odobrene stranice',
-	'approvedrevs-notlatestpages' => 'Ovo je odobrena verzija ove stranice; to nije najnovija verzija.',
+	'approvedrevs-notlatestpages' => 'Stranice čija odobrena revizija nije njihova najnovija',
 	'approvedrevs-unapprovedpages' => 'Neodobrene stranice',
 	'approvedrevs-view' => 'Pregled:',
 	'approvedrevs-revisionnumber' => 'revizija $1',
@@ -574,6 +574,7 @@ In loco de illo, un pagina vacue essera monstrate.',
 
 /** Indonesian (Bahasa Indonesia)
  * @author Farras
+ * @author IvanLanin
  */
 $messages['id'] = array(
 	'approvedrevs-desc' => 'Tetapkan revisi tunggal halaman ini sebagai disetujui',
@@ -592,9 +593,15 @@ Halaman kosong akan ditampilkan.',
 	'approvedrevs-approvedandlatest' => 'Ini adalah revisi disetujui dari halaman ini, juga revisi terkini.',
 	'approvedrevs-viewlatest' => 'Lihat revisi terkini.',
 	'approvedrevs-blankpageshown' => 'Tidak ada revisi yang disetujui untuk halaman ini.',
+	'approvedrevs-editwarning' => 'Harap perhatikan bahwa Anda sekarang menyunting revisi terbaru halaman ini, yang secara bawaan bukan merupakan revisi yang disetujui.',
+	'approvedrevs' => 'Revisi yang disetujui',
 	'approvedrevs-approvedpages' => 'Halaman yang disetujui',
 	'approvedrevs-notlatestpages' => 'Ini adalah revisi disetujui dari halaman ini; bukan revisi terkini.',
 	'approvedrevs-unapprovedpages' => 'Halaman tidak disetujui',
+	'approvedrevs-view' => 'Lihat:',
+	'approvedrevs-revisionnumber' => 'revisi $1',
+	'approvedrevs-approvedby' => 'disetujui oleh $1 pada $2',
+	'approvedrevs-difffromlatest' => 'perbedaan dengan yang terbaru',
 	'right-approverevisions' => 'Tetapkan revisi tertentu dari halaman wiki sebagai disetujui',
 	'right-viewlinktolatest' => 'Lihat penjelasan di atas halaman yang memiliki revisi disetujui',
 );
