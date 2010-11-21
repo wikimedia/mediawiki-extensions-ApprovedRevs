@@ -274,13 +274,23 @@ $messages['dsb'] = array(
 	'approvedrevs-approvesuccess' => 'Toś ta wersija boka jo se ako pśizwólona wersija nastajiła.',
 	'approvedrevs-unapprovesuccess' => 'Njejo wěcej pśizwólona wersija za toś ten bok.
 Město togo nejnowša wersija se pokažo.',
+	'approvedrevs-unapprovesuccess2' => 'Njejo wěcej wobkšuśona wersija za toś ten bok.
+Město togo prozna wersija se pokažo.',
 	'approvedrevs-approveaction' => '$2 ako pśizwólonu wersiju za "[[$1]]" nastajiś',
 	'approvedrevs-unapproveaction' => 'Pśizwólonu wersiju za "[[$1]]" anulěrowaś',
 	'approvedrevs-notlatest' => 'To jo pśizwólona wersija toś togo boka; njejo nejnowša.',
 	'approvedrevs-approvedandlatest' => 'To jo pśizwólona wersija toś togo boka a teke nejnowša.',
 	'approvedrevs-viewlatest' => 'Nejnowšu wersiju pokazaś',
+	'approvedrevs-blankpageshown' => 'Za toś ten bok njejo se žedna wersija wobkšuśiła.',
+	'approvedrevs-editwarning' => 'Pšosym źiwaj na to, až wobźěłujoš něnto nejnowšu wersiju toś togo boka, kótaraž njejo wobkšuśona, kotraž so pó standarźe pokazujo.',
+	'approvedrevs' => 'Wobkšuśone wersije',
 	'approvedrevs-approvedpages' => 'Pśizwólone boki',
 	'approvedrevs-notlatestpages' => 'To jo pśizwólona wersija toś togo boka; njejo nejnowša.',
+	'approvedrevs-unapprovedpages' => 'Njewobkšuśone boki',
+	'approvedrevs-view' => 'Naglěd:',
+	'approvedrevs-revisionnumber' => 'wersija $1',
+	'approvedrevs-approvedby' => 'wót $1 dnja $2 wobkšuśona',
+	'approvedrevs-difffromlatest' => 'Rozdźěl k nejnowšej wersiji',
 	'right-approverevisions' => 'Wěstu wersiju wikiboka ako pśizwólonu nastajiś',
 	'right-viewlinktolatest' => 'Tekst wujasnjenja górjejce na bokach pokazaś, kótarež maju pśizwólonu wersiju',
 );
