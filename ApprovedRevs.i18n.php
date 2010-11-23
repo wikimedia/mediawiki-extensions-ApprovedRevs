@@ -1090,6 +1090,7 @@ Sa halip, ipapakita ang isang pahinang walang laman.',
 );
 
 /** Turkish (Türkçe)
+ * @author Emperyan
  * @author Srhat
  */
 $messages['tr'] = array(
@@ -1108,6 +1109,7 @@ Onun yerine, en son revizyon gösterilecektir.',
 	'approvedrevs-viewlatest' => 'En son revizyonu görüntüle',
 	'approvedrevs-approvedpages' => 'Onaylanmış sayfalar',
 	'approvedrevs-notlatestpages' => 'Bu sayfanın onaylanmış revizyonudur; en son revizyon değildir.',
+	'approvedrevs-view' => 'Görüntüle:',
 	'right-approverevisions' => 'Bir viki sayfasının belirli bir revizyonunu onaylanmış olarak ayarla',
 	'right-viewlinktolatest' => 'Onaylanmış revizyonu bulunan sayfaların başındaki açıklayıcı metni görüntüle',
 );
