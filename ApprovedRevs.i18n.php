@@ -372,6 +372,13 @@ En su lugar, se mostrará una página en blanco.',
 	'right-viewlinktolatest' => 'Ver texto explicativo en la parte superior de las páginas que tienen una revisión aprobada',
 );
 
+/** Persian (فارسی)
+ * @author Mjbmr
+ */
+$messages['fa'] = array(
+	'approvedrevs-view' => 'مشاهده:',
+);
+
 /** Finnish (Suomi)
  * @author Centerlink
  * @author Crt
