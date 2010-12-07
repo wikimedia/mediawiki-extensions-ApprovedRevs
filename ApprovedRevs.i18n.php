@@ -340,6 +340,7 @@ Anstataŭe, nula paĝo estos montrita.',
 /** Spanish (Español)
  * @author Crazymadlover
  * @author Dferg
+ * @author Jurock
  * @author Locos epraix
  * @author Translationista
  */
@@ -363,11 +364,12 @@ En su lugar, se mostrará una página en blanco.',
 	'approvedrevs-editwarning' => 'Tenga en cuenta que ahora está editando la última revisión de esta página, que no es la aprobada, que es la que se muestra de forma predeterminada.',
 	'approvedrevs' => 'Revisiones aprobadas',
 	'approvedrevs-approvedpages' => 'Páginas aprobadas',
-	'approvedrevs-notlatestpages' => 'Esta es la revisión aprobada de esta página, no es la más reciente.',
+	'approvedrevs-notlatestpages' => 'Páginas cuya revisión aprobada no es la más reciente',
 	'approvedrevs-unapprovedpages' => 'Páginas reprobadas',
 	'approvedrevs-view' => 'Ver:',
 	'approvedrevs-revisionnumber' => 'revisión $1',
 	'approvedrevs-approvedby' => 'autorizada por $1 a las $2',
+	'approvedrevs-difffromlatest' => 'diff con la última revisión',
 	'right-approverevisions' => 'Establecer una cierta revisión de una página wiki como aprobada',
 	'right-viewlinktolatest' => 'Ver texto explicativo en la parte superior de las páginas que tienen una revisión aprobada',
 );
