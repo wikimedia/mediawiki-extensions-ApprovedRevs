@@ -217,6 +217,23 @@ Umjesto toga, bit će prikazana prazna stranica.',
 	'right-viewlinktolatest' => 'Vidi tekst objašnjenja na vrhu stranica koje imaju odobrenu reviziju',
 );
 
+/** Catalan (Català)
+ * @author El libre
+ */
+$messages['ca'] = array(
+	'approvedrevs-approve' => 'aprova',
+	'approvedrevs-unapprove' => 'desaprova',
+	'approvedrevs-viewlatest' => 'Veure revisió més recent.',
+	'approvedrevs-blankpageshown' => 'Cap revisió ha estat aprovat per aquesta pàgina.',
+	'approvedrevs' => 'Revisions aprovades',
+	'approvedrevs-approvedpages' => 'Totes les pàgines amb una revisió aprovada',
+	'approvedrevs-unapprovedpages' => 'Pàgines no aprovades',
+	'approvedrevs-view' => 'Veure:',
+	'approvedrevs-revisionnumber' => 'revisió $1',
+	'approvedrevs-approvedby' => 'aprovat per $1 el $2',
+	'approvedrevs-difffromlatest' => 'difereix del darrer',
+);
+
 /** Czech (Česky) */
 $messages['cs'] = array(
 	'approvedrevs-approve' => 'schválit',
