@@ -336,6 +336,7 @@ $messages['el'] = array(
  * @author Yekrats
  */
 $messages['eo'] = array(
+	'approvedrevs-desc' => 'Marki solan revizion de paĝo kiel aprobita',
 	'approvedrevs-logname' => 'Protokolo pri aprobado de revizioj',
 	'approvedrevs-logdesc' => 'Jen protokolo de revizioj aprobitaj.',
 	'approvedrevs-approve' => 'aprobi',
@@ -349,9 +350,16 @@ Anstataŭe, nula paĝo estos montrita.',
 	'approvedrevs-unapproveaction' => 'malestabli apbrobitan revizion por "[[$1]]"',
 	'approvedrevs-notlatest' => 'Jen la aprobita revizio de ĉi tiu paĝo; ĝi ne estas la plej lastatempa.',
 	'approvedrevs-approvedandlatest' => 'Jen la aprobita revizio de ĉi tiu paĝo, kaj ankaŭ estis la plej lastatempa.',
+	'approvedrevs-viewlatest' => 'Vidi plej lastan revizion.',
+	'approvedrevs-blankpageshown' => 'Neniu revizio estis aprobita por ĉi tiu paĝo.',
+	'approvedrevs' => 'Aprobitaj revizioj',
 	'approvedrevs-approvedpages' => 'Aprobitaj paĝoj',
-	'approvedrevs-notlatestpages' => 'Jen la aprobita revizio de ĉi tiu paĝo; ĝi ne estas la plej lastatempa.',
+	'approvedrevs-notlatestpages' => 'Paĝoj kies aprobita revizio ne estas la plej lasta.',
 	'approvedrevs-unapprovedpages' => 'Malaprobitaj paĝoj',
+	'approvedrevs-view' => 'Vidi:',
+	'approvedrevs-revisionnumber' => 'revizio $1',
+	'approvedrevs-approvedby' => 'aprobita de $1 je $2',
+	'approvedrevs-difffromlatest' => 'Diferenco de la lasta revizio',
 );
 
 /** Spanish (Español)
