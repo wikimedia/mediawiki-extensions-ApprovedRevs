@@ -70,6 +70,10 @@ class ApprovedRevsHooks {
 		$summary, $flags, $unused1, $unused2, &$flags, $revision,
 		&$status, $baseRevId ) {
 
+		if ( is_null( $revision ) ) {
+			return true;
+		}
+
 		$title = $article->getTitle();
 		if ( ! $title->userCan( 'approverevisions' ) ) {
 			return true;
@@ -91,6 +95,7 @@ class ApprovedRevsHooks {
 				return true;
 			}
 		}
+
 		// save approval without logging
 		ApprovedRevs::saveApprovedRevIDInDB( $title, $revision->getID() );
 		return true;
@@ -114,24 +119,39 @@ class ApprovedRevsHooks {
 	}
 
 	public static function showBlankIfUnapproved( &$article, &$content ) {
-		if ( ! ApprovedRevs::isDefaultPageRequest() ) {
+		global $egApprovedRevsBlankIfUnapproved;
+		if ( ! $egApprovedRevsBlankIfUnapproved ) {
 			return true;
 		}
 
 		$title = $article->getTitle();
 		$revisionID = ApprovedRevs::getApprovedRevID( $title );
-		if ( empty( $revisionID ) ) {
-			global $egApprovedRevsBlankIfUnapproved;
-			if ( $egApprovedRevsBlankIfUnapproved ) {
-				$content = '';
-				global $wgOut;
-				if ( $wgOut->getSubtitle() != '' ) {
-					$wgOut->appendSubtitle( "<br />" . wfMsg( 'approvedrevs-blankpageshown' ) );
-				} else {
-					$wgOut->setSubtitle( wfMsg( 'approvedrevs-blankpageshown' ) );
-				}
-			}
+		if ( !empty( $revisionID ) ) {
+			return true;
 		}
+
+		// This looks extreme - disable the cache for every page,
+		// if users aren't meant to see pages with no approved
+		// revision, and this page has no approved revision - but
+		// there doesn't seem to be any other way to distinguish
+		// between a user looking at the main view of page, and a
+		// user specifically looking at the latest revision of the
+		// page (which we don't want to show as blank.)
+		global $wgEnableParserCache;
+		$wgEnableParserCache = false;
+
+		if ( ! ApprovedRevs::isDefaultPageRequest() ) {
+			return true;
+		}
+
+		$content = '';
+		global $wgOut;
+		if ( $wgOut->getSubtitle() != '' ) {
+			$wgOut->appendSubtitle( "<br />" . wfMsg( 'approvedrevs-blankpageshown' ) );
+		} else {
+			$wgOut->setSubtitle( wfMsg( 'approvedrevs-blankpageshown' ) );
+		}
+
 		return true;
 	}
 
@@ -216,6 +236,7 @@ class ApprovedRevsHooks {
 		$latestRevID = $title->getLatestRevID();
 		if ( ! empty( $approvedRevID ) && $approvedRevID != $latestRevID ) {
 			ApprovedRevs::addCSS();
+			wfLoadExtensionMessages( 'ApprovedRevs' );
 			global $wgOut;
 		        $wgOut->addHTML( '<p class="approvedRevsEditWarning">' .  wfMsg( 'approvedrevs-editwarning' ) . "</p>\n" );
 		}
