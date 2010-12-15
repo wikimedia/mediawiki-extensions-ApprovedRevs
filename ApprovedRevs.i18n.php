@@ -149,6 +149,14 @@ $messages['be-tarask'] = array(
 	'right-viewlinktolatest' => 'прагляд тлумачальнага тэксту ў версе старонак, якія маюць зацьверджаныя вэрсіі',
 );
 
+/** Bulgarian (Български)
+ * @author DCLXVI
+ */
+$messages['bg'] = array(
+	'approvedrevs-viewlatest' => 'Преглед на най-скорошната редакция.',
+	'approvedrevs' => 'Одобрени редакции',
+);
+
 /** Breton (Brezhoneg)
  * @author Fulup
  * @author Y-M D
