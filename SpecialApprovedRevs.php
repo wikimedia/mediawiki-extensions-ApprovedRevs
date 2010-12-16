@@ -15,7 +15,7 @@ class SpecialApprovedRevs extends SpecialPage {
 	 */
 	function __construct() {
 		parent::__construct( 'ApprovedRevs' );
-		wfLoadExtensionMessages( 'ApprovedRevs' );
+		ApprovedRevs::loadMessages();
 	}
 
 	function execute( $query ) {
