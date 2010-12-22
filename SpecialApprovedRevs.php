@@ -38,7 +38,9 @@ class SpecialApprovedRevsPage extends QueryPage {
 	private $mMode;
 
 	public function __construct( $mode ) {
-		parent::__construct( 'ApprovedRevs' );
+		if ( $this instanceof SpecialPage ) {
+			parent::__construct( 'ApprovedRevs' );
+		}
 		$this->mMode = $mode;
 	}
 
