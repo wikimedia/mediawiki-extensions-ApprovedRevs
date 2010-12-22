@@ -135,8 +135,56 @@ class SpecialApprovedRevsPage extends QueryPage {
 		}
 	}
 
+	function getQueryInfo() {
+		if ( $this->mMode == 'notlatest' ) {
+			return array(
+				'tables' => array( 'ar' => 'approved_revs', 'p' => 'page' ),
+				'fields' => array(
+					'p.page_id AS id',
+					'ar.rev_id AS rev_id',
+					'p.page_latest AS latest_id',
+				),
+				'join_conds' => array(
+					'page AS p' => array(
+						'JOIN', 'ar.page_id=p.page_id'
+					)
+				),
+				'conds' => array( 'p.page_latest != ar.rev_id')
+			);
+		} elseif ( $this->mMode == 'unapproved' ) {
+			return array(
+				'tables' => array( 'ar' => 'approve_revs', 'p' => 'page' ),
+				'fields' => array( 'p.page_id AS id' ),
+				'join_conds' => array(
+					'page AS p' => array(
+						'RIGHT OUTER JOIN', 'ar.page_id=p.page_id'
+					)
+				),
+				'conds' => array( "ar.page_id IS NULL" )
+			);
+		} else { // all approved pages
+			return array(
+				'tables' => array( 'ar' => 'approved_revs', 'p' => 'page' ),
+				'fields' => array(
+					'p.page_id AS id',
+					'ar.rev_id AS rev_id',
+					'p.page_latest AS latest_id',
+				),
+				'join_conds' => array(
+					'page AS p' => array(
+						'JOIN', 'ar.page_id=p.page_id'
+					)
+				),
+			);
+		}
+	}
+
 	function getOrder() {
 		return ' ORDER BY p.page_namespace, p.page_title ASC';
+	}
+
+	function getOrderFields() {
+		return array( 'p.page_namespace', 'p.page_title' );
 	}
 
 	function formatResult( $skin, $result ) {
