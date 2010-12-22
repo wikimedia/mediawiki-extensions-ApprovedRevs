@@ -26,7 +26,11 @@ class SpecialApprovedRevs extends SpecialPage {
 		list( $limit, $offset ) = wfCheckLimits();
 		$mode = $wgRequest->getVal( 'show' );
 		$rep = new SpecialApprovedRevsPage( $mode );
-		return $rep->doQuery( $offset, $limit );
+		if ( method_exists( $rep, 'execute' ) ) {
+			return $rep->execute( $query );
+		} else {
+			return $rep->doQuery( $offset, $limit );
+		}
 	}
 }
 
@@ -34,6 +38,7 @@ class SpecialApprovedRevsPage extends QueryPage {
 	private $mMode;
 
 	public function __construct( $mode ) {
+		parent::__construct( 'ApprovedRevs' );
 		$this->mMode = $mode;
 	}
 
