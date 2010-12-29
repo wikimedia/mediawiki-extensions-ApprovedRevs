@@ -44,11 +44,14 @@ Instead, a blank page will be shown.',
 
 /** Message documentation (Message documentation)
  * @author EugeneZelenko
+ * @author Umherirrender
  */
 $messages['qqq'] = array(
 	'approvedrevs-approve' => '{{Identical|Approve}}',
 	'approvedrevs-view' => '{{Identical|View}}',
 	'approvedrevs-revisionnumber' => '{{Identical|Revision}}',
+	'right-approverevisions' => '{{doc-right|approverevisions}}',
+	'right-viewlinktolatest' => '{{doc-right|viewlinktolatest}}',
 );
 
 /** Afrikaans (Afrikaans)
