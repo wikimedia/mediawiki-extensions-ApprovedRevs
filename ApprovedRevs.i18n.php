@@ -1232,7 +1232,32 @@ $messages['vi'] = array(
  * @author Hydra
  */
 $messages['zh-hans'] = array(
+	'approvedrevs-desc' => '设置单个页所批准的修订',
+	'approvedrevs-logname' => '修订批准日志',
+	'approvedrevs-logdesc' => '这是已获批准的修订的日志。',
+	'approvedrevs-approve' => '批准',
+	'approvedrevs-unapprove' => '不批准',
+	'approvedrevs-approvesuccess' => '此版本的页面已被设为批准的版本。',
+	'approvedrevs-unapprovesuccess' => '此页不再有一个批准的版本。
+相反，将显示最新的修订版。',
+	'approvedrevs-unapprovesuccess2' => '此页不再是一个批准的版本。
+相反，将显示一个空白页。',
+	'approvedrevs-approveaction' => '将把 $2 作为"[[$1]]"批准修订',
+	'approvedrevs-unapproveaction' => '取消"[[$1]]"的设置批准的修订',
+	'approvedrevs-notlatest' => '这是此页 批准的修订； 它不是最新的。',
+	'approvedrevs-approvedandlatest' => '这是此页批准，以及是最近的修订。',
+	'approvedrevs-viewlatest' => '查看最新版本。',
+	'approvedrevs-blankpageshown' => '没有修订已获批准的此页。',
+	'approvedrevs-editwarning' => '请注意现在正在编辑的此页，不是核准的最新版本默认情况下显示的其中一个。',
+	'approvedrevs' => '获批准的修订',
 	'approvedrevs-approvedpages' => '被批准的页面',
+	'approvedrevs-notlatestpages' => '其核准的修订不是他们最新的页面',
 	'approvedrevs-unapprovedpages' => '不备批准的页面',
+	'approvedrevs-view' => '查看:',
+	'approvedrevs-revisionnumber' => '修订 $1',
+	'approvedrevs-approvedby' => '在 $2 时被 $1 批准',
+	'approvedrevs-difffromlatest' => '最新的比较',
+	'right-approverevisions' => '如通过设置特定版本的维基页面',
+	'right-viewlinktolatest' => '视图中的解释性文本在具有一个已批准的修订页面的顶部',
 );
 
