@@ -564,6 +564,25 @@ Statt däm wird e lääri Syte aazeigt.',
 	'right-viewlinktolatest' => 'Dr Erklerigstext aaluege obe uf Syte, wu s e aagluegti Version git',
 );
 
+/** Hebrew (עברית)
+ * @author Amire80
+ */
+$messages['he'] = array(
+	'approvedrevs-desc' => 'הגדרת גרסה אחת של דף כגרסה מאושרת',
+	'approvedrevs-logname' => 'יומן אישור גרסאות',
+	'approvedrevs-logdesc' => 'זהו יומן של גרסאות שאושרו.',
+	'approvedrevs-approve' => 'לאשר',
+	'approvedrevs-unapprove' => 'לבטל אישור',
+	'approvedrevs-approvesuccess' => 'הגרסה הזאת של הדף הוגדרה כגרסה מאושרת.',
+	'approvedrevs-unapprovesuccess' => 'אין עוד גרסה מאושרת לדף זה.
+במקום זאת תוצג הגרסה העדכנית ביותר.',
+	'approvedrevs-unapprovesuccess2' => 'אין עוד גרסה מאושרת לדף זה.
+במקום זאת יוצג דף ריק.',
+	'approvedrevs-approveaction' => 'להגדיר את $2 בתור הגרסה המאושרת עבור "[[$1]]"',
+	'approvedrevs-unapproveaction' => 'לבטל אישור גרסה עבור "[[$1]]"',
+	'approvedrevs-notlatest' => 'זוהי הגרסה המאושרת של הדף הזה; היא לא העדכנית ביותר.',
+);
+
 /** Upper Sorbian (Hornjoserbsce)
  * @author Michawiki
  */
