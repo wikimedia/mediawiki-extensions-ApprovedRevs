@@ -581,6 +581,20 @@ $messages['he'] = array(
 	'approvedrevs-approveaction' => 'להגדיר את $2 בתור הגרסה המאושרת עבור "[[$1]]"',
 	'approvedrevs-unapproveaction' => 'לבטל אישור גרסה עבור "[[$1]]"',
 	'approvedrevs-notlatest' => 'זוהי הגרסה המאושרת של הדף הזה; היא לא העדכנית ביותר.',
+	'approvedrevs-approvedandlatest' => 'זוהי הגרסה המאושרת של הדף הזה, והיא גם העדכנית ביותר.',
+	'approvedrevs-viewlatest' => 'להציג את הגרסה העדכנית ביותר.',
+	'approvedrevs-blankpageshown' => 'שום גרסה של דף זה לא אושרה.',
+	'approvedrevs-editwarning' => 'יש לשים לב לכך שעכשיו נערכת הגרסה העדכנית ביותר של הדף הזה, ולא המאושרת שמוצגת כבררת מחדל.',
+	'approvedrevs' => 'גרסאות מאושרות',
+	'approvedrevs-approvedpages' => 'כל הדפים עם גרסה מאושרת',
+	'approvedrevs-notlatestpages' => 'דפים שהגרסה המאושרת שלהם אינה הגרסה העדכנית ביותר',
+	'approvedrevs-unapprovedpages' => 'דפים לא מאושרים',
+	'approvedrevs-view' => 'תצוגה:',
+	'approvedrevs-revisionnumber' => 'גרסה $1',
+	'approvedrevs-approvedby' => 'אושר על־ידי $1 ב־$2',
+	'approvedrevs-difffromlatest' => 'השוואה עם הגרסה האחרונה',
+	'right-approverevisions' => 'הגדר גרסה מסוימת של דף הוויקי כמאושרת',
+	'right-viewlinktolatest' => 'הצגת הסבר בחלק העליון של העמודים שיש להם גרסה מאושרת',
 );
 
 /** Upper Sorbian (Hornjoserbsce)
