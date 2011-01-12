@@ -256,6 +256,13 @@ $messages['ca'] = array(
 	'right-viewlinktolatest' => 'Veure un text explicatiu en la part superior per a les pàgines que han aprovat una revisió',
 );
 
+/** Chechen (Нохчийн)
+ * @author Sasan700
+ */
+$messages['ce'] = array(
+	'approvedrevs-view' => 'Хьажа:',
+);
+
 /** Czech (Česky) */
 $messages['cs'] = array(
 	'approvedrevs-approve' => 'schválit',
