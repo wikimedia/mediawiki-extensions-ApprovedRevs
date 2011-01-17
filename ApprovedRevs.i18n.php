@@ -1113,12 +1113,14 @@ $messages['sk'] = array(
 /** Swedish (Svenska)
  * @author Ainali
  * @author Cohan
+ * @author Tobulos1
  */
 $messages['sv'] = array(
 	'approvedrevs-desc' => 'Sätt en enskild version av en sida till godkänd',
 	'approvedrevs-logname' => 'Godkänningslogg för revisioner',
 	'approvedrevs-logdesc' => 'Detta är loggen över revisioner som har godkänts.',
 	'approvedrevs-approve' => 'godkänn',
+	'approvedrevs-unapprove' => 'godkänn ej',
 	'approvedrevs-approvesuccess' => 'Denna version av sidan har ställts in som den godkända versionen.',
 	'approvedrevs-unapprovesuccess' => 'Det finns inte längre en godkänd version för den här sidan. 
  Istället kommer den senaste redigeringen att visas.',
@@ -1130,9 +1132,11 @@ Istället kommer en tom sida att visas.',
 	'approvedrevs-viewlatest' => 'Visa senaste versionen.',
 	'approvedrevs-blankpageshown' => 'Ingen revidering har godkänts för denna sida.',
 	'approvedrevs-editwarning' => 'Observera att du nu redigerar den senaste versionen av denna sida, vilket inte är den godkända som visas som standard.',
+	'approvedrevs' => 'Godkänd revideringar',
 	'approvedrevs-approvedpages' => 'Godkända sidor',
 	'approvedrevs-notlatestpages' => 'Detta är den godkända version av denna sida; det är inte den senaste.',
 	'approvedrevs-unapprovedpages' => 'Icke godkända sidor',
+	'approvedrevs-view' => 'Visa:',
 	'right-approverevisions' => 'Sätt en viss revidering av en wiki-sida som godkänd',
 	'right-viewlinktolatest' => 'Se förklarande text högst upp på sidor som har en godkänd revision',
 );
