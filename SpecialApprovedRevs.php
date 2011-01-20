@@ -152,7 +152,7 @@ class SpecialApprovedRevsPage extends QueryPage {
 					'p.page_latest AS latest_id',
 				),
 				'join_conds' => array(
-					'page AS p' => array(
+					'p' => array(
 						'JOIN', 'ar.page_id=p.page_id'
 					)
 				),
@@ -160,10 +160,10 @@ class SpecialApprovedRevsPage extends QueryPage {
 			);
 		} elseif ( $this->mMode == 'unapproved' ) {
 			return array(
-				'tables' => array( 'ar' => 'approve_revs', 'p' => 'page' ),
+				'tables' => array( 'ar' => 'approved_revs', 'p' => 'page' ),
 				'fields' => array( 'p.page_id AS id' ),
 				'join_conds' => array(
-					'page AS p' => array(
+					'p' => array(
 						'RIGHT OUTER JOIN', 'ar.page_id=p.page_id'
 					)
 				),
@@ -178,7 +178,7 @@ class SpecialApprovedRevsPage extends QueryPage {
 					'p.page_latest AS latest_id',
 				),
 				'join_conds' => array(
-					'page AS p' => array(
+					'p' => array(
 						'JOIN', 'ar.page_id=p.page_id'
 					)
 				),
