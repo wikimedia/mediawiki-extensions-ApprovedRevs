@@ -172,12 +172,18 @@ class ApprovedRevs {
 	 * extensions such as Semantic MediaWiki; and logs the action.
 	 */
 	public static function unsetApproval( $title ) {
+		global $egApprovedRevsBlankIfUnapproved;
+
 		self::deleteRevisionApproval( $title );
 
 		$parser = new Parser();
 		$parser->setTitle( $title );
-		$article = new Article( $title );
-		$text = $article->getContent();
+		if ( $egApprovedRevsBlankIfUnapproved ) {
+			$text = '';
+		} else {
+			$article = new Article( $title );
+			$text = $article->getContent();
+		}
 		$options = new ParserOptions();
 		$parser->parse( $text, $title, $options );
 		$u = new LinksUpdate( $title, $parser->getOutput() );
