@@ -125,6 +125,10 @@ class ApprovedRevsHooks {
 		}
 
 		$title = $article->getTitle();
+		if ( ! ApprovedRevs::pageIsApprovable( $title ) ) {
+			return true;
+		}
+
 		$revisionID = ApprovedRevs::getApprovedRevID( $title );
 		if ( !empty( $revisionID ) ) {
 			return true;
@@ -143,6 +147,9 @@ class ApprovedRevsHooks {
 		if ( ! ApprovedRevs::isDefaultPageRequest() ) {
 			return true;
 		}
+
+		ApprovedRevs::addCSS();
+		ApprovedRevs::loadMessages();
 
 		$content = '';
 		global $wgOut;
