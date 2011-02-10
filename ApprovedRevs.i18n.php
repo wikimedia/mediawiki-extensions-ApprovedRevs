@@ -756,6 +756,14 @@ $messages['ja'] = array(
 	'right-viewlinktolatest' => '承認済みの版があるページの冒頭に説明文を表示',
 );
 
+/** Khmer (ភាសាខ្មែរ)
+ * @author គីមស៊្រុន
+ */
+$messages['km'] = array(
+	'approvedrevs-approve' => 'អនុម័ត',
+	'approvedrevs-unapprove' => 'មិនអនុម័ត',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Les Meloures
  * @author Robby
