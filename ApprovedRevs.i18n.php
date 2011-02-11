@@ -828,7 +828,7 @@ $messages['mk'] = array(
 	'approvedrevs-approvedby' => 'одобрено од $1 на $2',
 	'approvedrevs-difffromlatest' => 'разл. од послед.',
 	'right-approverevisions' => 'Поставете извесна ревизија на вики-страница како одобрена',
-	'right-viewlinktolatest' => 'Погледајте го објаснувањето на врвот од страниците што имаат одобрена верзија',
+	'right-viewlinktolatest' => 'Погледајте го образложението на врвот од страниците што имаат одобрена верзија',
 );
 
 /** Malayalam (മലയാളം)
