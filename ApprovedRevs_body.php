@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Main class for the Approved Revs extension.
  *
@@ -7,7 +8,6 @@
  *
  * @author Yaron Koren
  */
-
 class ApprovedRevs {
 	/**
 	 * Gets the approved revision ID for this page, or null if there isn't

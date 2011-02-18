@@ -9,7 +9,6 @@
  *
  * @author Yaron Koren
  */
-
 class ApprovedRevsHooks {
 
 	/**

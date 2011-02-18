@@ -1,13 +1,11 @@
 <?php
+
 /**
  * Special page that displays various lists of pages that either do or do
  * not have an approved revision.
  *
  * @author Yaron Koren
  */
-
-if ( !defined( 'MEDIAWIKI' ) ) die();
-
 class SpecialApprovedRevs extends SpecialPage {
 
 	/**
@@ -45,7 +43,7 @@ class SpecialApprovedRevsPage extends QueryPage {
 	}
 
 	function getName() {
-		return "ApprovedRevs";
+		return 'ApprovedRevs';
 	}
 
 	function isExpensive() { return false; }
@@ -114,10 +112,25 @@ class SpecialApprovedRevsPage extends QueryPage {
 	function getPageFooter() {
 	}
 
+	public static function getNsConditionPart( $ns ) {
+		return 'p.page_namespace = ' . $ns;
+	}
+	
+	/**
+	 * For compatibility with MW < 1.17.
+	 * 
+	 * (non-PHPdoc)
+	 * @see QueryPage::getSQL()
+	 */
 	function getSQL() {
+		global $egApprovedRevsNamespaces;
+		
+		$nsCond = '(' . implode( ' OR ', array_map( array( __CLASS__, 'getNsConditionPart' ), $egApprovedRevsNamespaces ) ) . ')';
+		
 		$dbr = wfGetDB( DB_SLAVE );
 		$approved_revs = $dbr->tableName( 'approved_revs' );
 		$page = $dbr->tableName( 'page' );
+		
 		if ( $this->mMode == 'notlatest' ) {
 			return "SELECT 'Page' AS type,
 				p.page_id AS id,
@@ -125,24 +138,32 @@ class SpecialApprovedRevsPage extends QueryPage {
 				p.page_latest AS latest_id
 				FROM $approved_revs ar JOIN $page p
 				ON ar.page_id = p.page_id
-				WHERE p.page_latest != ar.rev_id";
+				WHERE p.page_latest != ar.rev_id AND $nsCond";
 		} elseif ( $this->mMode == 'unapproved' ) {
 			return "SELECT 'Page' AS type,
 				p.page_id AS id
 				FROM $approved_revs ar RIGHT OUTER JOIN $page p
 				ON ar.page_id = p.page_id
-				WHERE ar.page_id IS NULL";
+				WHERE ar.page_id IS NULL AND $nsCond";
 		} else { // all approved pages
 			return "SELECT 'Page' AS type,
 				p.page_id AS id,
 				ar.rev_id AS rev_id,
 				p.page_latest AS latest_id
 				FROM $approved_revs ar JOIN $page p
-				ON ar.page_id = p.page_id";
+				ON ar.page_id = p.page_id AND $nsCond";
 		}
 	}
 
+	/**
+	 * Used as of MW 1.17.
+	 * 
+	 * (non-PHPdoc)
+	 * @see QueryPage::getSQL()
+	 */	
 	function getQueryInfo() {
+		global $egApprovedRevsNamespaces;
+		
 		if ( $this->mMode == 'notlatest' ) {
 			return array(
 				'tables' => array( 'ar' => 'approved_revs', 'p' => 'page' ),
@@ -156,7 +177,10 @@ class SpecialApprovedRevsPage extends QueryPage {
 						'JOIN', 'ar.page_id=p.page_id'
 					)
 				),
-				'conds' => array( 'p.page_latest != ar.rev_id')
+				'conds' => array(
+					'p.page_latest != ar.rev_id',
+					'p.page_namespace' => $egApprovedRevsNamespaces
+				)
 			);
 		} elseif ( $this->mMode == 'unapproved' ) {
 			return array(
@@ -167,7 +191,10 @@ class SpecialApprovedRevsPage extends QueryPage {
 						'RIGHT OUTER JOIN', 'ar.page_id=p.page_id'
 					)
 				),
-				'conds' => array( "ar.page_id IS NULL" )
+				'conds' => array(
+					'ar.page_id IS NULL',
+					'p.page_namespace' => $egApprovedRevsNamespaces
+				)
 			);
 		} else { // all approved pages
 			return array(
@@ -179,7 +206,8 @@ class SpecialApprovedRevsPage extends QueryPage {
 				),
 				'join_conds' => array(
 					'p' => array(
-						'JOIN', 'ar.page_id=p.page_id'
+						'JOIN', 'ar.page_id=p.page_id',
+						'p.page_namespace' => $egApprovedRevsNamespaces
 					)
 				),
 			);
@@ -197,6 +225,7 @@ class SpecialApprovedRevsPage extends QueryPage {
 	function formatResult( $skin, $result ) {
 		$title = Title::newFromId( $result->id );
 		$pageLink = $skin->makeLinkObj( $title );
+		
 		if ( $this->mMode == 'unapproved' ) {
 			return $pageLink;
 		} elseif ( $this->mMode == 'notlatest' ) {
@@ -209,14 +238,17 @@ class SpecialApprovedRevsPage extends QueryPage {
 				) ),
 				wfMsg( 'approvedrevs-difffromlatest' )
 			);
+			
 			return "$pageLink ($diffLink)";
 		} else {
 			global $wgUser, $wgOut, $wgLang;
+			
 			if ( $result->rev_id == $result->latest_id ) {
 				$class = "approvedRevIsLatest";
 			} else {
 				$class = "approvedRevNotLatest";
 			}
+			
 			$additionalInfo = Xml::element( 'span',
 				array ( 'class' => $class ),
 				wfMsg( 'approvedrevs-revisionnumber', $result->rev_id )
@@ -230,12 +262,15 @@ class SpecialApprovedRevsPage extends QueryPage {
 			$pager->mLimit = 1;
 			$pager->doQuery();
 			$row = $pager->mResult->fetchObject();
+			
 			if ( !empty( $row ) ) {
 				$time = $wgLang->timeanddate( wfTimestamp( TS_MW, $row->log_timestamp ), true );
 				$userLink = $sk->userLink( $row->log_user, $row->user_name );
 				$additionalInfo .= ', ' . wfMsg( 'approvedrevs-approvedby', $userLink, $time );
 			}
+			
 			return "$pageLink ($additionalInfo)";
 		}
 	}
+	
 }
