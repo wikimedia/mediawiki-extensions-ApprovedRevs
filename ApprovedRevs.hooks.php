@@ -561,14 +561,17 @@ class ApprovedRevsHooks {
 			
 			if ( empty( $approvedId ) || $approvedId != $article->getRevIdFetched() ) {
 				if ( $egApprovedRevsBlankIfUnapproved && !$wgRequest->getCheck( 'oldid' ) ) {
-					$wgOut->addHTML( Xml::element( 'a',
-						array( 'href' => $article->getTitle()->getLocalUrl(
-							array(
-								'oldid' => $article->getRevIdFetched()
-							)
-						) ),
-						wfMsg( 'approvedrevs-viewlatestrev' )
-					) );
+					$wgOut->addHTML( 
+						htmlspecialchars( wfMsg( 'approvedrevs-noapprovedrevs' ) ) . '&#160;' .
+						Xml::element( 'a',
+							array( 'href' => $article->getTitle()->getLocalUrl(
+								array(
+									'oldid' => $article->getRevIdFetched()
+								)
+							) ),
+							wfMsg( 'approvedrevs-viewlatestrev' )
+						) . '.'
+					);
 				}
 				else {
 					$wgOut->addHTML( '<b>' . Xml::element( 'a',

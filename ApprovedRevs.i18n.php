@@ -42,6 +42,7 @@ Instead, a blank page will be shown.',
 	'approvedrevs-approvelatest' => 'approve latest',
 	'approvedrevs-approvethisrev' => 'Approve this revision',
 	'approvedrevs-viewlatestrev' => 'View the latest revision',
+	'approvedrevs-noapprovedrevs' => 'No revision has been approved for this page.',
 	'right-approverevisions' => 'Set a certain revision of a wiki page as approved',
 	'right-viewlinktolatest' => 'View explanatory text at the top of pages that have an approved revision',
 );
