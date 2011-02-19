@@ -27,6 +27,7 @@ $egApprovedRevsScriptPath = $wgScriptPath . '/extensions/ApprovedRevs';
 $egApprovedRevsNamespaces = array( NS_MAIN, NS_TEMPLATE, NS_HELP, NS_PROJECT );
 $egApprovedRevsBlankIfUnapproved = false;
 $egApprovedRevsAutomaticApprovals = true;
+$egApprovedRevsShowApproveLatest = false;
 
 // internationalization
 $wgExtensionMessagesFiles['ApprovedRevs'] = $egApprovedRevsIP . 'ApprovedRevs.i18n.php';
@@ -62,6 +63,7 @@ $wgHooks['AdminLinks'][] = 'ApprovedRevsHooks::addToAdminLinks';
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'ApprovedRevsHooks::describeDBSchema';
 $wgHooks['EditPage::showEditForm:initial'][] = 'ApprovedRevsHooks::addWarningToEditPage';
 $wgHooks['sfHTMLBeforeForm'][] = 'ApprovedRevsHooks::addWarningToSFForm';
+$wgHooks['ArticleViewHeader'][] = 'ApprovedRevsHooks::onArticleViewHeader';
 
 // logging
 $wgLogTypes['approval'] = 'approval';

@@ -406,6 +406,7 @@ class ApprovedRevsHooks {
 		// show the revision, instead of the history page
 		$article->doPurge();
 		$article->view();
+		
 		return false;
 	}
 	
@@ -450,6 +451,7 @@ class ApprovedRevsHooks {
 		// show the revision, instead of the history page
 		$article->doPurge();
 		$article->view();
+		
 		return false;
 	}
 
@@ -537,4 +539,52 @@ class ApprovedRevsHooks {
 		}
 		return true;
 	}
+	
+	/**
+	 * Hook to insert things into article headers.
+	 * 
+	 * @since 0.5.6
+	 * 
+	 * @param Article &$article
+	 * @param boolean $outputDone
+	 * @param boolean $useParserCache
+	 * 
+	 * @return true
+	 */	
+	public static function onArticleViewHeader( Article &$article, &$outputDone, &$useParserCache ) {
+		global $wgOut, $wgRequest, $egApprovedRevsBlankIfUnapproved;
+		
+		if ( ApprovedRevs::pageIsApprovable( $article->getTitle() ) 
+			&& $article->getTitle()->userCan( 'approverevisions' ) ) {
+			
+			$approvedId = ApprovedRevs::getApprovedRevID( $article->getTitle() );
+			
+			if ( empty( $approvedId ) || $approvedId != $article->getRevIdFetched() ) {
+				if ( $egApprovedRevsBlankIfUnapproved && !$wgRequest->getCheck( 'oldid' ) ) {
+					$wgOut->addHTML( Xml::element( 'a',
+						array( 'href' => $article->getTitle()->getLocalUrl(
+							array(
+								'oldid' => $article->getRevIdFetched()
+							)
+						) ),
+						wfMsg( 'approvedrevs-viewlatestrev' )
+					) );
+				}
+				else {
+					$wgOut->addHTML( '<b>' . Xml::element( 'a',
+						array( 'href' => $article->getTitle()->getLocalUrl(
+							array(
+								'action' => 'approve',
+								'oldid' => $article->getRevIdFetched()
+							)
+						) ),
+						wfMsg( 'approvedrevs-approvethisrev' )
+					) . '</b>' ); 					
+				}
+			}
+		}
+		
+		return true;
+	}
+	
 }
