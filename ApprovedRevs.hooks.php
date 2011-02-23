@@ -200,29 +200,32 @@ class ApprovedRevsHooks {
 				wfMsg( 'approvedrevs-approvedandlatest' )
 			);
 		} else {
-			$text = wfMsg( 'approvedrevs-notlatest' );
+			$text = wfMsgHtml( 'approvedrevs-notlatest' );
+			
 			global $wgUser;
 			$sk = $wgUser->getSkin();
-			$curRevLink = $sk->link(
+			$text .= ' ' . $sk->link(
 				$article->getTitle(),
 				wfMsgHtml( 'approvedrevs-viewlatest' ),
 				array(),
 				array( 'oldid' => $article->getLatest() ),
 				array( 'known', 'noclasses' )
 			);
-			$text .= ' ' . $curRevLink;
+			
 			$text = Xml::tags(
 				'span',
 				array( 'class' => 'notLatestMsg' ),
 				$text
 			);
 		}
+		
 		global $wgOut;
 		if ( $wgOut->getSubtitle() != '' ) {
-			$wgOut->appendSubtitle( "<br />" . $text );
+			$wgOut->appendSubtitle( '<br />' . $text );
 		} else {
 			$wgOut->setSubtitle( $text );
 		}
+		
 		return false;
 	}
 
@@ -558,15 +561,18 @@ class ApprovedRevsHooks {
 			&& $article->getTitle()->userCan( 'approverevisions' ) ) {
 			
 			$approvedId = ApprovedRevs::getApprovedRevID( $article->getTitle() );
-			
-			if ( empty( $approvedId ) || $approvedId != $article->getRevIdFetched() ) {
+			$thisRevId = $wgRequest->getCheck( 'oldid' ) ? $wgRequest->getInt( 'oldid' ) : $article->getRevIdFetched();
+
+			if ( empty( $approvedId ) || $approvedId != $thisRevId ) {
+				$wgOut->addHTML( '<span style="margin-left:10.75px">' );
+				
 				if ( $egApprovedRevsBlankIfUnapproved && !$wgRequest->getCheck( 'oldid' ) ) {
 					$wgOut->addHTML( 
 						htmlspecialchars( wfMsg( 'approvedrevs-noapprovedrevs' ) ) . '&#160;' .
 						Xml::element( 'a',
 							array( 'href' => $article->getTitle()->getLocalUrl(
 								array(
-									'oldid' => $article->getRevIdFetched()
+									'oldid' => $thisRevId
 								)
 							) ),
 							wfMsg( 'approvedrevs-viewlatestrev' )
@@ -578,12 +584,14 @@ class ApprovedRevsHooks {
 						array( 'href' => $article->getTitle()->getLocalUrl(
 							array(
 								'action' => 'approve',
-								'oldid' => $article->getRevIdFetched()
+								'oldid' => $thisRevId
 							)
 						) ),
 						wfMsg( 'approvedrevs-approvethisrev' )
 					) . '</b>' ); 					
 				}
+				
+				$wgOut->addHTML( '</span>' );
 			}
 		}
 		
