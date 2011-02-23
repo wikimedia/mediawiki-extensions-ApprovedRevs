@@ -580,7 +580,8 @@ class ApprovedRevsHooks {
 					);
 				}
 				else {
-					$wgOut->addHTML( '<b>' . Xml::element( 'a',
+					$wgOut->addHTML( Xml::tags( 'span', array( 'id' => 'contentSub2' ),
+						Xml::element( 'a',
 						array( 'href' => $article->getTitle()->getLocalUrl(
 							array(
 								'action' => 'approve',
@@ -588,7 +589,7 @@ class ApprovedRevsHooks {
 							)
 						) ),
 						wfMsg( 'approvedrevs-approvethisrev' )
-					) . '</b>' ); 					
+					) ) );
 				}
 				
 				$wgOut->addHTML( '</span>' );
