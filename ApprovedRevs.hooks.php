@@ -561,9 +561,9 @@ class ApprovedRevsHooks {
 			&& $article->getTitle()->userCan( 'approverevisions' ) ) {
 			
 			$approvedId = ApprovedRevs::getApprovedRevID( $article->getTitle() );
-			$thisRevId = $wgRequest->getCheck( 'oldid' ) ? $wgRequest->getInt( 'oldid' ) : $article->getRevIdFetched();
 
-			if ( empty( $approvedId ) || $approvedId != $thisRevId ) {
+			if ( empty( $approvedId ) || ( $wgRequest->getCheck( 'oldid' ) && $wgRequest->getInt( 'oldid' ) != $approvedId ) ) {
+				//var_dump($approvedId);var_dump($thisRevId);exit;
 				$wgOut->addHTML( '<span style="margin-left:10.75px">' );
 				
 				if ( $egApprovedRevsBlankIfUnapproved && !$wgRequest->getCheck( 'oldid' ) ) {
@@ -572,7 +572,7 @@ class ApprovedRevsHooks {
 						Xml::element( 'a',
 							array( 'href' => $article->getTitle()->getLocalUrl(
 								array(
-									'oldid' => $thisRevId
+									'oldid' => $article->getRevIdFetched()
 								)
 							) ),
 							wfMsg( 'approvedrevs-viewlatestrev' )
@@ -584,7 +584,7 @@ class ApprovedRevsHooks {
 						array( 'href' => $article->getTitle()->getLocalUrl(
 							array(
 								'action' => 'approve',
-								'oldid' => $thisRevId
+								'oldid' => $wgRequest->getInt( 'oldid' )
 							)
 						) ),
 						wfMsg( 'approvedrevs-approvethisrev' )
