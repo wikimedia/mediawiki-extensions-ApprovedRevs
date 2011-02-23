@@ -78,18 +78,23 @@ class ApprovedRevs {
 	 * approvable. Also stores the boolean answer as a field in the page
 	 * object, to speed up processing if it's called more than once.
 	 */
-	public static function pageIsApprovable( $title ) {
+	public static function pageIsApprovable( Title $title ) {
 		// if this function was already called for this page, the
 		// value should have been stored as a field in the $title object
 		if ( isset( $title->isApprovable ) ) {
 			return $title->isApprovable;
 		}
 
+		if ( !$title->exists() ) {
+			$title->isApprovable = false;
+			return $title->isApprovable;			
+		}
+		
 		// check the namespace
 		global $egApprovedRevsNamespaces;
 		if ( in_array( $title->getNamespace(), $egApprovedRevsNamespaces ) ) {
 			$title->isApprovable = true;
-			return true;
+			return $title->isApprovable;
 		}
 
 		// it's not in an included namespace, so check for the page
