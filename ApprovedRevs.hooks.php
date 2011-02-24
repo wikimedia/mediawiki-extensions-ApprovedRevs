@@ -562,11 +562,25 @@ class ApprovedRevsHooks {
 			
 			$approvedId = ApprovedRevs::getApprovedRevID( $article->getTitle() );
 
-			if ( empty( $approvedId ) || ( $wgRequest->getCheck( 'oldid' ) && $wgRequest->getInt( 'oldid' ) != $approvedId ) ) {
+			if ( $egApprovedRevsBlankIfUnapproved &&
+				( empty( $approvedId ) || ( $wgRequest->getCheck( 'oldid' ) && $wgRequest->getInt( 'oldid' ) != $approvedId ) ) ) {
 				//var_dump($approvedId);var_dump($thisRevId);exit;
 				$wgOut->addHTML( '<span style="margin-left:10.75px">' );
 				
-				if ( $egApprovedRevsBlankIfUnapproved && !$wgRequest->getCheck( 'oldid' ) ) {
+				if ( $wgRequest->getCheck( 'oldid' ) ) {
+					$wgOut->addHTML( Xml::tags( 'span', array( 'id' => 'contentSub2' ),
+						Xml::element( 'a',
+						array( 'href' => $article->getTitle()->getLocalUrl(
+							array(
+								'action' => 'approve',
+								'oldid' => $wgRequest->getInt( 'oldid' )
+							)
+						) ),
+						wfMsg( 'approvedrevs-approvethisrev' )
+					) ) );					
+
+				}
+				else {
 					$wgOut->addHTML( 
 						htmlspecialchars( wfMsg( 'approvedrevs-noapprovedrevs' ) ) . '&#160;' .
 						Xml::element( 'a',
@@ -578,18 +592,6 @@ class ApprovedRevsHooks {
 							wfMsg( 'approvedrevs-viewlatestrev' )
 						) . '.'
 					);
-				}
-				else {
-					$wgOut->addHTML( Xml::tags( 'span', array( 'id' => 'contentSub2' ),
-						Xml::element( 'a',
-						array( 'href' => $article->getTitle()->getLocalUrl(
-							array(
-								'action' => 'approve',
-								'oldid' => $wgRequest->getInt( 'oldid' )
-							)
-						) ),
-						wfMsg( 'approvedrevs-approvethisrev' )
-					) ) );
 				}
 				
 				$wgOut->addHTML( '</span>' );
