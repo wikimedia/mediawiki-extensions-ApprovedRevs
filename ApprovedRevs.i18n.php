@@ -626,6 +626,9 @@ $messages['he'] = array(
 	'approvedrevs-revisionnumber' => 'גרסה $1',
 	'approvedrevs-approvedby' => 'אושר על־ידי $1 ב־$2',
 	'approvedrevs-difffromlatest' => 'השוואה עם הגרסה האחרונה',
+	'approvedrevs-approvelatest' => 'לאשר את האחרונה',
+	'approvedrevs-approvethisrev' => 'לאשר את הגרסה הזאת.',
+	'approvedrevs-viewlatestrev' => 'להציג את הגרסה האחרונה',
 	'right-approverevisions' => 'הגדר גרסה מסוימת של דף הוויקי כמאושרת',
 	'right-viewlinktolatest' => 'הצגת הסבר בחלק העליון של העמודים שיש להם גרסה מאושרת',
 );
