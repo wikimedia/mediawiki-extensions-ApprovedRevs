@@ -151,12 +151,6 @@ class ApprovedRevsHooks {
 		ApprovedRevs::loadMessages();
 
 		$content = '';
-		global $wgOut;
-		if ( $wgOut->getSubtitle() != '' ) {
-			$wgOut->appendSubtitle( "<br />" . wfMsg( 'approvedrevs-blankpageshown' ) );
-		} else {
-			$wgOut->setSubtitle( wfMsg( 'approvedrevs-blankpageshown' ) );
-		}
 
 		return true;
 	}
@@ -564,7 +558,6 @@ class ApprovedRevsHooks {
 
 			if ( $egApprovedRevsBlankIfUnapproved &&
 				( empty( $approvedId ) || ( $wgRequest->getCheck( 'oldid' ) && $wgRequest->getInt( 'oldid' ) != $approvedId ) ) ) {
-				//var_dump($approvedId);var_dump($thisRevId);exit;
 				$wgOut->addHTML( '<span style="margin-left:10.75px">' );
 				
 				if ( $wgRequest->getCheck( 'oldid' ) ) {
@@ -581,8 +574,8 @@ class ApprovedRevsHooks {
 
 				}
 				else {
-					$wgOut->addHTML( 
-						htmlspecialchars( wfMsg( 'approvedrevs-noapprovedrevs' ) ) . '&#160;' .
+					$wgOut->appendSubtitle( 
+						htmlspecialchars( wfMsg( 'approvedrevs-blankpageshown' ) ) . '&#160;' .
 						Xml::element( 'a',
 							array( 'href' => $article->getTitle()->getLocalUrl(
 								array(
