@@ -883,6 +883,7 @@ $messages['mk'] = array(
 );
 
 /** Malayalam (മലയാളം)
+ * @author Junaidpv
  * @author Praveenp
  */
 $messages['ml'] = array(
@@ -911,6 +912,7 @@ $messages['ml'] = array(
 	'approvedrevs-revisionnumber' => 'നാൾപ്പതിപ്പ് $1',
 	'approvedrevs-approvedby' => '$2-നു $1 അംഗീകരിച്ചത്',
 	'approvedrevs-difffromlatest' => 'ഏറ്റവും പുതിയ പതിപ്പിൽ നിന്നുള്ള വ്യത്യാസം',
+	'approvedrevs-approvelatest' => 'ഒടുവിലേത്തത് അംഗീകരിക്കുക',
 	'right-approverevisions' => 'വിക്കി താളിന്റെ ഒരു പ്രത്യേക നാൾപ്പതിപ്പ് അംഗീകരിച്ചതായി സജ്ജീകരിക്കുക',
 	'right-viewlinktolatest' => 'അംഗീകരിച്ച നാൾപ്പതിപ്പുള്ള താളുകളുടെ മുകളിലായി ഒരു വിശദീകരണ കുറിപ്പ് പ്രദർശിപ്പിക്കുക',
 );
