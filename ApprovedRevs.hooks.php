@@ -200,7 +200,7 @@ class ApprovedRevsHooks {
 			$sk = $wgUser->getSkin();
 			$text .= ' ' . $sk->link(
 				$article->getTitle(),
-				wfMsgHtml( 'approvedrevs-viewlatest' ),
+				wfMsgHtml( 'approvedrevs-viewlatestrev' ),
 				array(),
 				array( 'oldid' => $article->getLatest() ),
 				array( 'known', 'noclasses' )
@@ -583,7 +583,7 @@ class ApprovedRevsHooks {
 								)
 							) ),
 							wfMsg( 'approvedrevs-viewlatestrev' )
-						) . '.'
+						)
 					);
 				}
 				
