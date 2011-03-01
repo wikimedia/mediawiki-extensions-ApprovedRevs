@@ -62,10 +62,10 @@ $messages['qqq'] = array(
  */
 $messages['af'] = array(
 	'approvedrevs-approve' => 'keur goed',
-	'approvedrevs-viewlatest' => 'Wys mees onlangse hersiening.',
 	'approvedrevs-approvedpages' => 'Goedgekeurde bladsye',
 	'approvedrevs-view' => 'Weergawe:',
 	'approvedrevs-revisionnumber' => 'weergawe $1',
+	'approvedrevs-viewlatest' => 'Wys mees onlangse hersiening.',
 );
 
 /** Arabic (العربية)
@@ -162,8 +162,8 @@ $messages['be-tarask'] = array(
  * @author DCLXVI
  */
 $messages['bg'] = array(
-	'approvedrevs-viewlatest' => 'Преглед на най-скорошната редакция.',
 	'approvedrevs' => 'Одобрени редакции',
+	'approvedrevs-viewlatest' => 'Преглед на най-скорошната редакция.',
 );
 
 /** Breton (Brezhoneg)
@@ -254,7 +254,6 @@ $messages['ca'] = array(
 	'approvedrevs-unapproveaction' => 'deixa d\'establir la revisió aprovada per a "[[$1]]"',
 	'approvedrevs-notlatest' => "Aquesta és la revisió aprovada d'aquesta pàgina, no la més recent.",
 	'approvedrevs-approvedandlatest' => "Aquesta és la revisió aprovada d'aquesta pàgina, així com la més recent.",
-	'approvedrevs-viewlatest' => 'Veure revisió més recent.',
 	'approvedrevs-blankpageshown' => 'Cap revisió ha estat aprovat per aquesta pàgina.',
 	'approvedrevs' => 'Revisions aprovades',
 	'approvedrevs-approvedpages' => 'Totes les pàgines amb una revisió aprovada',
@@ -264,6 +263,7 @@ $messages['ca'] = array(
 	'approvedrevs-revisionnumber' => 'revisió $1',
 	'approvedrevs-approvedby' => 'aprovat per $1 el $2',
 	'approvedrevs-difffromlatest' => 'difereix del darrer',
+	'approvedrevs-viewlatest' => 'Veure revisió més recent.',
 	'right-approverevisions' => "Estableix una certa revisió d'una pàgina wiki com aprovada",
 	'right-viewlinktolatest' => 'Veure un text explicatiu en la part superior per a les pàgines que han aprovat una revisió',
 );
@@ -522,9 +522,9 @@ $messages['frp'] = array(
 	'approvedrevs-unapprove' => 'dèsaprovar',
 	'approvedrevs-approveaction' => 'at marcâ $2 coment la vèrsion aprovâ de « [[$1]] »',
 	'approvedrevs-unapproveaction' => 'at anulâ lo marcâjo d’una vèrsion aprovâ por « [[$1]] »',
-	'approvedrevs-viewlatest' => 'Vêre la vèrsion la ples novèla.',
 	'approvedrevs-approvedpages' => 'Pâges aprovâs',
 	'approvedrevs-unapprovedpages' => 'Pâges pas aprovâs',
+	'approvedrevs-viewlatest' => 'Vêre la vèrsion la ples novèla.',
 );
 
 /** Galician (Galego)
@@ -803,9 +803,9 @@ $messages['km'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
-	'approvedrevs-viewlatest' => 'De neuste Version aanlooere',
 	'approvedrevs-view' => 'Aanloore:',
 	'approvedrevs-revisionnumber' => 'Version $1',
+	'approvedrevs-viewlatest' => 'De neuste Version aanlooere',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
@@ -1219,9 +1219,9 @@ Istället kommer en tom sida att visas.',
 $messages['ta'] = array(
 	'approvedrevs-approve' => 'அனுமதிக்கவும்',
 	'approvedrevs-unapprove' => 'அனுமதிக்க வேண்டாம்',
-	'approvedrevs-viewlatest' => 'மிக அண்மையில் செய்யப்பட்ட திருத்தங்களை பார்க்கவும்.',
 	'approvedrevs-approvedpages' => 'ஏற்றுக் கொள்ளப்பட்ட பக்கங்கள்',
 	'approvedrevs-unapprovedpages' => 'ஏற்றுக் கொள்ளப்படாத பக்கங்கள்',
+	'approvedrevs-viewlatest' => 'மிக அண்மையில் செய்யப்பட்ட திருத்தங்களை பார்க்கவும்.',
 	'right-approverevisions' => 'விக்கி பக்கத்தில் ஒரு சில மாற்றங்களை அனுமதிக்கப்பட்டதாக குறித்துக்கொள்ளவும்',
 );
 
@@ -1332,7 +1332,6 @@ $messages['vi'] = array(
 	'approvedrevs-unapprove' => 'bỏ chấp nhận',
 	'approvedrevs-approveaction' => 'đặt $2 là phiên bản chấp nhận của “[[$1]]”',
 	'approvedrevs-unapproveaction' => 'bỏ phiên bản chấp nhận của “[[$1]]”',
-	'approvedrevs-viewlatest' => 'Xem phiên bản gần đây nhất.',
 	'approvedrevs' => 'Phiên bản được chấp nhận',
 	'approvedrevs-approvedpages' => 'Các trang đã chấp nhận',
 	'approvedrevs-unapprovedpages' => 'Trang chưa được chấp nhận',
@@ -1340,6 +1339,7 @@ $messages['vi'] = array(
 	'approvedrevs-revisionnumber' => 'phiên bản $1',
 	'approvedrevs-approvedby' => 'được $1 chấp nhận vào $2',
 	'approvedrevs-difffromlatest' => 'so với phiên bản hiện tại',
+	'approvedrevs-viewlatest' => 'Xem phiên bản gần đây nhất.',
 	'right-approverevisions' => 'Đặt một phiên bản của trang wiki là phiên bản chấp nhận',
 	'right-viewlinktolatest' => 'Xem văn bản giải thích ở đầu các trang có phiên bản chấp nhận',
 );
@@ -1362,7 +1362,6 @@ $messages['zh-hans'] = array(
 	'approvedrevs-unapproveaction' => '取消"[[$1]]"的设置批准的修订',
 	'approvedrevs-notlatest' => '这是此页 批准的修订； 它不是最新的。',
 	'approvedrevs-approvedandlatest' => '这是此页批准，以及是最近的修订。',
-	'approvedrevs-viewlatest' => '查看最新进展',
 	'approvedrevs-blankpageshown' => '没有修订已获批准的此页。',
 	'approvedrevs-editwarning' => '请注意现在正在编辑的此页，不是核准的最新版本默认情况下显示的其中一个。',
 	'approvedrevs' => '获批准的修订',
@@ -1373,10 +1372,18 @@ $messages['zh-hans'] = array(
 	'approvedrevs-revisionnumber' => '修订 $1',
 	'approvedrevs-approvedby' => '在 $2 时被 $1 批准',
 	'approvedrevs-difffromlatest' => '最新的比较',
+	'approvedrevs-viewlatest' => '查看最新进展',
 	'approvedrevs-approvelatest' => '最新批准',
 	'approvedrevs-approvethisrev' => '批准这项修订',
 	'approvedrevs-viewlatestrev' => '查看最新版本',
 	'right-approverevisions' => '如通过设置特定版本的维基页面',
 	'right-viewlinktolatest' => '视图中的解释性文本在具有一个已批准的修订页面的顶部',
+);
+
+/** Chinese (Hong Kong) (‪中文(香港)‬)
+ * @author Oapbtommy
+ */
+$messages['zh-hk'] = array(
+	'approvedrevs-view' => '檢視：',
 );
 
