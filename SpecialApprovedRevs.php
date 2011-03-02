@@ -234,6 +234,10 @@ class SpecialApprovedRevsPage extends QueryPage {
 		return array( 'p.page_namespace', 'p.page_title' );
 	}
 
+	function sortDescending() {
+		return false;
+	}
+
 	function formatResult( $skin, $result ) {
 		$title = Title::newFromId( $result->id );
 		
