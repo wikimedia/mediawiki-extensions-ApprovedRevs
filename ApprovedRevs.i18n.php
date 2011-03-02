@@ -1319,6 +1319,7 @@ $messages['uk'] = array(
 	'approvedrevs-approvedby' => 'затверджена $1 $2',
 	'approvedrevs-difffromlatest' => 'різниця з останньою',
 	'approvedrevs-viewlatest' => 'переглянути останню',
+	'approvedrevs-approvethisrev' => 'Затвердити цю версію.',
 	'right-approverevisions' => 'Встановити єдиний перегляд сторінки як затверджуючий',
 	'right-viewlinktolatest' => 'Переглянути пояснювальний текст у верхній частині сторінки яка має схвалену версію.',
 );
