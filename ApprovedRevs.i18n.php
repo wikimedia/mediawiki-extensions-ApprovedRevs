@@ -787,6 +787,9 @@ $messages['ja'] = array(
 	'approvedrevs-approvedby' => '$2 の $1 によって承認されています',
 	'approvedrevs-difffromlatest' => '最新版との差分',
 	'approvedrevs-viewlatest' => '最新版を閲覧',
+	'approvedrevs-approvelatest' => '最新版を承認',
+	'approvedrevs-approvethisrev' => 'この版を承認',
+	'approvedrevs-viewlatestrev' => '最新版を閲覧',
 	'right-approverevisions' => 'ウィキページの特定の版を承認済みに設定',
 	'right-viewlinktolatest' => '承認済みの版があるページの冒頭に説明文を表示',
 );
