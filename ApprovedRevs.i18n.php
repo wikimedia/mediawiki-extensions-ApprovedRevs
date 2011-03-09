@@ -89,6 +89,7 @@ $messages['arc'] = array(
 
 /** Bashkir (Башҡортса)
  * @author Assele
+ * @author Comp1089
  */
 $messages['ba'] = array(
 	'approvedrevs-desc' => 'Биттең бер өлгөһөн раҫланған тип билдәләү',
@@ -116,6 +117,9 @@ $messages['ba'] = array(
 	'approvedrevs-approvedby' => '$2 $1 тарафынан раҫланған',
 	'approvedrevs-difffromlatest' => 'һуңғы менән айырма',
 	'approvedrevs-viewlatest' => 'Һуңғы өлгөнө ҡарарға.',
+	'approvedrevs-approvelatest' => 'һуңғы өлгөнө раҫланған тип билдәләү',
+	'approvedrevs-approvethisrev' => 'Был өлгөнө раҫланған тип билдәләү',
+	'approvedrevs-viewlatestrev' => 'Иң һуңғы өлгөһөн ҡарау',
 	'right-approverevisions' => 'Вики-биттәрҙең ҡайһы бер өлгөләрен раҫланған тип билдәләү',
 	'right-viewlinktolatest' => 'Раҫланған өлгөләре булған биттәрҙең өҫкө өлөшөндә аңлатманы ҡарау',
 );
