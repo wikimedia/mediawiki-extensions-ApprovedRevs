@@ -11,6 +11,8 @@
  */
 class ApprovedRevsHooks {
 
+	static $mNoSaveOccurring = false;
+
 	/**
 	 * If the page is being saved, set the text of the approved revision
 	 * as the text to be parsed, for correct saving of categories,
@@ -18,7 +20,28 @@ class ApprovedRevsHooks {
 	 */
 	static public function setApprovedRevForParsing( &$parser, &$text, &$stripState ) {
 		global $wgRequest;
+
 		if ( $wgRequest->getCheck( 'wpSave' ) ) {
+			// @HACK ? If the ConfirmEdit extension is installed
+			// and kicks in for this save (i.e., prompting the
+			// user for a CAPTCHA test), it will lead to bad
+			// behavior - for some reason, the hook for this
+			// function will get called about seven times, and
+			// each time, the contents of the page will get
+			// displayed on the screen. Instead we check for a
+			// specific field of the parser, because the first
+			// of those seven times, that field is not set -
+			// whereas, apparently, it always is when a save is
+			// actually happening. Then we set a static variable,
+			// to be checked the next six times.
+			if ( self::$mNoSaveOccurring ) {
+				return true;
+			}
+			if ( empty( $parser->mPreprocessor) ) {
+				self::$mNoSaveOccurring = true;
+				return true;
+			}
+
 			// @HACK !! If the Semantic Forms extension is being
 			// used, the form will be parsed right before the page
 			// is parsed, and there doesn't seem to be any way
@@ -508,7 +531,7 @@ class ApprovedRevsHooks {
 	 * Add a link to 'Special:ApprovedPages' to the the page
 	 * 'Special:AdminLinks', defined by the Admin Links extension.
 	 */
-	function addToAdminLinks( &$admin_links_tree ) {
+	static function addToAdminLinks( &$admin_links_tree ) {
 		$general_section = $admin_links_tree->getSection( wfMsg( 'adminlinks_general' ) );
 		$extensions_row = $general_section->getRow( 'extensions' );
 		if ( is_null( $extensions_row ) ) {
