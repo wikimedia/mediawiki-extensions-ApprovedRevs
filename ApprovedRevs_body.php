@@ -9,19 +9,29 @@
  * @author Yaron Koren
  */
 class ApprovedRevs {
+
+	// Static arrays to prevent querying the database more than necessary.
+	static $mApprovedContentForPage = array();
+	static $mApprovedRevIDForPage = array();
 	
 	/**
 	 * Gets the approved revision ID for this page, or null if there isn't
 	 * one.
 	 */
 	public static function getApprovedRevID( $title ) {
+		$pageID = $title->getArticleId();
+		if ( array_key_exists( $pageID, self::$mApprovedRevIDForPage ) ) {
+			return self::$mApprovedRevIDForPage[$pageID];
+		}
+
 		if ( ! self::pageIsApprovable( $title ) ) {
 			return null;
 		}
+
 		$dbr = wfGetDB( DB_SLAVE );
-		$page_id = $title->getArticleId();
-		$rev_id = $dbr->selectField( 'approved_revs', 'rev_id', array( 'page_id' => $page_id ) );
-		return $rev_id;
+		$revID = $dbr->selectField( 'approved_revs', 'rev_id', array( 'page_id' => $pageID ) );
+		self::$mApprovedRevIDForPage[$pageID] = $revID;
+		return $revID;
 	}
 
 	/**
@@ -37,12 +47,19 @@ class ApprovedRevs {
 	 * if there isn't one.
 	 */
 	public static function getApprovedContent( $title ) {
-		$revision_id = ApprovedRevs::getApprovedRevID( $title );
+		$pageID = $title->getArticleId();
+		if ( array_key_exists( $pageID, self::$mApprovedContentForPage ) ) {
+			return self::$mApprovedContentForPage[$pageID];
+		}
+
+		$revision_id = self::getApprovedRevID( $title );
 		if ( empty( $revision_id ) ) {
 			return null;
 		}
 		$article = new Article( $title, $revision_id );
-		return( $article->getContent() );
+		$text = $article->getContent();
+		self::$mApprovedContentForPage[$pageID] = $text;
+		return $text;
 	}
 
 	/**
