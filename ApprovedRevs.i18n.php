@@ -1021,7 +1021,7 @@ W zamian zostanie wyświetlona pusta strona.',
 	'approvedrevs-revisionnumber' => 'wersja $1',
 	'approvedrevs-approvedby' => 'zatwierdzone $2 przez $1',
 	'approvedrevs-difffromlatest' => 'porównaj z najnowszą',
-	'approvedrevs-viewlatest' => 'Zobacz najnowsze zmiany.',
+	'approvedrevs-viewlatest' => 'pokaż najnowsze',
 	'right-approverevisions' => 'Zatwierdzenie wybranych wersji stron wiki',
 	'right-viewlinktolatest' => 'Pokazuj tekst wyjaśniający w górnej części tych stron, które mają zatwierdzoną wersję',
 );
