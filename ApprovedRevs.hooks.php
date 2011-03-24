@@ -171,6 +171,7 @@ class ApprovedRevsHooks {
 		}
 
 		ApprovedRevs::addCSS();
+		ApprovedRevs::loadMessages();
 
 		$content = '';
 
@@ -208,6 +209,7 @@ class ApprovedRevsHooks {
 		}
 
 		ApprovedRevs::addCSS();
+		ApprovedRevs::loadMessages();
 		if ( $revisionID == $article->getLatest() ) {
 			$text = Xml::element(
 				'span',
@@ -260,6 +262,7 @@ class ApprovedRevsHooks {
 		$latestRevID = $title->getLatestRevID();
 		if ( ! empty( $approvedRevID ) && $approvedRevID != $latestRevID ) {
 			ApprovedRevs::addCSS();
+			ApprovedRevs::loadMessages();
 			global $wgOut;
 		        $wgOut->addHTML( '<p class="approvedRevsEditWarning">' .  wfMsg( 'approvedrevs-editwarning' ) . "</p>\n" );
 		}
@@ -279,6 +282,7 @@ class ApprovedRevsHooks {
 		$latestRevID = $wgTitle->getLatestRevID();
 		if ( ! empty( $approvedRevID ) && $approvedRevID != $latestRevID ) {
 			ApprovedRevs::addCSS();
+			ApprovedRevs::loadMessages();
 		        $preFormHTML .= '<p><strong>' .  wfMsg( 'approvedrevs-editwarning' ) . "</strong></p>\n";
 		}
 		return true;
@@ -337,6 +341,8 @@ class ApprovedRevsHooks {
 		// this will be null if there's no ID
 		$approvedRevID = ApprovedRevs::getApprovedRevID( $article->getTitle() );
 		$article->approvedRevID = $approvedRevID;
+		// also load extension messages, while we're at it
+		ApprovedRevs::loadMessages();
 		return true;
 	}
 	

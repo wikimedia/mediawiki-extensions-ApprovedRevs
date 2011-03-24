@@ -232,4 +232,13 @@ class ApprovedRevs {
 		);
 		$wgOut->addLink( $link );
 	}
+
+	public static function loadMessages() {
+		// for backwards compatibility
+		global $wgVersion;
+		if ( version_compare( $wgVersion, '1.16', '<' ) ) {
+			wfLoadExtensionMessages( 'ApprovedRevs' );
+		}
+	}
+
 }

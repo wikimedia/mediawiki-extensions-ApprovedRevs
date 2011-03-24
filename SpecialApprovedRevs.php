@@ -13,6 +13,7 @@ class SpecialApprovedRevs extends SpecialPage {
 	 */
 	function __construct() {
 		parent::__construct( 'ApprovedRevs' );
+		ApprovedRevs::loadMessages();
 	}
 
 	function execute( $query ) {
