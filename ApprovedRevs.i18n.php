@@ -528,7 +528,7 @@ $messages['frp'] = array(
 	'approvedrevs-unapproveaction' => 'at anulâ lo marcâjo d’una vèrsion aprovâ por « [[$1]] »',
 	'approvedrevs-approvedpages' => 'Pâges aprovâs',
 	'approvedrevs-unapprovedpages' => 'Pâges pas aprovâs',
-	'approvedrevs-viewlatest' => 'Vêre la vèrsion la ples novèla.',
+	'approvedrevs-viewlatest' => 'vêre la vèrsion la ples novèla',
 );
 
 /** Galician (Galego)
