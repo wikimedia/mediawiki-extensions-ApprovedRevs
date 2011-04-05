@@ -13,6 +13,11 @@ class ApprovedRevsHooks {
 
 	static $mNoSaveOccurring = false;
 
+	static public function userRevsApprovedAutomatically( $title ) {
+		global $egApprovedRevsAutomaticApprovals;
+		return ( $title->userCan( 'approverevisions' ) && $egApprovedRevsAutomaticApprovals );
+	}
+
 	/**
 	 * If the page is being saved, set the text of the approved revision
 	 * as the text to be parsed, for correct saving of categories,
@@ -58,18 +63,18 @@ class ApprovedRevsHooks {
 			if ( ! ApprovedRevs::pageIsApprovable( $title ) ) {
 				return true;
 			}
-			// if this is someone with approval power editing the
-			// page, exit now, because this will become the
-			// approved revision anyway
-			if ( $title->userCan( 'approverevisions' ) ) {
+			// If this user's revisions get approved automatically,
+			// exit now, because this will become the approved
+			// revision anyway.
+			if ( self::userRevsApprovedAutomatically( $title ) ) {
 				return true;
 			}
 			$approvedText = ApprovedRevs::getApprovedContent( $title );
 			if ( !is_null( $approvedText ) ) {
 				$text = $approvedText;
 			}
-			// if there's no approved revision, and 'blank if
-			// unapproved' is set to true, set the text to blank
+			// If there's no approved revision, and 'blank if
+			// unapproved' is set to true, set the text to blank.
 			if ( is_null( $approvedText ) ) {
 				global $egApprovedRevsBlankIfUnapproved;
 				if ( $egApprovedRevsBlankIfUnapproved ) {
@@ -97,12 +102,7 @@ class ApprovedRevsHooks {
 		}
 
 		$title = $article->getTitle();
-		if ( ! $title->userCan( 'approverevisions' ) ) {
-			return true;
-		}
-
-		global $egApprovedRevsAutomaticApprovals;
-		if ( ! $egApprovedRevsAutomaticApprovals ) {
+		if ( ! self::userRevsApprovedAutomatically( $title ) ) {
 			return true;
 		}
 
