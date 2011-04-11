@@ -246,6 +246,7 @@ Umjesto toga, bit će prikazana prazna stranica.',
 
 /** Catalan (Català)
  * @author El libre
+ * @author SMP
  */
 $messages['ca'] = array(
 	'approvedrevs-desc' => "Estableix una única revisió d'una pàgina com a aprovada",
@@ -268,8 +269,8 @@ $messages['ca'] = array(
 	'approvedrevs-approvedby' => 'aprovat per $1 el $2',
 	'approvedrevs-difffromlatest' => 'difereix del darrer',
 	'approvedrevs-viewlatest' => 'Veure revisió més recent.',
-	'right-approverevisions' => "Estableix una certa revisió d'una pàgina wiki com aprovada",
-	'right-viewlinktolatest' => 'Veure un text explicatiu en la part superior per a les pàgines que han aprovat una revisió',
+	'right-approverevisions' => "Marcar com a aprovada una certa revisió d'una pàgina wiki",
+	'right-viewlinktolatest' => 'Veure un text explicatiu en la part superior per a les pàgines que tenen una revisió aprovada',
 );
 
 /** Chechen (Нохчийн)
