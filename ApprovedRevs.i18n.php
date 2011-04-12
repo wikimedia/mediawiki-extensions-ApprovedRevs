@@ -1365,7 +1365,10 @@ $messages['vi'] = array(
 	'approvedrevs-revisionnumber' => 'phiên bản $1',
 	'approvedrevs-approvedby' => 'được $1 chấp nhận vào $2',
 	'approvedrevs-difffromlatest' => 'so với phiên bản hiện tại',
-	'approvedrevs-viewlatest' => 'Xem phiên bản gần đây nhất.',
+	'approvedrevs-viewlatest' => 'xem mới nhất',
+	'approvedrevs-approvelatest' => 'chấp nhận mới nhất',
+	'approvedrevs-approvethisrev' => 'Chấp nhận phiên bản này.',
+	'approvedrevs-viewlatestrev' => 'Xem phiên bản gần đây nhất.',
 	'right-approverevisions' => 'Đặt một phiên bản của trang wiki là phiên bản chấp nhận',
 	'right-viewlinktolatest' => 'Xem văn bản giải thích ở đầu các trang có phiên bản chấp nhận',
 );
