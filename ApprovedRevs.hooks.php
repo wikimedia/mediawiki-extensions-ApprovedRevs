@@ -19,6 +19,26 @@ class ApprovedRevsHooks {
 	}
 
 	/**
+	 * "noindex" and "nofollow" meta-tags are added to every revision page,
+	 * so that search engines won't index them - remove those if this is
+	 * the approved revision.
+	 * There doesn't seem to be an ideal MediaWiki hook to use for this
+	 * function - it currently uses 'PersonalUrls', which works.
+	 */
+	static public function removeRobotsTag( &$personal_urls, &$title ) {
+		if ( ! ApprovedRevs::isDefaultPageRequest() ) {
+			return true;
+		}
+
+		$revisionID = ApprovedRevs::getApprovedRevID( $title );
+		if ( ! empty( $revisionID ) ) {
+			global $wgOut;
+			$wgOut->setRobotPolicy( 'index,follow' );
+		}
+		return true;
+	}
+
+	/**
 	 * If the page is being saved, set the text of the approved revision
 	 * as the text to be parsed, for correct saving of categories,
 	 * Semantic MediaWiki properties, etc.

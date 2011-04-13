@@ -43,6 +43,7 @@ $wgSpecialPageGroups['ApprovedRevs'] = 'pages';
 // hooks
 $wgHooks['ParserBeforeInternalParse'][] = 'ApprovedRevsHooks::setApprovedRevForParsing';
 $wgHooks['ArticleSaveComplete'][] = 'ApprovedRevsHooks::setLatestAsApproved';
+$wgHooks['PersonalUrls'][] = 'ApprovedRevsHooks::removeRobotsTag';
 $wgHooks['ArticleFromTitle'][] = 'ApprovedRevsHooks::showApprovedRevision';
 $wgHooks['ArticleAfterFetchContent'][] = 'ApprovedRevsHooks::showBlankIfUnapproved';
 $wgHooks['DisplayOldSubtitle'][] = 'ApprovedRevsHooks::setSubtitle';
