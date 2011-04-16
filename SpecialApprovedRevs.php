@@ -57,8 +57,7 @@ class SpecialApprovedRevsPage extends QueryPage {
 	function getPageHeader() {
 		// show the names of the three lists of pages, with the one
 		// corresponding to the current "mode" not being linked
-		$approvedPagesPage = SpecialPage::getPage( 'ApprovedRevs' );
-		$approvedPagesTitle = SpecialPage::getPage( 'ApprovedRevs' )->getTitle();
+		$approvedPagesTitle = SpecialPage::getTitleFor( 'ApprovedRevs' );
 		$navLine = wfMsg( 'approvedrevs-view' ) . ' ';
 		
 		if ( $this->mMode == '' ) {
