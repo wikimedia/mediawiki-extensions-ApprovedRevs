@@ -284,7 +284,7 @@ class ApprovedRevsHooks {
 			ApprovedRevs::addCSS();
 			ApprovedRevs::loadMessages();
 			global $wgOut;
-		        $wgOut->addHTML( '<p class="approvedRevsEditWarning">' .  wfMsg( 'approvedrevs-editwarning' ) . "</p>\n" );
+			$wgOut->addHTML( '<p class="approvedRevsEditWarning">' . wfMsg( 'approvedrevs-editwarning' ) . "</p>\n" );
 		}
 		return true;
 	}
@@ -303,7 +303,9 @@ class ApprovedRevsHooks {
 		if ( ! empty( $approvedRevID ) && $approvedRevID != $latestRevID ) {
 			ApprovedRevs::addCSS();
 			ApprovedRevs::loadMessages();
-		        $preFormHTML .= '<p><strong>' .  wfMsg( 'approvedrevs-editwarning' ) . "</strong></p>\n";
+			$preFormHTML .= Xml::element ( 'p',
+				array( 'style' => 'font-weight: bold' ),
+				wfMsg( 'approvedrevs-editwarning' ) ) . "\n";
 		}
 		return true;
 	}
@@ -373,7 +375,7 @@ class ApprovedRevsHooks {
 	 * revision. If it's the approved revision also add on a "star"
 	 * icon, regardless of the user.
 	 */
-	static function addApprovalLink( $historyPage, &$row , &$s )  {
+	static function addApprovalLink( $historyPage, &$row , &$s ) {
 		$title = $historyPage->getTitle();
 		if ( ! ApprovedRevs::pageIsApprovable( $title ) ) {
 			return true;
