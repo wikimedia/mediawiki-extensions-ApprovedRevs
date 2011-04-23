@@ -403,6 +403,7 @@ Anstataŭe, nula paĝo estos montrita.',
 	'approvedrevs-notlatest' => 'Jen la aprobita revizio de ĉi tiu paĝo; ĝi ne estas la plej lastatempa.',
 	'approvedrevs-approvedandlatest' => 'Jen la aprobita revizio de ĉi tiu paĝo, kaj ankaŭ estis la plej lastatempa.',
 	'approvedrevs-blankpageshown' => 'Neniu revizio estis aprobita por ĉi tiu paĝo.',
+	'approvedrevs-editwarning' => 'Bonvolu noti ke vi nun redaktas la lastan revizion de ĉi tiu paĝo, kiu ne estas la aprobita revizio montrita defaŭlte.',
 	'approvedrevs' => 'Aprobitaj revizioj',
 	'approvedrevs-approvedpages' => 'Aprobitaj paĝoj',
 	'approvedrevs-notlatestpages' => 'Paĝoj kies aprobita revizio ne estas la plej lasta.',
@@ -412,6 +413,11 @@ Anstataŭe, nula paĝo estos montrita.',
 	'approvedrevs-approvedby' => 'aprobita de $1 je $2',
 	'approvedrevs-difffromlatest' => 'Diferenco de la lasta revizio',
 	'approvedrevs-viewlatest' => 'vidi plej lastan',
+	'approvedrevs-approvelatest' => 'aprobi lastan revizion',
+	'approvedrevs-approvethisrev' => 'Aprobi ĉi tiun revizion.',
+	'approvedrevs-viewlatestrev' => 'Vidi la plej lastan revizion.',
+	'right-approverevisions' => 'Marki certan revizion de vikipaĝo kiel aprobita',
+	'right-viewlinktolatest' => 'Vidi eksplikantan tekston ĉe la paĝo-kapo kiu havas aprobitan revizion',
 );
 
 /** Spanish (Español)
@@ -749,7 +755,7 @@ Halaman kosong akan ditampilkan.',
 	'approvedrevs-revisionnumber' => 'revisi $1',
 	'approvedrevs-approvedby' => 'disetujui oleh $1 pada $2',
 	'approvedrevs-difffromlatest' => 'perbedaan dengan yang terbaru',
-	'approvedrevs-viewlatest' => 'Lihat revisi terkini.',
+	'approvedrevs-viewlatest' => 'lihat yang terbaru',
 	'right-approverevisions' => 'Tetapkan revisi tertentu dari halaman wiki sebagai disetujui',
 	'right-viewlinktolatest' => 'Lihat penjelasan di atas halaman yang memiliki revisi disetujui',
 );
@@ -1070,6 +1076,13 @@ Al pòst, a sarà mostrà na pàgina bianca.',
 	'approvedrevs-viewlatestrev' => "Vardé l'ùltima revision.",
 	'right-approverevisions' => 'Ampòsta na certa revision ëd na pàgina wiki com aprovà',
 	'right-viewlinktolatest' => "Vëdde ël test dë spiegassion an cò dle pàgine ch'a l'han na revision aprovà",
+);
+
+/** Pashto (پښتو)
+ * @author Ahmed-Najib-Biabani-Ibrahimkhel
+ */
+$messages['ps'] = array(
+	'approvedrevs-view' => 'کتل:',
 );
 
 /** Portuguese (Português)
