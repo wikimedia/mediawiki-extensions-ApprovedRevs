@@ -170,6 +170,24 @@ $messages['bg'] = array(
 	'approvedrevs-viewlatest' => 'Преглед на най-скорошната редакция.',
 );
 
+/** Bengali (বাংলা)
+ * @author Wikitanvir
+ */
+$messages['bn'] = array(
+	'approvedrevs' => 'গ্রহণকৃত সংস্করণ',
+	'approvedrevs-approvedpages' => 'গ্রহণকৃত সংস্করণসহ সকল পাতা',
+	'approvedrevs-notlatestpages' => 'যেসকল পাতার গ্রহণকৃত সংস্করণসমূহ তাদের সাম্প্রতিকতম নয় সেই পাতাগুলি',
+	'approvedrevs-unapprovedpages' => 'অগ্রহণকৃত পাতাসমূহ',
+	'approvedrevs-view' => 'দেখাও:',
+	'approvedrevs-revisionnumber' => 'সংস্করণ $1',
+	'approvedrevs-approvedby' => '$1 দ্বারা $2 তারিখে গৃহীত হয়েছে',
+	'approvedrevs-difffromlatest' => 'সাম্প্রতিকতম সংস্করণ থেকে পার্থক্য',
+	'approvedrevs-viewlatest' => 'সাম্প্রতিকতমগুলো দেখাও',
+	'approvedrevs-approvelatest' => 'সাম্প্রতিককালে গৃহীত',
+	'approvedrevs-approvethisrev' => 'এই সংস্করণটি গ্রহণ করো।',
+	'approvedrevs-viewlatestrev' => 'সবচেয়ে সাম্প্রতিকতম সংস্করণটি দেখাও।',
+);
+
 /** Breton (Brezhoneg)
  * @author Fulup
  * @author Y-M D
@@ -1008,6 +1026,13 @@ I stedet vil en blank side bli vist.',
 	'right-viewlinktolatest' => 'Vis forklarende tekst på toppen av sider som har en godkjent revisjon',
 );
 
+/** Oriya (ଓଡ଼ିଆ)
+ * @author Odisha1
+ */
+$messages['or'] = array(
+	'approvedrevs-view' => 'ଦେଖଣା',
+);
+
 /** Polish (Polski)
  * @author Sp5uhe
  */
@@ -1165,6 +1190,14 @@ $messages['ro'] = array(
 	'approvedrevs-approvesuccess' => 'Această revizie a paginii a fost stabilită ca versiunea aprobată.',
 	'approvedrevs-approvedpages' => 'Pagini aprobate',
 	'approvedrevs-unapprovedpages' => 'Pagini neaprobate',
+);
+
+/** Tarandíne (Tarandíne)
+ * @author Joetaras
+ */
+$messages['roa-tara'] = array(
+	'approvedrevs-unapprovedpages' => 'Pàggene none approvate',
+	'approvedrevs-view' => 'Vide:',
 );
 
 /** Russian (Русский)
