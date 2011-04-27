@@ -383,6 +383,7 @@ Město togo prozna wersija se pokažo.',
 );
 
 /** Greek (Ελληνικά)
+ * @author Glavkos
  * @author Περίεργος
  */
 $messages['el'] = array(
@@ -397,8 +398,17 @@ $messages['el'] = array(
 	'approvedrevs-notlatest' => 'Αυτή είναι η εγκεκριμένη αναθεώρηση αυτής της σελίδας· δεν είναι η πιο πρόσφατη.',
 	'approvedrevs-approvedandlatest' => 'Αυτή είναι η εγκεκριμένη αναθεώρηση αυτής της σελίδας, καθώς και η πιο πρόσφατη.',
 	'approvedrevs-approvedpages' => 'Εγκεκριμένες σελίδες',
-	'approvedrevs-notlatestpages' => 'Αυτή είναι η εγκεκριμένη αναθεώρηση αυτής της σελίδας· δεν είναι η πιο πρόσφατη.',
-	'approvedrevs-viewlatest' => 'Δείτε την πιο πρόσφατη αναθεώρηση.',
+	'approvedrevs-notlatestpages' => 'Σελίδες των οποίων οι εγκεκριμένες αναθεωρήσεις δεν είναι οι πιο πρόσφατες',
+	'approvedrevs-unapprovedpages' => 'Μη εγκεκριμένες σελίδες',
+	'approvedrevs-view' => 'Προβολή',
+	'approvedrevs-revisionnumber' => 'αναθεώρηση $1',
+	'approvedrevs-approvedby' => 'εγκρίθηκε από $1 στη  $2',
+	'approvedrevs-difffromlatest' => 'diff από το τελευταίο',
+	'approvedrevs-viewlatest' => 'Δείτε την τελευταία',
+	'approvedrevs-approvelatest' => 'εγκρίνετε την πιο πρόσφατη',
+	'approvedrevs-approvethisrev' => 'Εγκρίνετε αυτή την αναθεώρηση.',
+	'approvedrevs-viewlatestrev' => 'Δείτε την πιο πρόσφατη αναθεώρηση.',
+	'right-approverevisions' => 'Ορίστε μια συγκεκριμένη αναθεώρηση μιας σελίδας wiki ως εγκεκριμένη',
 	'right-viewlinktolatest' => 'Προβολή επεξηγηματικού κειμένου στο επάνω μέρος των σελίδων που έχουν εγκεκριμένη αναθεώρηση',
 );
 
@@ -774,6 +784,9 @@ Halaman kosong akan ditampilkan.',
 	'approvedrevs-approvedby' => 'disetujui oleh $1 pada $2',
 	'approvedrevs-difffromlatest' => 'perbedaan dengan yang terbaru',
 	'approvedrevs-viewlatest' => 'lihat yang terbaru',
+	'approvedrevs-approvelatest' => 'setujui yang terbaru',
+	'approvedrevs-approvethisrev' => 'Setujui revisi ini.',
+	'approvedrevs-viewlatestrev' => 'Lihat revisi terbaru.',
 	'right-approverevisions' => 'Tetapkan revisi tertentu dari halaman wiki sebagai disetujui',
 	'right-viewlinktolatest' => 'Lihat penjelasan di atas halaman yang memiliki revisi disetujui',
 );
@@ -1247,6 +1260,7 @@ $messages['sk'] = array(
 /** Swedish (Svenska)
  * @author Ainali
  * @author Cohan
+ * @author Lokal Profil
  * @author Tobulos1
  */
 $messages['sv'] = array(
@@ -1265,12 +1279,18 @@ Istället kommer en tom sida att visas.',
 	'approvedrevs-approvedandlatest' => 'Detta är den godkända version av denna sida, samt den senaste.',
 	'approvedrevs-blankpageshown' => 'Ingen revidering har godkänts för denna sida.',
 	'approvedrevs-editwarning' => 'Observera att du nu redigerar den senaste versionen av denna sida, vilket inte är den godkända som visas som standard.',
-	'approvedrevs' => 'Godkänd revideringar',
+	'approvedrevs' => 'Godkända revideringar',
 	'approvedrevs-approvedpages' => 'Godkända sidor',
-	'approvedrevs-notlatestpages' => 'Detta är den godkända version av denna sida; det är inte den senaste.',
+	'approvedrevs-notlatestpages' => 'Sidor vars godkända version inte är den senaste.',
 	'approvedrevs-unapprovedpages' => 'Icke godkända sidor',
 	'approvedrevs-view' => 'Visa:',
-	'approvedrevs-viewlatest' => 'Visa senaste versionen.',
+	'approvedrevs-revisionnumber' => 'version $1',
+	'approvedrevs-approvedby' => 'godkänd av $1, $2',
+	'approvedrevs-difffromlatest' => 'diff från senaste',
+	'approvedrevs-viewlatest' => 'visa senaste',
+	'approvedrevs-approvelatest' => 'godkänn senaste',
+	'approvedrevs-approvethisrev' => 'Godkänn denna versionen.',
+	'approvedrevs-viewlatestrev' => 'Visa den senaste versionen.',
 	'right-approverevisions' => 'Sätt en viss revidering av en wiki-sida som godkänd',
 	'right-viewlinktolatest' => 'Se förklarande text högst upp på sidor som har en godkänd revision',
 );
