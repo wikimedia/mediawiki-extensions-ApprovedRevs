@@ -47,9 +47,11 @@ Instead, a blank page will be shown.',
 
 /** Message documentation (Message documentation)
  * @author EugeneZelenko
+ * @author Purodha
  * @author Umherirrender
  */
 $messages['qqq'] = array(
+	'approvedrevs-desc' => '{{desc}}',
 	'approvedrevs-approve' => '{{Identical|Approve}}',
 	'approvedrevs-view' => '{{Identical|View}}',
 	'approvedrevs-revisionnumber' => '{{Identical|Revision}}',
@@ -305,6 +307,7 @@ $messages['cs'] = array(
 
 /** German (Deutsch)
  * @author Kghbln
+ * @author Purodha
  */
 $messages['de'] = array(
 	'approvedrevs-desc' => 'Ermöglicht es, stets eine bestimmte Version einer Seite als bestätigte Version anzuzeigen',
@@ -321,7 +324,7 @@ Stattdessen wird eine leere Seite angezeigt.',
 	'approvedrevs-unapproveaction' => 'bestätigte Version für „[[$1]]“ zurücknehmen',
 	'approvedrevs-notlatest' => 'Dies ist die bestätigte Version dieser Seite, allerdings nicht die neueste Version.',
 	'approvedrevs-approvedandlatest' => 'Dies ist die bestätigte sowie die neueste Version dieser Seite.',
-	'approvedrevs-blankpageshown' => 'Keine Version dieser Seite wurde bislang bestätigt.',
+	'approvedrevs-blankpageshown' => 'Keine Version dieser Seite ist bestätigt.',
 	'approvedrevs-editwarning' => 'Beachte bitte, dass du gerade die neueste Version dieser Seite bearbeitest. Sie entspricht nicht der bestätigten Version, die standardmäßig angezeigt wird.',
 	'approvedrevs' => 'Bestätigte Versionen',
 	'approvedrevs-approvedpages' => 'Bestätigte Seiten',
@@ -851,9 +854,36 @@ $messages['km'] = array(
  * @author Purodha
  */
 $messages['ksh'] = array(
+	'approvedrevs-desc' => 'Määd et müjjelesch, vun ener Sigg en beshtemmpte Version jood_ze_heiße.',
+	'approvedrevs-logname' => 'Logbooch vum Versione vun Sigge Joodheiße',
+	'approvedrevs-logdesc' => 'En heh däm Logbooch wääde de joodjeheiße Versione vun Sigge faßjehallde.',
+	'approvedrevs-approve' => 'joodheiße',
+	'approvedrevs-unapprove' => 'nit joodheiße',
+	'approvedrevs-approvesuccess' => 'Heh di Version vun dä Sigge wood joodjeheiße.',
+	'approvedrevs-unapprovesuccess' => 'Jäz jidd_et kein joodjeheiße Version vun dä Sigg mieh.
+Doför kritt mer de neuste Version aanjezeish.',
+	'approvedrevs-unapprovesuccess2' => 'Jäz jidd_et kein joodjeheiße Version vun dä Sigg mieh.
+Doför kritt mer en läddije Sigg aanjezeish.',
+	'approvedrevs-approveaction' => 'hät $2 vun dä Sigg „[[$1]]“ joodjeheiße',
+	'approvedrevs-unapproveaction' => 'donn kein Version vun dä Sigg „[[$1]]“ mieh joodheiße',
+	'approvedrevs-notlatest' => 'Dat heh es de joodjeheiße Version vun dä Sigg, es ävver nit de neuste Version.',
+	'approvedrevs-approvedandlatest' => 'Dat heh es de joodjeheiße Version vun dä Sigg, un och de Neuste.',
+	'approvedrevs-blankpageshown' => 'Vun heh dä Sigg jidd_et kein joodjeheiße Version.',
+	'approvedrevs-editwarning' => 'Opjepaß: Do bes de neuste Version vun heh dä Sigg aam ändere. Dat es nit de joodjeheiße Version, di mer shtandmääßesch aanjezeish kritt.',
+	'approvedrevs' => 'Joodjeheiße Versione',
+	'approvedrevs-approvedpages' => 'All de Sigge med ene joodjeheiße Version',
+	'approvedrevs-notlatestpages' => 'Sigge, woh de joodjeheiße Version nit de neuste es.',
+	'approvedrevs-unapprovedpages' => 'De nit joodjeheiße Sigge',
 	'approvedrevs-view' => 'Aanloore:',
 	'approvedrevs-revisionnumber' => 'Version $1',
-	'approvedrevs-viewlatest' => 'De neuste Version aanlooere',
+	'approvedrevs-approvedby' => 'joodjeheiße {{GENDER:$1|vum|vum|vum Metmaacher|vun dä|vum}} $1 aam $2',
+	'approvedrevs-difffromlatest' => 'der Ongerscheid zor neuste Version',
+	'approvedrevs-viewlatest' => 'de neuste Version aanlooere',
+	'approvedrevs-approvelatest' => 'de neuste Verson joodheiße',
+	'approvedrevs-approvethisrev' => 'Heh di Version joodheiße',
+	'approvedrevs-viewlatestrev' => 'De neuste Version aanloore',
+	'right-approverevisions' => 'En beshtemmpte Version vun ene Sigg em Wiki jooheiße',
+	'right-viewlinktolatest' => 'Täx met Henwies drövver op Sigge met joodjeheiße Version aanzeije',
 );
 
 /** Luxembourgish (Lëtzebuergesch)
