@@ -1347,12 +1347,32 @@ $messages['ta'] = array(
 );
 
 /** Telugu (తెలుగు)
+ * @author Chaduvari
  * @author Veeven
  */
 $messages['te'] = array(
 	'approvedrevs-logname' => 'కూర్పుల అనుమతులు చిట్టా',
+	'approvedrevs-logdesc' => 'ఇది ఆమోదం పొందని కూర్పుల లాగ్.',
 	'approvedrevs-approve' => 'అనుమతించు',
+	'approvedrevs-unapprove' => 'ఆమోదించవద్దు',
+	'approvedrevs-approvesuccess' => 'ఈ పేజీ యొక్క ఈ కూర్పు ఆమోదింపబడిన కూర్పుగా సెట్ చేసి ఉంది.',
+	'approvedrevs-unapprovesuccess' => 'ఇక ఈ పేజీకి ఆమోదించబడిన కూర్పేదీ లేదు.
+దాని బదులు, ఇట్టీవలి కూర్పును చూపిస్తాం.',
+	'approvedrevs-unapprovesuccess2' => 'ఇక ఈ పేజీకి ఆమోదించబడిన కూర్పేదీ లేదు.
+దాని బదులు, ఖాళీ పేజీని చూపిస్తాం.',
+	'approvedrevs-approveaction' => '"[[$1]]" కోసం $2  ను ఆమోదించబడిన కూర్పుగా చూపించు',
+	'approvedrevs-unapproveaction' => '"[[$1]]" కోసం సెట్ చేసిన ఆమోదించబడిన కూర్పును తీసెయ్యి',
+	'approvedrevs-notlatest' => 'ఇది ఈ పేజీ యొక్క ఆమోదించబడిన కూర్పు; ఇది అన్నిటి కంటే కొత్త కూర్పు కాదు.',
+	'approvedrevs-approvedandlatest' => 'ఇది ఈ పేజీ యొక్క ఆమోదించబడిన కూర్పు, అన్నిటి కంటే కొత్త కూర్పు కూడా.',
+	'approvedrevs-blankpageshown' => 'ఈ పేజీ కూర్పుల్లో ఏది కూడా ఆమోదించబడి లేదు.',
+	'approvedrevs-editwarning' => 'మీరు మారుస్తున్నది ఈ పేజీ యొక్క ఇట్టీవలి కూర్పునని గమనించండి. డిఫాల్టుగా ఆమోదించబడినట్లు చూపించినది ఈ కూర్పు కాదు.',
+	'approvedrevs' => 'ఆమోదించబడిన కూర్పులు',
 	'approvedrevs-approvedpages' => 'అనుమతించిన పుటలు',
+	'approvedrevs-notlatestpages' => 'పేజీలు - ఆమోదించబడిన కూర్పులు ఇట్టీవలివి కానివి',
+	'approvedrevs-unapprovedpages' => 'ఆమోదించబడని పేజీలు',
+	'approvedrevs-revisionnumber' => 'కూర్పు $1',
+	'approvedrevs-approvedby' => '$2 న, $1 ఆమోదించినది',
+	'approvedrevs-difffromlatest' => 'ఇట్టీవలి కూర్పుతో తేడాలు',
 );
 
 /** Tagalog (Tagalog)
