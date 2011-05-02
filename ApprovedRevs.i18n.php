@@ -89,6 +89,13 @@ $messages['arc'] = array(
 	'approvedrevs-unapprovedpages' => 'ܕܦ̈ܐ ܠܐ ܩܒܝܠ̈ܐ',
 );
 
+/** Azerbaijani (Azərbaycanca)
+ * @author Cekli829
+ */
+$messages['az'] = array(
+	'approvedrevs-view' => 'Görünüş:',
+);
+
 /** Bashkir (Башҡортса)
  * @author Assele
  * @author Comp1089
