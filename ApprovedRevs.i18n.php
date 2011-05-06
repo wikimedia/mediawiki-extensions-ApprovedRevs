@@ -463,6 +463,7 @@ Anstataŭe, nula paĝo estos montrita.',
  * @author Dferg
  * @author Jurock
  * @author Locos epraix
+ * @author Mashandy
  * @author Translationista
  */
 $messages['es'] = array(
@@ -491,6 +492,7 @@ En su lugar, se mostrará una página en blanco.',
 	'approvedrevs-approvedby' => 'autorizada por $1 a las $2',
 	'approvedrevs-difffromlatest' => 'diff con la última revisión',
 	'approvedrevs-viewlatest' => 'Ver revisión más reciente.',
+	'approvedrevs-approvethisrev' => 'Aprobar esta revisión.',
 	'right-approverevisions' => 'Establecer una cierta revisión de una página wiki como aprobada',
 	'right-viewlinktolatest' => 'Ver texto explicativo en la parte superior de las páginas que tienen una revisión aprobada',
 );
