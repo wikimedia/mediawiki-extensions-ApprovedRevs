@@ -941,6 +941,14 @@ Aplaz, gëtt eng eidel Säit gewisen.',
 	'right-viewlinktolatest' => 'Kuckt den Erklärungstext uewen op de Säiten déi nogekuckt Versiounen hunn',
 );
 
+/** Lithuanian (Lietuvių)
+ * @author Eitvys200
+ */
+$messages['lt'] = array(
+	'approvedrevs-view' => 'Žiūrėti:',
+	'approvedrevs-viewlatest' => 'peržiūrėti naujausius',
+);
+
 /** Macedonian (Македонски)
  * @author Bjankuloski06
  */
@@ -1264,6 +1272,8 @@ $messages['ro'] = array(
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
+	'approvedrevs-approve' => 'approve',
+	'approvedrevs-unapprove' => 'scitte',
 	'approvedrevs-unapprovedpages' => 'Pàggene none approvate',
 	'approvedrevs-view' => 'Vide:',
 );
