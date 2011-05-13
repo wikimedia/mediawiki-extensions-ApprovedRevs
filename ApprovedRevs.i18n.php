@@ -821,6 +821,29 @@ $messages['ig'] = array(
 	'approvedrevs-approvedpages' => 'Ihü hé kwèrè',
 );
 
+/** Italian (Italiano)
+ * @author Rippitippi
+ */
+$messages['it'] = array(
+	'approvedrevs-approve' => 'approva',
+	'approvedrevs-unapprove' => 'non approvare',
+	'approvedrevs-approvesuccess' => 'Questa revisione della pagina è stata impostata come la versione approvata.',
+	'approvedrevs-approveaction' => 'impostare $2 come la revisione approvata per "[[$1]]"',
+	'approvedrevs-notlatest' => 'Questa è la revisione approvata di questa pagina, non è la più recente.',
+	'approvedrevs-approvedandlatest' => 'Questa è la revisione approvata di questa pagina, oltre ad essere la più recente.',
+	'approvedrevs-blankpageshown' => 'Nessuna revisione è stata approvata per questa pagina.',
+	'approvedrevs' => 'Revisioni approvate',
+	'approvedrevs-approvedpages' => 'Tutte le pagine con una revisione approvata',
+	'approvedrevs-unapprovedpages' => 'Pagine non approvate',
+	'approvedrevs-view' => 'Visualizzare:',
+	'approvedrevs-revisionnumber' => 'revisione $1',
+	'approvedrevs-approvedby' => 'approvato da $1 su $2',
+	'approvedrevs-difffromlatest' => 'differenza dal più recente',
+	'approvedrevs-approvelatest' => 'approvare i più recenti',
+	'approvedrevs-approvethisrev' => 'Approva questa revisione.',
+	'approvedrevs-viewlatestrev' => 'Visualizzare la revisione più recente.',
+);
+
 /** Japanese (日本語)
  * @author Iwai.masaharu
  * @author Ohgi
