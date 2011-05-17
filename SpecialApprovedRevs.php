@@ -160,7 +160,7 @@ class SpecialApprovedRevsPage extends QueryPage {
 				FROM $approved_revs ar RIGHT OUTER JOIN $page p
 				ON ar.page_id = p.page_id
 				LEFT OUTER JOIN $page_props pp
-				ON ar.page_id = pp_page
+				ON p.page_id = pp_page
 				WHERE ar.page_id IS NULL
 				AND ($nsCond OR (pp_propname = 'approvedrevs' AND pp_value = 'y'))";
 		} else { // all approved pages
