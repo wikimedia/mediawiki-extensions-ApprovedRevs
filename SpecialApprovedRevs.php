@@ -140,6 +140,7 @@ class SpecialApprovedRevsPage extends QueryPage {
 		$dbr = wfGetDB( DB_SLAVE );
 		$approved_revs = $dbr->tableName( 'approved_revs' );
 		$page = $dbr->tableName( 'page' );
+		$page_props = $dbr->tableName( 'page_props' );
 		
 		if ( $this->mMode == 'notlatest' ) {
 			return "SELECT 'Page' AS type,
@@ -148,21 +149,30 @@ class SpecialApprovedRevsPage extends QueryPage {
 				p.page_latest AS latest_id
 				FROM $approved_revs ar JOIN $page p
 				ON ar.page_id = p.page_id
-				WHERE p.page_latest != ar.rev_id AND $nsCond";
+				LEFT OUTER JOIN $page_props pp
+				ON ar.page_id = pp_page
+				WHERE p.page_latest != ar.rev_id
+				AND ($nsCond OR (pp_propname = 'approvedrevs' AND pp_value = 'y'))";
 		} elseif ( $this->mMode == 'unapproved' ) {
 			return "SELECT 'Page' AS type,
 				p.page_id AS id,
 				p.page_latest AS latest_id
 				FROM $approved_revs ar RIGHT OUTER JOIN $page p
 				ON ar.page_id = p.page_id
-				WHERE ar.page_id IS NULL AND $nsCond";
+				LEFT OUTER JOIN $page_props pp
+				ON ar.page_id = pp_page
+				WHERE ar.page_id IS NULL
+				AND ($nsCond OR (pp_propname = 'approvedrevs' AND pp_value = 'y'))";
 		} else { // all approved pages
 			return "SELECT 'Page' AS type,
 				p.page_id AS id,
 				ar.rev_id AS rev_id,
 				p.page_latest AS latest_id
 				FROM $approved_revs ar JOIN $page p
-				ON ar.page_id = p.page_id AND $nsCond";
+				ON ar.page_id = p.page_id
+				LEFT OUTER JOIN $page_props pp
+				ON ar.page_id = pp_page
+				WHERE ($nsCond OR (pp_propname = 'approvedrevs' AND pp_value = 'y'))";
 		}
 	}
 
@@ -174,10 +184,15 @@ class SpecialApprovedRevsPage extends QueryPage {
 	 */	
 	function getQueryInfo() {
 		global $egApprovedRevsNamespaces;
-		
+
+		$namespacesString = '(' . implode( ',', $egApprovedRevsNamespaces ) . ')';
 		if ( $this->mMode == 'notlatest' ) {
 			return array(
-				'tables' => array( 'ar' => 'approved_revs', 'p' => 'page' ),
+				'tables' => array(
+					'ar' => 'approved_revs',
+					'p' => 'page',
+					'pp' => 'page_props',
+				),
 				'fields' => array(
 					'p.page_id AS id',
 					'ar.rev_id AS rev_id',
@@ -186,30 +201,41 @@ class SpecialApprovedRevsPage extends QueryPage {
 				'join_conds' => array(
 					'p' => array(
 						'JOIN', 'ar.page_id=p.page_id'
-					)
+					),
+					'pp' => array(
+						'LEFT OUTER JOIN', 'ar.page_id=pp_page'
+					),
 				),
-				'conds' => array(
-					'p.page_latest != ar.rev_id',
-					'p.page_namespace' => $egApprovedRevsNamespaces
-				)
+				'conds' => "p.page_latest != ar.rev_id AND ((p.page_namespace IN $namespacesString) OR (pp_propname = 'approvedrevs' AND pp_value = 'y'))",
 			);
 		} elseif ( $this->mMode == 'unapproved' ) {
 			return array(
-				'tables' => array( 'ar' => 'approved_revs', 'p' => 'page' ),
-				'fields' => array( 'p.page_id AS id', 'p.page_latest AS latest_id' ),
+				'tables' => array(
+					'ar' => 'approved_revs',
+					'p' => 'page',
+					'pp' => 'page_props',
+				),
+				'fields' => array(
+					'p.page_id AS id',
+					'p.page_latest AS latest_id'
+				),
 				'join_conds' => array(
 					'p' => array(
 						'RIGHT OUTER JOIN', 'ar.page_id=p.page_id'
-					)
+					),
+					'pp' => array(
+						'LEFT OUTER JOIN', 'ar.page_id=pp_page'
+					),
 				),
-				'conds' => array(
-					'ar.page_id IS NULL',
-					'p.page_namespace' => $egApprovedRevsNamespaces
-				)
+				'conds' => "ar.page_id IS NULL AND ((p.page_namespace IN $namespacesString) OR (pp_propname = 'approvedrevs' AND pp_value = 'y'))",
 			);
 		} else { // all approved pages
 			return array(
-				'tables' => array( 'ar' => 'approved_revs', 'p' => 'page' ),
+				'tables' => array(
+					'ar' => 'approved_revs',
+					'p' => 'page',
+					'pp' => 'page_props',
+				),
 				'fields' => array(
 					'p.page_id AS id',
 					'ar.rev_id AS rev_id',
@@ -218,9 +244,12 @@ class SpecialApprovedRevsPage extends QueryPage {
 				'join_conds' => array(
 					'p' => array(
 						'JOIN', 'ar.page_id=p.page_id',
-						'p.page_namespace' => $egApprovedRevsNamespaces
-					)
+					),
+					'pp' => array(
+						'LEFT OUTER JOIN', 'ar.page_id=pp_page'
+					),
 				),
+				'conds' => "(p.page_namespace IN $namespacesString) OR (pp_propname = 'approvedrevs' AND pp_value = 'y')",
 			);
 		}
 	}
