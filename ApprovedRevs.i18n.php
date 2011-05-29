@@ -1045,6 +1045,15 @@ $messages['ml'] = array(
 	'right-viewlinktolatest' => 'അംഗീകരിച്ച നാൾപ്പതിപ്പുള്ള താളുകളുടെ മുകളിലായി ഒരു വിശദീകരണ കുറിപ്പ് പ്രദർശിപ്പിക്കുക',
 );
 
+/** Malay (Bahasa Melayu)
+ * @author Anakmalaysia
+ */
+$messages['ms'] = array(
+	'approvedrevs-view' => 'Lihat:',
+	'approvedrevs-revisionnumber' => 'semakan $1',
+	'approvedrevs-approvedby' => 'diluluskan oleh $1 pada $2',
+);
+
 /** Dutch (Nederlands)
  * @author Siebrand
  */
