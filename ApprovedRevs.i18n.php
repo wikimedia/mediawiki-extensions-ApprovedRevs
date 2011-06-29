@@ -1056,9 +1056,36 @@ $messages['ml'] = array(
  * @author Anakmalaysia
  */
 $messages['ms'] = array(
+	'approvedrevs-desc' => 'Tetapkan satu semakan laman sebagai diluluskan',
+	'approvedrevs-logname' => 'Log pelulusan semakan',
+	'approvedrevs-logdesc' => 'Inilah log semakan yang diluluskan.',
+	'approvedrevs-approve' => 'luluskan',
+	'approvedrevs-unapprove' => 'tarik balik kelulusan',
+	'approvedrevs-approvesuccess' => 'Semakan ini telah disetkan sebagai versi yang diluluskan bagi laman ini.',
+	'approvedrevs-unapprovesuccess' => 'Tiada lagi versi yang diluluskan bagi laman ini.
+Sebaliknya, semakan terkini ditunjukkan.',
+	'approvedrevs-unapprovesuccess2' => 'Tiada lagi versi yang diluluskan bagi laman ini.
+Sebaliknya, laman kosong ditunjukkan.',
+	'approvedrevs-approveaction' => 'tetapkan $2 sebagai semakan yang diluluskan untuk "[[$1]]"',
+	'approvedrevs-unapproveaction' => 'tarik balik semakan yang diluluskan untuk "[[$1]]"',
+	'approvedrevs-notlatest' => 'Inilah semakan yang diluluskan untuk laman ini, tetapi bukan yang terkini.',
+	'approvedrevs-approvedandlatest' => 'Inilah semakan yang diluluskan untuk laman ini, dan juga yang terkini.',
+	'approvedrevs-blankpageshown' => 'Tiada semakan yang diluluskan untuk laman ini.',
+	'approvedrevs-editwarning' => 'Sila ambil perhatian bahawa anda sedang menyunting semakan terkini bagi laman ini yang bukan versi diluluskan yang tersedia ditunjukkan.',
+	'approvedrevs' => 'Semakan yang diluluskan',
+	'approvedrevs-approvedpages' => 'Semua laman yang mempunyai semakan yang diluluskan',
+	'approvedrevs-notlatestpages' => 'Laman yang semakan diluluskannya bukan semakan terkini',
+	'approvedrevs-unapprovedpages' => 'Laman yang tidak diluluskan',
 	'approvedrevs-view' => 'Lihat:',
 	'approvedrevs-revisionnumber' => 'semakan $1',
 	'approvedrevs-approvedby' => 'diluluskan oleh $1 pada $2',
+	'approvedrevs-difffromlatest' => 'perbezaan daripada semakan terkini',
+	'approvedrevs-viewlatest' => 'lihat semakan terkini',
+	'approvedrevs-approvelatest' => 'luluskan semakan terkini',
+	'approvedrevs-approvethisrev' => 'Luluskan semakan ini.',
+	'approvedrevs-viewlatestrev' => 'Lihat semakan terkini.',
+	'right-approverevisions' => 'Tetapkan satu semakan tertentu pada suatu laman wiki sebagai diluluskan',
+	'right-viewlinktolatest' => 'Lihat teks penjelasan di bahagian atas laman yang mempunyai semakan diluluskan',
 );
 
 /** Dutch (Nederlands)
@@ -1359,6 +1386,20 @@ $messages['ru'] = array(
  */
 $messages['sk'] = array(
 	'approvedrevs-desc' => 'Stanoviť jedinú revíziu stránky ako schválenú',
+);
+
+/** Slovenian (Slovenščina)
+ * @author Dbc334
+ */
+$messages['sl'] = array(
+	'approvedrevs-desc' => 'Označi eno redakcijo strani kot odobreno',
+	'approvedrevs-logname' => 'Dnevnik odobritev redakcij',
+	'approvedrevs-logdesc' => 'To je dnevnik redakcij, ki so bile odobrene.',
+	'approvedrevs-approve' => 'odobri',
+	'approvedrevs-unapprove' => 'zavrni',
+	'approvedrevs-approveaction' => 'označil(-a) $2 kot odobreno redakcijo »[[$1]]«',
+	'approvedrevs-unapproveaction' => 'odznačil(-a) odobreno redakcijo »[[$1]]«',
+	'approvedrevs' => 'Odobrene redakcije',
 );
 
 /** Swedish (Svenska)
