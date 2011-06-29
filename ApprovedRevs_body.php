@@ -151,10 +151,11 @@ class ApprovedRevs {
 	 */
 	public static function setApprovedRevID( $title, $rev_id, $is_latest = false ) {
 		self::saveApprovedRevIDInDB( $title, $rev_id );
-		// if the revision being approved is definitely the latest
-		// one, there's no need to call the parser on it
+		$parser = new Parser();
+
+		// If the revision being approved is definitely the latest
+		// one, there's no need to call the parser on it.
 		if ( !$is_latest ) {
-			$parser = new Parser();
 			$parser->setTitle( $title );
 			$article = new Article( $title, $rev_id );
 			$text = $article->getContent();
