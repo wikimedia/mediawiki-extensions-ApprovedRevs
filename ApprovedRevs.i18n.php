@@ -274,30 +274,39 @@ Umjesto toga, bit će prikazana prazna stranica.',
 /** Catalan (Català)
  * @author El libre
  * @author SMP
+ * @author Toniher
  */
 $messages['ca'] = array(
-	'approvedrevs-desc' => "Estableix una única revisió d'una pàgina com a aprovada",
+	'approvedrevs-desc' => "Estableix una única revisió d'una pàgina com aprovada",
 	'approvedrevs-logname' => 'Registre de revisions aprovades',
 	'approvedrevs-logdesc' => 'Aquest és el registre de les revisions que han estat aprovades.',
 	'approvedrevs-approve' => 'aprova',
 	'approvedrevs-unapprove' => 'desaprova',
 	'approvedrevs-approvesuccess' => 'Aquesta revisió de la pàgina ha estat establerta com la versió aprovada.',
-	'approvedrevs-approveaction' => 'estableix $2 com la revisió aprovada per a "[[$1]]"',
-	'approvedrevs-unapproveaction' => 'deixa d\'establir la revisió aprovada per a "[[$1]]"',
+	'approvedrevs-unapprovesuccess' => 'Ja no hi ha una versió aprovada de la pàgina.
+Com a alternativa, es mostrarà la versió més recent.',
+	'approvedrevs-unapprovesuccess2' => 'Ja no hi ha una versió aprovada de la pàgina.
+Com a alternativa, es mostrarà una pàgina en blanc.',
+	'approvedrevs-approveaction' => 'estableix $2 com la revisió aprovada per a «[[$1]]»',
+	'approvedrevs-unapproveaction' => "deixa d'establir la revisió aprovada per a «[[$1]]»",
 	'approvedrevs-notlatest' => "Aquesta és la revisió aprovada d'aquesta pàgina, no la més recent.",
 	'approvedrevs-approvedandlatest' => "Aquesta és la revisió aprovada d'aquesta pàgina, així com la més recent.",
-	'approvedrevs-blankpageshown' => 'Cap revisió ha estat aprovat per aquesta pàgina.',
+	'approvedrevs-blankpageshown' => "No s'ha aprovat cap revisió d'aquesta pàgina.",
+	'approvedrevs-editwarning' => "Tingueu en compte que esteu editant la darrera revisió d'aquesta pàgina, que no és l'aprovada que es mostra per defecte.",
 	'approvedrevs' => 'Revisions aprovades',
 	'approvedrevs-approvedpages' => 'Totes les pàgines amb una revisió aprovada',
-	'approvedrevs-notlatestpages' => 'Pàgines les quals la seva versió aprovada no és la més recent',
+	'approvedrevs-notlatestpages' => 'Pàgines les quals llur versió aprovada no és la més recent',
 	'approvedrevs-unapprovedpages' => 'Pàgines no aprovades',
-	'approvedrevs-view' => 'Veure:',
+	'approvedrevs-view' => 'Mostra:',
 	'approvedrevs-revisionnumber' => 'revisió $1',
 	'approvedrevs-approvedby' => 'aprovat per $1 el $2',
 	'approvedrevs-difffromlatest' => 'difereix del darrer',
-	'approvedrevs-viewlatest' => 'Veure revisió més recent.',
-	'right-approverevisions' => "Marcar com a aprovada una certa revisió d'una pàgina wiki",
-	'right-viewlinktolatest' => 'Veure un text explicatiu en la part superior per a les pàgines que tenen una revisió aprovada',
+	'approvedrevs-viewlatest' => 'mostra la més recent',
+	'approvedrevs-approvelatest' => 'aprova la darrera',
+	'approvedrevs-approvethisrev' => 'Aprova aquesta revisió.',
+	'approvedrevs-viewlatestrev' => 'Mostra la revisió més recent.',
+	'right-approverevisions' => "Marca com aprovada una certa revisió d'una pàgina wiki",
+	'right-viewlinktolatest' => 'Mostra un text explicatiu en la part superior de les pàgines que tenen una revisió aprovada',
 );
 
 /** Chechen (Нохчийн)
