@@ -1615,6 +1615,7 @@ $messages['vi'] = array(
 
 /** Simplified Chinese (‪中文(简体)‬)
  * @author Hydra
+ * @author Xiaomingyan
  */
 $messages['zh-hans'] = array(
 	'approvedrevs-desc' => '设置单个页所批准的修订',
@@ -1638,7 +1639,7 @@ $messages['zh-hans'] = array(
 	'approvedrevs-notlatestpages' => '其核准的修订不是他们最新的页面',
 	'approvedrevs-unapprovedpages' => '不备批准的页面',
 	'approvedrevs-view' => '查看:',
-	'approvedrevs-revisionnumber' => '修订 $1',
+	'approvedrevs-revisionnumber' => '修订版本$1',
 	'approvedrevs-approvedby' => '在 $2 时被 $1 批准',
 	'approvedrevs-difffromlatest' => '最新的比较',
 	'approvedrevs-viewlatest' => '查看最新进展',
