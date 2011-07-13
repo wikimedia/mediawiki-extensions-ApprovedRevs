@@ -1093,8 +1093,8 @@ Sebaliknya, laman kosong ditunjukkan.',
 	'approvedrevs-approvelatest' => 'luluskan semakan terkini',
 	'approvedrevs-approvethisrev' => 'Luluskan semakan ini.',
 	'approvedrevs-viewlatestrev' => 'Lihat semakan terkini.',
-	'right-approverevisions' => 'Tetapkan satu semakan tertentu pada suatu laman wiki sebagai diluluskan',
-	'right-viewlinktolatest' => 'Lihat teks penjelasan di bahagian atas laman yang mempunyai semakan diluluskan',
+	'right-approverevisions' => 'Memberikan kelulusan kepada semakan dalam laman wiki',
+	'right-viewlinktolatest' => 'Melihat teks penjelasan di bahagian atas laman yang mempunyai semakan diluluskan',
 );
 
 /** Dutch (Nederlands)
@@ -1409,6 +1409,8 @@ $messages['sl'] = array(
 	'approvedrevs-approveaction' => 'označil(-a) $2 kot odobreno redakcijo »[[$1]]«',
 	'approvedrevs-unapproveaction' => 'odznačil(-a) odobreno redakcijo »[[$1]]«',
 	'approvedrevs' => 'Odobrene redakcije',
+	'approvedrevs-view' => 'Pogled:',
+	'approvedrevs-revisionnumber' => 'redakcija $1',
 );
 
 /** Swedish (Svenska)
