@@ -46,7 +46,15 @@ class ApprovedRevsHooks {
 	static public function setApprovedRevForParsing( &$parser, &$text, &$stripState ) {
 		global $wgRequest;
 
+		// Static variable to prevent recursive calls to this method.
+		static $alreadyCalled = false;
+
 		if ( $wgRequest->getCheck( 'wpSave' ) ) {
+			if ( $alreadyCalled ) {
+				return true;
+			}
+			$alreadyCalled = true;
+
 			// @HACK ? If the ConfirmEdit extension is installed
 			// and kicks in for this save (i.e., prompting the
 			// user for a CAPTCHA test), it will lead to bad
