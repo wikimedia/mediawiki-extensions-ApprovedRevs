@@ -540,7 +540,7 @@ Sen sijaan, viimeisin versio näytetään.',
 	'approvedrevs-approvedandlatest' => 'Tämä on tämän sivun hyväksytty ja samalla viimeisin versio.',
 	'approvedrevs-approvedpages' => 'Hyväksytyt sivut',
 	'approvedrevs-notlatestpages' => 'Sivut, joiden hyväksytty versio ei ole viimeisin',
-	'approvedrevs-viewlatest' => 'Näytä viimeisin versio.',
+	'approvedrevs-viewlatest' => 'näytä viimeisin',
 	'right-approverevisions' => 'Asettaa wikisivun tietty versio hyväksytyksi',
 	'right-viewlinktolatest' => 'Nähdä selittävä teksti niiden sivujen yläosassa, joilla on hyväksytty versio',
 );
