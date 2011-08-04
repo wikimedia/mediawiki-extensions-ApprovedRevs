@@ -1351,8 +1351,11 @@ $messages['ro'] = array(
 $messages['roa-tara'] = array(
 	'approvedrevs-approve' => 'approve',
 	'approvedrevs-unapprove' => 'scitte',
+	'approvedrevs' => 'Revisiune approvate',
 	'approvedrevs-unapprovedpages' => 'Pàggene none approvate',
 	'approvedrevs-view' => 'Vide:',
+	'approvedrevs-revisionnumber' => 'revisione $1',
+	'approvedrevs-approvedby' => "approvate da $1 'u $2",
 );
 
 /** Russian (Русский)
