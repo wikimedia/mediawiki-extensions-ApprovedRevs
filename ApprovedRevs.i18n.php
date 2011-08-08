@@ -1622,6 +1622,7 @@ $messages['vi'] = array(
 
 /** Simplified Chinese (‪中文(简体)‬)
  * @author Hydra
+ * @author PhiLiP
  * @author Xiaomingyan
  */
 $messages['zh-hans'] = array(
@@ -1653,7 +1654,7 @@ $messages['zh-hans'] = array(
 	'approvedrevs-approvelatest' => '最新批准',
 	'approvedrevs-approvethisrev' => '批准这项修订',
 	'approvedrevs-viewlatestrev' => '查看最新版本',
-	'right-approverevisions' => '如通过设置特定版本的维基页面',
+	'right-approverevisions' => '通过wiki页面的单个修订',
 	'right-viewlinktolatest' => '视图中的解释性文本在具有一个已批准的修订页面的顶部',
 );
 
