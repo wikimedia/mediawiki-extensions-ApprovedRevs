@@ -476,6 +476,7 @@ Anstataŭe, nula paĝo estos montrita.',
 
 /** Spanish (Español)
  * @author Crazymadlover
+ * @author DJ Nietzsche
  * @author Dferg
  * @author Jurock
  * @author Locos epraix
@@ -511,6 +512,7 @@ En su lugar, se mostrará una página en blanco.',
 	'approvedrevs-viewlatest' => 'Ver lo último',
 	'approvedrevs-approvelatest' => 'aprueba última',
 	'approvedrevs-approvethisrev' => 'Aprobar esta revisión.',
+	'approvedrevs-viewlatestrev' => 'Ver la revisión más reciente.',
 	'right-approverevisions' => 'Establecer una cierta revisión de una página wiki como aprobada',
 	'right-viewlinktolatest' => 'Ver texto explicativo en la parte superior de las páginas que tienen una revisión aprobada',
 );
