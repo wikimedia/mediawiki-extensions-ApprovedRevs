@@ -1416,8 +1416,12 @@ $messages['sl'] = array(
 	'approvedrevs-approveaction' => 'označil(-a) $2 kot odobreno redakcijo »[[$1]]«',
 	'approvedrevs-unapproveaction' => 'odznačil(-a) odobreno redakcijo »[[$1]]«',
 	'approvedrevs' => 'Odobrene redakcije',
+	'approvedrevs-approvedpages' => 'vse strani z odobrenimi redakcijami',
+	'approvedrevs-unapprovedpages' => 'Neodobrene strani',
 	'approvedrevs-view' => 'Pogled:',
 	'approvedrevs-revisionnumber' => 'redakcija $1',
+	'approvedrevs-approvedby' => 'odobril(-a) $1 dne $2',
+	'approvedrevs-approvethisrev' => 'Odobri to redakcijo.',
 );
 
 /** Swedish (Svenska)
@@ -1558,7 +1562,7 @@ Onun yerine, en son revizyon gösterilecektir.',
 	'approvedrevs-unapprovedpages' => 'Onaylanmamış sayfalar',
 	'approvedrevs-view' => 'Görüntüle:',
 	'approvedrevs-revisionnumber' => 'Revizyon: $1',
-	'approvedrevs-viewlatest' => 'En son revizyonu görüntüle',
+	'approvedrevs-viewlatest' => 'son görünüm',
 	'right-approverevisions' => 'Bir viki sayfasının belirli bir revizyonunu onaylanmış olarak ayarla',
 	'right-viewlinktolatest' => 'Onaylanmış revizyonu bulunan sayfaların başındaki açıklayıcı metni görüntüle',
 );
