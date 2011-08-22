@@ -509,7 +509,7 @@ class ApprovedRevsHooks {
 	 * Use the approved revision, if it exists, for templates and other
 	 * transcluded pages.
 	 */
-	static function setTranscludedPageRev( $parser, &$title, &$skip, &$id ) {
+	static function setTranscludedPageRev( $parser, $title, &$skip, &$id ) {
 		$revision_id = ApprovedRevs::getApprovedRevID( $title );
 		if ( ! empty( $revision_id ) ) {
 			$id = $revision_id;
