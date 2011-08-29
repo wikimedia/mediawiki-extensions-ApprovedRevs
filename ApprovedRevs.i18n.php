@@ -1190,6 +1190,7 @@ $messages['or'] = array(
 
 /** Polish (Polski)
  * @author Sp5uhe
+ * @author Woytecr
  */
 $messages['pl'] = array(
 	'approvedrevs-desc' => 'Pozwala na zatwierdzenie pojedynczej wersji strony',
@@ -1217,6 +1218,9 @@ W zamian zostanie wyświetlona pusta strona.',
 	'approvedrevs-approvedby' => 'zatwierdzone $2 przez $1',
 	'approvedrevs-difffromlatest' => 'porównaj z najnowszą',
 	'approvedrevs-viewlatest' => 'pokaż najnowsze',
+	'approvedrevs-approvelatest' => 'zatwierdź ostatnią',
+	'approvedrevs-approvethisrev' => 'Zatwierdź tę edycję',
+	'approvedrevs-viewlatestrev' => 'Zobacz najnowszą wersję.',
 	'right-approverevisions' => 'Zatwierdzenie wybranych wersji stron wiki',
 	'right-viewlinktolatest' => 'Pokazuj tekst wyjaśniający w górnej części tych stron, które mają zatwierdzoną wersję',
 );
