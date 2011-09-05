@@ -91,8 +91,11 @@ $messages['arc'] = array(
 
 /** Azerbaijani (Azərbaycanca)
  * @author Cekli829
+ * @author Vago
  */
 $messages['az'] = array(
+	'approvedrevs-approve' => 'təsdiq etmək',
+	'approvedrevs-unapprove' => 'təsdiq etmənin ləğvi',
 	'approvedrevs-view' => 'Görünüş:',
 );
 
