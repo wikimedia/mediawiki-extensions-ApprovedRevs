@@ -183,9 +183,12 @@ $messages['bg'] = array(
 );
 
 /** Bengali (বাংলা)
+ * @author Bellayet
  * @author Wikitanvir
  */
 $messages['bn'] = array(
+	'approvedrevs-approve' => 'অনুমোদন',
+	'approvedrevs-unapprove' => 'অনুনমোদন',
 	'approvedrevs' => 'গ্রহণকৃত সংস্করণ',
 	'approvedrevs-approvedpages' => 'গ্রহণকৃত সংস্করণসহ সকল পাতা',
 	'approvedrevs-notlatestpages' => 'যেসকল পাতার গ্রহণকৃত সংস্করণসমূহ তাদের সাম্প্রতিকতম নয় সেই পাতাগুলি',
