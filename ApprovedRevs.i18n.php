@@ -1442,6 +1442,20 @@ $messages['ru'] = array(
  */
 $messages['sk'] = array(
 	'approvedrevs-desc' => 'Stanoviť jedinú revíziu stránky ako schválenú',
+	'approvedrevs-logname' => 'Záznam schválení revízií',
+	'approvedrevs-logdesc' => 'Toto je záznam revízií, ktoré boli schválené.',
+	'approvedrevs-approve' => 'schváliť',
+	'approvedrevs-unapprove' => 'neschváliť',
+	'approvedrevs' => 'Schválené revízie',
+	'approvedrevs-unapprovedpages' => 'Neschválené stránky',
+	'approvedrevs-view' => 'Zobraziť:',
+	'approvedrevs-revisionnumber' => 'revízia $1',
+	'approvedrevs-approvedby' => 'schválil $1 $2',
+	'approvedrevs-difffromlatest' => 'rozdiel od najnovších',
+	'approvedrevs-viewlatest' => 'Zobraziť najnovšie',
+	'approvedrevs-approvelatest' => 'schváliť najnovšie',
+	'approvedrevs-approvethisrev' => 'Schváliť túto revíziu.',
+	'approvedrevs-viewlatestrev' => 'Zobraziť najnovšiu revíziu.',
 );
 
 /** Slovenian (Slovenščina)
@@ -1453,15 +1467,31 @@ $messages['sl'] = array(
 	'approvedrevs-logdesc' => 'To je dnevnik redakcij, ki so bile odobrene.',
 	'approvedrevs-approve' => 'odobri',
 	'approvedrevs-unapprove' => 'zavrni',
+	'approvedrevs-approvesuccess' => 'Ta redakcija strani je bila označena kot odobrena različica.',
+	'approvedrevs-unapprovesuccess' => 'Ni več odobrene različice te strani.
+Namesto tega bo prikazana najnovejša redakcija.',
+	'approvedrevs-unapprovesuccess2' => 'Ni več odobrene različice te strani.
+Namesto tega bo prikazana prazna stran.',
 	'approvedrevs-approveaction' => 'označil(-a) $2 kot odobreno redakcijo »[[$1]]«',
 	'approvedrevs-unapproveaction' => 'odznačil(-a) odobreno redakcijo »[[$1]]«',
+	'approvedrevs-notlatest' => 'To je odobrena redakcija te strani; ni najnovejša.',
+	'approvedrevs-approvedandlatest' => 'To je odobrena redakcija te strani, prav tako tudi najnovejša.',
+	'approvedrevs-blankpageshown' => 'Za to stran ni bila odobrena nobena redakcija.',
+	'approvedrevs-editwarning' => 'Pomnite, da sedaj urejate najnovejšo redakcijo te strani, ki ni odobrena, po privzetem prikazana.',
 	'approvedrevs' => 'Odobrene redakcije',
 	'approvedrevs-approvedpages' => 'vse strani z odobrenimi redakcijami',
+	'approvedrevs-notlatestpages' => 'Strani, katerih odobrena redakcija ni njihova najnovejša',
 	'approvedrevs-unapprovedpages' => 'Neodobrene strani',
 	'approvedrevs-view' => 'Pogled:',
 	'approvedrevs-revisionnumber' => 'redakcija $1',
 	'approvedrevs-approvedby' => 'odobril(-a) $1 dne $2',
+	'approvedrevs-difffromlatest' => 'spremembe od najnovejše',
+	'approvedrevs-viewlatest' => 'ogled najnovejše',
+	'approvedrevs-approvelatest' => 'odobri najnovejšo',
 	'approvedrevs-approvethisrev' => 'Odobri to redakcijo.',
+	'approvedrevs-viewlatestrev' => 'Ogled najnovejše redakcije.',
+	'right-approverevisions' => 'Označevanje določenih redakcij wikistrani kot odobrene',
+	'right-viewlinktolatest' => 'Ogled pojasnjevalnega besedila na vrhu strani, ki imajo odobrene redakcije',
 );
 
 /** Swedish (Svenska)
