@@ -31,6 +31,11 @@ $specialPageAliases['ht'] = array(
 	'ApprovedRevs' => array( 'RevAprouve', 'PajAprouve', 'PajPaAprouve' ),
 );
 
+/** Luxembourgish (Lëtzebuergesch) */
+$specialPageAliases['lb'] = array(
+	'ApprovedRevs' => array( 'Net_nogekuckte_Säiten' ),
+);
+
 /** Macedonian (Македонски) */
 $specialPageAliases['mk'] = array(
 	'ApprovedRevs' => array( 'ОдобрениРевизии' ),
@@ -39,6 +44,11 @@ $specialPageAliases['mk'] = array(
 /** Malayalam (മലയാളം) */
 $specialPageAliases['ml'] = array(
 	'ApprovedRevs' => array( 'അംഗീകൃതതാളുകൾ', 'അംഗീകൃതമല്ലാത്തതാളുകൾ' ),
+);
+
+/** Nedersaksisch (Nedersaksisch) */
+$specialPageAliases['nds-nl'] = array(
+	'ApprovedRevs' => array( 'Goedekeurden_pagina\'s' ),
 );
 
 /** Dutch (Nederlands) */
@@ -59,6 +69,11 @@ $specialPageAliases['sa'] = array(
 /** Turkish (Türkçe) */
 $specialPageAliases['tr'] = array(
 	'ApprovedRevs' => array( 'OnaylanmışRevizyonlar', 'OnaylanmışSayfalar', 'OnaylanmamışSayfalar' ),
+);
+
+/** Traditional Chinese (‪中文(繁體)‬) */
+$specialPageAliases['zh-hant'] = array(
+	'ApprovedRevs' => array( '已通過的版本' ),
 );
 
 /**
