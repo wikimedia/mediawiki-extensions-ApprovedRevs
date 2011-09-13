@@ -595,11 +595,22 @@ $messages['fr'] = array(
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
+	'approvedrevs-desc' => 'Mârque una solèta vèrsion d’una pâge coment aprovâ.',
 	'approvedrevs-logname' => 'Jornal de les aprobacions de vèrsions',
+	'approvedrevs-logdesc' => 'O est lo jornal de les vèrsions qu’ont étâ marcâs coment aprovâs.',
 	'approvedrevs-approve' => 'aprovar',
 	'approvedrevs-unapprove' => 'dèsaprovar',
+	'approvedrevs-approvesuccess' => 'Ceta vèrsion de la pâge at étâ marcâ coment la vèrsion aprovâ.',
+	'approvedrevs-unapprovesuccess' => 'Y at gins de vèrsion aprovâ de ceta pâge.
+A la place, la vèrsion la ples novèla serat montrâ.',
+	'approvedrevs-unapprovesuccess2' => 'Y at gins de vèrsion aprovâ de ceta pâge.
+A la place, una pâge voueda serat montrâ.',
 	'approvedrevs-approveaction' => 'at marcâ $2 coment la vèrsion aprovâ de « [[$1]] »',
 	'approvedrevs-unapproveaction' => 'at anulâ lo marcâjo d’una vèrsion aprovâ por « [[$1]] »',
+	'approvedrevs-notlatest' => 'O est la vèrsion aprovâ de cela pâge ; o est pas la ples novèla.',
+	'approvedrevs-approvedandlatest' => 'O est la vèrsion aprovâ de cela pâge, et pués la ples novèla.',
+	'approvedrevs-blankpageshown' => 'Niona vèrsion at étâ aprovâ por cela pâge.',
+	'approvedrevs-editwarning' => 'Volyéd notar que vos éte ora aprés changiér la dèrriére vèrsion de cela pâge, qu’est pas cela aprovâ montrâ per dèfôt.',
 	'approvedrevs' => 'Vèrsions aprovâs',
 	'approvedrevs-approvedpages' => 'Pâges aprovâs',
 	'approvedrevs-notlatestpages' => 'Pâges que la vèrsion aprovâ est pas la ples novèla',
@@ -612,6 +623,8 @@ $messages['frp'] = array(
 	'approvedrevs-approvelatest' => 'aprovar la ples novèla',
 	'approvedrevs-approvethisrev' => 'Aprovar cela vèrsion.',
 	'approvedrevs-viewlatestrev' => 'Vêre la vèrsion la ples novèla.',
+	'right-approverevisions' => 'Marcar una vèrsion cllâra d’una pâge coment aprovâ',
+	'right-viewlinktolatest' => 'Vêre lo tèxto èxplicatif d’amont les pâges qu’ont una vèrsion aprovâ',
 );
 
 /** Galician (Galego)
