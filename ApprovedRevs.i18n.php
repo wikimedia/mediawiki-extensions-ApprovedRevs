@@ -344,7 +344,7 @@ Stattdessen wird die neueste Version angezeigt.',
 Stattdessen wird eine leere Seite angezeigt.',
 	'approvedrevs-approveaction' => '$2 als bestätigte Version für „[[$1]]“ festlegen',
 	'approvedrevs-unapproveaction' => 'bestätigte Version für „[[$1]]“ zurücknehmen',
-	'approvedrevs-notlatest' => 'Dies ist die bestätigte Version dieser Seite, allerdings nicht die neueste Version.',
+	'approvedrevs-notlatest' => 'Dies ist die bestätigte Version dieser Seite, allerdings nicht deren neueste Version.',
 	'approvedrevs-approvedandlatest' => 'Dies ist die bestätigte sowie die neueste Version dieser Seite.',
 	'approvedrevs-blankpageshown' => 'Keine Version dieser Seite ist bestätigt worden.',
 	'approvedrevs-editwarning' => 'Beachte bitte, dass du gerade die neueste Version dieser Seite bearbeitest. Sie entspricht nicht der bestätigten Version, die standardmäßig angezeigt wird.',
@@ -361,7 +361,7 @@ Stattdessen wird eine leere Seite angezeigt.',
 	'approvedrevs-approvethisrev' => 'Diese Version bestätigen.',
 	'approvedrevs-viewlatestrev' => 'Die neueste Version ansehen.',
 	'right-approverevisions' => 'Eine bestimmte Version einer Seite als bestätigt festlegen',
-	'right-viewlinktolatest' => 'Erläuternde Hinweise im Kopf der Seiten anzeigen, die eine bestätigte Version haben.',
+	'right-viewlinktolatest' => 'Erläuternde Hinweise im Kopfbereich der Seiten anzeigen, die eine bestätigte Version haben',
 );
 
 /** German (formal address) (‪Deutsch (Sie-Form)‬)
