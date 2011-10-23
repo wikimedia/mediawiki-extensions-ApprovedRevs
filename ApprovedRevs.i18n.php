@@ -1624,6 +1624,7 @@ Sa halip, ipapakita ang isang pahinang walang laman.',
 
 /** Turkish (Türkçe)
  * @author Emperyan
+ * @author Khutuck
  * @author Srhat
  */
 $messages['tr'] = array(
@@ -1635,17 +1636,26 @@ $messages['tr'] = array(
 	'approvedrevs-approvesuccess' => 'Sayfaya ait bu revizyon onaylanmış revizyon olarak ayarlandı.',
 	'approvedrevs-unapprovesuccess' => 'Bu sayfanın artık onaylanmış sürümü yok.
 Onun yerine, en son revizyon gösterilecektir.',
+	'approvedrevs-unapprovesuccess2' => 'Bu sayfanın artık onaylanmış sürümü yok.
+Onun yerine, boş bir sayfa gösterilecektir.',
 	'approvedrevs-approveaction' => '$2 revizyonunu "[[$1]]" sayfasının onaylanmış revizyonu olarak ayarladı',
 	'approvedrevs-unapproveaction' => '"[[$1]]" sayfasının onaylanmış revizyonunun onayını kaldırdı.',
 	'approvedrevs-notlatest' => 'Bu sayfanın onaylanmış revizyonudur; en son revizyon değildir.',
 	'approvedrevs-approvedandlatest' => 'Bu revizyon, sayfanın hem onaylanmış hem de en son revizyonudur.',
+	'approvedrevs-blankpageshown' => 'Bu sayfa için onaylanmış sürüm yok.',
+	'approvedrevs-editwarning' => 'Lütfen dikkat: Şu an onaylanmış sürümü değil, son sürümü değitirmektesiniz.',
 	'approvedrevs' => 'Onaylanan düzeltmeler',
 	'approvedrevs-approvedpages' => 'Onaylanmış sayfalar',
 	'approvedrevs-notlatestpages' => 'Bu sayfanın onaylanmış revizyonudur; en son revizyon değildir.',
 	'approvedrevs-unapprovedpages' => 'Onaylanmamış sayfalar',
 	'approvedrevs-view' => 'Görüntüle:',
 	'approvedrevs-revisionnumber' => 'Revizyon: $1',
+	'approvedrevs-approvedby' => "$1 tarafından $2'de onaylandı.",
+	'approvedrevs-difffromlatest' => 'öncekiyle fark',
 	'approvedrevs-viewlatest' => 'son görünüm',
+	'approvedrevs-approvelatest' => 'en günceli onayla',
+	'approvedrevs-approvethisrev' => 'Bu sürümü onayla.',
+	'approvedrevs-viewlatestrev' => 'En son sürümü görüntüleyin.',
 	'right-approverevisions' => 'Bir viki sayfasının belirli bir revizyonunu onaylanmış olarak ayarla',
 	'right-viewlinktolatest' => 'Onaylanmış revizyonu bulunan sayfaların başındaki açıklayıcı metni görüntüle',
 );
