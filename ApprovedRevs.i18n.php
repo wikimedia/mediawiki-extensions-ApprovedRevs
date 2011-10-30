@@ -525,10 +525,12 @@ En su lugar, se mostrará una página en blanco.',
 );
 
 /** Persian (فارسی)
+ * @author Leyth
  * @author Mjbmr
  */
 $messages['fa'] = array(
 	'approvedrevs-view' => 'مشاهده:',
+	'approvedrevs-revisionnumber' => 'نسخهٔ $1',
 );
 
 /** Finnish (Suomi)
