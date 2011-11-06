@@ -72,11 +72,18 @@ $messages['af'] = array(
 
 /** Arabic (العربية)
  * @author Moemin05
+ * @author روخو
  */
 $messages['ar'] = array(
 	'approvedrevs-approve' => 'موافقة',
 	'approvedrevs-unapprove' => 'إزالة موافقة',
+	'approvedrevs' => 'أقر المراجعات',
 	'approvedrevs-approvedpages' => 'صفحات تمّت الموافقة عليها',
+	'approvedrevs-unapprovedpages' => 'صفحات لم تتم الموافقة عليها',
+	'approvedrevs-view' => 'عرض:',
+	'approvedrevs-revisionnumber' => 'تنقيح $1',
+	'approvedrevs-approvedby' => 'وافق لكل $1 على $2',
+	'approvedrevs-viewlatest' => 'اطلع على اخر',
 );
 
 /** Aramaic (ܐܪܡܝܐ)
