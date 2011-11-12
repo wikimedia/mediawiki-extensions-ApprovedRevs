@@ -1671,6 +1671,7 @@ Onun yerine, boş bir sayfa gösterilecektir.',
 
 /** Ukrainian (Українська)
  * @author Alex Khimich
+ * @author Sodmy
  * @author Тест
  */
 $messages['uk'] = array(
@@ -1699,7 +1700,9 @@ $messages['uk'] = array(
 	'approvedrevs-approvedby' => 'затверджена $1 $2',
 	'approvedrevs-difffromlatest' => 'різниця з останньою',
 	'approvedrevs-viewlatest' => 'переглянути останню',
+	'approvedrevs-approvelatest' => 'затвердити останній',
 	'approvedrevs-approvethisrev' => 'Затвердити цю версію.',
+	'approvedrevs-viewlatestrev' => 'Перегляд останньої версії.',
 	'right-approverevisions' => 'Встановити єдиний перегляд сторінки як затверджуючий',
 	'right-viewlinktolatest' => 'Переглянути пояснювальний текст у верхній частині сторінки яка має схвалену версію.',
 );
