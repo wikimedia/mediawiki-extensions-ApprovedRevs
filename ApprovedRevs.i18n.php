@@ -1367,6 +1367,7 @@ Em vez dela, será apresentada uma página em branco.',
 
 /** Brazilian Portuguese (Português do Brasil)
  * @author Giro720
+ * @author Pedroca cerebral
  */
 $messages['pt-br'] = array(
 	'approvedrevs-desc' => 'Marcar como aprovada uma das revisões de uma página',
@@ -1393,7 +1394,10 @@ Em vez dela, será apresentada uma página em branco.',
 	'approvedrevs-revisionnumber' => 'revisão $1',
 	'approvedrevs-approvedby' => 'aprovada por $1 em $2',
 	'approvedrevs-difffromlatest' => 'diff da última versão',
-	'approvedrevs-viewlatest' => 'Ver a revisão mais recente.',
+	'approvedrevs-viewlatest' => 'ver a mais recente',
+	'approvedrevs-approvelatest' => 'aprovar a mais recente',
+	'approvedrevs-approvethisrev' => 'Aprovar esta revisão.',
+	'approvedrevs-viewlatestrev' => 'Ver a revisão mais recente.',
 	'right-approverevisions' => 'Definir como aprovada uma revisão específica de uma página da wiki',
 	'right-viewlinktolatest' => 'Ver um texto explicativo no topo das páginas que têm uma revisão aprovada',
 );
