@@ -368,9 +368,13 @@ class ApprovedRevsHooks {
 	 * of for every row.
 	 */
 	static function storeApprovedRevisionForHistoryPage( &$article ) {
+		// A bug in some versions of MW 1.19 causes $article to be null.
+		if ( is_null( $article ) ) {
+			return true;
+		}
 		// this will be null if there's no ID
 		$approvedRevID = ApprovedRevs::getApprovedRevID( $article->getTitle() );
-		$article->approvedRevID = $approvedRevID;
+		$article->getTitle()->approvedRevID = $approvedRevID;
 		// also load extension messages, while we're at it
 		ApprovedRevs::loadMessages();
 		return true;
@@ -392,7 +396,7 @@ class ApprovedRevsHooks {
 		$article = $historyPage->getArticle();
 		// use the rev ID field in the $article object, which was
 		// stored earlier
-		$approvedRevID = $article->approvedRevID;
+		$approvedRevID = $title->approvedRevID;
 		if ( $row->rev_id == $approvedRevID ) {
 			$s .= '&#9733; ';
 		}
