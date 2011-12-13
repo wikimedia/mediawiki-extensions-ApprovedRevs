@@ -17,7 +17,7 @@ $wgExtensionCredits['other'][] = array(
 	'name'            => 'Approved Revs',
 	'version'         => APPROVED_REVS_VERSION,
 	'author'          => 'Yaron Koren',
-	'url'             => 'http://www.mediawiki.org/wiki/Extension:Approved_Revs',
+	'url'             => 'https://www.mediawiki.org/wiki/Extension:Approved_Revs',
 	'descriptionmsg'  => 'approvedrevs-desc'
 );
 
