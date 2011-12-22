@@ -1676,6 +1676,7 @@ Onun yerine, boş bir sayfa gösterilecektir.',
 /** Ukrainian (Українська)
  * @author Alex Khimich
  * @author Sodmy
+ * @author Vox
  * @author Тест
  */
 $messages['uk'] = array(
@@ -1689,7 +1690,7 @@ $messages['uk'] = array(
 Замість цього, самий останній затверджений варіант буде показаний.',
 	'approvedrevs-unapprovesuccess2' => 'Існує не затверджений варіант для цієї сторінки. 
 Замість цього буде показано порожню сторінку.',
-	'approvedrevs-approveaction' => 'встановити $2 як затверджену версію для "[[$1]]"',
+	'approvedrevs-approveaction' => 'встановити $2 як затверджену версію для «[[$1]]»',
 	'approvedrevs-unapproveaction' => 'відкликати стверджену версію для "[[$1]]"',
 	'approvedrevs-notlatest' => 'Це затверджена версія цієї сторінки; вона не є останньою.',
 	'approvedrevs-approvedandlatest' => 'Це затверджений перегляд цієї сторінки, вын э найновішим.',
