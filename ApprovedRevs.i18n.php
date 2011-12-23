@@ -1774,6 +1774,40 @@ $messages['zh-hans'] = array(
 	'right-viewlinktolatest' => '视图中的解释性文本在具有一个已批准的修订页面的顶部',
 );
 
+/** Traditional Chinese (‪中文(繁體)‬) */
+$messages['zh-hant'] = array(
+	'approvedrevs-desc' => '設置單個頁所批准的修訂',
+	'approvedrevs-logname' => '修訂批准日誌',
+	'approvedrevs-logdesc' => '這是已獲批准的修訂的日誌。',
+	'approvedrevs-approve' => '批准',
+	'approvedrevs-unapprove' => '不批准',
+	'approvedrevs-approvesuccess' => '此版本的頁面已被設為批准的版本。',
+	'approvedrevs-unapprovesuccess' => '此頁不再有一個批准的版本。
+相反，將顯示最新的修訂版。',
+	'approvedrevs-unapprovesuccess2' => '此頁不再是一個批准的版本。
+相反，將顯示一個空白頁。',
+	'approvedrevs-approveaction' => '將把 $2 作為"[[$1]]"批准修訂',
+	'approvedrevs-unapproveaction' => '取消"[[$1]]"的設置批准的修訂',
+	'approvedrevs-notlatest' => '這是此頁 批准的修訂； 它不是最新的。',
+	'approvedrevs-approvedandlatest' => '這是此頁批准，以及是最近的修訂。',
+	'approvedrevs-blankpageshown' => '沒有修訂已獲批准的此頁。',
+	'approvedrevs-editwarning' => '請注意現在正在編輯的此頁，不是核准的最新版本默認情況下顯示的其中一個。',
+	'approvedrevs' => '獲批准的修訂',
+	'approvedrevs-approvedpages' => '被批准的頁面',
+	'approvedrevs-notlatestpages' => '其核准的修訂不是他們最新的頁面',
+	'approvedrevs-unapprovedpages' => '不備批准的頁面',
+	'approvedrevs-view' => '查看:',
+	'approvedrevs-revisionnumber' => '版本$1',
+	'approvedrevs-approvedby' => '在 $2 時被 $1 批准',
+	'approvedrevs-difffromlatest' => '最新的比較',
+	'approvedrevs-viewlatest' => '查看最新進展',
+	'approvedrevs-approvelatest' => '最新批准',
+	'approvedrevs-approvethisrev' => '批准這項修訂',
+	'approvedrevs-viewlatestrev' => '查看最新版本',
+	'right-approverevisions' => '通過wiki頁面的單個修訂',
+	'right-viewlinktolatest' => '視圖中的解釋性文本在具有一個已批准的修訂頁面的頂部',
+);
+
 /** Chinese (Hong Kong) (‪中文(香港)‬)
  * @author Oapbtommy
  */
