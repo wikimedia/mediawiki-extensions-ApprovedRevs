@@ -1159,6 +1159,42 @@ Sebaliknya, laman kosong ditunjukkan.',
 	'right-viewlinktolatest' => 'Melihat teks penjelasan di bahagian atas laman yang mempunyai semakan diluluskan',
 );
 
+/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+ * @author Nghtwlkr
+ */
+$messages['nb'] = array(
+	'approvedrevs-desc' => 'Sett en enkelt revisjon av en side som godkjent',
+	'approvedrevs-logname' => 'Godkjenningslogg for revisjoner',
+	'approvedrevs-logdesc' => 'Dette er loggen over revisjoner som har blitt godkjent.',
+	'approvedrevs-approve' => 'godkjenn',
+	'approvedrevs-unapprove' => 'ikke godkjenn',
+	'approvedrevs-approvesuccess' => 'Denne revisjonen av siden har blitt satt som den godkjente versjonen.',
+	'approvedrevs-unapprovesuccess' => 'Det er ikke lenger en godkjent versjon av denne siden.
+I stedet vil den nyeste revisjonen bli vist.',
+	'approvedrevs-unapprovesuccess2' => 'Det er ikke lenger en godkjent versjon av denne siden.
+I stedet vil en blank side bli vist.',
+	'approvedrevs-approveaction' => 'sett $2 som den godkjente revisjonen for «[[$1]]»',
+	'approvedrevs-unapproveaction' => 'fjern godkjenning av revisjon for «[[$1]]»',
+	'approvedrevs-notlatest' => 'Dette er den godkjente revisjonen av denne siden; det er ikke den nyeste.',
+	'approvedrevs-approvedandlatest' => 'Dette er den godkjente revisjonen av denne siden, samt den nyeste.',
+	'approvedrevs-blankpageshown' => 'Ingen revisjon har blitt godkjent for denne siden.',
+	'approvedrevs-editwarning' => 'Merk at du nå redigerer den nyeste revisjonen av denne siden, som ikke er den godkjente siden som vises som standard.',
+	'approvedrevs' => 'Godkjente revisjoner',
+	'approvedrevs-approvedpages' => 'Godkjente sider',
+	'approvedrevs-notlatestpages' => 'Sider der den godkjente revisjonen ikke er deres nyeste.',
+	'approvedrevs-unapprovedpages' => 'Ikke-godkjente sider',
+	'approvedrevs-view' => 'Vis:',
+	'approvedrevs-revisionnumber' => 'revisjon $1',
+	'approvedrevs-approvedby' => 'godkjent av $1, $2',
+	'approvedrevs-difffromlatest' => 'diff fra siste',
+	'approvedrevs-viewlatest' => 'vis siste',
+	'approvedrevs-approvelatest' => 'godkjenn siste',
+	'approvedrevs-approvethisrev' => 'Godkjenn denne revisjonen.',
+	'approvedrevs-viewlatestrev' => 'Vis den nyeste revisjonen.',
+	'right-approverevisions' => 'Sett en viss revisjon av en wikiside som godkjent',
+	'right-viewlinktolatest' => 'Vis forklarende tekst på toppen av sider som har en godkjent revisjon',
+);
+
 /** Dutch (Nederlands)
  * @author Siebrand
  */
@@ -1201,42 +1237,6 @@ Het is niet de meeste recente versie.',
  */
 $messages['nl-informal'] = array(
 	'approvedrevs-editwarning' => 'Je bewerkt de meest recente versie van deze pagina die nog niet goedgekeurd is en standaard niet wordt weergegeven.',
-);
-
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
- * @author Nghtwlkr
- */
-$messages['nb'] = array(
-	'approvedrevs-desc' => 'Sett en enkelt revisjon av en side som godkjent',
-	'approvedrevs-logname' => 'Godkjenningslogg for revisjoner',
-	'approvedrevs-logdesc' => 'Dette er loggen over revisjoner som har blitt godkjent.',
-	'approvedrevs-approve' => 'godkjenn',
-	'approvedrevs-unapprove' => 'ikke godkjenn',
-	'approvedrevs-approvesuccess' => 'Denne revisjonen av siden har blitt satt som den godkjente versjonen.',
-	'approvedrevs-unapprovesuccess' => 'Det er ikke lenger en godkjent versjon av denne siden.
-I stedet vil den nyeste revisjonen bli vist.',
-	'approvedrevs-unapprovesuccess2' => 'Det er ikke lenger en godkjent versjon av denne siden.
-I stedet vil en blank side bli vist.',
-	'approvedrevs-approveaction' => 'sett $2 som den godkjente revisjonen for «[[$1]]»',
-	'approvedrevs-unapproveaction' => 'fjern godkjenning av revisjon for «[[$1]]»',
-	'approvedrevs-notlatest' => 'Dette er den godkjente revisjonen av denne siden; det er ikke den nyeste.',
-	'approvedrevs-approvedandlatest' => 'Dette er den godkjente revisjonen av denne siden, samt den nyeste.',
-	'approvedrevs-blankpageshown' => 'Ingen revisjon har blitt godkjent for denne siden.',
-	'approvedrevs-editwarning' => 'Merk at du nå redigerer den nyeste revisjonen av denne siden, som ikke er den godkjente siden som vises som standard.',
-	'approvedrevs' => 'Godkjente revisjoner',
-	'approvedrevs-approvedpages' => 'Godkjente sider',
-	'approvedrevs-notlatestpages' => 'Sider der den godkjente revisjonen ikke er deres nyeste.',
-	'approvedrevs-unapprovedpages' => 'Ikke-godkjente sider',
-	'approvedrevs-view' => 'Vis:',
-	'approvedrevs-revisionnumber' => 'revisjon $1',
-	'approvedrevs-approvedby' => 'godkjent av $1, $2',
-	'approvedrevs-difffromlatest' => 'diff fra siste',
-	'approvedrevs-viewlatest' => 'vis siste',
-	'approvedrevs-approvelatest' => 'godkjenn siste',
-	'approvedrevs-approvethisrev' => 'Godkjenn denne revisjonen.',
-	'approvedrevs-viewlatestrev' => 'Vis den nyeste revisjonen.',
-	'right-approverevisions' => 'Sett en viss revisjon av en wikiside som godkjent',
-	'right-viewlinktolatest' => 'Vis forklarende tekst på toppen av sider som har en godkjent revisjon',
 );
 
 /** Oriya (ଓଡ଼ିଆ)
