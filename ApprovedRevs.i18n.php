@@ -1206,7 +1206,7 @@ $messages['nl-informal'] = array(
 /** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
  * @author Nghtwlkr
  */
-$messages['no'] = array(
+$messages['nb'] = array(
 	'approvedrevs-desc' => 'Sett en enkelt revisjon av en side som godkjent',
 	'approvedrevs-logname' => 'Godkjenningslogg for revisjoner',
 	'approvedrevs-logdesc' => 'Dette er loggen over revisjoner som har blitt godkjent.',
