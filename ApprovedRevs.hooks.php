@@ -199,7 +199,6 @@ class ApprovedRevsHooks {
 		}
 
 		ApprovedRevs::addCSS();
-		ApprovedRevs::loadMessages();
 
 		$content = '';
 
@@ -237,7 +236,6 @@ class ApprovedRevsHooks {
 		}
 
 		ApprovedRevs::addCSS();
-		ApprovedRevs::loadMessages();
 		if ( $revisionID == $article->getLatest() ) {
 			$text = Xml::element(
 				'span',
@@ -290,7 +288,6 @@ class ApprovedRevsHooks {
 		$latestRevID = $title->getLatestRevID();
 		if ( ! empty( $approvedRevID ) && $approvedRevID != $latestRevID ) {
 			ApprovedRevs::addCSS();
-			ApprovedRevs::loadMessages();
 			global $wgOut;
 			$wgOut->addHTML( '<p class="approvedRevsEditWarning">' . wfMsg( 'approvedrevs-editwarning' ) . "</p>\n" );
 		}
@@ -310,7 +307,6 @@ class ApprovedRevsHooks {
 		$latestRevID = $wgTitle->getLatestRevID();
 		if ( ! empty( $approvedRevID ) && $approvedRevID != $latestRevID ) {
 			ApprovedRevs::addCSS();
-			ApprovedRevs::loadMessages();
 			$preFormHTML .= Xml::element ( 'p',
 				array( 'style' => 'font-weight: bold' ),
 				wfMsg( 'approvedrevs-editwarning' ) ) . "\n";
@@ -329,13 +325,8 @@ class ApprovedRevsHooks {
 		if ( $wgRequest->getCheck( 'oldid' ) ) {
 			return true;
 		}
-		// Skin::getTitle was only added in MW 1.16
-		if ( method_exists( $skin, 'getTitle' ) ) {
-			$title = $skin->getTitle();
-		} else {
-			global $wgTitle;
-			$title = $wgTitle;
-		}
+
+		$title = $skin->getTitle();
 		if ( ApprovedRevs::hasApprovedRevision( $title ) ) {
 			// the URL is the same regardless of whether the tab
 			// is 'edit' or 'view source', but the "action" is
@@ -375,8 +366,7 @@ class ApprovedRevsHooks {
 		// this will be null if there's no ID
 		$approvedRevID = ApprovedRevs::getApprovedRevID( $article->getTitle() );
 		$article->getTitle()->approvedRevID = $approvedRevID;
-		// also load extension messages, while we're at it
-		ApprovedRevs::loadMessages();
+
 		return true;
 	}
 	
