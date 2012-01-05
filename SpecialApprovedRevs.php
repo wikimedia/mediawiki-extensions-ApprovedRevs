@@ -274,18 +274,10 @@ class SpecialApprovedRevsPage extends QueryPage {
 		if ( $this->mMode == 'unapproved' ) {
 			global $egApprovedRevsShowApproveLatest;
 			
-			$viewLatest = Xml::element( 'a',
-				array( 'href' => $title->getLocalUrl(
-					array(
-						'oldid' => $result->latest_id
-					)
-				) ),
-				wfMsg( 'approvedrevs-viewlatest' )
-			);
-			
-			$approveLatest = '';
-			if ( $egApprovedRevsShowApproveLatest ) {
-				$approveLatest = ', ' . Xml::element( 'a',
+			$line = $pageLink;
+			if ( $egApprovedRevsShowApproveLatest &&
+				$title->userCan( 'approverevisions' ) ) {
+				$line .= ' (' . Xml::element( 'a',
 					array( 'href' => $title->getLocalUrl(
 						array(
 							'action' => 'approve',
@@ -293,10 +285,10 @@ class SpecialApprovedRevsPage extends QueryPage {
 						)
 					) ),
 					wfMsg( 'approvedrevs-approvelatest' )
-				);
+				) . ')';
 			}
 			
-			return "$pageLink ({$viewLatest}{$approveLatest})";
+			return $line;
 		} elseif ( $this->mMode == 'notlatest' ) {
 			$diffLink = Xml::element( 'a',
 				array( 'href' => $title->getLocalUrl(
@@ -309,7 +301,7 @@ class SpecialApprovedRevsPage extends QueryPage {
 			);
 			
 			return "$pageLink ($diffLink)";
-		} else {
+		} else { // main mode (pages with an approved revision)
 			global $wgUser, $wgOut, $wgLang;
 			
 			$additionalInfo = Xml::element( 'span',
