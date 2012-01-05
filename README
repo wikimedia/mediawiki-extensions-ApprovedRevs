@@ -18,9 +18,8 @@ http://www.mediawiki.org/wiki/Extension:Approved_Revs
 
 == Requirements ==
 
-This version of the Approved Revs extension requires MediaWiki 1.11 or
-higher, except for the approveAllPages.php script, which requires
-MediaWiki 1.16 or higher.
+This version of the Approved Revs extension requires MediaWiki 1.16 or
+higher.
 
 == Installation ==
 
