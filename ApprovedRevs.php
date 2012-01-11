@@ -9,7 +9,7 @@ if ( !defined( 'MEDIAWIKI' ) ) die();
  * @author Yaron Koren
  */
 
-define( 'APPROVED_REVS_VERSION', '0.6' );
+define( 'APPROVED_REVS_VERSION', '0.7' );
 
 // credits
 $wgExtensionCredits['other'][] = array(
@@ -32,6 +32,7 @@ $egApprovedRevsShowApproveLatest = false;
 // internationalization
 $wgExtensionMessagesFiles['ApprovedRevs'] = $egApprovedRevsIP . 'ApprovedRevs.i18n.php';
 $wgExtensionMessagesFiles['ApprovedRevsAlias'] = $egApprovedRevsIP . 'ApprovedRevs.alias.php';
+$wgExtensionMessagesFiles['ApprovedRevsMagic'] = $egApprovedRevsIP . 'ApprovedRevs.magic.php';
 
 // register all classes
 $wgAutoloadClasses['ApprovedRevs'] = $egApprovedRevsIP . 'ApprovedRevs_body.php';
@@ -58,7 +59,6 @@ $wgHooks['UnknownAction'][] = 'ApprovedRevsHooks::unsetAsApproved';
 $wgHooks['BeforeParserFetchTemplateAndtitle'][] = 'ApprovedRevsHooks::setTranscludedPageRev';
 $wgHooks['ArticleDeleteComplete'][] = 'ApprovedRevsHooks::deleteRevisionApproval';
 $wgHooks['MagicWordwgVariableIDs'][] = 'ApprovedRevsHooks::addMagicWordVariableIDs';
-$wgHooks['LanguageGetMagic'][] = 'ApprovedRevsHooks::addMagicWordLanguage';
 $wgHooks['ParserBeforeTidy'][] = 'ApprovedRevsHooks::handleMagicWords';
 $wgHooks['AdminLinks'][] = 'ApprovedRevsHooks::addToAdminLinks';
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'ApprovedRevsHooks::describeDBSchema';

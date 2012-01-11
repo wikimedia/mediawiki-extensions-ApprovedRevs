@@ -529,17 +529,6 @@ class ApprovedRevsHooks {
 	}
  
 	/**
-	 * Set the actual value of the magic words
-	 */
-	static function addMagicWordLanguage( &$magicWords, $langCode ) {
-		switch( $langCode ) {
-		default:
-			$magicWords['MAG_APPROVEDREVS'] = array( 0, '__APPROVEDREVS__' );
-		}
-		return true;
-	}
-
-	/**
 	 * Set values in the page_props table based on the presence of the
 	 * 'APPROVEDREVS' magic word in a page
 	 */
