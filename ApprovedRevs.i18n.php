@@ -1728,7 +1728,9 @@ $messages['zh-hans'] = array(
 	'right-viewlinktolatest' => '视图中的解释性文本在具有一个已批准的修订页面的顶部',
 );
 
-/** Traditional Chinese (‪中文(繁體)‬) */
+/** Traditional Chinese (‪中文(繁體)‬)
+ * @author Oapbtommy
+ */
 $messages['zh-hant'] = array(
 	'approvedrevs-desc' => '設置單個頁所批准的修訂',
 	'approvedrevs-logname' => '修訂批准日誌',
@@ -1750,7 +1752,7 @@ $messages['zh-hant'] = array(
 	'approvedrevs-approvedpages' => '被批准的頁面',
 	'approvedrevs-notlatestpages' => '其核准的修訂不是他們最新的頁面',
 	'approvedrevs-unapprovedpages' => '不備批准的頁面',
-	'approvedrevs-view' => '查看:',
+	'approvedrevs-view' => '檢視：',
 	'approvedrevs-revisionnumber' => '版本$1',
 	'approvedrevs-approvedby' => '在 $2 時被 $1 批准',
 	'approvedrevs-difffromlatest' => '最新的比較',
