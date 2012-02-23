@@ -64,7 +64,7 @@ $wgHooks['AdminLinks'][] = 'ApprovedRevsHooks::addToAdminLinks';
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'ApprovedRevsHooks::describeDBSchema';
 $wgHooks['EditPage::showEditForm:initial'][] = 'ApprovedRevsHooks::addWarningToEditPage';
 $wgHooks['sfHTMLBeforeForm'][] = 'ApprovedRevsHooks::addWarningToSFForm';
-$wgHooks['ArticleViewHeader'][] = 'ApprovedRevsHooks::onArticleViewHeader';
+$wgHooks['ArticleViewHeader'][] = 'ApprovedRevsHooks::setArticleHeader';
 
 // logging
 $wgLogTypes['approval'] = 'approval';

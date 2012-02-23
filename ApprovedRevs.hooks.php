@@ -584,7 +584,7 @@ class ApprovedRevsHooks {
 	 * 
 	 * @return true
 	 */	
-	public static function onArticleViewHeader( Article &$article, &$outputDone, &$useParserCache ) {
+	public static function setArticleHeader( Article &$article, &$outputDone, &$useParserCache ) {
 		global $wgOut, $wgRequest, $egApprovedRevsBlankIfUnapproved;
 		
 		if ( ApprovedRevs::pageIsApprovable( $article->getTitle() ) 
@@ -594,6 +594,10 @@ class ApprovedRevsHooks {
 
 			if ( $egApprovedRevsBlankIfUnapproved &&
 				( empty( $approvedId ) || ( $wgRequest->getCheck( 'oldid' ) && $wgRequest->getInt( 'oldid' ) != $approvedId ) ) ) {
+				// Disable caching, so that if it's a specific 
+				// ID being shown that happens to be the
+				// latest, it doesn't show a blank page.
+				$useParserCache = false;
 				$wgOut->addHTML( '<span style="margin-left:10.75px">' );
 				
 				if ( $wgRequest->getCheck( 'oldid' ) ) {
@@ -629,5 +633,4 @@ class ApprovedRevsHooks {
 		
 		return true;
 	}
-	
 }
