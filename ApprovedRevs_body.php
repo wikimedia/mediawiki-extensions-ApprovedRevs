@@ -19,7 +19,7 @@ class ApprovedRevs {
 	 * one.
 	 */
 	public static function getApprovedRevID( $title ) {
-		$pageID = $title->getArticleId();
+		$pageID = $title->getArticleID();
 		if ( array_key_exists( $pageID, self::$mApprovedRevIDForPage ) ) {
 			return self::$mApprovedRevIDForPage[$pageID];
 		}
@@ -47,7 +47,7 @@ class ApprovedRevs {
 	 * if there isn't one.
 	 */
 	public static function getApprovedContent( $title ) {
-		$pageID = $title->getArticleId();
+		$pageID = $title->getArticleID();
 		if ( array_key_exists( $pageID, self::$mApprovedContentForPage ) ) {
 			return self::$mApprovedContentForPage[$pageID];
 		}
@@ -134,7 +134,7 @@ class ApprovedRevs {
 
 	public static function saveApprovedRevIDInDB( $title, $rev_id ) {
 		$dbr = wfGetDB( DB_MASTER );
-		$page_id = $title->getArticleId();
+		$page_id = $title->getArticleID();
 		$old_rev_id = $dbr->selectField( 'approved_revs', 'rev_id', array( 'page_id' => $page_id ) );
 		if ( $old_rev_id ) {
 			$dbr->update( 'approved_revs', array( 'rev_id' => $rev_id ), array( 'page_id' => $page_id ) );
@@ -185,7 +185,7 @@ class ApprovedRevs {
 
 	public static function deleteRevisionApproval( $title ) {
 		$dbr = wfGetDB( DB_MASTER );
-		$page_id = $title->getArticleId();
+		$page_id = $title->getArticleID();
 		$dbr->delete( 'approved_revs', array( 'page_id' => $page_id ) );
 	}
 
