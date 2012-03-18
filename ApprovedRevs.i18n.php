@@ -340,8 +340,8 @@ $messages['de'] = array(
 Stattdessen wird die neueste Version angezeigt.',
 	'approvedrevs-unapprovesuccess2' => 'Nunmehr gibt es keine bestätigte Version dieser Seite.
 Stattdessen wird eine leere Seite angezeigt.',
-	'approvedrevs-approveaction' => '$2 als bestätigte Version für „[[$1]]“ festlegen',
-	'approvedrevs-unapproveaction' => 'bestätigte Version für „[[$1]]“ zurücknehmen',
+	'approvedrevs-approveaction' => 'legte Version $2 als bestätigte Version für „[[$1]]“ fest',
+	'approvedrevs-unapproveaction' => 'nahm die bestätigte Version für „[[$1]]“ zurück',
 	'approvedrevs-notlatest' => 'Dies ist die bestätigte Version dieser Seite, allerdings nicht deren neueste Version.',
 	'approvedrevs-approvedandlatest' => 'Dies ist die bestätigte sowie die neueste Version dieser Seite.',
 	'approvedrevs-blankpageshown' => 'Keine Version dieser Seite ist bestätigt worden.',
