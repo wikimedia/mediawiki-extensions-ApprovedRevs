@@ -13,6 +13,7 @@ class ApprovedRevs {
 	// Static arrays to prevent querying the database more than necessary.
 	static $mApprovedContentForPage = array();
 	static $mApprovedRevIDForPage = array();
+	static $mUserCanApprove = null;
 	
 	/**
 	 * Gets the approved revision ID for this page, or null if there isn't
@@ -130,6 +131,61 @@ class ApprovedRevs {
 		$isApprovable = ( $row[0] == '1' );
 		$title->isApprovable = $isApprovable;
 		return $isApprovable;
+	}
+
+	public static function userCanApprove( $title ) {
+		global $egApproveRevsSelfOwnedNamespaces;
+
+		// $mUserCanApprove is a static variable used for
+		// "caching" the result of this function, so that
+		// it only has to be called once.
+		if ( self::$mUserCanApprove ) {
+			return true;
+		} elseif ( self::$mUserCanApprove === false ) {
+			return false;
+		} elseif ( $title->userCan( 'approverevisions' ) ) {
+			self::$mUserCanApprove = true;
+			return true;
+		} else {
+			// If the user doesn't have the 'approverevisions'
+			// permission, they still might be able to approve
+			// revisions - it depends on whether the current
+			// namespace is within the admin-defined
+			// $egApproveRevsSelfOwnedNamespaces array.
+			global $wgUser;
+			$namespace = $title->getNamespace();
+			if ( in_array( $namespace, $egApproveRevsSelfOwnedNamespaces ) ) {
+				if ( $namespace == NS_USER ) {
+					// If the page is in the 'User:'
+					// namespace, this user can approve
+					// revisions if it's their user page.
+					if ( $title->getText() == $wgUser->getName() ) {
+						self::$mUserCanApprove = true;
+						return true;
+					}
+				} else {
+					// Otherwise, they can approve revisions
+					// if they created the page.
+					// We get that information via a SQL
+					// query - is there an easier way?
+					$dbr = wfGetDB( DB_SLAVE );
+					$row = $dbr->selectRow(
+						array( 'revision', 'page' ),
+						'revision.rev_user_text',
+						array( 'page.page_title' => $title->getDBkey() ),
+						null,
+						array( 'ORDER BY' => 'revision.rev_id ASC' ),
+						array( 'revision' => array( 'JOIN', 'revision.rev_page = page.page_id' ) )
+					);
+					if ( $row->rev_user_text == $wgUser->getName() ) {
+						self::$mUserCanApprove = true;
+						return true;
+					}
+				}
+			}
+		}
+		self::$mUserCanApprove = false;
+		return false;
 	}
 
 	public static function saveApprovedRevIDInDB( $title, $rev_id ) {
