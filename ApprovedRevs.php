@@ -24,7 +24,8 @@ $wgExtensionCredits['other'][] = array(
 // global variables
 $egApprovedRevsIP = dirname( __FILE__ ) . '/';
 $egApprovedRevsScriptPath = $wgScriptPath . '/extensions/ApprovedRevs';
-$egApprovedRevsNamespaces = array( NS_MAIN, NS_TEMPLATE, NS_HELP, NS_PROJECT );
+$egApprovedRevsNamespaces = array( NS_MAIN, NS_USER, NS_PROJECT, NS_TEMPLATE, NS_HELP );
+$egApprovedRevsSelfOwnedNamespaces = array();
 $egApprovedRevsBlankIfUnapproved = false;
 $egApprovedRevsAutomaticApprovals = true;
 $egApprovedRevsShowApproveLatest = false;
@@ -65,6 +66,7 @@ $wgHooks['LoadExtensionSchemaUpdates'][] = 'ApprovedRevsHooks::describeDBSchema'
 $wgHooks['EditPage::showEditForm:initial'][] = 'ApprovedRevsHooks::addWarningToEditPage';
 $wgHooks['sfHTMLBeforeForm'][] = 'ApprovedRevsHooks::addWarningToSFForm';
 $wgHooks['ArticleViewHeader'][] = 'ApprovedRevsHooks::setArticleHeader';
+//$wgHooks['SearchUpdate'] = 'ApprovedRevsHooks::setSearchText';
 
 // logging
 $wgLogTypes['approval'] = 'approval';
