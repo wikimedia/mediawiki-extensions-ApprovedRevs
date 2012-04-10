@@ -134,7 +134,7 @@ class ApprovedRevs {
 	}
 
 	public static function userCanApprove( $title ) {
-		global $egApproveRevsSelfOwnedNamespaces;
+		global $egApprovedRevsSelfOwnedNamespaces;
 
 		// $mUserCanApprove is a static variable used for
 		// "caching" the result of this function, so that
@@ -151,10 +151,10 @@ class ApprovedRevs {
 			// permission, they still might be able to approve
 			// revisions - it depends on whether the current
 			// namespace is within the admin-defined
-			// $egApproveRevsSelfOwnedNamespaces array.
+			// $egApprovedRevsSelfOwnedNamespaces array.
 			global $wgUser;
 			$namespace = $title->getNamespace();
-			if ( in_array( $namespace, $egApproveRevsSelfOwnedNamespaces ) ) {
+			if ( in_array( $namespace, $egApprovedRevsSelfOwnedNamespaces ) ) {
 				if ( $namespace == NS_USER ) {
 					// If the page is in the 'User:'
 					// namespace, this user can approve
