@@ -368,6 +368,14 @@ $messages['de-formal'] = array(
 	'approvedrevs-editwarning' => 'Beachten Sie bitte, dass Sie gerade die neueste Version dieser Seite bearbeiten. Sie entspricht nicht der bestätigten Version, die standardmäßig angezeigt wird.',
 );
 
+/** Zazaki (Zazaki)
+ * @author Erdemaslancan
+ */
+$messages['diq'] = array(
+	'approvedrevs-view' => 'Bıvin:',
+	'approvedrevs-revisionnumber' => 'Revizyonê $1',
+);
+
 /** Lower Sorbian (Dolnoserbski)
  * @author Michawiki
  */
