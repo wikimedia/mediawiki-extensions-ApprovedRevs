@@ -16,6 +16,11 @@ $specialPageAliases['ar'] = array(
 	'ApprovedRevs' => array( 'مراجعات_موفقة', 'صفحات_موفقة', 'صفحات_غير_موفقة' ),
 );
 
+/** German (Deutsch) */
+$specialPageAliases['de'] = array(
+	'ApprovedRevs' => array( 'Bestätigte_Versionen', 'Bestätigte_Seiten', 'Unbestätigte_Seiten' ),
+);
+
 /** Esperanto (Esperanto) */
 $specialPageAliases['eo'] = array(
 	'ApprovedRevs' => array( 'Aprobitaj_revizioj' ),
