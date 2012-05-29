@@ -856,18 +856,27 @@ $messages['ig'] = array(
 );
 
 /** Italian (Italiano)
+ * @author Beta16
  * @author Rippitippi
  */
 $messages['it'] = array(
+	'approvedrevs-desc' => 'Imposta una singola versione di una pagina come approvata',
+	'approvedrevs-logname' => 'Registro di approvazione delle versioni',
+	'approvedrevs-logdesc' => 'Questo è il registro delle versioni che sono state approvate.',
 	'approvedrevs-approve' => 'approva',
 	'approvedrevs-unapprove' => 'non approvare',
 	'approvedrevs-approvesuccess' => 'Questa revisione della pagina è stata impostata come la versione approvata.',
+	'approvedrevs-unapprovesuccess' => 'Non ci sono ancora versioni approvate per questa pagina.
+Al suo posto verrà mostrata la versione più recente.',
+	'approvedrevs-unapprovesuccess2' => 'Non ci sono ancora versioni approvate per questa pagina.
+Al suo posto verrà mostrata una pagina vuota.',
 	'approvedrevs-approveaction' => 'impostare $2 come la revisione approvata per "[[$1]]"',
 	'approvedrevs-notlatest' => 'Questa è la revisione approvata di questa pagina, non è la più recente.',
 	'approvedrevs-approvedandlatest' => 'Questa è la revisione approvata di questa pagina, oltre ad essere la più recente.',
 	'approvedrevs-blankpageshown' => 'Nessuna revisione è stata approvata per questa pagina.',
 	'approvedrevs' => 'Revisioni approvate',
 	'approvedrevs-approvedpages' => 'Tutte le pagine con una revisione approvata',
+	'approvedrevs-notlatestpages' => 'Pagine la cui versione approvata non è la loro ultima',
 	'approvedrevs-unapprovedpages' => 'Pagine non approvate',
 	'approvedrevs-view' => 'Visualizzare:',
 	'approvedrevs-revisionnumber' => 'revisione $1',
@@ -876,6 +885,8 @@ $messages['it'] = array(
 	'approvedrevs-approvelatest' => 'approvare i più recenti',
 	'approvedrevs-approvethisrev' => 'Approva questa revisione.',
 	'approvedrevs-viewlatestrev' => 'Visualizzare la revisione più recente.',
+	'right-approverevisions' => 'Imposta una versione di una pagina wiki come approvata',
+	'right-viewlinktolatest' => 'Visualizza del testo esplicativo nella parte superiore delle pagine che hanno una versione approvata',
 );
 
 /** Japanese (日本語)
