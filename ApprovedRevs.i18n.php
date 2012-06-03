@@ -935,6 +935,41 @@ $messages['km'] = array(
 	'approvedrevs-unapprove' => 'មិនអនុម័ត',
 );
 
+/** Korean (한국어)
+ * @author 아라
+ */
+$messages['ko'] = array(
+	'approvedrevs-desc' => '확인한 문서의 개정판 하나를 설정',
+	'approvedrevs-logname' => '개정판 확인 기록',
+	'approvedrevs-logdesc' => '개정판을 확인한 기록입니다.',
+	'approvedrevs-approve' => '확인',
+	'approvedrevs-unapprove' => '미확인',
+	'approvedrevs-approvesuccess' => '이 문서의 개정판을 확인한 판으로 설정했습니다.',
+	'approvedrevs-unapprovesuccess' => '더 이상 이 문서에 대해 확인한 판이 없습니다.
+대신에 최근의 개정판이 보여집니다.',
+	'approvedrevs-unapprovesuccess2' => '더 이상 이 문서에 대해 확인한 판이 없습니다.
+대신에 빈 문서가 보여집니다.',
+	'approvedrevs-approveaction' => '"[[$1]]"에 대해 확인한 개정판 $2(으)로 설정',
+	'approvedrevs-unapproveaction' => '"[[$1]]"에 대해 확인한 개정판 해제',
+	'approvedrevs-notlatest' => '이 문서의 확인한 개정판은 최근 판이 아닙니다.',
+	'approvedrevs-approvedandlatest' => '이 문서의 확인한 개정판은 최근 판입니다.',
+	'approvedrevs-blankpageshown' => '이 문서에 대한 개정판의 확인이 없습니다.',
+	'approvedrevs-editwarning' => '기본으로 하나만 보여지지 않는 이 문서의 최근 개정판을 지금 편집하고 있다는 것을 알아두세요.',
+	'approvedrevs' => '확인한 개정판',
+	'approvedrevs-approvedpages' => '확인한 개정판의 모든 문서',
+	'approvedrevs-notlatestpages' => '확인한 개정판의 문서는 최신 판이 아닙니다.',
+	'approvedrevs-unapprovedpages' => '확인하지 않은 문서',
+	'approvedrevs-view' => '보기:',
+	'approvedrevs-revisionnumber' => '개정판 $1',
+	'approvedrevs-approvedby' => '$2에 $1에 의해 확인함',
+	'approvedrevs-difffromlatest' => '최신판과의 비교',
+	'approvedrevs-approvelatest' => '최신판 확인',
+	'approvedrevs-approvethisrev' => '이 개정판을 확인합니다.',
+	'approvedrevs-viewlatestrev' => '최근 개정판을 봅니다.',
+	'right-approverevisions' => '확인한 위키 문서의 특정 개정판 설정',
+	'right-viewlinktolatest' => '확인한 개정판이 있는 문서의 위에 대한 설명 텍스트 보기',
+);
+
 /** Colognian (Ripoarisch)
  * @author Purodha
  */
