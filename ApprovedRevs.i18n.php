@@ -855,7 +855,7 @@ $messages['ig'] = array(
 	'approvedrevs-approvedpages' => 'Ihü hé kwèrè',
 );
 
-/** Italian (Italiano)
+/** Italian (italiano)
  * @author Beta16
  * @author Rippitippi
  */
