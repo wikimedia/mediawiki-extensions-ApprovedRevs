@@ -894,6 +894,7 @@ Al suo posto verrà mostrata una pagina vuota.',
 /** Japanese (日本語)
  * @author Iwai.masaharu
  * @author Ohgi
+ * @author Shirayuki
  * @author W.CC
  * @author 青子守歌
  */
@@ -916,7 +917,7 @@ $messages['ja'] = array(
 	'approvedrevs-editwarning' => '現在編集中のものは、このページの最新版であり、既定で表示されている承認済みの版ではありません。',
 	'approvedrevs' => '承認済み版',
 	'approvedrevs-approvedpages' => '承認されたページ',
-	'approvedrevs-notlatestpages' => '承認済み版が、最新版でないページ',
+	'approvedrevs-notlatestpages' => '承認済み版が、最新版ではないページ',
 	'approvedrevs-unapprovedpages' => '未承認ページ',
 	'approvedrevs-view' => '表示：',
 	'approvedrevs-revisionnumber' => '版$1',
