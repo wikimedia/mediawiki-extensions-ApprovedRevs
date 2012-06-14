@@ -93,7 +93,7 @@ $messages['arc'] = array(
 	'approvedrevs-unapprovedpages' => 'ܕܦ̈ܐ ܠܐ ܩܒܝܠ̈ܐ',
 );
 
-/** Azerbaijani (Azərbaycanca)
+/** Azerbaijani (azərbaycanca)
  * @author Cekli829
  * @author Vago
  */
@@ -177,7 +177,7 @@ $messages['be-tarask'] = array(
 	'right-viewlinktolatest' => 'прагляд тлумачальнага тэксту ў версе старонак, якія маюць зацьверджаныя вэрсіі',
 );
 
-/** Bulgarian (Български)
+/** Bulgarian (български)
  * @author DCLXVI
  */
 $messages['bg'] = array(
@@ -204,7 +204,7 @@ $messages['bn'] = array(
 	'approvedrevs-viewlatestrev' => 'সবচেয়ে সাম্প্রতিকতম সংস্করণটি দেখাও।',
 );
 
-/** Breton (Brezhoneg)
+/** Breton (brezhoneg)
  * @author Fulup
  * @author Y-M D
  */
@@ -240,7 +240,7 @@ En e lec'h e vo lakaet ur bajenn wenn.",
 	'right-viewlinktolatest' => 'Gwelet an destenn displegañ e penn uhelañ ar pajennoù zo bet aprouet un adweladenn anezho',
 );
 
-/** Bosnian (Bosanski)
+/** Bosnian (bosanski)
  * @author CERminator
  * @author Palapa
  */
@@ -276,7 +276,7 @@ Umjesto toga, bit će prikazana prazna stranica.',
 	'right-viewlinktolatest' => 'Vidi tekst objašnjenja na vrhu stranica koje imaju odobrenu reviziju',
 );
 
-/** Catalan (Català)
+/** Catalan (català)
  * @author El libre
  * @author SMP
  * @author Toniher
@@ -320,7 +320,7 @@ $messages['ce'] = array(
 	'approvedrevs-view' => 'Хьажа:',
 );
 
-/** Czech (Česky) */
+/** Czech (česky) */
 $messages['cs'] = array(
 	'approvedrevs-approve' => 'schválit',
 );
@@ -483,7 +483,7 @@ Anstataŭe, nula paĝo estos montrita.',
 	'right-viewlinktolatest' => 'Vidi eksplikantan tekston ĉe la paĝo-kapo kiu havas aprobitan revizion',
 );
 
-/** Spanish (Español)
+/** Spanish (español)
  * @author Crazymadlover
  * @author DJ Nietzsche
  * @author Dferg
@@ -534,7 +534,7 @@ $messages['fa'] = array(
 	'approvedrevs-revisionnumber' => 'نسخهٔ $1',
 );
 
-/** Finnish (Suomi)
+/** Finnish (suomi)
  * @author Centerlink
  * @author Crt
  * @author Nike
@@ -556,7 +556,7 @@ Sen sijaan, viimeisin versio näytetään.',
 	'right-viewlinktolatest' => 'Nähdä selittävä teksti niiden sivujen yläosassa, joilla on hyväksytty versio',
 );
 
-/** French (Français)
+/** French (français)
  * @author IAlex
  * @author Peter17
  */
@@ -592,7 +592,7 @@ $messages['fr'] = array(
 	'right-viewlinktolatest' => 'Voir le texte explicatif en haut des pages qui ont une révision approuvée',
 );
 
-/** Franco-Provençal (Arpetan)
+/** Franco-Provençal (arpetan)
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
@@ -767,7 +767,7 @@ Město toho so prózdna strona pokaza.',
 	'right-viewlinktolatest' => 'Rozłožowacy tekst horjeka na stronach pokazać, kotrež maja schwalenu wersiju.',
 );
 
-/** Hungarian (Magyar)
+/** Hungarian (magyar)
  * @author Misibacsi
  */
 $messages['hu'] = array(
@@ -775,7 +775,7 @@ $messages['hu'] = array(
 	'approvedrevs-approvedpages' => 'Ellenőrzött lapok',
 );
 
-/** Interlingua (Interlingua)
+/** Interlingua (interlingua)
  * @author McDutchie
  */
 $messages['ia'] = array(
@@ -1044,7 +1044,7 @@ Aplaz, gëtt eng eidel Säit gewisen.',
 	'right-viewlinktolatest' => 'Kuckt den Erklärungstext uewen op de Säiten déi nogekuckt Versiounen hunn',
 );
 
-/** Lithuanian (Lietuvių)
+/** Lithuanian (lietuvių)
  * @author Eitvys200
  * @author Ignas693
  */
@@ -1080,7 +1080,7 @@ Vietoj to, rodoma paskutinio peržiūrėjimo.',
 	'right-viewlinktolatest' => 'Peržiūrėti paaiškinamasis tekstas viršuje, puslapiai, kurie patvirtintų peržiūros',
 );
 
-/** Macedonian (Македонски)
+/** Macedonian (македонски)
  * @author Bjankuloski06
  */
 $messages['mk'] = array(
@@ -1271,7 +1271,7 @@ $messages['or'] = array(
 	'approvedrevs-view' => 'ଦେଖଣା',
 );
 
-/** Polish (Polski)
+/** Polish (polski)
  * @author Sp5uhe
  * @author Woytecr
  */
@@ -1350,7 +1350,7 @@ $messages['ps'] = array(
 	'approvedrevs-view' => 'کتل:',
 );
 
-/** Portuguese (Português)
+/** Portuguese (português)
  * @author Alchimista
  * @author GoEThe
  * @author Hamilton Abreu
@@ -1387,7 +1387,7 @@ Em vez dela, será apresentada uma página em branco.',
 	'right-viewlinktolatest' => 'Ver um texto explicativo no topo das páginas que têm uma revisão aprovada',
 );
 
-/** Brazilian Portuguese (Português do Brasil)
+/** Brazilian Portuguese (português do Brasil)
  * @author Giro720
  * @author Pedroca cerebral
  */
@@ -1423,7 +1423,7 @@ Em vez dela, será apresentada uma página em branco.',
 	'right-viewlinktolatest' => 'Ver um texto explicativo no topo das páginas que têm uma revisão aprovada',
 );
 
-/** Romanian (Română)
+/** Romanian (română)
  * @author Stelistcristi
  */
 $messages['ro'] = array(
@@ -1434,7 +1434,7 @@ $messages['ro'] = array(
 	'approvedrevs-unapprovedpages' => 'Pagini neaprobate',
 );
 
-/** Tarandíne (Tarandíne)
+/** tarandíne (tarandíne)
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
@@ -1447,7 +1447,7 @@ $messages['roa-tara'] = array(
 	'approvedrevs-approvedby' => "approvate da $1 'u $2",
 );
 
-/** Russian (Русский)
+/** Russian (русский)
  * @author MaxSem
  * @author Александр Сигачёв
  */
@@ -1483,7 +1483,7 @@ $messages['ru'] = array(
 	'right-viewlinktolatest' => 'просмотр пояснительного текста в верхней части страниц, имеющих утверждённые версии',
 );
 
-/** Slovak (Slovenčina)
+/** Slovak (slovenčina)
  * @author Helix84
  */
 $messages['sk'] = array(
@@ -1503,7 +1503,7 @@ $messages['sk'] = array(
 	'approvedrevs-viewlatestrev' => 'Zobraziť najnovšiu revíziu.',
 );
 
-/** Slovenian (Slovenščina)
+/** Slovenian (slovenščina)
  * @author Dbc334
  */
 $messages['sl'] = array(
@@ -1538,7 +1538,7 @@ Namesto tega bo prikazana prazna stran.',
 	'right-viewlinktolatest' => 'Ogled pojasnjevalnega besedila na vrhu strani, ki imajo odobrene redakcije',
 );
 
-/** Swedish (Svenska)
+/** Swedish (svenska)
  * @author Ainali
  * @author Cohan
  * @author Lokal Profil
@@ -1687,7 +1687,7 @@ Onun yerine, boş bir sayfa gösterilecektir.',
 	'right-viewlinktolatest' => 'Onaylanmış revizyonu bulunan sayfaların başındaki açıklayıcı metni görüntüle',
 );
 
-/** Ukrainian (Українська)
+/** Ukrainian (українська)
  * @author Alex Khimich
  * @author Sodmy
  * @author Vox
@@ -1748,7 +1748,7 @@ $messages['vi'] = array(
 	'right-viewlinktolatest' => 'Xem văn bản giải thích ở đầu các trang có phiên bản chấp nhận',
 );
 
-/** Simplified Chinese (‪中文(简体)‬)
+/** Simplified Chinese (‪中文（简体）‬)
  * @author Hydra
  * @author PhiLiP
  * @author Xiaomingyan
@@ -1785,7 +1785,7 @@ $messages['zh-hans'] = array(
 	'right-viewlinktolatest' => '视图中的解释性文本在具有一个已批准的修订页面的顶部',
 );
 
-/** Traditional Chinese (‪中文(繁體)‬)
+/** Traditional Chinese (‪中文（繁體）‬)
  * @author Oapbtommy
  */
 $messages['zh-hant'] = array(
