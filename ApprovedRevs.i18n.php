@@ -89,8 +89,8 @@ $messages['ar'] = array(
 $messages['arc'] = array(
 	'approvedrevs-approve' => 'ܩܘܒܠܐ',
 	'approvedrevs-unapprove' => 'ܠܐ ܩܘܒܠܐ',
-	'approvedrevs-approvedpages' => 'ܕܦ̈ܐ ܩܒܝܠ̈ܐ',
-	'approvedrevs-unapprovedpages' => 'ܕܦ̈ܐ ܠܐ ܩܒܝܠ̈ܐ',
+	'approvedrevs-approvedpages' => 'ܟܠ ܦܐܬܬ̈ܐ ܥܡ ܬܢܝܬ̈ܐ ܩܒܝܠܬ̈ܐ',
+	'approvedrevs-unapprovedpages' => 'ܦܐܬܬ̈ܐ ܠܐ ܩܒܝܠܬ̈ܐ',
 );
 
 /** Azerbaijani (azərbaycanca)
