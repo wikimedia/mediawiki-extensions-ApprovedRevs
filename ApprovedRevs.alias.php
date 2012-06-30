@@ -36,7 +36,7 @@ $specialPageAliases['fa'] = array(
 	'ApprovedRevs' => array( 'نسخه‌های_تثبیت‌شده' ),
 );
 
-/** Galician (Galego) */
+/** Galician (galego) */
 $specialPageAliases['gl'] = array(
 	'ApprovedRevs' => array( 'Aprobación_de_revisións' ),
 );
