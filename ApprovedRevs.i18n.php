@@ -140,7 +140,7 @@ $messages['ba'] = array(
 	'right-viewlinktolatest' => 'Раҫланған өлгөләре булған биттәрҙең өҫкө өлөшөндә аңлатманы ҡарау',
 );
 
-/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  * @author Jim-by
  * @author Wizardist
@@ -376,7 +376,7 @@ $messages['diq'] = array(
 	'approvedrevs-revisionnumber' => 'Revizyonê $1',
 );
 
-/** Lower Sorbian (Dolnoserbski)
+/** Lower Sorbian (dolnoserbski)
  * @author Michawiki
  */
 $messages['dsb'] = array(
@@ -627,7 +627,7 @@ A la place, una pâge voueda serat montrâ.',
 	'right-viewlinktolatest' => 'Vêre lo tèxto èxplicatif d’amont les pâges qu’ont una vèrsion aprovâ',
 );
 
-/** Galician (Galego)
+/** Galician (galego)
  * @author Toliño
  */
 $messages['gl'] = array(
@@ -732,7 +732,7 @@ $messages['he'] = array(
 	'right-viewlinktolatest' => 'הצגת הסבר בחלק העליון של העמודים שיש להם גרסה מאושרת',
 );
 
-/** Upper Sorbian (Hornjoserbsce)
+/** Upper Sorbian (hornjoserbsce)
  * @author Michawiki
  */
 $messages['hsb'] = array(
