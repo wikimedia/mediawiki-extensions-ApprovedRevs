@@ -1046,6 +1046,7 @@ Aplaz, gëtt eng eidel Säit gewisen.',
 
 /** Lithuanian (lietuvių)
  * @author Eitvys200
+ * @author Homo
  * @author Ignas693
  */
 $messages['lt'] = array(
@@ -1065,7 +1066,7 @@ Vietoj to, rodoma paskutinio peržiūrėjimo.',
 	'approvedrevs-approvedandlatest' => 'Tai yra patvirtintos peržiūrėjimo šio puslapio; tai ne pačius naujausius.',
 	'approvedrevs-blankpageshown' => 'Nr peržiūros buvo patvirtintas šio puslapio.',
 	'approvedrevs-editwarning' => 'Atkreipkite dėmesį, kad dabar redaguojate šiame puslapyje, kurie nėra patvirtinti vėliausios peržiūros vienas rodomi pagal numatytuosius parametrus.',
-	'approvedrevs' => 'Patvirtintų pataisymai',
+	'approvedrevs' => 'Patvirtintos versijos',
 	'approvedrevs-approvedpages' => 'Visi puslapiai su patvirtinta peržiūros',
 	'approvedrevs-notlatestpages' => 'Puslapiai, kurių patvirtinto pakeitimo nėra jų naujausia',
 	'approvedrevs-unapprovedpages' => 'Nepatvirtintas puslapių',

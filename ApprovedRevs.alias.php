@@ -96,6 +96,11 @@ $specialPageAliases['sa'] = array(
 	'ApprovedRevs' => array( 'अंगीकृत_पृष्टानि' ),
 );
 
+/** Tagalog (Tagalog) */
+$specialPageAliases['tl'] = array(
+	'ApprovedRevs' => array( 'Pinayagang_mga_Rebisyon' ),
+);
+
 /** Turkish (Türkçe) */
 $specialPageAliases['tr'] = array(
 	'ApprovedRevs' => array( 'OnaylanmışRevizyonlar', 'OnaylanmışSayfalar', 'OnaylanmamışSayfalar' ),
