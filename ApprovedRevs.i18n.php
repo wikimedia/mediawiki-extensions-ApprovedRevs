@@ -103,7 +103,7 @@ $messages['az'] = array(
 	'approvedrevs-view' => 'Görünüş:',
 );
 
-/** Bashkir (Башҡортса)
+/** Bashkir (башҡортса)
  * @author Assele
  * @author Comp1089
  * @author Haqmar
@@ -313,7 +313,7 @@ Com a alternativa, es mostrarà una pàgina en blanc.',
 	'right-viewlinktolatest' => 'Mostra un text explicatiu en la part superior de les pàgines que tenen una revisió aprovada',
 );
 
-/** Chechen (Нохчийн)
+/** Chechen (нохчийн)
  * @author Sasan700
  */
 $messages['ce'] = array(
@@ -1187,7 +1187,7 @@ Sebaliknya, laman kosong ditunjukkan.',
 	'right-viewlinktolatest' => 'Melihat teks penjelasan di bahagian atas laman yang mempunyai semakan diluluskan',
 );
 
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+/** Norwegian Bokmål (‪norsk (bokmål)‬)
  * @author Nghtwlkr
  */
 $messages['nb'] = array(
