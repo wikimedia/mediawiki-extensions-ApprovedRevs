@@ -58,7 +58,7 @@ $specialPageAliases['ia'] = array(
 
 /** Korean (한국어) */
 $specialPageAliases['ko'] = array(
-	'ApprovedRevs' => array( '개정판확인', '개정판승인', '문서승인' ),
+	'ApprovedRevs' => array( '개정판승인', '문서승인' ),
 );
 
 /** Luxembourgish (Lëtzebuergesch) */
