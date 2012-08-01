@@ -484,6 +484,7 @@ Anstataŭe, nula paĝo estos montrita.',
 );
 
 /** Spanish (español)
+ * @author Armando-Martin
  * @author Crazymadlover
  * @author DJ Nietzsche
  * @author Dferg
@@ -511,7 +512,7 @@ En su lugar, se mostrará una página en blanco.',
 	'approvedrevs-blankpageshown' => 'No se ha aprobado una revisión de esta página.',
 	'approvedrevs-editwarning' => 'Tenga en cuenta que ahora está editando la última revisión de esta página, que no es la aprobada, que es la que se muestra de forma predeterminada.',
 	'approvedrevs' => 'Revisiones aprobadas',
-	'approvedrevs-approvedpages' => 'Páginas aprobadas',
+	'approvedrevs-approvedpages' => 'Todas las páginas con una revisión aprobada',
 	'approvedrevs-notlatestpages' => 'Páginas cuya revisión aprobada no es la más reciente',
 	'approvedrevs-unapprovedpages' => 'Páginas reprobadas',
 	'approvedrevs-view' => 'Ver:',
@@ -797,7 +798,7 @@ In loco de illo, un pagina vacue essera monstrate.',
 	'approvedrevs-blankpageshown' => 'Nulle version de iste pagina ha essite approbate.',
 	'approvedrevs-editwarning' => 'Nota ben que tu modifica ora le ultime version de iste pagina, le qual non es le version approbate que es monstrate normalmente.',
 	'approvedrevs' => 'Versiones approbate',
-	'approvedrevs-approvedpages' => 'Paginas approbate',
+	'approvedrevs-approvedpages' => 'Tote le paginas con un version approbate',
 	'approvedrevs-notlatestpages' => 'Paginas del quales le version approbate non es lor ultime',
 	'approvedrevs-unapprovedpages' => 'Paginas non approbate',
 	'approvedrevs-view' => 'Vider:',
@@ -1224,6 +1225,7 @@ I stedet vil en blank side bli vist.',
 );
 
 /** Dutch (Nederlands)
+ * @author SPQRobin
  * @author Siebrand
  */
 $messages['nl'] = array(
@@ -1245,7 +1247,7 @@ Het is niet de meeste recente versie.',
 	'approvedrevs-blankpageshown' => 'Deze pagina heeft geen goedgekeurde versie.',
 	'approvedrevs-editwarning' => 'U bewerkt de meest recente versie van deze pagina die nog niet goedgekeurd is en standaard niet wordt weergegeven.',
 	'approvedrevs' => 'Goedgekeurde versies',
-	'approvedrevs-approvedpages' => "Goedgekeurde pagina's",
+	'approvedrevs-approvedpages' => "Alle pagina's met een goedgekeurde versie",
 	'approvedrevs-notlatestpages' => "Pagina's waarvan de goedgekeurde versie niet de laatste versie is",
 	'approvedrevs-unapprovedpages' => "Niet-goedgekeurde pagina's",
 	'approvedrevs-view' => 'Weergave:',
@@ -1274,6 +1276,7 @@ $messages['or'] = array(
 );
 
 /** Polish (polski)
+ * @author BeginaFelicysym
  * @author Sp5uhe
  * @author Woytecr
  */
@@ -1295,7 +1298,7 @@ W zamian zostanie wyświetlona pusta strona.',
 	'approvedrevs-blankpageshown' => 'Żadna wersja tej strony nie została zatwierdzona.',
 	'approvedrevs-editwarning' => 'Zauważ, że edytujesz ostatnią wersję strony. Wersję, która nie została zatwierdzona i nie jest pokazywana domyślnie.',
 	'approvedrevs' => 'Zatwierdzone wersje',
-	'approvedrevs-approvedpages' => 'Zatwierdzone strony',
+	'approvedrevs-approvedpages' => 'Wszystkie strony z zatwierdzoną wersją',
 	'approvedrevs-notlatestpages' => 'Strony, których zatwierdzona wersja nie jest ich ostatnią',
 	'approvedrevs-unapprovedpages' => 'Niezatwierdzone strony',
 	'approvedrevs-view' => 'Widok',
@@ -1375,7 +1378,7 @@ Em vez dela, será apresentada uma página em branco.',
 	'approvedrevs-blankpageshown' => 'Esta página não tem nenhuma revisão aprovada.',
 	'approvedrevs-editwarning' => 'Note, por favor, que está agora a editar a revisão mais recente desta página e não a versão aprovada que é mostrada por omissão.',
 	'approvedrevs' => 'Revisões aprovadas',
-	'approvedrevs-approvedpages' => 'Páginas aprovadas',
+	'approvedrevs-approvedpages' => 'Todas as páginas com uma revisão aprovada',
 	'approvedrevs-notlatestpages' => 'Páginas cuja revisão aprovada não é a revisão mais recente',
 	'approvedrevs-unapprovedpages' => 'Páginas reprovadas',
 	'approvedrevs-view' => 'Ver:',
@@ -1386,7 +1389,7 @@ Em vez dela, será apresentada uma página em branco.',
 	'approvedrevs-approvethisrev' => 'Aprovar esta revisão.',
 	'approvedrevs-viewlatestrev' => 'Ver a revisão mais recente.',
 	'right-approverevisions' => 'Definir como aprovada uma revisão específica de uma página da wiki',
-	'right-viewlinktolatest' => 'Ver um texto explicativo no topo das páginas que têm uma revisão aprovada',
+	'right-viewlinktolatest' => 'Ver um texto explicativo no topo das páginas que tenham uma revisão aprovada',
 );
 
 /** Brazilian Portuguese (português do Brasil)
