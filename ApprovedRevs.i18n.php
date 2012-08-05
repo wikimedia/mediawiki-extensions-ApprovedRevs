@@ -46,11 +46,13 @@ Instead, a blank page will be shown.',
 
 /** Message documentation (Message documentation)
  * @author EugeneZelenko
+ * @author Nemo bis
  * @author Purodha
  * @author Umherirrender
  */
 $messages['qqq'] = array(
 	'approvedrevs-desc' => '{{desc}}',
+	'approvedrevs-logname' => '{{doc-logpage}}',
 	'approvedrevs-approve' => '{{Identical|Approve}}',
 	'approvedrevs-view' => '{{Identical|View}}',
 	'approvedrevs-revisionnumber' => '{{Identical|Revision}}',
@@ -163,7 +165,7 @@ $messages['be-tarask'] = array(
 	'approvedrevs-blankpageshown' => 'Для гэтай старонкі няма зацьверджанай вэрсіі.',
 	'approvedrevs-editwarning' => 'Калі ласка, памятайце, што зараз Вы рэдагуеце апошнюю вэрсію гэтай старонкі, якая яшчэ не зьяўляецца зацьверджанай і не паказваецца па змоўчваньні.',
 	'approvedrevs' => 'Зацьверджаныя вэрсіі',
-	'approvedrevs-approvedpages' => 'Зацьверджаныя старонкі',
+	'approvedrevs-approvedpages' => 'Усе старонкі з зацьверджанымі вэрсіямі',
 	'approvedrevs-notlatestpages' => 'Старонкі, зацьверджаныя вэрсіі якіх не зьяўляюцца апошнімі',
 	'approvedrevs-unapprovedpages' => 'Незацьверджаныя старонкі',
 	'approvedrevs-view' => 'Прагляд:',
@@ -1529,7 +1531,7 @@ Namesto tega bo prikazana prazna stran.',
 	'approvedrevs-blankpageshown' => 'Za to stran ni bila odobrena nobena redakcija.',
 	'approvedrevs-editwarning' => 'Pomnite, da sedaj urejate najnovejšo redakcijo te strani, ki ni odobrena, po privzetem prikazana.',
 	'approvedrevs' => 'Odobrene redakcije',
-	'approvedrevs-approvedpages' => 'vse strani z odobrenimi redakcijami',
+	'approvedrevs-approvedpages' => 'Vse strani z odobrenimi redakcijami',
 	'approvedrevs-notlatestpages' => 'Strani, katerih odobrena redakcija ni njihova najnovejša',
 	'approvedrevs-unapprovedpages' => 'Neodobrene strani',
 	'approvedrevs-view' => 'Pogled:',
