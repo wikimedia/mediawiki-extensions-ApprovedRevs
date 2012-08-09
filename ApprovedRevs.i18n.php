@@ -934,6 +934,14 @@ $messages['ja'] = array(
 	'right-viewlinktolatest' => '承認済みの版があるページの冒頭に説明文を表示',
 );
 
+/** Georgian (ქართული)
+ * @author David1010
+ */
+$messages['ka'] = array(
+	'approvedrevs-approve' => 'დამოწმება',
+	'approvedrevs-unapprove' => 'დამოწმების მოხსნა',
+);
+
 /** Khmer (ភាសាខ្មែរ)
  * @author គីមស៊្រុន
  */
@@ -1431,14 +1439,17 @@ Em vez dela, será apresentada uma página em branco.',
 );
 
 /** Romanian (română)
+ * @author Firilacroco
+ * @author Minisarm
  * @author Stelistcristi
  */
 $messages['ro'] = array(
 	'approvedrevs-approve' => 'aprobă',
 	'approvedrevs-unapprove' => 'dezaprobă',
 	'approvedrevs-approvesuccess' => 'Această revizie a paginii a fost stabilită ca versiunea aprobată.',
-	'approvedrevs-approvedpages' => 'Pagini aprobate',
+	'approvedrevs-approvedpages' => 'Toate paginile cu o revizuire aprobată',
 	'approvedrevs-unapprovedpages' => 'Pagini neaprobate',
+	'approvedrevs-view' => 'Vedeți:',
 );
 
 /** tarandíne (tarandíne)
@@ -1488,6 +1499,14 @@ $messages['ru'] = array(
 	'approvedrevs-viewlatestrev' => 'Просмотр последней версии.',
 	'right-approverevisions' => 'отметка определённых версий вики-страниц как подтверждённых',
 	'right-viewlinktolatest' => 'просмотр пояснительного текста в верхней части страниц, имеющих утверждённые версии',
+);
+
+/** Sinhala (සිංහල)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['si'] = array(
+	'approvedrevs-approve' => 'අනුමත කරන්න',
+	'approvedrevs-view' => 'නරඹන්න:',
 );
 
 /** Slovak (slovenčina)
