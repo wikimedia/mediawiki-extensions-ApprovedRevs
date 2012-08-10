@@ -940,6 +940,7 @@ $messages['ja'] = array(
 $messages['ka'] = array(
 	'approvedrevs-approve' => 'დამოწმება',
 	'approvedrevs-unapprove' => 'დამოწმების მოხსნა',
+	'approvedrevs-view' => 'ხილვა:',
 );
 
 /** Khmer (ភាសាខ្មែរ)
