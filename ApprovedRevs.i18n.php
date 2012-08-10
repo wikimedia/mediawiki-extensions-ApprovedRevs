@@ -703,6 +703,7 @@ Statt däm wird e lääri Syte aazeigt.',
 
 /** Hebrew (עברית)
  * @author Amire80
+ * @author Inkbug
  */
 $messages['he'] = array(
 	'approvedrevs-desc' => 'הגדרת גרסה אחת של דף כגרסה מאושרת',
@@ -1043,7 +1044,7 @@ Aplaz, gëtt eng eidel Säit gewisen.',
 	'approvedrevs-blankpageshown' => 'Keng Versioun vun dëser Säit gouf nogekuckt.',
 	'approvedrevs-editwarning' => 'Informatioun: Dir ännert déi lescht Versioun vun dëser Säit, déi net déi nogekuckten ass déi standardméisseg gewise gëtt.',
 	'approvedrevs' => 'Nogekuckte Versiounen',
-	'approvedrevs-approvedpages' => 'Nogekuckte Säiten',
+	'approvedrevs-approvedpages' => 'All Säite mat enger nogekuckter Versioun',
 	'approvedrevs-notlatestpages' => 'Säiten deenen hir nogekuckte Versioun net déi rezentst ass',
 	'approvedrevs-unapprovedpages' => 'Net nogekuckte Säiten',
 	'approvedrevs-view' => 'Weisen:',
