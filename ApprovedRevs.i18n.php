@@ -1509,6 +1509,7 @@ $messages['ru'] = array(
 $messages['si'] = array(
 	'approvedrevs-approve' => 'අනුමත කරන්න',
 	'approvedrevs-view' => 'නරඹන්න:',
+	'approvedrevs-revisionnumber' => '$1 සංශෝධනය',
 );
 
 /** Slovak (slovenčina)
