@@ -1508,8 +1508,15 @@ $messages['ru'] = array(
  */
 $messages['si'] = array(
 	'approvedrevs-approve' => 'අනුමත කරන්න',
+	'approvedrevs' => 'අනුමත කල සංශෝධන',
+	'approvedrevs-approvedpages' => 'අනුමත කල සංශෝධනයක් සහිත සියලුම පිටු',
+	'approvedrevs-unapprovedpages' => 'අනුමත නොකෙරූ පිටු',
 	'approvedrevs-view' => 'නරඹන්න:',
 	'approvedrevs-revisionnumber' => '$1 සංශෝධනය',
+	'approvedrevs-difffromlatest' => 'නවතමයෙන් වෙනස',
+	'approvedrevs-approvelatest' => 'නවතමය අනුමත කරන්න',
+	'approvedrevs-approvethisrev' => 'මෙම සංශෝධනය අනුමත කරන්න.',
+	'approvedrevs-viewlatestrev' => 'ගොඩක් මෑත සංශෝධනය පෙන්වන්න.',
 );
 
 /** Slovak (slovenčina)
@@ -1572,6 +1579,7 @@ Namesto tega bo prikazana prazna stran.',
  * @author Cohan
  * @author Lokal Profil
  * @author Tobulos1
+ * @author WikiPhoenix
  */
 $messages['sv'] = array(
 	'approvedrevs-desc' => 'Sätt en enskild version av en sida till godkänd',
@@ -1590,7 +1598,7 @@ Istället kommer en tom sida att visas.',
 	'approvedrevs-blankpageshown' => 'Ingen revidering har godkänts för denna sida.',
 	'approvedrevs-editwarning' => 'Observera att du nu redigerar den senaste versionen av denna sida, vilket inte är den godkända som visas som standard.',
 	'approvedrevs' => 'Godkända revideringar',
-	'approvedrevs-approvedpages' => 'Godkända sidor',
+	'approvedrevs-approvedpages' => 'Alla sidor med en godkänd revision',
 	'approvedrevs-notlatestpages' => 'Sidor vars godkända version inte är den senaste.',
 	'approvedrevs-unapprovedpages' => 'Icke godkända sidor',
 	'approvedrevs-view' => 'Visa:',
