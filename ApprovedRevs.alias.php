@@ -23,7 +23,7 @@ $specialPageAliases['de'] = array(
 
 /** Zazaki (Zazaki) */
 $specialPageAliases['diq'] = array(
-	'ApprovedRevs' => array( 'RevizyonêTesdiqıni' ),
+	'ApprovedRevs' => array( 'RewvizyonoAraştkerden' ),
 );
 
 /** Esperanto (Esperanto) */
