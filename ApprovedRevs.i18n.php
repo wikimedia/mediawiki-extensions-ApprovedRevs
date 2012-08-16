@@ -538,6 +538,7 @@ $messages['fa'] = array(
 );
 
 /** Finnish (suomi)
+ * @author Beluga
  * @author Centerlink
  * @author Crt
  * @author Nike
@@ -555,6 +556,8 @@ Sen sijaan, viimeisin versio näytetään.',
 	'approvedrevs-approvedandlatest' => 'Tämä on tämän sivun hyväksytty ja samalla viimeisin versio.',
 	'approvedrevs-approvedpages' => 'Hyväksytyt sivut',
 	'approvedrevs-notlatestpages' => 'Sivut, joiden hyväksytty versio ei ole viimeisin',
+	'approvedrevs-view' => 'Katso:',
+	'approvedrevs-revisionnumber' => 'versio $1',
 	'right-approverevisions' => 'Asettaa wikisivun tietty versio hyväksytyksi',
 	'right-viewlinktolatest' => 'Nähdä selittävä teksti niiden sivujen yläosassa, joilla on hyväksytty versio',
 );
@@ -1610,6 +1613,13 @@ Istället kommer en tom sida att visas.',
 	'approvedrevs-viewlatestrev' => 'Visa den senaste versionen.',
 	'right-approverevisions' => 'Sätt en viss revidering av en wiki-sida som godkänd',
 	'right-viewlinktolatest' => 'Se förklarande text högst upp på sidor som har en godkänd revision',
+);
+
+/** Swahili (Kiswahili)
+ * @author Kwisha
+ */
+$messages['sw'] = array(
+	'approvedrevs-view' => 'Tazama:',
 );
 
 /** Tamil (தமிழ்)
