@@ -1773,6 +1773,14 @@ $messages['uk'] = array(
 	'right-viewlinktolatest' => 'Переглянути пояснювальний текст у верхній частині сторінки яка має схвалену версію.',
 );
 
+/** Urdu (اردو)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['ur'] = array(
+	'approvedrevs-approve' => 'منظور',
+	'approvedrevs-view' => 'دیکھیں:',
+);
+
 /** Vietnamese (Tiếng Việt)
  * @author Minh Nguyen
  */
