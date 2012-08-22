@@ -45,6 +45,7 @@ $wgSpecialPageGroups['ApprovedRevs'] = 'pages';
 // hooks
 $wgHooks['ParserBeforeInternalParse'][] = 'ApprovedRevsHooks::setApprovedRevForParsing';
 $wgHooks['ArticleSaveComplete'][] = 'ApprovedRevsHooks::setLatestAsApproved';
+$wgHooks['ArticleSaveComplete'][] = 'ApprovedRevsHooks::setSearchText';
 $wgHooks['PersonalUrls'][] = 'ApprovedRevsHooks::removeRobotsTag';
 $wgHooks['ArticleFromTitle'][] = 'ApprovedRevsHooks::showApprovedRevision';
 $wgHooks['ArticleAfterFetchContent'][] = 'ApprovedRevsHooks::showBlankIfUnapproved';
@@ -66,7 +67,6 @@ $wgHooks['LoadExtensionSchemaUpdates'][] = 'ApprovedRevsHooks::describeDBSchema'
 $wgHooks['EditPage::showEditForm:initial'][] = 'ApprovedRevsHooks::addWarningToEditPage';
 $wgHooks['sfHTMLBeforeForm'][] = 'ApprovedRevsHooks::addWarningToSFForm';
 $wgHooks['ArticleViewHeader'][] = 'ApprovedRevsHooks::setArticleHeader';
-//$wgHooks['SearchUpdate'] = 'ApprovedRevsHooks::setSearchText';
 
 // logging
 $wgLogTypes['approval'] = 'approval';

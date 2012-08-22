@@ -197,6 +197,18 @@ class ApprovedRevs {
 		} else {
 			$dbr->insert( 'approved_revs', array( 'page_id' => $page_id, 'rev_id' => $rev_id ) );
 		}
+		// Update "cache" in memory
+		self::$mApprovedRevIDForPage[$page_id] = $rev_id;
+	}
+
+	static function setPageSearchText( $title, $text ) {
+		if ( class_exists( 'DeferredUpdates' ) ) {
+			DeferredUpdates::addUpdate( new SearchUpdate( $title->getArticleID(), $title->getText(), $text ) );
+		} else {
+			// MW 1.16
+			$su = new SearchUpdate( $title->getArticleID(), $title->getText(), $text );
+			$su->doUpdate();
+		}
 	}
 
 	/**
@@ -219,6 +231,7 @@ class ApprovedRevs {
 			$parser->parse( $text, $title, $options, true, true, $rev_id );
 			$u = new LinksUpdate( $title, $parser->getOutput() );
 			$u->doUpdate();
+			self::setPageSearchText( $title, $text );
 		}
 
 		$log = new LogPage( 'approval' );
@@ -268,6 +281,7 @@ class ApprovedRevs {
 		$parser->parse( $text, $title, $options );
 		$u = new LinksUpdate( $title, $parser->getOutput() );
 		$u->doUpdate();
+		self::setPageSearchText( $title, $text );
 
 		$log = new LogPage( 'approval' );
 		$log->addEntry(

@@ -147,8 +147,40 @@ class ApprovedRevsHooks {
 			}
 		}
 
-		// save approval without logging
+		// Save approval without logging.
 		ApprovedRevs::saveApprovedRevIDInDB( $title, $revision->getID() );
+		return true;
+	}
+
+	/**
+	 * Set the text that's stored for the page for standard searches.
+	 */
+	static public function setSearchText( &$article , &$user, $text,
+		$summary, $flags, $unused1, $unused2, &$flags, $revision,
+		&$status, $baseRevId ) {
+
+		if ( is_null( $revision ) ) {
+			return true;
+		}
+
+		$title = $article->getTitle();
+		if ( !ApprovedRevs::pageIsApprovable( $title ) ) {
+			return true;
+		}
+
+		$revisionID =  ApprovedRevs::getApprovedRevID( $title );
+		if ( is_null( $revisionID ) ) {
+			return true;
+		}
+
+		// We only need to modify the search text if the approved
+		// revision is not the latest one.
+		if ( $revisionID != $article->getLatest() ) {
+			$approvedArticle = new Article( $title, $revisionID );
+			$approvedText = $approvedArticle->getContent();
+			ApprovedRevs::setPageSearchText( $title, $approvedText );
+		}
+
 		return true;
 	}
 
@@ -643,15 +675,6 @@ class ApprovedRevsHooks {
 
 		$wgOut->addHTML( '</span>' );
 
-		return true;
-	}
-
-	/**
-	 * @TODO - this should ideally set the text that MediaWiki's search
-	 * uses when searching the wiki, but I haven't been able to get it
-	 * working. At the moment, it's not being called.
-	 */
-	public static function setSearchText( $id, $namespace, $title, $text ) {
 		return true;
 	}
 
