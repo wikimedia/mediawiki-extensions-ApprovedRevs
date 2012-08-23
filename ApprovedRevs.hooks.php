@@ -185,6 +185,18 @@ class ApprovedRevsHooks {
 	}
 
 	/**
+	 * Sets the correct page revision to display the "text snippet" for
+	 * a search result.
+	 */
+	public static function setSearchRevisionID( $title, &$id ) {
+		$revisionID =  ApprovedRevs::getApprovedRevID( $title );
+		if ( !is_null( $revisionID ) ) {
+			$id = $revisionID;
+		}
+		return true;
+	}
+
+	/**
 	 * Return the approved revision of the page, if there is one, and if
 	 * the page is simply being viewed, and if no specific revision has
 	 * been requested.
