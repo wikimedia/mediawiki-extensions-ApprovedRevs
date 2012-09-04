@@ -374,8 +374,13 @@ $messages['de-formal'] = array(
  * @author Erdemaslancan
  */
 $messages['diq'] = array(
+	'approvedrevs-approve' => 'Tesdiq ke',
+	'approvedrevs-unapprove' => 'Tesdiqi wedarne',
+	'approvedrevs-unapprovedpages' => 'Pela bêtesdiqın',
 	'approvedrevs-view' => 'Bıvin:',
 	'approvedrevs-revisionnumber' => 'Revizyonê $1',
+	'approvedrevs-approvelatest' => 'Tesdiq kerdeno peyên',
+	'approvedrevs-approvethisrev' => 'Nê rewizyonni tesdiq ke',
 );
 
 /** Lower Sorbian (dolnoserbski)
