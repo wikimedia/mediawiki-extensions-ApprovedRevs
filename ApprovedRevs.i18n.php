@@ -912,22 +912,22 @@ Al suo posto verrà mostrata una pagina vuota.',
  * @author 青子守歌
  */
 $messages['ja'] = array(
-	'approvedrevs-desc' => 'ページから版を1つだけ選んで、承認済みに設定する',
-	'approvedrevs-logname' => '版承認の記録',
+	'approvedrevs-desc' => 'ページの版のうち 1 つを承認済みにする',
+	'approvedrevs-logname' => '版の承認記録',
 	'approvedrevs-logdesc' => '以下は、承認された版の記録です。',
 	'approvedrevs-approve' => '承認',
 	'approvedrevs-unapprove' => '非承認',
-	'approvedrevs-approvesuccess' => 'この版は承認済みの版として設定されました。',
-	'approvedrevs-unapprovesuccess' => 'このページには承認済みの版がなくなりました。
-代わりに、最新版が表示されます。',
-	'approvedrevs-unapprovesuccess2' => 'このページには承認済みの版がなくなりました。
-代わりに、空白のページが表示されます。',
-	'approvedrevs-approveaction' => '$2を「[[$1]]」の承認済み版として設定',
-	'approvedrevs-unapproveaction' => '「[[$1]]」の承認版を取り消し',
+	'approvedrevs-approvesuccess' => 'この版を承認済み版として指定しました。',
+	'approvedrevs-unapprovesuccess' => 'このページには承認済み版がなくなりました。
+代わりに、最新版を表示します。',
+	'approvedrevs-unapprovesuccess2' => 'このページには承認済み版がなくなりました。
+代わりに、白紙のページを表示します。',
+	'approvedrevs-approveaction' => '「[[$1]]」の承認済み版として$2を指定',
+	'approvedrevs-unapproveaction' => '「[[$1]]」の承認済み版の指定を解除',
 	'approvedrevs-notlatest' => 'これは、このページの承認済み版です。最新版ではありません。',
-	'approvedrevs-approvedandlatest' => 'これは、このページの承認済み版で、また、最新版です。',
-	'approvedrevs-blankpageshown' => 'このページには、承認済みの版がありません。',
-	'approvedrevs-editwarning' => '現在編集中のものは、このページの最新版であり、既定で表示されている承認済みの版ではありません。',
+	'approvedrevs-approvedandlatest' => 'これは、このページの承認済み版であり、最新版でもあります。',
+	'approvedrevs-blankpageshown' => 'このページには、承認済み版がありません。',
+	'approvedrevs-editwarning' => '現在編集しているのはこのページの最新版であり、既定で表示される承認済み版とは異なることにご注意ください。',
 	'approvedrevs' => '承認済み版',
 	'approvedrevs-approvedpages' => '承認済の版があるすべてのページ',
 	'approvedrevs-notlatestpages' => '承認済み版が、最新版ではないページ',
@@ -940,7 +940,7 @@ $messages['ja'] = array(
 	'approvedrevs-approvethisrev' => 'この版を承認',
 	'approvedrevs-viewlatestrev' => '最新版を閲覧',
 	'right-approverevisions' => 'ウィキページの特定の版を承認済みに設定',
-	'right-viewlinktolatest' => '承認済みの版があるページの冒頭に説明文を表示',
+	'right-viewlinktolatest' => '承認済み版があるページの冒頭に説明文を表示',
 );
 
 /** Georgian (ქართული)
