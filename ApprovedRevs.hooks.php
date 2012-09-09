@@ -209,6 +209,17 @@ class ApprovedRevsHooks {
 		$revisionID = ApprovedRevs::getApprovedRevID( $title );
 		if ( ! empty( $revisionID ) ) {
 			$article = new Article( $title, $revisionID );
+			// The load/fetchContent() call is necessary because it
+			// causes $article->mRevision to get initialized,
+			// which in turn allows "edit section" links to show
+			// up if the approved revision is also the latest.
+			if ( method_exists( $article, 'loadContent' ) ) {
+				// Ideally, this should only be called for
+				// MW < 1.18
+				$article->loadContent();
+			} else {
+				$article->fetchContent();
+			}
 		}
 		return true;
 	}
