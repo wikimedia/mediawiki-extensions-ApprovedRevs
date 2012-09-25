@@ -76,7 +76,7 @@ $specialPageAliases['ml'] = array(
 	'ApprovedRevs' => array( 'അംഗീകൃതതാളുകൾ', 'അംഗീകൃതമല്ലാത്തതാളുകൾ' ),
 );
 
-/** Norwegian Bokmål (‪norsk (bokmål)‬) */
+/** Norwegian Bokmål (norsk (bokmål)‎) */
 $specialPageAliases['nb'] = array(
 	'ApprovedRevs' => array( 'Godkjente_revisjoner' ),
 );
@@ -106,7 +106,7 @@ $specialPageAliases['tr'] = array(
 	'ApprovedRevs' => array( 'OnaylanmışRevizyonlar', 'OnaylanmışSayfalar', 'OnaylanmamışSayfalar' ),
 );
 
-/** Traditional Chinese (‪中文（繁體）‬) */
+/** Traditional Chinese (中文（繁體）‎) */
 $specialPageAliases['zh-hant'] = array(
 	'ApprovedRevs' => array( '已通過的版本' ),
 );
