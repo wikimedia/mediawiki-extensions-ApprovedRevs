@@ -46,6 +46,7 @@ Instead, a blank page will be shown.',
 
 /** Message documentation (Message documentation)
  * @author EugeneZelenko
+ * @author Kghbln
  * @author Nemo bis
  * @author Purodha
  * @author Umherirrender
@@ -54,6 +55,8 @@ $messages['qqq'] = array(
 	'approvedrevs-desc' => '{{desc}}',
 	'approvedrevs-logname' => '{{doc-logpage}}',
 	'approvedrevs-approve' => '{{Identical|Approve}}',
+	'approvedrevs-approveaction' => 'This is a log entry. Thus "set" is past tense and not imperative.',
+	'approvedrevs-unapproveaction' => 'This is a log entry. Thus "unset" is past tense and not imperative.',
 	'approvedrevs-view' => '{{Identical|View}}',
 	'approvedrevs-revisionnumber' => '{{Identical|Revision}}',
 	'right-approverevisions' => '{{doc-right|approverevisions}}',
