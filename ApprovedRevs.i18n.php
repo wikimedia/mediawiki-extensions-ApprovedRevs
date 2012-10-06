@@ -1589,6 +1589,7 @@ Namesto tega bo prikazana prazna stran.',
  * @author Ainali
  * @author Cohan
  * @author Lokal Profil
+ * @author Martinwiss
  * @author Tobulos1
  * @author WikiPhoenix
  */
@@ -1604,6 +1605,7 @@ $messages['sv'] = array(
 	'approvedrevs-unapprovesuccess2' => 'Det finns inte längre en godkänd version av den här sidan. 
 Istället kommer en tom sida att visas.',
 	'approvedrevs-approveaction' => 'sätt $2 som den godkända revisionen av "[[$1]]"',
+	'approvedrevs-unapproveaction' => 'ångra godkänd revision för  "[[$1]]"',
 	'approvedrevs-notlatest' => 'Detta är den godkända version av denna sida; det är inte den senaste.',
 	'approvedrevs-approvedandlatest' => 'Detta är den godkända version av denna sida, samt den senaste.',
 	'approvedrevs-blankpageshown' => 'Ingen revidering har godkänts för denna sida.',
