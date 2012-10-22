@@ -321,9 +321,18 @@ class SpecialApprovedRevsPage extends QueryPage {
 			$row = $pager->mResult->fetchObject();
 			
 			if ( !empty( $row ) ) {
-				$time = $wgLang->timeanddate( wfTimestamp( TS_MW, $row->log_timestamp ), true );
+				$timestamp = $wgLang->timeanddate( wfTimestamp( TS_MW, $row->log_timestamp ), true );
+				$date = $wgLang->date( wfTimestamp( TS_MW, $row->log_timestamp ), true );
+				$time = $wgLang->time( wfTimestamp( TS_MW, $row->log_timestamp ), true );
 				$userLink = $sk->userLink( $row->log_user, $row->user_name );
-				$additionalInfo .= ', ' . wfMsg( 'approvedrevs-approvedby', $userLink, $time );
+				$additionalInfo .= ', ' . wfMessage(
+					'approvedrevs-approvedby',
+					$userLink,
+					$timestamp,
+					$row->user_name,
+					$date,
+					$time
+				)->text();
 			}
 			
 			return "$pageLink ($additionalInfo)";
