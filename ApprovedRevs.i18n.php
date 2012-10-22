@@ -68,7 +68,7 @@ $messages['qqq'] = array(
  */
 $messages['af'] = array(
 	'approvedrevs-approve' => 'keur goed',
-	'approvedrevs-approvedpages' => 'Goedgekeurde bladsye',
+	'approvedrevs-approvedpages' => 'Goedgekeurde bladsye', # Fuzzy
 	'approvedrevs-view' => 'Weergawe:',
 	'approvedrevs-revisionnumber' => 'weergawe $1',
 );
@@ -81,7 +81,7 @@ $messages['ar'] = array(
 	'approvedrevs-approve' => 'موافقة',
 	'approvedrevs-unapprove' => 'إزالة موافقة',
 	'approvedrevs' => 'أقر المراجعات',
-	'approvedrevs-approvedpages' => 'صفحات تمّت الموافقة عليها',
+	'approvedrevs-approvedpages' => 'صفحات تمّت الموافقة عليها', # Fuzzy
 	'approvedrevs-unapprovedpages' => 'صفحات لم تتم الموافقة عليها',
 	'approvedrevs-view' => 'عرض:',
 	'approvedrevs-revisionnumber' => 'تنقيح $1',
@@ -131,7 +131,7 @@ $messages['ba'] = array(
 	'approvedrevs-blankpageshown' => 'Был бит өсөн раҫланған өлгөләр юҡ.',
 	'approvedrevs-editwarning' => 'Зинһар, иғтибар итегеҙ, һеҙ хәҙер был биттең һуңғы өлгөһөн мөхәррирләйһегеҙ, әммә ул күрһәтелмәй, сөнки ул раҫланмаған.',
 	'approvedrevs' => 'Раҫланған өлгөләр',
-	'approvedrevs-approvedpages' => 'Раҫланған биттәр',
+	'approvedrevs-approvedpages' => 'Раҫланған биттәр', # Fuzzy
 	'approvedrevs-notlatestpages' => 'Был — биттең раҫланған өлгөһө. Яңыраҡ өлгөләр бар.',
 	'approvedrevs-unapprovedpages' => 'Раҫланмаған биттәр',
 	'approvedrevs-view' => 'Ҡарап сығыу:',
@@ -197,7 +197,7 @@ $messages['bn'] = array(
 	'approvedrevs-approve' => 'অনুমোদন',
 	'approvedrevs-unapprove' => 'অনুনমোদন',
 	'approvedrevs' => 'গ্রহণকৃত সংস্করণ',
-	'approvedrevs-approvedpages' => 'গ্রহণকৃত সংস্করণসহ সকল পাতা',
+	'approvedrevs-approvedpages' => 'গ্রহণকৃত সংস্করণসহ সকল পাতা', # Fuzzy
 	'approvedrevs-notlatestpages' => 'যেসকল পাতার গ্রহণকৃত সংস্করণসমূহ তাদের সাম্প্রতিকতম নয় সেই পাতাগুলি',
 	'approvedrevs-unapprovedpages' => 'অগ্রহণকৃত পাতাসমূহ',
 	'approvedrevs-view' => 'দেখাও:',
@@ -231,7 +231,7 @@ En e lec'h e vo lakaet ur bajenn wenn.",
 	'approvedrevs-blankpageshown' => "N'eus bet aprouet adweladenn ebet evit ar bajenn-mañ.",
 	'approvedrevs-editwarning' => "Taolit evezh emaoc'h o tegas kemmoù e stumm diwezhañ ar bajenn-mañ; n'eo ket hemañ ar stumm aprouet zo lakaet war wel dre ziouer.",
 	'approvedrevs' => 'Adweladennoù degemeret',
-	'approvedrevs-approvedpages' => 'Pajennoù aprouet',
+	'approvedrevs-approvedpages' => 'Pajennoù aprouet', # Fuzzy
 	'approvedrevs-notlatestpages' => "Pajennoù n'eo ket an adweladennoù aprouet evito ar stumm nevesañ anezho.",
 	'approvedrevs-unapprovedpages' => "Pajennoù n'int ket bet aprouet",
 	'approvedrevs-view' => 'Gwelet :',
@@ -267,7 +267,7 @@ Umjesto toga, bit će prikazana prazna stranica.',
 	'approvedrevs-blankpageshown' => 'Nijedna revizija nije odobrena za ovu stranicu.',
 	'approvedrevs-editwarning' => 'Molimo vas da imate u vidu da sada uređujete posljednju reviziju ove stranice, koja nije odobrena što je prikazano po postavkama.',
 	'approvedrevs' => 'Odobrene revizije',
-	'approvedrevs-approvedpages' => 'Odobrene stranice',
+	'approvedrevs-approvedpages' => 'Odobrene stranice', # Fuzzy
 	'approvedrevs-notlatestpages' => 'Stranice čija odobrena revizija nije njihova najnovija',
 	'approvedrevs-unapprovedpages' => 'Neodobrene stranice',
 	'approvedrevs-view' => 'Pregled:',
@@ -304,7 +304,7 @@ Com a alternativa, es mostrarà una pàgina en blanc.',
 	'approvedrevs-blankpageshown' => "No s'ha aprovat cap revisió d'aquesta pàgina.",
 	'approvedrevs-editwarning' => "Tingueu en compte que esteu editant la darrera revisió d'aquesta pàgina, que no és l'aprovada que es mostra per defecte.",
 	'approvedrevs' => 'Revisions aprovades',
-	'approvedrevs-approvedpages' => 'Totes les pàgines amb una revisió aprovada',
+	'approvedrevs-approvedpages' => 'Totes les pàgines amb una revisió aprovada', # Fuzzy
 	'approvedrevs-notlatestpages' => 'Pàgines les quals llur versió aprovada no és la més recent',
 	'approvedrevs-unapprovedpages' => 'Pàgines no aprovades',
 	'approvedrevs-view' => 'Mostra:',
@@ -325,7 +325,8 @@ $messages['ce'] = array(
 	'approvedrevs-view' => 'Хьажа:',
 );
 
-/** Czech (česky) */
+/** Czech (česky)
+ */
 $messages['cs'] = array(
 	'approvedrevs-approve' => 'schválit',
 );
@@ -444,7 +445,7 @@ $messages['el'] = array(
 	'approvedrevs-blankpageshown' => 'Καμία αναθεώρηση δεν έχει εγκριθεί για αυτή τη σελίδα.',
 	'approvedrevs-editwarning' => 'Παρακαλώ λάβετε υπόχη σας ότι τώρα επεξεργάζεστε την τελευταία αναθεώρηση αυτή της σελίδας, η οποία δεν είναι η εγκεκριμένη να εμφανίζεται, από προεπιλογή.',
 	'approvedrevs' => 'Εγκεκριμένες αναθεωρήσεις',
-	'approvedrevs-approvedpages' => 'Εγκεκριμένες σελίδες',
+	'approvedrevs-approvedpages' => 'Εγκεκριμένες σελίδες', # Fuzzy
 	'approvedrevs-notlatestpages' => 'Σελίδες των οποίων οι εγκεκριμένες αναθεωρήσεις δεν είναι οι πιο πρόσφατες',
 	'approvedrevs-unapprovedpages' => 'Μη εγκεκριμένες σελίδες',
 	'approvedrevs-view' => 'Προβολή',
@@ -479,7 +480,7 @@ Anstataŭe, nula paĝo estos montrita.',
 	'approvedrevs-blankpageshown' => 'Neniu revizio estis aprobita por ĉi tiu paĝo.',
 	'approvedrevs-editwarning' => 'Bonvolu noti ke vi nun redaktas la lastan revizion de ĉi tiu paĝo, kiu ne estas la aprobita revizio montrita defaŭlte.',
 	'approvedrevs' => 'Aprobitaj revizioj',
-	'approvedrevs-approvedpages' => 'Aprobitaj paĝoj',
+	'approvedrevs-approvedpages' => 'Aprobitaj paĝoj', # Fuzzy
 	'approvedrevs-notlatestpages' => 'Paĝoj kies aprobita revizio ne estas la plej lasta.',
 	'approvedrevs-unapprovedpages' => 'Malaprobitaj paĝoj',
 	'approvedrevs-view' => 'Vidi:',
@@ -562,7 +563,7 @@ $messages['fi'] = array(
 Sen sijaan, viimeisin versio näytetään.',
 	'approvedrevs-notlatest' => 'Tämä on  tämän sivun hyväksytty versio; se ei ole viimeisin.',
 	'approvedrevs-approvedandlatest' => 'Tämä on tämän sivun hyväksytty ja samalla viimeisin versio.',
-	'approvedrevs-approvedpages' => 'Hyväksytyt sivut',
+	'approvedrevs-approvedpages' => 'Hyväksytyt sivut', # Fuzzy
 	'approvedrevs-notlatestpages' => 'Sivut, joiden hyväksytty versio ei ole viimeisin',
 	'approvedrevs-view' => 'Katso:',
 	'approvedrevs-revisionnumber' => 'versio $1',
@@ -628,7 +629,7 @@ A la place, una pâge voueda serat montrâ.',
 	'approvedrevs-blankpageshown' => 'Niona vèrsion at étâ aprovâ por cela pâge.',
 	'approvedrevs-editwarning' => 'Volyéd notar que vos éte ora aprés changiér la dèrriére vèrsion de cela pâge, qu’est pas cela aprovâ montrâ per dèfôt.',
 	'approvedrevs' => 'Vèrsions aprovâs',
-	'approvedrevs-approvedpages' => 'Pâges aprovâs',
+	'approvedrevs-approvedpages' => 'Pâges aprovâs', # Fuzzy
 	'approvedrevs-notlatestpages' => 'Pâges que la vèrsion aprovâ est pas la ples novèla',
 	'approvedrevs-unapprovedpages' => 'Pâges pas aprovâs',
 	'approvedrevs-view' => 'Vêre :',
@@ -698,7 +699,7 @@ Statt däm wird e lääri Syte aazeigt.',
 	'approvedrevs-blankpageshown' => 'Kei Version vu däre Syte isch bishär bstetigt wore.',
 	'approvedrevs-editwarning' => 'Bitte gib Acht, ass Du grad an dr nejschte Version vu däre Syte schaffsch. Des isch nit di bstetigt Version, wu standardmäßig aazeigt wird.',
 	'approvedrevs' => 'Aagluegti Versione',
-	'approvedrevs-approvedpages' => 'Aagluegti Syte',
+	'approvedrevs-approvedpages' => 'Aagluegti Syte', # Fuzzy
 	'approvedrevs-notlatestpages' => 'Syte, wu di aagluegt Version nit di nejscht isch',
 	'approvedrevs-unapprovedpages' => 'Nit bstetigti Syte',
 	'approvedrevs-view' => 'Aaluege:',
@@ -788,7 +789,7 @@ Město toho so prózdna strona pokaza.',
  */
 $messages['hu'] = array(
 	'approvedrevs-approve' => 'elfogadás',
-	'approvedrevs-approvedpages' => 'Ellenőrzött lapok',
+	'approvedrevs-approvedpages' => 'Ellenőrzött lapok', # Fuzzy
 );
 
 /** Interlingua (interlingua)
@@ -848,7 +849,7 @@ Halaman kosong akan ditampilkan.',
 	'approvedrevs-blankpageshown' => 'Tidak ada revisi yang disetujui untuk halaman ini.',
 	'approvedrevs-editwarning' => 'Harap perhatikan bahwa Anda sekarang menyunting revisi terbaru halaman ini, yang secara bawaan bukan merupakan revisi yang disetujui.',
 	'approvedrevs' => 'Revisi yang disetujui',
-	'approvedrevs-approvedpages' => 'Halaman yang disetujui',
+	'approvedrevs-approvedpages' => 'Halaman yang disetujui', # Fuzzy
 	'approvedrevs-notlatestpages' => 'Halaman yang revisi disetujuinya bukanlah revisi terakhir',
 	'approvedrevs-unapprovedpages' => 'Halaman tidak disetujui',
 	'approvedrevs-view' => 'Lihat:',
@@ -868,7 +869,7 @@ Halaman kosong akan ditampilkan.',
 $messages['ig'] = array(
 	'approvedrevs-approve' => 'kwé',
 	'approvedrevs-unapprove' => 'ékwèkwàlà',
-	'approvedrevs-approvedpages' => 'Ihü hé kwèrè',
+	'approvedrevs-approvedpages' => 'Ihü hé kwèrè', # Fuzzy
 );
 
 /** Italian (italiano)
@@ -1085,14 +1086,14 @@ $messages['lt'] = array(
 Vietoj to, rodoma paskutinio peržiūrėjimo.',
 	'approvedrevs-unapprovesuccess2' => 'Nebėra patvirtintų versija šio puslapio.
 Vietoj to, rodoma paskutinio peržiūrėjimo.',
-	'approvedrevs-approveaction' => 'nustatyti  $2  kaip patvirtinta peržiūros dėl "[[ $1 ]]"',
-	'approvedrevs-unapproveaction' => 'nustatyti  $2  kaip patvirtinta peržiūros dėl "[[ $1 ]]"',
+	'approvedrevs-approveaction' => 'nustatyti  $2  kaip patvirtinta peržiūros dėl "[[ $1 ]]"', # Fuzzy
+	'approvedrevs-unapproveaction' => 'nustatyti  $2  kaip patvirtinta peržiūros dėl "[[ $1 ]]"', # Fuzzy
 	'approvedrevs-notlatest' => 'Tai yra patvirtintos peržiūrėjimo šio puslapio; tai ne pačius naujausius.',
 	'approvedrevs-approvedandlatest' => 'Tai yra patvirtintos peržiūrėjimo šio puslapio; tai ne pačius naujausius.',
 	'approvedrevs-blankpageshown' => 'Nr peržiūros buvo patvirtintas šio puslapio.',
 	'approvedrevs-editwarning' => 'Atkreipkite dėmesį, kad dabar redaguojate šiame puslapyje, kurie nėra patvirtinti vėliausios peržiūros vienas rodomi pagal numatytuosius parametrus.',
 	'approvedrevs' => 'Patvirtintos versijos',
-	'approvedrevs-approvedpages' => 'Visi puslapiai su patvirtinta peržiūros',
+	'approvedrevs-approvedpages' => 'Visi puslapiai su patvirtinta peržiūros', # Fuzzy
 	'approvedrevs-notlatestpages' => 'Puslapiai, kurių patvirtinto pakeitimo nėra jų naujausia',
 	'approvedrevs-unapprovedpages' => 'Nepatvirtintas puslapių',
 	'approvedrevs-view' => 'Žiūrėti:',
@@ -1163,7 +1164,7 @@ $messages['ml'] = array(
 	'approvedrevs-blankpageshown' => 'ഈ താളിന്റെ ഒരു നാൾപ്പതിപ്പും അംഗീകരിച്ചിട്ടില്ല.',
 	'approvedrevs-editwarning' => 'ഈ താളിന്റെ ഏറ്റവും പുതിയ നാൾപ്പതിപ്പ് അല്ല താങ്കൾ തിരുത്തുന്നതെന്ന് ശ്രദ്ധിക്കുക, അത് സ്വതേ പ്രദർശിപ്പിച്ചിരിക്കുന്ന പതിപ്പ് അല്ല.',
 	'approvedrevs' => 'അംഗീകരിച്ച നാൾപ്പതിപ്പുകൾ',
-	'approvedrevs-approvedpages' => 'അംഗീകരിച്ച താളുകൾ',
+	'approvedrevs-approvedpages' => 'അംഗീകരിച്ച താളുകൾ', # Fuzzy
 	'approvedrevs-notlatestpages' => 'താളിന്റെ ഏറ്റവും പുതിയ നാൾപ്പതിപ്പ് അംഗീകരിച്ചതല്ലാത്ത താളുകൾ',
 	'approvedrevs-unapprovedpages' => 'അംഗീകരിച്ചിട്ടില്ലാത്ത താളുകൾ',
 	'approvedrevs-view' => 'കാണുക:',
@@ -1233,7 +1234,7 @@ I stedet vil en blank side bli vist.',
 	'approvedrevs-blankpageshown' => 'Ingen revisjon har blitt godkjent for denne siden.',
 	'approvedrevs-editwarning' => 'Merk at du nå redigerer den nyeste revisjonen av denne siden, som ikke er den godkjente siden som vises som standard.',
 	'approvedrevs' => 'Godkjente revisjoner',
-	'approvedrevs-approvedpages' => 'Godkjente sider',
+	'approvedrevs-approvedpages' => 'Godkjente sider', # Fuzzy
 	'approvedrevs-notlatestpages' => 'Sider der den godkjente revisjonen ikke er deres nyeste.',
 	'approvedrevs-unapprovedpages' => 'Ikke-godkjente sider',
 	'approvedrevs-view' => 'Vis:',
@@ -1437,7 +1438,7 @@ Em vez dela, será apresentada uma página em branco.',
 	'approvedrevs-blankpageshown' => 'Esta página não tem nenhuma revisão aprovada.',
 	'approvedrevs-editwarning' => 'Note, por favor, que agora você está editando a revisão mais recente desta página e não a versão aprovada que é mostrada por padrão.',
 	'approvedrevs' => 'Revisões aprovadas',
-	'approvedrevs-approvedpages' => 'Páginas aprovadas',
+	'approvedrevs-approvedpages' => 'Páginas aprovadas', # Fuzzy
 	'approvedrevs-notlatestpages' => 'Páginas cuja revisão aprovada não é a revisão mais recente',
 	'approvedrevs-unapprovedpages' => 'Páginas não aprovadas',
 	'approvedrevs-view' => 'Ver:',
@@ -1500,7 +1501,7 @@ $messages['ru'] = array(
 	'approvedrevs-blankpageshown' => 'Для этой страницы нет подтверждённых версий.',
 	'approvedrevs-editwarning' => 'Пожалуйста, обратите внимание, сейчас вы редактируете последнюю версию этой страницы, но она не показывается по умолчанию, так как не подтверждена.',
 	'approvedrevs' => 'Подтверждённые версии',
-	'approvedrevs-approvedpages' => 'Подтверждённые страницы',
+	'approvedrevs-approvedpages' => 'Подтверждённые страницы', # Fuzzy
 	'approvedrevs-notlatestpages' => 'Страницы, чьи подтверждённые версии не являются последними',
 	'approvedrevs-unapprovedpages' => 'Неутверждённые страницы',
 	'approvedrevs-view' => 'Просмотр:',
@@ -1638,7 +1639,7 @@ $messages['sw'] = array(
 $messages['ta'] = array(
 	'approvedrevs-approve' => 'அனுமதிக்கவும்',
 	'approvedrevs-unapprove' => 'அனுமதிக்க வேண்டாம்',
-	'approvedrevs-approvedpages' => 'ஏற்றுக் கொள்ளப்பட்ட பக்கங்கள்',
+	'approvedrevs-approvedpages' => 'ஏற்றுக் கொள்ளப்பட்ட பக்கங்கள்', # Fuzzy
 	'approvedrevs-unapprovedpages' => 'ஏற்றுக் கொள்ளப்படாத பக்கங்கள்',
 	'right-approverevisions' => 'விக்கி பக்கத்தில் ஒரு சில மாற்றங்களை அனுமதிக்கப்பட்டதாக குறித்துக்கொள்ளவும்',
 );
@@ -1664,7 +1665,7 @@ $messages['te'] = array(
 	'approvedrevs-blankpageshown' => 'ఈ పేజీ కూర్పుల్లో ఏది కూడా ఆమోదించబడి లేదు.',
 	'approvedrevs-editwarning' => 'మీరు మారుస్తున్నది ఈ పేజీ యొక్క ఇట్టీవలి కూర్పునని గమనించండి. డిఫాల్టుగా ఆమోదించబడినట్లు చూపించినది ఈ కూర్పు కాదు.',
 	'approvedrevs' => 'ఆమోదించబడిన కూర్పులు',
-	'approvedrevs-approvedpages' => 'అనుమతించిన పుటలు',
+	'approvedrevs-approvedpages' => 'అనుమతించిన పుటలు', # Fuzzy
 	'approvedrevs-notlatestpages' => 'పేజీలు - ఆమోదించబడిన కూర్పులు ఇట్టీవలివి కానివి',
 	'approvedrevs-unapprovedpages' => 'ఆమోదించబడని పేజీలు',
 	'approvedrevs-revisionnumber' => 'కూర్పు $1',
@@ -1730,7 +1731,7 @@ Onun yerine, boş bir sayfa gösterilecektir.',
 	'approvedrevs-blankpageshown' => 'Bu sayfa için onaylanmış sürüm yok.',
 	'approvedrevs-editwarning' => 'Lütfen dikkat: Şu an onaylanmış sürümü değil, son sürümü değitirmektesiniz.',
 	'approvedrevs' => 'Onaylanan düzeltmeler',
-	'approvedrevs-approvedpages' => 'Onaylanmış sayfalar',
+	'approvedrevs-approvedpages' => 'Onaylanmış sayfalar', # Fuzzy
 	'approvedrevs-notlatestpages' => 'Bu sayfanın onaylanmış revizyonudur; en son revizyon değildir.',
 	'approvedrevs-unapprovedpages' => 'Onaylanmamış sayfalar',
 	'approvedrevs-view' => 'Görüntüle:',
@@ -1837,7 +1838,7 @@ $messages['zh-hans'] = array(
 	'approvedrevs-blankpageshown' => '没有修订已获批准的此页。',
 	'approvedrevs-editwarning' => '请注意现在正在编辑的此页，不是核准的最新版本默认情况下显示的其中一个。',
 	'approvedrevs' => '获批准的修订',
-	'approvedrevs-approvedpages' => '被批准的页面',
+	'approvedrevs-approvedpages' => '被批准的页面', # Fuzzy
 	'approvedrevs-notlatestpages' => '其核准的修订不是他们最新的页面',
 	'approvedrevs-unapprovedpages' => '不备批准的页面',
 	'approvedrevs-view' => '查看:',
@@ -1872,7 +1873,7 @@ $messages['zh-hant'] = array(
 	'approvedrevs-blankpageshown' => '沒有修訂已獲批准的此頁。',
 	'approvedrevs-editwarning' => '請注意現在正在編輯的此頁，不是核准的最新版本默認情況下顯示的其中一個。',
 	'approvedrevs' => '獲批准的修訂',
-	'approvedrevs-approvedpages' => '被批准的頁面',
+	'approvedrevs-approvedpages' => '被批准的頁面', # Fuzzy
 	'approvedrevs-notlatestpages' => '其核准的修訂不是他們最新的頁面',
 	'approvedrevs-unapprovedpages' => '不備批准的頁面',
 	'approvedrevs-view' => '檢視：',
@@ -1892,4 +1893,3 @@ $messages['zh-hant'] = array(
 $messages['zh-hk'] = array(
 	'approvedrevs-view' => '檢視：',
 );
-
