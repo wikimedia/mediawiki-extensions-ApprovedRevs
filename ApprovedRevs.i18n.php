@@ -49,6 +49,7 @@ Instead, a blank page will be shown.',
  * @author Kghbln
  * @author Nemo bis
  * @author Purodha
+ * @author Shirayuki
  * @author Umherirrender
  */
 $messages['qqq'] = array(
@@ -59,6 +60,10 @@ $messages['qqq'] = array(
 	'approvedrevs-unapproveaction' => 'This is a log entry. Thus "unset" is past tense and not imperative.',
 	'approvedrevs-view' => '{{Identical|View}}',
 	'approvedrevs-revisionnumber' => '{{Identical|Revision}}',
+	'approvedrevs-approvedby' => '*$1 - username (or link)
+*$3 - username
+*$4 - date
+*$5 - time',
 	'right-approverevisions' => '{{doc-right|approverevisions}}',
 	'right-viewlinktolatest' => '{{doc-right|viewlinktolatest}}',
 );
@@ -936,9 +941,9 @@ $messages['ja'] = array(
 	'approvedrevs-approvedpages' => '承認済の版があるすべてのページ',
 	'approvedrevs-notlatestpages' => '承認済み版が、最新版ではないページ',
 	'approvedrevs-unapprovedpages' => '未承認ページ',
-	'approvedrevs-view' => '表示：',
+	'approvedrevs-view' => '表示:',
 	'approvedrevs-revisionnumber' => '版 $1',
-	'approvedrevs-approvedby' => '$2 の $1 によって承認されています',
+	'approvedrevs-approvedby' => '{{GENDER:$3|$1}} によって $4 $5 に承認されました',
 	'approvedrevs-difffromlatest' => '最新版との差分',
 	'approvedrevs-approvelatest' => '最新版を承認',
 	'approvedrevs-approvethisrev' => 'この版を承認',
