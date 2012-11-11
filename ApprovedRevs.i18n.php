@@ -1299,9 +1299,18 @@ $messages['nl-informal'] = array(
 
 /** Oriya (ଓଡ଼ିଆ)
  * @author Odisha1
+ * @author ଆଶୁତୋଷ କର
  */
 $messages['or'] = array(
+	'approvedrevs-logname' => 'ସଂଶୋଧନ ଅନୁମୋଦନ ସୂଚୀ',
+	'approvedrevs-approve' => 'ଅନୁମୋଦନ',
+	'approvedrevs-unapprove' => 'ଅନୁମୋଦନ ହୋଇନଥିବା',
+	'approvedrevs' => 'ଅନୁମୋଦିତ ସଂଶୋଧନ ଗୁଡିକ',
+	'approvedrevs-approvedpages' => 'ଅନୁମୋଦିତ ସଂଶୋଧନ ଥିବା ପ୍ରୁଷ୍ଠା ଗୁଡିକ',
+	'approvedrevs-unapprovedpages' => 'ଅନୁମୋଦନ ହୋଇନଥିବା ପ୍ରୁଷ୍ଠା ଗୁଡିକ',
 	'approvedrevs-view' => 'ଦେଖଣା',
+	'approvedrevs-revisionnumber' => 'ସଂଶୋଧନ $1',
+	'approvedrevs-approvethisrev' => 'ଏହି ସଂଶୋଧନକୁ ଅନୁମୋଦନ କରନ୍ତୁ।',
 );
 
 /** Polish (polski)
