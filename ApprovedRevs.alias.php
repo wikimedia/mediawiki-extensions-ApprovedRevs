@@ -56,6 +56,11 @@ $specialPageAliases['ia'] = array(
 	'ApprovedRevs' => array( 'Versiones_approbate' ),
 );
 
+/** Italian (italiano) */
+$specialPageAliases['it'] = array(
+	'ApprovedRevs' => array( 'RevisioniApprovate' ),
+);
+
 /** Korean (한국어) */
 $specialPageAliases['ko'] = array(
 	'ApprovedRevs' => array( '개정판승인', '문서승인' ),
