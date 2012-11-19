@@ -1239,7 +1239,7 @@ I stedet vil en blank side bli vist.',
 	'approvedrevs-blankpageshown' => 'Ingen revisjon har blitt godkjent for denne siden.',
 	'approvedrevs-editwarning' => 'Merk at du nå redigerer den nyeste revisjonen av denne siden, som ikke er den godkjente siden som vises som standard.',
 	'approvedrevs' => 'Godkjente revisjoner',
-	'approvedrevs-approvedpages' => 'Godkjente sider', # Fuzzy
+	'approvedrevs-approvedpages' => 'Alle sider med godkjente versjoner',
 	'approvedrevs-notlatestpages' => 'Sider der den godkjente revisjonen ikke er deres nyeste.',
 	'approvedrevs-unapprovedpages' => 'Ikke-godkjente sider',
 	'approvedrevs-view' => 'Vis:',
