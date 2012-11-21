@@ -1867,6 +1867,7 @@ $messages['zh-hans'] = array(
 );
 
 /** Traditional Chinese (中文（繁體）‎)
+ * @author Justincheng12345
  * @author Oapbtommy
  */
 $messages['zh-hant'] = array(
@@ -1887,7 +1888,7 @@ $messages['zh-hant'] = array(
 	'approvedrevs-blankpageshown' => '沒有修訂已獲批准的此頁。',
 	'approvedrevs-editwarning' => '請注意現在正在編輯的此頁，不是核准的最新版本默認情況下顯示的其中一個。',
 	'approvedrevs' => '獲批准的修訂',
-	'approvedrevs-approvedpages' => '被批准的頁面', # Fuzzy
+	'approvedrevs-approvedpages' => '所以含已批准版本的頁面',
 	'approvedrevs-notlatestpages' => '其核准的修訂不是他們最新的頁面',
 	'approvedrevs-unapprovedpages' => '不備批准的頁面',
 	'approvedrevs-view' => '檢視：',
