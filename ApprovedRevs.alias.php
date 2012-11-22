@@ -101,6 +101,11 @@ $specialPageAliases['sa'] = array(
 	'ApprovedRevs' => array( 'अंगीकृत_पृष्टानि' ),
 );
 
+/** Sicilian (sicilianu) */
+$specialPageAliases['scn'] = array(
+	'ApprovedRevs' => array( 'RevisioniApprovate' ),
+);
+
 /** Tagalog (Tagalog) */
 $specialPageAliases['tl'] = array(
 	'ApprovedRevs' => array( 'Pinayagang_mga_Rebisyon' ),
