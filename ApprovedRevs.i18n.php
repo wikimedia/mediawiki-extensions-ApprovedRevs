@@ -113,6 +113,13 @@ $messages['az'] = array(
 	'approvedrevs-view' => 'Görünüş:',
 );
 
+/** تورکجه (تورکجه)
+ * @author E THP
+ */
+$messages['azb'] = array(
+	'approvedrevs-view' => 'گورونتولر',
+);
+
 /** Bashkir (башҡортса)
  * @author Assele
  * @author Comp1089
