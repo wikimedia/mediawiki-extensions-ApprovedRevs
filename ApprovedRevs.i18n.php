@@ -1440,6 +1440,7 @@ Em vez dela, será apresentada uma página em branco.',
 /** Brazilian Portuguese (português do Brasil)
  * @author Giro720
  * @author Pedroca cerebral
+ * @author TheGabrielZaum
  */
 $messages['pt-br'] = array(
 	'approvedrevs-desc' => 'Marcar como aprovada uma das revisões de uma página',
@@ -1459,7 +1460,7 @@ Em vez dela, será apresentada uma página em branco.',
 	'approvedrevs-blankpageshown' => 'Esta página não tem nenhuma revisão aprovada.',
 	'approvedrevs-editwarning' => 'Note, por favor, que agora você está editando a revisão mais recente desta página e não a versão aprovada que é mostrada por padrão.',
 	'approvedrevs' => 'Revisões aprovadas',
-	'approvedrevs-approvedpages' => 'Páginas aprovadas', # Fuzzy
+	'approvedrevs-approvedpages' => 'Todas as páginas com uma revisão aprovada',
 	'approvedrevs-notlatestpages' => 'Páginas cuja revisão aprovada não é a revisão mais recente',
 	'approvedrevs-unapprovedpages' => 'Páginas não aprovadas',
 	'approvedrevs-view' => 'Ver:',
