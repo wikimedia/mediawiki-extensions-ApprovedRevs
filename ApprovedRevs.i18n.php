@@ -113,7 +113,7 @@ $messages['az'] = array(
 	'approvedrevs-view' => 'Görünüş:',
 );
 
-/** تورکجه (تورکجه)
+/** South Azerbaijani (تورکجه)
  * @author E THP
  */
 $messages['azb'] = array(
