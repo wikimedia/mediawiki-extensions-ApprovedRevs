@@ -66,6 +66,11 @@ $specialPageAliases['ko'] = array(
 	'ApprovedRevs' => array( '개정판승인', '문서승인' ),
 );
 
+/** Cornish (kernowek) */
+$specialPageAliases['kw'] = array(
+	'ApprovedRevs' => array( 'AmendyansowComendys' ),
+);
+
 /** Luxembourgish (Lëtzebuergesch) */
 $specialPageAliases['lb'] = array(
 	'ApprovedRevs' => array( 'Net_nogekuckte_Säiten' ),
