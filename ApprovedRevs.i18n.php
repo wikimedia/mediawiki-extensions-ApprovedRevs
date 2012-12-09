@@ -115,9 +115,10 @@ $messages['az'] = array(
 
 /** South Azerbaijani (تورکجه)
  * @author E THP
+ * @author Mousa
  */
 $messages['azb'] = array(
-	'approvedrevs-view' => 'گورونتولر',
+	'approvedrevs-view' => 'گؤرونوش:',
 );
 
 /** Bashkir (башҡортса)
