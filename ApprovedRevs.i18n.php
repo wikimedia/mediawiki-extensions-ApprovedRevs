@@ -296,6 +296,7 @@ Umjesto toga, bit će prikazana prazna stranica.',
 
 /** Catalan (català)
  * @author El libre
+ * @author Pitort
  * @author SMP
  * @author Toniher
  */
@@ -317,7 +318,7 @@ Com a alternativa, es mostrarà una pàgina en blanc.',
 	'approvedrevs-blankpageshown' => "No s'ha aprovat cap revisió d'aquesta pàgina.",
 	'approvedrevs-editwarning' => "Tingueu en compte que esteu editant la darrera revisió d'aquesta pàgina, que no és l'aprovada que es mostra per defecte.",
 	'approvedrevs' => 'Revisions aprovades',
-	'approvedrevs-approvedpages' => 'Totes les pàgines amb una revisió aprovada', # Fuzzy
+	'approvedrevs-approvedpages' => 'Totes les pàgines amb una revisió aprovada',
 	'approvedrevs-notlatestpages' => 'Pàgines les quals llur versió aprovada no és la més recent',
 	'approvedrevs-unapprovedpages' => 'Pàgines no aprovades',
 	'approvedrevs-view' => 'Mostra:',
