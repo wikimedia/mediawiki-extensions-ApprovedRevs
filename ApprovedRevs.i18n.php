@@ -967,7 +967,17 @@ $messages['ja'] = array(
 $messages['ka'] = array(
 	'approvedrevs-approve' => 'დამოწმება',
 	'approvedrevs-unapprove' => 'დამოწმების მოხსნა',
+	'approvedrevs' => 'შემოწმებული ვერსიები',
+	'approvedrevs-approvedpages' => 'ყველა გვერდი შემოწმებული ვერსიით',
+	'approvedrevs-notlatestpages' => 'გვერდები, რომელთა შემოწმებული ვერსიები ბოლო არ არის',
+	'approvedrevs-unapprovedpages' => 'შეუმოწმებელი გვერდები',
 	'approvedrevs-view' => 'ხილვა:',
+	'approvedrevs-revisionnumber' => 'ვერსია $1',
+	'approvedrevs-approvedby' => 'შეამოწმა მომხმარებელმა {{GENDER:$3|$1}} $4 $5',
+	'approvedrevs-difffromlatest' => 'განსხვავება ბოლოსთან',
+	'approvedrevs-approvelatest' => 'ბოლოს შემოწმება',
+	'approvedrevs-approvethisrev' => 'ამ ვერსიის შემოწმება.',
+	'approvedrevs-viewlatestrev' => 'ბოლო ვერსიის ხილვა.',
 );
 
 /** Khmer (ភាសាខ្មែរ)
