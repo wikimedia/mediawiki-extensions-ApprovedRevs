@@ -53,7 +53,7 @@ Instead, a blank page will be shown.',
  * @author Umherirrender
  */
 $messages['qqq'] = array(
-	'approvedrevs-desc' => '{{desc}}',
+	'approvedrevs-desc' => '{{desc|name=Approved Revs|url=http://www.mediawiki.org/wiki/Extension:Approved_Revs}}',
 	'approvedrevs-logname' => '{{doc-logpage}}',
 	'approvedrevs-approve' => '{{Identical|Approve}}',
 	'approvedrevs-approveaction' => 'This is a log entry. Thus "set" is past tense and not imperative.',
