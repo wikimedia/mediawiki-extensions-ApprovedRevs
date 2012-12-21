@@ -502,6 +502,7 @@ $messages['el'] = array(
 );
 
 /** Esperanto (Esperanto)
+ * @author Objectivesea
  * @author Yekrats
  */
 $messages['eo'] = array(
@@ -522,7 +523,7 @@ Anstataŭe, nula paĝo estos montrita.',
 	'approvedrevs-blankpageshown' => 'Neniu revizio estis aprobita por ĉi tiu paĝo.',
 	'approvedrevs-editwarning' => 'Bonvolu noti ke vi nun redaktas la lastan revizion de ĉi tiu paĝo, kiu ne estas la aprobita revizio montrita defaŭlte.',
 	'approvedrevs' => 'Aprobitaj revizioj',
-	'approvedrevs-approvedpages' => 'Aprobitaj paĝoj', # Fuzzy
+	'approvedrevs-approvedpages' => 'Ĉiujn pagojn kun aprobitaj revizioj',
 	'approvedrevs-notlatestpages' => 'Paĝoj kies aprobita revizio ne estas la plej lasta.',
 	'approvedrevs-unapprovedpages' => 'Malaprobitaj paĝoj',
 	'approvedrevs-view' => 'Vidi:',
