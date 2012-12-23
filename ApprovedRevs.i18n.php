@@ -225,9 +225,12 @@ $messages['be-tarask'] = array(
 
 /** Bulgarian (български)
  * @author DCLXVI
+ * @author පසිඳු කාවින්ද
  */
 $messages['bg'] = array(
+	'approvedrevs-approve' => 'одобрява',
 	'approvedrevs' => 'Одобрени редакции',
+	'approvedrevs-view' => 'Изглед:',
 );
 
 /** Bengali (বাংলা)
@@ -651,13 +654,16 @@ $messages['fi'] = array(
 Sen sijaan, viimeisin versio näytetään.',
 	'approvedrevs-notlatest' => 'Tämä on  tämän sivun hyväksytty versio; se ei ole viimeisin.',
 	'approvedrevs-approvedandlatest' => 'Tämä on tämän sivun hyväksytty ja samalla viimeisin versio.',
+	'approvedrevs' => 'Hyväksytyt versiot',
 	'approvedrevs-approvedpages' => 'Hyväksytyt sivut', # Fuzzy
 	'approvedrevs-notlatestpages' => 'Sivut, joiden hyväksytty versio ei ole viimeisin',
 	'approvedrevs-unapprovedpages' => 'Hyväksymättömät sivut',
 	'approvedrevs-view' => 'Katso:',
 	'approvedrevs-revisionnumber' => 'versio $1',
 	'approvedrevs-approvedby' => 'hyväksynyt {{GENDER:$3|$1}} $4 kello $5',
+	'approvedrevs-approvelatest' => 'hyväksy viimeisin',
 	'approvedrevs-approvethisrev' => 'Hyväksy tämä versio.',
+	'approvedrevs-viewlatestrev' => 'Näytä viimeisin versio.',
 	'right-approverevisions' => 'Asettaa wikisivun tietty versio hyväksytyksi',
 	'right-viewlinktolatest' => 'Nähdä selittävä teksti niiden sivujen yläosassa, joilla on hyväksytty versio',
 );
@@ -940,7 +946,7 @@ Halaman kosong akan ditampilkan.',
 	'approvedrevs-blankpageshown' => 'Tidak ada revisi yang disetujui untuk halaman ini.',
 	'approvedrevs-editwarning' => 'Harap perhatikan bahwa Anda sekarang menyunting revisi terbaru halaman ini, yang secara bawaan bukan merupakan revisi yang disetujui.',
 	'approvedrevs' => 'Revisi yang disetujui',
-	'approvedrevs-approvedpages' => 'Halaman yang disetujui', # Fuzzy
+	'approvedrevs-approvedpages' => 'Semua halaman dengan revisi yang disetujui',
 	'approvedrevs-notlatestpages' => 'Halaman yang revisi disetujuinya bukanlah revisi terakhir',
 	'approvedrevs-unapprovedpages' => 'Halaman tidak disetujui',
 	'approvedrevs-view' => 'Lihat:',
@@ -1318,6 +1324,9 @@ Sebaliknya, laman kosong ditunjukkan.',
  * @author Chrisportelli
  */
 $messages['mt'] = array(
+	'approvedrevs-approve' => 'approva',
+	'approvedrevs-unapprove' => 'tapprovax',
+	'approvedrevs-approvesuccess' => 'Din ir-reviżjoni tal-paġna ġiet imposta bħala l-waħda approvata.',
 	'approvedrevs-unapprovedpages' => 'Paġni mhux approvati',
 	'approvedrevs-view' => 'Ara:',
 	'approvedrevs-revisionnumber' => 'reviżjoni $1',
@@ -1592,7 +1601,7 @@ $messages['ro'] = array(
 	'approvedrevs-difffromlatest' => 'diff de la ultima',
 	'approvedrevs-approvelatest' => 'aprobare ultima',
 	'approvedrevs-approvethisrev' => 'Aprobați această modificare.',
-	'approvedrevs-viewlatestrev' => 'Vizualizați modificarea cea mai recentă.',
+	'approvedrevs-viewlatestrev' => 'Vizualizează versiunea cea mai recentă.',
 	'right-approverevisions' => 'Marchează o anumită versiune a unei pagini ca aprobată',
 );
 
@@ -1765,13 +1774,17 @@ $messages['sw'] = array(
 );
 
 /** Tamil (தமிழ்)
+ * @author Karthi.dr
  * @author TRYPPN
  */
 $messages['ta'] = array(
 	'approvedrevs-approve' => 'அனுமதிக்கவும்',
 	'approvedrevs-unapprove' => 'அனுமதிக்க வேண்டாம்',
-	'approvedrevs-approvedpages' => 'ஏற்றுக் கொள்ளப்பட்ட பக்கங்கள்', # Fuzzy
+	'approvedrevs' => 'ஏற்றுக்கொள்ளப்பட்ட திருத்தங்கள்',
+	'approvedrevs-approvedpages' => 'ஏற்றுக் கொள்ளப்பட்ட திருத்தங்கள் கொண்ட அனைத்துப் பக்கங்கள்',
 	'approvedrevs-unapprovedpages' => 'ஏற்றுக் கொள்ளப்படாத பக்கங்கள்',
+	'approvedrevs-view' => 'பார்வையிடு:',
+	'approvedrevs-revisionnumber' => 'திருத்தம் $1',
 	'right-approverevisions' => 'விக்கி பக்கத்தில் ஒரு சில மாற்றங்களை அனுமதிக்கப்பட்டதாக குறித்துக்கொள்ளவும்',
 );
 
