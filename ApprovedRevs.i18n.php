@@ -410,10 +410,12 @@ Místo ní se zobrazí prázdná stránka.',
  */
 $messages['da'] = array(
 	'approvedrevs-desc' => 'Angiv en enkelt version af siden til godkendt',
+	'approvedrevs-logdesc' => 'Dette er en log over godkendte versioner.',
 	'approvedrevs-approve' => 'godkend',
 	'approvedrevs-unapprove' => 'afvis',
 	'approvedrevs-unapprovedpages' => 'Afviste sider',
 	'approvedrevs-view' => 'Vis:',
+	'approvedrevs-revisionnumber' => 'version $1',
 	'approvedrevs-approvelatest' => 'godkend seneste',
 	'approvedrevs-approvethisrev' => 'Godkend denne version.',
 );
@@ -623,6 +625,36 @@ En su lugar, se mostrará una página en blanco.',
 	'approvedrevs-viewlatestrev' => 'Ver la revisión más reciente.',
 	'right-approverevisions' => 'Establecer una cierta revisión de una página wiki como aprobada',
 	'right-viewlinktolatest' => 'Ver texto explicativo en la parte superior de las páginas que tienen una revisión aprobada',
+);
+
+/** Estonian (eesti)
+ * @author Pikne
+ */
+$messages['et'] = array(
+	'approvedrevs-desc' => 'Võimaldab lehekülje üksiku redaktsiooni heaks kiita.',
+	'approvedrevs-logname' => 'Redaktsioonide heakskiidu logi',
+	'approvedrevs-logdesc' => 'Selles logis on heakskiidetud redaktsioonid.',
+	'approvedrevs-approve' => 'kiida heaks',
+	'approvedrevs-unapprove' => 'tühista heakskiit',
+	'approvedrevs-approvesuccess' => 'Lehekülje see redaktsioon on märgitud heakskiidetud versiooniks.',
+	'approvedrevs-unapprovesuccess' => 'Sellel leheküljel pole enam heakskiidetud versiooni.
+Selle asemel näidatakse viimast redaktsiooni.',
+	'approvedrevs-unapprovesuccess2' => 'Sellel leheküljel pole enam heakskiidetud versiooni.
+Selle asemel näidatakse tühja lehekülge.',
+	'approvedrevs-approveaction' => 'märkis lehekülje "[[$1]]" heakskiidetud redaktsiooniks $2',
+	'approvedrevs-unapproveaction' => 'tühistas lehekülje "[[$1]]" redaktsiooni heakskiidu',
+	'approvedrevs-notlatest' => 'See on selle lehekülje heakskiidetud redaktsioon, mitte kõige viimane.',
+	'approvedrevs-approvedandlatest' => 'See on selle lehekülje heakskiidetud redaktsioon, ühtlasi ka kõige viimane.',
+	'approvedrevs-blankpageshown' => 'Ühtki selle lehekülje redaktsiooni pole heaks kiidetud.',
+	'approvedrevs-editwarning' => 'Pane tähele, et redigeerid nüüd selle lehekülje viimast redaktsiooni, mitte heakskiidetud redaktsiooni, mida vaikimisi näidatakse.',
+	'approvedrevs' => 'Heakskiidetud redaktsioonid',
+	'approvedrevs-approvedpages' => 'Kõik heakskiidetud redaktsiooniga leheküljed',
+	'approvedrevs-notlatestpages' => 'Leheküljed, mille heakskiidetud redaktsioon pole ühtlasi viimane',
+	'approvedrevs-unapprovedpages' => 'Heakskiitmata leheküljed',
+	'approvedrevs-view' => 'Vaata:',
+	'approvedrevs-revisionnumber' => 'redaktsioon $1',
+	'approvedrevs-approvedby' => 'heaks kiitnud {{GENDER:$3|$1}} kuupäeval $4, kell $5',
+	'approvedrevs-difffromlatest' => 'erinevus viimasest',
 );
 
 /** Persian (فارسی)
@@ -1587,11 +1619,13 @@ Em vez dela, será apresentada uma página em branco.',
  * @author Stelistcristi
  */
 $messages['ro'] = array(
+	'approvedrevs-desc' => 'Setează o singură versiune a unei pagini ca aprobată',
 	'approvedrevs-logname' => 'Jurnal aprobare versiuni',
 	'approvedrevs-logdesc' => 'Acesta este jurnalul versiunilor care au fost aprobate.',
 	'approvedrevs-approve' => 'aprobă',
 	'approvedrevs-unapprove' => 'dezaprobă',
 	'approvedrevs-approvesuccess' => 'Această versiune a paginii a fost marcată ca versiunea aprobată.',
+	'approvedrevs-blankpageshown' => 'Nicio versiune nu a fost aprobată pentru această pagină.',
 	'approvedrevs' => 'Modificări aprobate',
 	'approvedrevs-approvedpages' => 'Toate paginile cu o revizuire aprobată',
 	'approvedrevs-unapprovedpages' => 'Pagini neaprobate',
@@ -1660,6 +1694,7 @@ $messages['ru'] = array(
  */
 $messages['si'] = array(
 	'approvedrevs-approve' => 'අනුමත කරන්න',
+	'approvedrevs-unapprove' => 'නොපිළිගන්න',
 	'approvedrevs' => 'අනුමත කල සංශෝධන',
 	'approvedrevs-approvedpages' => 'අනුමත කල සංශෝධනයක් සහිත සියලුම පිටු',
 	'approvedrevs-unapprovedpages' => 'අනුමත නොකෙරූ පිටු',
@@ -1887,6 +1922,23 @@ Onun yerine, boş bir sayfa gösterilecektir.',
 	'approvedrevs-viewlatestrev' => 'En son sürümü görüntüleyin.',
 	'right-approverevisions' => 'Bir viki sayfasının belirli bir revizyonunu onaylanmış olarak ayarla',
 	'right-viewlinktolatest' => 'Onaylanmış revizyonu bulunan sayfaların başındaki açıklayıcı metni görüntüle',
+);
+
+/** Uyghur (Arabic script) (ئۇيغۇرچە)
+ * @author Arlin
+ */
+$messages['ug-arab'] = array(
+	'approvedrevs-approve' => 'تەستىق',
+	'approvedrevs-unapprove' => 'تەستىقلىما',
+	'approvedrevs' => 'تەستىقلىغان ئۆزگەرتىش',
+	'approvedrevs-unapprovedpages' => 'تەستىقلىمىغان بەتلەر',
+	'approvedrevs-view' => 'كۆرۈنۈش:',
+	'approvedrevs-revisionnumber' => 'تۈزىتىلگەن نەشرى $1',
+	'approvedrevs-approvedby' => '{{GENDER:$3|$1}} $4 $5 ماقۇللىدى',
+	'approvedrevs-difffromlatest' => 'يېڭىسى بىلەن پەرقى',
+	'approvedrevs-approvelatest' => 'ئەڭ يېڭىنى تەستىقلاش',
+	'approvedrevs-approvethisrev' => 'بۇ ئۆزگەرتىشنى ماقۇللاش',
+	'approvedrevs-viewlatestrev' => 'ئەڭ يېقىنقى ئۆزگەرتىشنى كۆرۈش.',
 );
 
 /** Ukrainian (українська)
