@@ -262,6 +262,13 @@ class ApprovedRevsHooks {
 	}
 
 	/**
+	 * Called for MW 1.21+.
+	 */
+	public static function showBlankIfUnapproved2( &$article, &$contentObject ) {
+		return self::showBlankIfUnapproved( $article, $contentObject->mText );
+	}
+
+	/**
 	 * If user is viewing the page via its main URL, and what they're
 	 * seeing is the approved revision of the page, remove the standard
 	 * subtitle shown for all non-latest revisions, and replace it with

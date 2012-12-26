@@ -50,6 +50,8 @@ $wgHooks['SearchResultInitFromTitle'][] = 'ApprovedRevsHooks::setSearchRevisionI
 $wgHooks['PersonalUrls'][] = 'ApprovedRevsHooks::removeRobotsTag';
 $wgHooks['ArticleFromTitle'][] = 'ApprovedRevsHooks::showApprovedRevision';
 $wgHooks['ArticleAfterFetchContent'][] = 'ApprovedRevsHooks::showBlankIfUnapproved';
+// MW 1.21+
+$wgHooks['ArticleAfterFetchContentObject'][] = 'ApprovedRevsHooks::showBlankIfUnapproved2';
 $wgHooks['DisplayOldSubtitle'][] = 'ApprovedRevsHooks::setSubtitle';
 // it's 'SkinTemplateNavigation' for the Vector skin, 'SkinTemplateTabs' for
 // most other skins
