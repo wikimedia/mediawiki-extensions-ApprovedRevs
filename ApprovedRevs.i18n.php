@@ -674,6 +674,7 @@ $messages['fa'] = array(
  * @author Crt
  * @author Nike
  * @author Stryn
+ * @author VezonThunder
  */
 $messages['fi'] = array(
 	'approvedrevs-desc' => 'Aseta yksittäinen sivuversio hyväksytyksi',
@@ -684,15 +685,22 @@ $messages['fi'] = array(
 	'approvedrevs-approvesuccess' => 'Tämä sivuversio on asetettu hyväksytyksi versioksi.',
 	'approvedrevs-unapprovesuccess' => 'Tästä sivusta ei ole enää hyväksyttyä versiota.
 Sen sijaan, viimeisin versio näytetään.',
+	'approvedrevs-unapprovesuccess2' => 'Tästä sivusta ei enää ole hyväksyttyä versiota.
+Sellaisen sijaan esitetään tyhjä sivu.',
+	'approvedrevs-approveaction' => 'asetti version $2 sivun "[[$1]]" hyväksytyksi versioksi',
+	'approvedrevs-unapproveaction' => 'perui sivun "[[$1]]" hyväksytyn version',
 	'approvedrevs-notlatest' => 'Tämä on  tämän sivun hyväksytty versio; se ei ole viimeisin.',
 	'approvedrevs-approvedandlatest' => 'Tämä on tämän sivun hyväksytty ja samalla viimeisin versio.',
+	'approvedrevs-blankpageshown' => 'Tästä sivusta ei ole hyväksyttyä versiota.',
+	'approvedrevs-editwarning' => 'Huomaa, että muokkaat nyt sivun viimeisintä versiota, joka ei ole oletuksena esitetty hyväksytty versio.',
 	'approvedrevs' => 'Hyväksytyt versiot',
-	'approvedrevs-approvedpages' => 'Hyväksytyt sivut', # Fuzzy
+	'approvedrevs-approvedpages' => 'Kaikki sivut, joista on hyväksytyt versiot',
 	'approvedrevs-notlatestpages' => 'Sivut, joiden hyväksytty versio ei ole viimeisin',
 	'approvedrevs-unapprovedpages' => 'Hyväksymättömät sivut',
 	'approvedrevs-view' => 'Katso:',
 	'approvedrevs-revisionnumber' => 'versio $1',
 	'approvedrevs-approvedby' => 'hyväksynyt {{GENDER:$3|$1}} $4 kello $5',
+	'approvedrevs-difffromlatest' => 'ero nykyiseen',
 	'approvedrevs-approvelatest' => 'hyväksy viimeisin',
 	'approvedrevs-approvethisrev' => 'Hyväksy tämä versio.',
 	'approvedrevs-viewlatestrev' => 'Näytä viimeisin versio.',
@@ -758,7 +766,7 @@ A la place, una pâge voueda serat montrâ.',
 	'approvedrevs-blankpageshown' => 'Niona vèrsion at étâ aprovâ por cela pâge.',
 	'approvedrevs-editwarning' => 'Volyéd notar que vos éte ora aprés changiér la dèrriére vèrsion de cela pâge, qu’est pas cela aprovâ montrâ per dèfôt.',
 	'approvedrevs' => 'Vèrsions aprovâs',
-	'approvedrevs-approvedpages' => 'Pâges aprovâs', # Fuzzy
+	'approvedrevs-approvedpages' => 'Totes les pâges avouéc na vèrsion aprovâye',
 	'approvedrevs-notlatestpages' => 'Pâges que la vèrsion aprovâ est pas la ples novèla',
 	'approvedrevs-unapprovedpages' => 'Pâges pas aprovâs',
 	'approvedrevs-view' => 'Vêre :',
@@ -998,7 +1006,8 @@ Halaman kosong akan ditampilkan.',
 $messages['ig'] = array(
 	'approvedrevs-approve' => 'kwé',
 	'approvedrevs-unapprove' => 'ékwèkwàlà',
-	'approvedrevs-approvedpages' => 'Ihü hé kwèrè', # Fuzzy
+	'approvedrevs-approvedpages' => 'Ihü hé kwèrè',
+	'approvedrevs-view' => 'Lèzí:',
 );
 
 /** Italian (italiano)
@@ -1693,6 +1702,7 @@ $messages['ru'] = array(
  * @author පසිඳු කාවින්ද
  */
 $messages['si'] = array(
+	'approvedrevs-logname' => 'සංශෝධන අනුමැති ලොගය',
 	'approvedrevs-approve' => 'අනුමත කරන්න',
 	'approvedrevs-unapprove' => 'නොපිළිගන්න',
 	'approvedrevs' => 'අනුමත කල සංශෝධන',
