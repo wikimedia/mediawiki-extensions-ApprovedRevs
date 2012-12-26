@@ -661,9 +661,6 @@ class ApprovedRevsHooks {
 		if ( ! ApprovedRevs::pageIsApprovable( $title ) ) {
 			return true;
 		}
-		if ( ! ApprovedRevs::userCanApprove( $title ) ) {
-			return true;
-		}
 
 		$approvedRevID = ApprovedRevs::getApprovedRevID( $title );
 		if ( ! empty( $approvedRevID ) &&
@@ -678,17 +675,18 @@ class ApprovedRevsHooks {
 		$wgOut->addHTML( '<span style="margin-left: 10.75px">' );
 
 		if ( $wgRequest->getCheck( 'oldid' ) ) {
-			$wgOut->addHTML( Xml::tags( 'span', array( 'id' => 'contentSub2' ),
-				Xml::element( 'a',
-				array( 'href' => $title->getLocalUrl(
-					array(
-						'action' => 'approve',
-						'oldid' => $wgRequest->getInt( 'oldid' )
-					)
-				) ),
-				wfMsg( 'approvedrevs-approvethisrev' )
-			) ) );
-
+			if ( ApprovedRevs::userCanApprove( $title ) ) {
+				$wgOut->addHTML( Xml::tags( 'span', array( 'id' => 'contentSub2' ),
+					Xml::element( 'a',
+					array( 'href' => $title->getLocalUrl(
+						array(
+							'action' => 'approve',
+							'oldid' => $wgRequest->getInt( 'oldid' )
+						)
+					) ),
+					wfMsg( 'approvedrevs-approvethisrev' )
+				) ) );
+			}
 		} else {
 			$wgOut->appendSubtitle(
 				htmlspecialchars( wfMsg( 'approvedrevs-blankpageshown' ) ) . '&#160;' .
