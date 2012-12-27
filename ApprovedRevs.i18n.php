@@ -1659,6 +1659,9 @@ $messages['roa-tara'] = array(
 	'approvedrevs-view' => 'Vide:',
 	'approvedrevs-revisionnumber' => 'revisione $1',
 	'approvedrevs-approvedby' => "approvate da $1 'u $2",
+	'approvedrevs-difffromlatest' => "differenze da l'urteme",
+	'approvedrevs-approvelatest' => "approve l'urteme",
+	'approvedrevs-approvethisrev' => 'Approve sta revisione.',
 );
 
 /** Russian (русский)
@@ -1813,9 +1816,15 @@ Istället kommer en tom sida att visas.',
 
 /** Swahili (Kiswahili)
  * @author Kwisha
+ * @author Stephenwanjau
  */
 $messages['sw'] = array(
+	'approvedrevs-approve' => 'idhinisha',
 	'approvedrevs-view' => 'Tazama:',
+	'approvedrevs-revisionnumber' => 'Pitio $1',
+	'approvedrevs-approvedby' => 'Imeidhinishwa na {{GENDER:$3|$1}} mnamo $4 saa $5',
+	'approvedrevs-approvelatest' => 'idhinisha ya hivi karibuni',
+	'approvedrevs-approvethisrev' => 'idhinisha toleo hili',
 );
 
 /** Tamil (தமிழ்)
