@@ -295,7 +295,11 @@ class ApprovedRevsHooks {
 			return true;
 		}
 
-		if ( ! $title->userCan( 'viewlinktolatest' ) ) {
+		// For some reason, the userCan() check always returns false
+		// when $wgEmailConfirmToEdit is set - is that a bug in
+		// MediaWiki? In any case, don't escape here if it's set.
+		global $wgEmailConfirmToEdit;
+		if ( ! $title->userCan( 'viewlinktolatest' ) && !$wgEmailConfirmToEdit ) {
 			return false;
 		}
 
