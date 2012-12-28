@@ -751,15 +751,15 @@ $messages['fr'] = array(
 $messages['frp'] = array(
 	'approvedrevs-desc' => 'Mârque una solèta vèrsion d’una pâge coment aprovâ.',
 	'approvedrevs-logname' => 'Jornal de les aprobacions de vèrsions',
-	'approvedrevs-logdesc' => 'O est lo jornal de les vèrsions qu’ont étâ marcâs coment aprovâs.',
+	'approvedrevs-logdesc' => 'O est lo jornal de les vèrsions que sont étâyes aprovâyes.',
 	'approvedrevs-approve' => 'aprovar',
 	'approvedrevs-unapprove' => 'dèsaprovar',
-	'approvedrevs-approvesuccess' => 'Ceta vèrsion de la pâge at étâ marcâ coment la vèrsion aprovâ.',
+	'approvedrevs-approvesuccess' => 'Ceta vèrsion de la pâge est étâye marcâye coment la vèrsion aprovâye.',
 	'approvedrevs-unapprovesuccess' => 'Y at gins de vèrsion aprovâ de ceta pâge.
 A la place, la vèrsion la ples novèla serat montrâ.',
 	'approvedrevs-unapprovesuccess2' => 'Y at gins de vèrsion aprovâ de ceta pâge.
 A la place, una pâge voueda serat montrâ.',
-	'approvedrevs-approveaction' => 'at marcâ $2 coment la vèrsion aprovâ de « [[$1]] »',
+	'approvedrevs-approveaction' => 'at marcâ $2 coment la vèrsion aprovâye de « [[$1]] »',
 	'approvedrevs-unapproveaction' => 'at anulâ lo marcâjo d’una vèrsion aprovâ por « [[$1]] »',
 	'approvedrevs-notlatest' => 'O est la vèrsion aprovâ de cela pâge ; o est pas la ples novèla.',
 	'approvedrevs-approvedandlatest' => 'O est la vèrsion aprovâ de cela pâge, et pués la ples novèla.',
@@ -922,11 +922,12 @@ Město toho so prózdna strona pokaza.',
 );
 
 /** Hungarian (magyar)
+ * @author Dj
  * @author Misibacsi
  */
 $messages['hu'] = array(
 	'approvedrevs-approve' => 'elfogadás',
-	'approvedrevs-approvedpages' => 'Ellenőrzött lapok', # Fuzzy
+	'approvedrevs-approvedpages' => 'Valamennyi lap ellenőrzött szerkesztéssel',
 );
 
 /** Interlingua (interlingua)
@@ -1253,6 +1254,13 @@ Vietoj to, rodoma paskutinio peržiūrėjimo.',
 	'approvedrevs-viewlatestrev' => 'Peržiūrėti naujausių peržiūrėjimo.',
 	'right-approverevisions' => 'Nustatyti vieną puslapį su patvirtinta peržiūros',
 	'right-viewlinktolatest' => 'Peržiūrėti paaiškinamasis tekstas viršuje, puslapiai, kurie patvirtintų peržiūros',
+);
+
+/** Basa Banyumasan (Basa Banyumasan)
+ * @author StefanusRA
+ */
+$messages['map-bms'] = array(
+	'approvedrevs-approve' => 'setujuni',
 );
 
 /** Macedonian (македонски)
@@ -1652,6 +1660,7 @@ $messages['ro'] = array(
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
+	'approvedrevs-logname' => 'Archivije de le approvaziune de le revisiune',
 	'approvedrevs-approve' => 'approve',
 	'approvedrevs-unapprove' => 'scitte',
 	'approvedrevs' => 'Revisiune approvate',
@@ -1708,6 +1717,7 @@ $messages['si'] = array(
 	'approvedrevs-logname' => 'සංශෝධන අනුමැති ලොගය',
 	'approvedrevs-approve' => 'අනුමත කරන්න',
 	'approvedrevs-unapprove' => 'නොපිළිගන්න',
+	'approvedrevs-blankpageshown' => 'මෙම පිටුව සඳහා කිසිදු සංශෝධනයක් අනුමත කර නොමැත.',
 	'approvedrevs' => 'අනුමත කල සංශෝධන',
 	'approvedrevs-approvedpages' => 'අනුමත කල සංශෝධනයක් සහිත සියලුම පිටු',
 	'approvedrevs-unapprovedpages' => 'අනුමත නොකෙරූ පිටු',
