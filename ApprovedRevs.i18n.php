@@ -153,6 +153,7 @@ $messages['azb'] = array(
  * @author Assele
  * @author Comp1089
  * @author Haqmar
+ * @author Sagan
  */
 $messages['ba'] = array(
 	'approvedrevs-desc' => 'Биттең бер өлгөһөн раҫланған тип билдәләү',
@@ -172,7 +173,7 @@ $messages['ba'] = array(
 	'approvedrevs-blankpageshown' => 'Был бит өсөн раҫланған өлгөләр юҡ.',
 	'approvedrevs-editwarning' => 'Зинһар, иғтибар итегеҙ, һеҙ хәҙер был биттең һуңғы өлгөһөн мөхәррирләйһегеҙ, әммә ул күрһәтелмәй, сөнки ул раҫланмаған.',
 	'approvedrevs' => 'Раҫланған өлгөләр',
-	'approvedrevs-approvedpages' => 'Раҫланған биттәр', # Fuzzy
+	'approvedrevs-approvedpages' => 'Раҫланған верисиялары булған биттәр',
 	'approvedrevs-notlatestpages' => 'Был — биттең раҫланған өлгөһө. Яңыраҡ өлгөләр бар.',
 	'approvedrevs-unapprovedpages' => 'Раҫланмаған биттәр',
 	'approvedrevs-view' => 'Ҡарап сығыу:',
@@ -1714,9 +1715,13 @@ $messages['ru'] = array(
  * @author පසිඳු කාවින්ද
  */
 $messages['si'] = array(
+	'approvedrevs-desc' => 'අනුමත කර ඇති ලෙස පිටුවක තනි සංශෝධනයක් සකසන්න',
 	'approvedrevs-logname' => 'සංශෝධන අනුමැති ලොගය',
+	'approvedrevs-logdesc' => 'මෙය අනුමත කර ඇති ලඝු සංශෝධනයන් වේ.',
 	'approvedrevs-approve' => 'අනුමත කරන්න',
 	'approvedrevs-unapprove' => 'නොපිළිගන්න',
+	'approvedrevs-approvesuccess' => 'පිටුවේ මෙම සංශෝධනය අනුමත කරන ලද අනුවාදය ලෙස සකසා ඇත.',
+	'approvedrevs-unapproveaction' => '"[[$1]]" සඳහා අනුමත කරන ලද සංශෝධනය සැකසුමෙන් ඉවත් කරන්න',
 	'approvedrevs-blankpageshown' => 'මෙම පිටුව සඳහා කිසිදු සංශෝධනයක් අනුමත කර නොමැත.',
 	'approvedrevs' => 'අනුමත කල සංශෝධන',
 	'approvedrevs-approvedpages' => 'අනුමත කල සංශෝධනයක් සහිත සියලුම පිටු',
