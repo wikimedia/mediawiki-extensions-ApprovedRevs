@@ -887,6 +887,19 @@ $messages['he'] = array(
 	'right-viewlinktolatest' => 'הצגת הסבר בחלק העליון של העמודים שיש להם גרסה מאושרת',
 );
 
+/** Hindi (हिन्दी)
+ * @author Ansumang
+ */
+$messages['hi'] = array(
+	'approvedrevs-logname' => 'संशोधन अनुमोदन लॉग',
+	'approvedrevs-approve' => 'अनुमोदन',
+	'approvedrevs-unapprove' => 'अनुमोदन नहीं हुई',
+	'approvedrevs' => 'अनुमोदित संशोधन',
+	'approvedrevs-view' => 'देखें:',
+	'approvedrevs-revisionnumber' => 'संशोधन $1',
+	'approvedrevs-approvethisrev' => 'इस संशोधन को अनुमोदीत करें।',
+);
+
 /** Upper Sorbian (hornjoserbsce)
  * @author Michawiki
  */
@@ -1672,6 +1685,7 @@ $messages['roa-tara'] = array(
 	'approvedrevs-difffromlatest' => "differenze da l'urteme",
 	'approvedrevs-approvelatest' => "approve l'urteme",
 	'approvedrevs-approvethisrev' => 'Approve sta revisione.',
+	'approvedrevs-viewlatestrev' => 'Vide le revisiune urteme urteme.',
 );
 
 /** Russian (русский)
