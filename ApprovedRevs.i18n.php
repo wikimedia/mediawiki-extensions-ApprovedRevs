@@ -889,15 +889,16 @@ $messages['he'] = array(
 
 /** Hindi (हिन्दी)
  * @author Ansumang
+ * @author Siddhartha Ghai
  */
 $messages['hi'] = array(
-	'approvedrevs-logname' => 'संशोधन अनुमोदन लॉग',
-	'approvedrevs-approve' => 'अनुमोदन',
-	'approvedrevs-unapprove' => 'अनुमोदन नहीं हुई',
-	'approvedrevs' => 'अनुमोदित संशोधन',
+	'approvedrevs-logname' => 'अवतरण अनुमोदन लॉग',
+	'approvedrevs-approve' => 'अनुमोदित करें',
+	'approvedrevs-unapprove' => 'अनुमोदन रद्द करें',
+	'approvedrevs' => 'अनुमोदित अवतरण',
 	'approvedrevs-view' => 'देखें:',
-	'approvedrevs-revisionnumber' => 'संशोधन $1',
-	'approvedrevs-approvethisrev' => 'इस संशोधन को अनुमोदीत करें।',
+	'approvedrevs-revisionnumber' => 'अवतरण $1',
+	'approvedrevs-approvethisrev' => 'इस अवतरण को अनुमोदीत करें।',
 );
 
 /** Upper Sorbian (hornjoserbsce)
