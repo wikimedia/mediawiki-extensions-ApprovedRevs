@@ -939,10 +939,12 @@ Město toho so prózdna strona pokaza.',
 /** Hungarian (magyar)
  * @author Dj
  * @author Misibacsi
+ * @author Tacsipacsi
  */
 $messages['hu'] = array(
 	'approvedrevs-approve' => 'elfogadás',
 	'approvedrevs-approvedpages' => 'Valamennyi lap ellenőrzött szerkesztéssel',
+	'approvedrevs-difffromlatest' => 'Eltérés az aktuális változattól',
 );
 
 /** Interlingua (interlingua)
