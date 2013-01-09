@@ -44,6 +44,22 @@ class ApprovedRevs {
 	}
 
 	/**
+	 * Returns the contents of the specified wiki page, at either the
+	 * specified revision (if there is one) or the latest revision
+	 * (otherwise).
+	 */
+	public static function getPageText( $title, $revisionID = null ) {
+		if ( method_exists( 'Revision', 'getContent' ) ) {
+			// MW >= 1.21
+			$revision = Revision::newFromTitle( $title, $revisionID );
+			return $revision->getContent();
+		} else {
+			$article = new Article( $title, $revisionID );
+			return $article->getContent();
+		}
+	}
+
+	/**
 	 * Returns the content of the approved revision of this page, or null
 	 * if there isn't one.
 	 */
@@ -53,12 +69,11 @@ class ApprovedRevs {
 			return self::$mApprovedContentForPage[$pageID];
 		}
 
-		$revision_id = self::getApprovedRevID( $title );
-		if ( empty( $revision_id ) ) {
+		$revisionID = self::getApprovedRevID( $title );
+		if ( empty( $revisionID ) ) {
 			return null;
 		}
-		$article = new Article( $title, $revision_id );
-		$text = $article->getContent();
+		$text = self::getPageText( $title, $revisionID );
 		self::$mApprovedContentForPage[$pageID] = $text;
 		return $text;
 	}
@@ -225,8 +240,7 @@ class ApprovedRevs {
 		// one, there's no need to call the parser on it.
 		if ( !$is_latest ) {
 			$parser->setTitle( $title );
-			$article = new Article( $title, $rev_id );
-			$text = $article->getContent();
+			$text = self::getPageText( $title, $rev_id );
 			$options = new ParserOptions();
 			$parser->parse( $text, $title, $options, true, true, $rev_id );
 			$u = new LinksUpdate( $title, $parser->getOutput() );
@@ -274,8 +288,7 @@ class ApprovedRevs {
 		if ( $egApprovedRevsBlankIfUnapproved ) {
 			$text = '';
 		} else {
-			$article = new Article( $title );
-			$text = $article->getContent();
+			$text = self::getPageText( $title );
 		}
 		$options = new ParserOptions();
 		$parser->parse( $text, $title, $options );
