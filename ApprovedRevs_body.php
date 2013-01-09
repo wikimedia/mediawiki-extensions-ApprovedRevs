@@ -52,7 +52,7 @@ class ApprovedRevs {
 		if ( method_exists( 'Revision', 'getContent' ) ) {
 			// MW >= 1.21
 			$revision = Revision::newFromTitle( $title, $revisionID );
-			return $revision->getContent();
+			return $revision->getContent()->getNativeData();
 		} else {
 			$article = new Article( $title, $revisionID );
 			return $article->getContent();
