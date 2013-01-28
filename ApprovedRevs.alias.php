@@ -91,7 +91,7 @@ $specialPageAliases['nb'] = array(
 	'ApprovedRevs' => array( 'Godkjente_revisjoner' ),
 );
 
-/** Nedersaksies (Nedersaksies) */
+/** Low Saxon (Netherlands) (Nedersaksies) */
 $specialPageAliases['nds-nl'] = array(
 	'ApprovedRevs' => array( 'Goedekeurden_pagina\'s' ),
 );
