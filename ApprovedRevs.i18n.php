@@ -1134,7 +1134,7 @@ $messages['km'] = array(
  * @author 아라
  */
 $messages['ko'] = array(
-	'approvedrevs-desc' => '확인한 문서의 개정판 하나를 설정',
+	'approvedrevs-desc' => '확인한 문서의 개정판 하나를 설정합니다',
 	'approvedrevs-logname' => '개정판 확인 기록',
 	'approvedrevs-logdesc' => '개정판을 확인한 기록입니다.',
 	'approvedrevs-approve' => '확인',
