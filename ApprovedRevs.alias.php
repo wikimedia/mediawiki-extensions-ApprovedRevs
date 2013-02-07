@@ -86,7 +86,7 @@ $specialPageAliases['ml'] = array(
 	'ApprovedRevs' => array( 'അംഗീകൃതതാളുകൾ', 'അംഗീകൃതമല്ലാത്തതാളുകൾ' ),
 );
 
-/** Norwegian Bokmål (norsk (bokmål)‎) */
+/** Norwegian Bokmål (norsk bokmål) */
 $specialPageAliases['nb'] = array(
 	'ApprovedRevs' => array( 'Godkjente_revisjoner' ),
 );
