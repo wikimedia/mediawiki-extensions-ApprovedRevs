@@ -84,12 +84,6 @@ class ApprovedRevs {
 	 * not editing the page, etc.
 	 */
 	public static function isDefaultPageRequest() {
-		// this first test seems to no longer work with MW 1.16
-		/*
-		if ( $title->mArticleID > -1 ) {
-			return true;
-		}
-		*/
 		global $wgRequest;
 		if ( $wgRequest->getCheck( 'oldid' ) ) {
 			return false;
@@ -217,13 +211,7 @@ class ApprovedRevs {
 	}
 
 	static function setPageSearchText( $title, $text ) {
-		if ( class_exists( 'DeferredUpdates' ) ) {
-			DeferredUpdates::addUpdate( new SearchUpdate( $title->getArticleID(), $title->getText(), $text ) );
-		} else {
-			// MW 1.16
-			$su = new SearchUpdate( $title->getArticleID(), $title->getText(), $text );
-			$su->doUpdate();
-		}
+		DeferredUpdates::addUpdate( new SearchUpdate( $title->getArticleID(), $title->getText(), $text ) );
 	}
 
 	/**
