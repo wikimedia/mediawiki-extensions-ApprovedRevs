@@ -126,58 +126,6 @@ class SpecialApprovedRevsPage extends QueryPage {
 	}
 	
 	/**
-	 * For compatibility with MW < 1.17.
-	 * 
-	 * (non-PHPdoc)
-	 * @see QueryPage::getSQL()
-	 */
-	function getSQL() {
-		global $egApprovedRevsNamespaces;
-		
-		$nsCond = '(' . implode( ' OR ', array_map( array( __CLASS__, 'getNsConditionPart' ), $egApprovedRevsNamespaces ) ) . ')';
-		
-		$dbr = wfGetDB( DB_SLAVE );
-		$approved_revs = $dbr->tableName( 'approved_revs' );
-		$page = $dbr->tableName( 'page' );
-		$page_props = $dbr->tableName( 'page_props' );
-		
-		if ( $this->mMode == 'notlatest' ) {
-			return "SELECT 'Page' AS type,
-				p.page_id AS id,
-				ar.rev_id AS rev_id,
-				p.page_latest AS latest_id
-				FROM $approved_revs ar JOIN $page p
-				ON ar.page_id = p.page_id
-				LEFT OUTER JOIN $page_props pp
-				ON ar.page_id = pp_page
-				WHERE p.page_latest != ar.rev_id
-				AND ($nsCond OR (pp_propname = 'approvedrevs' AND pp_value = 'y'))";
-		} elseif ( $this->mMode == 'unapproved' ) {
-			return "SELECT 'Page' AS type,
-				p.page_id AS id,
-				p.page_latest AS latest_id
-				FROM $approved_revs ar RIGHT OUTER JOIN $page p
-				ON ar.page_id = p.page_id
-				LEFT OUTER JOIN $page_props pp
-				ON p.page_id = pp_page
-				WHERE ar.page_id IS NULL
-				AND ($nsCond OR (pp_propname = 'approvedrevs' AND pp_value = 'y'))";
-		} else { // all approved pages
-			return "SELECT 'Page' AS type,
-				p.page_id AS id,
-				ar.rev_id AS rev_id,
-				p.page_latest AS latest_id
-				FROM $approved_revs ar JOIN $page p
-				ON ar.page_id = p.page_id
-				LEFT OUTER JOIN $page_props pp
-				ON ar.page_id = pp_page
-				WHERE ($nsCond OR (pp_propname = 'approvedrevs' AND pp_value = 'y'))";
-		}
-	}
-
-	/**
-	 * Used as of MW 1.17.
-	 * 
 	 * (non-PHPdoc)
 	 * @see QueryPage::getSQL()
 	 */	
