@@ -174,16 +174,19 @@ class ApprovedRevsHooks {
 		$revisionID = ApprovedRevs::getApprovedRevID( $title );
 		if ( ! empty( $revisionID ) ) {
 			$article = new Article( $title, $revisionID );
-			// The load/fetchContent() call is necessary because it
+			// This call (whichever it is) is necessary because it
 			// causes $article->mRevision to get initialized,
 			// which in turn allows "edit section" links to show
 			// up if the approved revision is also the latest.
-			if ( method_exists( $article, 'loadContent' ) ) {
-				// Ideally, this should only be called for
-				// MW < 1.18
-				$article->loadContent();
-			} else {
+			if ( method_exists( $article, 'getRevisionFetched' ) ) {
+				// MW 1.19+
+				$article->getRevisionFetched();
+			} elseif ( method_exists( $article, 'fetchContent' ) ) {
+				// MW 1.18
 				$article->fetchContent();
+			} else {
+				// MW 1.17
+				$article->loadContent();
 			}
 		}
 		return true;
@@ -251,8 +254,7 @@ class ApprovedRevsHooks {
 			// If the user is looking at the latest revision,
 			// disable caching, to avoid the wiki getting the
 			// contents from the cache, and thus getting the
-			// approved contents instead (seems to be an issue
-			// only for MW >= 1.17).
+			// approved contents instead.
 			if ( $revisionID == $article->getLatest() ) {
 				global $wgEnableParserCache;
 				$wgEnableParserCache = false;
