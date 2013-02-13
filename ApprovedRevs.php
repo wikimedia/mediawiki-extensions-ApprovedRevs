@@ -43,7 +43,7 @@ $wgAutoloadClasses['SpecialApprovedRevs'] = $egApprovedRevsIP . 'SpecialApproved
 $wgSpecialPageGroups['ApprovedRevs'] = 'pages';
 
 // hooks
-$wgHooks['ParserBeforeInternalParse'][] = 'ApprovedRevsHooks::setApprovedRevForParsing';
+$wgHooks['ArticleEditUpdates'][] = 'ApprovedRevsHooks::updateLinksAfterEdit';
 $wgHooks['ArticleSaveComplete'][] = 'ApprovedRevsHooks::setLatestAsApproved';
 $wgHooks['ArticleSaveComplete'][] = 'ApprovedRevsHooks::setSearchText';
 $wgHooks['SearchResultInitFromTitle'][] = 'ApprovedRevsHooks::setSearchRevisionID';

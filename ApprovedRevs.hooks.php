@@ -40,77 +40,42 @@ class ApprovedRevsHooks {
 	}
 
 	/**
-	 * If the page is being saved, set the text of the approved revision
-	 * as the text to be parsed, for correct saving of categories,
-	 * Semantic MediaWiki properties, etc.
+	 * Call LinksUpdate on the text of this page's approved revision,
+	 * if there is one.
 	 */
-	static public function setApprovedRevForParsing( &$parser, &$text, &$stripState ) {
-		global $wgRequest;
-
-		// Static variable to prevent recursive calls to this method.
-		static $alreadyCalled = false;
-
-		if ( $wgRequest->getCheck( 'wpSave' ) ) {
-			if ( $alreadyCalled ) {
+	static public function updateLinksAfterEdit( &$page, &$editInfo, $changed ) {
+		$title = $page->getTitle();
+		if ( ! ApprovedRevs::pageIsApprovable( $title ) ) {
+			return true;
+		}
+		// If this user's revisions get approved automatically,
+		// exit now, because this will be the approved
+		// revision anyway.
+		if ( self::userRevsApprovedAutomatically( $title ) ) {
+			return true;
+		}
+		$text = '';
+		$approvedText = ApprovedRevs::getApprovedContent( $title );
+		if ( !is_null( $approvedText ) ) {
+			$text = $approvedText;
+		}
+		// If there's no approved revision, and 'blank if
+		// unapproved' is set to true, set the text to blank.
+		if ( is_null( $approvedText ) ) {
+			global $egApprovedRevsBlankIfUnapproved;
+			if ( $egApprovedRevsBlankIfUnapproved ) {
+				$text = '';
+			} else {
+				// If it's an unapproved page and there's no
+				// page blanking, exit here.
 				return true;
-			}
-			$alreadyCalled = true;
-
-			// @HACK ? If the ConfirmEdit extension is installed
-			// and kicks in for this save (i.e., prompting the
-			// user for a CAPTCHA test), it will lead to bad
-			// behavior - for some reason, the hook for this
-			// function will get called about seven times, and
-			// each time, the contents of the page will get
-			// displayed on the screen. Instead we check for a
-			// specific field of the parser, because the first
-			// of those seven times, that field is not set -
-			// whereas, apparently, it always is when a save is
-			// actually happening. Then we set a static variable,
-			// to be checked the next six times.
-			if ( self::$mNoSaveOccurring ) {
-				return true;
-			}
-			if ( empty( $parser->mPreprocessor) ) {
-				self::$mNoSaveOccurring = true;
-				return true;
-			}
-
-			// @HACK !! If the Semantic Forms extension is being
-			// used, the form will be parsed right before the page
-			// is parsed, and there doesn't seem to be any way
-			// to determine, from within this hook function,
-			// which one is being parsed at the moment - we only
-			// want to modify the parsing of the main page, not
-			// of the form page. So look for a string that should
-			// appear in every form page, but should really never
-			// appear in non-form pages - '{{{for template'.
-			if ( strpos( $text, '{{{for template' ) !== false ) {
-				return true;
-			}
-			$title = $parser->getTitle();
-			if ( ! ApprovedRevs::pageIsApprovable( $title ) ) {
-				return true;
-			}
-			// If this user's revisions get approved automatically,
-			// exit now, because this will become the approved
-			// revision anyway.
-			if ( self::userRevsApprovedAutomatically( $title ) ) {
-				return true;
-			}
-			$approvedText = ApprovedRevs::getApprovedContent( $title );
-			if ( !is_null( $approvedText ) ) {
-				$text = $approvedText;
-			}
-			// If there's no approved revision, and 'blank if
-			// unapproved' is set to true, set the text to blank.
-			if ( is_null( $approvedText ) ) {
-				global $egApprovedRevsBlankIfUnapproved;
-				if ( $egApprovedRevsBlankIfUnapproved ) {
-					$text = '';
-				}
 			}
 		}
+
+		$editInfo = $page->prepareTextForEdit( $text );
+		$u = new LinksUpdate( $page->mTitle, $editInfo->output );
+		$u->doUpdate();
+
 		return true;
 	}
 
@@ -168,7 +133,7 @@ class ApprovedRevsHooks {
 			return true;
 		}
 
-		$revisionID =  ApprovedRevs::getApprovedRevID( $title );
+		$revisionID = ApprovedRevs::getApprovedRevID( $title );
 		if ( is_null( $revisionID ) ) {
 			return true;
 		}
@@ -189,7 +154,7 @@ class ApprovedRevsHooks {
 	 * a search result.
 	 */
 	public static function setSearchRevisionID( $title, &$id ) {
-		$revisionID =  ApprovedRevs::getApprovedRevID( $title );
+		$revisionID = ApprovedRevs::getApprovedRevID( $title );
 		if ( !is_null( $revisionID ) ) {
 			$id = $revisionID;
 		}
