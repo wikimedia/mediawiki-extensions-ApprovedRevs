@@ -9,7 +9,7 @@ if ( !defined( 'MEDIAWIKI' ) ) die();
  * @author Yaron Koren
  */
 
-define( 'APPROVED_REVS_VERSION', '0.6.4' );
+define( 'APPROVED_REVS_VERSION', '0.6.5' );
 
 // credits
 $wgExtensionCredits['other'][] = array(
