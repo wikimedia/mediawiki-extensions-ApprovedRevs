@@ -660,13 +660,19 @@ Selle asemel näidatakse tühja lehekülge.',
 
 /** Persian (فارسی)
  * @author Leyth
+ * @author Mehran
  * @author Mjbmr
  */
 $messages['fa'] = array(
 	'approvedrevs-approve' => 'تصویب',
 	'approvedrevs-unapprove' => 'واگردانی تصویب',
+	'approvedrevs' => 'نسخه‌های تأییدشده',
+	'approvedrevs-approvedpages' => 'تمام صفحات دارای نسخه تاییدشده',
+	'approvedrevs-notlatestpages' => 'صفحاتی که نسخه تاییدشده آنها آخرین نیست',
+	'approvedrevs-unapprovedpages' => 'صفحه‌های تاییدنشده',
 	'approvedrevs-view' => 'مشاهده:',
 	'approvedrevs-revisionnumber' => 'نسخهٔ $1',
+	'approvedrevs-approvelatest' => 'تایید آخرین',
 );
 
 /** Finnish (suomi)
