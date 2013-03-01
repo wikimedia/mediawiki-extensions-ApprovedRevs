@@ -276,7 +276,7 @@ En e lec'h e vo lakaet ur bajenn wenn.",
 	'approvedrevs-blankpageshown' => "N'eus bet aprouet adweladenn ebet evit ar bajenn-mañ.",
 	'approvedrevs-editwarning' => "Taolit evezh emaoc'h o tegas kemmoù e stumm diwezhañ ar bajenn-mañ; n'eo ket hemañ ar stumm aprouet zo lakaet war wel dre ziouer.",
 	'approvedrevs' => 'Adweladennoù degemeret',
-	'approvedrevs-approvedpages' => 'Pajennoù aprouet', # Fuzzy
+	'approvedrevs-approvedpages' => 'An holl bajennoù bet aprouet',
 	'approvedrevs-notlatestpages' => "Pajennoù n'eo ket an adweladennoù aprouet evito ar stumm nevesañ anezho.",
 	'approvedrevs-unapprovedpages' => "Pajennoù n'int ket bet aprouet",
 	'approvedrevs-view' => 'Gwelet :',
