@@ -216,8 +216,7 @@ class SpecialApprovedRevsPage extends QueryPage {
 	function formatResult( $skin, $result ) {
 		$title = Title::newFromId( $result->id );
 		
-		// link introduced in 1.16, where makeLinkObj got deprecated
-		$pageLink = is_callable( array( $skin, 'link' ) ) ? $skin->link( $title ) : $skin->makeLinkObj( $title );
+		$pageLink = $skin->link( $title );
 		
 		if ( $this->mMode == 'unapproved' ) {
 			global $egApprovedRevsShowApproveLatest;

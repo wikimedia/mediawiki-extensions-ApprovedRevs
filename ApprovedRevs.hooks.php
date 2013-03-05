@@ -181,12 +181,9 @@ class ApprovedRevsHooks {
 			if ( method_exists( $article, 'getRevisionFetched' ) ) {
 				// MW 1.19+
 				$article->getRevisionFetched();
-			} elseif ( method_exists( $article, 'fetchContent' ) ) {
+			} else {
 				// MW 1.18
 				$article->fetchContent();
-			} else {
-				// MW 1.17
-				$article->loadContent();
 			}
 		}
 		return true;
