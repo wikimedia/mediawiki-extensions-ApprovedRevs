@@ -60,10 +60,12 @@ $messages['qqq'] = array(
 	'approvedrevs-unapproveaction' => 'This is a log entry. Thus "unset" is past tense and not imperative.',
 	'approvedrevs-view' => '{{Identical|View}}',
 	'approvedrevs-revisionnumber' => '{{Identical|Revision}}',
-	'approvedrevs-approvedby' => '*$1 - username (or link)
-*$3 - username
-*$4 - date
-*$5 - time',
+	'approvedrevs-approvedby' => "Used in Special:Approvedrevs.
+* $1 - link to the user's user page, or link to the IP user's contributions page
+* $2 - (Unused)time and date
+* $3 - username
+* $4 - date
+* $5 - time",
 	'right-approverevisions' => '{{doc-right|approverevisions}}',
 	'right-viewlinktolatest' => '{{doc-right|viewlinktolatest}}',
 );
