@@ -58,6 +58,7 @@ $messages['qqq'] = array(
 	'approvedrevs-approve' => '{{Identical|Approve}}',
 	'approvedrevs-approveaction' => 'This is a log entry. Thus "set" is past tense and not imperative.',
 	'approvedrevs-unapproveaction' => 'This is a log entry. Thus "unset" is past tense and not imperative.',
+	'approvedrevs' => '{{doc-special|ApprovedRevs}}',
 	'approvedrevs-view' => '{{Identical|View}}',
 	'approvedrevs-revisionnumber' => '{{Identical|Revision}}',
 	'approvedrevs-approvedby' => "Used in Special:Approvedrevs.
@@ -1685,6 +1686,7 @@ $messages['ro'] = array(
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
+	'approvedrevs-desc' => "'Mboste 'an revisione singole de 'na pàgene cumme approvate",
 	'approvedrevs-logname' => 'Archivije de le approvaziune de le revisiune',
 	'approvedrevs-approve' => 'approve',
 	'approvedrevs-unapprove' => 'scitte',
