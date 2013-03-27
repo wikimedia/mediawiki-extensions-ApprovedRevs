@@ -1442,6 +1442,13 @@ I stedet vil en blank side bli vist.',
 	'right-viewlinktolatest' => 'Vis forklarende tekst på toppen av sider som har en godkjent revisjon',
 );
 
+/** Low German (Plattdüütsch)
+ * @author Joachim Mos
+ */
+$messages['nds'] = array(
+	'approvedrevs-view' => 'Ankieken',
+);
+
 /** Dutch (Nederlands)
  * @author SPQRobin
  * @author Siebrand
