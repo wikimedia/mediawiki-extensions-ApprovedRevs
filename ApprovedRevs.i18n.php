@@ -55,7 +55,20 @@ Instead, a blank page will be shown.',
 $messages['qqq'] = array(
 	'approvedrevs-desc' => '{{desc|name=Approved Revs|url=http://www.mediawiki.org/wiki/Extension:Approved_Revs}}',
 	'approvedrevs-logname' => '{{doc-logpage}}',
-	'approvedrevs-approve' => '{{Identical|Approve}}',
+	'approvedrevs-logdesc' => 'Used as heading in [[Special:Log]]/approvedrevs.',
+	'approvedrevs-approve' => 'Used as link text.
+
+The URL of the link contains "action=approve".
+
+See also:
+* {{msg-mw|Approvedrevs-unapprove}}
+{{Identical|Approve}}',
+	'approvedrevs-unapprove' => 'Used as link text.
+
+The URL of the link contains "action=unapprove".
+
+See also:
+* {{msg-mw|Approvedrevs-approve}}',
 	'approvedrevs-approveaction' => 'This is a log entry. Thus "set" is past tense and not imperative.',
 	'approvedrevs-unapproveaction' => 'This is a log entry. Thus "unset" is past tense and not imperative.',
 	'approvedrevs' => '{{doc-special|ApprovedRevs}}',
