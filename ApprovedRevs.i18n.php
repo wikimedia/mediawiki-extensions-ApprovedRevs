@@ -69,17 +69,85 @@ The URL of the link contains "action=unapprove".
 
 See also:
 * {{msg-mw|Approvedrevs-approve}}',
+	'approvedrevs-approvesuccess' => 'Used as success message.',
+	'approvedrevs-unapprovesuccess' => 'Used as success message.
+
+See also:
+* {{msg-mw|Approvedrevs-unapprovesuccess2}}',
+	'approvedrevs-unapprovesuccess2' => 'Used as success message.
+
+See also:
+* {{msg-mw|Approvedrevs-unapprovesuccess}}',
 	'approvedrevs-approveaction' => 'This is a log entry. Thus "set" is past tense and not imperative.',
 	'approvedrevs-unapproveaction' => 'This is a log entry. Thus "unset" is past tense and not imperative.',
+	'approvedrevs-notlatest' => 'This message is followed by a link. Its link text is {{msg-mw|Approvedrevs-viewlatestrev}}.
+
+See also:
+* {{msg-mw|Approvedrevs-approvedandlatest}}',
+	'approvedrevs-approvedandlatest' => 'See also:
+* {{msg-mw|Approvedrevs-notlatest}}',
+	'approvedrevs-blankpageshown' => 'Used in subtitle.
+
+This message is followed by a link. Its link text is {{msg-mw|Approvedrevs-viewlatestrev}}.
+
+See also:
+* {{msg-mw|Approvedrevs-approvethisrev}}',
+	'approvedrevs-editwarning' => "Used as warning shown in '''bold'''.",
 	'approvedrevs' => '{{doc-special|ApprovedRevs}}',
-	'approvedrevs-view' => '{{Identical|View}}',
-	'approvedrevs-revisionnumber' => '{{Identical|Revision}}',
+	'approvedrevs-approvedpages' => "Used as a '''bold''' message or a link text in [[Special:ApprovedRevs]].
+
+This message follows {{msg-mw|Approvedrevs-view}}.
+
+This message is followed by a string \" | \" and {{msg-mw|Approvedrevs-notlatestpages}}.",
+	'approvedrevs-notlatestpages' => "Used as a '''bold''' message or a link text in [[Special:ApprovedRevs]].
+
+This message follows {{msg-mw|Approvedrevs-view}}, {{msg-mw|Approvedrevs-approvedpages}} and \" | \".",
+	'approvedrevs-unapprovedpages' => "Used as a '''bold''' message or a link text in [[Special:ApprovedRevs]].
+
+This message follows {{msg-mw|Approvedrevs-notlatestpages}} and \" | \".
+
+See also:
+* {{msg-mw|Approvedrevs-view}}",
+	'approvedrevs-view' => 'Used as label in [[Special:ApprovedRevs]].
+
+This message is followed by the following messages:
+* {{msg-mw|Approvedrevs-approvedpages}}
+* " | "
+* {{msg-mw|Approvedrevs-notlatestpages}}
+* " | "
+* {{msg-mw|Approvedrevs-unapprovedpages}}
+{{Identical|View}}',
+	'approvedrevs-revisionnumber' => 'Used in [[Special:ApprovedRevs]].
+
+Parameters:
+* $1 - revision ID
+{{Identical|Revision}}',
 	'approvedrevs-approvedby' => "Used in Special:Approvedrevs.
 * $1 - link to the user's user page, or link to the IP user's contributions page
 * $2 - (Unused)time and date
 * $3 - username
 * $4 - date
 * $5 - time",
+	'approvedrevs-difffromlatest' => 'Used as link text in [[Special:ApprovedRevs]].
+
+The link points to the "Diff" page.
+
+The link follows a link which points to the page.',
+	'approvedrevs-approvelatest' => 'Used as link text in [[Special:ApprovedRevs]].
+
+This message means "approve the latest revision".
+
+The link follows a link to the page.',
+	'approvedrevs-approvethisrev' => 'Used as link text.
+
+See also:
+* {{msg-mw|Approvedrevs-blankpageshown}}
+* {{msg-mw|Approvedrevs-viewlatestrev}}',
+	'approvedrevs-viewlatestrev' => 'Used as link text.
+
+This message follows any one of the messages:
+* {{msg-mw|Approvedrevs-notlatest}}
+* {{msg-mw|Approvedrevs-blankpageshown}}',
 	'right-approverevisions' => '{{doc-right|approverevisions}}',
 	'right-viewlinktolatest' => '{{doc-right|viewlinktolatest}}',
 );
