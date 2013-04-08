@@ -1778,6 +1778,7 @@ $messages['roa-tara'] = array(
 	'approvedrevs-logname' => 'Archivije de le approvaziune de le revisiune',
 	'approvedrevs-approve' => 'approve',
 	'approvedrevs-unapprove' => 'scitte',
+	'approvedrevs-approveaction' => '\'mboste $2 cumme \'na revisione approvate pe "[[$1]]"',
 	'approvedrevs' => 'Revisiune approvate',
 	'approvedrevs-approvedpages' => "Tutte le pàggene cu 'na revisione approvate",
 	'approvedrevs-unapprovedpages' => 'Pàggene none approvate',
