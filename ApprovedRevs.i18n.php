@@ -271,6 +271,22 @@ $messages['ba'] = array(
 	'right-viewlinktolatest' => 'Раҫланған өлгөләре булған биттәрҙең өҫкө өлөшөндә аңлатманы ҡарау',
 );
 
+/** Bikol Central (Bikol Central)
+ * @author Geopoet
+ */
+$messages['bcl'] = array(
+	'approvedrevs-approve' => 'Aprub',
+	'approvedrevs-unapprove' => 'Bakong aprub',
+	'approvedrevs-unapprovedpages' => 'Bakong aprubadong mga pahina',
+	'approvedrevs-view' => 'Tanawon:',
+	'approvedrevs-revisionnumber' => 'rebisyon $1',
+	'approvedrevs-approvedby' => 'Aprubado ni {{GENDER:$#|$1}} sa $4 kan $5', # Fuzzy
+	'approvedrevs-difffromlatest' => 'Laen gikan sa pinakahuri',
+	'approvedrevs-approvelatest' => 'pinakahuring aprub',
+	'approvedrevs-approvethisrev' => 'Aprubaran ining rebisyon.',
+	'approvedrevs-viewlatestrev' => 'Tanawon an pinakahurihon na rebisyon.',
+);
+
 /** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author EugeneZelenko
  * @author Jim-by
