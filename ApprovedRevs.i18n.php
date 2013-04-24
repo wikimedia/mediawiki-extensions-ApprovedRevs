@@ -507,6 +507,7 @@ Místo ní se zobrazí prázdná stránka.',
 );
 
 /** Danish (dansk)
+ * @author Cgtdk
  * @author Tjernobyl
  */
 $messages['da'] = array(
@@ -517,8 +518,10 @@ $messages['da'] = array(
 	'approvedrevs-unapprovedpages' => 'Afviste sider',
 	'approvedrevs-view' => 'Vis:',
 	'approvedrevs-revisionnumber' => 'version $1',
+	'approvedrevs-difffromlatest' => 'forskel fra seneste',
 	'approvedrevs-approvelatest' => 'godkend seneste',
 	'approvedrevs-approvethisrev' => 'Godkend denne version.',
+	'approvedrevs-viewlatestrev' => 'Vis den seneste revision.',
 );
 
 /** German (Deutsch)
