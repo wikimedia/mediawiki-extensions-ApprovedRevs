@@ -275,16 +275,35 @@ $messages['ba'] = array(
  * @author Geopoet
  */
 $messages['bcl'] = array(
+	'approvedrevs-desc' => 'Minakaag nin saroang rebisyon kan sarong pahina na pinag-aprubaran',
+	'approvedrevs-logname' => 'Katalaanan nin aprubadong rebisyon',
+	'approvedrevs-logdesc' => 'Ini an katalaan kan mga rebisyon na pinag-aprubaran na.',
 	'approvedrevs-approve' => 'Aprub',
 	'approvedrevs-unapprove' => 'Bakong aprub',
+	'approvedrevs-approvesuccess' => 'Ining rebisyon ka pahina pinagkaag bilang aprubadong bersyon.',
+	'approvedrevs-unapprovesuccess' => 'Mayo na tabing pinag-aprubaran na berson para sa pahinang ini.
+Kumbaya, an pinakahuring rebisyon an ipapahiling.',
+	'approvedrevs-unapprovesuccess2' => 'Mayo na tabing pinag-aprubaran na berson para sa pahinang ini.
+Kumbaya, sarong blangkong pahina an ipapahiling.',
+	'approvedrevs-approveaction' => 'ikaag an $2 bilang aprubadong rebisyon para sa "[[$1]]"',
+	'approvedrevs-unapproveaction' => 'haleon an pinag-aprubaran na rebisyon para sa "[[$1]]"',
+	'approvedrevs-notlatest' => 'Iyo ini an pinag-aprubaran na rebisyon kan pahinang ini; bako ini an pinakahurihon.',
+	'approvedrevs-approvedandlatest' => 'Iyo ini an pinag-aprubaran na rebisyon kaining pahina, siring man an pinakahurihon.',
+	'approvedrevs-blankpageshown' => 'Mayong rebisyon an pinag-aprubaran na para sa pahinang ini.',
+	'approvedrevs-editwarning' => 'Pakigiromdoma na ika ngunyan nagliliwat kan pinakahuring rebisyon kaining pahina, na bako man an aprubado na ipinapahiling bilang panugmad.',
+	'approvedrevs' => 'Aprubadong mga  rebisyon',
+	'approvedrevs-approvedpages' => 'Gabos na mga pahina na igwang aprubadong rebisyon',
+	'approvedrevs-notlatestpages' => 'Mga pahina na an aprubadong rebisyon bakong pinakahurihon',
 	'approvedrevs-unapprovedpages' => 'Bakong aprubadong mga pahina',
 	'approvedrevs-view' => 'Tanawon:',
 	'approvedrevs-revisionnumber' => 'rebisyon $1',
-	'approvedrevs-approvedby' => 'Aprubado ni {{GENDER:$#|$1}} sa $4 kan $5', # Fuzzy
+	'approvedrevs-approvedby' => 'Aprubado ni {{GENDER:$3|$1}} kan $4 mga $5',
 	'approvedrevs-difffromlatest' => 'Laen gikan sa pinakahuri',
 	'approvedrevs-approvelatest' => 'pinakahuring aprub',
 	'approvedrevs-approvethisrev' => 'Aprubaran ining rebisyon.',
 	'approvedrevs-viewlatestrev' => 'Tanawon an pinakahurihon na rebisyon.',
+	'right-approverevisions' => 'Minakaag nin saroang rebisyon kan pahina nin wiki bilang aprubado',
+	'right-viewlinktolatest' => 'Tanawon an teksto na nagpapaliwanag na yaon tabi sa itaas kan mga pahina na igwa nin aprubadong rebisyon',
 );
 
 /** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
