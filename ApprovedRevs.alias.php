@@ -121,6 +121,11 @@ $specialPageAliases['tr'] = array(
 	'ApprovedRevs' => array( 'OnaylanmışRevizyonlar', 'OnaylanmışSayfalar', 'OnaylanmamışSayfalar' ),
 );
 
+/** Vietnamese (Tiếng Việt) */
+$specialPageAliases['vi'] = array(
+	'ApprovedRevs' => array( 'Phiên_bản_chấp_nhận', 'Trang_chấp_nhận' ),
+);
+
 /** Simplified Chinese (中文（简体）‎) */
 $specialPageAliases['zh-hans'] = array(
 	'ApprovedRevs' => array( '审批修订', '审批页面', '未审批页面' ),
