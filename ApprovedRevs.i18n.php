@@ -163,18 +163,23 @@ $messages['af'] = array(
 );
 
 /** Arabic (العربية)
+ * @author Meno25
  * @author Moemin05
  * @author روخو
  */
 $messages['ar'] = array(
+	'approvedrevs-logname' => 'سجل موافقة المراجعات',
 	'approvedrevs-approve' => 'موافقة',
 	'approvedrevs-unapprove' => 'إزالة موافقة',
+	'approvedrevs-blankpageshown' => 'لا مراجعة تمت الموافقة عليها لهذه الصفحة.',
 	'approvedrevs' => 'أقر المراجعات',
 	'approvedrevs-approvedpages' => 'صفحات تمّت الموافقة عليها', # Fuzzy
 	'approvedrevs-unapprovedpages' => 'صفحات لم تتم الموافقة عليها',
 	'approvedrevs-view' => 'عرض:',
 	'approvedrevs-revisionnumber' => 'تنقيح $1',
 	'approvedrevs-approvedby' => 'وافق لكل $1 على $2',
+	'approvedrevs-difffromlatest' => 'الفرق من الأحدث',
+	'approvedrevs-approvethisrev' => 'الموافقة على هذه المراجعة.',
 );
 
 /** Aramaic (ܐܪܡܝܐ)
