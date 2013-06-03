@@ -719,6 +719,7 @@ Anstataŭe, nula paĝo estos montrita.',
  * @author Dferg
  * @author Jurock
  * @author Locos epraix
+ * @author MarcoAurelio
  * @author Mashandy
  * @author Mor
  * @author Translationista
@@ -1531,7 +1532,7 @@ $messages['mt'] = array(
 	'approvedrevs-revisionnumber' => 'reviżjoni $1',
 );
 
-/** Norwegian Bokmål (norsk (bokmål)‎)
+/** Norwegian Bokmål (norsk bokmål)
  * @author Nghtwlkr
  */
 $messages['nb'] = array(
@@ -1617,7 +1618,7 @@ $messages['nl-informal'] = array(
 	'approvedrevs-editwarning' => 'Je bewerkt de meest recente versie van deze pagina die nog niet goedgekeurd is en standaard niet wordt weergegeven.',
 );
 
-/** Oriya (ଓଡ଼ିଆ)
+/** Oriya (ଓଡ଼ିଆ)
  * @author Odisha1
  * @author ଆଶୁତୋଷ କର
  */
