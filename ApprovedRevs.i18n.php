@@ -1618,6 +1618,17 @@ $messages['nl-informal'] = array(
 	'approvedrevs-editwarning' => 'Je bewerkt de meest recente versie van deze pagina die nog niet goedgekeurd is en standaard niet wordt weergegeven.',
 );
 
+/** Occitan (occitan)
+ * @author Cedric31
+ */
+$messages['oc'] = array(
+	'approvedrevs-approve' => 'aprovar',
+	'approvedrevs-unapprove' => 'desaprovar',
+	'approvedrevs-view' => 'Veire :',
+	'approvedrevs-revisionnumber' => 'Revision $1',
+	'approvedrevs-approvedby' => 'aprovat per $1 lo $2', # Fuzzy
+);
+
 /** Oriya (ଓଡ଼ିଆ)
  * @author Odisha1
  * @author ଆଶୁତୋଷ କର

@@ -68,7 +68,7 @@ $specialPageAliases['ko'] = array(
 
 /** Cornish (kernowek) */
 $specialPageAliases['kw'] = array(
-	'ApprovedRevs' => array( 'AmendyansowComendys' ),
+	'ApprovedRevs' => array( 'AmendyansowKomendys' ),
 );
 
 /** Luxembourgish (Lëtzebuergesch) */
