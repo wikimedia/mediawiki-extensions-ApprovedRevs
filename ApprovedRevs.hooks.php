@@ -602,7 +602,12 @@ class ApprovedRevsHooks {
 	}
 
 	/**
-	 * Display a message
+	 * Display a message to the user if (a) "blank if unapproved" is set,
+	 * (b) the page is approvable, and (c) either the page has no
+	 * approved revision, or the user is looking at a revision that's
+	 * not the latest - the displayed message depends on which of those
+	 * cases it is.
+	 * @TODO - this should probably get split up into two methods.
 	 *
 	 * @since 0.5.6
 	 *
@@ -626,9 +631,13 @@ class ApprovedRevsHooks {
 			return true;
 		}
 
+		// If there's an approved revision for this page, and the
+		// user is looking at it - either by simply going to the page,
+		// or by looking at the revision that happens to be approved -
+		// don't display anything.
 		$approvedRevID = ApprovedRevs::getApprovedRevID( $title );
 		if ( ! empty( $approvedRevID ) &&
-			! ( $wgRequest->getCheck( 'oldid' ) &&
+			( ! $wgRequest->getCheck( 'oldid' ) ||
 			$wgRequest->getInt( 'oldid' ) == $approvedRevID ) ) {
 			return true;
 		}
@@ -638,8 +647,17 @@ class ApprovedRevsHooks {
 		$useParserCache = false;
 		$wgOut->addHTML( '<span style="margin-left: 10.75px">' );
 
+		// If the user is looking at a specific revision, show an
+		// "approve this revision" message - otherwise, it means
+		// there's no approved revision (we would have exited out if
+		// there were), so show a message explaining why the page is
+		// blank, with a link to the latest revision.
 		if ( $wgRequest->getCheck( 'oldid' ) ) {
 			if ( ApprovedRevs::userCanApprove( $title ) ) {
+				// @TODO - why is this message being shown
+				// at all? Aren't the "approve this revision"
+				// links in the history page always good
+				// enough?
 				$wgOut->addHTML( Xml::tags( 'span', array( 'id' => 'contentSub2' ),
 					Xml::element( 'a',
 					array( 'href' => $title->getLocalUrl(
