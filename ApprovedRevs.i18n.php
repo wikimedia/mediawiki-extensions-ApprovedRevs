@@ -490,8 +490,10 @@ Com a alternativa, es mostrarà una pàgina en blanc.',
 
 /** Chechen (нохчийн)
  * @author Sasan700
+ * @author Умар
  */
 $messages['ce'] = array(
+	'approvedrevs-notlatest' => 'ХӀара агӀона чӀагӀйина верси ю. Йолуш ю кхин керла версеш.',
 	'approvedrevs-view' => 'Хьажа:',
 );
 

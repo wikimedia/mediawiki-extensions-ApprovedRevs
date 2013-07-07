@@ -93,7 +93,7 @@ $specialPageAliases['nb'] = array(
 
 /** Low Saxon (Netherlands) (Nedersaksies) */
 $specialPageAliases['nds-nl'] = array(
-	'ApprovedRevs' => array( 'Goedekeurden_pagina\'s' ),
+	'ApprovedRevs' => array( 'Goedekeurden_ziejen' ),
 );
 
 /** Dutch (Nederlands) */
