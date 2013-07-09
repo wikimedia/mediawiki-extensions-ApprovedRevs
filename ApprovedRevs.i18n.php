@@ -538,9 +538,12 @@ Místo ní se zobrazí prázdná stránka.',
  */
 $messages['da'] = array(
 	'approvedrevs-desc' => 'Angiv en enkelt version af siden til godkendt',
+	'approvedrevs-logname' => 'Revisionsgodkendelseslog',
 	'approvedrevs-logdesc' => 'Dette er en log over godkendte versioner.',
 	'approvedrevs-approve' => 'godkend',
 	'approvedrevs-unapprove' => 'afvis',
+	'approvedrevs-blankpageshown' => 'Ingen revision er blevet godkendt for denne side.',
+	'approvedrevs' => 'Godkendte revisioner',
 	'approvedrevs-unapprovedpages' => 'Afviste sider',
 	'approvedrevs-view' => 'Vis:',
 	'approvedrevs-revisionnumber' => 'version $1',
@@ -1035,6 +1038,14 @@ $messages['hi'] = array(
 	'approvedrevs-view' => 'देखें:',
 	'approvedrevs-revisionnumber' => 'अवतरण $1',
 	'approvedrevs-approvethisrev' => 'इस अवतरण को अनुमोदीत करें।',
+);
+
+/** Croatian (hrvatski)
+ * @author Roberta F.
+ */
+$messages['hr'] = array(
+	'approvedrevs-approve' => 'potvrdi',
+	'approvedrevs-revisionnumber' => 'izmjena $1',
 );
 
 /** Upper Sorbian (hornjoserbsce)
