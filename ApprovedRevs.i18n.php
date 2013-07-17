@@ -795,17 +795,39 @@ Selle asemel näidatakse tühja lehekülge.',
  * @author Leyth
  * @author Mehran
  * @author Mjbmr
+ * @author Reza1615
+ * @author Taha
  */
 $messages['fa'] = array(
+	'approvedrevs-desc' => 'یک نسخه از یک صفحه را به عنوان تائیدشده علامت بزنید.',
+	'approvedrevs-logname' => 'سیاههٔ تائید نسخه',
+	'approvedrevs-logdesc' => 'این سیاههٔ نسخه‌هایی است که تائید شده‌اند.',
 	'approvedrevs-approve' => 'تصویب',
 	'approvedrevs-unapprove' => 'واگردانی تصویب',
+	'approvedrevs-approvesuccess' => 'این نسخه از صفحه به عنوان نسخهٔ تائیدشده علامت خورده‌است.',
+	'approvedrevs-unapprovesuccess' => 'هیچ نسخهٔ تائیدشده‌ای از این صفحه وجود ندارد.
+در عوض، تازه‌ترین نسخه نشان‌داده خواهد شد.',
+	'approvedrevs-unapprovesuccess2' => 'هیچ نسخهٔ تائیدشده‌ای از این صفحه وجود ندارد.
+در عوض، یک صفحهٔ خالی نشان‌داده خواهد شد.',
+	'approvedrevs-approveaction' => '$2 را به عنوان نسخهٔ تائیدشده برای «[[$1]]» علامت بزن.',
+	'approvedrevs-unapproveaction' => 'علامت نسخهٔ تائیدشده را برای «[[$1]]» بردار.',
+	'approvedrevs-notlatest' => 'این نسخهٔ تائیدشدهٔ این صفحه است و تازه‌ترین نسخهٔ آن نیست.',
+	'approvedrevs-approvedandlatest' => 'این نسخهٔ تائیدشدهٔ این صفحه و تازه‌ترین نسخهٔ آن است.',
+	'approvedrevs-blankpageshown' => 'هیچ نسخه‌ای از این صفحه تائید نشده‌اند.',
+	'approvedrevs-editwarning' => 'توجه‌کنید که شما در حال ویرایش آخرین نسخهٔ این صفحه هستید که با نسخهٔ تائید شده‌ای که به صورت پیش‌فرض نمایش می‌شود تفاوت دارد.',
 	'approvedrevs' => 'نسخه‌های تأییدشده',
 	'approvedrevs-approvedpages' => 'تمام صفحات دارای نسخه تاییدشده',
 	'approvedrevs-notlatestpages' => 'صفحاتی که نسخه تاییدشده آنها آخرین نیست',
 	'approvedrevs-unapprovedpages' => 'صفحه‌های تاییدنشده',
 	'approvedrevs-view' => 'مشاهده:',
 	'approvedrevs-revisionnumber' => 'نسخهٔ $1',
+	'approvedrevs-approvedby' => 'تائید شده  توسط {{GENDER:$3|$1}} در  تاریخ $4  در ساعت $5',
+	'approvedrevs-difffromlatest' => 'تفاوت با آخرین',
 	'approvedrevs-approvelatest' => 'تایید آخرین',
+	'approvedrevs-approvethisrev' => 'این نسخه را تائید کنید.',
+	'approvedrevs-viewlatestrev' => 'تازه‌ترین نسخه را مشاهده کنید.',
+	'right-approverevisions' => 'نسخهٔ خاصی از یک صفحهٔ ویکی را به عنوان تائیدشده علامت بزنید.',
+	'right-viewlinktolatest' => 'توضیحات بالای صفحاتی را که یک نسخهٔ تائیدشده دارند را ببینید.',
 );
 
 /** Finnish (suomi)
