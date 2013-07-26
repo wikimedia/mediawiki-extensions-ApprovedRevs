@@ -29,6 +29,7 @@ $egApprovedRevsSelfOwnedNamespaces = array();
 $egApprovedRevsBlankIfUnapproved = false;
 $egApprovedRevsAutomaticApprovals = true;
 $egApprovedRevsShowApproveLatest = false;
+$egApprovedRevsShowNotApprovedMessage = false;
 
 // internationalization
 $wgExtensionMessagesFiles['ApprovedRevs'] = $egApprovedRevsIP . 'ApprovedRevs.i18n.php';
@@ -70,6 +71,7 @@ $wgHooks['LoadExtensionSchemaUpdates'][] = 'ApprovedRevsHooks::describeDBSchema'
 $wgHooks['EditPage::showEditForm:initial'][] = 'ApprovedRevsHooks::addWarningToEditPage';
 $wgHooks['sfHTMLBeforeForm'][] = 'ApprovedRevsHooks::addWarningToSFForm';
 $wgHooks['ArticleViewHeader'][] = 'ApprovedRevsHooks::setArticleHeader';
+$wgHooks['ArticleViewHeader'][] = 'ApprovedRevsHooks::displayNotApprovedHeader';
 
 // logging
 $wgLogTypes['approval'] = 'approval';

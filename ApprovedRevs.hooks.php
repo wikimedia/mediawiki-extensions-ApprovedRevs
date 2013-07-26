@@ -688,4 +688,28 @@ class ApprovedRevsHooks {
 		return true;
 	}
 
+	/**
+	 * If this page has no approved revision, display a header message
+	 * stating that, if the setting to display this message is activated.
+	 */
+	public static function displayNotApprovedHeader( Article &$article, &$outputDone, &$useParserCache ) {
+		global $egApprovedRevsShowNotApprovedMessage;
+		if ( !$egApprovedRevsShowNotApprovedMessage) {
+			return true;
+		}
+ 
+		$title = $article->getTitle();
+		if ( ! ApprovedRevs::hasApprovedRevision( $title ) ) {
+			$text = wfMessage( 'approvedrevs-noapprovedrevision' )->text();
+			global $wgOut;
+			if ( $wgOut->getSubtitle() != '' ) {
+				$wgOut->appendSubtitle( '<br />' . $text );
+			} else {
+				$wgOut->setSubtitle( $text );
+			}
+		}
+ 
+		return true;
+	}
+
 }
