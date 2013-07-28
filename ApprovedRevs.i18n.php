@@ -556,6 +556,7 @@ $messages['da'] = array(
 
 /** German (Deutsch)
  * @author Kghbln
+ * @author Metalhead64
  * @author Purodha
  */
 $messages['de'] = array(
@@ -574,6 +575,7 @@ Stattdessen wird eine leere Seite angezeigt.',
 	'approvedrevs-notlatest' => 'Dies ist die bestätigte Version dieser Seite, allerdings nicht deren neueste Version.',
 	'approvedrevs-approvedandlatest' => 'Dies ist die bestätigte sowie die neueste Version dieser Seite.',
 	'approvedrevs-blankpageshown' => 'Keine Version dieser Seite ist bestätigt worden.',
+	'approvedrevs-noapprovedrevision' => 'Dies ist die aktuellste Version dieser Seite. Sie hat keine bestätigte Version.',
 	'approvedrevs-editwarning' => 'Beachte bitte, dass du gerade die neueste Version dieser Seite bearbeitest. Sie entspricht nicht der bestätigten Version, die standardmäßig angezeigt wird.',
 	'approvedrevs' => 'Bestätigte Versionen',
 	'approvedrevs-approvedpages' => 'Alle Seiten mit bestätigten Versionen',
@@ -836,6 +838,7 @@ $messages['fa'] = array(
  * @author Centerlink
  * @author Crt
  * @author Nike
+ * @author Snidata
  * @author Stryn
  * @author VezonThunder
  */
@@ -855,6 +858,7 @@ Sellaisen sijaan esitetään tyhjä sivu.',
 	'approvedrevs-notlatest' => 'Tämä on  tämän sivun hyväksytty versio; se ei ole viimeisin.',
 	'approvedrevs-approvedandlatest' => 'Tämä on tämän sivun hyväksytty ja samalla viimeisin versio.',
 	'approvedrevs-blankpageshown' => 'Tästä sivusta ei ole hyväksyttyä versiota.',
+	'approvedrevs-noapprovedrevision' => 'Tämä on sivun viimeisin revisio. Hyväksyttyä revisiota ei ole.',
 	'approvedrevs-editwarning' => 'Huomaa, että muokkaat nyt sivun viimeisintä versiota, joka ei ole oletuksena esitetty hyväksytty versio.',
 	'approvedrevs' => 'Hyväksytyt versiot',
 	'approvedrevs-approvedpages' => 'Kaikki sivut, joista on hyväksytyt versiot',
@@ -962,6 +966,7 @@ No canto dela, móstrase unha páxina en branco.',
 	'approvedrevs-notlatest' => 'Esta é a revisión aprobada da páxina, pero non é a máis recente.',
 	'approvedrevs-approvedandlatest' => 'Esta é a revisión aprobada da páxina, e tamén a máis recente.',
 	'approvedrevs-blankpageshown' => 'Esta páxina non ten ningunha revisión aprobada.',
+	'approvedrevs-noapprovedrevision' => 'Esta é a última revisión da páxina; non hai ningunha revisión aprobada.',
 	'approvedrevs-editwarning' => 'Teña en conta que está a editar a última revisión desta páxina, e non a aprobada que se mostra por defecto.',
 	'approvedrevs' => 'Revisións aprobadas',
 	'approvedrevs-approvedpages' => 'Todas as páxinas cunha revisión aprobada',
@@ -1136,6 +1141,7 @@ In loco de illo, un pagina vacue essera monstrate.',
 	'approvedrevs-notlatest' => 'Isto es le version approbate de iste pagina; non es le plus recente.',
 	'approvedrevs-approvedandlatest' => 'Isto es le version approbate de iste pagina, e tamben le plus recente.',
 	'approvedrevs-blankpageshown' => 'Nulle version de iste pagina ha essite approbate.',
+	'approvedrevs-noapprovedrevision' => 'Iste es le version le plus recente del pagina; il non ha un version approbate.',
 	'approvedrevs-editwarning' => 'Nota ben que tu modifica ora le ultime version de iste pagina, le qual non es le version approbate que es monstrate normalmente.',
 	'approvedrevs' => 'Versiones approbate',
 	'approvedrevs-approvedpages' => 'Tote le paginas con un version approbate',
@@ -1257,6 +1263,7 @@ $messages['ja'] = array(
 	'approvedrevs-notlatest' => 'これは、このページの承認済み版です。最新版ではありません。',
 	'approvedrevs-approvedandlatest' => 'これは、このページの承認済み版であり、最新版でもあります。',
 	'approvedrevs-blankpageshown' => 'このページには、承認済み版がありません。',
+	'approvedrevs-noapprovedrevision' => 'このページの最新版です。このページには承認済の版はありません。',
 	'approvedrevs-editwarning' => '現在編集しているのはこのページの最新版であり、既定で表示される承認済み版とは異なることにご注意ください。',
 	'approvedrevs' => '承認済み版',
 	'approvedrevs-approvedpages' => '承認済の版があるすべてのページ',
@@ -1469,6 +1476,7 @@ $messages['mk'] = array(
 	'approvedrevs-notlatest' => 'Ова е одобрената ревизија на страницава, но не е најновата.',
 	'approvedrevs-approvedandlatest' => 'Ова е одобрената ревизија на страницава, а воедно и најновата.',
 	'approvedrevs-blankpageshown' => 'Нема одобрена ревизија за страницава.',
+	'approvedrevs-noapprovedrevision' => 'Ова е најнова ревизија на страницата; нема одобрена ревизија.',
 	'approvedrevs-editwarning' => 'Имајте предвид дека сега ја уредувате најновата верзија на страницава, која не е одобрената што се прикажува по основно.',
 	'approvedrevs' => 'Одобрени ревизии',
 	'approvedrevs-approvedpages' => 'Сите страници со одобрена ревизија',
@@ -1519,6 +1527,37 @@ $messages['ml'] = array(
 	'approvedrevs-viewlatestrev' => 'ഏറ്റവും പുതിയ നാൾപ്പതിപ്പ് കാണുക.',
 	'right-approverevisions' => 'വിക്കി താളിന്റെ ഒരു പ്രത്യേക നാൾപ്പതിപ്പ് അംഗീകരിച്ചതായി സജ്ജീകരിക്കുക',
 	'right-viewlinktolatest' => 'അംഗീകരിച്ച നാൾപ്പതിപ്പുള്ള താളുകളുടെ മുകളിലായി ഒരു വിശദീകരണ കുറിപ്പ് പ്രദർശിപ്പിക്കുക',
+);
+
+/** Marathi (मराठी)
+ * @author V.narsikar
+ */
+$messages['mr'] = array(
+	'approvedrevs-logdesc' => 'प्रमाणित केलेल्या बदलांची ही नोंदवही आहे',
+	'approvedrevs-approve' => 'प्रमाणित',
+	'approvedrevs-unapprove' => 'अप्रमाणित',
+	'approvedrevs-approvesuccess' => 'या संस्करणातील बदल हे प्रमाणित आवृत्ती म्हणून स्थापित केल्या गेले आहेत.',
+	'approvedrevs-unapprovesuccess' => 'या पानाची प्रमाणित अशी आवृत्ती नाही.
+त्याएवजी सर्वात नविन अशी आवृत्ती दाखविली जाईल.',
+	'approvedrevs-unapprovesuccess2' => 'या पानाची प्रमाणित अशी आवृत्ती नाही.
+त्याएवजी कोरे पान दाखविले जाईल.',
+	'approvedrevs-approveaction' => '$2 ला "[[$1]]" ची प्रमाणित आवृत्ती म्हणून स्थापित करा.',
+	'approvedrevs-unapproveaction' => '"[[$1]]" ची प्रंमाणित आवृत्ती अस्थापित (अनसेट) करा',
+	'approvedrevs-notlatest' => 'ही या पानाची प्रमाणित आवृत्ती आहे;ही नविनतम नाही.',
+	'approvedrevs-approvedandlatest' => 'ही या पानाची प्रमाणित आवृत्ती आहे,तसेच सर्वात नविनही.',
+	'approvedrevs-blankpageshown' => 'या पानासाठी कोणतीही आवृत्ती प्रमाणित  नाही.',
+	'approvedrevs-noapprovedrevision' => 'ही या पानाची नविनतम आवृत्ती आहे;त्या पानास कोणतीही प्रमाणित आवृत्ती नाही.',
+	'approvedrevs-editwarning' => 'कृपया नोंद घ्या कि आपण सध्या या पानाची अद्यतन आवृत्ती संपादित करीत आहात,डिफॉल्टने दाखविल्याप्रमाणे ती अप्रमाणित आहे.',
+	'approvedrevs' => 'प्रमाणित आवृत्त्या',
+	'approvedrevs-approvedpages' => 'प्रमाणित आवृत्यांची सर्व पाने',
+	'approvedrevs-notlatestpages' => 'ती पाने,ज्यांची प्रमाणीत आवृत्ती ही त्यांची अद्यतन आवृत्ती नाही',
+	'approvedrevs-unapprovedpages' => 'अप्रमाणित पाने',
+	'approvedrevs-view' => 'बघा:',
+	'approvedrevs-revisionnumber' => 'आवृत्ती $1',
+	'approvedrevs-approvelatest' => 'अद्यतन प्रमाणित करा',
+	'approvedrevs-approvethisrev' => 'ही आवृत्ती प्रमाणिक करा.',
+	'approvedrevs-viewlatestrev' => 'सर्वात नविनतम आवृत्ती बघा.',
+	'right-approverevisions' => "विकिपानाची एक विशिष्ट आवृत्ती 'प्रमाणित' म्हणून स्थापित करा",
 );
 
 /** Malay (Bahasa Melayu)
