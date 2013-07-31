@@ -1556,10 +1556,12 @@ $messages['mr'] = array(
 	'approvedrevs-unapprovedpages' => 'अप्रमाणित पाने',
 	'approvedrevs-view' => 'बघा:',
 	'approvedrevs-revisionnumber' => 'आवृत्ती $1',
+	'approvedrevs-approvedby' => '$5 येथे $4 वर{{GENDER:$3|$1}} ने मंजूर केले.',
 	'approvedrevs-approvelatest' => 'अद्यतन प्रमाणित करा',
 	'approvedrevs-approvethisrev' => 'ही आवृत्ती प्रमाणिक करा.',
 	'approvedrevs-viewlatestrev' => 'सर्वात नविनतम आवृत्ती बघा.',
 	'right-approverevisions' => "विकिपानाची एक विशिष्ट आवृत्ती 'प्रमाणित' म्हणून स्थापित करा",
+	'right-viewlinktolatest' => 'मंजूर आवृत्त्यांच्या पानांच्या वर असलेला स्प्ष्टीकरणाचा मजकूर बघा',
 );
 
 /** Malay (Bahasa Melayu)
