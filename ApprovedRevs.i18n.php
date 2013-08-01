@@ -2273,6 +2273,7 @@ $messages['ug-arab'] = array(
  * @author Olvin
  * @author Sodmy
  * @author Vox
+ * @author Ата
  * @author Тест
  */
 $messages['uk'] = array(
@@ -2291,6 +2292,7 @@ $messages['uk'] = array(
 	'approvedrevs-notlatest' => 'Це затверджена версія цієї сторінки; вона не є останньою.',
 	'approvedrevs-approvedandlatest' => 'Це затверджений перегляд цієї сторінки, вын э найновішим.',
 	'approvedrevs-blankpageshown' => 'Не було знайдено схвалювальних переглядів для цієї сторінки.',
+	'approvedrevs-noapprovedrevision' => 'Це остання версія цієї сторінки; у неї немає затверджених версій.',
 	'approvedrevs-editwarning' => 'Зверніть увагу, що в даний час ви редагуєте найновіший перегляд цієї сторінки, який не є схваленим і відображатися за замовчуванням.',
 	'approvedrevs' => 'Затверджені версії',
 	'approvedrevs-approvedpages' => 'Усі сторінки, що мають затверджені версії.',
