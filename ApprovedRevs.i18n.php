@@ -1535,6 +1535,8 @@ $messages['ml'] = array(
  * @author V.narsikar
  */
 $messages['mr'] = array(
+	'approvedrevs-desc' => "पानाच्या एका आवृत्तीस 'मंजूर' म्हणून स्थापित करा",
+	'approvedrevs-logname' => 'आवृत्तीच्या मंजूरीच्या नोंदी',
 	'approvedrevs-logdesc' => 'प्रमाणित केलेल्या बदलांची ही नोंदवही आहे',
 	'approvedrevs-approve' => 'प्रमाणित',
 	'approvedrevs-unapprove' => 'अप्रमाणित',
