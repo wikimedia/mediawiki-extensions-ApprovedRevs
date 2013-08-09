@@ -334,6 +334,7 @@ $messages['be-tarask'] = array(
 	'approvedrevs-notlatest' => 'Гэта зацьверджаная вэрсія гэтай старонкі; гэта не апошняя вэрсія.',
 	'approvedrevs-approvedandlatest' => 'Гэта зацьверджаная вэрсія гэтай старонкі, адначасова яна зьяўляецца апошняй вэрсіяй.',
 	'approvedrevs-blankpageshown' => 'Для гэтай старонкі няма зацьверджанай вэрсіі.',
+	'approvedrevs-noapprovedrevision' => 'Гэта апошняя вэрсія старонкі; яна ня мае зацьверджаных вэрсіяў.',
 	'approvedrevs-editwarning' => 'Калі ласка, памятайце, што зараз Вы рэдагуеце апошнюю вэрсію гэтай старонкі, якая яшчэ не зьяўляецца зацьверджанай і не паказваецца па змоўчваньні.',
 	'approvedrevs' => 'Зацьверджаныя вэрсіі',
 	'approvedrevs-approvedpages' => 'Усе старонкі з зацьверджанымі вэрсіямі',
@@ -2347,6 +2348,7 @@ $messages['vi'] = array(
 /** Simplified Chinese (中文（简体）‎)
  * @author Hydra
  * @author Liangent
+ * @author Liuxinyu970226
  * @author PhiLiP
  * @author Xiaomingyan
  */
@@ -2366,6 +2368,7 @@ $messages['zh-hans'] = array(
 	'approvedrevs-notlatest' => '这是此页 批准的修订； 它不是最新的。',
 	'approvedrevs-approvedandlatest' => '这是此页批准，以及是最近的修订。',
 	'approvedrevs-blankpageshown' => '没有修订已获批准的此页。',
+	'approvedrevs-noapprovedrevision' => '这是此页面的最近一次修订；它存在未被批准的修订。',
 	'approvedrevs-editwarning' => '请注意现在正在编辑的此页，不是核准的最新版本默认情况下显示的其中一个。',
 	'approvedrevs' => '获批准的修订',
 	'approvedrevs-approvedpages' => '所有有被批准的版本的页面',
