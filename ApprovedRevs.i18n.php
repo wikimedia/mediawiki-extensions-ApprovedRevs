@@ -1164,6 +1164,7 @@ In loco de illo, un pagina vacue essera monstrate.',
 /** Indonesian (Bahasa Indonesia)
  * @author Farras
  * @author IvanLanin
+ * @author Rv77ax
  */
 $messages['id'] = array(
 	'approvedrevs-desc' => 'Tetapkan revisi tunggal halaman ini sebagai disetujui',
@@ -1181,6 +1182,7 @@ Halaman kosong akan ditampilkan.',
 	'approvedrevs-notlatest' => 'Ini adalah revisi disetujui dari halaman ini; bukan revisi terkini.',
 	'approvedrevs-approvedandlatest' => 'Ini adalah revisi disetujui dari halaman ini, juga revisi terkini.',
 	'approvedrevs-blankpageshown' => 'Tidak ada revisi yang disetujui untuk halaman ini.',
+	'approvedrevs-noapprovedrevision' => 'Ini adalah revisi terbaru dari Halaman ini; revisi yang disetujui belum ada.',
 	'approvedrevs-editwarning' => 'Harap perhatikan bahwa Anda sekarang menyunting revisi terbaru halaman ini, yang secara bawaan bukan merupakan revisi yang disetujui.',
 	'approvedrevs' => 'Revisi yang disetujui',
 	'approvedrevs-approvedpages' => 'Semua halaman dengan revisi yang disetujui',
