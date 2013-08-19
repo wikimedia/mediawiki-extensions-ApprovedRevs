@@ -878,6 +878,19 @@ Sellaisen sijaan esitetään tyhjä sivu.',
 	'right-viewlinktolatest' => 'Nähdä selittävä teksti niiden sivujen yläosassa, joilla on hyväksytty versio',
 );
 
+/** Faroese (føroyskt)
+ * @author EileenSanda
+ */
+$messages['fo'] = array(
+	'approvedrevs-desc' => 'Set eina einkulta versjón av einari síðu sum góðkenda',
+	'approvedrevs-approve' => 'góðkenn',
+	'approvedrevs-unapprove' => 'góðkenn ikki',
+	'approvedrevs-unapprovedpages' => 'Ikki góðkendar síður',
+	'approvedrevs-view' => 'Vís:',
+	'approvedrevs-revisionnumber' => 'versjón $1',
+	'approvedrevs-approvedby' => 'góðkent av {{GENDER:$3|$1}} hin $4 kl. $5',
+);
+
 /** French (français)
  * @author Gomoko
  * @author IAlex
