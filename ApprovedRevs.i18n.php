@@ -79,8 +79,20 @@ See also:
 
 See also:
 * {{msg-mw|Approvedrevs-unapprovesuccess}}',
-	'approvedrevs-approveaction' => 'This is a log entry. Thus "set" is past tense and not imperative.',
-	'approvedrevs-unapproveaction' => 'This is a log entry. Thus "unset" is past tense and not imperative.',
+	'approvedrevs-approveaction' => 'This is a log entry. Thus "set" is past tense and not imperative.
+
+Parameters:
+* $1 - page title
+* $2 - revision ID (with link)
+See also:
+* {{msg-mw|Approvedrevs-unapproveaction}}',
+	'approvedrevs-unapproveaction' => 'This is a log entry. Thus "unset" is past tense and not imperative.
+
+Parameters:
+* $1 - page title
+* $2 - revision ID (with link)
+See also:
+* {{msg-mw|Approvedrevs-approveaction}}',
 	'approvedrevs-notlatest' => 'This message is followed by a link. Its link text is {{msg-mw|Approvedrevs-viewlatestrev}}.
 
 See also:
