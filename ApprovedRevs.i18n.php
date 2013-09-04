@@ -90,7 +90,6 @@ See also:
 
 Parameters:
 * $1 - page title
-* $2 - revision ID (with link)
 See also:
 * {{msg-mw|Approvedrevs-approveaction}}',
 	'approvedrevs-notlatest' => 'This message is followed by a link. Its link text is {{msg-mw|Approvedrevs-viewlatestrev}}.
@@ -203,6 +202,42 @@ $messages['arc'] = array(
 	'approvedrevs-unapprove' => 'ܠܐ ܩܘܒܠܐ',
 	'approvedrevs-approvedpages' => 'ܟܠ ܦܐܬܬ̈ܐ ܥܡ ܬܢܝܬ̈ܐ ܩܒܝܠܬ̈ܐ',
 	'approvedrevs-unapprovedpages' => 'ܦܐܬܬ̈ܐ ܠܐ ܩܒܝܠܬ̈ܐ',
+);
+
+/** Asturian (asturianu)
+ * @author Xuacu
+ */
+$messages['ast'] = array(
+	'approvedrevs-desc' => "Marcar como aprobada una única revisión d'una páxina",
+	'approvedrevs-logname' => "Rexistru d'aprobación de revisiones",
+	'approvedrevs-logdesc' => "Esti ye'l rexistru de les revisiones que s'aprobaron.",
+	'approvedrevs-approve' => 'aprobar',
+	'approvedrevs-unapprove' => 'desaprobar',
+	'approvedrevs-approvesuccess' => 'Esta revisión de la páxina ye la versión aprobada.',
+	'approvedrevs-unapprovesuccess' => "Yá nun hai una versión aprobada d'esta páxina.
+Nel so llugar, s'amosará la revisión más nueva.",
+	'approvedrevs-unapprovesuccess2' => "Yá nun hai una versión aprobada d'esta páxina.
+Nel so llugar, s'amosará una páxina en blanco.",
+	'approvedrevs-approveaction' => 'marcada $2 como revisión aprobada pa "[[$1]]"',
+	'approvedrevs-unapproveaction' => 'desmarcada la revisión aprobada pa "[[$1]]"',
+	'approvedrevs-notlatest' => "Esta ye la revisión aprobada d'esta páxina, non la más nueva.",
+	'approvedrevs-approvedandlatest' => "Esta ye la revisión aprobada d'esta páxina, y tamién la más nueva.",
+	'approvedrevs-blankpageshown' => "Nun s'aprobó denguna revisión pa esta páxina.",
+	'approvedrevs-noapprovedrevision' => "Esta ye la última revisión d'esta páxina; nun hai denguna revisión aprobada.",
+	'approvedrevs-editwarning' => "Tenga en cuenta que ta editando la última revisión d'esta páxina, que nun ye la aprobada que se ve de mou predetermináu.",
+	'approvedrevs' => 'Revisiones aprobaes',
+	'approvedrevs-approvedpages' => 'Toles páxines con una revisión aprobada',
+	'approvedrevs-notlatestpages' => 'Páxines onde la revisión aprobada nun ye la más nueva',
+	'approvedrevs-unapprovedpages' => 'Páxines non aprobaes',
+	'approvedrevs-view' => 'Ver:',
+	'approvedrevs-revisionnumber' => 'revisión $1',
+	'approvedrevs-approvedby' => 'aprobada por {{GENDER:$3|$1}} el $4 a les $5',
+	'approvedrevs-difffromlatest' => 'diferencies cola última',
+	'approvedrevs-approvelatest' => 'aprobar la última',
+	'approvedrevs-approvethisrev' => 'Aprobar esta revisión.',
+	'approvedrevs-viewlatestrev' => 'Ver la revisión más nueva.',
+	'right-approverevisions' => "Marcar como aprobada cierta revisión d'una páxina wiki",
+	'right-viewlinktolatest' => 'Ver un testu esplicativu na parte superior de les páxines que tienen una revisión aprobada',
 );
 
 /** Azerbaijani (azərbaycanca)
