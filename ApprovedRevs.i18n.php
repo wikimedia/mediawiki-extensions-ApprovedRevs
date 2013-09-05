@@ -1876,6 +1876,7 @@ $messages['ps'] = array(
 
 /** Portuguese (português)
  * @author Alchimista
+ * @author Cainamarques
  * @author GoEThe
  * @author Hamilton Abreu
  */
@@ -1895,6 +1896,7 @@ Em vez dela, será apresentada uma página em branco.',
 	'approvedrevs-notlatest' => 'Esta é a revisão aprovada desta página; não é a revisão mais recente.',
 	'approvedrevs-approvedandlatest' => 'Esta é a revisão aprovada desta página e também a revisão mais recente.',
 	'approvedrevs-blankpageshown' => 'Esta página não tem nenhuma revisão aprovada.',
+	'approvedrevs-noapprovedrevision' => 'Esta é a mais recente revisão desta página; não há revisões aprovadas.',
 	'approvedrevs-editwarning' => 'Note, por favor, que está agora a editar a revisão mais recente desta página e não a versão aprovada que é mostrada por omissão.',
 	'approvedrevs' => 'Revisões aprovadas',
 	'approvedrevs-approvedpages' => 'Todas as páginas com uma revisão aprovada',
@@ -1912,6 +1914,7 @@ Em vez dela, será apresentada uma página em branco.',
 );
 
 /** Brazilian Portuguese (português do Brasil)
+ * @author Cainamarques
  * @author Giro720
  * @author Pedroca cerebral
  * @author TheGabrielZaum
@@ -1932,6 +1935,7 @@ Em vez dela, será apresentada uma página em branco.',
 	'approvedrevs-notlatest' => 'Esta é a revisão aprovada desta página; não é a revisão mais recente.',
 	'approvedrevs-approvedandlatest' => 'Esta é a revisão aprovada desta página e também a revisão mais recente.',
 	'approvedrevs-blankpageshown' => 'Esta página não tem nenhuma revisão aprovada.',
+	'approvedrevs-noapprovedrevision' => 'Esta é a mais recente revisão desta página; não há revisões aprovadas.',
 	'approvedrevs-editwarning' => 'Note, por favor, que agora você está editando a revisão mais recente desta página e não a versão aprovada que é mostrada por padrão.',
 	'approvedrevs' => 'Revisões aprovadas',
 	'approvedrevs-approvedpages' => 'Todas as páginas com uma revisão aprovada',
