@@ -2474,6 +2474,7 @@ $messages['zh-hant'] = array(
 	'approvedrevs-notlatest' => '這是此頁 批准的修訂； 它不是最新的。',
 	'approvedrevs-approvedandlatest' => '這是此頁批准，以及是最近的修訂。',
 	'approvedrevs-blankpageshown' => '沒有修訂已獲批准的此頁。',
+	'approvedrevs-noapprovedrevision' => '這是此頁面最近一次修訂；沒有已核准修訂。',
 	'approvedrevs-editwarning' => '請注意現在正在編輯的此頁，不是核准的最新版本默認情況下顯示的其中一個。',
 	'approvedrevs' => '獲批准的修訂',
 	'approvedrevs-approvedpages' => '所以含已批准版本的頁面',
