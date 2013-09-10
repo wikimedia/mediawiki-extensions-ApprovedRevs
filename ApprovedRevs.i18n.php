@@ -1775,7 +1775,7 @@ $messages['oc'] = array(
 	'approvedrevs-unapprove' => 'desaprovar',
 	'approvedrevs-view' => 'Veire :',
 	'approvedrevs-revisionnumber' => 'Revision $1',
-	'approvedrevs-approvedby' => 'aprovat per $1 lo $2', # Fuzzy
+	'approvedrevs-approvedby' => 'aprovat per {{GENDER:$3|$1}} lo $4 a $5',
 );
 
 /** Oriya (ଓଡ଼ିଆ)
