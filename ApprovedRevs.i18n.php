@@ -780,6 +780,7 @@ Anstataŭe, nula paĝo estos montrita.',
  * @author Mashandy
  * @author Mor
  * @author Translationista
+ * @author VegaDark
  */
 $messages['es'] = array(
 	'approvedrevs-desc' => 'Establecer una revisión única de una página como aprovada',
@@ -797,6 +798,7 @@ En su lugar, se mostrará una página en blanco.',
 	'approvedrevs-notlatest' => 'Esta es la revisión aprobada de esta página, no es la más reciente.',
 	'approvedrevs-approvedandlatest' => 'Esta es la revisión aprobada de esta página, siendo también la más reciente.',
 	'approvedrevs-blankpageshown' => 'No se ha aprobado una revisión de esta página.',
+	'approvedrevs-noapprovedrevision' => 'Esta es la última revisión de esta página; no tiene ninguna revisión aprobada.',
 	'approvedrevs-editwarning' => 'Tenga en cuenta que ahora está editando la última revisión de esta página, que no es la aprobada, que es la que se muestra de forma predeterminada.',
 	'approvedrevs' => 'Revisiones aprobadas',
 	'approvedrevs-approvedpages' => 'Todas las páginas con una revisión aprobada',
