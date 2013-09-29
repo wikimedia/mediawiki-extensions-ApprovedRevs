@@ -2019,6 +2019,7 @@ Invece, 'na pàgena vacande avène fatte vedè.",
 /** Russian (русский)
  * @author Kaganer
  * @author MaxSem
+ * @author Okras
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
@@ -2037,6 +2038,7 @@ $messages['ru'] = array(
 	'approvedrevs-notlatest' => 'Это утверждённая версия страницы. Существуют более свежие версии.',
 	'approvedrevs-approvedandlatest' => 'Это утверждённая версия страницы. Она же является наиболее свежей версией.',
 	'approvedrevs-blankpageshown' => 'Для этой страницы нет подтверждённых версий.',
+	'approvedrevs-noapprovedrevision' => 'Это последняя версия этой страницы; у неё нет утверждённой версии.',
 	'approvedrevs-editwarning' => 'Пожалуйста, обратите внимание, сейчас вы редактируете последнюю версию этой страницы, но она не показывается по умолчанию, так как не подтверждена.',
 	'approvedrevs' => 'Подтверждённые версии',
 	'approvedrevs-approvedpages' => 'Все страницы, имеющие подтверждённые версии',
