@@ -2106,6 +2106,7 @@ $messages['sk'] = array(
 
 /** Slovenian (slovenščina)
  * @author Dbc334
+ * @author Eleassar
  */
 $messages['sl'] = array(
 	'approvedrevs-desc' => 'Označi eno redakcijo strani kot odobreno',
@@ -2124,7 +2125,7 @@ Namesto tega bo prikazana prazna stran.',
 	'approvedrevs-approvedandlatest' => 'To je odobrena redakcija te strani, prav tako tudi najnovejša.',
 	'approvedrevs-blankpageshown' => 'Za to stran ni bila odobrena nobena redakcija.',
 	'approvedrevs-noapprovedrevision' => 'To je zadnja redakcija strani; nima odobrenih redakcij.',
-	'approvedrevs-editwarning' => 'Pomnite, da sedaj urejate najnovejšo redakcijo te strani, ki ni odobrena, po privzetem prikazana.',
+	'approvedrevs-editwarning' => 'Vedite, da trenutno urejate zadnjo redakcijo strani, ki ni po privzetem prikazana odobrena.',
 	'approvedrevs' => 'Odobrene redakcije',
 	'approvedrevs-approvedpages' => 'Vse strani z odobrenimi redakcijami',
 	'approvedrevs-notlatestpages' => 'Strani, katerih odobrena redakcija ni njihova najnovejša',
