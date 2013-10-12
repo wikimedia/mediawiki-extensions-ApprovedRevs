@@ -134,7 +134,7 @@ $specialPageAliases['vi'] = array(
 
 /** Simplified Chinese (中文（简体）‎) */
 $specialPageAliases['zh-hans'] = array(
-	'ApprovedRevs' => array( '审批修订', '审批页面', '未审批页面' ),
+	'ApprovedRevs' => array( '已认可版本', '已认可页面', '未认可页面' ),
 );
 
 /** Traditional Chinese (中文（繁體）‎) */
