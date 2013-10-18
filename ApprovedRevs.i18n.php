@@ -191,6 +191,7 @@ $messages['ar'] = array(
 	'approvedrevs-revisionnumber' => 'تنقيح $1',
 	'approvedrevs-approvedby' => 'وافق لكل $1 على $2',
 	'approvedrevs-difffromlatest' => 'الفرق من الأحدث',
+	'approvedrevs-approvelatest' => 'الموافقة على الأحدث',
 	'approvedrevs-approvethisrev' => 'الموافقة على هذه المراجعة.',
 );
 
@@ -847,6 +848,7 @@ Selle asemel näidatakse tühja lehekülge.',
 
 /** Persian (فارسی)
  * @author Dalba
+ * @author Ebraminio
  * @author Leyth
  * @author Mehran
  * @author Mjbmr
@@ -859,12 +861,12 @@ $messages['fa'] = array(
 	'approvedrevs-logdesc' => 'این سیاههٔ نسخه‌هایی است که تائید شده‌اند.',
 	'approvedrevs-approve' => 'تصویب',
 	'approvedrevs-unapprove' => 'واگردانی تصویب',
-	'approvedrevs-approvesuccess' => 'این نسخه از صفحه به عنوان نسخهٔ تأییدشده علامت خورده‌است.',
+	'approvedrevs-approvesuccess' => 'این نسخه از صفحه به‌عنوان نسخهٔ تأییدشده علامت خورده‌است.',
 	'approvedrevs-unapprovesuccess' => 'هیچ نسخهٔ تائیدشده‌ای از این صفحه وجود ندارد.
 در عوض، تازه‌ترین نسخه نشان‌داده خواهد شد.',
 	'approvedrevs-unapprovesuccess2' => 'هیچ نسخهٔ تائیدشده‌ای از این صفحه وجود ندارد.
 در عوض، یک صفحهٔ خالی نشان‌داده خواهد شد.',
-	'approvedrevs-approveaction' => '$2 را به عنوان نسخهٔ تأییدشده برای «[[$1]]» علامت بزن.',
+	'approvedrevs-approveaction' => '$2 را به‌عنوان نسخهٔ تأییدشده برای «[[$1]]» علامت بزن.',
 	'approvedrevs-unapproveaction' => 'علامت نسخهٔ تأییدشده را برای «[[$1]]» بردار.',
 	'approvedrevs-notlatest' => 'این نسخهٔ تائیدشدهٔ این صفحه است و تازه‌ترین نسخهٔ آن نیست.',
 	'approvedrevs-approvedandlatest' => 'این نسخهٔ تائیدشدهٔ این صفحه و تازه‌ترین نسخهٔ آن است.',
