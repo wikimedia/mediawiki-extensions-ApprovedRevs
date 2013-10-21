@@ -288,6 +288,7 @@ $messages['azb'] = array(
 );
 
 /** Bashkir (башҡортса)
+ * @author Alfiya55
  * @author Assele
  * @author Comp1089
  * @author Haqmar
@@ -309,6 +310,7 @@ $messages['ba'] = array(
 	'approvedrevs-notlatest' => 'Был — биттең раҫланған өлгөһө. Яңыраҡ өлгөләр бар.',
 	'approvedrevs-approvedandlatest' => 'Был — биттең раҫланған өлгөһө, ул — шулай уҡ биттең яңы өлгөһө.',
 	'approvedrevs-blankpageshown' => 'Был бит өсөн раҫланған өлгөләр юҡ.',
+	'approvedrevs-noapprovedrevision' => 'Был ошо биттең һуңғы версияһы; уның раҫланған версияһы юҡ.',
 	'approvedrevs-editwarning' => 'Зинһар, иғтибар итегеҙ, һеҙ хәҙер был биттең һуңғы өлгөһөн мөхәррирләйһегеҙ, әммә ул күрһәтелмәй, сөнки ул раҫланмаған.',
 	'approvedrevs' => 'Раҫланған өлгөләр',
 	'approvedrevs-approvedpages' => 'Раҫланған верисиялары булған биттәр',
