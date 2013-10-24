@@ -587,6 +587,7 @@ Místo ní se zobrazí prázdná stránka.',
 
 /** Danish (dansk)
  * @author Cgtdk
+ * @author Overlaet
  * @author Tjernobyl
  */
 $messages['da'] = array(
@@ -595,6 +596,8 @@ $messages['da'] = array(
 	'approvedrevs-logdesc' => 'Dette er en log over godkendte versioner.',
 	'approvedrevs-approve' => 'godkend',
 	'approvedrevs-unapprove' => 'afvis',
+	'approvedrevs-unapprovesuccess2' => 'Der er ikke længere en godkendt version for denne side.
+Der vil derfor blive vist en blank side.',
 	'approvedrevs-blankpageshown' => 'Ingen revision er blevet godkendt for denne side.',
 	'approvedrevs' => 'Godkendte revisioner',
 	'approvedrevs-unapprovedpages' => 'Afviste sider',
@@ -2167,6 +2170,7 @@ $messages['sr-ec'] = array(
 /** Swedish (svenska)
  * @author Ainali
  * @author Cohan
+ * @author LittleGun
  * @author Lokal Profil
  * @author Martinwiss
  * @author Tobulos1
@@ -2188,6 +2192,7 @@ Istället kommer en tom sida att visas.',
 	'approvedrevs-notlatest' => 'Detta är den godkända version av denna sida; det är inte den senaste.',
 	'approvedrevs-approvedandlatest' => 'Detta är den godkända version av denna sida, samt den senaste.',
 	'approvedrevs-blankpageshown' => 'Ingen revidering har godkänts för denna sida.',
+	'approvedrevs-noapprovedrevision' => 'Det här är sidans senaste version, det finns ingen godkänd version.',
 	'approvedrevs-editwarning' => 'Observera att du nu redigerar den senaste versionen av denna sida, vilket inte är den godkända som visas som standard.',
 	'approvedrevs' => 'Godkända revideringar',
 	'approvedrevs-approvedpages' => 'Alla sidor med en godkänd revision',
