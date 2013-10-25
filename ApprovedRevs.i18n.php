@@ -1635,6 +1635,7 @@ $messages['mr'] = array(
 	'approvedrevs-view' => 'बघा:',
 	'approvedrevs-revisionnumber' => 'आवृत्ती $1',
 	'approvedrevs-approvedby' => '$5 येथे $4 वर{{GENDER:$3|$1}} ने मंजूर केले.',
+	'approvedrevs-difffromlatest' => 'नविनतम मधील फरक',
 	'approvedrevs-approvelatest' => 'अद्यतन प्रमाणित करा',
 	'approvedrevs-approvethisrev' => 'ही आवृत्ती प्रमाणिक करा.',
 	'approvedrevs-viewlatestrev' => 'सर्वात नविनतम आवृत्ती बघा.',
