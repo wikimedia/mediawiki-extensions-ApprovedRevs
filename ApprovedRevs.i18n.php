@@ -1781,11 +1781,19 @@ $messages['nl-informal'] = array(
  * @author Cedric31
  */
 $messages['oc'] = array(
+	'approvedrevs-logname' => 'Jornal de las aprovacions de revisions',
 	'approvedrevs-approve' => 'aprovar',
 	'approvedrevs-unapprove' => 'desaprovar',
+	'approvedrevs' => 'Revisions aprovadas',
+	'approvedrevs-approvedpages' => 'Totas las paginas amb una revision aprovada',
+	'approvedrevs-unapprovedpages' => 'Paginas pas aprovadas',
 	'approvedrevs-view' => 'Veire :',
 	'approvedrevs-revisionnumber' => 'Revision $1',
 	'approvedrevs-approvedby' => 'aprovat per {{GENDER:$3|$1}} lo $4 a $5',
+	'approvedrevs-difffromlatest' => 'dif per rapòrt a actual',
+	'approvedrevs-approvelatest' => 'aprovar la mai recenta',
+	'approvedrevs-approvethisrev' => 'Aprovar aquesta revision.',
+	'approvedrevs-viewlatestrev' => 'Veire la darrièra revision.',
 );
 
 /** Oriya (ଓଡ଼ିଆ)
