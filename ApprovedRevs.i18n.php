@@ -876,6 +876,7 @@ $messages['fa'] = array(
 	'approvedrevs-notlatest' => 'این نسخهٔ تائیدشدهٔ این صفحه است و تازه‌ترین نسخهٔ آن نیست.',
 	'approvedrevs-approvedandlatest' => 'این نسخهٔ تائیدشدهٔ این صفحه و تازه‌ترین نسخهٔ آن است.',
 	'approvedrevs-blankpageshown' => 'هیچ نسخه‌ای از این صفحه تائید نشده‌اند.',
+	'approvedrevs-noapprovedrevision' => 'این آخرین نسخهٔ این صفحه است؛ نسخهٔ تأییدشده‌ای ندارد.',
 	'approvedrevs-editwarning' => 'توجه‌کنید که شما در حال ویرایش آخرین نسخهٔ این صفحه هستید که با نسخهٔ تائید شده‌ای که به صورت پیش‌فرض نمایش می‌شود تفاوت دارد.',
 	'approvedrevs' => 'نسخه‌های تأییدشده',
 	'approvedrevs-approvedpages' => 'تمام صفحات دارای نسخه تاییدشده',
@@ -1457,6 +1458,7 @@ Doför kritt mer en läddije Sigg aanjezeish.',
 /** Luxembourgish (Lëtzebuergesch)
  * @author Les Meloures
  * @author Robby
+ * @author Soued031
  */
 $messages['lb'] = array(
 	'approvedrevs-desc' => 'Eng eenzel Versioun vun enger Säit als nogekuckt markéieren',
@@ -1472,7 +1474,7 @@ Aplaz, gëtt eng eidel Säit gewisen.',
 	'approvedrevs-approveaction' => '$2 als nogekuckt Versioun fir "[[$1]]" festleeën',
 	'approvedrevs-unapproveaction' => 'nogekuckt Versioun fir "[[$1]]" zréckzéien',
 	'approvedrevs-notlatest' => 'Dëst ass déi nogekuckte Versioun vun dëser Säit; et ass net déi rezentst.',
-	'approvedrevs-approvedandlatest' => 'Dëst ass esouwuel déi nogekuckt wéi och déi rezentst Versioun vun dëser Säit.',
+	'approvedrevs-approvedandlatest' => 'Dëst ass souwuel déi nogekuckt wéi och déi rezentst Versioun vun dëser Säit.',
 	'approvedrevs-blankpageshown' => 'Keng Versioun vun dëser Säit gouf nogekuckt.',
 	'approvedrevs-noapprovedrevision' => 'Dëst ass déi lescht Versioun vun dëser Säit; et gëtt keng nogekuckte Versioun.',
 	'approvedrevs-editwarning' => 'Informatioun: Dir ännert déi lescht Versioun vun dëser Säit, déi net déi nogekuckten ass déi standardméisseg gewise gëtt.',
