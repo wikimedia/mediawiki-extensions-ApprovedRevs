@@ -1112,6 +1112,7 @@ $messages['he'] = array(
 	'approvedrevs-notlatest' => 'זוהי הגרסה המאושרת של הדף הזה; היא לא העדכנית ביותר.',
 	'approvedrevs-approvedandlatest' => 'זוהי הגרסה המאושרת של הדף הזה, והיא גם העדכנית ביותר.',
 	'approvedrevs-blankpageshown' => 'שום גרסה של דף זה לא אושרה.',
+	'approvedrevs-noapprovedrevision' => 'זאת הגרסה האחרונה של הדף הזה; אין לו גרסה מאושרת.',
 	'approvedrevs-editwarning' => 'יש לשים לב לכך שעכשיו נערכת הגרסה העדכנית ביותר של הדף הזה, ולא המאושרת שמוצגת כבררת מחדל.',
 	'approvedrevs' => 'גרסאות מאושרות',
 	'approvedrevs-approvedpages' => 'כל הדפים עם גרסה מאושרת',
