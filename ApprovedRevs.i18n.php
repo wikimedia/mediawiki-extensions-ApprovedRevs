@@ -193,6 +193,7 @@ $messages['ar'] = array(
 	'approvedrevs-difffromlatest' => 'الفرق من الأحدث',
 	'approvedrevs-approvelatest' => 'الموافقة على الأحدث',
 	'approvedrevs-approvethisrev' => 'الموافقة على هذه المراجعة.',
+	'approvedrevs-viewlatestrev' => 'عرض أحدث مراجعة',
 );
 
 /** Aramaic (ܐܪܡܝܐ)
