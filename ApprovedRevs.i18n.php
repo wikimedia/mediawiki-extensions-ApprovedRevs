@@ -506,6 +506,7 @@ Umjesto toga, bit će prikazana prazna stranica.',
 
 /** Catalan (català)
  * @author El libre
+ * @author Papapep
  * @author Pitort
  * @author SMP
  * @author Toniher
@@ -516,7 +517,7 @@ $messages['ca'] = array(
 	'approvedrevs-logdesc' => 'Aquest és el registre de les revisions que han estat aprovades.',
 	'approvedrevs-approve' => 'aprova',
 	'approvedrevs-unapprove' => 'desaprova',
-	'approvedrevs-approvesuccess' => 'Aquesta revisió de la pàgina ha estat establerta com la versió aprovada.',
+	'approvedrevs-approvesuccess' => "S'ha establert aquesta revisió de la pàgina com la versió aprovada.",
 	'approvedrevs-unapprovesuccess' => 'Ja no hi ha una versió aprovada de la pàgina.
 Com a alternativa, es mostrarà la versió més recent.',
 	'approvedrevs-unapprovesuccess2' => 'Ja no hi ha una versió aprovada de la pàgina.
