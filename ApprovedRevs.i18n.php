@@ -505,6 +505,7 @@ Umjesto toga, bit će prikazana prazna stranica.',
 );
 
 /** Catalan (català)
+ * @author Alvaro Vidal-Abarca
  * @author El libre
  * @author Papapep
  * @author Pitort
@@ -527,6 +528,7 @@ Com a alternativa, es mostrarà una pàgina en blanc.',
 	'approvedrevs-notlatest' => "Aquesta és la revisió aprovada d'aquesta pàgina, no la més recent.",
 	'approvedrevs-approvedandlatest' => "Aquesta és la revisió aprovada d'aquesta pàgina, així com la més recent.",
 	'approvedrevs-blankpageshown' => "No s'ha aprovat cap revisió d'aquesta pàgina.",
+	'approvedrevs-noapprovedrevision' => "Aquesta és l'última revisió d'aquesta pàgina; no té cap revisió aprovada.",
 	'approvedrevs-editwarning' => "Tingueu en compte que esteu editant la darrera revisió d'aquesta pàgina, que no és l'aprovada que es mostra per defecte.",
 	'approvedrevs' => 'Revisions aprovades',
 	'approvedrevs-approvedpages' => 'Totes les pàgines amb una revisió aprovada',
@@ -688,7 +690,7 @@ Město togo prozna wersija se pokažo.',
 	'approvedrevs-notlatest' => 'To jo pśizwólona wersija toś togo boka; njejo nejnowša.',
 	'approvedrevs-approvedandlatest' => 'To jo pśizwólona wersija toś togo boka a teke nejnowša.',
 	'approvedrevs-blankpageshown' => 'Za toś ten bok njejo se žedna wersija wobkšuśiła.',
-	'approvedrevs-noapprovedrevision' => 'To jo nejnowša wersija toś togo boka; njama wobkšuśona wersija.',
+	'approvedrevs-noapprovedrevision' => 'To jo nejnowša wersija toś togo boka; njama wobkšuśonu wersiju.',
 	'approvedrevs-editwarning' => 'Pšosym źiwaj na to, až wobźěłujoš něnto nejnowšu wersiju toś togo boka, kótaraž njejo wobkšuśona, kotraž so pó standarźe pokazujo.',
 	'approvedrevs' => 'Wobkšuśone wersije',
 	'approvedrevs-approvedpages' => 'Wšykne boki z pśizwóloneju wersiju',
@@ -1173,6 +1175,7 @@ Město toho so prózdna strona pokaza.',
 	'approvedrevs-notlatest' => 'To je schwalena wersija tuteje strony; njeje najnowša.',
 	'approvedrevs-approvedandlatest' => 'To je schwalena wersija tuteje strony, kotraž je tež najnowša.',
 	'approvedrevs-blankpageshown' => 'Za tutu stronu njeje so žana wersija schwaliła.',
+	'approvedrevs-noapprovedrevision' => 'To je najnowša wersija tuteje strony; nima wobkrućenu wersiju.',
 	'approvedrevs-editwarning' => 'Prošu dźiwaj na to, zo nětko wobdźěłuješ najnowšu wersiju strony, kotraž schwalenej, kotraž so jako standard pokazuje, njewotpowěduje.',
 	'approvedrevs' => 'Schwalene wersije',
 	'approvedrevs-approvedpages' => 'Wšě strony ze schwalenej wersiju',
