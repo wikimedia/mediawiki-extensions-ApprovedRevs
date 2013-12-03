@@ -1771,7 +1771,7 @@ Het is niet de meeste recente versie.',
 	'approvedrevs-unapprovedpages' => "Niet-goedgekeurde pagina's",
 	'approvedrevs-view' => 'Weergave:',
 	'approvedrevs-revisionnumber' => 'versie $1',
-	'approvedrevs-approvedby' => 'goedgekeurd door $1 op $4 om $5', # Fuzzy
+	'approvedrevs-approvedby' => 'goedgekeurd door {{GENDER:$3|$1}} op $4 om $5',
 	'approvedrevs-difffromlatest' => 'verschil met de meest recente versie',
 	'approvedrevs-approvelatest' => 'laatste versie goedkeuren',
 	'approvedrevs-approvethisrev' => 'Deze versie goedkeuren',
