@@ -554,7 +554,7 @@ $messages['ce'] = array(
 	'approvedrevs-view' => 'Хьажа:',
 );
 
-/** Czech (česky)
+/** Czech (čeština)
  * @author Paxt
  */
 $messages['cs'] = array(
