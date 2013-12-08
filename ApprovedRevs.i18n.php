@@ -2323,6 +2323,7 @@ Sa halip, ipapakita ang isang pahinang walang laman.',
 /** Turkish (Türkçe)
  * @author Emperyan
  * @author Incelemeelemani
+ * @author Joseph
  * @author Khutuck
  * @author Srhat
  */
@@ -2342,6 +2343,7 @@ Onun yerine, boş bir sayfa gösterilecektir.',
 	'approvedrevs-notlatest' => 'Bu sayfanın onaylanmış revizyonudur; en son revizyon değildir.',
 	'approvedrevs-approvedandlatest' => 'Bu revizyon, sayfanın hem onaylanmış hem de en son revizyonudur.',
 	'approvedrevs-blankpageshown' => 'Bu sayfa için onaylanmış sürüm yok.',
+	'approvedrevs-noapprovedrevision' => 'Bu sayfanın en son revizyonu budur; onaylanmış bir revizyonu yoktur.',
 	'approvedrevs-editwarning' => 'Lütfen dikkat: Şu an onaylanmış sürümü değil, son sürümü değitirmektesiniz.',
 	'approvedrevs' => 'Onaylanan düzeltmeler',
 	'approvedrevs-approvedpages' => 'Onaylanmış revizyon olan bütün sayfalar',
