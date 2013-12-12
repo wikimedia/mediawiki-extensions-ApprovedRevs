@@ -167,8 +167,8 @@ class SpecialApprovedRevsPage extends QueryPage {
 					'p.page_latest AS latest_id'
 				),
 				'join_conds' => array(
-					'p' => array(
-						'RIGHT OUTER JOIN', 'ar.page_id=p.page_id'
+					'ar' => array(
+						'LEFT OUTER JOIN', 'p.page_id=ar.page_id'
 					),
 					'pp' => array(
 						'LEFT OUTER JOIN', 'ar.page_id=pp_page'
