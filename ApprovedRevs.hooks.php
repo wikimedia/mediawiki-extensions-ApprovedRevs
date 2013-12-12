@@ -416,7 +416,7 @@ class ApprovedRevsHooks {
 		// stored earlier
 		$approvedRevID = $title->approvedRevID;
 		if ( $row->rev_id == $approvedRevID ) {
-			$s .= '&#9733; ';
+			$s .= ' &#9733;';
 		}
 		if ( ApprovedRevs::userCanApprove( $title ) ) {
 			if ( $row->rev_id == $approvedRevID ) {
@@ -430,7 +430,7 @@ class ApprovedRevsHooks {
 				);
 				$msg = wfMsg( 'approvedrevs-approve' );
 			}
-			$s .= '(' . Xml::element(
+			$s .= ' (' . Xml::element(
 				'a',
 				array( 'href' => $url ),
 				$msg
