@@ -295,13 +295,7 @@ class ApprovedRevs {
 	}
 
 	public static function addCSS() {
-		global $wgOut, $egApprovedRevsScriptPath;
-		$link = array(
-			'rel' => 'stylesheet',
-			'type' => 'text/css',
-			'media' => "screen",
-			'href' => "$egApprovedRevsScriptPath/ApprovedRevs.css"
-		);
-		$wgOut->addLink( $link );
+		global $wgOut;
+		$wgOut->addModuleStyles( 'ext.ApprovedRevs' );
 	}
 }

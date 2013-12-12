@@ -23,7 +23,6 @@ $wgExtensionCredits['other'][] = array(
 
 // global variables
 $egApprovedRevsIP = dirname( __FILE__ ) . '/';
-$egApprovedRevsScriptPath = $wgScriptPath . '/extensions/ApprovedRevs';
 $egApprovedRevsNamespaces = array( NS_MAIN, NS_USER, NS_PROJECT, NS_TEMPLATE, NS_HELP );
 $egApprovedRevsSelfOwnedNamespaces = array();
 $egApprovedRevsBlankIfUnapproved = false;
@@ -88,3 +87,10 @@ $wgGroupPermissions['*']['viewlinktolatest'] = true;
 
 // page properties
 $wgPageProps['approvedrevs'] = 'Whether or not the page is approvable';
+
+// ResourceLoader modules
+$wgResourceModules['ext.ApprovedRevs'] = array(
+	'styles' => 'ApprovedRevs.css',
+	'localBasePath' => __DIR__,
+	'remoteExtPath' => 'ApprovedRevs'
+);
