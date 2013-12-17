@@ -552,6 +552,7 @@ Com a alternativa, es mostrarà una pàgina en blanc.',
 $messages['ce'] = array(
 	'approvedrevs-notlatest' => 'ХӀара агӀона чӀагӀйина верси ю. Йолуш ю кхин керла версеш.',
 	'approvedrevs-view' => 'Хьажа:',
+	'approvedrevs-revisionnumber' => 'верси $1',
 );
 
 /** Czech (čeština)
