@@ -556,6 +556,7 @@ $messages['ce'] = array(
 );
 
 /** Czech (čeština)
+ * @author Matěj Grabovský
  * @author Paxt
  */
 $messages['cs'] = array(
@@ -581,7 +582,7 @@ Místo ní se zobrazí prázdná stránka.',
 	'approvedrevs-unapprovedpages' => 'Neschválené stránky',
 	'approvedrevs-view' => 'Prohlédnout:',
 	'approvedrevs-revisionnumber' => 'revize $1',
-	'approvedrevs-approvedby' => 'schváleno $1 $2', # Fuzzy
+	'approvedrevs-approvedby' => 'schváleno {{GENDER:$3|uživatelem|uživatelkou}} $1 $4 v $5',
 	'approvedrevs-difffromlatest' => 'rozdíl od poslední',
 	'approvedrevs-approvelatest' => 'schválit nejnovější',
 	'approvedrevs-approvethisrev' => 'Schválit tuto revizi.',
