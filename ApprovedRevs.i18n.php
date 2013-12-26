@@ -1394,6 +1394,7 @@ $messages['km'] = array(
 );
 
 /** Korean (한국어)
+ * @author Priviet
  * @author 아라
  */
 $messages['ko'] = array(
@@ -1404,9 +1405,9 @@ $messages['ko'] = array(
 	'approvedrevs-unapprove' => '미승인',
 	'approvedrevs-approvesuccess' => '이 판을 승인한 판으로 설정했습니다.',
 	'approvedrevs-unapprovesuccess' => '더 이상 이 문서에 대해 승인한 판이 없습니다.
-대신에 최신 판이 보여집니다.',
+대신에 최신 판이 보입니다.',
 	'approvedrevs-unapprovesuccess2' => '더 이상 이 문서에 대해 승인한 판이 없습니다.
-대신에 빈 문서가 보여집니다.',
+대신에 빈 문서가 보입니다.',
 	'approvedrevs-approveaction' => '"[[$1]]"의 승인한 $2 판으로 설정',
 	'approvedrevs-unapproveaction' => '"[[$1]]"의 승인한 판 설정 해제',
 	'approvedrevs-notlatest' => '이 문서의 확인한 개정판은 최신 판이 아닙니다.',
