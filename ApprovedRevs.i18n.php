@@ -134,9 +134,9 @@ This message is followed by the following messages:
 Parameters:
 * $1 - revision ID
 {{Identical|Revision}}',
-	'approvedrevs-approvedby' => "Used in Special:Approvedrevs.
+	'approvedrevs-approvedby' => "Used in [[Special:ApprovedRevs]]. Parameters:
 * $1 - link to the user's user page, or link to the IP user's contributions page
-* $2 - (Unused)time and date
+* $2 - (Unused) time and date
 * $3 - username
 * $4 - date
 * $5 - time",
@@ -1357,7 +1357,7 @@ $messages['ja'] = array(
 	'approvedrevs-unapprovedpages' => '未承認ページ',
 	'approvedrevs-view' => '表示:',
 	'approvedrevs-revisionnumber' => '版 $1',
-	'approvedrevs-approvedby' => '{{GENDER:$3|$1}} によって $4 $5 に承認されました',
+	'approvedrevs-approvedby' => '{{GENDER:$3|$1}} が $4 $5 に承認',
 	'approvedrevs-difffromlatest' => '最新版との差分',
 	'approvedrevs-approvelatest' => '最新版を承認',
 	'approvedrevs-approvethisrev' => 'この版を承認',
