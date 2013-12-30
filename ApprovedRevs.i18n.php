@@ -1704,6 +1704,7 @@ $messages['mt'] = array(
 );
 
 /** Norwegian Bokmål (norsk bokmål)
+ * @author Cocu
  * @author Nghtwlkr
  */
 $messages['nb'] = array(
@@ -1722,6 +1723,7 @@ I stedet vil en blank side bli vist.',
 	'approvedrevs-notlatest' => 'Dette er den godkjente revisjonen av denne siden; det er ikke den nyeste.',
 	'approvedrevs-approvedandlatest' => 'Dette er den godkjente revisjonen av denne siden, samt den nyeste.',
 	'approvedrevs-blankpageshown' => 'Ingen revisjon har blitt godkjent for denne siden.',
+	'approvedrevs-noapprovedrevision' => 'Dette er sidens siste revisjon, det finnes ingen godkjent versjon',
 	'approvedrevs-editwarning' => 'Merk at du nå redigerer den nyeste revisjonen av denne siden, som ikke er den godkjente siden som vises som standard.',
 	'approvedrevs' => 'Godkjente revisjoner',
 	'approvedrevs-approvedpages' => 'Alle sider med godkjente versjoner',
