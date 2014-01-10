@@ -21,21 +21,21 @@ class SpecialApprovedRevs extends SpecialPage {
 		ApprovedRevs::addCSS();
 		$this->setHeaders();
 		list( $limit, $offset ) = wfCheckLimits();
-		
+
 		$mode = $wgRequest->getVal( 'show' );
 		$rep = new SpecialApprovedRevsPage( $mode );
-		
+
 		if ( method_exists( $rep, 'execute' ) ) {
 			return $rep->execute( $query );
 		} else {
 			return $rep->doQuery( $offset, $limit );
 		}
 	}
-	
+
 }
 
 class SpecialApprovedRevsPage extends QueryPage {
-	
+
 	protected $mMode;
 
 	public function __construct( $mode ) {
@@ -58,7 +58,7 @@ class SpecialApprovedRevsPage extends QueryPage {
 		// corresponding to the current "mode" not being linked
 		$approvedPagesTitle = SpecialPage::getTitleFor( 'ApprovedRevs' );
 		$navLine = wfMsg( 'approvedrevs-view' ) . ' ';
-		
+
 		if ( $this->mMode == '' ) {
 			$navLine .= Xml::element( 'strong',
 				null,
@@ -70,9 +70,9 @@ class SpecialApprovedRevsPage extends QueryPage {
 				wfMsg( 'approvedrevs-approvedpages' )
 			);
 		}
-		
+
 		$navLine .= ' | ';
-		
+
 		if ( $this->mMode == 'notlatest' ) {
 			$navLine .= Xml::element( 'strong',
 				null,
@@ -84,9 +84,9 @@ class SpecialApprovedRevsPage extends QueryPage {
 				wfMsg( 'approvedrevs-notlatestpages' )
 			);
 		}
-		
+
 		$navLine .= ' | ';
-		
+
 		if ( $this->mMode == 'unapproved' ) {
 			$navLine .= Xml::element( 'strong',
 				null,
@@ -98,7 +98,7 @@ class SpecialApprovedRevsPage extends QueryPage {
 				wfMsg( 'approvedrevs-unapprovedpages' )
 			);
 		}
-		
+
 		return Xml::tags( 'p', null, $navLine ) . "\n";
 	}
 
@@ -107,14 +107,14 @@ class SpecialApprovedRevsPage extends QueryPage {
 	 */
 	function linkParameters() {
 		$params = array();
-		
+
 		if ( $this->mMode == 'notlatest' ) {
 			$params['show'] = 'notlatest';
 		} elseif ( $this->mMode == 'unapproved' ) {
 			$params['show'] = 'unapproved';
 		} else { // all approved pages
 		}
-		
+
 		return $params;
 	}
 
@@ -124,11 +124,11 @@ class SpecialApprovedRevsPage extends QueryPage {
 	public static function getNsConditionPart( $ns ) {
 		return 'p.page_namespace = ' . $ns;
 	}
-	
+
 	/**
 	 * (non-PHPdoc)
 	 * @see QueryPage::getSQL()
-	 */	
+	 */
 	function getQueryInfo() {
 		global $egApprovedRevsNamespaces;
 
@@ -215,12 +215,12 @@ class SpecialApprovedRevsPage extends QueryPage {
 
 	function formatResult( $skin, $result ) {
 		$title = Title::newFromId( $result->id );
-		
-		$pageLink = $skin->link( $title );
-		
+
+		$pageLink = Linker::link( $title );
+
 		if ( $this->mMode == 'unapproved' ) {
 			global $egApprovedRevsShowApproveLatest;
-			
+
 			$line = $pageLink;
 			if ( $egApprovedRevsShowApproveLatest &&
 				$title->userCan( 'approverevisions' ) ) {
@@ -234,7 +234,7 @@ class SpecialApprovedRevsPage extends QueryPage {
 					wfMsg( 'approvedrevs-approvelatest' )
 				) . ')';
 			}
-			
+
 			return $line;
 		} elseif ( $this->mMode == 'notlatest' ) {
 			$diffLink = Xml::element( 'a',
@@ -246,11 +246,11 @@ class SpecialApprovedRevsPage extends QueryPage {
 				) ),
 				wfMsg( 'approvedrevs-difffromlatest' )
 			);
-			
+
 			return "$pageLink ($diffLink)";
 		} else { // main mode (pages with an approved revision)
 			global $wgUser, $wgOut, $wgLang;
-			
+
 			$additionalInfo = Xml::element( 'span',
 				array (
 					'class' => $result->rev_id == $result->latest_id ? 'approvedRevIsLatest' : 'approvedRevNotLatest'
@@ -260,18 +260,17 @@ class SpecialApprovedRevsPage extends QueryPage {
 
 			// Get data on the most recent approval from the
 			// 'approval' log, and display it if it's there.
-			$sk = $wgUser->getSkin();
-			$loglist = new LogEventsList( $sk, $wgOut );
+			$loglist = new LogEventsList( $wgOut->getSkin(), $wgOut );
 			$pager = new LogPager( $loglist, 'approval', '', $title->getText() );
 			$pager->mLimit = 1;
 			$pager->doQuery();
 			$row = $pager->mResult->fetchObject();
-			
+
 			if ( !empty( $row ) ) {
 				$timestamp = $wgLang->timeanddate( wfTimestamp( TS_MW, $row->log_timestamp ), true );
 				$date = $wgLang->date( wfTimestamp( TS_MW, $row->log_timestamp ), true );
 				$time = $wgLang->time( wfTimestamp( TS_MW, $row->log_timestamp ), true );
-				$userLink = $sk->userLink( $row->log_user, $row->user_name );
+				$userLink = Linker::userLink( $row->log_user, $row->user_name );
 				$additionalInfo .= ', ' . wfMessage(
 					'approvedrevs-approvedby',
 					$userLink,
@@ -281,9 +280,9 @@ class SpecialApprovedRevsPage extends QueryPage {
 					$time
 				)->text();
 			}
-			
+
 			return "$pageLink ($additionalInfo)";
 		}
 	}
-	
+
 }

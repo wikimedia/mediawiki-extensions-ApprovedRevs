@@ -273,9 +273,7 @@ class ApprovedRevsHooks {
 		} else {
 			$text = wfMsgHtml( 'approvedrevs-notlatest' );
 
-			global $wgUser;
-			$sk = $wgUser->getSkin();
-			$text .= ' ' . $sk->link(
+			$text .= ' ' . Linker::link(
 				$title,
 				wfMsgHtml( 'approvedrevs-viewlatestrev' ),
 				array(),
@@ -697,7 +695,7 @@ class ApprovedRevsHooks {
 		if ( !$egApprovedRevsShowNotApprovedMessage) {
 			return true;
 		}
- 
+
 		$title = $article->getTitle();
 		if ( ! ApprovedRevs::hasApprovedRevision( $title ) ) {
 			$text = wfMessage( 'approvedrevs-noapprovedrevision' )->text();
@@ -708,7 +706,7 @@ class ApprovedRevsHooks {
 				$wgOut->setSubtitle( $text );
 			}
 		}
- 
+
 		return true;
 	}
 
