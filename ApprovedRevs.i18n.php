@@ -593,15 +593,19 @@ Místo ní se zobrazí prázdná stránka.',
 
 /** Danish (dansk)
  * @author Cgtdk
+ * @author Christian List
  * @author Overlaet
  * @author Tjernobyl
  */
 $messages['da'] = array(
-	'approvedrevs-desc' => 'Angiv en enkelt version af siden til godkendt',
+	'approvedrevs-desc' => 'Angiv en enkelt version af en side som godkendt',
 	'approvedrevs-logname' => 'Revisionsgodkendelseslog',
 	'approvedrevs-logdesc' => 'Dette er en log over godkendte versioner.',
 	'approvedrevs-approve' => 'godkend',
 	'approvedrevs-unapprove' => 'afvis',
+	'approvedrevs-approvesuccess' => 'Denne version af siden er angivet som den godkendte version.',
+	'approvedrevs-unapprovesuccess' => 'Der er ikke længere en godkendt version for denne side.
+I stedet vil den seneste version blive vist.',
 	'approvedrevs-unapprovesuccess2' => 'Der er ikke længere en godkendt version for denne side.
 Der vil derfor blive vist en blank side.',
 	'approvedrevs-blankpageshown' => 'Ingen revision er blevet godkendt for denne side.',
