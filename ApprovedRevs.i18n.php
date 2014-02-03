@@ -1833,6 +1833,7 @@ $messages['or'] = array(
 
 /** Polish (polski)
  * @author BeginaFelicysym
+ * @author Chrumps
  * @author Sp5uhe
  * @author Woytecr
  */
@@ -1852,6 +1853,7 @@ W zamian zostanie wyświetlona pusta strona.',
 	'approvedrevs-notlatest' => 'To jest zatwierdzona wersja strony. To nie jest ostatnia jej wersja.',
 	'approvedrevs-approvedandlatest' => 'To jest nie tylko zatwierdzona wersja strony, ale również ostatnia jej wersja.',
 	'approvedrevs-blankpageshown' => 'Żadna wersja tej strony nie została zatwierdzona.',
+	'approvedrevs-noapprovedrevision' => 'To jest najnowsza wersja tej strony; nie ma przejrzanej wersji.',
 	'approvedrevs-editwarning' => 'Zauważ, że edytujesz ostatnią wersję strony. Wersję, która nie została zatwierdzona i nie jest pokazywana domyślnie.',
 	'approvedrevs' => 'Zatwierdzone wersje',
 	'approvedrevs-approvedpages' => 'Wszystkie strony z zatwierdzoną wersją',
