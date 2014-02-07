@@ -557,10 +557,11 @@ $messages['ce'] = array(
 
 /** Czech (čeština)
  * @author Matěj Grabovský
+ * @author Mormegil
  * @author Paxt
  */
 $messages['cs'] = array(
-	'approvedrevs-desc' => 'Nastavit jednu stránkovou revizi jako schválenou',
+	'approvedrevs-desc' => 'Nastavuje jednu revizi stránky jako schválenou',
 	'approvedrevs-logname' => 'Seznam schválených revizí',
 	'approvedrevs-logdesc' => 'Toto je seznam schválených revizí.',
 	'approvedrevs-approve' => 'schválit',
@@ -575,6 +576,7 @@ Místo ní se zobrazí prázdná stránka.',
 	'approvedrevs-notlatest' => 'Toto je schválená revize této stránky, nikoli nejnovější.',
 	'approvedrevs-approvedandlatest' => 'Toto je schválená revize této stránky, a zároveň nejnovější.',
 	'approvedrevs-blankpageshown' => 'Pro tuto stránku nebyla schválena žádná revize.',
+	'approvedrevs-noapprovedrevision' => 'Toto je aktuální revize této stránky; nemá žádnou schválenou revizi.',
 	'approvedrevs-editwarning' => 'Prosím všimněte si, že nyní upravujete poslední revizi této stránky, která se ve výchozím nastavení nezobrazuje jako schválená.',
 	'approvedrevs' => 'Schválené revize',
 	'approvedrevs-approvedpages' => 'Všechny stránky se schválenou revizí',
