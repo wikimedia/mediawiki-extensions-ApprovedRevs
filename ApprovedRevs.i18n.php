@@ -2288,14 +2288,20 @@ $messages['te'] = array(
 	'approvedrevs-notlatest' => 'ఇది ఈ పేజీ యొక్క ఆమోదించబడిన కూర్పు; ఇది అన్నిటి కంటే కొత్త కూర్పు కాదు.',
 	'approvedrevs-approvedandlatest' => 'ఇది ఈ పేజీ యొక్క ఆమోదించబడిన కూర్పు, అన్నిటి కంటే కొత్త కూర్పు కూడా.',
 	'approvedrevs-blankpageshown' => 'ఈ పేజీ కూర్పుల్లో ఏది కూడా ఆమోదించబడి లేదు.',
+	'approvedrevs-noapprovedrevision' => 'ఇది ఈ పేజీ యొక్క అట్టీవలి కూర్పు; దీనికి ఆమోదించబడిన కూర్పు లేదు.',
 	'approvedrevs-editwarning' => 'మీరు మారుస్తున్నది ఈ పేజీ యొక్క ఇట్టీవలి కూర్పునని గమనించండి. డిఫాల్టుగా ఆమోదించబడినట్లు చూపించినది ఈ కూర్పు కాదు.',
 	'approvedrevs' => 'ఆమోదించబడిన కూర్పులు',
-	'approvedrevs-approvedpages' => 'అనుమతించిన పుటలు', # Fuzzy
+	'approvedrevs-approvedpages' => 'ఆమోదించబడిన కూర్పులు కలిగిన పేజీలు',
 	'approvedrevs-notlatestpages' => 'పేజీలు - ఆమోదించబడిన కూర్పులు ఇట్టీవలివి కానివి',
 	'approvedrevs-unapprovedpages' => 'ఆమోదించబడని పేజీలు',
+	'approvedrevs-view' => 'చూపు:',
 	'approvedrevs-revisionnumber' => 'కూర్పు $1',
 	'approvedrevs-approvedby' => '$2 న, $1 ఆమోదించినది',
 	'approvedrevs-difffromlatest' => 'ఇట్టీవలి కూర్పుతో తేడాలు',
+	'approvedrevs-approvelatest' => 'ఇట్టీవలి దాన్ని ఆమోదించు',
+	'approvedrevs-approvethisrev' => 'ఈ కూర్పును ఆమోదించు.',
+	'approvedrevs-viewlatestrev' => 'అన్నిటికంటే ఇటీవలి కూర్పును చూపించు.',
+	'right-approverevisions' => 'ఓ వికీ పేజీ యొక్క ఫలానా కూర్పును ఆమోదించబడినదిగా సెట్ చెయ్యి',
 );
 
 /** Tagalog (Tagalog)
