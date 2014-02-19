@@ -17,6 +17,11 @@ $specialPageAliases['ar'] = array(
 	'ApprovedRevs' => array( 'مراجعات_موفقة', 'صفحات_موفقة', 'صفحات_غير_موفقة' ),
 );
 
+/** Egyptian Spoken Arabic (مصرى) */
+$specialPageAliases['arz'] = array(
+	'ApprovedRevs' => array( 'مراجعات_متوفقه', 'صفحات_متوافق_عليها', 'صفحات_مش_متوافق_عليها' ),
+);
+
 /** Min Dong Chinese (Mìng-dĕ̤ng-ngṳ̄) */
 $specialPageAliases['cdo'] = array(
 	'ApprovedRevs' => array( '贊同其審閱' ),
@@ -79,7 +84,7 @@ $specialPageAliases['kw'] = array(
 
 /** Luxembourgish (Lëtzebuergesch) */
 $specialPageAliases['lb'] = array(
-	'ApprovedRevs' => array( 'Net_nogekuckte_Säiten' ),
+	'ApprovedRevs' => array( 'Net_nogekuckt_Säiten' ),
 );
 
 /** Macedonian (македонски) */
