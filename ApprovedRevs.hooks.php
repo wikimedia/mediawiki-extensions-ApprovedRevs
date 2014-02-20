@@ -473,8 +473,14 @@ class ApprovedRevsHooks {
 			array( 'style' => 'clear: both' )
 		) . "\n" );
 
-		// show the revision, instead of the history page
-		$article->doPurge();
+		// Show the revision, instead of the history page.
+		if ( version_compare( SMW_VERSION, '1.9', '<' ) ) {
+			// Call this only for SMW < 1.9 - it causes semantic
+			// data to not be set when using SMW 1.9 (a bug fixed
+			// in SMW 1.9.1), but thankfully it doesn't seem to be
+			// needed, in any case.
+			$article->doPurge();
+		}
 		$article->view();
 
 		return false;
@@ -695,7 +701,7 @@ class ApprovedRevsHooks {
 		if ( !$egApprovedRevsShowNotApprovedMessage) {
 			return true;
 		}
-
+ 
 		$title = $article->getTitle();
 		if ( ! ApprovedRevs::hasApprovedRevision( $title ) ) {
 			$text = wfMessage( 'approvedrevs-noapprovedrevision' )->text();
@@ -706,7 +712,7 @@ class ApprovedRevsHooks {
 				$wgOut->setSubtitle( $text );
 			}
 		}
-
+ 
 		return true;
 	}
 
