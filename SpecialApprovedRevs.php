@@ -57,17 +57,17 @@ class SpecialApprovedRevsPage extends QueryPage {
 		// show the names of the three lists of pages, with the one
 		// corresponding to the current "mode" not being linked
 		$approvedPagesTitle = SpecialPage::getTitleFor( 'ApprovedRevs' );
-		$navLine = wfMsg( 'approvedrevs-view' ) . ' ';
+		$navLine = wfMessage( 'approvedrevs-view' )->parse() . ' ';
 
 		if ( $this->mMode == '' ) {
 			$navLine .= Xml::element( 'strong',
 				null,
-				wfMsg( 'approvedrevs-approvedpages' )
+				wfMessage( 'approvedrevs-approvedpages' )->parse()
 			);
 		} else {
 			$navLine .= Xml::element( 'a',
 				array( 'href' => $approvedPagesTitle->getLocalURL() ),
-				wfMsg( 'approvedrevs-approvedpages' )
+				wfMessage( 'approvedrevs-approvedpages' )->parse()
 			);
 		}
 
@@ -76,12 +76,12 @@ class SpecialApprovedRevsPage extends QueryPage {
 		if ( $this->mMode == 'notlatest' ) {
 			$navLine .= Xml::element( 'strong',
 				null,
-				wfMsg( 'approvedrevs-notlatestpages' )
+				wfMessage( 'approvedrevs-notlatestpages' )->parse()
 			);
 		} else {
 			$navLine .= Xml::element( 'a',
 				array( 'href' => $approvedPagesTitle->getLocalURL( array( 'show' => 'notlatest' ) ) ),
-				wfMsg( 'approvedrevs-notlatestpages' )
+				wfMessage( 'approvedrevs-notlatestpages' )->parse()
 			);
 		}
 
@@ -90,12 +90,12 @@ class SpecialApprovedRevsPage extends QueryPage {
 		if ( $this->mMode == 'unapproved' ) {
 			$navLine .= Xml::element( 'strong',
 				null,
-				wfMsg( 'approvedrevs-unapprovedpages' )
+				wfMessage( 'approvedrevs-unapprovedpages' )->parse()
 			);
 		} else {
 			$navLine .= Xml::element( 'a',
 				array( 'href' => $approvedPagesTitle->getLocalURL( array( 'show' => 'unapproved' ) ) ),
-				wfMsg( 'approvedrevs-unapprovedpages' )
+				wfMessage( 'approvedrevs-unapprovedpages' )->parse()
 			);
 		}
 
@@ -231,7 +231,7 @@ class SpecialApprovedRevsPage extends QueryPage {
 							'oldid' => $result->latest_id
 						)
 					) ),
-					wfMsg( 'approvedrevs-approvelatest' )
+					wfMessage( 'approvedrevs-approvelatest' )->parse()
 				) . ')';
 			}
 
@@ -244,7 +244,7 @@ class SpecialApprovedRevsPage extends QueryPage {
 						'oldid' => $result->rev_id
 					)
 				) ),
-				wfMsg( 'approvedrevs-difffromlatest' )
+				wfMessage( 'approvedrevs-difffromlatest' )->parse()
 			);
 
 			return "$pageLink ($diffLink)";
@@ -255,7 +255,7 @@ class SpecialApprovedRevsPage extends QueryPage {
 				array (
 					'class' => $result->rev_id == $result->latest_id ? 'approvedRevIsLatest' : 'approvedRevNotLatest'
 				),
-				wfMsg( 'approvedrevs-revisionnumber', $result->rev_id )
+				wfMessage( 'approvedrevs-revisionnumber', $result->rev_id )->parse()
 			);
 
 			// Get data on the most recent approval from the

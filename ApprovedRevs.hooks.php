@@ -268,14 +268,14 @@ class ApprovedRevsHooks {
 			$text = Xml::element(
 				'span',
 				array( 'class' => 'approvedAndLatestMsg' ),
-				wfMsg( 'approvedrevs-approvedandlatest' )
+				wfMessage( 'approvedrevs-approvedandlatest' )->parse()
 			);
 		} else {
-			$text = wfMsgHtml( 'approvedrevs-notlatest' );
+			$text = wfMessage( 'approvedrevs-notlatest' )->parse();
 
 			$text .= ' ' . Linker::link(
 				$title,
-				wfMsgHtml( 'approvedrevs-viewlatestrev' ),
+				wfMessage( 'approvedrevs-viewlatestrev' )->parse(),
 				array(),
 				array( 'oldid' => $article->getLatest() ),
 				array( 'known', 'noclasses' )
@@ -315,7 +315,7 @@ class ApprovedRevsHooks {
 		if ( ! empty( $approvedRevID ) && $approvedRevID != $latestRevID ) {
 			ApprovedRevs::addCSS();
 			global $wgOut;
-			$wgOut->addHTML( '<p class="approvedRevsEditWarning">' . wfMsg( 'approvedrevs-editwarning' ) . "</p>\n" );
+			$wgOut->addHTML( '<p class="approvedRevsEditWarning">' . wfMessage( 'approvedrevs-editwarning' )->parse() . "</p>\n" );
 		}
 		return true;
 	}
@@ -335,7 +335,7 @@ class ApprovedRevsHooks {
 			ApprovedRevs::addCSS();
 			$preFormHTML .= Xml::element ( 'p',
 				array( 'style' => 'font-weight: bold' ),
-				wfMsg( 'approvedrevs-editwarning' ) ) . "\n";
+				wfMessage( 'approvedrevs-editwarning' )->parse() ) . "\n";
 		}
 		return true;
 	}
@@ -421,12 +421,12 @@ class ApprovedRevsHooks {
 				$url = $title->getLocalUrl(
 					array( 'action' => 'unapprove' )
 				);
-				$msg = wfMsg( 'approvedrevs-unapprove' );
+				$msg = wfMessage( 'approvedrevs-unapprove' )->parse();
 			} else {
 				$url = $title->getLocalUrl(
 					array( 'action' => 'approve', 'oldid' => $row->rev_id )
 				);
-				$msg = wfMsg( 'approvedrevs-approve' );
+				$msg = wfMessage( 'approvedrevs-approve' )->parse();
 			}
 			$s .= ' (' . Xml::element(
 				'a',
@@ -466,7 +466,7 @@ class ApprovedRevsHooks {
 		$wgOut->addHTML( "\t\t" . Xml::element(
 			'div',
 			array( 'class' => 'successbox' ),
-			wfMsg( 'approvedrevs-approvesuccess' )
+			wfMessage( 'approvedrevs-approvesuccess' )->parse()
 		) . "\n" );
 		$wgOut->addHTML( "\t\t" . Xml::element(
 			'p',
@@ -508,9 +508,9 @@ class ApprovedRevsHooks {
 		// a blank right now or not
 		global $egApprovedRevsBlankIfUnapproved;
 		if ( $egApprovedRevsBlankIfUnapproved ) {
-			$successMsg = wfMsg( 'approvedrevs-unapprovesuccess2' );
+			$successMsg = wfMessage( 'approvedrevs-unapprovesuccess2' )->parse();
 		} else {
-			$successMsg = wfMsg( 'approvedrevs-unapprovesuccess' );
+			$successMsg = wfMessage( 'approvedrevs-unapprovesuccess' )->parse();
 		}
 
 		global $wgOut;
@@ -577,7 +577,7 @@ class ApprovedRevsHooks {
 	 * 'Special:AdminLinks', defined by the Admin Links extension.
 	 */
 	static function addToAdminLinks( &$admin_links_tree ) {
-		$general_section = $admin_links_tree->getSection( wfMsg( 'adminlinks_general' ) );
+		$general_section = $admin_links_tree->getSection( wfMessage( 'adminlinks_general' )->parse() );
 		$extensions_row = $general_section->getRow( 'extensions' );
 		if ( is_null( $extensions_row ) ) {
 			$extensions_row = new ALRow( 'extensions' );
@@ -670,19 +670,19 @@ class ApprovedRevsHooks {
 							'oldid' => $wgRequest->getInt( 'oldid' )
 						)
 					) ),
-					wfMsg( 'approvedrevs-approvethisrev' )
+					wfMessage( 'approvedrevs-approvethisrev' )->parse()
 				) ) );
 			}
 		} else {
 			$wgOut->appendSubtitle(
-				htmlspecialchars( wfMsg( 'approvedrevs-blankpageshown' ) ) . '&#160;' .
+				htmlspecialchars( wfMessage( 'approvedrevs-blankpageshown' )->parse() ) . '&#160;' .
 				Xml::element( 'a',
 					array( 'href' => $title->getLocalUrl(
 						array(
 							'oldid' => $article->getRevIdFetched()
 						)
 					) ),
-					wfMsg( 'approvedrevs-viewlatestrev' )
+					wfMessage( 'approvedrevs-viewlatestrev' )->parse()
 				)
 			);
 		}
