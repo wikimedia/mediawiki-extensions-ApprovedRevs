@@ -268,7 +268,7 @@ class ApprovedRevsHooks {
 			$text = Xml::element(
 				'span',
 				array( 'class' => 'approvedAndLatestMsg' ),
-				wfMessage( 'approvedrevs-approvedandlatest' )->parse()
+				wfMessage( 'approvedrevs-approvedandlatest' )->text()
 			);
 		} else {
 			$text = wfMessage( 'approvedrevs-notlatest' )->parse();
@@ -314,8 +314,9 @@ class ApprovedRevsHooks {
 		$latestRevID = $title->getLatestRevID();
 		if ( ! empty( $approvedRevID ) && $approvedRevID != $latestRevID ) {
 			ApprovedRevs::addCSS();
-			global $wgOut;
-			$wgOut->addHTML( '<p class="approvedRevsEditWarning">' . wfMessage( 'approvedrevs-editwarning' )->parse() . "</p>\n" );
+			// A lengthy way to avoid not calling $wgOut...
+			// hopefully this is better!
+			$editPage->getArticle()->getContext()->getOutput()->wrapWikiMsg( "<p class=\"approvedRevsEditWarning\">$1</p>\n", 'approvedrevs-editwarning' );
 		}
 		return true;
 	}
@@ -335,7 +336,7 @@ class ApprovedRevsHooks {
 			ApprovedRevs::addCSS();
 			$preFormHTML .= Xml::element ( 'p',
 				array( 'style' => 'font-weight: bold' ),
-				wfMessage( 'approvedrevs-editwarning' )->parse() ) . "\n";
+				wfMessage( 'approvedrevs-editwarning' )->text() ) . "\n";
 		}
 		return true;
 	}
@@ -421,12 +422,12 @@ class ApprovedRevsHooks {
 				$url = $title->getLocalUrl(
 					array( 'action' => 'unapprove' )
 				);
-				$msg = wfMessage( 'approvedrevs-unapprove' )->parse();
+				$msg = wfMessage( 'approvedrevs-unapprove' )->text();
 			} else {
 				$url = $title->getLocalUrl(
 					array( 'action' => 'approve', 'oldid' => $row->rev_id )
 				);
-				$msg = wfMessage( 'approvedrevs-approve' )->parse();
+				$msg = wfMessage( 'approvedrevs-approve' )->text();
 			}
 			$s .= ' (' . Xml::element(
 				'a',
@@ -466,7 +467,7 @@ class ApprovedRevsHooks {
 		$wgOut->addHTML( "\t\t" . Xml::element(
 			'div',
 			array( 'class' => 'successbox' ),
-			wfMessage( 'approvedrevs-approvesuccess' )->parse()
+			wfMessage( 'approvedrevs-approvesuccess' )->text()
 		) . "\n" );
 		$wgOut->addHTML( "\t\t" . Xml::element(
 			'p',
@@ -508,9 +509,9 @@ class ApprovedRevsHooks {
 		// a blank right now or not
 		global $egApprovedRevsBlankIfUnapproved;
 		if ( $egApprovedRevsBlankIfUnapproved ) {
-			$successMsg = wfMessage( 'approvedrevs-unapprovesuccess2' )->parse();
+			$successMsg = wfMessage( 'approvedrevs-unapprovesuccess2' )->text();
 		} else {
-			$successMsg = wfMessage( 'approvedrevs-unapprovesuccess' )->parse();
+			$successMsg = wfMessage( 'approvedrevs-unapprovesuccess' )->text();
 		}
 
 		global $wgOut;
@@ -577,7 +578,7 @@ class ApprovedRevsHooks {
 	 * 'Special:AdminLinks', defined by the Admin Links extension.
 	 */
 	static function addToAdminLinks( &$admin_links_tree ) {
-		$general_section = $admin_links_tree->getSection( wfMessage( 'adminlinks_general' )->parse() );
+		$general_section = $admin_links_tree->getSection( wfMessage( 'adminlinks_general' )->text() );
 		$extensions_row = $general_section->getRow( 'extensions' );
 		if ( is_null( $extensions_row ) ) {
 			$extensions_row = new ALRow( 'extensions' );
@@ -670,19 +671,19 @@ class ApprovedRevsHooks {
 							'oldid' => $wgRequest->getInt( 'oldid' )
 						)
 					) ),
-					wfMessage( 'approvedrevs-approvethisrev' )->parse()
+					wfMessage( 'approvedrevs-approvethisrev' )->text()
 				) ) );
 			}
 		} else {
 			$wgOut->appendSubtitle(
-				htmlspecialchars( wfMessage( 'approvedrevs-blankpageshown' )->parse() ) . '&#160;' .
+				htmlspecialchars( wfMessage( 'approvedrevs-blankpageshown' )->text() ) . '&#160;' .
 				Xml::element( 'a',
 					array( 'href' => $title->getLocalUrl(
 						array(
 							'oldid' => $article->getRevIdFetched()
 						)
 					) ),
-					wfMessage( 'approvedrevs-viewlatestrev' )->parse()
+					wfMessage( 'approvedrevs-viewlatestrev' )->text()
 				)
 			);
 		}
