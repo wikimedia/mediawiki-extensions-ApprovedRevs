@@ -2271,9 +2271,11 @@ $messages['ta'] = array(
 
 /** Telugu (తెలుగు)
  * @author Chaduvari
+ * @author Ravichandra
  * @author Veeven
  */
 $messages['te'] = array(
+	'approvedrevs-desc' => 'ఓ పేజీ యొక్క ఫలానా కూర్పును ఆమోదించబడినదిగా సెట్ చెయ్యి',
 	'approvedrevs-logname' => 'కూర్పుల అనుమతులు చిట్టా',
 	'approvedrevs-logdesc' => 'ఇది ఆమోదం పొందని కూర్పుల లాగ్.',
 	'approvedrevs-approve' => 'అనుమతించు',
