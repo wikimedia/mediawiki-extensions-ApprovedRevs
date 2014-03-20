@@ -106,8 +106,8 @@ class ApprovedRevs {
 	 * object, to speed up processing if it's called more than once.
 	 */
 	public static function pageIsApprovable( Title $title ) {
-		// if this function was already called for this page, the
-		// value should have been stored as a field in the $title object
+		// If this function was already called for this page, the value
+		// should have been stored as a field in the $title object.
 		if ( isset( $title->isApprovable ) ) {
 			return $title->isApprovable;
 		}
@@ -116,18 +116,24 @@ class ApprovedRevs {
 			$title->isApprovable = false;
 			return $title->isApprovable;			
 		}
-		
-		// check the namespace
+
+		// Allow custom setting of whether the page is approvable.
+		if ( !wfRunHooks( 'ApprovedRevsPageIsApprovable', array( $title, &$isApprovable ) ) ) {
+			$title->isApprovable = $isApprovable;
+			return $title->isApprovable;
+		}
+
+		// Check the namespace.
 		global $egApprovedRevsNamespaces;
 		if ( in_array( $title->getNamespace(), $egApprovedRevsNamespaces ) ) {
 			$title->isApprovable = true;
 			return $title->isApprovable;
 		}
 
-		// it's not in an included namespace, so check for the page
+		// It's not in an included namespace, so check for the page
 		// property - for some reason, calling the standard
 		// getProperty() function doesn't work, so we just do a DB
-		// query on the page_props table
+		// query on the page_props table.
 		$dbr = wfGetDB( DB_SLAVE );
 		$res = $dbr->select( 'page_props', 'COUNT(*)',
 			array(
