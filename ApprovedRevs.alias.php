@@ -69,7 +69,7 @@ $specialPageAliases['ia'] = array(
 
 /** Italian (italiano) */
 $specialPageAliases['it'] = array(
-	'ApprovedRevs' => array( 'RevisioniApprovate' ),
+	'ApprovedRevs' => array( 'VersioniApprovate' ),
 );
 
 /** Korean (한국어) */
