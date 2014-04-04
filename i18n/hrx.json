@@ -4,6 +4,8 @@
             "Paul Beppler"
         ]
     },
+    "approvedrevs-desc": "Ermöchlicht es, stets en bestimmte Version von en Seit wie en bestätichte Version oonzuzeiche",
+    "approvedrevs-logname": "Versionsbestätichungs-Logbuch",
     "approvedrevs-approve": "bestätiche (approviere)",
     "approvedrevs-unapprove": "ablehne (net approviere)",
     "approvedrevs-view": "Oonsiehn:",
