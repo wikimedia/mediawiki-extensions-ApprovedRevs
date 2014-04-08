@@ -233,6 +233,167 @@ class ApprovedRevsHooks {
 		return self::showBlankIfUnapproved( $article, $contentObject->mText );
 	}
 
+ 	/**
+	 * Sets the subtitle when viewing old revisions of a page.
+	 * This function's code is mostly copied from Article::setOldSubtitle(),
+	 * and it is meant to serve as a replacement for that function, using
+	 * the 'DisplayOldSubtitle' hook.
+	 * This display has the following differences from the standard one:
+	 * - It includes a link to the approved revision, which goes to the
+	 * default page.
+	 * - It includes a "diff" link alongside it.
+	 * - The "Latest revision" link points to the correct revision ID,
+	 * instead of to the default page (unless the latest revision is also
+	 * the approved one).
+	 *
+	 * @author Eli Handel
+	 */
+	static function setOldSubtitle( $article, $revisionID ) {
+		$title = $article->getTitle(); # Added for ApprovedRevs - and removed hook
+		
+		$unhide = $article->getContext()->getRequest()->getInt( 'unhide' ) == 1;
+
+		// Cascade unhide param in links for easy deletion browsing.
+		$extraParams = array();
+		if ( $unhide ) {
+			$extraParams['unhide'] = 1;
+		}
+
+		if ( $article->mRevision && $article->mRevision->getId() === $revisionID ) {
+			$revision = $article->mRevision;
+		} else {
+			$revision = Revision::newFromId( $revisionID );
+		}
+
+		$timestamp = $revision->getTimestamp();
+
+		$latestID = $article->getLatest(); // Modified for Approved Revs
+		$current = ( $revisionID == $latestID );
+		$approvedID = ApprovedRevs::getApprovedRevID( $title );
+		$language = $article->getContext()->getLanguage();
+		$user = $article->getContext()->getUser();
+
+		$td = $language->userTimeAndDate( $timestamp, $user );
+		$tddate = $language->userDate( $timestamp, $user );
+		$tdtime = $language->userTime( $timestamp, $user );
+
+		// Show the user links if they're allowed to see them.
+		// If hidden, then show them only if requested...
+		$userlinks = Linker::revUserTools( $revision, !$unhide );
+
+		$infomsg = $current && !wfMessage( 'revision-info-current' )->isDisabled()
+			? 'revision-info-current'
+			: 'revision-info';
+
+		$outputPage = $article->getContext()->getOutput();
+		$outputPage->addSubtitle( "<div id=\"mw-{$infomsg}\">" . wfMessage( $infomsg,
+			$td )->rawParams( $userlinks )->params( $revision->getID(), $tddate,
+			$tdtime, $revision->getUser() )->parse() . "</div>" );
+
+		// Created for Approved Revs
+		$latestLinkParams = array();
+		if ( $latestID != $approvedID ) {
+			$latestLinkParams['oldid'] = $latestID;
+		}
+		$lnk = $current
+			? wfMessage( 'currentrevisionlink' )->escaped()
+			: Linker::linkKnown(
+				$title,
+				wfMessage( 'currentrevisionlink' )->escaped(),
+				array(),
+				$latestLinkParams + $extraParams
+			);
+		$curdiff = $current
+			? wfMessage( 'diff' )->escaped()
+			: Linker::linkKnown(
+				$title,
+				wfMessage( 'diff' )->escaped(),
+				array(),
+				array(
+					'diff' => 'cur',
+					'oldid' => $revisionID
+				) + $extraParams
+			);
+		$prev = $title->getPreviousRevisionID( $revisionID );
+		$prevlink = $prev
+			? Linker::linkKnown(
+				$title,
+				wfMessage( 'previousrevision' )->escaped(),
+				array(),
+				array(
+					'direction' => 'prev',
+					'oldid' => $revisionID
+				) + $extraParams
+			)
+			: wfMessage( 'previousrevision' )->escaped();
+		$prevdiff = $prev
+			? Linker::linkKnown(
+				$title,
+				wfMessage( 'diff' )->escaped(),
+				array(),
+				array(
+					'diff' => 'prev',
+					'oldid' => $revisionID
+				) + $extraParams
+			)
+			: wfMessage( 'diff' )->escaped();
+		$nextlink = $current
+			? wfMessage( 'nextrevision' )->escaped()
+			: Linker::linkKnown(
+				$title,
+				wfMessage( 'nextrevision' )->escaped(),
+				array(),
+				array(
+					'direction' => 'next',
+					'oldid' => $revisionID
+				) + $extraParams
+			);
+		$nextdiff = $current
+			? wfMessage( 'diff' )->escaped()
+			: Linker::linkKnown(
+				$title,
+				wfMessage( 'diff' )->escaped(),
+				array(),
+				array(
+					'diff' => 'next',
+					'oldid' => $revisionID
+				) + $extraParams
+			);
+			
+		// Added for Approved Revs
+		$approved = ( $approvedID != null && $revisionID == $approvedID );
+		$approvedlink = $approved
+			? wfMessage( 'approvedrevs-approvedrevision' )->escaped()
+			: Linker::linkKnown(
+				$title,
+				wfMessage( 'approvedrevs-approvedrevision' )->escaped(),
+				array(),
+				$extraParams
+			);
+		$approveddiff = $approved
+			? wfMessage( 'diff' )->escaped()
+			: Linker::linkKnown(
+				$title,
+				wfMessage( 'diff' )->escaped(),
+				array(),
+				array(
+					'diff' => $approvedID,
+					'oldid' => $revisionID
+				) + $extraParams
+			);
+
+		$cdel = Linker::getRevDeleteLink( $user, $revision, $title );
+		if ( $cdel !== '' ) {
+			$cdel .= ' ';
+		}
+
+		// Modified for ApprovedRevs
+		$outputPage->addSubtitle( "<div id=\"mw-revision-nav\">" . $cdel .
+			wfMessage( 'approvedrevs-revision-nav' )->rawParams(
+				$prevdiff, $prevlink, $approvedlink, $approveddiff, $lnk, $curdiff, $nextlink, $nextdiff
+			)->escaped() . "</div>" );
+	}
+
 	/**
 	 * If user is viewing the page via its main URL, and what they're
 	 * seeing is the approved revision of the page, remove the standard
@@ -256,7 +417,9 @@ class ApprovedRevsHooks {
 				global $wgEnableParserCache;
 				$wgEnableParserCache = false;
 			}
-			return true;
+			self::setOldSubtitle( $article, $revisionID );
+			// Don't show default Article::setOldSubtitle().
+			return false;
 		}
 
 		if ( ! $title->userCan( 'viewlinktolatest' ) ) {
