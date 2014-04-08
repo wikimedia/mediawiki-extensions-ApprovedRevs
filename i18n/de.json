@@ -32,6 +32,7 @@
     "approvedrevs-approvelatest": "neueste Version bestätigen",
     "approvedrevs-approvethisrev": "Diese Version bestätigen.",
     "approvedrevs-viewlatestrev": "Die neueste Version ansehen.",
+    "approvedrevs-approvedrevision": "Bestätigte Version",
     "right-approverevisions": "Eine bestimmte Version einer Seite als bestätigt festlegen",
     "right-viewlinktolatest": "Erläuternde Hinweise im Kopfbereich der Seiten anzeigen, die eine bestätigte Version haben"
 }

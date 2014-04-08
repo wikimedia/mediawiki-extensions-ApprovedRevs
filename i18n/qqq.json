@@ -6,7 +6,8 @@
             "Nemo bis",
             "Purodha",
             "Shirayuki",
-            "Umherirrender"
+            "Umherirrender",
+            "Raymond"
         ]
     },
     "approvedrevs-desc": "{{desc|name=Approved Revs|url=http://www.mediawiki.org/wiki/Extension:Approved_Revs}}",
@@ -34,7 +35,7 @@
     "approvedrevs-approvelatest": "Used as link text in [[Special:ApprovedRevs]].\n\nThis message means \"approve the latest revision\".\n\nThe link follows a link to the page.",
     "approvedrevs-approvethisrev": "Used as link text.\n\nSee also:\n* {{msg-mw|Approvedrevs-blankpageshown}}\n* {{msg-mw|Approvedrevs-viewlatestrev}}",
     "approvedrevs-viewlatestrev": "Used as link text.\n\nThis message follows any one of the messages:\n* {{msg-mw|Approvedrevs-notlatest}}\n* {{msg-mw|Approvedrevs-blankpageshown}}",
-    "approvedrevs-revision-nav": "An expansion of the core MediaWiki message 'revision-nav.",
+    "approvedrevs-revision-nav": "{{Optional}}\nAn expansion of the core MediaWiki message 'revision-nav.",
     "approvedrevs-approvedrevision": "Used to link directly to the approved revision.",
     "right-approverevisions": "{{doc-right|approverevisions}}",
     "right-viewlinktolatest": "{{doc-right|viewlinktolatest}}"

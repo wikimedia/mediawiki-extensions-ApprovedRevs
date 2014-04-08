@@ -33,6 +33,7 @@
     "approvedrevs-approvelatest": "подтвердить последнюю",
     "approvedrevs-approvethisrev": "Подтвердить эту версию.",
     "approvedrevs-viewlatestrev": "Просмотр последней версии.",
+    "approvedrevs-approvedrevision": "Подтверждённая версия",
     "right-approverevisions": "отметка определённых версий вики-страниц как подтверждённых",
     "right-viewlinktolatest": "просмотр пояснительного текста в верхней части страниц, имеющих утверждённые версии"
 }
