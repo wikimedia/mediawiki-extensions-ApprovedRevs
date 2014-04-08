@@ -216,6 +216,10 @@ class SpecialApprovedRevsPage extends QueryPage {
 	function formatResult( $skin, $result ) {
 		$title = Title::newFromId( $result->id );
 
+		if( !ApprovedRevs::pageIsApprovable( $title ) ) {
+			return false;
+		}
+
 		$pageLink = Linker::link( $title );
 
 		if ( $this->mMode == 'unapproved' ) {
