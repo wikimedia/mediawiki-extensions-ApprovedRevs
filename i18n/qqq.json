@@ -24,7 +24,7 @@
     "approvedrevs-approvedandlatest": "See also:\n* {{msg-mw|Approvedrevs-notlatest}}",
     "approvedrevs-blankpageshown": "Used in subtitle.\n\nThis message is followed by a link. Its link text is {{msg-mw|Approvedrevs-viewlatestrev}}.\n\nSee also:\n* {{msg-mw|Approvedrevs-approvethisrev}}",
     "approvedrevs-editwarning": "Used as warning shown in '''bold'''.",
-    "approvedrevs": "{{doc-special|ApprovedRevs}}",
+    "approvedrevs": "{{doc-special|ApprovedRevs}}\n{{Identical|Approved revision}}",
     "approvedrevs-approvedpages": "Used as a '''bold''' message or a link text in [[Special:ApprovedRevs]].\n\nThis message follows {{msg-mw|Approvedrevs-view}}.\n\nThis message is followed by a string \" | \" and {{msg-mw|Approvedrevs-notlatestpages}}.",
     "approvedrevs-notlatestpages": "Used as a '''bold''' message or a link text in [[Special:ApprovedRevs]].\n\nThis message follows {{msg-mw|Approvedrevs-view}}, {{msg-mw|Approvedrevs-approvedpages}} and \" | \".",
     "approvedrevs-unapprovedpages": "Used as a '''bold''' message or a link text in [[Special:ApprovedRevs]].\n\nThis message follows {{msg-mw|Approvedrevs-notlatestpages}} and \" | \".\n\nSee also:\n* {{msg-mw|Approvedrevs-view}}",
@@ -35,8 +35,8 @@
     "approvedrevs-approvelatest": "Used as link text in [[Special:ApprovedRevs]].\n\nThis message means \"approve the latest revision\".\n\nThe link follows a link to the page.",
     "approvedrevs-approvethisrev": "Used as link text.\n\nSee also:\n* {{msg-mw|Approvedrevs-blankpageshown}}\n* {{msg-mw|Approvedrevs-viewlatestrev}}",
     "approvedrevs-viewlatestrev": "Used as link text.\n\nThis message follows any one of the messages:\n* {{msg-mw|Approvedrevs-notlatest}}\n* {{msg-mw|Approvedrevs-blankpageshown}}",
-    "approvedrevs-revision-nav": "{{Optional}}\nAn expansion of the core MediaWiki message 'revision-nav.",
-    "approvedrevs-approvedrevision": "Used to link directly to the approved revision.",
+    "approvedrevs-revision-nav": "{{Optional}}\nAn expansion of the core MediaWiki message {{msg-mw|Revision-nav}}.\n\nParameters:\n* $1 - prev diff. link text is {{msg-mw|Diff}}\n* $2 - prev link. link text is {{msg-mw|Previousrevision}}\n* $3 - approved link. link text is {{msg-mw|Approvedrevs-approvedrevision}}\n* $4 - approved diff. link text is {{msg-mw|Diff}}\n* $5 - link. link text is {{msg-mw|Currentrevisionlink}}\n* $6 - cur diff. link text is {{msg-mw|Diff}}\n* $7 - next link. link text is {{msg-mw|Nextrevision}}\n* $8 - next diff. link text is {{msg-mw|Diff}}",
+    "approvedrevs-approvedrevision": "Used to link directly to the approved revision.\n{{Identical|Approved revision}}",
     "right-approverevisions": "{{doc-right|approverevisions}}",
     "right-viewlinktolatest": "{{doc-right|viewlinktolatest}}"
 }

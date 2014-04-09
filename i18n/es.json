@@ -11,7 +11,8 @@
             "Mashandy",
             "Mor",
             "Translationista",
-            "VegaDark"
+            "VegaDark",
+            "Chocolate con galleta"
         ]
     },
     "approvedrevs-desc": "Establecer una revisión única de una página como aprovada",
@@ -40,6 +41,7 @@
     "approvedrevs-approvelatest": "aprueba última",
     "approvedrevs-approvethisrev": "Aprobar esta revisión.",
     "approvedrevs-viewlatestrev": "Ver la revisión más reciente.",
+    "approvedrevs-approvedrevision": "Revisión aprobada",
     "right-approverevisions": "Establecer una cierta revisión de una página wiki como aprobada",
     "right-viewlinktolatest": "Ver texto explicativo en la parte superior de las páginas que tienen una revisión aprobada"
 }

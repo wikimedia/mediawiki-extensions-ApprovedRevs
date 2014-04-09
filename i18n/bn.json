@@ -2,7 +2,8 @@
     "@metadata": {
         "authors": [
             "Bellayet",
-            "Wikitanvir"
+            "Wikitanvir",
+            "Aftab1995"
         ]
     },
     "approvedrevs-approve": "অনুমোদন",
@@ -17,5 +18,6 @@
     "approvedrevs-difffromlatest": "সাম্প্রতিকতম সংস্করণ থেকে পার্থক্য",
     "approvedrevs-approvelatest": "সাম্প্রতিককালে গৃহীত",
     "approvedrevs-approvethisrev": "এই সংস্করণটি গ্রহণ করো।",
-    "approvedrevs-viewlatestrev": "সবচেয়ে সাম্প্রতিকতম সংস্করণটি দেখাও।"
+    "approvedrevs-viewlatestrev": "সবচেয়ে সাম্প্রতিকতম সংস্করণটি দেখাও।",
+    "approvedrevs-approvedrevision": "অনুমোদিত সংস্করণ"
 }
