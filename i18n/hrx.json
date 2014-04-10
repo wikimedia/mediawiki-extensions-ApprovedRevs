@@ -8,11 +8,13 @@
     "approvedrevs-logname": "Versionsbestätichungs-Logbuch",
     "approvedrevs-approve": "bestätiche (approviere)",
     "approvedrevs-unapprove": "ablehne (net approviere)",
+    "approvedrevs": "Bestätichte Versione",
     "approvedrevs-view": "Oonsiehn:",
     "approvedrevs-revisionnumber": "Version $1",
     "approvedrevs-approvedby": "von $1 am $2 bestäticht",
     "approvedrevs-difffromlatest": "Unnerschied zur neieste Version",
     "approvedrevs-approvelatest": "neieste Version bestätiche",
     "approvedrevs-approvethisrev": "Die Version bestätiche.",
-    "approvedrevs-viewlatestrev": "Die neieste Version ansiehn."
+    "approvedrevs-viewlatestrev": "Die neieste Version ansiehn.",
+    "approvedrevs-approvedrevision": "Bestätichte Version"
 }
