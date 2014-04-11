@@ -3,7 +3,8 @@
         "authors": [
             "Gomoko",
             "IAlex",
-            "Peter17"
+            "Peter17",
+            "Sherbrooke"
         ]
     },
     "approvedrevs-desc": "Marquer une seule révision d’une page comme approuvée",
@@ -32,6 +33,7 @@
     "approvedrevs-approvelatest": "approuver la plus récente",
     "approvedrevs-approvethisrev": "Approuver cette révision.",
     "approvedrevs-viewlatestrev": "Voir la dernière révision.",
+    "approvedrevs-approvedrevision": "Accepter la révision",
     "right-approverevisions": "Marquer une révision précise d’une page comme approuvée",
     "right-viewlinktolatest": "Voir le texte explicatif en haut des pages qui ont une révision approuvée"
 }
