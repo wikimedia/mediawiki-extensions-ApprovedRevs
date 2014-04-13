@@ -23,6 +23,7 @@
     "approvedrevs-notlatest": "This message is followed by a link. Its link text is {{msg-mw|Approvedrevs-viewlatestrev}}.\n\nSee also:\n* {{msg-mw|Approvedrevs-approvedandlatest}}",
     "approvedrevs-approvedandlatest": "See also:\n* {{msg-mw|Approvedrevs-notlatest}}",
     "approvedrevs-blankpageshown": "Used in subtitle.\n\nThis message is followed by a link. Its link text is {{msg-mw|Approvedrevs-viewlatestrev}}.\n\nSee also:\n* {{msg-mw|Approvedrevs-approvethisrev}}",
+    "approvedrevs-noapprovedrevision": "Used if this page has no approved revision.\n\nPreceded by subtitle + \"<code><nowiki><br /></nowiki></code>\".",
     "approvedrevs-editwarning": "Used as warning shown in '''bold'''.",
     "approvedrevs": "{{doc-special|ApprovedRevs}}\n{{Identical|Approved revision}}",
     "approvedrevs-approvedpages": "Used as a '''bold''' message or a link text in [[Special:ApprovedRevs]].\n\nThis message follows {{msg-mw|Approvedrevs-view}}.\n\nThis message is followed by a string \" | \" and {{msg-mw|Approvedrevs-notlatestpages}}.",

@@ -9,6 +9,7 @@
     "approvedrevs-approve": "bestätiche (approviere)",
     "approvedrevs-unapprove": "ablehne (net approviere)",
     "approvedrevs": "Bestätichte Versione",
+    "approvedrevs-unapprovedpages": "All Seite mit unbestätichte Versione",
     "approvedrevs-view": "Oonsiehn:",
     "approvedrevs-revisionnumber": "Version $1",
     "approvedrevs-approvedby": "von $1 am $2 bestäticht",

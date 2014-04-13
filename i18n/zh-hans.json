@@ -34,6 +34,7 @@
     "approvedrevs-approvelatest": "认可最后版本",
     "approvedrevs-approvethisrev": "认可该版本。",
     "approvedrevs-viewlatestrev": "查看最后版本",
+    "approvedrevs-approvedrevision": "已认可版本",
     "right-approverevisions": "通过wiki页面的单个修订",
     "right-viewlinktolatest": "视图中的解释性文本在具有一个已批准的修订页面的顶部"
 }
