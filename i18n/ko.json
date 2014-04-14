@@ -2,7 +2,8 @@
     "@metadata": {
         "authors": [
             "Priviet",
-            "아라"
+            "아라",
+            "Keysuck"
         ]
     },
     "approvedrevs-desc": "승인한 문서의 판 하나를 설정합니다",
@@ -31,6 +32,7 @@
     "approvedrevs-approvelatest": "최신판 승인",
     "approvedrevs-approvethisrev": "이 판을 승인합니다.",
     "approvedrevs-viewlatestrev": "최신 판을 봅니다.",
+    "approvedrevs-approvedrevision": "승인된 개정",
     "right-approverevisions": "승인한 위키 문서의 특정 판 설정",
     "right-viewlinktolatest": "승인한 판이 있는 문서의 위에 설명 텍스트 보이기"
 }

@@ -16,5 +16,6 @@
     "approvedrevs-difffromlatest": "dif per rapòrt a actual",
     "approvedrevs-approvelatest": "aprovar la mai recenta",
     "approvedrevs-approvethisrev": "Aprovar aquesta revision.",
-    "approvedrevs-viewlatestrev": "Veire la darrièra revision."
+    "approvedrevs-viewlatestrev": "Veire la darrièra revision.",
+    "approvedrevs-approvedrevision": "Acceptar la revision"
 }
