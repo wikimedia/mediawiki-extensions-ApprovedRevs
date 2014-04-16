@@ -1,14 +1,14 @@
 {
-    "@metadata": {
-        "authors": [
-            "Erdemaslancan"
-        ]
-    },
-    "approvedrevs-approve": "Tesdiq ke",
-    "approvedrevs-unapprove": "Tesdiqi wedarne",
-    "approvedrevs-unapprovedpages": "Pela bêtesdiqın",
-    "approvedrevs-view": "Bıvin:",
-    "approvedrevs-revisionnumber": "Revizyonê $1",
-    "approvedrevs-approvelatest": "Tesdiq kerdeno peyên",
-    "approvedrevs-approvethisrev": "Nê rewizyonni tesdiq ke"
+	"@metadata": {
+		"authors": [
+			"Erdemaslancan"
+		]
+	},
+	"approvedrevs-approve": "Tesdiq ke",
+	"approvedrevs-unapprove": "Tesdiqi wedarne",
+	"approvedrevs-unapprovedpages": "Pela bêtesdiqın",
+	"approvedrevs-view": "Bıvin:",
+	"approvedrevs-revisionnumber": "Revizyonê $1",
+	"approvedrevs-approvelatest": "Tesdiq kerdeno peyên",
+	"approvedrevs-approvethisrev": "Nê rewizyonni tesdiq ke"
 }
