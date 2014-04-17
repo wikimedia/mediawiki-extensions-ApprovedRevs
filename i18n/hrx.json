@@ -8,6 +8,7 @@
 	"approvedrevs-logname": "Versionsbestätichungs-Logbuch",
 	"approvedrevs-approve": "bestätiche (approviere)",
 	"approvedrevs-unapprove": "ablehne (net approviere)",
+	"approvedrevs-unapproveaction": "nahm die bestätichte Version für \"[[$1]]\" zurück",
 	"approvedrevs": "Bestätichte Versione",
 	"approvedrevs-unapprovedpages": "All Seite mit unbestätichte Versione",
 	"approvedrevs-view": "Oonsiehn:",

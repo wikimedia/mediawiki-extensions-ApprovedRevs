@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Cocu",
-			"Nghtwlkr"
+			"Nghtwlkr",
+			"Jeblad"
 		]
 	},
 	"approvedrevs-desc": "Sett en enkelt revisjon av en side som godkjent",
@@ -31,6 +32,7 @@
 	"approvedrevs-approvelatest": "godkjenn siste",
 	"approvedrevs-approvethisrev": "Godkjenn denne revisjonen.",
 	"approvedrevs-viewlatestrev": "Vis den nyeste revisjonen.",
+	"approvedrevs-approvedrevision": "Godkjent revisjon",
 	"right-approverevisions": "Sett en viss revisjon av en wikiside som godkjent",
 	"right-viewlinktolatest": "Vis forklarende tekst på toppen av sider som har en godkjent revisjon"
 }
