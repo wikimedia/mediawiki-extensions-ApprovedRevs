@@ -771,10 +771,10 @@ class ApprovedRevsHooks {
 
 	/**
 	 * Display a message to the user if (a) "blank if unapproved" is set,
-	 * (b) the page is approvable, and (c) either the page has no
-	 * approved revision, or the user is looking at a revision that's
-	 * not the latest - the displayed message depends on which of those
-	 * cases it is.
+	 * (b) the page is approvable, (c) the user has 'viewlinktolatest'
+	 * permission, and (d) either the page has no approved revision, or
+	 * the user is looking at a revision that's not the latest - the
+	 * displayed message depends on which of those cases it is.
 	 * @TODO - this should probably get split up into two methods.
 	 *
 	 * @since 0.5.6
@@ -797,6 +797,12 @@ class ApprovedRevsHooks {
 		$title = $article->getTitle();
 		if ( ! ApprovedRevs::pageIsApprovable( $title ) ) {
 			return true;
+		}
+
+		// If the user isn't supposed to see these kinds of
+		// messages, exit.
+		if ( ! $title->userCan( 'viewlinktolatest' ) ) {
+			return false;
 		}
 
 		// If there's an approved revision for this page, and the
