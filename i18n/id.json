@@ -3,7 +3,8 @@
 		"authors": [
 			"Farras",
 			"IvanLanin",
-			"Rv77ax"
+			"Rv77ax",
+			"Kenrick95"
 		]
 	},
 	"approvedrevs-desc": "Tetapkan revisi tunggal halaman ini sebagai disetujui",
@@ -32,6 +33,7 @@
 	"approvedrevs-approvelatest": "setujui yang terbaru",
 	"approvedrevs-approvethisrev": "Setujui revisi ini.",
 	"approvedrevs-viewlatestrev": "Lihat revisi terbaru.",
+	"approvedrevs-approvedrevision": "Revisi yang disetujui",
 	"right-approverevisions": "Tetapkan revisi tertentu dari halaman wiki sebagai disetujui",
 	"right-viewlinktolatest": "Lihat penjelasan di atas halaman yang memiliki revisi disetujui"
 }
