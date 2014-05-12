@@ -35,6 +35,7 @@
 	"approvedrevs-approvelatest": "aprova la darrera",
 	"approvedrevs-approvethisrev": "Aprova aquesta revisió.",
 	"approvedrevs-viewlatestrev": "Mostra la revisió més recent.",
+	"approvedrevs-approvedrevision": "Revisió aprovada",
 	"right-approverevisions": "Marca com aprovada una certa revisió d'una pàgina wiki",
 	"right-viewlinktolatest": "Mostra un text explicatiu en la part superior de les pàgines que tenen una revisió aprovada"
 }
