@@ -9,14 +9,14 @@ if ( !defined( 'MEDIAWIKI' ) ) die();
  * @author Yaron Koren
  */
 
-define( 'APPROVED_REVS_VERSION', '0.7.0' );
+define( 'APPROVED_REVS_VERSION', '0.7' );
 
 // credits
 $wgExtensionCredits['other'][] = array(
 	'path'            => __FILE__,
 	'name'            => 'Approved Revs',
 	'version'         => APPROVED_REVS_VERSION,
-	'author'          => 'Yaron Koren',
+	'author'          => array( 'Yaron Koren', '...' ),
 	'url'             => 'https://www.mediawiki.org/wiki/Extension:Approved_Revs',
 	'descriptionmsg'  => 'approvedrevs-desc'
 );
