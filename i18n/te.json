@@ -3,7 +3,8 @@
 		"authors": [
 			"Chaduvari",
 			"Ravichandra",
-			"Veeven"
+			"Veeven",
+			"Kiranmayee"
 		]
 	},
 	"approvedrevs-desc": "ఓ పేజీ యొక్క ఫలానా కూర్పును ఆమోదించబడినదిగా సెట్ చెయ్యి",
@@ -32,5 +33,6 @@
 	"approvedrevs-approvelatest": "ఇట్టీవలి దాన్ని ఆమోదించు",
 	"approvedrevs-approvethisrev": "ఈ కూర్పును ఆమోదించు.",
 	"approvedrevs-viewlatestrev": "అన్నిటికంటే ఇటీవలి కూర్పును చూపించు.",
+	"approvedrevs-approvedrevision": "ఆమోదించబడిన కూర్పు",
 	"right-approverevisions": "ఓ వికీ పేజీ యొక్క ఫలానా కూర్పును ఆమోదించబడినదిగా సెట్ చెయ్యి"
 }
