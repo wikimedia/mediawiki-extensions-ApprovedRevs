@@ -5,7 +5,8 @@
 			"Incelemeelemani",
 			"Joseph",
 			"Khutuck",
-			"Srhat"
+			"Srhat",
+			"Stultiwikia"
 		]
 	},
 	"approvedrevs-desc": "Bir sayfanın belirli bir revizyonunu onaylanmış olarak ayarla",
@@ -34,6 +35,7 @@
 	"approvedrevs-approvelatest": "en günceli onayla",
 	"approvedrevs-approvethisrev": "Bu sürümü onayla.",
 	"approvedrevs-viewlatestrev": "En son sürümü görüntüleyin.",
+	"approvedrevs-approvedrevision": "Onaylanan düzeltme",
 	"right-approverevisions": "Bir viki sayfasının belirli bir revizyonunu onaylanmış olarak ayarla",
 	"right-viewlinktolatest": "Onaylanmış revizyonu bulunan sayfaların başındaki açıklayıcı metni görüntüle"
 }
