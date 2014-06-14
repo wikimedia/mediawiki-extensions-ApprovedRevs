@@ -16,5 +16,6 @@
 	"approvedrevs-difffromlatest": "განსხვავება ბოლოსთან",
 	"approvedrevs-approvelatest": "ბოლოს შემოწმება",
 	"approvedrevs-approvethisrev": "ამ ვერსიის შემოწმება.",
-	"approvedrevs-viewlatestrev": "ბოლო ვერსიის ხილვა."
+	"approvedrevs-viewlatestrev": "ბოლო ვერსიის ხილვა.",
+	"approvedrevs-approvedrevision": "შემოწმებული ვერსია"
 }
