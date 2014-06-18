@@ -12,7 +12,8 @@
 			"Mor",
 			"Translationista",
 			"VegaDark",
-			"Chocolate con galleta"
+			"Chocolate con galleta",
+			"Themasterriot"
 		]
 	},
 	"approvedrevs-desc": "Establecer una revisión única de una página como aprovada",
@@ -41,6 +42,7 @@
 	"approvedrevs-approvelatest": "aprueba última",
 	"approvedrevs-approvethisrev": "Aprobar esta revisión.",
 	"approvedrevs-viewlatestrev": "Ver la revisión más reciente.",
+	"approvedrevs-revision-nav": "($1) $2{{int:pipe-separator}}$3 ($4){{int:pipe-separator}}$5 ($6){{int:pipe-separator}}$7 ($8)",
 	"approvedrevs-approvedrevision": "Revisión aprobada",
 	"right-approverevisions": "Establecer una cierta revisión de una página wiki como aprobada",
 	"right-viewlinktolatest": "Ver texto explicativo en la parte superior de las páginas que tienen una revisión aprobada"
