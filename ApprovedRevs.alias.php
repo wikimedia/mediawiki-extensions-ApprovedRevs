@@ -89,7 +89,7 @@ $specialPageAliases['lb'] = array(
 
 /** Macedonian (македонски) */
 $specialPageAliases['mk'] = array(
-	'ApprovedRevs' => array( 'ОдобрениРевизии' ),
+	'ApprovedRevs' => array( 'ОдобрениПреработки' ),
 );
 
 /** Malayalam (മലയാളം) */
