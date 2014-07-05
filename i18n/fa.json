@@ -7,7 +7,8 @@
 			"Mehran",
 			"Mjbmr",
 			"Reza1615",
-			"Taha"
+			"Taha",
+			"Rtemis"
 		]
 	},
 	"approvedrevs-desc": "یک نسخه از یک صفحه را به عنوان تأییدشده علامت بزنید.",
@@ -36,6 +37,7 @@
 	"approvedrevs-approvelatest": "تأیید آخرین",
 	"approvedrevs-approvethisrev": "این نسخه را تأیید کنید.",
 	"approvedrevs-viewlatestrev": "تازه‌ترین نسخه را مشاهده کنید.",
+	"approvedrevs-approvedrevision": "تجدیدنظر مورد تأیید واقع شد.",
 	"right-approverevisions": "نسخهٔ خاصی از یک صفحهٔ ویکی را به عنوان تأییدشده علامت بزنید.",
 	"right-viewlinktolatest": "توضیحات بالای صفحاتی را که یک نسخهٔ تأییدشده دارند را ببینید."
 }
