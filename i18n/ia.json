@@ -30,6 +30,7 @@
 	"approvedrevs-approvelatest": "approbar le plus recente",
 	"approvedrevs-approvethisrev": "Approbar iste version.",
 	"approvedrevs-viewlatestrev": "Vider le version le plus recente.",
+	"approvedrevs-approvedrevision": "Version approbate",
 	"right-approverevisions": "Marcar un certe version de un pagina wiki como approbate",
 	"right-viewlinktolatest": "Vider le texto explicative in alto del paginas que ha un version approbate"
 }
