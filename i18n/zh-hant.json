@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Justincheng12345",
-			"Oapbtommy"
+			"Oapbtommy",
+			"LNDDYL"
 		]
 	},
 	"approvedrevs-desc": "設置單個頁所批准的修訂",
@@ -30,7 +31,7 @@
 	"approvedrevs-difffromlatest": "最新的比較",
 	"approvedrevs-approvelatest": "最新批准",
 	"approvedrevs-approvethisrev": "批准這項修訂",
-	"approvedrevs-viewlatestrev": "查看最新版本",
+	"approvedrevs-viewlatestrev": "檢視最新版本",
 	"approvedrevs-approvedrevision": "已核准版本",
 	"right-approverevisions": "通過wiki頁面的單個修訂",
 	"right-viewlinktolatest": "視圖中的解釋性文本在具有一個已批准的修訂頁面的頂部"
