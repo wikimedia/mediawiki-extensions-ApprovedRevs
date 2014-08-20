@@ -863,8 +863,9 @@ class ApprovedRevsHooks {
 	}
 
 	/**
-	 * If this page has no approved revision, display a header message
-	 * stating that, if the setting to display this message is activated.
+	 * If this page is approvable, but has no approved revision, display
+	 * a header message stating that, if the setting to display this
+	 * message is activated.
 	 */
 	public static function displayNotApprovedHeader( Article &$article, &$outputDone, &$useParserCache ) {
 		global $egApprovedRevsShowNotApprovedMessage;
@@ -873,6 +874,10 @@ class ApprovedRevsHooks {
 		}
  
 		$title = $article->getTitle();
+		if ( ! ApprovedRevs::pageIsApprovable( $title ) ) {
+			return true;
+		}
+
 		if ( ! ApprovedRevs::hasApprovedRevision( $title ) ) {
 			$text = wfMessage( 'approvedrevs-noapprovedrevision' )->text();
 			global $wgOut;
