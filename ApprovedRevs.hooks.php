@@ -453,7 +453,7 @@ class ApprovedRevsHooks {
 
 		global $wgOut;
 		if ( $wgOut->getSubtitle() != '' ) {
-			$wgOut->appendSubtitle( '<br />' . $text );
+			$wgOut->addSubtitle( '<br />' . $text );
 		} else {
 			$wgOut->setSubtitle( $text );
 		}
@@ -844,7 +844,7 @@ class ApprovedRevsHooks {
 				) ) );
 			}
 		} else {
-			$wgOut->appendSubtitle(
+			$wgOut->addSubtitle(
 				htmlspecialchars( wfMessage( 'approvedrevs-blankpageshown' )->text() ) . '&#160;' .
 				Xml::element( 'a',
 					array( 'href' => $title->getLocalUrl(
@@ -882,7 +882,7 @@ class ApprovedRevsHooks {
 			$text = wfMessage( 'approvedrevs-noapprovedrevision' )->text();
 			global $wgOut;
 			if ( $wgOut->getSubtitle() != '' ) {
-				$wgOut->appendSubtitle( '<br />' . $text );
+				$wgOut->addSubtitle( '<br />' . $text );
 			} else {
 				$wgOut->setSubtitle( $text );
 			}
