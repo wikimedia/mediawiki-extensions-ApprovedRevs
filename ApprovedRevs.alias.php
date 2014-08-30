@@ -144,5 +144,5 @@ $specialPageAliases['zh-hans'] = array(
 
 /** Traditional Chinese (中文（繁體）‎) */
 $specialPageAliases['zh-hant'] = array(
-	'ApprovedRevs' => array( '已通過的版本' ),
+	'ApprovedRevs' => array( '已通過修訂', '已通過頁面', '未通過頁面' ),
 );
