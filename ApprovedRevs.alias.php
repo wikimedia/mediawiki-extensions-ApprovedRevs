@@ -87,6 +87,11 @@ $specialPageAliases['lb'] = array(
 	'ApprovedRevs' => array( 'Net_nogekuckt_Säiten' ),
 );
 
+/** Malagasy (Malagasy) */
+$specialPageAliases['mg'] = array(
+	'ApprovedRevs' => array( 'VersionaEkena', 'PejyEkena' ),
+);
+
 /** Macedonian (македонски) */
 $specialPageAliases['mk'] = array(
 	'ApprovedRevs' => array( 'ОдобрениПреработки' ),
