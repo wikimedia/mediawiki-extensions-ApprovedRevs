@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"CERminator",
-			"Palapa"
+			"Palapa",
+			"KWiki"
 		]
 	},
 	"approvedrevs-desc": "Postavljanje jedne revizije stranice kao odobrene",
@@ -11,7 +12,7 @@
 	"approvedrevs-approve": "odobri",
 	"approvedrevs-unapprove": "neodobreno",
 	"approvedrevs-approvesuccess": "Ova revizija stranice je postavljena kao odobrena verzija.",
-	"approvedrevs-unapprovesuccess": "Više ne postoji odobrena verzija ove stranice.\nUmjesto toga, zadnja revizija će biti prikazana.",
+	"approvedrevs-unapprovesuccess": "Više ne postoji odobrena verzija ove stranice.\nUmjesto toga će biti prikazana posljednja revizija.",
 	"approvedrevs-unapprovesuccess2": "Više ne postoji odobrena verzija ove stranice.\nUmjesto toga, bit će prikazana prazna stranica.",
 	"approvedrevs-approveaction": "postavi $2 kao odobrenu reviziju za \"[[$1]]\"",
 	"approvedrevs-unapproveaction": "ukloni odobrenu reviziju za \"[[$1]]\"",
