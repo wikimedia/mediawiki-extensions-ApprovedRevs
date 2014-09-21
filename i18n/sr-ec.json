@@ -1,9 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Rancher"
+			"Rancher",
+			"Milicevic01"
 		]
 	},
+	"approvedrevs-unapprovesuccess": "Више не постоји одобрена верзија ове странице.\nУместо тога биће приказана најновија ревизија.",
+	"approvedrevs-unapprovesuccess2": "Више не постоји одобрена верзија ове странице.\nУместо тога биће приказана празна страница.",
 	"approvedrevs": "Одобрене измене",
 	"approvedrevs-approvedpages": "Све странице са одобреном изменом",
 	"approvedrevs-notlatestpages": "Странице чија одобрена измена није најновија",
