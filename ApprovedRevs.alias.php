@@ -52,7 +52,7 @@ $specialPageAliases['gl'] = array(
 	'ApprovedRevs' => array( 'Aprobación_de_revisións' ),
 );
 
-/** 湘语 (湘语) */
+/** Xiang Chinese (湘语) */
 $specialPageAliases['hsn'] = array(
 	'ApprovedRevs' => array( '受认定版本', '受认定页面', '冇认定个页面' ),
 );
