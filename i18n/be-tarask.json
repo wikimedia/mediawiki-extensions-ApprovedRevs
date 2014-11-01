@@ -3,7 +3,8 @@
 		"authors": [
 			"EugeneZelenko",
 			"Jim-by",
-			"Wizardist"
+			"Wizardist",
+			"Red Winged Duck"
 		]
 	},
 	"approvedrevs-desc": "Зацьвердзіць адну вэрсію старонкі",
@@ -32,6 +33,7 @@
 	"approvedrevs-approvelatest": "зацьвердзіць апошнюю",
 	"approvedrevs-approvethisrev": "Зацьвердзіць гэтую вэрсію.",
 	"approvedrevs-viewlatestrev": "Паказаць апошнюю вэрсію.",
+	"approvedrevs-approvedrevision": "Зацьверджаная вэрсія",
 	"right-approverevisions": "зацьверджаньне вызначаных вэрсіяў вікі-старонак",
 	"right-viewlinktolatest": "прагляд тлумачальнага тэксту ў версе старонак, якія маюць зацьверджаныя вэрсіі"
 }
