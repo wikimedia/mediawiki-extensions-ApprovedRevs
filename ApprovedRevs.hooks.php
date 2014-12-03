@@ -171,8 +171,16 @@ class ApprovedRevsHooks {
 			return true;
 		}
 
+		global $egApprovedRevsBlankIfUnapproved;
 		$revisionID = ApprovedRevs::getApprovedRevID( $title );
-		if ( ! empty( $revisionID ) ) {
+
+		// Starting in around MW 1.24, blanking of unapproved pages
+		// seems to no longer work unless code like this is called -
+		// possibly because the cache needs to be disabled. There
+		// may be a better way to accomplish that than this, but this
+		// works, and it doesn't seem to have a noticeable negative
+		// impact, so we'll go with it for now, at least.
+		if ( ! empty( $revisionID ) || $egApprovedRevsBlankIfUnapproved ) {
 			$article = new Article( $title, $revisionID );
 			// This call (whichever it is) is necessary because it
 			// causes $article->mRevision to get initialized,
