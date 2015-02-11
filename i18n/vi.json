@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Minh Nguyen"
+			"Minh Nguyen",
+			"Dinhxuanduyet"
 		]
 	},
 	"approvedrevs-logname": "Nhật trình chấp nhận phiên bản",
@@ -19,6 +20,7 @@
 	"approvedrevs-approvelatest": "chấp nhận mới nhất",
 	"approvedrevs-approvethisrev": "Chấp nhận phiên bản này.",
 	"approvedrevs-viewlatestrev": "Xem phiên bản gần đây nhất.",
+	"approvedrevs-approvedrevision": "Sửa đổi đã được phê duyệt",
 	"right-approverevisions": "Đặt một phiên bản của trang wiki là phiên bản chấp nhận",
 	"right-viewlinktolatest": "Xem văn bản giải thích ở đầu các trang có phiên bản chấp nhận"
 }
