@@ -114,7 +114,7 @@ class ApprovedRevs {
 
 		if ( !$title->exists() ) {
 			$title->isApprovable = false;
-			return $title->isApprovable;			
+			return $title->isApprovable;
 		}
 
 		// Allow custom setting of whether the page is approvable.
@@ -243,7 +243,7 @@ class ApprovedRevs {
 		}
 
 		$log = new LogPage( 'approval' );
-		$rev_url = $title->getFullURL( array( 'old_id' => $rev_id ) );
+		$rev_url = $title->getFullURL( array( 'oldid' => $rev_id ) );
 		$rev_link = Xml::element(
 			'a',
 			array( 'href' => $rev_url ),
