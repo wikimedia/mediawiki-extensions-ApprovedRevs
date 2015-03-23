@@ -10,7 +10,7 @@
 			"Raymond"
 		]
 	},
-	"approvedrevs-desc": "{{desc|name=Approved Revs|url=http://www.mediawiki.org/wiki/Extension:Approved_Revs}}",
+	"approvedrevs-desc": "{{desc|name=Approved Revs|url=https://www.mediawiki.org/wiki/Extension:Approved_Revs}}",
 	"approvedrevs-logname": "{{doc-logpage}}",
 	"approvedrevs-logdesc": "Used as heading in [[Special:Log]]/approvedrevs.",
 	"approvedrevs-approve": "Used as link text.\n\nThe URL of the link contains \"action=approve\".\n\nSee also:\n* {{msg-mw|Approvedrevs-unapprove}}\n{{Identical|Approve}}",
