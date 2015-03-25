@@ -171,6 +171,12 @@ class ApprovedRevsHooks {
 			return true;
 		}
 
+		$namespace = $title->getNamespace();
+		global $egApprovedRevsNamespaces;
+	 	if ( ! in_array ( $namespace, $egApprovedRevsNamespaces ) ) {
+			return true;
+		}
+
 		global $egApprovedRevsBlankIfUnapproved;
 		$revisionID = ApprovedRevs::getApprovedRevID( $title );
 
