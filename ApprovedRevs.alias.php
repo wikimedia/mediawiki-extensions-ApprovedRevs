@@ -117,6 +117,11 @@ $specialPageAliases['nl'] = array(
 	'ApprovedRevs' => array( 'GoedgekeurdePaginas', 'GoedgekeurdePagina\'s' ),
 );
 
+/** Brazilian Portuguese (português do Brasil) */
+$specialPageAliases['pt-br'] = array(
+	'ApprovedRevs' => array( 'Revisões_aprovadas', 'Páginas_aprovadas', 'Páginas_desaprovadas' ),
+);
+
 /** Sanskrit (संस्कृतम्) */
 $specialPageAliases['sa'] = array(
 	'ApprovedRevs' => array( 'अंगीकृत_पृष्टानि' ),
