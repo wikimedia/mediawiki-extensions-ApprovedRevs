@@ -87,6 +87,11 @@ $specialPageAliases['lb'] = array(
 	'ApprovedRevs' => array( 'Net_nogekuckt_Säiten' ),
 );
 
+/** لوری (لوری) */
+$specialPageAliases['lrc'] = array(
+	'ApprovedRevs' => array( 'وانئریا_تصیق_بیه', 'بلگه_یا_تصیق_بییه', 'بلگه_یا_تصیق_نبیه' ),
+);
+
 /** Malagasy (Malagasy) */
 $specialPageAliases['mg'] = array(
 	'ApprovedRevs' => array( 'VersionaEkena', 'PejyEkena' ),
