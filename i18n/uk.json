@@ -7,7 +7,8 @@
 			"Vox",
 			"Ата",
 			"Тест",
-			"Andriykopanytsia"
+			"Andriykopanytsia",
+			"Ahonc"
 		]
 	},
 	"approvedrevs-desc": "Встановити єдиний перегляд сторінки як затверджуючий",
@@ -37,6 +38,6 @@
 	"approvedrevs-approvethisrev": "Затвердити цю версію.",
 	"approvedrevs-viewlatestrev": "Перегляд останньої версії.",
 	"approvedrevs-approvedrevision": "Затверджена версія",
-	"right-approverevisions": "Встановити єдиний перегляд сторінки як затверджуючий",
+	"right-approverevisions": "встановлення певних версій сторінок затвердженими",
 	"right-viewlinktolatest": "Переглянути пояснювальний текст у верхній частині сторінки яка має схвалену версію."
 }

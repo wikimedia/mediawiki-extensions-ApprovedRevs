@@ -22,6 +22,11 @@ $specialPageAliases['arz'] = array(
 	'ApprovedRevs' => array( 'مراجعات_متوفقه', 'صفحات_متوافق_عليها', 'صفحات_مش_متوافق_عليها' ),
 );
 
+/** Western Balochi (بلوچی رخشانی) */
+$specialPageAliases['bgn'] = array(
+	'ApprovedRevs' => array( 'سابیت_بوته_ئین_نخسه_ئان' ),
+);
+
 /** Min Dong Chinese (Mìng-dĕ̤ng-ngṳ̄) */
 $specialPageAliases['cdo'] = array(
 	'ApprovedRevs' => array( '贊同其審閱' ),
