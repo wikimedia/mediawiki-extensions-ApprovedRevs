@@ -5,11 +5,14 @@
 			"Dinhxuanduyet"
 		]
 	},
+	"approvedrevs-desc": "Thiết lập một phiên bản duy nhất của một trang đã được duyệt",
 	"approvedrevs-logname": "Nhật trình chấp nhận phiên bản",
 	"approvedrevs-approve": "chấp nhận",
 	"approvedrevs-unapprove": "bỏ chấp nhận",
 	"approvedrevs-approveaction": "đặt $2 là phiên bản chấp nhận của “[[$1]]”",
 	"approvedrevs-unapproveaction": "bỏ phiên bản chấp nhận của “[[$1]]”",
+	"approvedrevs-blankpageshown": "Không chỉnh sửa nào đã được phê duyệt cho trang này.",
+	"approvedrevs-noapprovedrevision": "Đây là phiên bản mới nhất của trang này; không có sửa đổi nào được chấp thuận nào cả.",
 	"approvedrevs": "Phiên bản được chấp nhận",
 	"approvedrevs-approvedpages": "Các trang có phiên bản đã chấp nhận",
 	"approvedrevs-unapprovedpages": "Trang chưa được chấp nhận",
