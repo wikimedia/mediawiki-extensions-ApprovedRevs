@@ -34,6 +34,7 @@
 	"approvedrevs-approvelatest": "最新版を承認",
 	"approvedrevs-approvethisrev": "この版を承認",
 	"approvedrevs-viewlatestrev": "最新版を閲覧",
+	"approvedrevs-approvedrevision": "承認済み版",
 	"right-approverevisions": "ウィキページの特定の版を承認済みに設定",
 	"right-viewlinktolatest": "承認済み版があるページの冒頭に説明文を表示"
 }
