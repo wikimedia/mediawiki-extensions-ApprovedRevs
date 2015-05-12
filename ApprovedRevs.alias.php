@@ -17,7 +17,7 @@ $specialPageAliases['ar'] = array(
 	'ApprovedRevs' => array( 'مراجعات_موفقة', 'صفحات_موفقة', 'صفحات_غير_موفقة' ),
 );
 
-/** Egyptian Spoken Arabic (مصرى) */
+/** Egyptian Arabic (مصرى) */
 $specialPageAliases['arz'] = array(
 	'ApprovedRevs' => array( 'مراجعات_متوفقه', 'صفحات_متوافق_عليها', 'صفحات_مش_متوافق_عليها' ),
 );
@@ -92,7 +92,7 @@ $specialPageAliases['lb'] = array(
 	'ApprovedRevs' => array( 'Net_nogekuckt_Säiten' ),
 );
 
-/** لوری (لوری) */
+/** لوری مینجایی (لوری مینجایی) */
 $specialPageAliases['lrc'] = array(
 	'ApprovedRevs' => array( 'وانئریا_تصیق_بیه', 'بلگه_یا_تصیق_بییه', 'بلگه_یا_تصیق_نبیه' ),
 );
