@@ -5,7 +5,8 @@
 			"Assele",
 			"Comp1089",
 			"Haqmar",
-			"Sagan"
+			"Sagan",
+			"Рустам Нурыев"
 		]
 	},
 	"approvedrevs-desc": "Биттең бер өлгөһөн раҫланған тип билдәләү",
@@ -34,6 +35,7 @@
 	"approvedrevs-approvelatest": "иң һуңғыһын раҫларға",
 	"approvedrevs-approvethisrev": "Был өлгөнө раҫларға.",
 	"approvedrevs-viewlatestrev": "Иң һуңғы өлгөнө ҡарау",
+	"approvedrevs-approvedrevision": "Раҫланған өлгө",
 	"right-approverevisions": "Вики-биттәрҙең ҡайһы бер өлгөләрен раҫланған тип билдәләү",
 	"right-viewlinktolatest": "Раҫланған өлгөләре булған биттәрҙең өҫкө өлөшөндә аңлатманы ҡарау"
 }
