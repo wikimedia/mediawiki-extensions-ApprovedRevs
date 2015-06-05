@@ -94,7 +94,7 @@ $specialPageAliases['lb'] = array(
 
 /** Northern Luri (لوری مینجایی) */
 $specialPageAliases['lrc'] = array(
-	'ApprovedRevs' => array( 'وانئریا_تصیق_بیه', 'بلگه_یا_تصیق_بییه', 'بلگه_یا_تصیق_نبیه' ),
+	'ApprovedRevs' => array( 'ڤانئیأریا_تأصیق_بیە', 'بألگە_یا_تصیق_بییھ', 'بلگە_یا_تصیق_نبیە' ),
 );
 
 /** Malagasy (Malagasy) */
