@@ -92,7 +92,7 @@ $specialPageAliases['lb'] = array(
 	'ApprovedRevs' => array( 'Net_nogekuckt_Säiten' ),
 );
 
-/** Northern Luri (لوری مینجایی) */
+/** Northern Luri (لۊری شومالی) */
 $specialPageAliases['lrc'] = array(
 	'ApprovedRevs' => array( 'ڤانئیأریا_تأصیق_بیە', 'بألگە_یا_تصیق_بییھ', 'بلگە_یا_تصیق_نبیە' ),
 );
