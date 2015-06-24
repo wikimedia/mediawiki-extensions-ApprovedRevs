@@ -32,6 +32,9 @@ class SpecialApprovedRevs extends SpecialPage {
 		}
 	}
 
+	protected function getGroupName() {
+		return 'pages';
+	}
 }
 
 class SpecialApprovedRevsPage extends QueryPage {

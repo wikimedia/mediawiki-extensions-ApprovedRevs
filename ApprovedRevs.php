@@ -42,7 +42,6 @@ $wgAutoloadClasses['ApprovedRevsHooks'] = $egApprovedRevsIP . 'ApprovedRevs.hook
 $wgSpecialPages['ApprovedRevs'] = 'SpecialApprovedRevs';
 $wgAutoloadClasses['SpecialApprovedRevs'] = $egApprovedRevsIP . 'SpecialApprovedRevs.php';
 $wgAutoloadClasses['SpecialApprovedRevsPage'] = $egApprovedRevsIP . 'SpecialApprovedRevs.php';
-$wgSpecialPageGroups['ApprovedRevs'] = 'pages';
 
 // hooks
 $wgHooks['ArticleEditUpdates'][] = 'ApprovedRevsHooks::updateLinksAfterEdit';
