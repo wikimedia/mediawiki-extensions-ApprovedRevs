@@ -118,7 +118,7 @@ class ApprovedRevs {
 		}
 
 		// Allow custom setting of whether the page is approvable.
-		if ( !wfRunHooks( 'ApprovedRevsPageIsApprovable', array( $title, &$isApprovable ) ) ) {
+		if ( !Hooks::run( 'ApprovedRevsPageIsApprovable', array( $title, &$isApprovable ) ) ) {
 			$title->isApprovable = $isApprovable;
 			return $title->isApprovable;
 		}
@@ -257,7 +257,7 @@ class ApprovedRevs {
 			$logParams
 		);
 
-		wfRunHooks( 'ApprovedRevsRevisionApproved', array( $parser, $title, $rev_id ) );
+		Hooks::run( 'ApprovedRevsRevisionApproved', array( $parser, $title, $rev_id ) );
 	}
 
 	public static function deleteRevisionApproval( $title ) {
@@ -297,7 +297,7 @@ class ApprovedRevs {
 			''
 		);
 
-		wfRunHooks( 'ApprovedRevsRevisionUnapproved', array( $parser, $title ) );
+		Hooks::run( 'ApprovedRevsRevisionUnapproved', array( $parser, $title ) );
 	}
 
 	public static function addCSS() {
