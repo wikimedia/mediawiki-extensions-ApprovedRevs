@@ -86,9 +86,6 @@ $wgGroupPermissions['sysop']['approverevisions'] = true;
 $wgAvailableRights[] = 'viewlinktolatest';
 $wgGroupPermissions['*']['viewlinktolatest'] = true;
 
-// page properties
-$wgPageProps['approvedrevs'] = 'Whether or not the page is approvable';
-
 // ResourceLoader modules
 $wgResourceModules['ext.ApprovedRevs'] = array(
 	'styles' => 'ApprovedRevs.css',
