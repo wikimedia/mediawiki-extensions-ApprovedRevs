@@ -90,5 +90,6 @@ $wgGroupPermissions['*']['viewlinktolatest'] = true;
 $wgResourceModules['ext.ApprovedRevs'] = array(
 	'styles' => 'ApprovedRevs.css',
 	'localBasePath' => __DIR__,
-	'remoteExtPath' => 'ApprovedRevs'
+	'remoteExtPath' => 'ApprovedRevs',
+	'position' => 'bottom'
 );
