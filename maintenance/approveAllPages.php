@@ -27,29 +27,43 @@
  * @ingroup Maintenance
  */
 
-require_once( dirname( __FILE__ ) . '/../../../maintenance/Maintenance.php' );
+
+// Allow people to have different layouts.
+if ( ! isset( $IP ) ) {
+	$IP = __DIR__ . '/../../../';
+	if ( getenv("MW_INSTALL_ROOT") ) {
+		$IP = getenv("MW_INSTALL_ROOT");
+	}
+}
+
+require_once( "$IP/maintenance/Maintenance.php" );
 
 class ApproveAllPages extends Maintenance {
-	
+
 	public function __construct() {
 		parent::__construct();
-		
-		$this->mDescription = "Approve the current revision of all pages that do not yet have an approved revision.";
+
+		$this->mDescription = "Approve the current revision of all pages " .
+			"that do not yet have an approved revision.";
 	}
-	
+
 	public function execute() {
 		global $wgTitle;
-		
+		global $wgEnotifWatchlist;
+
+		// Don't send out any notifications about people's watch lists.
+		$wgEnotifWatchlist = false;
+
 		$dbr = wfGetDB( DB_SLAVE );
-		
+
 		$pages = $dbr->select(
 			'page',
 			array(
 				'page_id',
 				'page_latest'
 			)
-		); 
-		
+		);
+
 		while ( $page = $pages->fetchObject() ) {
 			$title = Title::newFromID( $page->page_id );
 			// some extensions, like Semantic Forms, need $wgTitle
@@ -57,15 +71,21 @@ class ApproveAllPages extends Maintenance {
 			$wgTitle = $title;
 			if ( ApprovedRevs::pageIsApprovable( $title ) &&
 				! ApprovedRevs::hasApprovedRevision( $title ) ) {
-				ApprovedRevs::setApprovedRevID( $title, $page->page_latest, true );
-				$this->output( wfTimestamp( TS_DB ) . ' Approved the last revision of page "' . $title->getFullText() . '".' );
+				ApprovedRevs::setApprovedRevID(
+					$title, $page->page_latest, true
+				);
+
+				$this->output( wfTimestamp( TS_DB ) .
+					' Approved the last revision of page "' .
+					$title->getFullText() . "\".\n" );
 			}
 		}
-		
-		
-		$this->output( "\n Finished setting all current revisions to approved. \n" );
+
+
+		$this->output( "\n Finished setting all current " .
+			"revisions to approved. \n" );
 	}
-	
+
 }
 
 $maintClass = "ApproveAllPages";
