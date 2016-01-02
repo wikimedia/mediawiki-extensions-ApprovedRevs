@@ -20,7 +20,7 @@ class SpecialApprovedRevs extends SpecialPage {
 
 		ApprovedRevs::addCSS();
 		$this->setHeaders();
-		list( $limit, $offset ) = wfCheckLimits();
+		list( $limit, $offset ) = $this->getRequest()->getOffsetLimit();
 
 		$mode = $wgRequest->getVal( 'show' );
 		$rep = new SpecialApprovedRevsPage( $mode );
