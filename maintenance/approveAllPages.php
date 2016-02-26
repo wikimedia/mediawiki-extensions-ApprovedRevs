@@ -31,8 +31,8 @@
 // Allow people to have different layouts.
 if ( ! isset( $IP ) ) {
 	$IP = __DIR__ . '/../../../';
-	if ( getenv("MW_INSTALL_ROOT") ) {
-		$IP = getenv("MW_INSTALL_ROOT");
+	if ( getenv("MW_INSTALL_PATH") ) {
+		$IP = getenv("MW_INSTALL_PATH");
 	}
 }
 
