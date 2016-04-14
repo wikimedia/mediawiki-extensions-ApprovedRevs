@@ -651,14 +651,11 @@ class ApprovedRevsHooks {
 			array( 'style' => 'clear: both' )
 		) . "\n" );
 
+		// Seems to be needed when the latest version is approved -
+		// at least when the Cargo extension is being used.
+		$article->doPurge();
+
 		// Show the revision, instead of the history page.
-		if ( defined( 'SMW_VERSION' ) && version_compare( SMW_VERSION, '1.9', '<' ) ) {
-			// Call this only for SMW < 1.9 - it causes semantic
-			// data to not be set when using SMW 1.9 (a bug fixed
-			// in SMW 1.9.1), but thankfully it doesn't seem to be
-			// needed, in any case.
-			$article->doPurge();
-		}
 		$article->view();
 
 		return false;
