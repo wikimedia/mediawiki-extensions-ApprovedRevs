@@ -171,9 +171,7 @@ class ApprovedRevsHooks {
 			return true;
 		}
 
-		$namespace = $title->getNamespace();
-		global $egApprovedRevsNamespaces;
-	 	if ( ! in_array ( $namespace, $egApprovedRevsNamespaces ) ) {
+	 	if ( ! ApprovedRevs::pageIsApprovable( $title ) ) {
 			return true;
 		}
 
