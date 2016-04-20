@@ -7,7 +7,8 @@
 			"Nike",
 			"Snidata",
 			"Stryn",
-			"VezonThunder"
+			"VezonThunder",
+			"01miki10"
 		]
 	},
 	"approvedrevs-desc": "Aseta yksittäinen sivuversio hyväksytyksi",
@@ -36,6 +37,7 @@
 	"approvedrevs-approvelatest": "hyväksy viimeisin",
 	"approvedrevs-approvethisrev": "Hyväksy tämä versio.",
 	"approvedrevs-viewlatestrev": "Näytä viimeisin versio.",
+	"approvedrevs-approvedrevision": "Hyväksytty versio",
 	"right-approverevisions": "Asettaa wikisivun tietty versio hyväksytyksi",
 	"right-viewlinktolatest": "Nähdä selittävä teksti niiden sivujen yläosassa, joilla on hyväksytty versio"
 }
