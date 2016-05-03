@@ -135,7 +135,11 @@ class SpecialApprovedRevsPage extends QueryPage {
 	function getQueryInfo() {
 		global $egApprovedRevsNamespaces;
 
-		$namespacesString = '(' . implode( ',', $egApprovedRevsNamespaces ) . ')';
+		$mainCondsString = "( pp_propname = 'approvedrevs' AND pp_value = 'y' )";
+		if ( count( $egApprovedRevsNamespaces ) > 0 ) {
+			$mainCondsString .= " OR ( p.page_namespace IN ( " . implode( ',', $egApprovedRevsNamespaces ) . " ) )";
+		}
+
 		if ( $this->mMode == 'notlatest' ) {
 			return array(
 				'tables' => array(
@@ -156,7 +160,7 @@ class SpecialApprovedRevsPage extends QueryPage {
 						'LEFT OUTER JOIN', 'ar.page_id=pp_page'
 					),
 				),
-				'conds' => "p.page_latest != ar.rev_id AND ((p.page_namespace IN $namespacesString) OR (pp_propname = 'approvedrevs' AND pp_value = 'y'))",
+				'conds' => "p.page_latest != ar.rev_id AND ( $mainCondsString )"
 			);
 		} elseif ( $this->mMode == 'unapproved' ) {
 			return array(
@@ -177,7 +181,7 @@ class SpecialApprovedRevsPage extends QueryPage {
 						'LEFT OUTER JOIN', 'ar.page_id=pp_page'
 					),
 				),
-				'conds' => "ar.page_id IS NULL AND ((p.page_namespace IN $namespacesString) OR (pp_propname = 'approvedrevs' AND pp_value = 'y'))",
+				'conds' => "ar.page_id IS NULL AND ( $mainCondsString )"
 			);
 		} else { // all approved pages
 			return array(
@@ -199,7 +203,7 @@ class SpecialApprovedRevsPage extends QueryPage {
 						'LEFT OUTER JOIN', 'ar.page_id=pp_page'
 					),
 				),
-				'conds' => "(p.page_namespace IN $namespacesString) OR (pp_propname = 'approvedrevs' AND pp_value = 'y')",
+				'conds' => $mainCondsString
 			);
 		}
 	}
