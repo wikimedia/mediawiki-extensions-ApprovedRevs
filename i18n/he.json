@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Amire80",
-			"Inkbug"
+			"Inkbug",
+			"Guycn2"
 		]
 	},
 	"approvedrevs-desc": "הגדרת גרסה אחת של דף כגרסה מאושרת",
@@ -32,6 +33,6 @@
 	"approvedrevs-approvethisrev": "לאשר את הגרסה הזאת.",
 	"approvedrevs-viewlatestrev": "להציג את הגרסה האחרונה.",
 	"approvedrevs-approvedrevision": "גרסה מאושרת",
-	"right-approverevisions": "הגדר גרסה מסוימת של דף הוויקי כמאושרת",
+	"right-approverevisions": "סימון גרסאות מסוימות של דפים כגרסאות שאושרו",
 	"right-viewlinktolatest": "הצגת הסבר בחלק העליון של העמודים שיש להם גרסה מאושרת"
 }
