@@ -88,7 +88,7 @@ class ApprovedRevsHooks {
 	 * the approval, though; the log is reserved for manual approvals.
 	 */
 	static public function setLatestAsApproved( &$article , &$user, $text,
-		$summary, $flags, $unused1, $unused2, &$flags, $revision,
+		$summary, $flags, $unused1, $unused2, &$flags2, $revision,
 		&$status, $baseRevId ) {
 
 		if ( is_null( $revision ) ) {
@@ -121,7 +121,7 @@ class ApprovedRevsHooks {
 	 * Set the text that's stored for the page for standard searches.
 	 */
 	static public function setSearchText( &$article , &$user, $text,
-		$summary, $flags, $unused1, $unused2, &$flags, $revision,
+		$summary, $flags, $unused1, $unused2, &$flags2, $revision,
 		&$status, $baseRevId ) {
 
 		if ( is_null( $revision ) ) {
