@@ -27,7 +27,7 @@
 	"approvedrevs-unapprovedpages": "승인하지 않은 문서",
 	"approvedrevs-view": "보기:",
 	"approvedrevs-revisionnumber": "$1 판",
-	"approvedrevs-approvedby": "{{GENDER:$3|$1}} 사용자가 $4 $5에 승인함",
+	"approvedrevs-approvedby": "{{GENDER:$3|$1}}님이 $4 $5에 승인함",
 	"approvedrevs-difffromlatest": "최신판과의 차이",
 	"approvedrevs-approvelatest": "최신판 승인",
 	"approvedrevs-approvethisrev": "이 판을 승인합니다.",
