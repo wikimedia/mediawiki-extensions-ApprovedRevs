@@ -9,7 +9,7 @@ if ( !defined( 'MEDIAWIKI' ) ) die();
  * @author Yaron Koren
  */
 
-define( 'APPROVED_REVS_VERSION', '0.7.2' );
+define( 'APPROVED_REVS_VERSION', '0.7.3-alpha' );
 
 // credits
 $wgExtensionCredits['other'][] = array(
@@ -45,8 +45,8 @@ $wgAutoloadClasses['SpecialApprovedRevsPage'] = $egApprovedRevsIP . 'SpecialAppr
 
 // hooks
 $wgHooks['ArticleEditUpdates'][] = 'ApprovedRevsHooks::updateLinksAfterEdit';
-$wgHooks['ArticleSaveComplete'][] = 'ApprovedRevsHooks::setLatestAsApproved';
-$wgHooks['ArticleSaveComplete'][] = 'ApprovedRevsHooks::setSearchText';
+$wgHooks['PageContentSaveComplete'][] = 'ApprovedRevsHooks::setLatestAsApproved';
+$wgHooks['PageContentSaveComplete'][] = 'ApprovedRevsHooks::setSearchText';
 $wgHooks['SearchResultInitFromTitle'][] = 'ApprovedRevsHooks::setSearchRevisionID';
 $wgHooks['PersonalUrls'][] = 'ApprovedRevsHooks::removeRobotsTag';
 $wgHooks['ArticleFromTitle'][] = 'ApprovedRevsHooks::showApprovedRevision';

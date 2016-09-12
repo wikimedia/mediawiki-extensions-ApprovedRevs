@@ -87,9 +87,9 @@ class ApprovedRevsHooks {
 	 * latest revision to be the approved one - don't bother logging
 	 * the approval, though; the log is reserved for manual approvals.
 	 */
-	static public function setLatestAsApproved( &$article , &$user, $text,
-		$summary, $flags, $unused1, $unused2, &$flags2, $revision,
-		&$status, $baseRevId ) {
+	static public function setLatestAsApproved( $article, $user, $content,
+		$summary, $isMinor, $isWatch, $section, $flags, $revision,
+		$status, $baseRevId ) {
 
 		if ( is_null( $revision ) ) {
 			return true;
@@ -120,9 +120,9 @@ class ApprovedRevsHooks {
 	/**
 	 * Set the text that's stored for the page for standard searches.
 	 */
-	static public function setSearchText( &$article , &$user, $text,
-		$summary, $flags, $unused1, $unused2, &$flags2, $revision,
-		&$status, $baseRevId ) {
+	static public function setSearchText( $article, $user, $content,
+		$summary, $isMinor, $isWatch, $section, $flags, $revision,
+		$status, $baseRevId ) {
 
 		if ( is_null( $revision ) ) {
 			return true;
@@ -186,17 +186,11 @@ class ApprovedRevsHooks {
 		// impact, so we'll go with it for now, at least.
 		if ( ! empty( $revisionID ) || $egApprovedRevsBlankIfUnapproved ) {
 			$article = new Article( $title, $revisionID );
-			// This call (whichever it is) is necessary because it
+			// This call is necessary because it
 			// causes $article->mRevision to get initialized,
 			// which in turn allows "edit section" links to show
 			// up if the approved revision is also the latest.
-			if ( method_exists( $article, 'getRevisionFetched' ) ) {
-				// MW 1.19+
-				$article->getRevisionFetched();
-			} else {
-				// MW 1.18
-				$article->fetchContent();
-			}
+			$article->getRevisionFetched();
 		}
 		return true;
 	}
@@ -561,10 +555,6 @@ class ApprovedRevsHooks {
 	 * of for every row.
 	 */
 	static function storeApprovedRevisionForHistoryPage( &$article ) {
-		// A bug in some versions of MW 1.19 causes $article to be null.
-		if ( is_null( $article ) ) {
-			return true;
-		}
 		// This will be null if there's no ID.
 		$approvedRevID = ApprovedRevs::getApprovedRevID( $article->getTitle() );
 		$article->getTitle()->approvedRevID = $approvedRevID;

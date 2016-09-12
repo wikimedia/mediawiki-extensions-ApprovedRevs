@@ -1,6 +1,6 @@
 Approved Revs Extension
 
-        Version 0.7.2
+        Version 0.7.3-alpha
         Yaron Koren
 
 This is free software licensed under the GNU General Public License. Please
@@ -18,7 +18,7 @@ http://www.mediawiki.org/wiki/Extension:Approved_Revs
 
 == Requirements ==
 
-This version of the Approved Revs extension requires MediaWiki 1.19 or
+This version of the Approved Revs extension requires MediaWiki 1.21 or
 higher.
 
 == Installation ==
