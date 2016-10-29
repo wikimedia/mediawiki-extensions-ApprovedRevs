@@ -72,6 +72,7 @@ $wgHooks['EditPage::showEditForm:initial'][] = 'ApprovedRevsHooks::addWarningToE
 $wgHooks['sfHTMLBeforeForm'][] = 'ApprovedRevsHooks::addWarningToSFForm';
 $wgHooks['ArticleViewHeader'][] = 'ApprovedRevsHooks::setArticleHeader';
 $wgHooks['ArticleViewHeader'][] = 'ApprovedRevsHooks::displayNotApprovedHeader';
+$wgHooks['wgQueryPages'][] = 'ApprovedRevsHooks::onwgQueryPages';
 
 // logging
 $wgLogTypes['approval'] = 'approval';

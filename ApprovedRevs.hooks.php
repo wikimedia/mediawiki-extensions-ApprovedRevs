@@ -256,7 +256,7 @@ class ApprovedRevsHooks {
 	 */
 	static function setOldSubtitle( $article, $revisionID ) {
 		$title = $article->getTitle(); # Added for ApprovedRevs - and removed hook
-		
+
 		$unhide = $article->getContext()->getRequest()->getInt( 'unhide' ) == 1;
 
 		// Cascade unhide param in links for easy deletion browsing.
@@ -365,7 +365,7 @@ class ApprovedRevsHooks {
 					'oldid' => $revisionID
 				) + $extraParams
 			);
-			
+
 		// Added for Approved Revs
 		$approved = ( $approvedID != null && $revisionID == $approvedID );
 		$approvedlink = $approved
@@ -871,7 +871,7 @@ class ApprovedRevsHooks {
 		if ( !$egApprovedRevsShowNotApprovedMessage) {
 			return true;
 		}
- 
+
 		$title = $article->getTitle();
 		if ( ! ApprovedRevs::pageIsApprovable( $title ) ) {
 			return true;
@@ -886,8 +886,16 @@ class ApprovedRevsHooks {
 				$wgOut->setSubtitle( $text );
 			}
 		}
- 
+
 		return true;
 	}
 
+	/**
+	 * @param $qp array
+	 * @return bool true
+	 */
+	public static function onwgQueryPages( &$qp ) {
+		$qp['SpecialApprovedRevsPage'] = 'ApprovedRevs';
+		return true;
+	}
 }
