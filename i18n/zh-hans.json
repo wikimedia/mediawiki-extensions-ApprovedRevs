@@ -30,7 +30,7 @@
 	"approvedrevs-notlatestpages": "已认可版本不是最后版本的页面",
 	"approvedrevs-unapprovedpages": "未认可页面",
 	"approvedrevs-view": "查看：",
-	"approvedrevs-revisionnumber": "版本$1",
+	"approvedrevs-revisionnumber": "修订版本$1",
 	"approvedrevs-approvedby": "被{{GENDER:$3|$1}}于$4 $5认可",
 	"approvedrevs-difffromlatest": "与最后版本的差异",
 	"approvedrevs-approvelatest": "认可最后版本",
