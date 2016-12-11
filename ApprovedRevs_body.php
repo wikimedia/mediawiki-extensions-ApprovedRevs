@@ -14,7 +14,7 @@ class ApprovedRevs {
 	static $mApprovedContentForPage = array();
 	static $mApprovedRevIDForPage = array();
 	static $mUserCanApprove = null;
-	
+
 	/**
 	 * Gets the approved revision ID for this page, or null if there isn't
 	 * one.
@@ -49,14 +49,8 @@ class ApprovedRevs {
 	 * (otherwise).
 	 */
 	public static function getPageText( $title, $revisionID = null ) {
-		if ( method_exists( 'Revision', 'getContent' ) ) {
-			// MW >= 1.21
-			$revision = Revision::newFromTitle( $title, $revisionID );
-			return $revision->getContent()->getNativeData();
-		} else {
-			$article = new Article( $title, $revisionID );
-			return $article->getContent();
-		}
+		$revision = Revision::newFromTitle( $title, $revisionID );
+		return $revision->getContent()->getNativeData();
 	}
 
 	/**

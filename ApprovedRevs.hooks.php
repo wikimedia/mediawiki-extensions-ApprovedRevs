@@ -141,8 +141,8 @@ class ApprovedRevsHooks {
 		// We only need to modify the search text if the approved
 		// revision is not the latest one.
 		if ( $revisionID != $article->getLatest() ) {
-			$approvedArticle = new Article( $title, $revisionID );
-			$approvedText = $approvedArticle->getContent();
+			$approvedPage = WikiPage::factory( $title );
+			$approvedText = $approvedPage->getContent()->getNativeData();
 			ApprovedRevs::setPageSearchText( $title, $approvedText );
 		}
 
