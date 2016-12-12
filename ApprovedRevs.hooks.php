@@ -227,25 +227,18 @@ class ApprovedRevsHooks {
 
 		ApprovedRevs::addCSS();
 
-		$content = '';
-
-		return true;
-	}
-
-	/**
-	 * Called for MW 1.21+.
-	 */
-	public static function showBlankIfUnapproved2( &$article, &$contentObject ) {
 		// There's possibly a bug in MW 1.28, where the second argument
 		// (called from the hook 'ArticleAfterFetchContentObject') is
 		// sometimes (or always?) a string, instead of a Content object.
 		// We'll just get around it here with a check. (In theory, $contentObject
 		// could also be null, so this check is a good idea anyway.)
 		if ( is_object( $contentObject ) ) {
-			return self::showBlankIfUnapproved( $article, $contentObject->mText );
+			$content->mText = '';
 		} else {
-			return self::showBlankIfUnapproved( $article, $contentObject );
+			$content = '';
 		}
+
+		return true;
 	}
 
 	/**
