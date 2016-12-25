@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Erdemaslancan",
-			"Marmase"
+			"Marmase",
+			"1917 Ekim Devrimi"
 		]
 	},
 	"approvedrevs-approve": "Tesdiq ke",
@@ -13,6 +14,6 @@
 	"approvedrevs-difffromlatest": "Verêni ya ferqê cı",
 	"approvedrevs-approvelatest": "Tesdiq kerdeno peyên",
 	"approvedrevs-approvethisrev": "Nê rewizyonni tesdiq ke",
-	"approvedrevs-viewlatestrev": "Rewziyona tewr peyên bımocne.",
+	"approvedrevs-viewlatestrev": "Rewziyona tewr peyên bımotne.",
 	"approvedrevs-approvedrevision": "Tesdiqyayê rewizyon"
 }
