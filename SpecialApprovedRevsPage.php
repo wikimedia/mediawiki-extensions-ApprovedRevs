@@ -196,7 +196,7 @@ class SpecialApprovedRevsPage extends QueryPage {
 			return false;
 		}
 
-		$pageLink = Linker::link( $title );
+		$pageLink = $this->getLinkRenderer()->makeLink( $title );
 
 		if ( $this->mMode == 'unapproved' ) {
 			global $egApprovedRevsShowApproveLatest;
