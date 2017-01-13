@@ -179,12 +179,12 @@ class ApprovedRevs {
 					// query - is there an easier way?
 					$dbr = wfGetDB( DB_SLAVE );
 					$row = $dbr->selectRow(
-						array( 'revision', 'page' ),
-						'revision.rev_user_text',
-						array( 'page.page_title' => $title->getDBkey() ),
+						array( 'r' => 'revision', 'p' => 'page' ),
+						'r.rev_user_text',
+						array( 'p.page_title' => $title->getDBkey() ),
 						null,
-						array( 'ORDER BY' => 'revision.rev_id ASC' ),
-						array( 'revision' => array( 'JOIN', 'revision.rev_page = page.page_id' ) )
+						array( 'ORDER BY' => 'r.rev_id ASC' ),
+						array( 'revision' => array( 'JOIN', 'r.rev_page = p.page_id' ) )
 					);
 					if ( $row->rev_user_text == $wgUser->getName() ) {
 						self::$mUserCanApprove = true;
