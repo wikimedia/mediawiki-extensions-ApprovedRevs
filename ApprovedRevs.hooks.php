@@ -896,6 +896,33 @@ class ApprovedRevsHooks {
 	}
 
 	/**
+	 * Add a class to the <body> tag indicating the approval status
+	 * of this page, so it can be styled accordingly.
+	 */
+	public static function addBodyClass($out, $sk, &$bodyAttrs)
+	{
+		global $wgRequest;
+		$title = $sk->getTitle();
+
+		if ( ! ApprovedRevs::hasApprovedRevision( $title ) ) {
+			// This page has no approved rev.
+			$bodyAttrs['class'] .= " approvedRevs-noapprovedrev";
+		} else {
+			// The page has an approved rev - see if this is it.
+			$approvedRevID = ApprovedRevs::getApprovedRevID( $title );
+			if ( ! empty( $approvedRevID ) &&
+				( ! $wgRequest->getCheck( 'oldid' ) ||
+				$wgRequest->getInt( 'oldid' ) == $approvedRevID ) ) {
+				// This is the approved rev.
+				$bodyAttrs['class'] .= " approvedRevs-approved";
+			} else {
+				// This is not the approved rev.
+				$bodyAttrs['class'] .= " approvedRevs-notapproved";
+			}
+		}
+	}
+
+	/**
 	 * @param $qp array
 	 * @return bool true
 	 */
