@@ -3,12 +3,13 @@
 		"authors": [
 			"CERminator",
 			"Palapa",
-			"KWiki"
+			"KWiki",
+			"Srdjan m"
 		]
 	},
 	"approvedrevs-desc": "Postavljanje jedne revizije stranice kao odobrene",
 	"approvedrevs-logname": "Zapisnik odobravanje revizija",
-	"approvedrevs-logdesc": "Ovo je zapis revizija koje su odobrene.",
+	"approvedrevs-logdesc": "Ovo je zapisnik odobrenih izmjena.",
 	"approvedrevs-approve": "odobri",
 	"approvedrevs-unapprove": "neodobreno",
 	"approvedrevs-approvesuccess": "Ova revizija stranice je postavljena kao odobrena verzija.",
@@ -20,12 +21,12 @@
 	"approvedrevs-approvedandlatest": "Ovo je odobrena verzija ove stranice, a ujedno i najnovija.",
 	"approvedrevs-blankpageshown": "Nijedna revizija nije odobrena za ovu stranicu.",
 	"approvedrevs-editwarning": "Molimo vas da imate u vidu da sada uređujete posljednju reviziju ove stranice, koja nije odobrena što je prikazano po postavkama.",
-	"approvedrevs": "Odobrene revizije",
+	"approvedrevs": "Odobrene izmjene",
 	"approvedrevs-approvedpages": "Odobrene stranice",
 	"approvedrevs-notlatestpages": "Stranice čija odobrena revizija nije njihova najnovija",
 	"approvedrevs-unapprovedpages": "Neodobrene stranice",
 	"approvedrevs-view": "Pregled:",
-	"approvedrevs-revisionnumber": "revizija $1",
+	"approvedrevs-revisionnumber": "izmjena $1",
 	"approvedrevs-approvedby": "odobreno od strane $1 dana $2",
 	"approvedrevs-difffromlatest": "razl od posljednje",
 	"approvedrevs-approvelatest": "odobri posljednju",
