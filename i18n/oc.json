@@ -9,6 +9,7 @@
 	"approvedrevs-unapprove": "desaprovar",
 	"approvedrevs": "Revisions aprovadas",
 	"approvedrevs-approvedpages": "Totas las paginas amb una revision aprovada",
+	"approvedrevs-notlatestpages": "Paginas que la revision aprovada n’es pas la mai recenta",
 	"approvedrevs-unapprovedpages": "Paginas pas aprovadas",
 	"approvedrevs-view": "Veire :",
 	"approvedrevs-revisionnumber": "Revision $1",
