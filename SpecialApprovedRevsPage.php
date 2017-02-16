@@ -196,7 +196,12 @@ class SpecialApprovedRevsPage extends QueryPage {
 			return false;
 		}
 
-		$pageLink = $this->getLinkRenderer()->makeLink( $title );
+		if ( method_exists( $this, 'getLinkRenderer' ) ) {
+			$linkRenderer = $this->getLinkRenderer();
+		} else {
+			$linkRenderer = null;
+		}
+		$pageLink = ApprovedRevs::makeLink( $linkRenderer, $title );
 
 		if ( $this->mMode == 'unapproved' ) {
 			global $egApprovedRevsShowApproveLatest;

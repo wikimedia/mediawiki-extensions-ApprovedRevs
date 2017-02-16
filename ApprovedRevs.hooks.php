@@ -305,10 +305,15 @@ class ApprovedRevsHooks {
 		if ( $latestID != $approvedID ) {
 			$latestLinkParams['oldid'] = $latestID;
 		}
-		$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
+		if ( function_exists( 'MediaWiki\MediaWikiServices::getLinkRenderer' ) ) {
+			$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
+		} else {
+			$linkRenderer = null;
+		}
 		$lnk = $current
 			? wfMessage( 'currentrevisionlink' )->escaped()
-			: $linkRenderer->makeKnownLink(
+			: ApprovedRevs::makeLink(
+				$linkRenderer,
 				$title,
 				wfMessage( 'currentrevisionlink' )->text(),
 				array(),
@@ -316,7 +321,8 @@ class ApprovedRevsHooks {
 			);
 		$curdiff = $current
 			? wfMessage( 'diff' )->escaped()
-			: $linkRenderer->makeKnownLink(
+			: ApprovedRevs::makeLink(
+				$linkRenderer,
 				$title,
 				wfMessage( 'diff' )->text(),
 				array(),
@@ -327,7 +333,8 @@ class ApprovedRevsHooks {
 			);
 		$prev = $title->getPreviousRevisionID( $revisionID );
 		$prevlink = $prev
-			? $linkRenderer->makeKnownLink(
+			? ApprovedRevs::makeLink(
+				$linkRenderer,
 				$title,
 				wfMessage( 'previousrevision' )->text(),
 				array(),
@@ -338,7 +345,8 @@ class ApprovedRevsHooks {
 			)
 			: wfMessage( 'previousrevision' )->escaped();
 		$prevdiff = $prev
-			? $linkRenderer->makeKnownLink(
+			? ApprovedRevs::makeLink(
+				$linkRenderer,
 				$title,
 				wfMessage( 'diff' )->text(),
 				array(),
@@ -350,7 +358,8 @@ class ApprovedRevsHooks {
 			: wfMessage( 'diff' )->escaped();
 		$nextlink = $current
 			? wfMessage( 'nextrevision' )->escaped()
-			: $linkRenderer->makeKnownLink(
+			: ApprovedRevs::makeLink(
+				$linkRenderer,
 				$title,
 				wfMessage( 'nextrevision' )->text(),
 				array(),
@@ -361,7 +370,8 @@ class ApprovedRevsHooks {
 			);
 		$nextdiff = $current
 			? wfMessage( 'diff' )->escaped()
-			: $linkRenderer->makeKnownLink(
+			: ApprovedRevs::makeLink(
+				$linkRenderer,
 				$title,
 				wfMessage( 'diff' )->text(),
 				array(),
@@ -375,7 +385,8 @@ class ApprovedRevsHooks {
 		$approved = ( $approvedID != null && $revisionID == $approvedID );
 		$approvedlink = $approved
 			? wfMessage( 'approvedrevs-approvedrevision' )->escaped()
-			: $linkRenderer->makeKnownLink(
+			: ApprovedRevs::makeLink(
+				$linkRenderer,
 				$title,
 				wfMessage( 'approvedrevs-approvedrevision' )->text(),
 				array(),
@@ -383,7 +394,8 @@ class ApprovedRevsHooks {
 			);
 		$approveddiff = $approved
 			? wfMessage( 'diff' )->escaped()
-			: $linkRenderer->makeKnownLink(
+			: ApprovedRevs::makeLink(
+				$linkRenderer,
 				$title,
 				wfMessage( 'diff' )->text(),
 				array(),
@@ -447,8 +459,13 @@ class ApprovedRevsHooks {
 		} else {
 			$text = wfMessage( 'approvedrevs-notlatest' )->parse();
 
-			$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
-			$text .= ' ' . $linkRenderer->makeKnownLink(
+			if ( function_exists( 'MediaWiki\MediaWikiServices::getLinkRenderer' ) ) {
+				$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
+			} else {
+				$linkRenderer = null;
+			}
+			$text .= ' ' . ApprovedRevs::makeLink(
+				$linkRenderer,
 				$title,
 				wfMessage( 'approvedrevs-viewlatestrev' )->parse(),
 				array(),

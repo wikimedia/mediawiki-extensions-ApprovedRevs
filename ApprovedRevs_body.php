@@ -298,4 +298,17 @@ class ApprovedRevs {
 		global $wgOut;
 		$wgOut->addModuleStyles( 'ext.ApprovedRevs' );
 	}
+
+	/**
+	 * Helper function for backward compatibility.
+	 */
+	public static function makeLink( $linkRenderer, $title, $msg = null, $attrs = array(), $params = array() ) {
+		if ( !is_null( $linkRenderer ) ) {
+			// MW 1.28+
+			return $linkRenderer->makeLink( $title, $msg, $attrs, $params );
+		} else {
+			return Linker::linkKnown( $title, $msg, $attrs, $params );
+		}
+	}
+
 }
