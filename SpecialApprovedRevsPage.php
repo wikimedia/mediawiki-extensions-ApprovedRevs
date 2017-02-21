@@ -71,6 +71,22 @@ class SpecialApprovedRevsPage extends QueryPage {
 			);
 		}
 
+		$navLine .= ' | ';
+
+		if ( $this->mMode == 'invalid' ) {
+			$navLine .= Xml::element( 'strong',
+				null,
+				wfMessage( 'approvedrevs-invalidpages' )->text()
+			);
+		} else {
+			$navLine .= Xml::element( 'a',
+				array( 'href' => $approvedPagesTitle->getLocalURL( array( 'show' => 'invalid' ) ) ),
+				wfMessage( 'approvedrevs-invalidpages' )->text()
+			);
+		}
+
+		$navLine .= "\n";
+
 		return Xml::tags( 'p', null, $navLine ) . "\n";
 	}
 
@@ -84,6 +100,8 @@ class SpecialApprovedRevsPage extends QueryPage {
 			$params['show'] = 'notlatest';
 		} elseif ( $this->mMode == 'unapproved' ) {
 			$params['show'] = 'unapproved';
+		} elseif ( $this->mMode == 'invalid' ) {
+			$params['show'] = 'invalid';
 		} else { // all approved pages
 		}
 
@@ -105,8 +123,15 @@ class SpecialApprovedRevsPage extends QueryPage {
 		global $egApprovedRevsNamespaces;
 
 		$mainCondsString = "( pp_propname = 'approvedrevs' AND pp_value = 'y' )";
+		if ( $this->mMode == 'invalid' ) {
+			$mainCondsString = "( pp_propname IS NULL OR NOT $mainCondsString )";
+		}
 		if ( count( $egApprovedRevsNamespaces ) > 0 ) {
-			$mainCondsString .= " OR ( p.page_namespace IN ( " . implode( ',', $egApprovedRevsNamespaces ) . " ) )";
+			if ( $this->mMode == 'invalid' ) {
+				$mainCondsString .= " AND ( p.page_namespace NOT IN ( " . implode( ',', $egApprovedRevsNamespaces ) . " ) )";
+			} else {
+				$mainCondsString .= " OR ( p.page_namespace IN ( " . implode( ',', $egApprovedRevsNamespaces ) . " ) )";
+			}
 		}
 
 		if ( $this->mMode == 'notlatest' ) {
@@ -152,6 +177,27 @@ class SpecialApprovedRevsPage extends QueryPage {
 				),
 				'conds' => "ar.page_id IS NULL AND ( $mainCondsString )"
 			);
+		} elseif ( $this->mMode == 'invalid' ) {
+			return array(
+				'tables' => array(
+					'ar' => 'approved_revs',
+					'p' => 'page',
+					'pp' => 'page_props',
+				),
+				'fields' => array(
+					'p.page_id AS id',
+					'p.page_latest AS latest_id'
+				),
+				'join_conds' => array(
+					'ar' => array(
+						'LEFT OUTER JOIN', 'p.page_id=ar.page_id'
+					),
+					'pp' => array(
+						'LEFT OUTER JOIN', 'ar.page_id=pp_page'
+					),
+				),
+				'conds' => $mainCondsString
+			);
 		} else { // all approved pages
 			return array(
 				'tables' => array(
@@ -192,7 +238,7 @@ class SpecialApprovedRevsPage extends QueryPage {
 	function formatResult( $skin, $result ) {
 		$title = Title::newFromId( $result->id );
 
-		if( !ApprovedRevs::pageIsApprovable( $title ) ) {
+		if( !ApprovedRevs::pageIsApprovable( $title ) && $this->mMode !== 'invalid' ) {
 			return false;
 		}
 
@@ -233,6 +279,8 @@ class SpecialApprovedRevsPage extends QueryPage {
 			);
 
 			return "$pageLink ($diffLink)";
+		} elseif ( $this->mMode == 'invalid' ) {
+			return $pageLink;
 		} else { // main mode (pages with an approved revision)
 			global $wgUser, $wgOut, $wgLang;
 

@@ -23,6 +23,7 @@
 	"approvedrevs-approvedpages": "All pages with an approved revision",
 	"approvedrevs-notlatestpages": "Pages whose approved revision is not their latest",
 	"approvedrevs-unapprovedpages": "Unapproved pages",
+	"approvedrevs-invalidpages": "Pages with invalid approvals",
 	"approvedrevs-view": "View:",
 	"approvedrevs-revisionnumber": "revision $1",
 	"approvedrevs-approvedby": "approved by {{GENDER:$3|$1}} on $4 at $5",
