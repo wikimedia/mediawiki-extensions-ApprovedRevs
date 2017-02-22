@@ -34,26 +34,26 @@ class SpecialApprovedRevsPage extends QueryPage {
 		if ( $this->mMode == '' ) {
 			$navLine .= Xml::element( 'strong',
 				null,
-				wfMessage( 'approvedrevs-approvedpages' )->text()
+				wfMessage( 'approvedrevs-notlatestpages' )->text()
 			);
 		} else {
 			$navLine .= Xml::element( 'a',
 				array( 'href' => $approvedPagesTitle->getLocalURL() ),
-				wfMessage( 'approvedrevs-approvedpages' )->text()
+				wfMessage( 'approvedrevs-notlatestpages' )->text()
 			);
 		}
 
 		$navLine .= ' | ';
 
-		if ( $this->mMode == 'notlatest' ) {
+		if ( $this->mMode == 'all' ) {
 			$navLine .= Xml::element( 'strong',
 				null,
-				wfMessage( 'approvedrevs-notlatestpages' )->text()
+				wfMessage( 'approvedrevs-approvedpages' )->text()
 			);
 		} else {
 			$navLine .= Xml::element( 'a',
-				array( 'href' => $approvedPagesTitle->getLocalURL( array( 'show' => 'notlatest' ) ) ),
-				wfMessage( 'approvedrevs-notlatestpages' )->text()
+				array( 'href' => $approvedPagesTitle->getLocalURL( array( 'show' => 'all' ) ) ),
+				wfMessage( 'approvedrevs-approvedpages' )->text()
 			);
 		}
 
@@ -96,13 +96,13 @@ class SpecialApprovedRevsPage extends QueryPage {
 	function linkParameters() {
 		$params = array();
 
-		if ( $this->mMode == 'notlatest' ) {
-			$params['show'] = 'notlatest';
+		if ( $this->mMode == 'all' ) {
+			$params['show'] = 'all';
 		} elseif ( $this->mMode == 'unapproved' ) {
 			$params['show'] = 'unapproved';
 		} elseif ( $this->mMode == 'invalid' ) {
 			$params['show'] = 'invalid';
-		} else { // all approved pages
+		} else { // 'approved revision not the latest' pages
 		}
 
 		return $params;
@@ -134,7 +134,7 @@ class SpecialApprovedRevsPage extends QueryPage {
 			}
 		}
 
-		if ( $this->mMode == 'notlatest' ) {
+		if ( $this->mMode == 'all' ) {
 			return array(
 				'tables' => array(
 					'ar' => 'approved_revs',
@@ -154,7 +154,7 @@ class SpecialApprovedRevsPage extends QueryPage {
 						'LEFT OUTER JOIN', 'ar.page_id=pp_page'
 					),
 				),
-				'conds' => "p.page_latest != ar.rev_id AND ( $mainCondsString )"
+				'conds' => $mainCondsString
 			);
 		} elseif ( $this->mMode == 'unapproved' ) {
 			return array(
@@ -198,7 +198,7 @@ class SpecialApprovedRevsPage extends QueryPage {
 				),
 				'conds' => $mainCondsString
 			);
-		} else { // all approved pages
+		} else { // 'approved revision is not latest'
 			return array(
 				'tables' => array(
 					'ar' => 'approved_revs',
@@ -212,13 +212,13 @@ class SpecialApprovedRevsPage extends QueryPage {
 				),
 				'join_conds' => array(
 					'p' => array(
-						'JOIN', 'ar.page_id=p.page_id',
+						'JOIN', 'ar.page_id=p.page_id'
 					),
 					'pp' => array(
 						'LEFT OUTER JOIN', 'ar.page_id=pp_page'
 					),
 				),
-				'conds' => $mainCondsString
+				'conds' => "p.page_latest != ar.rev_id AND ( $mainCondsString )"
 			);
 		}
 	}
@@ -249,39 +249,7 @@ class SpecialApprovedRevsPage extends QueryPage {
 		}
 		$pageLink = ApprovedRevs::makeLink( $linkRenderer, $title );
 
-		if ( $this->mMode == 'unapproved' ) {
-			global $egApprovedRevsShowApproveLatest;
-
-			$line = $pageLink;
-			if ( $egApprovedRevsShowApproveLatest &&
-				$title->userCan( 'approverevisions' ) ) {
-				$line .= ' (' . Xml::element( 'a',
-					array( 'href' => $title->getLocalUrl(
-						array(
-							'action' => 'approve',
-							'oldid' => $result->latest_id
-						)
-					) ),
-					wfMessage( 'approvedrevs-approvelatest' )->text()
-				) . ')';
-			}
-
-			return $line;
-		} elseif ( $this->mMode == 'notlatest' ) {
-			$diffLink = Xml::element( 'a',
-				array( 'href' => $title->getLocalUrl(
-					array(
-						'diff' => $result->latest_id,
-						'oldid' => $result->rev_id
-					)
-				) ),
-				wfMessage( 'approvedrevs-difffromlatest' )->text()
-			);
-
-			return "$pageLink ($diffLink)";
-		} elseif ( $this->mMode == 'invalid' ) {
-			return $pageLink;
-		} else { // main mode (pages with an approved revision)
+		if ( $this->mMode == 'all' ) {
 			global $wgUser, $wgOut, $wgLang;
 
 			$additionalInfo = Xml::element( 'span',
@@ -315,6 +283,38 @@ class SpecialApprovedRevsPage extends QueryPage {
 			}
 
 			return "$pageLink ($additionalInfo)";
+		} elseif ( $this->mMode == 'unapproved' ) {
+			global $egApprovedRevsShowApproveLatest;
+
+			$line = $pageLink;
+			if ( $egApprovedRevsShowApproveLatest &&
+				$title->userCan( 'approverevisions' ) ) {
+				$line .= ' (' . Xml::element( 'a',
+					array( 'href' => $title->getLocalUrl(
+						array(
+							'action' => 'approve',
+							'oldid' => $result->latest_id
+						)
+					) ),
+					wfMessage( 'approvedrevs-approvelatest' )->text()
+				) . ')';
+			}
+
+			return $line;
+		} elseif ( $this->mMode == 'invalid' ) {
+			return $pageLink;
+		} else { // approved revision is not latest
+			$diffLink = Xml::element( 'a',
+				array( 'href' => $title->getLocalUrl(
+					array(
+						'diff' => $result->latest_id,
+						'oldid' => $result->rev_id
+					)
+				) ),
+				wfMessage( 'approvedrevs-difffromlatest' )->text()
+			);
+
+			return "$pageLink ($diffLink)";
 		}
 	}
 
