@@ -25,6 +25,7 @@
 	"approvedrevs-approvedpages": "Alle Seiten mit bestätigten Versionen",
 	"approvedrevs-notlatestpages": "Alle Seiten, deren bestätigte Version nicht die Neueste ist",
 	"approvedrevs-unapprovedpages": "Alle Seiten mit unbestätigten Versionen",
+	"approvedrevs-invalidpages": "Seiten mit ungültigen Bestätigungen",
 	"approvedrevs-view": "Ansehen:",
 	"approvedrevs-revisionnumber": "Version $1",
 	"approvedrevs-approvedby": "von $1 am $2 bestätigt",
