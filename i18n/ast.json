@@ -23,6 +23,7 @@
 	"approvedrevs-approvedpages": "Toles páxines con una revisión aprobada",
 	"approvedrevs-notlatestpages": "Páxines onde la revisión aprobada nun ye la más nueva",
 	"approvedrevs-unapprovedpages": "Páxines non aprobaes",
+	"approvedrevs-invalidpages": "Páxines con aprobaciones inválides",
 	"approvedrevs-view": "Ver:",
 	"approvedrevs-revisionnumber": "revisión $1",
 	"approvedrevs-approvedby": "aprobada por {{GENDER:$3|$1}} el $4 a les $5",

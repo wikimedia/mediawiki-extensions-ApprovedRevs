@@ -26,6 +26,7 @@
 	"approvedrevs-approvedpages": "Усе старонкі з зацьверджанымі вэрсіямі",
 	"approvedrevs-notlatestpages": "Старонкі, зацьверджаныя вэрсіі якіх не зьяўляюцца апошнімі",
 	"approvedrevs-unapprovedpages": "Незацьверджаныя старонкі",
+	"approvedrevs-invalidpages": "Старонкі зь няслушнымі ўхваленьнямі",
 	"approvedrevs-view": "Прагляд:",
 	"approvedrevs-revisionnumber": "вэрсія $1",
 	"approvedrevs-approvedby": "зацьверджаная $1 $2",

@@ -26,6 +26,7 @@
 	"approvedrevs-approvedpages": "Toutes les pages avec une révision approuvée",
 	"approvedrevs-notlatestpages": "Pages dont la révision approuvée n’est pas la plus récente",
 	"approvedrevs-unapprovedpages": "Pages non approuvées",
+	"approvedrevs-invalidpages": "Pages avec des approbations non valides",
 	"approvedrevs-view": "Voir :",
 	"approvedrevs-revisionnumber": "modification $1",
 	"approvedrevs-approvedby": "approuvé par $1 le $2",
