@@ -3,7 +3,8 @@
 		"authors": [
 			"Justincheng12345",
 			"Oapbtommy",
-			"LNDDYL"
+			"LNDDYL",
+			"烈羽"
 		]
 	},
 	"approvedrevs-desc": "設置單個頁所批准的修訂",
@@ -24,7 +25,7 @@
 	"approvedrevs": "獲批准的修訂",
 	"approvedrevs-approvedpages": "所以含已批准版本的頁面",
 	"approvedrevs-notlatestpages": "其核准的修訂不是他們最新的頁面",
-	"approvedrevs-unapprovedpages": "不備批准的頁面",
+	"approvedrevs-unapprovedpages": "不被批准的頁面",
 	"approvedrevs-view": "檢視：",
 	"approvedrevs-revisionnumber": "版本$1",
 	"approvedrevs-approvedby": "在 $2 時被 $1 批准",
