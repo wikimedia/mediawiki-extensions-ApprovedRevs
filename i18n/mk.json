@@ -23,6 +23,7 @@
 	"approvedrevs-approvedpages": "Сите страници со одобрена преработка",
 	"approvedrevs-notlatestpages": "Страници чиишто одобрени преработки не се најновите",
 	"approvedrevs-unapprovedpages": "Неодобрени страници",
+	"approvedrevs-invalidpages": "Страници со неважечки одобрувања",
 	"approvedrevs-view": "Преглед:",
 	"approvedrevs-revisionnumber": "преработка $1",
 	"approvedrevs-approvedby": "одобрено од $1 на $2",

@@ -14,7 +14,8 @@
 			"VegaDark",
 			"Chocolate con galleta",
 			"Themasterriot",
-			"Macofe"
+			"Macofe",
+			"Indiralena"
 		]
 	},
 	"approvedrevs-desc": "Establecer una revisión única de una página como aprovada",
@@ -36,6 +37,7 @@
 	"approvedrevs-approvedpages": "Todas las páginas con una revisión aprobada",
 	"approvedrevs-notlatestpages": "Páginas cuya revisión aprobada no es la más reciente",
 	"approvedrevs-unapprovedpages": "Páginas desaprobadas",
+	"approvedrevs-invalidpages": "Páginas con aprobaciones no válidas",
 	"approvedrevs-view": "Ver:",
 	"approvedrevs-revisionnumber": "revisión $1",
 	"approvedrevs-approvedby": "aprobada por {{GENDER:$3|$1}} el $4 a las $5",
