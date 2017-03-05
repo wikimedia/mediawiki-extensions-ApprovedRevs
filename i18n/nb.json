@@ -3,7 +3,8 @@
 		"authors": [
 			"Cocu",
 			"Nghtwlkr",
-			"Jeblad"
+			"Jeblad",
+			"Jon Harald Søby"
 		]
 	},
 	"approvedrevs-desc": "Sett en enkelt revisjon av en side som godkjent",
@@ -25,6 +26,7 @@
 	"approvedrevs-approvedpages": "Alle sider med godkjente versjoner",
 	"approvedrevs-notlatestpages": "Sider der den godkjente revisjonen ikke er deres nyeste.",
 	"approvedrevs-unapprovedpages": "Ikke-godkjente sider",
+	"approvedrevs-invalidpages": "Sider med ugyldige godkjenninger",
 	"approvedrevs-view": "Vis:",
 	"approvedrevs-revisionnumber": "revisjon $1",
 	"approvedrevs-approvedby": "godkjent av $1, $2",
