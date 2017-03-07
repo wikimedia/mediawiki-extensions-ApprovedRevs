@@ -8,7 +8,8 @@
 			"Ата",
 			"Тест",
 			"Andriykopanytsia",
-			"Ahonc"
+			"Ahonc",
+			"Piramidion"
 		]
 	},
 	"approvedrevs-desc": "Встановити єдиний перегляд сторінки як затверджуючий",
@@ -30,6 +31,7 @@
 	"approvedrevs-approvedpages": "Усі сторінки, що мають затверджені версії.",
 	"approvedrevs-notlatestpages": "Сторінки, чиї затверджені версії не є останніми",
 	"approvedrevs-unapprovedpages": "Несхвалені сторінки",
+	"approvedrevs-invalidpages": "Сторінки з недійсними затвердженнями",
 	"approvedrevs-view": "Перегляд:",
 	"approvedrevs-revisionnumber": "версія $1",
 	"approvedrevs-approvedby": "затверджена $1 $2",
