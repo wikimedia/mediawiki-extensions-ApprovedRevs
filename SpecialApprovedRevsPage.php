@@ -247,7 +247,16 @@ class SpecialApprovedRevsPage extends QueryPage {
 		} else {
 			$linkRenderer = null;
 		}
-		$pageLink = ApprovedRevs::makeLink( $linkRenderer, $title );
+
+		// Create page link - special handling for redirects.
+		$params = array();
+		if ( $title->isRedirect() ) {
+			$params['redirect'] = 'no';
+		}
+		$pageLink = ApprovedRevs::makeLink( $linkRenderer, $title, null, array(), $params );
+		if ( $title->isRedirect() ) {
+			$pageLink = "<em>$pageLink</em>";
+		}
 
 		if ( $this->mMode == 'all' ) {
 			global $wgUser, $wgOut, $wgLang;
