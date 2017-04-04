@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Toliño"
+			"Toliño",
+			"Elisardojm"
 		]
 	},
 	"approvedrevs-desc": "Marcar como aprobada unha única revisión dunha páxina",
@@ -23,6 +24,7 @@
 	"approvedrevs-approvedpages": "Todas as páxinas cunha revisión aprobada",
 	"approvedrevs-notlatestpages": "Páxinas cuxa revisión aprobada non é a máis recente",
 	"approvedrevs-unapprovedpages": "Páxinas suspendidas",
+	"approvedrevs-invalidpages": "Páxinas con aprobacións non válidas",
 	"approvedrevs-view": "Ver:",
 	"approvedrevs-revisionnumber": "revisión $1",
 	"approvedrevs-approvedby": "aprobada por $1 o $2",
