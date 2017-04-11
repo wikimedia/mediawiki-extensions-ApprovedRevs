@@ -23,6 +23,7 @@
 	"approvedrevs-approvedpages": "Tutte le pàggene cu 'na revisione approvate",
 	"approvedrevs-notlatestpages": "Pàggene ca tènene 'a revisione approvate ca non g'è l'urteme",
 	"approvedrevs-unapprovedpages": "Pàggene none approvate",
+	"approvedrevs-invalidpages": "Pàggene cu approvazziune invalide",
 	"approvedrevs-view": "Vide:",
 	"approvedrevs-revisionnumber": "revisione $1",
 	"approvedrevs-approvedby": "approvate da $1 'u $2",
