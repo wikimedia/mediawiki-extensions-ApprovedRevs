@@ -22,7 +22,7 @@
 	"approvedrevs-blankpageshown": "Nijedna revizija nije odobrena za ovu stranicu.",
 	"approvedrevs-editwarning": "Molimo vas da imate u vidu da sada uređujete posljednju reviziju ove stranice, koja nije odobrena što je prikazano po postavkama.",
 	"approvedrevs": "Odobrene izmjene",
-	"approvedrevs-approvedpages": "Odobrene stranice",
+	"approvedrevs-approvedpages": "Sve stranice s odobrenom izmjenom",
 	"approvedrevs-notlatestpages": "Stranice čija odobrena revizija nije njihova najnovija",
 	"approvedrevs-unapprovedpages": "Neodobrene stranice",
 	"approvedrevs-view": "Pregled:",
