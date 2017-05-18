@@ -4,7 +4,8 @@
 			"Kaganer",
 			"MaxSem",
 			"Okras",
-			"Александр Сигачёв"
+			"Александр Сигачёв",
+			"Facenapalm"
 		]
 	},
 	"approvedrevs-desc": "Установка одной из версий страниц как подтверждённой",
@@ -26,6 +27,7 @@
 	"approvedrevs-approvedpages": "Все страницы, имеющие подтверждённые версии",
 	"approvedrevs-notlatestpages": "Страницы, чьи подтверждённые версии не являются последними",
 	"approvedrevs-unapprovedpages": "Неутверждённые страницы",
+	"approvedrevs-invalidpages": "Страницы с некорректным подтверждением",
 	"approvedrevs-view": "Просмотр:",
 	"approvedrevs-revisionnumber": "версия $1",
 	"approvedrevs-approvedby": "подтверждена $1 $2",
