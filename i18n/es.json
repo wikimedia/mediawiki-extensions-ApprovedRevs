@@ -16,7 +16,8 @@
 			"Themasterriot",
 			"Macofe",
 			"Indiralena",
-			"AlvaroMolina"
+			"AlvaroMolina",
+			"Fitoschido"
 		]
 	},
 	"approvedrevs-desc": "Establecer una revisión única de una página como aprovada",
@@ -27,7 +28,7 @@
 	"approvedrevs-approvesuccess": "Esta revisión de la página ha sido establecida como la versión aprobada.",
 	"approvedrevs-unapprovesuccess": "Ya no hay una versión aprobada para esta página.\nEn su lugar, se mostrará la revisión más reciente.",
 	"approvedrevs-unapprovesuccess2": "Ya no hay una versión aprobada para esta página. \nEn su lugar, se mostrará una página en blanco.",
-	"approvedrevs-approveaction": "estableció $2 como la revisión aprobada para \"[[$1]]\"",
+	"approvedrevs-approveaction": "estableció $2 como la revisión aprobada de «[[$1]]»",
 	"approvedrevs-unapproveaction": "desestablecer la revisión aprobada para \"[[$1]]\"",
 	"approvedrevs-notlatest": "Esta es la revisión aprobada de esta página. No es la más reciente.",
 	"approvedrevs-approvedandlatest": "Esta es la revisión aprobada de esta página, siendo también la más reciente.",
