@@ -42,6 +42,7 @@ $wgAutoloadClasses['ApprovedRevsHooks'] = $egApprovedRevsIP . 'ApprovedRevs.hook
 $wgSpecialPages['ApprovedRevs'] = 'SpecialApprovedRevs';
 $wgAutoloadClasses['SpecialApprovedRevs'] = $egApprovedRevsIP . 'SpecialApprovedRevs.php';
 $wgAutoloadClasses['SpecialApprovedRevsPage'] = $egApprovedRevsIP . 'SpecialApprovedRevsPage.php';
+$wgAutoloadClasses['ApiApprove'] = $egApprovedRevsIP . 'ApiApprove.php';
 
 // hooks
 $wgHooks['ArticleEditUpdates'][] = 'ApprovedRevsHooks::updateLinksAfterEdit';
@@ -93,3 +94,6 @@ $wgResourceModules['ext.ApprovedRevs'] = array(
 	'remoteExtPath' => 'ApprovedRevs',
 	'position' => 'bottom'
 );
+
+// API action modules
+$wgAPIModules['approve'] = 'ApiApprove';

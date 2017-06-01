@@ -34,5 +34,10 @@
 	"approvedrevs-revision-nav": "($1) $2{{int:pipe-separator}}$3 ($4){{int:pipe-separator}}$5 ($6){{int:pipe-separator}}$7 ($8)",
 	"approvedrevs-approvedrevision": "Approved revision",
 	"right-approverevisions": "Set a certain revision of a wiki page as approved",
-	"right-viewlinktolatest": "View explanatory text at the top of pages that have an approved revision"
+	"right-viewlinktolatest": "View explanatory text at the top of pages that have an approved revision",
+	"apihelp-approve-description": "Review a revision by approving or de-approving it.",
+	"apihelp-approve-param-revid": "The revision ID for which to approve.",
+	"apihelp-approve-param-unapprove": "If set, revision will be unapproved rather than approved.",
+	"apihelp-approve-example-1": "Approve Revision 12345",
+	"apihelp-approve-example-2": "Unapprove Revision 12345"
 }

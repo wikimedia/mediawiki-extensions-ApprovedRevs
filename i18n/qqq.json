@@ -40,5 +40,10 @@
 	"approvedrevs-revision-nav": "{{Optional}}\nAn expansion of the core MediaWiki message {{msg-mw|Revision-nav}}.\n\nParameters:\n* $1 - prev diff. link text is {{msg-mw|Diff}}\n* $2 - prev link. link text is {{msg-mw|Previousrevision}}\n* $3 - approved link. link text is {{msg-mw|Approvedrevs-approvedrevision}}\n* $4 - approved diff. link text is {{msg-mw|Diff}}\n* $5 - link. link text is {{msg-mw|Currentrevisionlink}}\n* $6 - cur diff. link text is {{msg-mw|Diff}}\n* $7 - next link. link text is {{msg-mw|Nextrevision}}\n* $8 - next diff. link text is {{msg-mw|Diff}}",
 	"approvedrevs-approvedrevision": "Used to link directly to the approved revision.\n{{Identical|Approved revision}}",
 	"right-approverevisions": "{{doc-right|approverevisions}}",
-	"right-viewlinktolatest": "{{doc-right|viewlinktolatest}}"
+	"right-viewlinktolatest": "{{doc-right|viewlinktolatest}}",
+	"apihelp-approve-description": "{{doc-apihelp-description|approve}}",
+	"apihelp-approve-param-revid": "{{doc-apihelp-param|approve|revid}}",
+	"apihelp-approve-param-unapprove": "{{doc-apihelp-param|approve|revid}}",
+	"apihelp-approve-example-1": "{{doc-apihelp-example|approve}}",
+	"apihelp-approve-example-2": "{{doc-apihelp-example|approve}}"
 }
