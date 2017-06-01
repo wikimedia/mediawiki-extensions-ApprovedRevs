@@ -17,7 +17,8 @@
 			"Macofe",
 			"Indiralena",
 			"AlvaroMolina",
-			"Fitoschido"
+			"Fitoschido",
+			"Javiersanp"
 		]
 	},
 	"approvedrevs-desc": "Establecer una revisión única de una página como aprovada",
@@ -50,5 +51,9 @@
 	"approvedrevs-revision-nav": "($1) $2{{int:pipe-separator}}$3 ($4){{int:pipe-separator}}$5 ($6){{int:pipe-separator}}$7 ($8)",
 	"approvedrevs-approvedrevision": "Revisión aprobada",
 	"right-approverevisions": "Establecer una cierta revisión de una página wiki como aprobada",
-	"right-viewlinktolatest": "Ver texto explicativo en la parte superior de las páginas que tienen una revisión aprobada"
+	"right-viewlinktolatest": "Ver texto explicativo en la parte superior de las páginas que tienen una revisión aprobada",
+	"apihelp-approve-param-revid": "El identificador de la revisión que se va a aprobar.",
+	"apihelp-approve-param-unapprove": "Si se aplica, la revisión anulará la aprobación en lugar de aprobarla.",
+	"apihelp-approve-example-1": "Aprobar la Revisión 12345",
+	"apihelp-approve-example-2": "Rechazar la Revisión 12345"
 }

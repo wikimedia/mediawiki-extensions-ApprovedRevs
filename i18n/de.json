@@ -35,5 +35,10 @@
 	"approvedrevs-viewlatestrev": "Die neueste Version ansehen.",
 	"approvedrevs-approvedrevision": "Bestätigte Version",
 	"right-approverevisions": "Eine bestimmte Version einer Seite als bestätigt festlegen",
-	"right-viewlinktolatest": "Erläuternde Hinweise im Kopfbereich der Seiten anzeigen, die eine bestätigte Version haben"
+	"right-viewlinktolatest": "Erläuternde Hinweise im Kopfbereich der Seiten anzeigen, die eine bestätigte Version haben",
+	"apihelp-approve-description": "Überprüft eine Version durch das Bestätigen oder nimmt die Bestätigung zurück.",
+	"apihelp-approve-param-revid": "Die Versionskennung, die bestätigt werden soll.",
+	"apihelp-approve-param-unapprove": "Falls festgelegt, wird die Bestätigung der Version zurückgenommen und nicht die Version bestätigt.",
+	"apihelp-approve-example-1": "Bestätigt die Version 12345",
+	"apihelp-approve-example-2": "Nimmt die Bestätigung der Version 12345 zurück"
 }
