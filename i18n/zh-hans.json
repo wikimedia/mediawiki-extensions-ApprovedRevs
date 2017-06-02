@@ -39,5 +39,10 @@
 	"approvedrevs-viewlatestrev": "查看最近修订版本。",
 	"approvedrevs-approvedrevision": "已认可版本",
 	"right-approverevisions": "设置一个wiki页面的特定修订版本为已认可",
-	"right-viewlinktolatest": "查看具有已认可修订版本的页面顶端的解释性文本"
+	"right-viewlinktolatest": "查看具有已认可修订版本的页面顶端的解释性文本",
+	"apihelp-approve-description": "通过认可或取消认可来复核修订版本。",
+	"apihelp-approve-param-revid": "要认可的修订版本ID。",
+	"apihelp-approve-param-unapprove": "如果设置，版本将被取消批准而不是批准。",
+	"apihelp-approve-example-1": "认可修订版本12345",
+	"apihelp-approve-example-2": "取消认可修订版本12345"
 }

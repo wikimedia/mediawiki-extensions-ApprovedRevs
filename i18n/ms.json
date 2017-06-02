@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Anakmalaysia"
+			"Anakmalaysia",
+			"Muhdnurhidayat"
 		]
 	},
 	"approvedrevs-desc": "Tetapkan satu semakan laman sebagai diluluskan",
@@ -30,5 +31,9 @@
 	"approvedrevs-approvethisrev": "Luluskan semakan ini.",
 	"approvedrevs-viewlatestrev": "Lihat semakan terkini.",
 	"right-approverevisions": "Memberikan kelulusan kepada semakan dalam laman wiki",
-	"right-viewlinktolatest": "Melihat teks penjelasan di bahagian atas laman yang mempunyai semakan diluluskan"
+	"right-viewlinktolatest": "Melihat teks penjelasan di bahagian atas laman yang mempunyai semakan diluluskan",
+	"apihelp-approve-description": "Luluskan atau batalkan kelulusan semakan.",
+	"apihelp-approve-param-revid": "ID semakan untuk diluluskan.",
+	"apihelp-approve-param-unapprove": "Jika ditanda, semakan akan dibatalkan kelulusan dan bukannya diluluskan.",
+	"apihelp-approve-example-1": "Luluskan Semakan 12345"
 }

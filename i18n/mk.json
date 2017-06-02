@@ -33,5 +33,10 @@
 	"approvedrevs-viewlatestrev": "Најнова преработка.",
 	"approvedrevs-approvedrevision": "Одобрена преработка",
 	"right-approverevisions": "Поставување на извесна преработка на викистраница како одобрена",
-	"right-viewlinktolatest": "Погледајте го образложението на врвот од страниците што имаат одобрена верзија"
+	"right-viewlinktolatest": "Погледајте го образложението на врвот од страниците што имаат одобрена верзија",
+	"apihelp-approve-description": "Прегледајте преработка и одобрете ја или одземете ѝ го одобрението.",
+	"apihelp-approve-param-revid": "Назнака на преработката што се одобрува.",
+	"apihelp-approve-param-unapprove": "Ако е зададено, преработката ќе биде неодобрена наместо одобрена.",
+	"apihelp-approve-example-1": "Одобри ја преработката 12345",
+	"apihelp-approve-example-2": "Одземи одобрување на преработката 12345"
 }

@@ -36,5 +36,10 @@
 	"approvedrevs-viewlatestrev": "Voir la dernière révision.",
 	"approvedrevs-approvedrevision": "Accepter la révision",
 	"right-approverevisions": "Marquer une révision précise d’une page comme approuvée",
-	"right-viewlinktolatest": "Voir le texte explicatif en haut des pages qui ont une révision approuvée"
+	"right-viewlinktolatest": "Voir le texte explicatif en haut des pages qui ont une révision approuvée",
+	"apihelp-approve-description": "Relire une révision en l’approuvant ou en la désapprouvant.",
+	"apihelp-approve-param-revid": "L’ID de révision à approuver.",
+	"apihelp-approve-param-unapprove": "Si positionné, la révision sera désapprouvée plutôt qu’approuvée.",
+	"apihelp-approve-example-1": "Approuver la révision 12345",
+	"apihelp-approve-example-2": "Désapprouver la révision 12345"
 }
