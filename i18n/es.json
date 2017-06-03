@@ -54,6 +54,6 @@
 	"right-viewlinktolatest": "Ver texto explicativo en la parte superior de las páginas que tienen una revisión aprobada",
 	"apihelp-approve-param-revid": "El identificador de la revisión que se va a aprobar.",
 	"apihelp-approve-param-unapprove": "Si se aplica, la revisión anulará la aprobación en lugar de aprobarla.",
-	"apihelp-approve-example-1": "Aprobar la Revisión 12345",
-	"apihelp-approve-example-2": "Rechazar la Revisión 12345"
+	"apihelp-approve-example-1": "Aprobar la revisión 12345",
+	"apihelp-approve-example-2": "Desaprobar la revisión 12345"
 }
