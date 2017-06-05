@@ -34,5 +34,7 @@
 	"approvedrevs-viewlatestrev": "Visualizza la versione più recente.",
 	"approvedrevs-approvedrevision": "Versione approvata",
 	"right-approverevisions": "Imposta una versione di una pagina wiki come approvata",
-	"right-viewlinktolatest": "Visualizza del testo esplicativo nella parte superiore delle pagine che hanno una versione approvata"
+	"right-viewlinktolatest": "Visualizza del testo esplicativo nella parte superiore delle pagine che hanno una versione approvata",
+	"apihelp-approve-param-revid": "L'ID versione da approvare.",
+	"apihelp-approve-example-1": "Approva versione 12345"
 }

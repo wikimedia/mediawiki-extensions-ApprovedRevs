@@ -36,5 +36,6 @@
 	"approvedrevs-viewlatestrev": "Паказаць апошнюю вэрсію.",
 	"approvedrevs-approvedrevision": "Зацьверджаная вэрсія",
 	"right-approverevisions": "зацьверджаньне вызначаных вэрсіяў вікі-старонак",
-	"right-viewlinktolatest": "прагляд тлумачальнага тэксту ў версе старонак, якія маюць зацьверджаныя вэрсіі"
+	"right-viewlinktolatest": "прагляд тлумачальнага тэксту ў версе старонак, якія маюць зацьверджаныя вэрсіі",
+	"apihelp-approve-description": "Вычытка вэрсіі ўхваленьнем ці не ўхваленьнем яе."
 }

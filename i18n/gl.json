@@ -34,5 +34,10 @@
 	"approvedrevs-viewlatestrev": "Ollar a última revisión.",
 	"approvedrevs-approvedrevision": "Revisión aprobada",
 	"right-approverevisions": "Marcar como aprobada unha revisión específica dunha páxina do wiki",
-	"right-viewlinktolatest": "Ollar o texto explicativo ao comezo das páxinas que posúen unha revisión aprobada"
+	"right-viewlinktolatest": "Ollar o texto explicativo ao comezo das páxinas que posúen unha revisión aprobada",
+	"apihelp-approve-description": "Revisar unha revisión aprobándoa ou desaprobándoa.",
+	"apihelp-approve-param-revid": "O identificador da revisión a aprobar.",
+	"apihelp-approve-param-unapprove": "Se se aplica, a revisión será desaprobada no canto de aprobala.",
+	"apihelp-approve-example-1": "Aprobar a revisión 12345",
+	"apihelp-approve-example-2": "Desaprobar a revisión 12345"
 }

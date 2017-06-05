@@ -35,5 +35,6 @@
 	"approvedrevs-approvedrevision": "Nogekuckte Versioun",
 	"right-approverevisions": "Eng bestëmmt Versioun vun enger Säit als nogekuckt markéieren",
 	"right-viewlinktolatest": "Kuckt den Erklärungstext uewen op de Säiten déi nogekuckt Versiounen hunn",
-	"apihelp-approve-example-1": "Versioun 12345 approuvéieren"
+	"apihelp-approve-example-1": "Versioun 12345 approuvéieren",
+	"apihelp-approve-example-2": "Versioun 12345 desapprouvéieren"
 }
