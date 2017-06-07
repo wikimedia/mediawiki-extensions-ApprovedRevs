@@ -37,5 +37,7 @@
 	"approvedrevs-approvedrevision": "Зацьверджаная вэрсія",
 	"right-approverevisions": "зацьверджаньне вызначаных вэрсіяў вікі-старонак",
 	"right-viewlinktolatest": "прагляд тлумачальнага тэксту ў версе старонак, якія маюць зацьверджаныя вэрсіі",
-	"apihelp-approve-description": "Вычытка вэрсіі ўхваленьнем ці не ўхваленьнем яе."
+	"apihelp-approve-description": "Вычытка вэрсіі ўхваленьнем ці не ўхваленьнем яе.",
+	"apihelp-approve-param-revid": "ID вэрсіі, для якой пацьвярджаць.",
+	"apihelp-approve-param-unapprove": "Калі пазначанае, вэрсія ня будзе зацьверджаная."
 }
