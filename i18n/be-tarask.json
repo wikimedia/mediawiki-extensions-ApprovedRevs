@@ -40,5 +40,6 @@
 	"apihelp-approve-description": "Вычытка вэрсіі ўхваленьнем ці не ўхваленьнем яе.",
 	"apihelp-approve-param-revid": "ID вэрсіі, для якой пацьвярджаць.",
 	"apihelp-approve-param-unapprove": "Калі пазначанае, вэрсія ня будзе зацьверджаная.",
-	"apihelp-approve-example-1": "Зацьвердзіць вэрсію 12345"
+	"apihelp-approve-example-1": "Зацьвердзіць вэрсію 12345",
+	"apihelp-approve-example-2": "Адхіліць вэрсію 12345"
 }
