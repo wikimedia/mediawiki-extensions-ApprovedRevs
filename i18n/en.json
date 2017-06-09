@@ -36,6 +36,7 @@
 	"right-approverevisions": "Set a certain revision of a wiki page as approved",
 	"right-viewlinktolatest": "View explanatory text at the top of pages that have an approved revision",
 	"apihelp-approve-description": "Review a revision by approving or de-approving it.",
+	"apihelp-approve-summary": "Review a revision by approving or de-approving it.",
 	"apihelp-approve-param-revid": "The revision ID for which to approve.",
 	"apihelp-approve-param-unapprove": "If set, revision will be unapproved rather than approved.",
 	"apihelp-approve-example-1": "Approve Revision 12345",

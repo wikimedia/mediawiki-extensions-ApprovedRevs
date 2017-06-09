@@ -42,6 +42,7 @@
 	"right-approverevisions": "{{doc-right|approverevisions}}",
 	"right-viewlinktolatest": "{{doc-right|viewlinktolatest}}",
 	"apihelp-approve-description": "{{doc-apihelp-description|approve}}",
+	"apihelp-approve-summary": "{{doc-apihelp-summary|approve}}",
 	"apihelp-approve-param-revid": "{{doc-apihelp-param|approve|revid}}",
 	"apihelp-approve-param-unapprove": "{{doc-apihelp-param|approve|unapprove}}",
 	"apihelp-approve-example-1": "{{doc-apihelp-example|approve}}",
