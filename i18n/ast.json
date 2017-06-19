@@ -35,6 +35,7 @@
 	"right-approverevisions": "Marcar como aprobada cierta revisión d'una páxina wiki",
 	"right-viewlinktolatest": "Ver un testu esplicativu na parte superior de les páxines que tienen una revisión aprobada",
 	"apihelp-approve-description": "Revisar una revisión aprobándola o desaprobándola.",
+	"apihelp-approve-summary": "Revisar una revisión aprobándola desaprobándola.",
 	"apihelp-approve-param-revid": "L'identificador de la revisión a aprobar.",
 	"apihelp-approve-param-unapprove": "Si se marca, la revisión refugaráse, en llugar d'aprobase.",
 	"apihelp-approve-example-1": "Aprobar la Revisión 12345",

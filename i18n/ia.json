@@ -23,6 +23,7 @@
 	"approvedrevs-approvedpages": "Tote le paginas con un version approbate",
 	"approvedrevs-notlatestpages": "Paginas del quales le version approbate non es lor ultime",
 	"approvedrevs-unapprovedpages": "Paginas non approbate",
+	"approvedrevs-invalidpages": "Paginas con approbationes non valide",
 	"approvedrevs-view": "Vider:",
 	"approvedrevs-revisionnumber": "version $1",
 	"approvedrevs-approvedby": "approbate per $1 le $2",
@@ -32,5 +33,11 @@
 	"approvedrevs-viewlatestrev": "Vider le version le plus recente.",
 	"approvedrevs-approvedrevision": "Version approbate",
 	"right-approverevisions": "Marcar un certe version de un pagina wiki como approbate",
-	"right-viewlinktolatest": "Vider le texto explicative in alto del paginas que ha un version approbate"
+	"right-viewlinktolatest": "Vider le texto explicative in alto del paginas que ha un version approbate",
+	"apihelp-approve-description": "Revider un version per approbar o disapprobar lo.",
+	"apihelp-approve-summary": "Revider un version per approbar o disapprobar lo.",
+	"apihelp-approve-param-revid": "Le ID del version a approbar.",
+	"apihelp-approve-param-unapprove": "Si definite, le version essera disapprobate, non approbate.",
+	"apihelp-approve-example-1": "Approbar version 12345",
+	"apihelp-approve-example-2": "Disapprobar version 12345"
 }
