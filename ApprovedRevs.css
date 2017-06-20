@@ -13,3 +13,6 @@ span.approvedRevIsLatest {
 span.approvedRevNotLatest {
 	font-style: italic;
 }
+span.approvingUser {
+    display: block;
+}

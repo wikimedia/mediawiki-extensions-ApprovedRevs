@@ -8,6 +8,7 @@
 	"approvedrevs-logname": "Revision approval log",
 	"approvedrevs-logdesc": "This is the log of revisions that have been approved.",
 	"approvedrevs-approve": "approve",
+	"approvedrevs-approver": "$1 approved this revision.",
 	"approvedrevs-unapprove": "unapprove",
 	"approvedrevs-approvesuccess": "This revision of the page has been set as the approved version.",
 	"approvedrevs-unapprovesuccess": "There is no longer an approved version for this page.\nInstead, the most recent revision will be shown.",

@@ -100,6 +100,8 @@ $wgAvailableRights[] = 'approverevisions';
 $wgGroupPermissions['sysop']['approverevisions'] = true;
 $wgAvailableRights[] = 'viewlinktolatest';
 $wgGroupPermissions['*']['viewlinktolatest'] = true;
+$wgAvailableRights[] = 'viewapprover';
+$wgGroupPermissions['sysop']['viewapprover'] = true;
 
 // ResourceLoader modules
 $wgResourceModules['ext.ApprovedRevs'] = array(

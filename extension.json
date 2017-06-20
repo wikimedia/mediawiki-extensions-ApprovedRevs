@@ -15,6 +15,7 @@
 	},
 	"GroupPermissions": {
 		"sysop": {
+			"viewapprover": true,
 			"approverevisions": true
 		},
 		"*": {
@@ -23,7 +24,8 @@
 	},
 	"AvailableRights": [
 		"approverevisions",
-		"viewlinktolatest"
+		"viewlinktolatest",
+		"viewapprover"
 	],
 	"LogTypes": [
 		"approval"
