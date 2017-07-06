@@ -4,7 +4,8 @@
 			"Gomoko",
 			"IAlex",
 			"Peter17",
-			"Sherbrooke"
+			"Sherbrooke",
+			"Wladek92"
 		]
 	},
 	"approvedrevs-desc": "Marquer une seule révision d’une page comme approuvée",
@@ -38,6 +39,7 @@
 	"right-approverevisions": "Marquer une révision précise d’une page comme approuvée",
 	"right-viewlinktolatest": "Voir le texte explicatif en haut des pages qui ont une révision approuvée",
 	"apihelp-approve-description": "Relire une révision en l’approuvant ou en la désapprouvant.",
+	"apihelp-approve-summary": "Relire une révision en l’approuvant ou non.",
 	"apihelp-approve-param-revid": "L’ID de révision à approuver.",
 	"apihelp-approve-param-unapprove": "Si positionné, la révision sera désapprouvée plutôt qu’approuvée.",
 	"apihelp-approve-example-1": "Approuver la révision 12345",
