@@ -41,7 +41,7 @@
 	"right-approverevisions": "Definir como aprovada uma revisão específica de uma página da wiki",
 	"right-viewlinktolatest": "Ver um texto explicativo no topo das páginas que têm uma revisão aprovada",
 	"apihelp-approve-description": "Revise uma revisão aprovando-a ou aprovando-a.",
-	"apihelp-approve-summary": "Revise uma revisão aprovando-a ou aprovando-a.",
+	"apihelp-approve-summary": "Revise uma revisão aprovando-a ou desaprovando-a.",
 	"apihelp-approve-param-revid": "A ID de revisão para a qual deve aprovar.",
 	"apihelp-approve-param-unapprove": "Se configurado, a revisão não será aprovada em vez de aprovada.",
 	"apihelp-approve-example-1": "Aprovar a revisão 12345",
