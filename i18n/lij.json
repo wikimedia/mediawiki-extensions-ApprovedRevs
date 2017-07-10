@@ -1,0 +1,14 @@
+{
+	"@metadata": {
+		"authors": [
+			"Giromin Cangiaxo"
+		]
+	},
+	"approvedrevs-desc": "Imposta 'na scingola verscion de 'na paggina comme aprovâ",
+	"approvedrevs-logname": "Registro d'aprovaçion de verscioin",
+	"approvedrevs-logdesc": "Sto chì o l'è o registro de verscioin ch'en stæte aprovæ.",
+	"approvedrevs-approve": "aproeuva",
+	"approvedrevs-unapprove": "no aprovâ",
+	"approvedrevs-approvesuccess": "Questa revixon de paggina a l'è stæta impostâ comme verscion aprovâ.",
+	"approvedrevs-unapprovesuccess": "No gh'è ciu 'na verscion aprovâ pe questa paggina.\nSaiâ invece mostrou a verscion ciu reçente."
+}
