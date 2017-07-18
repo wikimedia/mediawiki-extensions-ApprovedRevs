@@ -143,7 +143,8 @@ class ApprovedRevs {
 	}
 
 	public static function userCanApprove( $title ) {
-		global $egApprovedRevsSelfOwnedNamespaces;
+		global $egApprovedRevsSelfOwnedNamespaces, $wgUser;
+		$permission = 'approverevisions';
 
 		// $mUserCanApprove is a static variable used for
 		// "caching" the result of this function, so that
@@ -152,7 +153,8 @@ class ApprovedRevs {
 			return true;
 		} elseif ( self::$mUserCanApprove === false ) {
 			return false;
-		} elseif ( $title->userCan( 'approverevisions' ) ) {
+		} elseif ( $title->userCan( $permission )
+				   || $wgUser->isAllowed( $permission ) ) {
 			self::$mUserCanApprove = true;
 			return true;
 		} else {
@@ -161,7 +163,6 @@ class ApprovedRevs {
 			// revisions - it depends on whether the current
 			// namespace is within the admin-defined
 			// $egApprovedRevsSelfOwnedNamespaces array.
-			global $wgUser;
 			$namespace = $title->getNamespace();
 			if ( in_array( $namespace, $egApprovedRevsSelfOwnedNamespaces ) ) {
 				if ( $namespace == NS_USER ) {
