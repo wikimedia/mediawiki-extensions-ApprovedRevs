@@ -142,6 +142,16 @@ class ApprovedRevs {
 		return $isApprovable;
 	}
 
+	public static function checkPermission( $title, $permission ) {
+		global $wgUser;
+
+		if ( ! $title->userCan( $permission )
+			 && ! $wgUser->isAllowed( $permission ) ) {
+			return false;
+		}
+		return true;
+	}
+
 	public static function userCanApprove( $title ) {
 		global $egApprovedRevsSelfOwnedNamespaces, $wgUser;
 		$permission = 'approverevisions';
@@ -153,8 +163,7 @@ class ApprovedRevs {
 			return true;
 		} elseif ( self::$mUserCanApprove === false ) {
 			return false;
-		} elseif ( $title->userCan( $permission )
-				   || $wgUser->isAllowed( $permission ) ) {
+		} elseif ( ApprovedRevs::checkPermission( $title, $permission ) ) {
 			self::$mUserCanApprove = true;
 			return true;
 		} else {

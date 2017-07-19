@@ -446,7 +446,7 @@ class ApprovedRevsHooks {
 			return false;
 		}
 
-		if ( ! $title->userCan( 'viewlinktolatest' ) ) {
+		if ( ! ApprovedRevs::checkPermission( $title, "viewlinktolatest" ) ) {
 			return false;
 		}
 
@@ -823,7 +823,7 @@ class ApprovedRevsHooks {
 
 		// If the user isn't supposed to see these kinds of
 		// messages, exit.
-		if ( ! $title->userCan( 'viewlinktolatest' ) ) {
+		if ( ! ApprovedRevs::checkPermission( $title, "viewlinktolatest" ) ) {
 			return false;
 		}
 

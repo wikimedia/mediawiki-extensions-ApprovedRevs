@@ -259,7 +259,7 @@ class SpecialApprovedRevsPage extends QueryPage {
 		}
 
 		if ( $this->mMode == 'all' ) {
-			global $wgUser, $wgOut, $wgLang;
+			global $wgOut, $wgLang;
 
 			$additionalInfo = Xml::element( 'span',
 				array (
@@ -297,7 +297,7 @@ class SpecialApprovedRevsPage extends QueryPage {
 
 			$line = $pageLink;
 			if ( $egApprovedRevsShowApproveLatest &&
-				$title->userCan( 'approverevisions' ) ) {
+				 ApprovedRevs::checkPermission( $title, 'approverevisions' ) ) {
 				$line .= ' (' . Xml::element( 'a',
 					array( 'href' => $title->getLocalUrl(
 						array(
