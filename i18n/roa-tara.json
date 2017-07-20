@@ -33,5 +33,11 @@
 	"approvedrevs-viewlatestrev": "Vide le revisiune urteme urteme.",
 	"approvedrevs-approvedrevision": "Revisione approvate",
 	"right-approverevisions": "'Mboste 'na revisione secure de 'na pàgene uicchi cumme approvate",
-	"right-viewlinktolatest": "'Ndruche 'u teste ca spieghe 'ngape a le pàggene ca onne 'na revisione approvate"
+	"right-viewlinktolatest": "'Ndruche 'u teste ca spieghe 'ngape a le pàggene ca onne 'na revisione approvate",
+	"apihelp-approve-description": "Revide 'na revisione pe dicere sìne o none.",
+	"apihelp-approve-summary": "Revide 'na revisione pe dicere sìne o none.",
+	"apihelp-approve-param-revid": "L'ID da revisione da approvà.",
+	"apihelp-approve-param-unapprove": "Ce ste, 'a revisione adda essere none approvate pe farle addevendà approvate.",
+	"apihelp-approve-example-1": "Approve 'a Revisione 12345",
+	"apihelp-approve-example-2": "No approvà 'a Revisione 12345"
 }
