@@ -3,7 +3,8 @@
 		"authors": [
 			"Meno25",
 			"Moemin05",
-			"روخو"
+			"روخو",
+			"ديفيد"
 		]
 	},
 	"approvedrevs-logname": "سجل موافقة المراجعات",
@@ -11,7 +12,7 @@
 	"approvedrevs-unapprove": "إزالة موافقة",
 	"approvedrevs-blankpageshown": "لا مراجعة تمت الموافقة عليها لهذه الصفحة.",
 	"approvedrevs": "أقر المراجعات",
-	"approvedrevs-approvedpages": "صفحات تمّت الموافقة عليها",
+	"approvedrevs-approvedpages": "كل الصفحات ذات مراجعة معتمدة",
 	"approvedrevs-unapprovedpages": "صفحات لم تتم الموافقة عليها",
 	"approvedrevs-view": "عرض:",
 	"approvedrevs-revisionnumber": "تنقيح $1",
