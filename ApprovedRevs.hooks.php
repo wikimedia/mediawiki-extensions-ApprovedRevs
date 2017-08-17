@@ -74,7 +74,7 @@ class ApprovedRevsHooks {
 			}
 		}
 
-		$editInfo = $page->prepareTextForEdit( $text );
+		$editInfo = $page->prepareContentForEdit( new WikitextContent( $text ) );
 		$u = new LinksUpdate( $page->mTitle, $editInfo->output );
 		$u->doUpdate();
 
