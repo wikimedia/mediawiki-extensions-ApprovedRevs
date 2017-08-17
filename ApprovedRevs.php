@@ -18,7 +18,8 @@ $wgExtensionCredits['other'][] = array(
 	'version'         => APPROVED_REVS_VERSION,
 	'author'          => array( 'Yaron Koren', '...' ),
 	'url'             => 'https://www.mediawiki.org/wiki/Extension:Approved_Revs',
-	'descriptionmsg'  => 'approvedrevs-desc'
+	'descriptionmsg'  => 'approvedrevs-desc',
+	'license-name'    => 'GPL-2.0+'
 );
 
 // global variables
