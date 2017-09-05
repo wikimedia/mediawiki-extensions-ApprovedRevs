@@ -29,7 +29,7 @@ class ApprovedRevs {
 			return null;
 		}
 
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = wfGetDB( DB_SLAVE );
 		$revID = $dbr->selectField( 'approved_revs', 'rev_id', array( 'page_id' => $pageID ) );
 		self::$mApprovedRevIDForPage[$pageID] = $revID;
 		return $revID;
@@ -128,7 +128,7 @@ class ApprovedRevs {
 		// property - for some reason, calling the standard
 		// getProperty() function doesn't work, so we just do a DB
 		// query on the page_props table.
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = wfGetDB( DB_SLAVE );
 		$res = $dbr->select( 'page_props', 'COUNT(*)',
 			array(
 				'pp_page' => $title->getArticleID(),
@@ -187,7 +187,7 @@ class ApprovedRevs {
 					// if they created the page.
 					// We get that information via a SQL
 					// query - is there an easier way?
-					$dbr = wfGetDB( DB_REPLICA );
+					$dbr = wfGetDB( DB_SLAVE );
 					$row = $dbr->selectRow(
 						array( 'r' => 'revision', 'p' => 'page' ),
 						'r.rev_user_text',
