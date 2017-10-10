@@ -801,13 +801,13 @@ class ApprovedRevsHooks {
 	 *
 	 * @since 0.5.6
 	 *
-	 * @param Article &$article
+	 * @param Article $article
 	 * @param boolean $outputDone
 	 * @param boolean $useParserCache
 	 *
 	 * @return true
 	 */
-	public static function setArticleHeader( Article &$article, &$outputDone, &$useParserCache ) {
+	public static function setArticleHeader( Article $article, &$outputDone, &$useParserCache ) {
 		global $wgOut, $wgRequest, $egApprovedRevsBlankIfUnapproved;
 
 		// For now, we only set the header if "blank if unapproved"
@@ -889,7 +889,7 @@ class ApprovedRevsHooks {
 	 * a header message stating that, if the setting to display this
 	 * message is activated.
 	 */
-	public static function displayNotApprovedHeader( Article &$article, &$outputDone, &$useParserCache ) {
+	public static function displayNotApprovedHeader( Article $article, &$outputDone, &$useParserCache ) {
 		global $egApprovedRevsShowNotApprovedMessage;
 		if ( !$egApprovedRevsShowNotApprovedMessage) {
 			return true;
