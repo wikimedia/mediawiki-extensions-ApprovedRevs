@@ -33,7 +33,6 @@ $egApprovedRevsShowNotApprovedMessage = false;
 
 // internationalization
 $wgMessagesDirs['ApprovedRevs'] = __DIR__ . '/i18n';
-$wgExtensionMessagesFiles['ApprovedRevs'] = $egApprovedRevsIP . 'ApprovedRevs.i18n.php';
 $wgExtensionMessagesFiles['ApprovedRevsAlias'] = $egApprovedRevsIP . 'ApprovedRevs.alias.php';
 $wgExtensionMessagesFiles['ApprovedRevsMagic'] = $egApprovedRevsIP . 'ApprovedRevs.i18n.magic.php';
 
