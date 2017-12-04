@@ -173,7 +173,7 @@ class ApprovedRevsHooks {
 			return true;
 		}
 
-	 	if ( ! ApprovedRevs::pageIsApprovable( $title ) ) {
+		if ( ! ApprovedRevs::pageIsApprovable( $title ) ) {
 			return true;
 		}
 
@@ -514,16 +514,12 @@ class ApprovedRevsHooks {
 	}
 
 	/**
-	 * Same as addWarningToEditPage(), but for the Semantic Foms
+	 * Same as addWarningToEditPage(), but for the Page Forms
 	 * 'edit with form' tab.
 	 */
-	public static function addWarningToSFForm( &$pageName, &$preFormHTML ) {
-		// The title could be obtained via $pageName in theory - the
-		// problem is that, pre-SF 2.0.2, that variable wasn't set
-		// correctly.
-		global $wgTitle;
-		$approvedRevID = ApprovedRevs::getApprovedRevID( $wgTitle );
-		$latestRevID = $wgTitle->getLatestRevID();
+	public static function addWarningToPFForm( &$title, &$preFormHTML ) {
+		$approvedRevID = ApprovedRevs::getApprovedRevID( $title );
+		$latestRevID = $title->getLatestRevID();
 		if ( ! empty( $approvedRevID ) && $approvedRevID != $latestRevID ) {
 			ApprovedRevs::addCSS();
 			$preFormHTML .= Xml::element ( 'p',
