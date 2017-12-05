@@ -1,0 +1,157 @@
+{
+	"@Note": "When updating this file please also update ApprovedRevs.php with the same changes.",
+	"name": "Approved Revs",
+	"version": "0.8-alpha",
+	"author": [
+		"Yaron Koren",
+		"..."
+	],
+	"url": "https://www.mediawiki.org/wiki/Extension:Approved_Revs",
+	"descriptionmsg": "approvedrevs-desc",
+	"license-name": "GPL-2.0+",
+	"type": "hook",
+	"requires": {
+		"MediaWiki": ">= 1.27.0"
+	},
+	"GroupPermissions": {
+		"sysop": {
+			"approverevisions": true
+		},
+		"*": {
+			"viewlinktolatest": true
+		}
+	},
+	"AvailableRights": [
+		"approverevisions",
+		"viewlinktolatest"
+	],
+	"LogTypes": [
+		"approval"
+	],
+	"LogNames": {
+		"approval": "approvedrevs-logname"
+	},
+	"LogHeaders": {
+		"approval": "approvedrevs-logdesc"
+	},
+	"LogActions": {
+		"approval/approve": "approvedrevs-approveaction",
+		"approval/unapprove": "approvedrevs-unapproveaction"
+	},
+	"SpecialPages": {
+		"ApprovedRevs": "SpecialApprovedRevs"
+	},
+	"APIModules": {
+		"approve": "ApiApprove"
+	},
+	"MessagesDirs": {
+		"ApprovedRevs": [
+			"i18n"
+		]
+	},
+	"ExtensionMessagesFiles": {
+		"ApprovedRevsAlias": "ApprovedRevs.alias.php",
+		"ApprovedRevsMagic": "ApprovedRevs.i18n.magic.php"
+	},
+	"AutoloadClasses": {
+		"ApprovedRevs": "ApprovedRevs_body.php",
+		"ApprovedRevsHooks": "ApprovedRevs.hooks.php",
+		"SpecialApprovedRevs": "SpecialApprovedRevs.php",
+		"SpecialApprovedRevsPage": "SpecialApprovedRevsPage.php",
+		"ApiApprove": "ApiApprove.php"
+	},
+	"ResourceModules": {
+		"ext.ApprovedRevs": {
+			"styles": "ApprovedRevs.css",
+			"position": "bottom"
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "",
+		"remoteExtPath": "ApprovedRevs"
+	},
+	"Hooks": {
+		"ArticleEditUpdates": [
+			"ApprovedRevsHooks::updateLinksAfterEdit"
+		],
+		"PageContentSaveComplete": [
+			"ApprovedRevsHooks::setLatestAsApproved",
+			"ApprovedRevsHooks::setSearchText"
+		],
+		"SearchResultInitFromTitle": [
+			"ApprovedRevsHooks::setSearchRevisionID"
+		],
+		"PersonalUrls": [
+			"ApprovedRevsHooks::removeRobotsTag"
+		],
+		"ArticleFromTitle": [
+			"ApprovedRevsHooks::showApprovedRevision"
+		],
+		"ArticleAfterFetchContentObject": [
+			"ApprovedRevsHooks::showBlankIfUnapproved"
+		],
+		"DisplayOldSubtitle": [
+			"ApprovedRevsHooks::setSubtitle"
+		],
+		"SkinTemplateTabs": [
+			"ApprovedRevsHooks::changeEditLink"
+		],
+		"SkinTemplateNavigation": [
+			"ApprovedRevsHooks::changeEditLinkVector"
+		],
+		"PageHistoryBeforeList": [
+			"ApprovedRevsHooks::storeApprovedRevisionForHistoryPage"
+		],
+		"PageHistoryLineEnding": [
+			"ApprovedRevsHooks::addApprovalLink"
+		],
+		"UnknownAction": [
+			"ApprovedRevsHooks::setAsApproved",
+			"ApprovedRevsHooks::unsetAsApproved"
+		],
+		"BeforeParserFetchTemplateAndtitle": [
+			"ApprovedRevsHooks::setTranscludedPageRev"
+		],
+		"ArticleDeleteComplete": [
+			"ApprovedRevsHooks::deleteRevisionApproval"
+		],
+		"MagicWordwgVariableIDs": [
+			"ApprovedRevsHooks::addMagicWordVariableIDs"
+		],
+		"ParserBeforeTidy": [
+			"ApprovedRevsHooks::handleMagicWords"
+		],
+		"AdminLinks": [
+			"ApprovedRevsHooks::addToAdminLinks"
+		],
+		"LoadExtensionSchemaUpdates": [
+			"ApprovedRevsHooks::describeDBSchema"
+		],
+		"EditPage::showEditForm:initial": [
+			"ApprovedRevsHooks::addWarningToEditPage"
+		],
+		"PageForms::HTMLBeforeForm": [
+			"ApprovedRevsHooks::addWarningToPFForm"
+		],
+		"ArticleViewHeader": [
+			"ApprovedRevsHooks::setArticleHeader",
+			"ApprovedRevsHooks::displayNotApprovedHeader"
+		],
+		"OutputPageBodyAttributes": [
+			"ApprovedRevsHooks::addBodyClass"
+		],
+		"wgQueryPages": [
+			"ApprovedRevsHooks::onwgQueryPages"
+		]
+	},
+	"config": {
+		"_prefix": "eg",
+		"ApprovedRevsNamespaces": [ 0, 2, 4, 10, 12 ],
+		"ApprovedRevsSelfOwnedNamespaces": [],
+		"ApprovedRevsBlankIfUnapproved": false,
+		"ApprovedRevsAutomaticApprovals": true,
+		"ApprovedRevsShowApproveLatest": false,
+		"ApprovedRevsShowNotApprovedMessage": false
+	},
+	"manifest_version": 1
+}

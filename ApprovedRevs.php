@@ -1,5 +1,19 @@
 <?php
 
+if ( version_compare( $GLOBALS['wgVersion'], '1.27c', '>' ) ) {
+	wfLoadExtension( 'ApprovedRevs' );
+	// Keep i18n globals so mergeMessageFileList.php doesn't break
+	$GLOBALS['wgMessagesDirs']['ApprovedRevs'] = __DIR__ . '/i18n';
+	$GLOBALS['wgExtensionMessagesFiles']['ApprovedRevsAlias'] = __DIR__ . '/ApprovedRevs.alias.php';
+	$GLOBALS['wgExtensionMessagesFiles']['ApprovedRevsMagic'] = __DIR__ . '/ApprovedRevs.i18n.magic.php';
+	/* wfWarn(
+		'Deprecated PHP entry point used for Approved Revs extension. ' .
+		'Please use wfLoadExtension instead, ' .
+		'see https://www.mediawiki.org/wiki/Extension_registration for more details.'
+	); */
+	return;
+}
+
 if ( !defined( 'MEDIAWIKI' ) ) die();
 
 /**
@@ -9,7 +23,7 @@ if ( !defined( 'MEDIAWIKI' ) ) die();
  * @author Yaron Koren
  */
 
-define( 'APPROVED_REVS_VERSION', '0.7.3' );
+define( 'APPROVED_REVS_VERSION', '0.8-alpha' );
 
 // credits
 $wgExtensionCredits['other'][] = array(
