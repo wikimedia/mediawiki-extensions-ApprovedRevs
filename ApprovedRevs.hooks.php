@@ -42,11 +42,13 @@ class ApprovedRevsHooks {
 	}
 
 	/**
+	 * Hook: ArticleEditUpdates
+	 *
 	 * Call LinksUpdate on the text of this page's approved revision,
 	 * if there is one.
 	 */
-	static public function updateLinksAfterEdit( &$page, &$editInfo, $changed ) {
-		$title = $page->getTitle();
+	static public function updateLinksAfterEdit( WikiPage &$wikiPage, &$editInfo, $changed ) {
+		$title = $wikiPage->getTitle();
 		if ( ! ApprovedRevs::pageIsApprovable( $title ) ) {
 			return true;
 		}
@@ -74,14 +76,16 @@ class ApprovedRevsHooks {
 			}
 		}
 
-		$editInfo = $page->prepareContentForEdit( new WikitextContent( $text ) );
-		$u = new LinksUpdate( $page->mTitle, $editInfo->output );
+		$editInfo = $wikiPage->prepareContentForEdit( new WikitextContent( $text ) );
+		$u = new LinksUpdate( $wikiPage->mTitle, $editInfo->output );
 		$u->doUpdate();
 
 		return true;
 	}
 
 	/**
+	 * Hook: PageContentSaveComplete
+	 *
 	 * If the user saving this page has approval power, and automatic
 	 * approvals are enabled, and the page is approvable, and either
 	 * (a) this page already has an approved revision, or (b) unapproved
@@ -89,7 +93,7 @@ class ApprovedRevsHooks {
 	 * latest revision to be the approved one - don't bother logging
 	 * the approval, though; the log is reserved for manual approvals.
 	 */
-	static public function setLatestAsApproved( $article, $user, $content,
+	static public function setLatestAsApproved( WikiPage $wikipage, $user, $content,
 		$summary, $isMinor, $isWatch, $section, $flags, $revision,
 		$status, $baseRevId ) {
 
@@ -97,7 +101,7 @@ class ApprovedRevsHooks {
 			return true;
 		}
 
-		$title = $article->getTitle();
+		$title = $wikipage->getTitle();
 		if ( ! self::userRevsApprovedAutomatically( $title ) ) {
 			return true;
 		}
@@ -120,9 +124,11 @@ class ApprovedRevsHooks {
 	}
 
 	/**
+	 * PageContentSaveComplete hook handler
+	 *
 	 * Set the text that's stored for the page for standard searches.
 	 */
-	static public function setSearchText( $article, $user, $content,
+	static public function setSearchText( WikiPage $wikiPage, $user, $content,
 		$summary, $isMinor, $isWatch, $section, $flags, $revision,
 		$status, $baseRevId ) {
 
@@ -130,7 +136,7 @@ class ApprovedRevsHooks {
 			return true;
 		}
 
-		$title = $article->getTitle();
+		$title = $wikiPage->getTitle();
 		if ( !ApprovedRevs::pageIsApprovable( $title ) ) {
 			return true;
 		}
@@ -142,7 +148,7 @@ class ApprovedRevsHooks {
 
 		// We only need to modify the search text if the approved
 		// revision is not the latest one.
-		if ( $revisionID != $article->getLatest() ) {
+		if ( $revisionID != $wikiPage->getLatest() ) {
 			$approvedPage = WikiPage::factory( $title );
 			$approvedText = $approvedPage->getContent()->getNativeData();
 			ApprovedRevs::setPageSearchText( $title, $approvedText );
