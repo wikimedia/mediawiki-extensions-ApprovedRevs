@@ -203,7 +203,14 @@ class ApprovedRevsHooks {
 		return true;
 	}
 
-	public static function showBlankIfUnapproved( &$article, &$content ) {
+	/**
+	 * Hook: ArticleAfterFetchContentObject
+	 *
+	 * @param Article $article
+	 * @param Content $content
+	 * @return true
+	 */
+	public static function showBlankIfUnapproved( &$article, Content &$content ) {
 		global $egApprovedRevsBlankIfUnapproved;
 		if ( ! $egApprovedRevsBlankIfUnapproved ) {
 			return true;
@@ -236,13 +243,9 @@ class ApprovedRevsHooks {
 		ApprovedRevs::addCSS();
 
 		// Set the content to blank.
-		// There's possibly a bug in MW 1.28, where the second argument
-		// (called from the hook 'ArticleAfterFetchContentObject') is
-		// sometimes (or always?) a string, instead of a Content object.
-		// We'll just get around it here with a check. (In theory, $content
-		// could also be null, so this check is a good idea anyway.)
-		if ( is_object( $content ) ) {
-			$content->mText = '';
+		if( $content instanceof TextContent ) {
+			$contentClass = get_class( $content );
+			$content = new $contentClass( '' );
 		} else {
 			$content = '';
 		}
