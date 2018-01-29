@@ -270,8 +270,9 @@ class ApprovedRevsHooks {
 	 */
 	static function setOldSubtitle( $article, $revisionID ) {
 		$title = $article->getTitle(); # Added for ApprovedRevs - and removed hook
+		$context = $article->getContext();
 
-		$unhide = $article->getContext()->getRequest()->getInt( 'unhide' ) == 1;
+		$unhide = $context->getRequest()->getInt( 'unhide' ) == 1;
 
 		// Cascade unhide param in links for easy deletion browsing.
 		$extraParams = array();
@@ -290,8 +291,8 @@ class ApprovedRevsHooks {
 		$latestID = $article->getLatest(); // Modified for Approved Revs
 		$current = ( $revisionID == $latestID );
 		$approvedID = ApprovedRevs::getApprovedRevID( $title );
-		$language = $article->getContext()->getLanguage();
-		$user = $article->getContext()->getUser();
+		$language = $context->getLanguage();
+		$user = $context->getUser();
 
 		$td = $language->userTimeAndDate( $timestamp, $user );
 		$tddate = $language->userDate( $timestamp, $user );
@@ -305,10 +306,15 @@ class ApprovedRevsHooks {
 			? 'revision-info-current'
 			: 'revision-info';
 
-		$outputPage = $article->getContext()->getOutput();
-		$outputPage->addSubtitle( "<div id=\"mw-{$infomsg}\">" . wfMessage( $infomsg,
-			$td )->rawParams( $userlinks )->params( $revision->getID(), $tddate,
-			$tdtime, $revision->getUser() )->parse() . "</div>" );
+		$outputPage = $context->getOutput();
+		$revisionInfo = "<div id=\"mw-{$infomsg}\">" .
+			$context->msg( $infomsg, $td )
+				->rawParams( $userlinks )
+				->params( $revision->getId(), $tddate, $tdtime, $revision->getUserText() )
+				->rawParams( Linker::revComment( $revision, true, true ) )
+				->parse() .
+			"</div>";
+		$outputPage->addSubtitle( $revisionInfo );
 
 		// Created for Approved Revs
 		$latestLinkParams = array();
