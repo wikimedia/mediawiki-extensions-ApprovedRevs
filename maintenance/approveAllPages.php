@@ -45,6 +45,10 @@ class ApproveAllPages extends Maintenance {
 
 		$this->mDescription = "Approve the current revision of all pages " .
 			"that do not yet have an approved revision.";
+
+		if ( method_exists( $this, 'requireExtension' ) ) {
+                        $this->requireExtension( 'Approved Revs' );
+                }
 	}
 
 	public function execute() {
