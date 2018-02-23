@@ -5,7 +5,8 @@
 			"MaxSem",
 			"Okras",
 			"Александр Сигачёв",
-			"Facenapalm"
+			"Facenapalm",
+			"Mouse21"
 		]
 	},
 	"approvedrevs-desc": "Установка одной из версий страниц как подтверждённой",
@@ -37,5 +38,11 @@
 	"approvedrevs-viewlatestrev": "Просмотр последней версии.",
 	"approvedrevs-approvedrevision": "Подтверждённая версия",
 	"right-approverevisions": "отметка определённых версий вики-страниц как подтверждённых",
-	"right-viewlinktolatest": "просмотр пояснительного текста в верхней части страниц, имеющих утверждённые версии"
+	"right-viewlinktolatest": "просмотр пояснительного текста в верхней части страниц, имеющих утверждённые версии",
+	"apihelp-approve-description": "Проверка версии посредством подтверждения или неподтверждения её.",
+	"apihelp-approve-summary": "Проверка версии посредством подтверждения или неподтверждения её.",
+	"apihelp-approve-param-revid": "Идентификатор версии, для которого необходимо одобрить.",
+	"apihelp-approve-param-unapprove": "Если задано, версия будет не подтверждена.",
+	"apihelp-approve-example-1": "Утвердить Редакцию 12345",
+	"apihelp-approve-example-2": "Неутвердить Редакцию 12345"
 }
