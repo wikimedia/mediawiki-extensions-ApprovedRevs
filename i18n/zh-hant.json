@@ -5,7 +5,8 @@
 			"Oapbtommy",
 			"LNDDYL",
 			"烈羽",
-			"Wehwei"
+			"Wehwei",
+			"Kly"
 		]
 	},
 	"approvedrevs-desc": "設置單個頁所批准的修訂",
@@ -37,5 +38,11 @@
 	"approvedrevs-viewlatestrev": "檢視最新版本",
 	"approvedrevs-approvedrevision": "已核准版本",
 	"right-approverevisions": "通過wiki頁面的單個修訂",
-	"right-viewlinktolatest": "視圖中的解釋性文本在具有一個已批准的修訂頁面的頂部"
+	"right-viewlinktolatest": "視圖中的解釋性文本在具有一個已批准的修訂頁面的頂部",
+	"apihelp-approve-description": "透過核准或取消核准來檢閱修訂內容。",
+	"apihelp-approve-summary": "透過核准或取消核准來檢閱修訂內容。",
+	"apihelp-approve-param-revid": "可核准的修訂 ID。",
+	"apihelp-approve-param-unapprove": "若設定的話，修訂將會被取消核准而非通過。",
+	"apihelp-approve-example-1": "核准修訂版本 12345",
+	"apihelp-approve-example-2": "取消核准修訂版本 12345"
 }
