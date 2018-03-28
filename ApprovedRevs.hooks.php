@@ -119,7 +119,7 @@ class ApprovedRevsHooks {
 		}
 
 		// Save approval without logging.
-		ApprovedRevs::saveApprovedRevIDInDB( $title, $revision->getID(), 'auto' );
+		ApprovedRevs::saveApprovedRevIDInDB( $title, $revision->getID(), true );
 		return true;
 	}
 
@@ -495,7 +495,7 @@ class ApprovedRevsHooks {
 		}
 
 		if ( ApprovedRevs::checkPermission( $title, "viewapprover" ) ) {
-			$revisionUser = ApprovedRevs::getApprovedRevUser( $title );
+			$revisionUser = ApprovedRevs::getRevApprover( $title );
 			if ( $revisionUser ) {
 				$text .= Xml::openElement( 'span', array( 'class' => 'approvingUser' ) ) .
 					  wfMessage(
@@ -810,7 +810,7 @@ class ApprovedRevsHooks {
 		} else {
 			//if ( $updater->getDB()->getType() == 'mysql' ) {
 				$updater->addExtensionUpdate( array( 'addTable', 'approved_revs', "$dir/ApprovedRevs.sql", true ) );
-				$updater->addExtensionUpdate( array( 'addField', 'approved_revs', 'appr_user', "$dir/patch-appr_user.sql", true ) );
+				$updater->addExtensionUpdate( array( 'addField', 'approved_revs', 'approver_id', "$dir/patch-appr_user.sql", true ) );
 			//}
 		}
 		return true;

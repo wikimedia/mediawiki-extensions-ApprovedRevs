@@ -12,26 +12,24 @@ class ApprovedRevs {
 
 	// Static arrays to prevent querying the database more than necessary.
 	static $mApprovedContentForPage = array();
-	static $mApprovedRevUserForPage = array();
 	static $mApprovedRevIDForPage = array();
+	static $mApproverForPage = array();
 	static $mUserCanApprove = null;
 
 	/**
 	 * Gets the approved revision User for this page, or null if there isn't
 	 * one.
 	 */
-	public static function getApprovedRevUser( $title ) {
+	public static function getRevApprover( $title ) {
 		$pageID = $title->getArticleID();
-		if ( !isset( self::$mApprovedRevUserForPage[$pageID] ) && self::pageIsApprovable( $title ) ) {
+		if ( !isset( self::$mApproverForPage[$pageID] ) && self::pageIsApprovable( $title ) ) {
 			$dbr = wfGetDB( DB_SLAVE );
-			$revUser = $dbr->selectField( 'approved_revs', 'appr_user',
-										  array( 'page_id' => $pageID ) );
-			if ( $revUser ) {
-				$revUser = User::newFromID( $revUser );
-			}
-			self::$mApprovedRevUserForPage[$pageID] = $revUser;
+			$approverID = $dbr->selectField( 'approved_revs', 'approver_id',
+				array( 'page_id' => $pageID ) );
+			$approver = $approverID ? User::newFromID( $approverID ) : null;
+			self::$mApproverForPage[$pageID] = $approver;
 		}
-		return $revUser;
+		return $approver;
 	}
 
 	/**
@@ -226,12 +224,12 @@ class ApprovedRevs {
 		return false;
 	}
 
-	public static function saveApprovedRevIDInDB( $title, $rev_id, $type = 'auto' ) {
+	public static function saveApprovedRevIDInDB( $title, $rev_id, $isAutoApprove = true ) {
 		global $wgUser;
 		$userBit = array();
 
-		if ( $type !== 'auto' ) {
-			$userBit = array( 'appr_user' => $wgUser->getID() );
+		if ( !$isAutoApprove ) {
+			$userBit = array( 'approver_id' => $wgUser->getID() );
 		}
 
 		$dbr = wfGetDB( DB_MASTER );
@@ -239,15 +237,15 @@ class ApprovedRevs {
 		$old_rev_id = $dbr->selectField( 'approved_revs', 'rev_id', array( 'page_id' => $page_id ) );
 		if ( $old_rev_id ) {
 			$dbr->update( 'approved_revs',
-						  array_merge( array( 'rev_id' => $rev_id ), $userBit ),
-						  array( 'page_id' => $page_id ) );
+				array_merge( array( 'rev_id' => $rev_id ), $userBit ),
+				array( 'page_id' => $page_id ) );
 		} else {
 			$dbr->insert( 'approved_revs',
-						  array_merge( array( 'page_id' => $page_id, 'rev_id' => $rev_id ), $userBit ) );
+				array_merge( array( 'page_id' => $page_id, 'rev_id' => $rev_id ), $userBit ) );
 		}
 		// Update "cache" in memory
 		self::$mApprovedRevIDForPage[$page_id] = $rev_id;
-		self::$mApprovedRevUserForPage[$page_id] = $wgUser;
+		self::$mApproverForPage[$page_id] = $wgUser;
 	}
 
 	static function setPageSearchText( $title, $text ) {
@@ -261,7 +259,7 @@ class ApprovedRevs {
 	 * info for extensions such as Semantic MediaWiki; and logs the action.
 	 */
 	public static function setApprovedRevID( $title, $rev_id, $is_latest = false ) {
-		self::saveApprovedRevIDInDB( $title, $rev_id, 'manual' );
+		self::saveApprovedRevIDInDB( $title, $rev_id, false );
 		$parser = new Parser();
 
 		// If the revision being approved is definitely the latest
