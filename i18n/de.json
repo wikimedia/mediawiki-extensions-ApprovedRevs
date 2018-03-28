@@ -11,6 +11,7 @@
 	"approvedrevs-logname": "Versionsbestätigungs-Logbuch",
 	"approvedrevs-logdesc": "In diesem Logbuch werden die Versionsbestätigungen von Seiten protokolliert.",
 	"approvedrevs-approve": "bestätigen",
+	"approvedrevs-approver": "Diese Version wurde von $1 bestätigt.",
 	"approvedrevs-unapprove": "ablehnen",
 	"approvedrevs-approvesuccess": "Diese Version der Seite wurde als bestätigte Version festgelegt.",
 	"approvedrevs-unapprovesuccess": "Nunmehr gibt es keine bestätigte Version dieser Seite.\nStattdessen wird die neueste Version angezeigt.",

@@ -10,6 +10,7 @@
 	"approvedrevs-logname": "יומן אישור גרסאות",
 	"approvedrevs-logdesc": "זהו יומן של גרסאות שאושרו.",
 	"approvedrevs-approve": "לאשר",
+	"approvedrevs-approver": "גרסה זו אושרה על־ידי $1.",
 	"approvedrevs-unapprove": "לבטל אישור",
 	"approvedrevs-approvesuccess": "הגרסה הזאת של הדף הוגדרה כגרסה מאושרת.",
 	"approvedrevs-unapprovesuccess": "אין עוד גרסה מאושרת לדף זה.\nבמקום זאת תוצג הגרסה העדכנית ביותר.",
