@@ -810,7 +810,7 @@ class ApprovedRevsHooks {
 		} else {
 			//if ( $updater->getDB()->getType() == 'mysql' ) {
 				$updater->addExtensionUpdate( array( 'addTable', 'approved_revs', "$dir/ApprovedRevs.sql", true ) );
-				$updater->addExtensionUpdate( array( 'addField', 'approved_revs', 'approver_id', "$dir/patch-appr_user.sql", true ) );
+				$updater->addExtensionUpdate( array( 'addField', 'approved_revs', 'approver_id', "$dir/patch-approver_id.sql", true ) );
 			//}
 		}
 		return true;
