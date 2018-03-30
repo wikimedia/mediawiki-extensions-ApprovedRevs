@@ -8,6 +8,7 @@
 	"approvedrevs-logname": "Дневник на одобрени преработки",
 	"approvedrevs-logdesc": "Ова е дневникот на одобрени преработки.",
 	"approvedrevs-approve": "одобри",
+	"approvedrevs-approver": "Оваа преработка е одобрена од $1.",
 	"approvedrevs-unapprove": "неодобрена",
 	"approvedrevs-approvesuccess": "Оваа преработка на страницата е поставена како одобрена.",
 	"approvedrevs-unapprovesuccess": "Оваа страница повеќе нема одобрена верзија.\nНаместо тоа ќе се прикажува најновата верзија.",

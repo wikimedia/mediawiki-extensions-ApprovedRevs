@@ -11,6 +11,7 @@
 	"approvedrevs-logname": "Журнал зацьверджаньня вэрсіяў",
 	"approvedrevs-logdesc": "Гэта журнал зацьверджаных вэрсіяў.",
 	"approvedrevs-approve": "зацьвердзіць",
+	"approvedrevs-approver": "Гэтая вэрсія была зацьверджаная $1.",
 	"approvedrevs-unapprove": "адхіліць",
 	"approvedrevs-approvesuccess": "Гэтая вэрсія старонкі была зацьверджаная.",
 	"approvedrevs-unapprovesuccess": "Болей не існуе зацьверджанай вэрсіі гэтай старонкі.\nЗамест яе будзе паказаная апошняя вэрсія.",

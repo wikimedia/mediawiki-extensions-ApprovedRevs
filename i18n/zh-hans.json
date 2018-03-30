@@ -14,6 +14,7 @@
 	"approvedrevs-logname": "版本认可日志",
 	"approvedrevs-logdesc": "这是已经被认可的版本的日志。",
 	"approvedrevs-approve": "认可",
+	"approvedrevs-approver": "此修订版本已由$1通过。",
 	"approvedrevs-unapprove": "不认可",
 	"approvedrevs-approvesuccess": "本页面的该版本已经被设为已认可版本。",
 	"approvedrevs-unapprovesuccess": "此页面不再有一个认可的版本。相反，将显示最新的修订版本。",

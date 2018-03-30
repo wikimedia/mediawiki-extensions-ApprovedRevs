@@ -14,6 +14,7 @@
 	"approvedrevs-logname": "Godkänningslogg för versioner",
 	"approvedrevs-logdesc": "Detta är loggen över versioner som har godkänts.",
 	"approvedrevs-approve": "godkänn",
+	"approvedrevs-approver": "Denna sidversion godkändes av $1.",
 	"approvedrevs-unapprove": "godkänn ej",
 	"approvedrevs-approvesuccess": "Denna version av sidan har ställts in som den godkända versionen.",
 	"approvedrevs-unapprovesuccess": "Det finns inte längre en godkänd version för den här sidan. \nIstället kommer den senaste versionen att visas.",

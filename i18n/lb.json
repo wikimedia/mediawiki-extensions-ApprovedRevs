@@ -10,6 +10,7 @@
 	"approvedrevs-logname": "Logbuch vun den nogekuckte Säiten déi fräigi sinn",
 	"approvedrevs-logdesc": "Dëst ass d'Logbuch vun de Versiounen déi nogekuckt sinn.",
 	"approvedrevs-approve": "zoustëmmen",
+	"approvedrevs-approver": "Dës Versioun gouf vum $1 approuvéiert.",
 	"approvedrevs-unapprove": "Zoustëmmung zréckzéien",
 	"approvedrevs-approvesuccess": "Dës Versioun vun der Säit gouf als nogekuckte Versioun fräiginn.",
 	"approvedrevs-unapprovesuccess": "Et gëtt vun dëser Säit  keng nogekuckte Versioun méi.\nDofir gëtt déi rezentst Versioun gewisen.",

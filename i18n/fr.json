@@ -12,6 +12,7 @@
 	"approvedrevs-logname": "Journal des approbations de révisions",
 	"approvedrevs-logdesc": "Ceci est le journal des révisions qui ont été marquées comme approuvées.",
 	"approvedrevs-approve": "approuver",
+	"approvedrevs-approver": "Cette révision a été approuvée par $1.",
 	"approvedrevs-unapprove": "désapprouver",
 	"approvedrevs-approvesuccess": "Cette révision de la page a été marquée comme étant la version approuvée.",
 	"approvedrevs-unapprovesuccess": "Il n’y a plus de version approuvée de cette page.\nÀ la place, la révision la plus récente sera affichée.",

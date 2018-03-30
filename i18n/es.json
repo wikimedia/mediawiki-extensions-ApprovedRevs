@@ -25,6 +25,7 @@
 	"approvedrevs-logname": "Registro de revisiones aprobadas",
 	"approvedrevs-logdesc": "Este es el registro de las revisiones que han sido aprobadas.",
 	"approvedrevs-approve": "aprobar",
+	"approvedrevs-approver": "$1 aprobó esta revisión.",
 	"approvedrevs-unapprove": "desaprobar",
 	"approvedrevs-approvesuccess": "Esta revisión de la página ha sido establecida como la versión aprobada.",
 	"approvedrevs-unapprovesuccess": "Ya no hay una versión aprobada para esta página.\nEn su lugar, se mostrará la revisión más reciente.",
