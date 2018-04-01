@@ -11,6 +11,7 @@
 	"approvedrevs-logname": "Rejestr zatwierdzonych wersji",
 	"approvedrevs-logdesc": "To jest rejestr wersji, które zostały zatwierdzone.",
 	"approvedrevs-approve": "zatwierdź",
+	"approvedrevs-approver": "Ta wersja została zatwierdzona przez $1.",
 	"approvedrevs-unapprove": "cofnij zatwierdzenie",
 	"approvedrevs-approvesuccess": "Ta wersja strony została zatwierdzona.",
 	"approvedrevs-unapprovesuccess": "Dla tej strony brak jest wersji zatwierdzonej.\nW zamian prezentowana będzie ostatnia wersja.",
