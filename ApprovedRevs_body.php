@@ -158,11 +158,11 @@ class ApprovedRevs {
 		return $isApprovable;
 	}
 
-	public static function checkPermission( $user, $title, $permission ) {
+	public static function checkPermission( User $user, Title $title, $permission ) {
 		return ( $title->userCan( $permission ) || $user->isAllowed( $permission ) );
 	}
 
-	public static function userCanApprove( $user, $title ) {
+	public static function userCanApprove( User $user, Title $title ) {
 		global $egApprovedRevsSelfOwnedNamespaces;
 		$permission = 'approverevisions';
 

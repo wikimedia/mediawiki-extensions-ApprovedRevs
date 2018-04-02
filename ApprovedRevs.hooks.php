@@ -16,7 +16,7 @@ class ApprovedRevsHooks {
 
 	static $mNoSaveOccurring = false;
 
-	static public function userRevsApprovedAutomatically( $user, $title ) {
+	static public function userRevsApprovedAutomatically( User $user, Title $title ) {
 		global $egApprovedRevsAutomaticApprovals;
 		return ( ApprovedRevs::userCanApprove( $user, $title ) && $egApprovedRevsAutomaticApprovals );
 	}
@@ -56,7 +56,8 @@ class ApprovedRevsHooks {
 		}
 		// If this user's revisions get approved automatically, exit
 		// now, because this will be the approved revision anyway.
-		$user = $wikiPage->getUser();
+		$userID = $wikiPage->getUser();
+		$user = User::newFromId( $userID );
 		if ( self::userRevsApprovedAutomatically( $user, $title ) ) {
 			return true;
 		}
@@ -507,11 +508,11 @@ class ApprovedRevsHooks {
 			$revisionUser = ApprovedRevs::getRevApprover( $title );
 			if ( $revisionUser ) {
 				$text .= Xml::openElement( 'span', array( 'class' => 'approvingUser' ) ) .
-					  wfMessage(
+					wfMessage(
 						  'approvedrevs-approver',
 						  Linker::userLink( $revisionUser->getId(), $revisionUser->getName() )
-					  )->parse() .
-					  Xml::closeElement( 'span' );
+					)->text() .
+					Xml::closeElement( 'span' );
 			}
 		}
 
@@ -520,7 +521,7 @@ class ApprovedRevsHooks {
 			if ( $out->getSubtitle() != '' ) {
 				$out->addSubtitle( '<br />' . $text );
 			} else {
-				$iut->setSubtitle( $text );
+				$out->setSubtitle( $text );
 			}
 		}
 
@@ -665,7 +666,7 @@ class ApprovedRevsHooks {
 	}
 
 	/**
-	 * Handle the 'approve' action, defined for ApprovedRevs -
+	 * Handle the 'approve' action, defined for Approved Revs -
 	 * mark the revision as approved, log it, and show a message to
 	 * the user.
 	 */
