@@ -16,13 +16,13 @@ class SpecialApprovedRevs extends SpecialPage {
 	}
 
 	function execute( $query ) {
-		global $wgRequest;
+		$request = $this->getRequest();
 
 		ApprovedRevs::addCSS();
 		$this->setHeaders();
-		list( $limit, $offset ) = $this->getRequest()->getLimitOffset();
+		list( $limit, $offset ) = $request->getLimitOffset();
 
-		$mode = $wgRequest->getVal( 'show' );
+		$mode = $request->getVal( 'show' );
 		$rep = new SpecialApprovedRevsPage( $mode );
 
 		if ( method_exists( $rep, 'execute' ) ) {

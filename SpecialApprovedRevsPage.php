@@ -241,6 +241,11 @@ class SpecialApprovedRevsPage extends QueryPage {
 		if( !ApprovedRevs::pageIsApprovable( $title ) && $this->mMode !== 'invalid' ) {
 			return false;
 		}
+          
+		$context = $skin->getContext();
+		$user = $context->getUser();
+		$out = $context->getOutput();
+		$lang = $context->getLanguage();
 
 		if ( method_exists( $this, 'getLinkRenderer' ) ) {
 			$linkRenderer = $this->getLinkRenderer();
@@ -259,8 +264,6 @@ class SpecialApprovedRevsPage extends QueryPage {
 		}
 
 		if ( $this->mMode == 'all' ) {
-			global $wgOut, $wgLang;
-
 			$additionalInfo = Xml::element( 'span',
 				array (
 					'class' => $result->rev_id == $result->latest_id ? 'approvedRevIsLatest' : 'approvedRevNotLatest'
@@ -270,16 +273,16 @@ class SpecialApprovedRevsPage extends QueryPage {
 
 			// Get data on the most recent approval from the
 			// 'approval' log, and display it if it's there.
-			$loglist = new LogEventsList( $wgOut->getSkin(), $wgOut );
+			$loglist = new LogEventsList( $out->getSkin(), $out );
 			$pager = new LogPager( $loglist, 'approval', '', $title->getText() );
 			$pager->mLimit = 1;
 			$pager->doQuery();
 			$row = $pager->mResult->fetchObject();
 
 			if ( !empty( $row ) ) {
-				$timestamp = $wgLang->timeanddate( wfTimestamp( TS_MW, $row->log_timestamp ), true );
-				$date = $wgLang->date( wfTimestamp( TS_MW, $row->log_timestamp ), true );
-				$time = $wgLang->time( wfTimestamp( TS_MW, $row->log_timestamp ), true );
+				$timestamp = $lang->timeanddate( wfTimestamp( TS_MW, $row->log_timestamp ), true );
+				$date = $lang->date( wfTimestamp( TS_MW, $row->log_timestamp ), true );
+				$time = $lang->time( wfTimestamp( TS_MW, $row->log_timestamp ), true );
 				$userLink = Linker::userLink( $row->log_user, $row->user_name );
 				$additionalInfo .= ', ' . wfMessage(
 					'approvedrevs-approvedby',
@@ -297,7 +300,7 @@ class SpecialApprovedRevsPage extends QueryPage {
 
 			$line = $pageLink;
 			if ( $egApprovedRevsShowApproveLatest &&
-				 ApprovedRevs::checkPermission( $title, 'approverevisions' ) ) {
+				ApprovedRevs::checkPermission( $user, $title, 'approverevisions' ) ) {
 				$line .= ' (' . Xml::element( 'a',
 					array( 'href' => $title->getLocalUrl(
 						array(

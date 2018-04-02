@@ -94,17 +94,16 @@ class ApprovedRevs {
 	 * a page via the simple URL for it - not specfying a version number,
 	 * not editing the page, etc.
 	 */
-	public static function isDefaultPageRequest() {
-		global $wgRequest;
-		if ( $wgRequest->getCheck( 'oldid' ) ) {
+	public static function isDefaultPageRequest( $request ) {
+		if ( $request->getCheck( 'oldid' ) ) {
 			return false;
 		}
-		// check if it's an action other than viewing
-		global $wgRequest;
-		if ( $wgRequest->getCheck( 'action' ) &&
-			$wgRequest->getVal( 'action' ) != 'view' &&
-			$wgRequest->getVal( 'action' ) != 'purge' &&
-			$wgRequest->getVal( 'action' ) != 'render' ) {
+		// Check if it's an action other than viewing.
+		global $request;
+		if ( $request->getCheck( 'action' ) &&
+			$request->getVal( 'action' ) != 'view' &&
+			$request->getVal( 'action' ) != 'purge' &&
+			$request->getVal( 'action' ) != 'render' ) {
 				return false;
 		}
 		return true;
@@ -159,18 +158,12 @@ class ApprovedRevs {
 		return $isApprovable;
 	}
 
-	public static function checkPermission( $title, $permission ) {
-		global $wgUser;
-
-		if ( ! $title->userCan( $permission )
-			 && ! $wgUser->isAllowed( $permission ) ) {
-			return false;
-		}
-		return true;
+	public static function checkPermission( $user, $title, $permission ) {
+		return ( $title->userCan( $permission ) || $user->isAllowed( $permission ) );
 	}
 
-	public static function userCanApprove( $title ) {
-		global $egApprovedRevsSelfOwnedNamespaces, $wgUser;
+	public static function userCanApprove( $user, $title ) {
+		global $egApprovedRevsSelfOwnedNamespaces;
 		$permission = 'approverevisions';
 
 		// $mUserCanApprove is a static variable used for
@@ -180,7 +173,7 @@ class ApprovedRevs {
 			return true;
 		} elseif ( self::$mUserCanApprove === false ) {
 			return false;
-		} elseif ( ApprovedRevs::checkPermission( $title, $permission ) ) {
+		} elseif ( ApprovedRevs::checkPermission( $user, $title, $permission ) ) {
 			self::$mUserCanApprove = true;
 			return true;
 		} else {
@@ -195,7 +188,7 @@ class ApprovedRevs {
 					// If the page is in the 'User:'
 					// namespace, this user can approve
 					// revisions if it's their user page.
-					if ( $title->getText() == $wgUser->getName() ) {
+					if ( $title->getText() == $user->getName() ) {
 						self::$mUserCanApprove = true;
 						return true;
 					}
@@ -213,7 +206,7 @@ class ApprovedRevs {
 						array( 'ORDER BY' => 'r.rev_id ASC' ),
 						array( 'revision' => array( 'JOIN', 'r.rev_page = p.page_id' ) )
 					);
-					if ( $row->rev_user_text == $wgUser->getName() ) {
+					if ( $row->rev_user_text == $user->getName() ) {
 						self::$mUserCanApprove = true;
 						return true;
 					}
