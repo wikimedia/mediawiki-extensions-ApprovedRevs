@@ -50,16 +50,14 @@ class ApprovedRevsHooks {
 	 * if there is one.
 	 */
 	static public function updateLinksAfterEdit( WikiPage &$wikiPage, &$editInfo, $changed ) {
-		global $wgUser;
-
 		$title = $wikiPage->getTitle();
 		if ( ! ApprovedRevs::pageIsApprovable( $title ) ) {
 			return true;
 		}
-		// If this user's revisions get approved automatically,
-		// exit now, because this will be the approved
-		// revision anyway.
-		if ( self::userRevsApprovedAutomatically( $wgUser, $title ) ) {
+		// If this user's revisions get approved automatically, exit
+		// now, because this will be the approved revision anyway.
+		$user = $wikiPage->getUser();
+		if ( self::userRevsApprovedAutomatically( $user, $title ) ) {
 			return true;
 		}
 		$text = '';
