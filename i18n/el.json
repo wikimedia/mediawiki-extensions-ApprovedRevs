@@ -4,13 +4,15 @@
 			"Aral",
 			"Glavkos",
 			"Περίεργος",
-			"Protnet"
+			"Protnet",
+			"Nikosgranturismogt"
 		]
 	},
 	"approvedrevs-desc": "Καθορίζει μια ενιαία αναθεώρηση μιας σελίδας όπως έχει εγκριθεί",
 	"approvedrevs-logname": "Ημερολόγιο καταγραφής της αποδοχής των αναθεωρήσεων",
 	"approvedrevs-logdesc": "Αυτό είναι το ημερολόγιο των αναθεωρήσεων που έχουν εγκριθεί.",
 	"approvedrevs-approve": "έγκριση",
+	"approvedrevs-approver": "Η αναθεώρηση εγκρίθηκε από τον $1.",
 	"approvedrevs-unapprove": "μη έγκριση",
 	"approvedrevs-approvesuccess": "Αυτή η αναθεώρηση της σελίδας έχει οριστεί ως η εγκεκριμένη έκδοση.",
 	"approvedrevs-unapprovesuccess": "Δεν υπάρχει πλέον μια εγκεκριμένη έκδοση για αυτή τη σελίδα.\nΣε αντικατάσταση, θα εμφανιστεί η πιο πρόσφατη αναθεώρηση.",

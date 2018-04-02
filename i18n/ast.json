@@ -8,6 +8,7 @@
 	"approvedrevs-logname": "Rexistru d'aprobación de revisiones",
 	"approvedrevs-logdesc": "Esti ye'l rexistru de les revisiones que s'aprobaron.",
 	"approvedrevs-approve": "aprobar",
+	"approvedrevs-approver": "$1 aprobó esta revisión.",
 	"approvedrevs-unapprove": "desaprobar",
 	"approvedrevs-approvesuccess": "Esta revisión de la páxina ye la versión aprobada.",
 	"approvedrevs-unapprovesuccess": "Yá nun hai una versión aprobada d'esta páxina.\nNel so llugar, s'amosará la revisión más nueva.",

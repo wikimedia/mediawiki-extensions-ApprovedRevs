@@ -3,13 +3,15 @@
 		"authors": [
 			"Priviet",
 			"아라",
-			"Keysuck"
+			"Keysuck",
+			"Ykhwong"
 		]
 	},
 	"approvedrevs-desc": "승인한 문서의 판 하나를 설정합니다",
 	"approvedrevs-logname": "판 승인 기록",
 	"approvedrevs-logdesc": "판을 승인한 기록입니다.",
 	"approvedrevs-approve": "승인",
+	"approvedrevs-approver": "이 판은 $1님이 승인하였습니다.",
 	"approvedrevs-unapprove": "미승인",
 	"approvedrevs-approvesuccess": "이 판을 승인한 판으로 설정했습니다.",
 	"approvedrevs-unapprovesuccess": "더 이상 이 문서에 대해 승인한 판이 없습니다.\n대신에 최신 판이 보입니다.",
