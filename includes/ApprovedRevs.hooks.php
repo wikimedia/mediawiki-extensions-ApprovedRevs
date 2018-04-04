@@ -825,12 +825,12 @@ class ApprovedRevsHooks {
 		if ( $updater === null ) {
 			global $wgExtNewTables, $wgDBtype;
 			//if ( $wgDBtype == 'mysql' ) {
-				$wgExtNewTables[] = array( 'approved_revs', "$dir/ApprovedRevs.sql" );
+				$wgExtNewTables[] = array( 'approved_revs', "$dir/../sql/ApprovedRevs.sql" );
 			//}
 		} else {
 			//if ( $updater->getDB()->getType() == 'mysql' ) {
-				$updater->addExtensionUpdate( array( 'addTable', 'approved_revs', "$dir/ApprovedRevs.sql", true ) );
-				$updater->addExtensionUpdate( array( 'addField', 'approved_revs', 'approver_id', "$dir/patch-approver_id.sql", true ) );
+				$updater->addExtensionUpdate( array( 'addTable', 'approved_revs', "$dir/../sql/ApprovedRevs.sql", true ) );
+				$updater->addExtensionUpdate( array( 'addField', 'approved_revs', 'approver_id', "$dir/../sql/patch-approver_id.sql", true ) );
 			//}
 		}
 		return true;

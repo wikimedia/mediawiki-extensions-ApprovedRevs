@@ -52,19 +52,19 @@
 		]
 	},
 	"ExtensionMessagesFiles": {
-		"ApprovedRevsAlias": "ApprovedRevs.alias.php",
-		"ApprovedRevsMagic": "ApprovedRevs.i18n.magic.php"
+		"ApprovedRevsAlias": "includes/ApprovedRevs.alias.php",
+		"ApprovedRevsMagic": "includes/ApprovedRevs.i18n.magic.php"
 	},
 	"AutoloadClasses": {
-		"ApprovedRevs": "ApprovedRevs_body.php",
-		"ApprovedRevsHooks": "ApprovedRevs.hooks.php",
-		"SpecialApprovedRevs": "SpecialApprovedRevs.php",
-		"SpecialApprovedRevsPage": "SpecialApprovedRevsPage.php",
-		"ApiApprove": "ApiApprove.php"
+		"ApprovedRevs": "includes/ApprovedRevs_body.php",
+		"ApprovedRevsHooks": "includes/ApprovedRevs.hooks.php",
+		"SpecialApprovedRevs": "includes/SpecialApprovedRevs.php",
+		"SpecialApprovedRevsPage": "includes/SpecialApprovedRevsPage.php",
+		"ApiApprove": "includes/ApiApprove.php"
 	},
 	"ResourceModules": {
 		"ext.ApprovedRevs": {
-			"styles": "ApprovedRevs.css"
+			"styles": "resources/ApprovedRevs.css"
 		}
 	},
 	"ResourceFileModulePaths": {
