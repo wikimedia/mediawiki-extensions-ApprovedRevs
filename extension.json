@@ -94,11 +94,8 @@
 		"DisplayOldSubtitle": [
 			"ApprovedRevsHooks::setSubtitle"
 		],
-		"SkinTemplateTabs": [
-			"ApprovedRevsHooks::changeEditLink"
-		],
 		"SkinTemplateNavigation": [
-			"ApprovedRevsHooks::changeEditLinkVector"
+			"ApprovedRevsHooks::changeEditLink"
 		],
 		"PageHistoryBeforeList": [
 			"ApprovedRevsHooks::storeApprovedRevisionForHistoryPage"

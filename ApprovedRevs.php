@@ -67,10 +67,7 @@ $wgHooks['PersonalUrls'][] = 'ApprovedRevsHooks::removeRobotsTag';
 $wgHooks['ArticleFromTitle'][] = 'ApprovedRevsHooks::showApprovedRevision';
 $wgHooks['ArticleAfterFetchContentObject'][] = 'ApprovedRevsHooks::showBlankIfUnapproved';
 $wgHooks['DisplayOldSubtitle'][] = 'ApprovedRevsHooks::setSubtitle';
-// it's 'SkinTemplateNavigation' for the Vector skin, 'SkinTemplateTabs' for
-// most other skins
-$wgHooks['SkinTemplateTabs'][] = 'ApprovedRevsHooks::changeEditLink';
-$wgHooks['SkinTemplateNavigation'][] = 'ApprovedRevsHooks::changeEditLinkVector';
+$wgHooks['SkinTemplateNavigation'][] = 'ApprovedRevsHooks::changeEditLink';
 $wgHooks['PageHistoryBeforeList'][] = 'ApprovedRevsHooks::storeApprovedRevisionForHistoryPage';
 $wgHooks['PageHistoryLineEnding'][] = 'ApprovedRevsHooks::addApprovalLink';
 $wgHooks['UnknownAction'][] = 'ApprovedRevsHooks::setAsApproved';

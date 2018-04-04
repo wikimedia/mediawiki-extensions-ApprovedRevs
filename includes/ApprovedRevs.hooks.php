@@ -576,19 +576,20 @@ class ApprovedRevsHooks {
 	 * 'action=edit' URL (i.e., the latest revision), no matter which
 	 * revision they're actually on.
 	 */
-	static function changeEditLink( $skin, &$contentActions ) {
-		$context = $skin->getContext();
+	static function changeEditLink( SkinTemplate &$skinTemplate, &$links ) {
+		$context = $skinTemplate->getContext();
 		$request = $context->getRequest();
 
 		if ( $request->getCheck( 'oldid' ) ) {
 			return true;
 		}
 
-		$title = $skin->getTitle();
+		$title = $skinTemplate->getTitle();
 		if ( ApprovedRevs::hasApprovedRevision( $title ) ) {
-			// the URL is the same regardless of whether the tab
+			$contentActions = &$links['views'];
+			// The URL is the same regardless of whether the tab
 			// is 'edit' or 'view source', but the "action" is
-			// different
+			// different.
 			if ( array_key_exists( 'edit', $contentActions ) ) {
 				$contentActions['edit']['href'] = $title->getLocalUrl( array( 'action' => 'edit' ) );
 			}
@@ -596,17 +597,6 @@ class ApprovedRevsHooks {
 				$contentActions['viewsource']['href'] = $title->getLocalUrl( array( 'action' => 'edit' ) );
 			}
 		}
-		return true;
-	}
-
-	/**
-	 * Same as changedEditLink(), but only for the Vector skin (and
-	 * related skins).
-	 */
-	static function changeEditLinkVector( &$skin, &$links ) {
-		// the old '$content_actions' array is thankfully just a
-		// sub-array of this one
-		self::changeEditLink( $skin, $links['views'] );
 		return true;
 	}
 
