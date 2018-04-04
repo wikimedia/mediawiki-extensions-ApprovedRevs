@@ -108,7 +108,6 @@ $wgResourceModules['ext.ApprovedRevs'] = array(
 	'styles' => 'resources/ApprovedRevs.css',
 	'localBasePath' => __DIR__,
 	'remoteExtPath' => 'ApprovedRevs',
-	'position' => 'bottom'
 );
 
 // API action modules
