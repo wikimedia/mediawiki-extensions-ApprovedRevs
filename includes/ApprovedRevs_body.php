@@ -99,7 +99,6 @@ class ApprovedRevs {
 			return false;
 		}
 		// Check if it's an action other than viewing.
-		global $request;
 		if ( $request->getCheck( 'action' ) &&
 			$request->getVal( 'action' ) != 'view' &&
 			$request->getVal( 'action' ) != 'purge' &&
