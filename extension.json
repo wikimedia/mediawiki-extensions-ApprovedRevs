@@ -60,7 +60,9 @@
 		"ApprovedRevsHooks": "includes/ApprovedRevs.hooks.php",
 		"SpecialApprovedRevs": "includes/SpecialApprovedRevs.php",
 		"SpecialApprovedRevsPage": "includes/SpecialApprovedRevsPage.php",
-		"ApiApprove": "includes/ApiApprove.php"
+		"ApiApprove": "includes/ApiApprove.php",
+		"ARApproveAction": "includes/AR_ApproveAction.php",
+		"ARUnapproveAction": "includes/AR_UnapproveAction.php"
 	},
 	"ResourceModules": {
 		"ext.ApprovedRevs": {
@@ -70,6 +72,10 @@
 	"ResourceFileModulePaths": {
 		"localBasePath": "",
 		"remoteExtPath": "ApprovedRevs"
+	},
+	"Actions": {
+		"approve": "ARApproveAction",
+		"unapprove": "ARUnapproveAction"
 	},
 	"Hooks": {
 		"ArticleEditUpdates": [
@@ -102,10 +108,6 @@
 		],
 		"PageHistoryLineEnding": [
 			"ApprovedRevsHooks::addApprovalLink"
-		],
-		"UnknownAction": [
-			"ApprovedRevsHooks::setAsApproved",
-			"ApprovedRevsHooks::unsetAsApproved"
 		],
 		"BeforeParserFetchTemplateAndtitle": [
 			"ApprovedRevsHooks::setTranscludedPageRev"

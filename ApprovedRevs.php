@@ -57,6 +57,12 @@ $wgSpecialPages['ApprovedRevs'] = 'SpecialApprovedRevs';
 $wgAutoloadClasses['SpecialApprovedRevs'] = $egApprovedRevsIP . 'includes/SpecialApprovedRevs.php';
 $wgAutoloadClasses['SpecialApprovedRevsPage'] = $egApprovedRevsIP . 'includes/SpecialApprovedRevsPage.php';
 $wgAutoloadClasses['ApiApprove'] = $egApprovedRevsIP . 'includes/ApiApprove.php';
+$wgAutoloadClasses['ARApproveAction'] = $egApprovedRevsIP . 'includes/AR_ApproveAction.php';
+$wgAutoloadClasses['ARUnapproveAction'] = $egApprovedRevsIP . 'includes/AR_UnapproveAction.php';
+
+// actions
+$wgActions['approve'] = 'ARApproveAction';
+$wgActions['unapprove'] = 'ARUnapproveAction';
 
 // hooks
 $wgHooks['ArticleEditUpdates'][] = 'ApprovedRevsHooks::updateLinksAfterEdit';
@@ -70,8 +76,6 @@ $wgHooks['DisplayOldSubtitle'][] = 'ApprovedRevsHooks::setSubtitle';
 $wgHooks['SkinTemplateNavigation'][] = 'ApprovedRevsHooks::changeEditLink';
 $wgHooks['PageHistoryBeforeList'][] = 'ApprovedRevsHooks::storeApprovedRevisionForHistoryPage';
 $wgHooks['PageHistoryLineEnding'][] = 'ApprovedRevsHooks::addApprovalLink';
-$wgHooks['UnknownAction'][] = 'ApprovedRevsHooks::setAsApproved';
-$wgHooks['UnknownAction'][] = 'ApprovedRevsHooks::unsetAsApproved';
 $wgHooks['BeforeParserFetchTemplateAndtitle'][] = 'ApprovedRevsHooks::setTranscludedPageRev';
 $wgHooks['ArticleDeleteComplete'][] = 'ApprovedRevsHooks::deleteRevisionApproval';
 $wgHooks['MagicWordwgVariableIDs'][] = 'ApprovedRevsHooks::addMagicWordVariableIDs';
