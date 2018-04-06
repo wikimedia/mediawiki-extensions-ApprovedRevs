@@ -158,7 +158,7 @@ class ApprovedRevs {
 	}
 
 	public static function checkPermission( User $user, Title $title, $permission ) {
-		return ( $title->userCan( $permission ) || $user->isAllowed( $permission ) );
+		return ( $title->userCan( $permission, $user ) || $user->isAllowed( $permission ) );
 	}
 
 	public static function userCanApprove( User $user, Title $title ) {
