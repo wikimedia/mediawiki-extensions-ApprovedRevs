@@ -6,13 +6,15 @@
 			"Okras",
 			"Александр Сигачёв",
 			"Facenapalm",
-			"Mouse21"
+			"Mouse21",
+			"Happy13241"
 		]
 	},
 	"approvedrevs-desc": "Установка одной из версий страниц как подтверждённой",
 	"approvedrevs-logname": "Журнал подтверждения версий",
 	"approvedrevs-logdesc": "Это журнал версий страниц, которые были подтверждены.",
 	"approvedrevs-approve": "подтвердить",
+	"approvedrevs-approver": "Этот пересмотр был одобрен на $1.",
 	"approvedrevs-unapprove": "снять подтверждение",
 	"approvedrevs-approvesuccess": "Это версия страницы была отмечена как подтверждённая.",
 	"approvedrevs-unapprovesuccess": "Не существует подтверждённой версии этой страницы.\nВместо неё будет показана последняя версия.",
