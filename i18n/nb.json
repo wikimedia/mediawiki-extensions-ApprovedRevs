@@ -4,13 +4,15 @@
 			"Cocu",
 			"Nghtwlkr",
 			"Jeblad",
-			"Jon Harald Søby"
+			"Jon Harald Søby",
+			"Imre Eilertsen"
 		]
 	},
 	"approvedrevs-desc": "Sett en enkelt revisjon av en side som godkjent",
 	"approvedrevs-logname": "Godkjenningslogg for revisjoner",
 	"approvedrevs-logdesc": "Dette er loggen over revisjoner som har blitt godkjent.",
 	"approvedrevs-approve": "godkjenn",
+	"approvedrevs-approver": "Denne versjonen ble godkjent av $1.",
 	"approvedrevs-unapprove": "ikke godkjenn",
 	"approvedrevs-approvesuccess": "Denne revisjonen av siden har blitt satt som den godkjente versjonen.",
 	"approvedrevs-unapprovesuccess": "Det er ikke lenger en godkjent versjon av denne siden.\nI stedet vil den nyeste revisjonen bli vist.",
