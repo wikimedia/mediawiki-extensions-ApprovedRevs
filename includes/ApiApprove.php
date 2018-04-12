@@ -63,8 +63,7 @@ class ApiApprove extends ApiBase {
 		return array(
 			'revid' => array(
 				ApiBase::PARAM_REQUIRED => true,
-				ApiBase::PARAM_TYPE => 'integer',
-				ApiBase::PARAM_RANGE_ENFORCE => false
+				ApiBase::PARAM_TYPE => 'integer'
 			),
 			'unapprove' => array(
 				ApiBase::PARAM_REQUIRED => false,
