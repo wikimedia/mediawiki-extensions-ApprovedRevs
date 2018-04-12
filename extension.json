@@ -1,7 +1,7 @@
 {
 	"@Note": "When updating this file please also update ApprovedRevs.php with the same changes.",
 	"name": "Approved Revs",
-	"version": "0.8-alpha",
+	"version": "0.8",
 	"author": [
 		"Yaron Koren",
 		"..."
