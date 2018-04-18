@@ -559,6 +559,10 @@ class ApprovedRevsHooks {
 	 * 'edit with form' tab.
 	 */
 	public static function addWarningToPFForm( &$title, &$preFormHTML ) {
+		if ( $title == null || ! $title->exists() ) {
+			return true;
+		}
+
 		$approvedRevID = ApprovedRevs::getApprovedRevID( $title );
 		$latestRevID = $title->getLatestRevID();
 		if ( ! empty( $approvedRevID ) && $approvedRevID != $latestRevID ) {
