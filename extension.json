@@ -52,8 +52,8 @@
 		]
 	},
 	"ExtensionMessagesFiles": {
-		"ApprovedRevsAlias": "includes/ApprovedRevs.alias.php",
-		"ApprovedRevsMagic": "includes/ApprovedRevs.i18n.magic.php"
+		"ApprovedRevsAlias": "ApprovedRevs.alias.php",
+		"ApprovedRevsMagic": "ApprovedRevs.i18n.magic.php"
 	},
 	"AutoloadClasses": {
 		"ApprovedRevs": "includes/ApprovedRevs_body.php",
