@@ -4,8 +4,8 @@ if ( version_compare( $GLOBALS['wgVersion'], '1.27c', '>' ) ) {
 	wfLoadExtension( 'ApprovedRevs' );
 	// Keep i18n globals so mergeMessageFileList.php doesn't break
 	$GLOBALS['wgMessagesDirs']['ApprovedRevs'] = __DIR__ . '/i18n';
-	$GLOBALS['wgExtensionMessagesFiles']['ApprovedRevsAlias'] = __DIR__ . '/includes/ApprovedRevs.alias.php';
-	$GLOBALS['wgExtensionMessagesFiles']['ApprovedRevsMagic'] = __DIR__ . '/includes/ApprovedRevs.i18n.magic.php';
+	$GLOBALS['wgExtensionMessagesFiles']['ApprovedRevsAlias'] = __DIR__ . '/ApprovedRevs.alias.php';
+	$GLOBALS['wgExtensionMessagesFiles']['ApprovedRevsMagic'] = __DIR__ . '/ApprovedRevs.i18n.magic.php';
 	/* wfWarn(
 		'Deprecated PHP entry point used for Approved Revs extension. ' .
 		'Please use wfLoadExtension instead, ' .
@@ -47,8 +47,8 @@ $egApprovedRevsShowNotApprovedMessage = false;
 
 // internationalization
 $wgMessagesDirs['ApprovedRevs'] = __DIR__ . '/i18n';
-$wgExtensionMessagesFiles['ApprovedRevsAlias'] = $egApprovedRevsIP . 'includes/ApprovedRevs.alias.php';
-$wgExtensionMessagesFiles['ApprovedRevsMagic'] = $egApprovedRevsIP . 'includes/ApprovedRevs.i18n.magic.php';
+$wgExtensionMessagesFiles['ApprovedRevsAlias'] = $egApprovedRevsIP . 'ApprovedRevs.alias.php';
+$wgExtensionMessagesFiles['ApprovedRevsMagic'] = $egApprovedRevsIP . 'ApprovedRevs.i18n.magic.php';
 
 // register all classes
 $wgAutoloadClasses['ApprovedRevs'] = $egApprovedRevsIP . 'includes/ApprovedRevs_body.php';
