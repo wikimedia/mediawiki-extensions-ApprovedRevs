@@ -144,10 +144,23 @@ class ApprovedRevs {
 		}
 
 		// It's not in an included namespace, so check for the page
-		// property - for some reason, calling the standard
+		// properties for the parser functions - for some reason, calling the standard
 		// getProperty() function doesn't work, so we just do a DB
 		// query on the page_props table.
 		$dbr = wfGetDB( DB_SLAVE );
+		$res = $dbr->select( 'page_props', 'COUNT(*)',
+			[
+				'pp_page' => $title->getArticleID(),
+				'pp_propname' => [ 'approvedrevs-approver-users', 'approvedrevs-approver-groups' ],
+			]
+		);
+		$row = $dbr->fetchRow( $res );
+		if ( intval( $row[0] ) > 0 ) {
+			$title->isApprovable = true;
+			return $title->isApprovable;
+		}
+
+		// parser function page properties not present. Check for magic word.
 		$res = $dbr->select( 'page_props', 'COUNT(*)',
 			array(
 				'pp_page' => $title->getArticleID(),
@@ -179,8 +192,12 @@ class ApprovedRevs {
 		} elseif ( ApprovedRevs::checkPermission( $user, $title, $permission ) ) {
 			self::$mUserCanApprove = true;
 			return true;
+		} elseif ( ApprovedRevs::checkParserFunctionPermission( $user, $title ) ) {
+			self::$mUserCanApprove = true;
+			return true;
 		} else {
 			// If the user doesn't have the 'approverevisions'
+			// permission, nor does #approvable_by grant them
 			// permission, they still might be able to approve
 			// revisions - it depends on whether the current
 			// namespace is within the admin-defined
@@ -217,6 +234,70 @@ class ApprovedRevs {
 			}
 		}
 		self::$mUserCanApprove = false;
+		return false;
+	}
+
+	/**
+	 * Check if a user is allowed to approve a page based upon being listed in
+	 * the page properties approvedrevs-approver-users and
+	 * approvedrevs-approver-groups
+	 *
+	 * @param User $user Check if this user has #approvable_by permissions on title
+	 * @param Title $title Title to check
+	 * @return bool Whether or not approving revisions is allowed
+	 * @since 1.0
+	 */
+	public static function checkParserFunctionPermission( User $user, Title $title ) {
+
+		$articleID = $title->getArticleID();
+
+		$dbr = wfGetDB( DB_SLAVE );
+
+		// First check:
+		// Users
+
+		$result = $dbr->selectField(
+			'page_props',
+			'pp_value',
+			[
+				'pp_page' => $articleID,
+				'pp_propname' => "approvedrevs-approver-users"
+			],
+			__METHOD__
+		);
+		if ( $result !== false ) {
+			// if user listed as an approver, allow approval
+			if ( in_array( $user->getName(), explode( ',', $result ) ) ) {
+				return true;
+			}
+		}
+
+		// Second check:
+		// Groups
+
+		$result = $dbr->selectField(
+			'page_props',
+			'pp_value',
+			[
+				'pp_page' => $articleID,
+				'pp_propname' => "approvedrevs-approver-groups"
+			],
+			__METHOD__
+		);
+		if ( $result !== false ) {
+
+			// intersect groups that can approve with user's group
+			$userGroupsWithApprove = array_intersect(
+				explode( ',', $result ), $user->getGroups()
+			);
+
+			// if user has any groups in list of approver groups, allow approval
+			if ( count( $userGroupsWithApprove ) > 0 ) {
+				return true;
+			}
+		}
+
+		// neither group nor username allowed approval...disallow
 		return false;
 	}
 

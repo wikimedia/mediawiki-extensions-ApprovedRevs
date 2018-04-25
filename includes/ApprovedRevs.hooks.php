@@ -701,6 +701,22 @@ class ApprovedRevsHooks {
 	}
 
 	/**
+	 * Register parser function(s)
+	 *
+	 * @param Parser &$parser
+	 * @return bool
+	 * @since 1.0
+	 */
+	static function registerFunctions( &$parser ) {
+		$parser->setFunctionHook(
+			'approvable_by',
+			'ARParserFunctions::renderApprovableBy',
+			Parser::SFH_OBJECT_ARGS
+		);
+		return true;
+	}
+
+	/**
 	 * Add a link to 'Special:ApprovedPages' to the the page
 	 * 'Special:AdminLinks', defined by the Admin Links extension.
 	 */

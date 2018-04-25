@@ -1,7 +1,7 @@
 {
 	"@Note": "When updating this file please also update ApprovedRevs.php with the same changes.",
 	"name": "Approved Revs",
-	"version": "0.8",
+	"version": "1.0-alpha",
 	"author": [
 		"Yaron Koren",
 		"..."
@@ -58,6 +58,7 @@
 	"AutoloadClasses": {
 		"ApprovedRevs": "includes/ApprovedRevs_body.php",
 		"ApprovedRevsHooks": "includes/ApprovedRevs.hooks.php",
+		"ARParserFunctions": "includes/AR_ParserFunctions.php",
 		"SpecialApprovedRevs": "includes/SpecialApprovedRevs.php",
 		"SpecialApprovedRevsPage": "includes/SpecialApprovedRevsPage.php",
 		"ApiApprove": "includes/ApiApprove.php",
@@ -120,6 +121,9 @@
 		],
 		"ParserBeforeTidy": [
 			"ApprovedRevsHooks::handleMagicWords"
+		],
+		"ParserFirstCallInit": [
+			"ApprovedRevsHooks::registerFunctions"
 		],
 		"AdminLinks": [
 			"ApprovedRevsHooks::addToAdminLinks"

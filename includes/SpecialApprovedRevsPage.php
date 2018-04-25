@@ -122,7 +122,9 @@ class SpecialApprovedRevsPage extends QueryPage {
 	function getQueryInfo() {
 		global $egApprovedRevsNamespaces;
 
-		$mainCondsString = "( pp_propname = 'approvedrevs' AND pp_value = 'y' )";
+		$mainCondsString = "( pp_propname = 'approvedrevs' AND pp_value = 'y' " .
+			"OR pp_propname = 'approvedrevs-approver-users' " .
+			"OR pp_propname = 'approvedrevs-approver-groups' )";
 		if ( $this->mMode == 'invalid' ) {
 			$mainCondsString = "( pp_propname IS NULL OR NOT $mainCondsString )";
 		}
@@ -154,7 +156,8 @@ class SpecialApprovedRevsPage extends QueryPage {
 						'LEFT OUTER JOIN', 'ar.page_id=pp_page'
 					),
 				),
-				'conds' => $mainCondsString
+				'conds' => $mainCondsString,
+				'options' => [ 'DISTINCT' ]
 			);
 		} elseif ( $this->mMode == 'unapproved' ) {
 			return array(
@@ -175,7 +178,8 @@ class SpecialApprovedRevsPage extends QueryPage {
 						'LEFT OUTER JOIN', 'ar.page_id=pp_page'
 					),
 				),
-				'conds' => "ar.page_id IS NULL AND ( $mainCondsString )"
+				'conds' => "ar.page_id IS NULL AND ( $mainCondsString )",
+				'options' => [ 'DISTINCT' ]
 			);
 		} elseif ( $this->mMode == 'invalid' ) {
 			return array(
@@ -196,7 +200,8 @@ class SpecialApprovedRevsPage extends QueryPage {
 						'LEFT OUTER JOIN', 'ar.page_id=pp_page'
 					),
 				),
-				'conds' => $mainCondsString
+				'conds' => $mainCondsString,
+				'options' => [ 'DISTINCT' ]
 			);
 		} else { // 'approved revision is not latest'
 			return array(
@@ -218,7 +223,8 @@ class SpecialApprovedRevsPage extends QueryPage {
 						'LEFT OUTER JOIN', 'ar.page_id=pp_page'
 					),
 				),
-				'conds' => "p.page_latest != ar.rev_id AND ( $mainCondsString )"
+				'conds' => "p.page_latest != ar.rev_id AND ( $mainCondsString )",
+				'options' => [ 'DISTINCT' ]
 			);
 		}
 	}
@@ -241,7 +247,7 @@ class SpecialApprovedRevsPage extends QueryPage {
 		if( !ApprovedRevs::pageIsApprovable( $title ) && $this->mMode !== 'invalid' ) {
 			return false;
 		}
-          
+
 		$context = $skin->getContext();
 		$user = $context->getUser();
 		$out = $context->getOutput();
