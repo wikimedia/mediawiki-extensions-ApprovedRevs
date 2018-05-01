@@ -22,11 +22,13 @@
 	"approvedrevs-notlatest": "Αυτή είναι η εγκεκριμένη αναθεώρηση αυτής της σελίδας· δεν είναι η πιο πρόσφατη.",
 	"approvedrevs-approvedandlatest": "Αυτή είναι η εγκεκριμένη αναθεώρηση αυτής της σελίδας, καθώς και η πιο πρόσφατη.",
 	"approvedrevs-blankpageshown": "Καμία αναθεώρηση δεν έχει εγκριθεί για αυτή τη σελίδα.",
+	"approvedrevs-noapprovedrevision": "Αυτή είναι η πιο πρόσφατη αναθεώρηση μιας σελίδας. Δεν έχει εγκεκριμένη αναθεώρηση.",
 	"approvedrevs-editwarning": "Παρακαλούμε λάβετε υπόψιν σας ότι τώρα επεξεργάζεστε την τελευταία αναθεώρηση αυτή της σελίδας, η οποία δεν είναι η εγκεκριμένη που εμφανίζεται από προεπιλογή.",
 	"approvedrevs": "Εγκεκριμένες αναθεωρήσεις",
 	"approvedrevs-approvedpages": "Όλες οι σελίδες με εγκεκριμένη αναθεώρηση",
 	"approvedrevs-notlatestpages": "Σελίδες των οποίων οι εγκεκριμένες αναθεωρήσεις δεν είναι οι πιο πρόσφατες",
 	"approvedrevs-unapprovedpages": "Μη εγκεκριμένες σελίδες",
+	"approvedrevs-invalidpages": "Σελίδες με μη έγκυρες εγκρίσεις",
 	"approvedrevs-view": "Προβολή",
 	"approvedrevs-revisionnumber": "αναθεώρηση $1",
 	"approvedrevs-approvedby": "εγκρίθηκε από $1 στη  $2",
@@ -34,6 +36,9 @@
 	"approvedrevs-approvelatest": "εγκρίνετε την πιο πρόσφατη",
 	"approvedrevs-approvethisrev": "Εγκρίνετε αυτή την αναθεώρηση.",
 	"approvedrevs-viewlatestrev": "Δείτε την πιο πρόσφατη αναθεώρηση.",
+	"approvedrevs-approvedrevision": "Εγκεκριμένη αναθεώρηση",
 	"right-approverevisions": "Ορίστε μια συγκεκριμένη αναθεώρηση μιας σελίδας wiki ως εγκεκριμένη",
-	"right-viewlinktolatest": "Προβολή επεξηγηματικού κειμένου στο επάνω μέρος των σελίδων που έχουν εγκεκριμένη αναθεώρηση"
+	"right-viewlinktolatest": "Προβολή επεξηγηματικού κειμένου στο επάνω μέρος των σελίδων που έχουν εγκεκριμένη αναθεώρηση",
+	"apihelp-approve-example-1": "Έγκριση αναθεώρησης 12345",
+	"apihelp-approve-example-2": "Μη έγκριση αναθεώρησης 12345"
 }
