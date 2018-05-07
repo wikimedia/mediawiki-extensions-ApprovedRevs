@@ -37,6 +37,10 @@ class ApprovedRevs {
 	 * one.
 	 */
 	public static function getApprovedRevID( $title ) {
+		if ( $title == null ) {
+			return null;
+		}
+
 		$pageID = $title->getArticleID();
 		if ( array_key_exists( $pageID, self::$mApprovedRevIDForPage ) ) {
 			return self::$mApprovedRevIDForPage[$pageID];
