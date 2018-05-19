@@ -51,7 +51,7 @@ class ApprovedRevsHooks {
 	 */
 	static public function updateLinksAfterEdit( WikiPage &$wikiPage, &$editInfo, $changed ) {
 		$title = $wikiPage->getTitle();
-		if ( ! ApprovedRevs::pageIsApprovable( $title ) ) {
+		if ( !ApprovedRevs::pageIsApprovable( $title ) ) {
 			return true;
 		}
 		// If this user's revisions get approved automatically, exit
@@ -61,17 +61,16 @@ class ApprovedRevsHooks {
 		if ( self::userRevsApprovedAutomatically( $user, $title ) ) {
 			return true;
 		}
-		$text = '';
-		$approvedText = ApprovedRevs::getApprovedContent( $title );
-		if ( !is_null( $approvedText ) ) {
-			$text = $approvedText;
-		}
+
+		$content = ApprovedRevs::getApprovedContent( $title );
+
 		// If there's no approved revision, and 'blank if
-		// unapproved' is set to true, set the text to blank.
-		if ( is_null( $approvedText ) ) {
+		// unapproved' is set to true, set the content to blank.
+		if ( $content == null )
+		{
 			global $egApprovedRevsBlankIfUnapproved;
 			if ( $egApprovedRevsBlankIfUnapproved ) {
-				$text = '';
+				$content = $page->getContentHandler()->makeEmptyContent();
 			} else {
 				// If it's an unapproved page and there's no
 				// page blanking, exit here.
@@ -79,7 +78,7 @@ class ApprovedRevsHooks {
 			}
 		}
 
-		$editInfo = $wikiPage->prepareContentForEdit( new WikitextContent( $text ) );
+		$editInfo = $wikiPage->prepareContentForEdit( $content );
 		$u = new LinksUpdate( $wikiPage->mTitle, $editInfo->output );
 		$u->doUpdate();
 

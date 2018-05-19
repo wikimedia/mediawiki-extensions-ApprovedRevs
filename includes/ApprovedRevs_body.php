@@ -120,9 +120,11 @@ class ApprovedRevs {
 		if ( empty( $revisionID ) ) {
 			return null;
 		}
-		$text = self::getPageText( $title, $revisionID );
-		self::$mApprovedContentForPage[$pageID] = $text;
-		return $text;
+
+		$content = Revision::newFromTitle( $title, $revisionID )->getContent();
+		self::$mApprovedContentForPage[$pageID] = $content;
+
+		return $content;
 	}
 
 	/**
@@ -463,18 +465,17 @@ class ApprovedRevs {
 	 */
 	public static function setApprovedRevID( $title, $rev_id, $is_latest = false ) {
 		self::saveApprovedRevIDInDB( $title, $rev_id, false );
-		$parser = new Parser();
+
+		$content = Revision::newFromTitle( $title, $rev_id )->getContent();
+		$output = null;
 
 		// If the revision being approved is definitely the latest
 		// one, there's no need to call the parser on it.
 		if ( !$is_latest ) {
-			$parser->setTitle( $title );
-			$text = self::getPageText( $title, $rev_id );
-			$options = new ParserOptions();
-			$parser->parse( $text, $title, $options, true, true, $rev_id );
-			$u = new LinksUpdate( $title, $parser->getOutput() );
+			$output = $content->getParserOutput( $title, $rev_id, new ParserOptions() );
+			$u = new LinksUpdate( $title, $output );
 			$u->doUpdate();
-			self::setPageSearchText( $title, $text );
+			self::setPageSearchText( $title, $output->getText() );
 		}
 
 		$log = new LogPage( 'approval' );
@@ -492,7 +493,7 @@ class ApprovedRevs {
 			$logParams
 		);
 
-		Hooks::run( 'ApprovedRevsRevisionApproved', array( $parser, $title, $rev_id ) );
+		Hooks::run( 'ApprovedRevsRevisionApproved', array( $output, $title, $rev_id, $content ) );
 	}
 
 	public static function deleteRevisionApproval( $title ) {
@@ -512,18 +513,12 @@ class ApprovedRevs {
 
 		self::deleteRevisionApproval( $title );
 
-		$parser = new Parser();
-		$parser->setTitle( $title );
-		if ( $egApprovedRevsBlankIfUnapproved ) {
-			$text = '';
-		} else {
-			$text = self::getPageText( $title );
-		}
-		$options = new ParserOptions();
-		$parser->parse( $text, $title, $options );
-		$u = new LinksUpdate( $title, $parser->getOutput() );
+		$revision = Revision::newFromTitle( $title );
+		$content = $egApprovedRevsBlankIfUnapproved ? $revision->getContentHandler()->makeEmptyContent() : $revision->getContent();
+		$output = $content->getParserOutput( $title, null, new ParserOptions() );
+		$u = new LinksUpdate( $title, $output );
 		$u->doUpdate();
-		self::setPageSearchText( $title, $text );
+		self::setPageSearchText( $title, $output->getText() );
 
 		$log = new LogPage( 'approval' );
 		$log->addEntry(
@@ -532,7 +527,7 @@ class ApprovedRevs {
 			''
 		);
 
-		Hooks::run( 'ApprovedRevsRevisionUnapproved', array( $parser, $title ) );
+		Hooks::run( 'ApprovedRevsRevisionUnapproved', array( $output, $title, $content ) );
 	}
 
 	public static function addCSS() {
