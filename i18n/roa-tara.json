@@ -8,6 +8,7 @@
 	"approvedrevs-logname": "Archivije de le approvaziune de le revisiune",
 	"approvedrevs-logdesc": "Quiste jè l'archivije de le revisiune ca onne state approvate.",
 	"approvedrevs-approve": "approve",
+	"approvedrevs-approver": "Sta revisione ha state approvate da $1.",
 	"approvedrevs-unapprove": "scitte",
 	"approvedrevs-approvesuccess": "'A revisione d'a pàgene ha state 'mbostate cumme 'na versione approvate.",
 	"approvedrevs-unapprovesuccess": "Non ge stè cchiù 'na versione approvate pe sta pàgene.\nInvece, 'a revisione cchiù recende avène fatte vedè.",
