@@ -16,6 +16,7 @@
 	"approvedrevs-logname": "Журнал одобрень та переглядів",
 	"approvedrevs-logdesc": "Це протокол переглядів, які були затверджуючими.",
 	"approvedrevs-approve": "Затвердити",
+	"approvedrevs-approver": "Версію затверджено $1.",
 	"approvedrevs-unapprove": "Відхилити",
 	"approvedrevs-approvesuccess": "Цей перегляд сторінки був встановлений як затверджуючий.",
 	"approvedrevs-unapprovesuccess": "Існує не затверджений варіант для цієї сторінки. \nЗамість цього, самий останній затверджений варіант буде показаний.",
