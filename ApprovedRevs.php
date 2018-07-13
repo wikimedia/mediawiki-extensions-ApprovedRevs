@@ -38,7 +38,15 @@ $wgExtensionCredits['other'][] = array(
 
 // global variables
 $egApprovedRevsIP = dirname( __FILE__ ) . '/';
-$egApprovedRevsNamespaces = array( NS_MAIN, NS_USER, NS_PROJECT, NS_TEMPLATE, NS_HELP );
+
+$egApprovedRevsEnabledNamespaces = array(
+	NS_MAIN => true,
+	NS_USER => true,
+	NS_PROJECT => true,
+	NS_TEMPLATE => true,
+	NS_HELP => true,
+);
+
 $egApprovedRevsSelfOwnedNamespaces = array();
 $egApprovedRevsBlankIfUnapproved = false;
 $egApprovedRevsAutomaticApprovals = true;

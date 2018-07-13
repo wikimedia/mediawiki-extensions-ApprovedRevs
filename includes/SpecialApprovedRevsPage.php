@@ -120,7 +120,7 @@ class SpecialApprovedRevsPage extends QueryPage {
 	 * @see QueryPage::getSQL()
 	 */
 	function getQueryInfo() {
-		global $egApprovedRevsNamespaces;
+		$approvedRevsNamespaces = ApprovedRevs::getApprovableNamespaces();
 
 		$mainCondsString = "( pp_propname = 'approvedrevs' AND pp_value = 'y' " .
 			"OR pp_propname = 'approvedrevs-approver-users' " .
@@ -128,11 +128,11 @@ class SpecialApprovedRevsPage extends QueryPage {
 		if ( $this->mMode == 'invalid' ) {
 			$mainCondsString = "( pp_propname IS NULL OR NOT $mainCondsString )";
 		}
-		if ( count( $egApprovedRevsNamespaces ) > 0 ) {
+		if ( count( $approvedRevsNamespaces ) > 0 ) {
 			if ( $this->mMode == 'invalid' ) {
-				$mainCondsString .= " AND ( p.page_namespace NOT IN ( " . implode( ',', $egApprovedRevsNamespaces ) . " ) )";
+				$mainCondsString .= " AND ( p.page_namespace NOT IN ( " . implode( ',', $approvedRevsNamespaces ) . " ) )";
 			} else {
-				$mainCondsString .= " OR ( p.page_namespace IN ( " . implode( ',', $egApprovedRevsNamespaces ) . " ) )";
+				$mainCondsString .= " OR ( p.page_namespace IN ( " . implode( ',', $approvedRevsNamespaces ) . " ) )";
 			}
 		}
 

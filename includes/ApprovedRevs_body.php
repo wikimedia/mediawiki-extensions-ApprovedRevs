@@ -15,6 +15,36 @@ class ApprovedRevs {
 	static $mApprovedRevIDForPage = array();
 	static $mApproverForPage = array();
 	static $mUserCanApprove = null;
+	static $mApprovedRevsNamespaces;
+
+	/**
+	 * Get array of approvable namespaces. Handles backwards compatibility.
+	 */
+	public static function getApprovableNamespaces () {
+		global $egApprovedRevsNamespaces, $egApprovedRevsEnabledNamespaces;
+
+		if ( is_array( self::$mApprovedRevsNamespaces ) ) {
+			return self::$mApprovedRevsNamespaces;
+		}
+
+		self::$mApprovedRevsNamespaces = array();
+
+		// Definition of $egApprovedRevsNamespaces removed from Approved
+		// Revs to handle extension.json method of config settings. Now,
+		// if $egApprovedRevsNamespaces is defined, then it must have been
+		// defined by the user in LocalSettings.php. Since no good method of
+		// providing backwards-compatibility was determined, instead notify user
+		// that $egApprovedRevsNamespaces is obsolete.
+		if ( isset( $egApprovedRevsNamespaces ) ) {
+			throw new MWException( '$egApprovedRevsNamespaces is no longer supported - please use $egApprovedRevsEnabledNamespaces (which has a different format) instead' );
+		}
+
+		// since extension.json values have to be strings, convert to int
+		// changes [ "0" => true, "10" => false, "14" => true ] to [0, 14]
+		self::$mApprovedRevsNamespaces = array_keys( array_filter( $egApprovedRevsEnabledNamespaces ) );
+
+		return self::$mApprovedRevsNamespaces;
+	}
 
 	/**
 	 * Gets the approved revision User for this page, or null if there isn't
@@ -137,8 +167,7 @@ class ApprovedRevs {
 		}
 
 		// Check the namespace.
-		global $egApprovedRevsNamespaces;
-		if ( in_array( $title->getNamespace(), $egApprovedRevsNamespaces ) ) {
+		if ( in_array( $title->getNamespace(), self::getApprovableNamespaces() ) ) {
 			$title->isApprovable = true;
 			return $title->isApprovable;
 		}

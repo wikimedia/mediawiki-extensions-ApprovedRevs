@@ -150,7 +150,14 @@
 	},
 	"config": {
 		"_prefix": "eg",
-		"ApprovedRevsNamespaces": [ 0, 2, 4, 10, 12 ],
+		"ApprovedRevsEnabledNamespaces": {
+			"0": true,
+			"2": true,
+			"4": true,
+			"10": true,
+			"12": true,
+			"_merge_strategy": "array_plus"
+		},
 		"ApprovedRevsSelfOwnedNamespaces": [],
 		"ApprovedRevsBlankIfUnapproved": false,
 		"ApprovedRevsAutomaticApprovals": true,
