@@ -15,6 +15,8 @@ class ApprovedRevs {
 	static $mApprovedRevIDForPage = array();
 	static $mApproverForPage = array();
 	static $mUserCanApprove = null;
+	static $mApprovedFileInfo = array();
+
 	static $mApprovedRevsNamespaces;
 
 	/**
@@ -160,6 +162,15 @@ class ApprovedRevs {
 			return $title->isApprovable;
 		}
 
+		// File *pages* are not ever approvable. Files themselves can be, but
+		// checks for file approvability is handled by fileIsApprovable(). This
+		// constraint is to avoid confusion between approving file pages and
+		// approving files themselves.
+		if ( $title->getNamespace() === NS_FILE ) {
+			$title->isApprovable = false;
+			return $title->isApprovable;
+		}
+
 		// Allow custom setting of whether the page is approvable.
 		if ( !Hooks::run( 'ApprovedRevsPageIsApprovable', array( $title, &$isApprovable ) ) ) {
 			$title->isApprovable = $isApprovable;
@@ -178,10 +189,12 @@ class ApprovedRevs {
 		// query on the page_props table.
 		$dbr = wfGetDB( DB_SLAVE );
 		$res = $dbr->select( 'page_props', 'COUNT(*)',
-			[
+			array(
 				'pp_page' => $title->getArticleID(),
-				'pp_propname' => [ 'approvedrevs-approver-users', 'approvedrevs-approver-groups' ],
-			]
+				'pp_propname' => array(
+					'approvedrevs-approver-users', 'approvedrevs-approver-groups'
+				),
+			)
 		);
 		$row = $dbr->fetchRow( $res );
 		if ( intval( $row[0] ) > 0 ) {
@@ -201,6 +214,90 @@ class ApprovedRevs {
 		$isApprovable = ( $row[0] == '1' );
 		$title->isApprovable = $isApprovable;
 		return $isApprovable;
+	}
+
+	public static function fileIsApprovable ( Title $title ) {
+
+		// If this function was already called for this page, the value
+		// should have been stored as a field in the $title object.
+		if ( isset( $title->fileIsApprovable ) ) {
+			return $title->fileIsApprovable;
+		}
+
+		if ( !$title->exists() ) {
+			$title->fileIsApprovable = false;
+			return false;
+		}
+
+
+		// Allow custom setting of whether the page is approvable.
+		if ( !Hooks::run( 'ApprovedRevsFileIsApprovable', array( $title, &$fileIsApprovable ) ) ) {
+			$title->fileIsApprovable = $fileIsApprovable;
+			return $title->fileIsApprovable;
+		}
+
+		// Check if NS_FILE is in approvable namespaces
+		$approvedRevsNamespaces = ApprovedRevs::getApprovableNamespaces();
+		if ( in_array( NS_FILE, $approvedRevsNamespaces ) ) {
+			$title->fileIsApprovable = true;
+			return true;
+		}
+
+		// It's not in an included namespace, so check for the page
+		// properties for the parser functions - for some reason, calling the standard
+		// getProperty() function doesn't work, so we just do a DB
+		// query on the page_props table.
+		//
+		// NOTE: Checks for these propnames won't do anything until [1] is merged, but also will
+		//       not hurt anything.
+		//       [1] https://gerrit.wikimedia.org/r/#/c/mediawiki/extensions/ApprovedRevs/+/429368/
+		$dbr = wfGetDB( DB_SLAVE );
+		$res = $dbr->select( 'page_props', 'COUNT(*)',
+			array(
+				'pp_page' => $title->getArticleID(),
+				'pp_propname' => array(
+					'approvedrevs-approver-users',
+					'approvedrevs-approver-groups'
+				),
+			)
+		);
+		$row = $dbr->fetchRow( $res );
+		if ( intval( $row[0] ) > 0 ) {
+			$title->fileIsApprovable = true;
+			return true;
+		}
+
+		// parser function page properties not present. Check for magic word.
+		$res = $dbr->select( 'page_props', 'COUNT(*)',
+			array(
+				'pp_page' => $title->getArticleID(),
+				'pp_propname' => 'approvedrevs',
+				'pp_value' => 'y'
+			)
+		);
+		$row = $dbr->fetchRow( $res );
+		if ( $row[0] == '1' ) {
+			$title->fileIsApprovable = true;
+			return true;
+		}
+
+		// if a file already has an approval, it must be considered approvable
+		// in order for the user to be able to view/modify approvals. Though
+		// this wasn't the case on versions of ApprovedRevs before v1.0, it is
+		// necessary now since approvability can change much more easily
+
+		// if title in approved_revs_files table
+		list( $timestamp, $sha1 ) = self::getApprovedFileInfo( $title );
+		if ( $timestamp !== false ) {
+			// only approvable because it already has an approved rev, not
+			// because it is in ApprovedRevs::$permissions
+			$title->fileIsApprovable = true;
+			return true;
+		}
+
+		$title->fileIsApprovable = false;
+		return false;
+
 	}
 
 	public static function checkPermission( User $user, Title $title, $permission ) {
@@ -288,10 +385,10 @@ class ApprovedRevs {
 		$result = $dbr->selectField(
 			'page_props',
 			'pp_value',
-			[
+			array(
 				'pp_page' => $articleID,
 				'pp_propname' => "approvedrevs-approver-users"
-			],
+			),
 			__METHOD__
 		);
 		if ( $result !== false ) {
@@ -453,6 +550,125 @@ class ApprovedRevs {
 		} else {
 			return Linker::linkKnown( $title, $msg, $attrs, $params );
 		}
+	}
+
+	public static function setApprovedFileInDB ( $title, $timestamp, $sha1 ) {
+
+		$parser = new Parser();
+		$parser->setTitle( $title );
+
+		$dbr = wfGetDB( DB_MASTER );
+		$fileTitle = $title->getDBkey();
+		$oldFileTitle = $dbr->selectField(
+			'approved_revs_files', 'file_title',
+			array( 'file_title' => $fileTitle )
+		);
+		if ( $oldFileTitle ) {
+			$dbr->update( 'approved_revs_files',
+				array(
+					'approved_timestamp' => $timestamp,
+					'approved_sha1' => $sha1
+				), // update fields
+				array( 'file_title' => $fileTitle )
+			);
+		} else {
+			$dbr->insert( 'approved_revs_files',
+				array(
+					'file_title' => $fileTitle,
+					'approved_timestamp' => $timestamp,
+					'approved_sha1' => $sha1
+				)
+			);
+		}
+		// Update "cache" in memory
+		self::$mApprovedFileInfo[$fileTitle] = array( $timestamp, $sha1 );
+
+		$log = new LogPage( 'approval' );
+
+		$imagepage = ImagePage::newFromID( $title->getArticleID() );
+		$displayedFileUrl = $imagepage->getDisplayedFile()->getFullURL();
+
+		$revisionAnchorTag = Xml::element(
+			'a',
+			array(
+				'href' => $displayedFileUrl,
+				'title' => 'unique identifier: ' . $sha1
+			),
+			// There's no simple "revision ID" for file uploads. Instead
+			// uniqueness is determined by sha1, but dumping out the sha1 here
+			// would be ugly. Instead show a timestamp of the file upload.
+			wfTimestamp( TS_RFC2822, $timestamp )
+		);
+		$logParams = array( $revisionAnchorTag );
+		$log->addEntry(
+			'approvefile',
+			$title,
+			'',
+			$logParams
+		);
+
+		wfRunHooks(
+			'ApprovedRevsFileRevisionApproved',
+			array( $parser, $title, $timestamp, $sha1 )
+		);
+
+	}
+
+	public static function unsetApprovedFileInDB ( $title ) {
+
+		$parser = new Parser();
+		$parser->setTitle( $title );
+
+		$fileTitle = $title->getDBkey();
+
+		$dbr = wfGetDB( DB_MASTER );
+		$dbr->delete( 'approved_revs_files',
+			array( 'file_title' => $fileTitle )
+		);
+		// the unapprove page method had LinksUpdate and Parser
+		// objects here, but the page text has not changed at all with
+		// a file approval, so I don't think those are necessary.
+
+		$log = new LogPage( 'approval' );
+		$log->addEntry(
+			'unapprove',
+			$title,
+			''
+		);
+
+		wfRunHooks(
+			'ApprovedRevsFileRevisionUnapproved', array( $parser, $title )
+		);
+
+	}
+
+	/**
+	 *  Pulls from DB table approved_revs_files which revision of a
+	 *  file, if any besides most recent, should be used as the
+	 *  approved revision.
+	 **/
+	public static function getApprovedFileInfo ( $fileTitle ) {
+
+		if ( isset( self::$mApprovedFileInfo[ $fileTitle->getDBkey() ] ) ) {
+			return self::$mApprovedFileInfo[ $fileTitle->getDBkey() ];
+		}
+
+		$dbr = wfGetDB( DB_SLAVE );
+		$row = $dbr->selectRow(
+			'approved_revs_files', // select from table
+			array( 'approved_timestamp', 'approved_sha1' ),
+			array( 'file_title' => $fileTitle->getDBkey() )
+		);
+		if ( $row ) {
+			$return = array( $row->approved_timestamp, $row->approved_sha1 );
+		}
+		else {
+			$return = array( false, false );
+		}
+
+		self::$mApprovedFileInfo[ $fileTitle->getDBkey() ] = $return;
+		return $return;
+
 	}
 
 }

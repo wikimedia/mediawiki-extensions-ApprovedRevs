@@ -43,6 +43,7 @@ $egApprovedRevsEnabledNamespaces = array(
 	NS_MAIN => true,
 	NS_USER => true,
 	NS_PROJECT => true,
+	NS_FILE => true,
 	NS_TEMPLATE => true,
 	NS_HELP => true,
 );
@@ -67,11 +68,15 @@ $wgAutoloadClasses['SpecialApprovedRevsPage'] = $egApprovedRevsIP . 'includes/Sp
 $wgAutoloadClasses['ApiApprove'] = $egApprovedRevsIP . 'includes/ApiApprove.php';
 $wgAutoloadClasses['ARApproveAction'] = $egApprovedRevsIP . 'includes/AR_ApproveAction.php';
 $wgAutoloadClasses['ARUnapproveAction'] = $egApprovedRevsIP . 'includes/AR_UnapproveAction.php';
+$wgAutoloadClasses['ARApproveFileAction'] = $egApprovedRevsIP . 'includes/AR_ApproveFileAction.php';
+$wgAutoloadClasses['ARUnapproveFileAction'] = $egApprovedRevsIP . 'includes/AR_UnapproveFileAction.php';
 $wgAutoloadClasses['ARParserFunctions'] = $egApprovedRevsIP . 'includes/AR_ParserFunctions.php';
 
 // actions
 $wgActions['approve'] = 'ARApproveAction';
 $wgActions['unapprove'] = 'ARUnapproveAction';
+$wgActions['approvefile'] = 'ARApproveFileAction';
+$wgActions['unapprovefile'] = 'ARUnapproveFileAction';
 
 // hooks
 $wgHooks['ArticleEditUpdates'][] = 'ApprovedRevsHooks::updateLinksAfterEdit';
@@ -99,11 +104,19 @@ $wgHooks['ArticleViewHeader'][] = 'ApprovedRevsHooks::displayNotApprovedHeader';
 $wgHooks['OutputPageBodyAttributes'][] = 'ApprovedRevsHooks::addBodyClass';
 $wgHooks['wgQueryPages'][] = 'ApprovedRevsHooks::onwgQueryPages';
 
+// Approved File Revisions
+$wgHooks['ImagePageFileHistoryLine'][] = 'ApprovedRevsHooks::onImagePageFileHistoryLine';
+$wgHooks['BeforeParserFetchFileAndTitle'][] = 'ApprovedRevsHooks::modifyFileLinks';
+$wgHooks['ImagePageFindFile'][] = 'ApprovedRevsHooks::onImagePageFindFile';
+$wgHooks['FileDeleteComplete'][] = 'ApprovedRevsHooks::onFileDeleteComplete';
+
+
 // logging
 $wgLogTypes['approval'] = 'approval';
 $wgLogNames['approval'] = 'approvedrevs-logname';
 $wgLogHeaders['approval'] = 'approvedrevs-logdesc';
 $wgLogActions['approval/approve'] = 'approvedrevs-approveaction';
+$wgLogActions['approval/approvefile'] = 'approvedrevs-approvefileaction';
 $wgLogActions['approval/unapprove'] = 'approvedrevs-unapproveaction';
 
 // user rights
