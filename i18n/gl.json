@@ -2,13 +2,15 @@
 	"@metadata": {
 		"authors": [
 			"Toliño",
-			"Elisardojm"
+			"Elisardojm",
+			"Banjo"
 		]
 	},
 	"approvedrevs-desc": "Marcar como aprobada unha única revisión dunha páxina",
 	"approvedrevs-logname": "Rexistro de aprobación de revisións",
 	"approvedrevs-logdesc": "Este é o rexistro das revisións aprobadas.",
 	"approvedrevs-approve": "aprobar",
+	"approvedrevs-approver": "Esta revisión foi aprobada por $1.",
 	"approvedrevs-unapprove": "desaprobar",
 	"approvedrevs-approvesuccess": "Esta é a revisión aprobada da páxina.",
 	"approvedrevs-unapprovesuccess": "Esta páxina xa non ten ningunha versión aprobada.\nNo canto dela, móstrase a revisión máis recente.",
