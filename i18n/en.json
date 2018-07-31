@@ -36,6 +36,7 @@
 	"approvedrevs-approvedrevision": "Approved revision",
 	"right-approverevisions": "Set a certain revision of a wiki page as approved",
 	"right-viewlinktolatest": "View explanatory text at the top of pages that have an approved revision",
+	"right-viewapprover": "View text showing who approved the current approved revision",
 	"apihelp-approve-description": "Review a revision by approving or de-approving it.",
 	"apihelp-approve-summary": "Review a revision by approving or de-approving it.",
 	"apihelp-approve-param-revid": "The revision ID for which to approve.",
