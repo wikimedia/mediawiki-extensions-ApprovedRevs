@@ -16,3 +16,23 @@ span.approvedRevNotLatest {
 span.approvingUser {
     display: block;
 }
+
+/**
+ * Highlight approved rev in revision history
+ **/
+.approved-revision {
+	background-color: #d5fdf4 !important;
+}
+li.approved-revision {
+	border-color: #00af89 !important;
+}
+tr.approved-revision td {
+	border-top: solid #00af89 2px !important;
+	border-bottom: solid #00af89 2px !important;
+}
+tr.approved-revision td:first-child {
+	border-left: solid #00af89 2px !important;
+}
+tr.approved-revision td:last-child {
+	border-right: solid #00af89 2px !important;
+}
