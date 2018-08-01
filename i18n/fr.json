@@ -39,6 +39,7 @@
 	"approvedrevs-approvedrevision": "Accepter la révision",
 	"right-approverevisions": "Marquer une révision précise d’une page comme approuvée",
 	"right-viewlinktolatest": "Voir le texte explicatif en haut des pages qui ont une révision approuvée",
+	"right-viewapprover": "Afficher le texte montrant qui a approuvé la révision actuellement approuvée",
 	"apihelp-approve-description": "Relire une révision en l’approuvant ou en la désapprouvant.",
 	"apihelp-approve-summary": "Relire une révision en l’approuvant ou non.",
 	"apihelp-approve-param-revid": "L’ID de révision à approuver.",

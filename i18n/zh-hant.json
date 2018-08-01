@@ -40,6 +40,7 @@
 	"approvedrevs-approvedrevision": "已核准版本",
 	"right-approverevisions": "通過wiki頁面的單個修訂",
 	"right-viewlinktolatest": "視圖中的解釋性文本在具有一個已批准的修訂頁面的頂部",
+	"right-viewapprover": "檢視顯示出批准目前所批准修訂人員的文字",
 	"apihelp-approve-description": "透過核准或取消核准來檢閱修訂內容。",
 	"apihelp-approve-summary": "透過核准或取消核准來檢閱修訂內容。",
 	"apihelp-approve-param-revid": "可核准的修訂 ID。",
