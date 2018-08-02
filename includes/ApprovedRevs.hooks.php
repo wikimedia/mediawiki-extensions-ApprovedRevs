@@ -615,6 +615,9 @@ class ApprovedRevsHooks {
 		$approvedRevID = ApprovedRevs::getApprovedRevID( $article->getTitle() );
 		$article->getTitle()->approvedRevID = $approvedRevID;
 
+		// allows highlighting approved revision in history
+		ApprovedRevs::addCSS();
+
 		return true;
 	}
 
@@ -625,7 +628,7 @@ class ApprovedRevsHooks {
 	 * revision. If it's the approved revision also add on a "star"
 	 * icon, regardless of the user.
 	 */
-	static function addApprovalLink( $historyPage, &$row , &$s ) {
+	static function addApprovalLink( $historyPage, &$row , &$s, &$classes ) {
 		$title = $historyPage->getTitle();
 		if ( ! ApprovedRevs::pageIsApprovable( $title ) ) {
 			return true;
@@ -637,6 +640,14 @@ class ApprovedRevsHooks {
 		$approvedRevID = $title->approvedRevID;
 		if ( $row->rev_id == $approvedRevID ) {
 			$s .= ' &#9733;';
+
+			// add class to this line to highlight the approved rev with CSS
+			if ( is_array( $classes ) ) {
+				$classes[] = "approved-revision";
+			}
+			else {
+				$classes = array( "approved-revision" );
+			}
 		}
 		if ( ApprovedRevs::userCanApprove( $user, $title ) ) {
 			if ( $row->rev_id == $approvedRevID ) {
