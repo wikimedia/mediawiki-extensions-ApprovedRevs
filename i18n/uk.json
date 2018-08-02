@@ -9,7 +9,8 @@
 			"Тест",
 			"Andriykopanytsia",
 			"Ahonc",
-			"Piramidion"
+			"Piramidion",
+			"Vlad5250"
 		]
 	},
 	"approvedrevs-desc": "Встановити єдиний перегляд сторінки як затверджуючий",
@@ -42,7 +43,7 @@
 	"approvedrevs-viewlatestrev": "Перегляд останньої версії.",
 	"approvedrevs-approvedrevision": "Затверджена версія",
 	"right-approverevisions": "встановлення певних версій сторінок затвердженими",
-	"right-viewlinktolatest": "Переглянути пояснювальний текст у верхній частині сторінки яка має схвалену версію.",
+	"right-viewlinktolatest": "перегляд пояснювального тексту у верхній частині сторінки, яка має схвалену версію",
 	"apihelp-approve-description": "Перевірити версію, затвердивши її або знявши затвердження.",
 	"apihelp-approve-summary": "Перевірити версію, затвердивши її або знявши затвердження.",
 	"apihelp-approve-param-revid": "Ідентифікатор версії, яку треба затвердити.",

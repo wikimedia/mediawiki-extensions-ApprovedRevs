@@ -3,9 +3,11 @@
 		"authors": [
 			"Rancher",
 			"Milicevic01",
-			"Zoranzoki21"
+			"Zoranzoki21",
+			"BadDog"
 		]
 	},
+	"approvedrevs-approve": "одобри",
 	"approvedrevs-unapprovesuccess": "Више не постоји одобрена верзија ове странице.\nУместо тога биће приказана најновија измена.",
 	"approvedrevs-unapprovesuccess2": "Више не постоји одобрена верзија ове странице.\nУместо тога биће приказана празна страница.",
 	"approvedrevs": "Одобрене измене",

@@ -6,7 +6,8 @@
 			"Joseph",
 			"Khutuck",
 			"Srhat",
-			"Stultiwikia"
+			"Stultiwikia",
+			"Rapsar"
 		]
 	},
 	"approvedrevs-desc": "Bir sayfanın belirli bir revizyonunu onaylanmış olarak ayarla",
@@ -37,5 +38,6 @@
 	"approvedrevs-viewlatestrev": "En son sürümü görüntüleyin.",
 	"approvedrevs-approvedrevision": "Onaylanan düzeltme",
 	"right-approverevisions": "Bir viki sayfasının belirli bir revizyonunu onaylanmış olarak ayarla",
-	"right-viewlinktolatest": "Onaylanmış revizyonu bulunan sayfaların başındaki açıklayıcı metni görüntüle"
+	"right-viewlinktolatest": "Onaylanmış revizyonu bulunan sayfaların başındaki açıklayıcı metni görüntüle",
+	"approvedrevs-latestfile": "En son dosya"
 }

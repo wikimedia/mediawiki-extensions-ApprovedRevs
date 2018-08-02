@@ -36,5 +36,11 @@
 	"approvedrevs-viewlatestrev": "Zobacz najnowszą wersję.",
 	"approvedrevs-approvedrevision": "Zatwierdzona wersja",
 	"right-approverevisions": "Zatwierdzenie wybranych wersji stron wiki",
-	"right-viewlinktolatest": "Pokazuj tekst wyjaśniający w górnej części tych stron, które mają zatwierdzoną wersję"
+	"right-viewlinktolatest": "Pokazuj tekst wyjaśniający w górnej części tych stron, które mają zatwierdzoną wersję",
+	"approvedrevs-invalidfiles": "Pliki z nieprawidłowymi zatwierdzeniami",
+	"approvedrevs-approvedfiles": "Wszystkie pliki z zatwierdzoną wersją",
+	"approvedrevs-notlatestfiles": "Pliki, których zatwierdzona wersja nie jest najnowsza",
+	"approvedrevs-unapprovedfiles": "Niezatwierdzone pliki",
+	"approvedrevs-approvedfile": "Zatwierdzony plik",
+	"approvedrevs-latestfile": "Najnowszy plik"
 }

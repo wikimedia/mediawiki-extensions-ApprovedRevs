@@ -25,7 +25,7 @@
 	"approvedrevs-notlatestpages": "Pagine la cui versione approvata non è la loro ultima",
 	"approvedrevs-unapprovedpages": "Pagine non approvate",
 	"approvedrevs-invalidpages": "Pagine con approvazioni non valide",
-	"approvedrevs-view": "Visualizzare:",
+	"approvedrevs-view": "Visualizza elenco di:",
 	"approvedrevs-revisionnumber": "versione $1",
 	"approvedrevs-approvedby": "approvato da $1 su $2",
 	"approvedrevs-difffromlatest": "differenza dal più recente",
@@ -35,6 +35,10 @@
 	"approvedrevs-approvedrevision": "Versione approvata",
 	"right-approverevisions": "Imposta una versione di una pagina wiki come approvata",
 	"right-viewlinktolatest": "Visualizza del testo esplicativo nella parte superiore delle pagine che hanno una versione approvata",
+	"approvedrevs-invalidfiles": "File con approvazioni non valide",
+	"approvedrevs-approvedfiles": "Tutti i file con una versione approvata",
+	"approvedrevs-notlatestfiles": "File la cui versione approvata non è la loro ultima",
+	"approvedrevs-unapprovedfiles": "File non approvate",
 	"apihelp-approve-param-revid": "L'ID versione da approvare.",
 	"apihelp-approve-example-1": "Approva versione 12345"
 }
