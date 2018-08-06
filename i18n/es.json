@@ -19,7 +19,8 @@
 			"AlvaroMolina",
 			"Fitoschido",
 			"Javiersanp",
-			"Marianoog"
+			"Marianoog",
+			"Tiberius1701"
 		]
 	},
 	"approvedrevs-desc": "Establecer una revisión única de una página como aprovada",
@@ -43,7 +44,7 @@
 	"approvedrevs-notlatestpages": "Páginas cuya revisión aprobada no es la más reciente",
 	"approvedrevs-unapprovedpages": "Páginas desaprobadas",
 	"approvedrevs-invalidpages": "Páginas con aprobaciones no válidas",
-	"approvedrevs-view": "Ver:",
+	"approvedrevs-view": "Ver la lista de:",
 	"approvedrevs-revisionnumber": "revisión $1",
 	"approvedrevs-approvedby": "aprobada por {{GENDER:$3|$1}} el $4 a las $5",
 	"approvedrevs-difffromlatest": "diferencias con rev. más reciente",
@@ -54,6 +55,10 @@
 	"approvedrevs-approvedrevision": "Revisión aprobada",
 	"right-approverevisions": "Establecer una cierta revisión de una página wiki como aprobada",
 	"right-viewlinktolatest": "Ver texto explicativo en la parte superior de las páginas que tienen una revisión aprobada",
+	"approvedrevs-invalidfiles": "Archivos con aprobaciones no válidas",
+	"approvedrevs-approvedfiles": "Todos los archivos con una revisión aprobada",
+	"approvedrevs-notlatestfiles": "Archivos cuya revisión aprobada no es la más reciente",
+	"approvedrevs-unapprovedfiles": "Archivos no aprobados",
 	"approvedrevs-approvedfile": "Archivo aprobado",
 	"approvedrevs-latestfile": "Archivo más antiguo",
 	"apihelp-approve-param-revid": "El identificador de la revisión que se va a aprobar.",

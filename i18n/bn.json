@@ -22,5 +22,9 @@
 	"approvedrevs-approvelatest": "সাম্প্রতিককালে গৃহীত",
 	"approvedrevs-approvethisrev": "এই সংস্করণটি গ্রহণ করো।",
 	"approvedrevs-viewlatestrev": "সবচেয়ে সাম্প্রতিকতম সংস্করণটি দেখাও।",
-	"approvedrevs-approvedrevision": "অনুমোদিত সংস্করণ"
+	"approvedrevs-approvedrevision": "অনুমোদিত সংস্করণ",
+	"approvedrevs-invalidfiles": "অবৈধ অনুমোদনসহ ফাইলগুলি",
+	"approvedrevs-unapprovedfiles": "অননুমোদিত ফাইল",
+	"approvedrevs-approvedfile": "অনুমোদিত ফাইল",
+	"approvedrevs-latestfile": "সাম্প্রতিক ফাইল"
 }

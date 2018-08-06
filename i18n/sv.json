@@ -30,8 +30,9 @@
 	"approvedrevs-approvedpages": "Alla sidor med en godkänd version",
 	"approvedrevs-notlatestpages": "Sidor vars godkända version inte är den senaste.",
 	"approvedrevs-unapprovedpages": "Icke godkända sidor",
-	"approvedrevs-view": "Visa:",
+	"approvedrevs-view": "Visa lista över:",
 	"approvedrevs-revisionnumber": "version $1",
+	"approvedrevs-uploaddate": "laddades upp från $1",
 	"approvedrevs-approvedby": "godkänd av $1, $2",
 	"approvedrevs-difffromlatest": "diff från senaste",
 	"approvedrevs-approvelatest": "godkänn senaste",
@@ -39,5 +40,12 @@
 	"approvedrevs-viewlatestrev": "Visa den senaste versionen.",
 	"approvedrevs-approvedrevision": "Godkänd version",
 	"right-approverevisions": "Sätt en viss version av en wiki-sida som godkänd",
-	"right-viewlinktolatest": "Se förklarande text högst upp på sidor som har en godkänd version"
+	"right-viewlinktolatest": "Se förklarande text högst upp på sidor som har en godkänd version",
+	"right-viewapprover": "Visa text som visar vem som godkände nuvarande godkända version",
+	"approvedrevs-invalidfiles": "Filer med ogiltiga godkännanden",
+	"approvedrevs-approvedfiles": "Alla sidor med en godkänd sidversion",
+	"approvedrevs-notlatestfiles": "Sidor vars godkända sidversion inte är den senaste",
+	"approvedrevs-unapprovedfiles": "Icke-godkända sidor",
+	"approvedrevs-approvedfile": "Godkänd fil",
+	"approvedrevs-latestfile": "Senaste fil"
 }

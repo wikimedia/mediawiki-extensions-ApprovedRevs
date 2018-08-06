@@ -8,7 +8,8 @@
 			"Facenapalm",
 			"Mouse21",
 			"Happy13241",
-			"Movses"
+			"Movses",
+			"Vlad5250"
 		]
 	},
 	"approvedrevs-desc": "Установка одной из версий страниц как подтверждённой",
@@ -21,6 +22,7 @@
 	"approvedrevs-unapprovesuccess": "Не существует подтверждённой версии этой страницы.\nВместо неё будет показана последняя версия.",
 	"approvedrevs-unapprovesuccess2": "Больше не существует подтверждённой версии этой страницы.\nВместо неё будет показана пустая страница.",
 	"approvedrevs-approveaction": "установить $2 как подтверждённую версию «[[$1]]»",
+	"approvedrevs-approvefileaction": "{{GENDER:$1|установил|установила}} загрузку из $2 как проверенную версию \"[[$1]]\"",
 	"approvedrevs-unapproveaction": "снять утверждённую версию для «[[$1]]»",
 	"approvedrevs-notlatest": "Это утверждённая версия страницы. Существуют более свежие версии.",
 	"approvedrevs-approvedandlatest": "Это утверждённая версия страницы. Она же — наиболее свежая версия.",
@@ -34,6 +36,7 @@
 	"approvedrevs-invalidpages": "Страницы с некорректным подтверждением",
 	"approvedrevs-view": "Просмотр:",
 	"approvedrevs-revisionnumber": "версия $1",
+	"approvedrevs-uploaddate": "версия от $1",
 	"approvedrevs-approvedby": "подтверждена $1 $2",
 	"approvedrevs-difffromlatest": "разн. с последней",
 	"approvedrevs-approvelatest": "подтвердить последнюю",
@@ -42,6 +45,12 @@
 	"approvedrevs-approvedrevision": "Подтверждённая версия",
 	"right-approverevisions": "отметка определённых версий вики-страниц как подтверждённых",
 	"right-viewlinktolatest": "просмотр пояснительного текста в верхней части страниц, имеющих утверждённые версии",
+	"approvedrevs-invalidfiles": "Файлы с некорректным подтверждением",
+	"approvedrevs-approvedfiles": "Все файлы, имеющие подтверждённые версии",
+	"approvedrevs-notlatestfiles": "Файлы, чьи подтверждённые версии не являются последними",
+	"approvedrevs-unapprovedfiles": "Неутверждённые файлы",
+	"approvedrevs-approvedfile": "Утвержденный файл",
+	"approvedrevs-latestfile": "Последний файл",
 	"apihelp-approve-description": "Проверка версии посредством подтверждения или неподтверждения её.",
 	"apihelp-approve-summary": "Проверка версии посредством подтверждения или неподтверждения её.",
 	"apihelp-approve-param-revid": "Идентификатор версии, для которого необходимо одобрить.",

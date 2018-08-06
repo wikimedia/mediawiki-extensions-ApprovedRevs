@@ -8,7 +8,8 @@
 			"Snidata",
 			"Stryn",
 			"VezonThunder",
-			"01miki10"
+			"01miki10",
+			"Surjection"
 		]
 	},
 	"approvedrevs-desc": "Aseta yksittäinen sivuversio hyväksytyksi",
@@ -31,7 +32,7 @@
 	"approvedrevs-approvedpages": "Kaikki sivut, joista on hyväksytyt versiot",
 	"approvedrevs-notlatestpages": "Sivut, joiden hyväksytty versio ei ole viimeisin",
 	"approvedrevs-unapprovedpages": "Hyväksymättömät sivut",
-	"approvedrevs-view": "Katso:",
+	"approvedrevs-view": "Katso listaa:",
 	"approvedrevs-revisionnumber": "versio $1",
 	"approvedrevs-approvedby": "hyväksynyt {{GENDER:$3|$1}} $4 kello $5",
 	"approvedrevs-difffromlatest": "ero nykyiseen",

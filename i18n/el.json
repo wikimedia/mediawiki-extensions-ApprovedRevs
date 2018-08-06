@@ -29,8 +29,9 @@
 	"approvedrevs-notlatestpages": "Σελίδες των οποίων οι εγκεκριμένες αναθεωρήσεις δεν είναι οι πιο πρόσφατες",
 	"approvedrevs-unapprovedpages": "Μη εγκεκριμένες σελίδες",
 	"approvedrevs-invalidpages": "Σελίδες με μη έγκυρες εγκρίσεις",
-	"approvedrevs-view": "Προβολή",
+	"approvedrevs-view": "Προβολή λίστα του:",
 	"approvedrevs-revisionnumber": "αναθεώρηση $1",
+	"approvedrevs-uploaddate": "ανέβασμα από $1",
 	"approvedrevs-approvedby": "εγκρίθηκε από $1 στη  $2",
 	"approvedrevs-difffromlatest": "diff από το τελευταίο",
 	"approvedrevs-approvelatest": "εγκρίνετε την πιο πρόσφατη",
@@ -39,6 +40,10 @@
 	"approvedrevs-approvedrevision": "Εγκεκριμένη αναθεώρηση",
 	"right-approverevisions": "Ορίστε μια συγκεκριμένη αναθεώρηση μιας σελίδας wiki ως εγκεκριμένη",
 	"right-viewlinktolatest": "Προβολή επεξηγηματικού κειμένου στο επάνω μέρος των σελίδων που έχουν εγκεκριμένη αναθεώρηση",
+	"approvedrevs-invalidfiles": "Αρχεία με μη έγκυρες εγκρίσεις",
+	"approvedrevs-unapprovedfiles": "Μη εγκεκριμένα αρχεία",
+	"approvedrevs-approvedfile": "Εγκεκριμένο αρχείο",
+	"approvedrevs-latestfile": "Πιο πρόσφατο αρχείο",
 	"apihelp-approve-example-1": "Έγκριση αναθεώρησης 12345",
 	"apihelp-approve-example-2": "Μη έγκριση αναθεώρησης 12345"
 }

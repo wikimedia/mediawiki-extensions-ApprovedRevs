@@ -22,5 +22,10 @@
 	"approvedrevs-approvethisrev": "Одобри ову измену.",
 	"approvedrevs-viewlatestrev": "Погледајте последњу измену.",
 	"right-approverevisions": "постављање одређене измене на вики страници као одобрене",
-	"right-viewlinktolatest": "преглед образложења на врху страница које имају одобрену измену"
+	"right-viewlinktolatest": "преглед образложења на врху страница које имају одобрену измену",
+	"approvedrevs-approvedfiles": "Све датотеке с одобреном изменом",
+	"approvedrevs-notlatestfiles": "Датотеке чија одобрена измена није најновија",
+	"approvedrevs-unapprovedfiles": "Неодобрене датотеке",
+	"approvedrevs-approvedfile": "Одобрена датотека",
+	"approvedrevs-latestfile": "Најновија датотека"
 }

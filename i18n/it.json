@@ -39,6 +39,7 @@
 	"approvedrevs-approvedfiles": "Tutti i file con una versione approvata",
 	"approvedrevs-notlatestfiles": "File la cui versione approvata non è la loro ultima",
 	"approvedrevs-unapprovedfiles": "File non approvate",
+	"approvedrevs-approvedfile": "File approvato",
 	"apihelp-approve-param-revid": "L'ID versione da approvare.",
 	"apihelp-approve-example-1": "Approva versione 12345"
 }
