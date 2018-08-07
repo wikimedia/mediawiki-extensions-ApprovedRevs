@@ -9,7 +9,8 @@
 			"Mouse21",
 			"Happy13241",
 			"Movses",
-			"Vlad5250"
+			"Vlad5250",
+			"Shaleych"
 		]
 	},
 	"approvedrevs-desc": "Установка одной из версий страниц как подтверждённой",
@@ -34,7 +35,7 @@
 	"approvedrevs-notlatestpages": "Страницы, чьи подтверждённые версии не являются последними",
 	"approvedrevs-unapprovedpages": "Неутверждённые страницы",
 	"approvedrevs-invalidpages": "Страницы с некорректным подтверждением",
-	"approvedrevs-view": "Просмотр:",
+	"approvedrevs-view": "Просмотр списка:",
 	"approvedrevs-revisionnumber": "версия $1",
 	"approvedrevs-uploaddate": "версия от $1",
 	"approvedrevs-approvedby": "подтверждена $1 $2",
