@@ -29,7 +29,7 @@
 	"approvedrevs-notlatestpages": "Sider der den godkjente revisjonen ikke er deres nyeste.",
 	"approvedrevs-unapprovedpages": "Ikke-godkjente sider",
 	"approvedrevs-invalidpages": "Sider med ugyldige godkjenninger",
-	"approvedrevs-view": "Vis:",
+	"approvedrevs-view": "Vis liste over:",
 	"approvedrevs-revisionnumber": "revisjon $1",
 	"approvedrevs-approvedby": "godkjent av $1, $2",
 	"approvedrevs-difffromlatest": "diff fra siste",
@@ -38,5 +38,6 @@
 	"approvedrevs-viewlatestrev": "Vis den nyeste revisjonen.",
 	"approvedrevs-approvedrevision": "Godkjent revisjon",
 	"right-approverevisions": "Sett en viss revisjon av en wikiside som godkjent",
-	"right-viewlinktolatest": "Vis forklarende tekst på toppen av sider som har en godkjent revisjon"
+	"right-viewlinktolatest": "Vis forklarende tekst på toppen av sider som har en godkjent revisjon",
+	"approvedrevs-latestfile": "Nyeste fil"
 }
