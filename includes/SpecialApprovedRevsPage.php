@@ -518,7 +518,7 @@ class SpecialApprovedRevsPage extends QueryPage {
 		} elseif ( $this->mMode == 'approvedfiles' ) {
 			global $wgUser, $wgOut, $wgLang;
 
-			$additionalInfo = Xml::element( 'span',
+			$additionalInfo = Html::rawElement( 'span',
 				array(
 					'class' =>
 						( $result->approved_sha1 == $result->latest_sha1
