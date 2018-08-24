@@ -395,7 +395,8 @@ class ApprovedRevs {
 		);
 		if ( $result !== false ) {
 			// if user listed as an approver, allow approval
-			if ( in_array( $user->getName(), explode( ',', $result ) ) ) {
+			$approverUsers = array_map( 'User::getCanonicalName', explode( ',', $result ) );
+			if ( in_array( $user->getName(), $approverUsers ) ) {
 				return true;
 			}
 		}
