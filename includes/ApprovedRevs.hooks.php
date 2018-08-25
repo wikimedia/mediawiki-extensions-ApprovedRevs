@@ -727,7 +727,7 @@ class ApprovedRevsHooks {
 	}
 
 	/**
-	 * Add a link to 'Special:ApprovedPages' to the the page
+	 * Add a link to 'Special:ApprovedPages' to the page
 	 * 'Special:AdminLinks', defined by the Admin Links extension.
 	 */
 	static function addToAdminLinks( &$admin_links_tree ) {
