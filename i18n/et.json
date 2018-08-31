@@ -22,7 +22,7 @@
 	"approvedrevs-approvedpages": "Kõik heakskiidetud redaktsiooniga leheküljed",
 	"approvedrevs-notlatestpages": "Leheküljed, mille heakskiidetud redaktsioon pole ühtlasi viimane",
 	"approvedrevs-unapprovedpages": "Heakskiitmata leheküljed",
-	"approvedrevs-view": "Vaata:",
+	"approvedrevs-view": "Vaata loendit:",
 	"approvedrevs-revisionnumber": "redaktsioon $1",
 	"approvedrevs-approvedby": "heaks kiitnud {{GENDER:$3|$1}} kuupäeval $4, kell $5",
 	"approvedrevs-difffromlatest": "erinevus viimasest"
