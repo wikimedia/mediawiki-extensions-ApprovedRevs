@@ -44,6 +44,7 @@
 	"approvedrevs-invalidfiles": "Файлы зь няслушнымі ўхваленьнямі",
 	"approvedrevs-approvedfiles": "Усе файлы з зацьверджанымі вэрсіямі",
 	"approvedrevs-notlatestfiles": "Файлы, зацьверджаныя вэрсіі якіх не зьяўляюцца апошнімі",
+	"approvedrevs-unapprovedfiles": "Незацьверджаныя файлы",
 	"apihelp-approve-description": "Вычытка вэрсіі ўхваленьнем ці не ўхваленьнем яе.",
 	"apihelp-approve-summary": "Вычытка вэрсіі ўхваленьнем ці не ўхваленьнем яе.",
 	"apihelp-approve-param-revid": "ID вэрсіі, для якой пацьвярджаць.",
