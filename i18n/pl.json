@@ -4,7 +4,8 @@
 			"BeginaFelicysym",
 			"Chrumps",
 			"Sp5uhe",
-			"Woytecr"
+			"Woytecr",
+			"Railfail536"
 		]
 	},
 	"approvedrevs-desc": "Pozwala na zatwierdzenie pojedynczej wersji strony",
@@ -24,10 +25,11 @@
 	"approvedrevs-noapprovedrevision": "To jest najnowsza wersja tej strony; nie ma przejrzanej wersji.",
 	"approvedrevs-editwarning": "Zauważ, że edytujesz ostatnią wersję strony. Wersję, która nie została zatwierdzona i nie jest pokazywana domyślnie.",
 	"approvedrevs": "Zatwierdzone wersje",
-	"approvedrevs-approvedpages": "Wszystkie strony z zatwierdzoną wersją",
-	"approvedrevs-notlatestpages": "Strony, których zatwierdzona wersja nie jest ich ostatnią",
-	"approvedrevs-unapprovedpages": "Niezatwierdzone strony",
-	"approvedrevs-view": "Widok",
+	"approvedrevs-approvedpages": "Wszystkich stron z zatwierdzoną wersją",
+	"approvedrevs-notlatestpages": "Stron, których zatwierdzona wersja nie jest ich ostatnią",
+	"approvedrevs-unapprovedpages": "Niezatwierdzonych stron",
+	"approvedrevs-invalidpages": "Strony z nieprawidłowymi zatwierdzeniami",
+	"approvedrevs-view": "Zobacz listę:",
 	"approvedrevs-revisionnumber": "wersja $1",
 	"approvedrevs-approvedby": "zatwierdzone $2 przez $1",
 	"approvedrevs-difffromlatest": "porównaj z najnowszą",
