@@ -19,7 +19,7 @@
 	"approvedrevs-approve": "подтвердить",
 	"approvedrevs-approver": "Эта версия была одобрена {{GENDER:$1|участником|участницей}} $1.",
 	"approvedrevs-unapprove": "снять подтверждение",
-	"approvedrevs-approvesuccess": "Это версия страницы была отмечена как подтверждённая.",
+	"approvedrevs-approvesuccess": "Эта версия страницы была отмечена как подтверждённая.",
 	"approvedrevs-unapprovesuccess": "Не существует подтверждённой версии этой страницы.\nВместо неё будет показана последняя версия.",
 	"approvedrevs-unapprovesuccess2": "Больше не существует подтверждённой версии этой страницы.\nВместо неё будет показана пустая страница.",
 	"approvedrevs-approveaction": "установить $2 как подтверждённую версию «[[$1]]»",

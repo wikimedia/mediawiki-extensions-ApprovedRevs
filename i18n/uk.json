@@ -19,7 +19,7 @@
 	"approvedrevs-approve": "Затвердити",
 	"approvedrevs-approver": "Версію затверджено $1.",
 	"approvedrevs-unapprove": "Відхилити",
-	"approvedrevs-approvesuccess": "Цей перегляд сторінки був встановлений як затверджуючий.",
+	"approvedrevs-approvesuccess": "Ця версія сторінки була встановлена як затверджена.",
 	"approvedrevs-unapprovesuccess": "Існує не затверджений варіант для цієї сторінки. \nЗамість цього, самий останній затверджений варіант буде показаний.",
 	"approvedrevs-unapprovesuccess2": "Існує не затверджений варіант для цієї сторінки. \nЗамість цього буде показано порожню сторінку.",
 	"approvedrevs-approveaction": "встановити $2 як затверджену версію для «[[$1]]»",
