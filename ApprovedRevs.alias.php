@@ -3,7 +3,6 @@
  * Aliases for special pages of Approved Revs extension.
  *
  */
-// @codingStandardsIgnoreFile
 
 $specialPageAliases = array();
 
