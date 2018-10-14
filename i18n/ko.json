@@ -4,7 +4,8 @@
 			"Priviet",
 			"아라",
 			"Keysuck",
-			"Ykhwong"
+			"Ykhwong",
+			"Revi"
 		]
 	},
 	"approvedrevs-desc": "승인한 문서의 판 하나를 설정합니다",
@@ -27,6 +28,7 @@
 	"approvedrevs-approvedpages": "승인한 판이 있는 모든 문서",
 	"approvedrevs-notlatestpages": "승인한 판이 최신 판이 아닌 문서",
 	"approvedrevs-unapprovedpages": "승인하지 않은 문서",
+	"approvedrevs-invalidpages": "유효하지 않은 승인이 있는 문서",
 	"approvedrevs-view": "다음 목록 보기:",
 	"approvedrevs-revisionnumber": "$1 판",
 	"approvedrevs-uploaddate": "$1의 업로드",
@@ -44,5 +46,7 @@
 	"approvedrevs-notlatestfiles": "승인한 판이 최신 판이 아닌 파일",
 	"approvedrevs-unapprovedfiles": "미승인 파일",
 	"approvedrevs-approvedfile": "승인한 파일",
-	"approvedrevs-latestfile": "최신 파일"
+	"approvedrevs-latestfile": "최신 파일",
+	"apihelp-approve-param-revid": "승인할 판 ID.",
+	"apihelp-approve-example-1": "12345 판 승인"
 }
