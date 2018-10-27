@@ -667,4 +667,226 @@ class ApprovedRevs {
 
 	}
 
+	/**
+	 * (non-PHPdoc)
+	 * @see QueryPage::getSQL()
+	 */
+	static public function getQueryInfoPageApprovals( $mode ) {
+		$approvedRevsNamespaces = ApprovedRevs::getApprovableNamespaces();
+
+		$mainCondsString = "( pp_propname = 'approvedrevs' AND pp_value = 'y' " .
+			"OR pp_propname = 'approvedrevs-approver-users' " .
+			"OR pp_propname = 'approvedrevs-approver-groups' )";
+		if ( $mode == 'invalid' ) {
+			$mainCondsString = "( pp_propname IS NULL OR NOT $mainCondsString )";
+		}
+		if ( count( $approvedRevsNamespaces ) > 0 ) {
+			if ( $mode == 'invalid' ) {
+				$mainCondsString .= " AND ( p.page_namespace NOT IN ( " . implode( ',', $approvedRevsNamespaces ) . " ) )";
+			} else {
+				$mainCondsString .= " OR ( p.page_namespace IN ( " . implode( ',', $approvedRevsNamespaces ) . " ) )";
+			}
+		}
+
+		if ( $mode == 'all' ) {
+			return array(
+				'tables' => array(
+					'ar' => 'approved_revs',
+					'p' => 'page',
+					'pp' => 'page_props',
+				),
+				'fields' => array(
+					'p.page_id AS id',
+					'ar.rev_id AS rev_id',
+					'p.page_latest AS latest_id',
+				),
+				'join_conds' => array(
+					'p' => array(
+						'JOIN', 'ar.page_id=p.page_id'
+					),
+					'pp' => array(
+						'LEFT OUTER JOIN', 'ar.page_id=pp_page'
+					),
+				),
+				'conds' => $mainCondsString,
+				'options' => array( 'DISTINCT' )
+			);
+		} elseif ( $mode == 'unapproved' ) {
+			return array(
+				'tables' => array(
+					'ar' => 'approved_revs',
+					'p' => 'page',
+					'pp' => 'page_props',
+				),
+				'fields' => array(
+					'p.page_id AS id',
+					'p.page_latest AS latest_id'
+				),
+				'join_conds' => array(
+					'ar' => array(
+						'LEFT OUTER JOIN', 'p.page_id=ar.page_id'
+					),
+					'pp' => array(
+						'LEFT OUTER JOIN', 'ar.page_id=pp_page'
+					),
+				),
+				'conds' => "ar.page_id IS NULL AND ( $mainCondsString )",
+				'options' => array( 'DISTINCT' )
+			);
+		} elseif ( $mode == 'invalid' ) {
+			return array(
+				'tables' => array(
+					'ar' => 'approved_revs',
+					'p' => 'page',
+					'pp' => 'page_props',
+				),
+				'fields' => array(
+					'p.page_id AS id',
+					'p.page_latest AS latest_id'
+				),
+				'join_conds' => array(
+					'p' => array(
+						'LEFT OUTER JOIN', 'p.page_id=ar.page_id'
+					),
+					'pp' => array(
+						'LEFT OUTER JOIN', 'ar.page_id=pp_page'
+					),
+				),
+				'conds' => $mainCondsString,
+				'options' => array( 'DISTINCT' )
+			);
+		} else { // 'approved revision is not latest'
+			return array(
+				'tables' => array(
+					'ar' => 'approved_revs',
+					'p' => 'page',
+					'pp' => 'page_props',
+				),
+				'fields' => array(
+					'p.page_id AS id',
+					'ar.rev_id AS rev_id',
+					'p.page_latest AS latest_id',
+				),
+				'join_conds' => array(
+					'p' => array(
+						'JOIN', 'ar.page_id=p.page_id'
+					),
+					'pp' => array(
+						'LEFT OUTER JOIN', 'ar.page_id=pp_page'
+					),
+				),
+				'conds' => "p.page_latest != ar.rev_id AND ( $mainCondsString )",
+				'options' => array( 'DISTINCT' )
+			);
+		}
+	}
+
+	/**
+	 * (non-PHPdoc)
+	 * @see QueryPage::getSQL()
+	 */
+	static public function getQueryInfoFileApprovals( $mode ) {
+
+		$tables = array(
+			'ar' => 'approved_revs_files',
+			'im' => 'image',
+			'p' => 'page',
+		);
+
+		$fields = array(
+			'im.img_name AS title',
+			'ar.approved_sha1 AS approved_sha1',
+			'ar.approved_timestamp AS approved_ts',
+			'im.img_sha1 AS latest_sha1',
+			'im.img_timestamp AS latest_ts',
+		);
+
+		$conds = array( 'p.page_namespace' => NS_FILE );
+
+		$join_conds = array(
+			'im' => array( null, 'ar.file_title=im.img_name' ),
+			'p'  => array( 'JOIN' , 'im.img_name=p.page_title' ),
+		);
+
+		$pagePropsConditions = "( (pp_propname = 'approvedrevs' AND pp_value = 'y') " .
+			"OR pp_propname = 'approvedrevs-approver-users' " .
+			"OR pp_propname = 'approvedrevs-approver-groups' )";
+
+		#
+		# mode: approvedfiles
+		#
+		if ( $mode == 'approvedfiles' ) {
+
+			$join_conds['im'][0] = 'JOIN';
+
+			// get everything from approved_revs table
+
+		#
+		# mode: unapprovedfiles
+		#
+		} elseif ( $mode == 'unapprovedfiles' ) {
+
+			$join_conds['im'][0] = 'RIGHT OUTER JOIN';
+
+			$tables['pp'] = 'page_props';
+			$join_conds['pp'] = array( 'LEFT OUTER JOIN', 'p.page_id=pp_page' );
+
+			$approvedRevsNamespaces = ApprovedRevs::getApprovableNamespaces();
+
+			// if all files are not approvable then need to find files matching
+			// __APPROVEDREVS__ and {{#approvable_by: ... }} permissions
+			if ( ! in_array( NS_FILE, $approvedRevsNamespaces ) ) {
+				$conds[] = $pagePropsConditions;
+			}
+
+			$conds['ar.file_title'] = null;
+
+		#
+		# mode: invalidfiles
+		#
+		} elseif ( $mode == 'invalidfiles' ) {
+
+			$join_conds['im'][0] = 'LEFT OUTER JOIN';
+
+			$tables['pp'] = 'page_props';
+			$join_conds['pp'] = array( 'LEFT OUTER JOIN', 'p.page_id=pp_page' );
+
+			$approvedRevsNamespaces = ApprovedRevs::getApprovableNamespaces();
+
+			if ( in_array( NS_FILE, $approvedRevsNamespaces ) ) {
+
+				// if all files are approvable, no files should have invalid
+				// approvals. Below is an impossible condition that prevents any
+				// results from being returned.
+				$conds[] = 'p.page_namespace=1 AND p.page_namespace=2';
+			}
+			else {
+
+				$conds[] = "( pp_propname IS NULL OR NOT $pagePropsConditions )";;
+
+			}
+
+		#
+		# mode: notlatestfiles
+		#
+		} elseif ( $mode == 'notlatestfiles' ) {
+
+			$join_conds['im'][0] = 'JOIN';
+
+			// Name/Title both exist, sha1's don't match OR timestamps
+			// don't match
+			$conds[] = "(ar.approved_sha1!=im.img_sha1 OR ar.approved_timestamp!=im.img_timestamp)";
+
+		}
+
+		return array(
+			'tables' => $tables,
+			'fields' => $fields,
+			'join_conds' => $join_conds,
+			'conds' => $conds,
+			'options' => array( 'DISTINCT' ),
+		);
+
+	}
+
 }
