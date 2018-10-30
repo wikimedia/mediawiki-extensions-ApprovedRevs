@@ -14,7 +14,12 @@ class ApprovedRevs {
 	static $mApprovedContentForPage = array();
 	static $mApprovedRevIDForPage = array();
 	static $mApproverForPage = array();
-	static $mUserCanApprove = null;
+
+	/**
+	 * Array in form $mUserCanApprove["<user id>:<article id>"] = <bool>
+	 * @var array
+	 */
+	static $mUserCanApprove = array();
 	static $mApprovedFileInfo = array();
 
 	static $mApprovedRevsNamespaces;
@@ -310,18 +315,25 @@ class ApprovedRevs {
 		global $egApprovedRevsSelfOwnedNamespaces;
 		$permission = 'approverevisions';
 
+		$userAndPageKey = $user->getId() . ':' . $title->getArticleID();
+
+		// set to null to avoid notices below
+		if ( ! isset( self::$mUserCanApprove[$userAndPageKey] ) ) {
+			self::$mUserCanApprove[$userAndPageKey] = null;
+		}
+
 		// $mUserCanApprove is a static variable used for
 		// "caching" the result of this function, so that
-		// it only has to be called once.
-		if ( self::$mUserCanApprove ) {
+		// it only has to be called once per user/page combination
+		if ( self::$mUserCanApprove[$userAndPageKey] ) {
 			return true;
-		} elseif ( self::$mUserCanApprove === false ) {
+		} elseif ( self::$mUserCanApprove[$userAndPageKey] === false ) {
 			return false;
 		} elseif ( ApprovedRevs::checkPermission( $user, $title, $permission ) ) {
-			self::$mUserCanApprove = true;
+			self::$mUserCanApprove[$userAndPageKey] = true;
 			return true;
 		} elseif ( ApprovedRevs::checkParserFunctionPermission( $user, $title ) ) {
-			self::$mUserCanApprove = true;
+			self::$mUserCanApprove[$userAndPageKey] = true;
 			return true;
 		} else {
 			// If the user doesn't have the 'approverevisions'
@@ -337,7 +349,7 @@ class ApprovedRevs {
 					// namespace, this user can approve
 					// revisions if it's their user page.
 					if ( $title->getText() == $user->getName() ) {
-						self::$mUserCanApprove = true;
+						self::$mUserCanApprove[$userAndPageKey] = true;
 						return true;
 					}
 				} else {
@@ -355,13 +367,13 @@ class ApprovedRevs {
 						array( 'revision' => array( 'JOIN', 'r.rev_page = p.page_id' ) )
 					);
 					if ( $row->rev_user_text == $user->getName() ) {
-						self::$mUserCanApprove = true;
+						self::$mUserCanApprove[$userAndPageKey] = true;
 						return true;
 					}
 				}
 			}
 		}
-		self::$mUserCanApprove = false;
+		self::$mUserCanApprove[$userAndPageKey] = false;
 		return false;
 	}
 
