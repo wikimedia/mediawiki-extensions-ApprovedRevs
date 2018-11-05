@@ -603,7 +603,7 @@ class ApprovedRevs {
 			$logParams
 		);
 
-		wfRunHooks(
+		Hooks::run(
 			'ApprovedRevsFileRevisionApproved',
 			array( $parser, $title, $timestamp, $sha1 )
 		);
@@ -632,7 +632,7 @@ class ApprovedRevs {
 			''
 		);
 
-		wfRunHooks(
+		Hooks::run(
 			'ApprovedRevsFileRevisionUnapproved', array( $parser, $title )
 		);
 
