@@ -115,6 +115,9 @@
 		"PageHistoryLineEnding": [
 			"ApprovedRevsHooks::addApprovalLink"
 		],
+		"DiffRevisionTools": [
+			"ApprovedRevsHooks::addApprovalDiffLink"
+		],
 		"BeforeParserFetchTemplateAndtitle": [
 			"ApprovedRevsHooks::setTranscludedPageRev"
 		],

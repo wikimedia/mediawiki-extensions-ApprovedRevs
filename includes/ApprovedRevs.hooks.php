@@ -508,8 +508,8 @@ class ApprovedRevsHooks {
 			if ( $revisionUser ) {
 				$text .= Xml::openElement( 'span', array( 'class' => 'approvingUser' ) ) .
 					wfMessage(
-						  'approvedrevs-approver',
-						  Linker::userLink( $revisionUser->getId(), $revisionUser->getName() )
+						'approvedrevs-approver',
+						Linker::userLink( $revisionUser->getId(), $revisionUser->getName() )
 					)->text() .
 					Xml::closeElement( 'span' );
 			}
@@ -665,6 +665,39 @@ class ApprovedRevsHooks {
 				array( 'href' => $url ),
 				$msg
 			) . ')';
+		}
+		return true;
+	}
+
+	/**
+	 * If the user is allowed to make revision approvals, add an
+	 * 'approve' link to the diff revision page when comparing to
+	 * previously approved revision.
+	 */
+	static function addApprovalDiffLink( $rev, &$links, $oldRev, $user ) {
+		$title = $rev->getTitle();
+
+		if ( ! ApprovedRevs::pageIsApprovable( $title ) ) {
+			return true;
+		}
+
+		$approvedRevID = ApprovedRevs::getApprovedRevID( $title );
+
+		if ( ApprovedRevs::userCanApprove( $user, $title ) && $oldRev->getID() == $approvedRevID ) {
+			// array key is class applied to <span> wrapping around link
+			// default if blank is mw-diff-tool; add that along with extension-specific class
+			$links['mw-diff-tool ext-approved-revs-approval-span'] = HTML::element(
+				'a',
+				array(
+					'href' => $title->getLocalUrl( array(
+						'action' => 'approve',
+						'oldid' => $rev->getId()
+					) ),
+					'class' => 'ext-approved-revs-approval-link',
+					'title' => wfMessage( 'approvedrevs-approvethisrev' )->text()
+				),
+				wfMessage( 'approvedrevs-approve' )->text()
+			);
 		}
 		return true;
 	}

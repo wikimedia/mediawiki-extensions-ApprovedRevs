@@ -90,6 +90,7 @@ $wgHooks['DisplayOldSubtitle'][] = 'ApprovedRevsHooks::setSubtitle';
 $wgHooks['SkinTemplateNavigation'][] = 'ApprovedRevsHooks::changeEditLink';
 $wgHooks['PageHistoryBeforeList'][] = 'ApprovedRevsHooks::storeApprovedRevisionForHistoryPage';
 $wgHooks['PageHistoryLineEnding'][] = 'ApprovedRevsHooks::addApprovalLink';
+$wgHooks['DiffRevisionTools'][] = 'ApprovedRevsHooks::addApprovalDiffLink';
 $wgHooks['BeforeParserFetchTemplateAndtitle'][] = 'ApprovedRevsHooks::setTranscludedPageRev';
 $wgHooks['ArticleDeleteComplete'][] = 'ApprovedRevsHooks::deleteRevisionApproval';
 $wgHooks['MagicWordwgVariableIDs'][] = 'ApprovedRevsHooks::addMagicWordVariableIDs';
