@@ -3,13 +3,14 @@
 		"authors": [
 			"Erdemaslancan",
 			"Marmase",
-			"1917 Ekim Devrimi"
+			"1917 Ekim Devrimi",
+			"Mirzali"
 		]
 	},
 	"approvedrevs-approve": "Tesdiq ke",
 	"approvedrevs-unapprove": "Tesdiqi wedarne",
 	"approvedrevs-unapprovedpages": "Pela bêtesdiqın",
-	"approvedrevs-view": "Bıvin:",
+	"approvedrevs-view": "Lista cı bıvêne:",
 	"approvedrevs-revisionnumber": "Revizyonê $1",
 	"approvedrevs-difffromlatest": "Verêni ya ferqê cı",
 	"approvedrevs-approvelatest": "Tesdiq kerdeno peyên",
