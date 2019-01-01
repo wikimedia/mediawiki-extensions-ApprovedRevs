@@ -2,13 +2,15 @@
 	"@metadata": {
 		"authors": [
 			"SPQRobin",
-			"Siebrand"
+			"Siebrand",
+			"Mainframe98"
 		]
 	},
 	"approvedrevs-desc": "Een versie van een pagina als goedgekeurd instellen",
 	"approvedrevs-logname": "Logboek versiegoedkeuring",
 	"approvedrevs-logdesc": "Dit is het logboek met de versies die zijn goedgekeurd.",
 	"approvedrevs-approve": "goedkeuren",
+	"approvedrevs-approver": "Deze versie was goedgekeurd door $1.",
 	"approvedrevs-unapprove": "afkeuren",
 	"approvedrevs-approvesuccess": "Deze versie van de pagina is ingesteld als de goedgekeurde versie.",
 	"approvedrevs-unapprovesuccess": "Deze pagina heeft niet langer een goedgekeurde versie.\nDaarom wordt de laatste versie weergegeven.",
@@ -24,7 +26,7 @@
 	"approvedrevs-approvedpages": "Alle pagina's met een goedgekeurde versie",
 	"approvedrevs-notlatestpages": "Pagina's waarvan de goedgekeurde versie niet de laatste versie is",
 	"approvedrevs-unapprovedpages": "Niet-goedgekeurde pagina's",
-	"approvedrevs-view": "Weergave:",
+	"approvedrevs-view": "Toon een lijst van:",
 	"approvedrevs-revisionnumber": "versie $1",
 	"approvedrevs-approvedby": "goedgekeurd door {{GENDER:$3|$1}} op $4 om $5",
 	"approvedrevs-difffromlatest": "verschil met de meest recente versie",
@@ -33,5 +35,7 @@
 	"approvedrevs-viewlatestrev": "Laatste versie bekijken",
 	"approvedrevs-approvedrevision": "Goedgekeurde versie",
 	"right-approverevisions": "Een versie van een wikipagina markeren als goedgekeurd.",
-	"right-viewlinktolatest": "De verklarende tekst bovenaan pagina's zien die die een goedgekeurde versie hebben"
+	"right-viewlinktolatest": "De verklarende tekst bovenaan pagina's zien die die een goedgekeurde versie hebben",
+	"approvedrevs-approvedfiles": "Alle bestanden met een goedgekeurde versie",
+	"approvedrevs-approvedfile": "Goedgekeurd bestand"
 }
