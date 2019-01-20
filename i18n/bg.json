@@ -3,10 +3,33 @@
 		"authors": [
 			"DCLXVI",
 			"පසිඳු කාවින්ද",
-			"StanProg"
+			"StanProg",
+			"Vlad5250"
 		]
 	},
+	"approvedrevs-logname": "Дневник на одобрени версии",
+	"approvedrevs-logdesc": "Това е дневникът на одобрени версии.",
 	"approvedrevs-approve": "одобрява",
+	"approvedrevs-approver": "Тази версия е одобрена от $1.",
+	"approvedrevs-unapprove": "неодобрена",
+	"approvedrevs-approvesuccess": "Тази версия на страницата е поставена като одобрена.",
 	"approvedrevs": "Одобрени редакции",
-	"approvedrevs-view": "Преглед на списък на:"
+	"approvedrevs-approvedpages": "Всички страници с одобрена версия",
+	"approvedrevs-unapprovedpages": "Неодобрени страници",
+	"approvedrevs-invalidpages": "Страници с невалидни одобрявания",
+	"approvedrevs-view": "Преглед на списък на:",
+	"approvedrevs-revisionnumber": "версия $1",
+	"approvedrevs-uploaddate": "качване от $1",
+	"approvedrevs-difffromlatest": "разл. от послед.",
+	"approvedrevs-approvelatest": "одобри най-нова",
+	"approvedrevs-approvethisrev": "Одобряване на версията.",
+	"approvedrevs-viewlatestrev": "Най-нова версия.",
+	"approvedrevs-approvedrevision": "Одобрена редакция",
+	"approvedrevs-invalidfiles": "Файлове с невалидни одобрявания",
+	"approvedrevs-approvedfiles": "Всички файлове с одобрена версия",
+	"approvedrevs-unapprovedfiles": "Неодобрени файлове",
+	"approvedrevs-approvedfile": "Одобрен файл",
+	"approvedrevs-latestfile": "Най-нов файл",
+	"apihelp-approve-param-unapprove": "Ако е зададено, редакцията ще бъде неодобрена вместо одобрена.",
+	"apihelp-approve-example-1": "Одобряване на редакцията 12345"
 }
