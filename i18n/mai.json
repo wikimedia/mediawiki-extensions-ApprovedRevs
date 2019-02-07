@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Haribanshi"
+		]
+	},
+	"approvedrevs-approve": "स्वीकृत",
+	"approvedrevs-unapprove": "अनुमोदन रद्द",
+	"approvedrevs-revisionnumber": "संशोधन $1",
+	"approvedrevs-approvedfile": "स्विकृत मिति"
+}
