@@ -256,7 +256,7 @@ class SpecialApprovedRevsPage extends QueryPage {
 		if ( $this->mMode == 'unapprovedfiles' ) {
 			global $egApprovedRevsShowApproveLatest;
 
-			if ( $egApprovedRevsShowApproveLatest && ApprovedRevs::userCanApprove( $title ) ) {
+			if ( $egApprovedRevsShowApproveLatest && ApprovedRevs::userCanApprove( $this->getUser(), $title ) ) {
 				$approveLink = ' (' . Xml::element(
 					'a',
 					array(

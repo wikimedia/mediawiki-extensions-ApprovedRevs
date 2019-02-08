@@ -27,7 +27,7 @@ class ApiApprove extends ApiBase {
 		$title = $rev->getTitle();
 
 		// Verify that user can approve.
-		if ( ! ApprovedRevs::userCanApprove( $title ) ) {
+		if ( ! ApprovedRevs::userCanApprove( $wgUser, $title ) ) {
 			$this->dieUsage( 'You ('.$wgUser->getName() .') can\'t approve!', 'permissiondenied');
 		}
 		// Verify that page can be approved.
