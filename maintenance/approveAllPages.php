@@ -31,8 +31,8 @@
 // Allow people to have different layouts.
 if ( ! isset( $IP ) ) {
 	$IP = __DIR__ . '/../../../';
-	if ( getenv("MW_INSTALL_PATH") ) {
-		$IP = getenv("MW_INSTALL_PATH");
+	if ( getenv( 'MW_INSTALL_PATH' ) ) {
+		$IP = getenv( 'MW_INSTALL_PATH' );
 	}
 }
 
@@ -47,8 +47,8 @@ class ApproveAllPages extends Maintenance {
 			"that do not yet have an approved revision.";
 
 		if ( method_exists( $this, 'requireExtension' ) ) {
-                        $this->requireExtension( 'Approved Revs' );
-                }
+			$this->requireExtension( 'Approved Revs' );
+		}
 	}
 
 	public function execute() {
