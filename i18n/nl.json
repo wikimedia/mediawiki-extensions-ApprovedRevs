@@ -3,7 +3,8 @@
 		"authors": [
 			"SPQRobin",
 			"Siebrand",
-			"Mainframe98"
+			"Mainframe98",
+			"Xbaked potatox"
 		]
 	},
 	"approvedrevs-desc": "Een versie van een pagina als goedgekeurd instellen",
@@ -28,6 +29,7 @@
 	"approvedrevs-unapprovedpages": "Niet-goedgekeurde pagina's",
 	"approvedrevs-view": "Toon een lijst van:",
 	"approvedrevs-revisionnumber": "versie $1",
+	"approvedrevs-uploaddate": "Uploaden van $1",
 	"approvedrevs-approvedby": "goedgekeurd door {{GENDER:$3|$1}} op $4 om $5",
 	"approvedrevs-difffromlatest": "verschil met de meest recente versie",
 	"approvedrevs-approvelatest": "laatste versie goedkeuren",
@@ -37,5 +39,7 @@
 	"right-approverevisions": "Een versie van een wikipagina markeren als goedgekeurd.",
 	"right-viewlinktolatest": "De verklarende tekst bovenaan pagina's zien die die een goedgekeurde versie hebben",
 	"approvedrevs-approvedfiles": "Alle bestanden met een goedgekeurde versie",
-	"approvedrevs-approvedfile": "Goedgekeurd bestand"
+	"approvedrevs-unapprovedfiles": "Niet-goedgekeurde bestanden",
+	"approvedrevs-approvedfile": "Goedgekeurd bestand",
+	"approvedrevs-latestfile": "Laatste bestand"
 }
