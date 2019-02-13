@@ -24,7 +24,7 @@
 	"approvedrevs-notlatestpages": "Paginas del quales le version approbate non es lor ultime",
 	"approvedrevs-unapprovedpages": "Paginas non approbate",
 	"approvedrevs-invalidpages": "Paginas con approbationes non valide",
-	"approvedrevs-view": "Vider:",
+	"approvedrevs-view": "Vider lista de:",
 	"approvedrevs-revisionnumber": "version $1",
 	"approvedrevs-approvedby": "approbate per $1 le $2",
 	"approvedrevs-difffromlatest": "differentias del ultime version",
