@@ -9,7 +9,8 @@
 			"Reza1615",
 			"Taha",
 			"Rtemis",
-			"Alirezaaa"
+			"Alirezaaa",
+			"Amirsara"
 		]
 	},
 	"approvedrevs-desc": "یک نسخه از یک صفحه را به عنوان تأییدشده علامت بزنید.",
@@ -31,7 +32,7 @@
 	"approvedrevs-approvedpages": "تمام صفحات دارای نسخهٔ تأییدشده",
 	"approvedrevs-notlatestpages": "صفحاتی که نسخهٔ تأییدشدهٔ آن‌ها آخرین نیست",
 	"approvedrevs-unapprovedpages": "صفحه‌های تاییدنشده",
-	"approvedrevs-view": "مشاهده:",
+	"approvedrevs-view": "مشاهده لیست از:",
 	"approvedrevs-revisionnumber": "نسخهٔ $1",
 	"approvedrevs-approvedby": "تأیید شده توسط {{GENDER:$3|$1}} در تاریخ $4 در ساعت $5",
 	"approvedrevs-difffromlatest": "تفاوت با آخرین",
