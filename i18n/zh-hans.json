@@ -9,7 +9,8 @@
 			"Mywood",
 			"Impersonator 1",
 			"A Chinese Wikipedian",
-			"Phenolla"
+			"Phenolla",
+			"佛壁灯"
 		]
 	},
 	"approvedrevs-desc": "设定单个页面版本为已认可",
@@ -22,6 +23,7 @@
 	"approvedrevs-unapprovesuccess": "此页面不再有一个认可的版本。相反，将显示最新的修订版本。",
 	"approvedrevs-unapprovesuccess2": "此页面不再有一个认可的版本。相反，将显示一个空白页面。",
 	"approvedrevs-approveaction": "将$2设置为“[[$1]]”的认可修订版本",
+	"approvedrevs-approvefileaction": "将 $2 时上传的作为 \"[[$1]]\" 的认可修订版本",
 	"approvedrevs-unapproveaction": "为“[[$1]]”取消设置认可的修订版本",
 	"approvedrevs-notlatest": "这是此页面已获认可的版本；它不是最新的。",
 	"approvedrevs-approvedandlatest": "这是此页面已获认可并且最新的版本。",
