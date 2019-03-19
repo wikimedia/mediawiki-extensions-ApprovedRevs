@@ -45,6 +45,10 @@ class ApproveAllPages extends Maintenance {
 
 		$this->addDescription( "Approve the current revision of all pages " .
 			"that do not yet have an approved revision." );
+		$this->addOption(
+			"force", "Approve the latest version, even if an earlier "
+			. "revision of the page has already been approved."
+		);
 
 		if ( method_exists( $this, 'requireExtension' ) ) {
 			$this->requireExtension( 'Approved Revs' );
@@ -70,19 +74,33 @@ class ApproveAllPages extends Maintenance {
 
 		while ( $page = $pages->fetchObject() ) {
 			$title = Title::newFromID( $page->page_id );
-			// some extensions, like Semantic Forms, need $wgTitle
-			// set as well
+			// Some extensions, like Page Forms, need $wgTitle
+			// set as well for these checks.
 			$wgTitle = $title;
-			if ( ApprovedRevs::pageIsApprovable( $title ) &&
-				! ApprovedRevs::hasApprovedRevision( $title ) ) {
-				ApprovedRevs::setApprovedRevID(
-					$title, $page->page_latest, true
-				);
 
-				$this->output( wfTimestamp( TS_DB ) .
-					' Approved the last revision of page "' .
-					$title->getFullText() . "\".\n" );
+			if ( ! ApprovedRevs::pageIsApprovable( $title ) ) {
+				continue;
 			}
+			$approvedRevID = ApprovedRevs::getApprovedRevID( $title);
+			$latestRevID = $page->page_latest;
+			if ( $this->getOption( "force" ) ) {
+				if ( $latestRevID == $approvedRevID ) {
+					continue;
+				}
+			} else {
+				if ( $approvedRevID != null ) {
+					continue;
+				}
+			}
+
+			// Let's approve the latest revision...
+			ApprovedRevs::setApprovedRevID(
+				$title, $latestRevID, true
+			);
+
+			$this->output( wfTimestamp( TS_DB ) .
+				' Approved the last revision of page "' .
+				$title->getFullText() . "\".\n" );
 		}
 
 
