@@ -70,7 +70,7 @@ class ApprovedRevsHooks {
 		{
 			global $egApprovedRevsBlankIfUnapproved;
 			if ( $egApprovedRevsBlankIfUnapproved ) {
-				$content = $page->getContentHandler()->makeEmptyContent();
+				$content = $wikiPage->getContentHandler()->makeEmptyContent();
 			} else {
 				// If it's an unapproved page and there's no
 				// page blanking, exit here.
