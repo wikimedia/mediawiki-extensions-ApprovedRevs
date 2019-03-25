@@ -141,10 +141,9 @@ class SpecialApprovedRevsPage extends QueryPage {
 		}
 	}
 
-	function formatResultPageApprovals( $skin, $result ) {
+	public function formatResultPageApprovals( $skin, $result ) {
 		$title = Title::newFromId( $result->id );
 		if ( is_null( $title ) ) {
-			echo " nulltitle ";
 			return false;
 		}
 
