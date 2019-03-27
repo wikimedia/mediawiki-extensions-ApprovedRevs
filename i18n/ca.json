@@ -6,13 +6,15 @@
 			"Papapep",
 			"Pitort",
 			"SMP",
-			"Toniher"
+			"Toniher",
+			"Fitoschido"
 		]
 	},
 	"approvedrevs-desc": "Estableix una única revisió d'una pàgina com aprovada",
 	"approvedrevs-logname": "Registre de revisions aprovades",
 	"approvedrevs-logdesc": "Aquest és el registre de les revisions que han estat aprovades.",
 	"approvedrevs-approve": "aprova",
+	"approvedrevs-approver": "$1 ha aprovat aquesta revisió.",
 	"approvedrevs-unapprove": "desaprova",
 	"approvedrevs-approvesuccess": "S'ha establert aquesta revisió de la pàgina com la versió aprovada.",
 	"approvedrevs-unapprovesuccess": "Ja no hi ha una versió aprovada de la pàgina.\nCom a alternativa, es mostrarà la versió més recent.",
