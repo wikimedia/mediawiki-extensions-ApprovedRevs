@@ -10,7 +10,8 @@
 			"VezonThunder",
 			"01miki10",
 			"Surjection",
-			"Valtlait"
+			"Valtlait",
+			"Pyscowicz"
 		]
 	},
 	"approvedrevs-desc": "Aseta yksittäinen sivuversio hyväksytyksi",
@@ -43,6 +44,9 @@
 	"approvedrevs-approvedrevision": "Hyväksytty versio",
 	"right-approverevisions": "Asettaa wikisivun tietty versio hyväksytyksi",
 	"right-viewlinktolatest": "Nähdä selittävä teksti niiden sivujen yläosassa, joilla on hyväksytty versio",
+	"approvedrevs-unapprovedfiles": "Hyväksymättömät tiedostot",
+	"approvedrevs-approvedfile": "Hyväksytty tiedosto",
+	"approvedrevs-latestfile": "Viimeisin tiedosto",
 	"apihelp-approve-example-1": "Hyväksy versio 12345",
 	"apihelp-approve-example-2": "Poista version 12345 hyväksyntä"
 }
