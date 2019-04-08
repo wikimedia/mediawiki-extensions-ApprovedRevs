@@ -4,7 +4,8 @@
 			"Cgtdk",
 			"Christian List",
 			"Overlaet",
-			"Tjernobyl"
+			"Tjernobyl",
+			"Saederup92"
 		]
 	},
 	"approvedrevs-desc": "Angiv en enkelt version af en side som godkendt",
@@ -18,10 +19,13 @@
 	"approvedrevs-blankpageshown": "Ingen revision er blevet godkendt for denne side.",
 	"approvedrevs": "Godkendte revisioner",
 	"approvedrevs-unapprovedpages": "Afviste sider",
-	"approvedrevs-view": "Vis:",
+	"approvedrevs-view": "Vis liste over:",
 	"approvedrevs-revisionnumber": "version $1",
 	"approvedrevs-difffromlatest": "forskel fra seneste",
 	"approvedrevs-approvelatest": "godkend seneste",
 	"approvedrevs-approvethisrev": "Godkend denne version.",
-	"approvedrevs-viewlatestrev": "Vis den seneste revision."
+	"approvedrevs-viewlatestrev": "Vis den seneste revision.",
+	"approvedrevs-unapprovedfiles": "Ikke-godkendte filer",
+	"approvedrevs-approvedfile": "Godkendt fil",
+	"approvedrevs-latestfile": "Seneste fil"
 }
