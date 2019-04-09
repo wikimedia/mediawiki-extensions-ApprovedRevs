@@ -789,7 +789,7 @@ class ApprovedRevsHooks {
 			global $wgExtNewTables, $wgDBtype;
 			//if ( $wgDBtype == 'mysql' ) {
 				$wgExtNewTables[] = array( 'approved_revs', "$dir/../sql/ApprovedRevs.sql" );
-				$wgExtNewTables[] = array( 'approved_revs_files', "$dir/../sql/ApprovedRevs_Files.sql" );
+				$wgExtNewTables[] = array( 'approved_revs_files', "$dir/../sql/ApprovedFiles.sql" );
 			//}
 		} else {
 			//if ( $updater->getDB()->getType() == 'mysql' ) {
@@ -1119,7 +1119,7 @@ class ApprovedRevsHooks {
 	}
 
 	/**
-	 *	If a file is deleted, check if the sha1 (and timestamp?) exist in the
+	 *  If a file is deleted, check if the sha1 (and timestamp?) exist in the
 	 *  approved_revs_files table, and delete that row accordingly. A deleted
 	 *  version of a file should not be the approved version!
 	 **/
