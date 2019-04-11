@@ -736,7 +736,13 @@ class ApprovedRevsHooks {
 	 * 'APPROVEDREVS' magic word in a page
 	 */
 	static function handleMagicWords( &$parser, &$text ) {
-		$mw_hide = MagicWord::get( 'MAG_APPROVEDREVS' );
+		if ( class_exists( MagicWordFactory::class ) ) {
+			// MW 1.32+
+			$factory = MediaWikiServices::getInstance()->getMagicWordFactory();
+			$mw_hide = $factory->get( 'MAG_APPROVEDREVS' );
+		} else {
+			$mw_hide = MagicWord::get( 'MAG_APPROVEDREVS' );
+		}
 		if ( $mw_hide->matchAndRemove( $text ) ) {
 			$parser->mOutput->setProperty( 'approvedrevs', 'y' );
 		}
