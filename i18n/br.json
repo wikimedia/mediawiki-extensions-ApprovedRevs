@@ -35,5 +35,8 @@
 	"approvedrevs-viewlatestrev": "Gwelet an adweladenn ziwezhañ.",
 	"approvedrevs-approvedrevision": "Adweladenn aprouet",
 	"right-approverevisions": "Merkañ un adweladenn bennak eus ur bajenn wiki evel aprouet",
-	"right-viewlinktolatest": "Gwelet an destenn displegañ e penn uhelañ ar pajennoù zo bet aprouet un adweladenn anezho"
+	"right-viewlinktolatest": "Gwelet an destenn displegañ e penn uhelañ ar pajennoù zo bet aprouet un adweladenn anezho",
+	"approvedrevs-unapprovedfiles": "Restroù dizaprouet",
+	"approvedrevs-approvedfile": "Restr aprouet",
+	"approvedrevs-latestfile": "Restr ziwezhañ"
 }

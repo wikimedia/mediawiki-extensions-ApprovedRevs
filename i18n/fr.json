@@ -5,7 +5,8 @@
 			"IAlex",
 			"Peter17",
 			"Sherbrooke",
-			"Wladek92"
+			"Wladek92",
+			"Pols12"
 		]
 	},
 	"approvedrevs-desc": "Marquer une seule révision d’une page comme approuvée",
@@ -39,8 +40,11 @@
 	"approvedrevs-approvethisrev": "Approuver cette révision.",
 	"approvedrevs-viewlatestrev": "Voir la dernière révision.",
 	"approvedrevs-approvedrevision": "Accepter la révision",
+	"action-approverevisions": "marquer une révision précise d’une page comme approuvée",
 	"right-approverevisions": "Marquer une révision précise d’une page comme approuvée",
+	"action-viewlinktolatest": "voir le texte explicatif en haut des pages qui ont une révision approuvée",
 	"right-viewlinktolatest": "Voir le texte explicatif en haut des pages qui ont une révision approuvée",
+	"action-viewapprover": "voir le texte montrant qui a approuvé la révision actuellement approuvée",
 	"right-viewapprover": "Afficher le texte montrant qui a approuvé la révision actuellement approuvée",
 	"approvedrevs-invalidfiles": "Fichiers avec des approbations invalides",
 	"approvedrevs-approvedfiles": "Tous les fichiers ayant une révision approuvée",
