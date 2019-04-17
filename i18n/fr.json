@@ -40,7 +40,7 @@
 	"approvedrevs-approvethisrev": "Approuver cette révision.",
 	"approvedrevs-viewlatestrev": "Voir la dernière révision.",
 	"approvedrevs-approvedrevision": "Accepter la révision",
-	"action-approverevisions": "marquer une révision précise d’une page comme approuvée",
+	"action-approverevisions": "marquer une révision donnée d’une page wiki comme étant approuvée",
 	"right-approverevisions": "Marquer une révision précise d’une page comme approuvée",
 	"action-viewlinktolatest": "voir le texte explicatif en haut des pages qui ont une révision approuvée",
 	"right-viewlinktolatest": "Voir le texte explicatif en haut des pages qui ont une révision approuvée",
