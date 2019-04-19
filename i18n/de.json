@@ -42,6 +42,7 @@
 	"right-approverevisions": "Eine bestimmte Version einer Seite als bestätigt festlegen",
 	"action-viewlinktolatest": "erläuternde Hinweise im Kopfbereich der Seiten anzuzeigen, die eine bestätigte Version haben",
 	"right-viewlinktolatest": "Erläuternde Hinweise im Kopfbereich der Seiten anzeigen, die eine bestätigte Version haben",
+	"action-viewapprover": "Text anzusehen, der anzeigt, wer die derzeit bestätigte Version bestätigt hat",
 	"right-viewapprover": "Text ansehen, der anzeigt, wer die derzeit bestätigte Version bestätigt hat",
 	"approvedrevs-invalidfiles": "Dateien mit ungültigen Bestätigungen",
 	"approvedrevs-approvedfiles": "Alle Dateien mit einer bestätigten Version",
