@@ -910,6 +910,12 @@ class ApprovedRevsHooks {
 			return true;
 		}
 
+		// If we're looking at an old revision of the page, no need to
+		// display anything.
+		if ( $article->mOldId !== 0 ) {
+			return true;
+		}
+
 		$title = $article->getTitle();
 		if ( ! ApprovedRevs::pageIsApprovable( $title ) ) {
 			return true;
