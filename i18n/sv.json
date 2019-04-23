@@ -30,6 +30,7 @@
 	"approvedrevs-approvedpages": "Alla sidor med en godkänd version",
 	"approvedrevs-notlatestpages": "Sidor vars godkända version inte är den senaste.",
 	"approvedrevs-unapprovedpages": "Icke godkända sidor",
+	"approvedrevs-invalidpages": "Sidor med ogiltiga godkännanden",
 	"approvedrevs-view": "Visa lista över:",
 	"approvedrevs-revisionnumber": "version $1",
 	"approvedrevs-uploaddate": "laddades upp från $1",
@@ -47,5 +48,6 @@
 	"approvedrevs-notlatestfiles": "Sidor vars godkända sidversion inte är den senaste",
 	"approvedrevs-unapprovedfiles": "Icke-godkända sidor",
 	"approvedrevs-approvedfile": "Godkänd fil",
-	"approvedrevs-latestfile": "Senaste fil"
+	"approvedrevs-latestfile": "Senaste fil",
+	"apihelp-approve-example-1": "Godkänn sidversion 12345"
 }
