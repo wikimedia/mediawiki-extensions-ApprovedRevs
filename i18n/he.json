@@ -3,7 +3,8 @@
 		"authors": [
 			"Amire80",
 			"Inkbug",
-			"Guycn2"
+			"Guycn2",
+			"YaronSh"
 		]
 	},
 	"approvedrevs-desc": "הגדרת גרסה אחת של דף כגרסה מאושרת",
@@ -26,6 +27,7 @@
 	"approvedrevs-approvedpages": "כל הדפים עם גרסה מאושרת",
 	"approvedrevs-notlatestpages": "דפים שהגרסה המאושרת שלהם אינה הגרסה העדכנית ביותר",
 	"approvedrevs-unapprovedpages": "דפים לא מאושרים",
+	"approvedrevs-invalidpages": "עמודים עם אישורים שגויים",
 	"approvedrevs-view": "תצוגה:",
 	"approvedrevs-revisionnumber": "גרסה $1",
 	"approvedrevs-approvedby": "אושר על־ידי $1 ב־$2",
