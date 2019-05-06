@@ -21,11 +21,14 @@
 	"approvedrevs-approvelatest": "одобри последњу",
 	"approvedrevs-approvethisrev": "Одобри ову измену.",
 	"approvedrevs-viewlatestrev": "Погледајте последњу измену.",
+	"approvedrevs-approvedrevision": "Одобрена измена",
 	"right-approverevisions": "постављање одређене измене на вики страници као одобрене",
 	"right-viewlinktolatest": "преглед образложења на врху страница које имају одобрену измену",
 	"approvedrevs-approvedfiles": "Све датотеке с одобреном изменом",
 	"approvedrevs-notlatestfiles": "Датотеке чија одобрена измена није најновија",
 	"approvedrevs-unapprovedfiles": "Неодобрене датотеке",
 	"approvedrevs-approvedfile": "Одобрена датотека",
-	"approvedrevs-latestfile": "Најновија датотека"
+	"approvedrevs-latestfile": "Најновија датотека",
+	"apihelp-approve-example-1": "Одобри измену бр. 12345",
+	"apihelp-approve-example-2": "Одбиј измену бр. 12345"
 }
