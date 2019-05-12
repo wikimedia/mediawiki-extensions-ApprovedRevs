@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Objectivesea",
-			"Yekrats"
+			"Yekrats",
+			"Mirin"
 		]
 	},
 	"approvedrevs-desc": "Marki solan revizion de paĝo kiel aprobita",
@@ -23,13 +24,17 @@
 	"approvedrevs-approvedpages": "Ĉiujn pagojn kun aprobitaj revizioj",
 	"approvedrevs-notlatestpages": "Paĝoj kies aprobita revizio ne estas la plej lasta.",
 	"approvedrevs-unapprovedpages": "Malaprobitaj paĝoj",
-	"approvedrevs-view": "Vidi:",
+	"approvedrevs-view": "Vidi liston de:",
 	"approvedrevs-revisionnumber": "revizio $1",
+	"approvedrevs-uploaddate": "alŝuti el $1",
 	"approvedrevs-approvedby": "aprobita de $1 je $2",
 	"approvedrevs-difffromlatest": "Diferenco de la lasta revizio",
 	"approvedrevs-approvelatest": "aprobi lastan revizion",
 	"approvedrevs-approvethisrev": "Aprobi ĉi tiun revizion.",
 	"approvedrevs-viewlatestrev": "Vidi la plej lastan revizion.",
+	"approvedrevs-approvedrevision": "Aprobita versio",
 	"right-approverevisions": "Marki certan revizion de vikipaĝo kiel aprobita",
-	"right-viewlinktolatest": "Vidi eksplikantan tekston ĉe la paĝo-kapo kiu havas aprobitan revizion"
+	"right-viewlinktolatest": "Vidi eksplikantan tekston ĉe la paĝo-kapo kiu havas aprobitan revizion",
+	"approvedrevs-unapprovedfiles": "Ne aprobitaj dosieroj",
+	"approvedrevs-approvedfile": "Aprobita dosiero"
 }
