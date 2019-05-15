@@ -3,7 +3,8 @@
 		"authors": [
 			"Firilacroco",
 			"Minisarm",
-			"Stelistcristi"
+			"Stelistcristi",
+			"Andrei Stroe"
 		]
 	},
 	"approvedrevs-desc": "Setează o singură versiune a unei pagini ca aprobată",
@@ -16,7 +17,7 @@
 	"approvedrevs": "Modificări aprobate",
 	"approvedrevs-approvedpages": "Toate paginile cu o revizuire aprobată",
 	"approvedrevs-unapprovedpages": "Pagini neaprobate",
-	"approvedrevs-view": "Vedeți:",
+	"approvedrevs-view": "Vedeți listă de:",
 	"approvedrevs-revisionnumber": "versiunea $1",
 	"approvedrevs-approvedby": "aprobat de {{GENDER:$3|$1}} pe $4 la $5",
 	"approvedrevs-difffromlatest": "diff de la ultima",
