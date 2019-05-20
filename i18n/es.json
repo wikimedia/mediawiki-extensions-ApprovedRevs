@@ -20,7 +20,8 @@
 			"Fitoschido",
 			"Javiersanp",
 			"Marianoog",
-			"Tiberius1701"
+			"Tiberius1701",
+			"Ryo567"
 		]
 	},
 	"approvedrevs-desc": "Establecer una revisión única de una página como aprovada",
@@ -46,6 +47,7 @@
 	"approvedrevs-invalidpages": "Páginas con aprobaciones no válidas",
 	"approvedrevs-view": "Ver la lista de:",
 	"approvedrevs-revisionnumber": "revisión $1",
+	"approvedrevs-uploaddate": "subir desde $1",
 	"approvedrevs-approvedby": "aprobada por {{GENDER:$3|$1}} el $4 a las $5",
 	"approvedrevs-difffromlatest": "diferencias con rev. más reciente",
 	"approvedrevs-approvelatest": "aprobar la última",

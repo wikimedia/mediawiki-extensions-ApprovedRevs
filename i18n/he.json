@@ -4,7 +4,8 @@
 			"Amire80",
 			"Inkbug",
 			"Guycn2",
-			"YaronSh"
+			"YaronSh",
+			"Erelon"
 		]
 	},
 	"approvedrevs-desc": "הגדרת גרסה אחת של דף כגרסה מאושרת",
@@ -37,5 +38,7 @@
 	"approvedrevs-viewlatestrev": "להציג את הגרסה האחרונה.",
 	"approvedrevs-approvedrevision": "גרסה מאושרת",
 	"right-approverevisions": "סימון גרסאות מסוימות של דפים כגרסאות שאושרו",
-	"right-viewlinktolatest": "צפייה בהסברים בחלק העליון של דפים שיש להם גרסה מאושרת"
+	"right-viewlinktolatest": "צפייה בהסברים בחלק העליון של דפים שיש להם גרסה מאושרת",
+	"approvedrevs-approvedfile": "מסמך מאושר",
+	"approvedrevs-latestfile": "מסמך אחרון"
 }
