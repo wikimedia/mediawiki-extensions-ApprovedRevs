@@ -5,7 +5,8 @@
 			"Inkbug",
 			"Guycn2",
 			"YaronSh",
-			"Erelon"
+			"Erelon",
+			"Steeve815"
 		]
 	},
 	"approvedrevs-desc": "הגדרת גרסה אחת של דף כגרסה מאושרת",
@@ -29,8 +30,9 @@
 	"approvedrevs-notlatestpages": "דפים שהגרסה המאושרת שלהם אינה הגרסה העדכנית ביותר",
 	"approvedrevs-unapprovedpages": "דפים לא מאושרים",
 	"approvedrevs-invalidpages": "עמודים עם אישורים שגויים",
-	"approvedrevs-view": "תצוגה:",
+	"approvedrevs-view": "הצגת רשימה של:",
 	"approvedrevs-revisionnumber": "גרסה $1",
+	"approvedrevs-uploaddate": "העלאה מ-$1",
 	"approvedrevs-approvedby": "אושר על־ידי $1 ב־$2",
 	"approvedrevs-difffromlatest": "השוואה עם הגרסה האחרונה",
 	"approvedrevs-approvelatest": "לאשר את האחרונה",

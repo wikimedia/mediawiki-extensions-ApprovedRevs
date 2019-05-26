@@ -5,7 +5,8 @@
 			"Ohgi",
 			"Shirayuki",
 			"W.CC",
-			"青子守歌"
+			"青子守歌",
+			"Suchichi02"
 		]
 	},
 	"approvedrevs-desc": "ページの版のうち 1 つを承認済みにする",
@@ -27,7 +28,7 @@
 	"approvedrevs-approvedpages": "承認済の版があるすべてのページ",
 	"approvedrevs-notlatestpages": "承認済み版が、最新版ではないページ",
 	"approvedrevs-unapprovedpages": "未承認ページ",
-	"approvedrevs-view": "表示:",
+	"approvedrevs-view": "リストを表示:",
 	"approvedrevs-revisionnumber": "版 $1",
 	"approvedrevs-approvedby": "{{GENDER:$3|$1}} が $4 $5 に承認",
 	"approvedrevs-difffromlatest": "最新版との差分",
