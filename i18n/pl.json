@@ -31,6 +31,7 @@
 	"approvedrevs-invalidpages": "Strony z nieprawidłowymi zatwierdzeniami",
 	"approvedrevs-view": "Zobacz listę:",
 	"approvedrevs-revisionnumber": "wersja $1",
+	"approvedrevs-uploaddate": "przesłano $1",
 	"approvedrevs-approvedby": "zatwierdzone $2 przez $1",
 	"approvedrevs-difffromlatest": "porównaj z najnowszą",
 	"approvedrevs-approvelatest": "zatwierdź ostatnią",

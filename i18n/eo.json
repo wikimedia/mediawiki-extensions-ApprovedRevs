@@ -24,6 +24,7 @@
 	"approvedrevs-approvedpages": "Ĉiujn pagojn kun aprobitaj revizioj",
 	"approvedrevs-notlatestpages": "Paĝoj kies aprobita revizio ne estas la plej lasta.",
 	"approvedrevs-unapprovedpages": "Malaprobitaj paĝoj",
+	"approvedrevs-invalidpages": "Paĝoj kun nevalidaj aproboj",
 	"approvedrevs-view": "Vidi liston de:",
 	"approvedrevs-revisionnumber": "revizio $1",
 	"approvedrevs-uploaddate": "alŝuti el $1",
@@ -36,5 +37,7 @@
 	"right-approverevisions": "Marki certan revizion de vikipaĝo kiel aprobita",
 	"right-viewlinktolatest": "Vidi eksplikantan tekston ĉe la paĝo-kapo kiu havas aprobitan revizion",
 	"approvedrevs-unapprovedfiles": "Ne aprobitaj dosieroj",
-	"approvedrevs-approvedfile": "Aprobita dosiero"
+	"approvedrevs-approvedfile": "Aprobita dosiero",
+	"apihelp-approve-example-1": "Aprobi Version 12345",
+	"apihelp-approve-example-2": "Malaprobi Version 12345"
 }
