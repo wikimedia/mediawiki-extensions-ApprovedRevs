@@ -41,6 +41,8 @@
 	"approvedrevs-approvedrevision": "גרסה מאושרת",
 	"right-approverevisions": "סימון גרסאות מסוימות של דפים כגרסאות שאושרו",
 	"right-viewlinktolatest": "צפייה בהסברים בחלק העליון של דפים שיש להם גרסה מאושרת",
+	"approvedrevs-unapprovedfiles": "קבצים שלא אושרו",
 	"approvedrevs-approvedfile": "מסמך מאושר",
-	"approvedrevs-latestfile": "מסמך אחרון"
+	"approvedrevs-latestfile": "מסמך אחרון",
+	"apihelp-approve-example-1": "אישור גרסה 12345"
 }
