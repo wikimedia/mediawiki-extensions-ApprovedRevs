@@ -3,7 +3,8 @@
 		"authors": [
 			"Matěj Grabovský",
 			"Mormegil",
-			"Paxt"
+			"Paxt",
+			"Slepi"
 		]
 	},
 	"approvedrevs-desc": "Nastavuje jednu revizi stránky jako schválenou",
@@ -25,7 +26,7 @@
 	"approvedrevs-approvedpages": "Všechny stránky se schválenou revizí",
 	"approvedrevs-notlatestpages": "Stránky, jejichž schválená revize není nejnovější",
 	"approvedrevs-unapprovedpages": "Neschválené stránky",
-	"approvedrevs-view": "Prohlédnout:",
+	"approvedrevs-view": "Prohlédnout seznam:",
 	"approvedrevs-revisionnumber": "revize $1",
 	"approvedrevs-approvedby": "schváleno {{GENDER:$3|uživatelem|uživatelkou}} $1 $4 v $5",
 	"approvedrevs-difffromlatest": "rozdíl od poslední",
@@ -33,5 +34,6 @@
 	"approvedrevs-approvethisrev": "Schválit tuto revizi.",
 	"approvedrevs-viewlatestrev": "Prohlédnout poslední revizi.",
 	"right-approverevisions": "Nastavit určitou revizi wiki stránky jako schválenou",
-	"right-viewlinktolatest": "Prohlédnout vysvětlivky v záhlaví stránek se schválenou revizí"
+	"right-viewlinktolatest": "Prohlédnout vysvětlivky v záhlaví stránek se schválenou revizí",
+	"approvedrevs-latestfile": "Poslední soubor"
 }
