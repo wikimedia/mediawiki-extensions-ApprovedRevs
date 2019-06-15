@@ -60,7 +60,7 @@ class ApprovedRevs {
 	public static function getRevApprover( $title ) {
 		$pageID = $title->getArticleID();
 		if ( !isset( self::$mApproverForPage[$pageID] ) && self::pageIsApprovable( $title ) ) {
-			$dbr = wfGetDB( DB_SLAVE );
+			$dbr = wfGetDB( DB_REPLICA );
 			$approverID = $dbr->selectField( 'approved_revs', 'approver_id',
 				array( 'page_id' => $pageID ) );
 			$approver = $approverID ? User::newFromID( $approverID ) : null;
@@ -87,7 +87,7 @@ class ApprovedRevs {
 			return null;
 		}
 
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		$revID = $dbr->selectField( 'approved_revs', 'rev_id', array( 'page_id' => $pageID ) );
 		self::$mApprovedRevIDForPage[$pageID] = $revID;
 		return $revID;
@@ -194,7 +194,7 @@ class ApprovedRevs {
 		// properties for the parser functions - for some reason, calling the standard
 		// getProperty() function doesn't work, so we just do a DB
 		// query on the page_props table.
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		$res = $dbr->select( 'page_props', 'COUNT(*)',
 			array(
 				'pp_page' => $title->getArticleID(),
@@ -258,7 +258,7 @@ class ApprovedRevs {
 		// NOTE: Checks for these propnames won't do anything until [1] is merged, but also will
 		//       not hurt anything.
 		//       [1] https://gerrit.wikimedia.org/r/#/c/mediawiki/extensions/ApprovedRevs/+/429368/
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		$res = $dbr->select( 'page_props', 'COUNT(*)',
 			array(
 				'pp_page' => $title->getArticleID(),
@@ -357,7 +357,7 @@ class ApprovedRevs {
 					// if they created the page.
 					// We get that information via a SQL
 					// query - is there an easier way?
-					$dbr = wfGetDB( DB_SLAVE );
+					$dbr = wfGetDB( DB_REPLICA );
 					$row = $dbr->selectRow(
 						array( 'r' => 'revision', 'p' => 'page' ),
 						'r.rev_user_text',
@@ -391,7 +391,7 @@ class ApprovedRevs {
 
 		$articleID = $title->getArticleID();
 
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 
 		// First check:
 		// Users
@@ -661,7 +661,7 @@ class ApprovedRevs {
 			return self::$mApprovedFileInfo[ $fileTitle->getDBkey() ];
 		}
 
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		$row = $dbr->selectRow(
 			'approved_revs_files', // select from table
 			array( 'approved_timestamp', 'approved_sha1' ),

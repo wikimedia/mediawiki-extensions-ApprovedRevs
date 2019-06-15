@@ -62,7 +62,7 @@ class ApproveAllPages extends Maintenance {
 		// Don't send out any notifications about people's watch lists.
 		$wgEnotifWatchlist = false;
 
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 
 		$pages = $dbr->select(
 			'page',

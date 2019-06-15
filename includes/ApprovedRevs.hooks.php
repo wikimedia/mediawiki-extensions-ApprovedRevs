@@ -1131,7 +1131,7 @@ class ApprovedRevsHooks {
 	 **/
 	public static function onFileDeleteComplete ( File $file, $oldimage, $article, $user, $reason ) {
 
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		// check if this file has an approved revision
 		$approvedFile = $dbr->selectRow(
 			'approved_revs_files',
