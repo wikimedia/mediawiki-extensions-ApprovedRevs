@@ -44,5 +44,6 @@
 	"approvedrevs-unapprovedfiles": "קבצים שלא אושרו",
 	"approvedrevs-approvedfile": "מסמך מאושר",
 	"approvedrevs-latestfile": "מסמך אחרון",
-	"apihelp-approve-example-1": "אישור גרסה 12345"
+	"apihelp-approve-example-1": "אישור גרסה 12345",
+	"apihelp-approve-example-2": "ביטול האישור של גרסה 12345"
 }

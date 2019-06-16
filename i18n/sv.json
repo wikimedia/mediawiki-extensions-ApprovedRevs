@@ -7,7 +7,8 @@
 			"Lokal Profil",
 			"Martinwiss",
 			"Tobulos1",
-			"WikiPhoenix"
+			"WikiPhoenix",
+			"Mjälten"
 		]
 	},
 	"approvedrevs-desc": "Sätt en enskild version av en sida till godkänd",
@@ -49,5 +50,6 @@
 	"approvedrevs-unapprovedfiles": "Icke-godkända sidor",
 	"approvedrevs-approvedfile": "Godkänd fil",
 	"approvedrevs-latestfile": "Senaste fil",
-	"apihelp-approve-example-1": "Godkänn sidversion 12345"
+	"apihelp-approve-example-1": "Godkänn sidversion 12345",
+	"apihelp-approve-example-2": "Avböj sidversion 12345"
 }
