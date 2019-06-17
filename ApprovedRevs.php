@@ -137,3 +137,8 @@ $wgResourceModules['ext.ApprovedRevs'] = array(
 
 // API action modules
 $wgAPIModules['approve'] = 'ApiApprove';
+
+// Backward compatibility for MW < 1.28.
+if ( !defined( 'DB_REPLICA' ) ) {
+	define( 'DB_REPLICA', DB_SLAVE );
+}

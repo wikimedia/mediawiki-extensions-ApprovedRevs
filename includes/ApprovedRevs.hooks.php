@@ -16,6 +16,13 @@ class ApprovedRevsHooks {
 
 	static $mNoSaveOccurring = false;
 
+	public static function registerExtension() {
+		// Backward compatibility for MW < 1.28.
+		if ( !defined( 'DB_REPLICA' ) ) {
+			define( 'DB_REPLICA', DB_SLAVE );
+		}
+	}
+
 	static public function userRevsApprovedAutomatically( User $user, Title $title ) {
 		global $egApprovedRevsAutomaticApprovals;
 		return ( ApprovedRevs::userCanApprove( $user, $title ) && $egApprovedRevsAutomaticApprovals );
