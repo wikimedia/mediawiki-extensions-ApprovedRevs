@@ -53,6 +53,16 @@ class ARApproveAction extends Action {
 		// at least when the Cargo extension is being used.
 		$this->page->doPurge();
 
+		// This is needed to force update of AR SESP properties to SMW
+		// To Do: figure out how to make it work without appending the wikitext
+		$zPage = WikiPage::newFromID( $this->page->getTitle()->getArticleId() );
+		if ( $zPage ) { 
+		  $zContent = $zPage->getContent( Revision::RAW );
+		  $zText = ContentHandler::getContentText( $zContent )."\n\n{{Approval Log|Approved|".date("Y/m/d h:i:s",time())."|".$user."}}";
+		  $zPage->doEditContent( ContentHandler::makeContent( $zText, $zPage->getTitle() ), "[Approve] Null edit." ); 
+		  $zPage->doPurge(); 
+		}
+		
 		// Show the revision.
                 $this->page->view();
 	}
