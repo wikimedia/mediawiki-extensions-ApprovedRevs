@@ -53,6 +53,7 @@ $egApprovedRevsBlankIfUnapproved = false;
 $egApprovedRevsAutomaticApprovals = true;
 $egApprovedRevsShowApproveLatest = false;
 $egApprovedRevsShowNotApprovedMessage = false;
+$egApprovedRevsAppendArticleWithMsg = false;
 
 // internationalization
 $wgMessagesDirs['ApprovedRevs'] = __DIR__ . '/i18n';
