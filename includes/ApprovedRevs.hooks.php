@@ -159,8 +159,8 @@ class ApprovedRevsHooks {
 		// revision is not the latest one.
 		if ( $revisionID != $wikiPage->getLatest() ) {
 			$approvedPage = WikiPage::factory( $title );
-			$approvedText = $approvedPage->getContent()->getNativeData();
-			ApprovedRevs::setPageSearchText( $title, $approvedText );
+			$approvedContent = $approvedPage->getContent();
+			ApprovedRevs::setPageSearchText( $title, $approvedContent );
 		}
 
 		return true;

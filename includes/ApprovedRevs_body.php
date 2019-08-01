@@ -466,8 +466,12 @@ class ApprovedRevs {
 		self::$mApproverForPage[$page_id] = $wgUser;
 	}
 
-	static function setPageSearchText( $title, $text ) {
-		DeferredUpdates::addUpdate( new SearchUpdate( $title->getArticleID(), $title->getText(), $text ) );
+	/**
+	 * @param Title $title
+	 * @param Content|null $content
+	 */
+	static function setPageSearchText( $title, $content ) {
+		DeferredUpdates::addUpdate( new SearchUpdate( $title->getArticleID(), $title, $content ) );
 	}
 
 	/**
@@ -488,7 +492,7 @@ class ApprovedRevs {
 			$output = $content->getParserOutput( $title, $rev_id, new ParserOptions() );
 			$u = new LinksUpdate( $title, $output );
 			$u->doUpdate();
-			self::setPageSearchText( $title, $output->getText() );
+			self::setPageSearchText( $title, $content );
 		}
 
 		$log = new LogPage( 'approval' );
@@ -531,7 +535,7 @@ class ApprovedRevs {
 		$output = $content->getParserOutput( $title, null, new ParserOptions() );
 		$u = new LinksUpdate( $title, $output );
 		$u->doUpdate();
-		self::setPageSearchText( $title, $output->getText() );
+		self::setPageSearchText( $title, $content );
 
 		$log = new LogPage( 'approval' );
 		$log->addEntry(
