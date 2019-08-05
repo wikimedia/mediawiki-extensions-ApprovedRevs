@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Anakmalaysia",
-			"Muhdnurhidayat"
+			"Muhdnurhidayat",
+			"Tofeiku"
 		]
 	},
 	"approvedrevs-desc": "Tetapkan satu semakan laman sebagai diluluskan",
@@ -23,7 +24,7 @@
 	"approvedrevs-approvedpages": "Semua laman yang mempunyai semakan yang diluluskan",
 	"approvedrevs-notlatestpages": "Laman yang semakan diluluskannya bukan semakan terkini",
 	"approvedrevs-unapprovedpages": "Laman yang tidak diluluskan",
-	"approvedrevs-view": "Lihat:",
+	"approvedrevs-view": "Lihat senarai:",
 	"approvedrevs-revisionnumber": "semakan $1",
 	"approvedrevs-approvedby": "diluluskan oleh $1 pada $2",
 	"approvedrevs-difffromlatest": "perbezaan daripada semakan terkini",
@@ -32,6 +33,7 @@
 	"approvedrevs-viewlatestrev": "Lihat semakan terkini.",
 	"right-approverevisions": "Memberikan kelulusan kepada semakan dalam laman wiki",
 	"right-viewlinktolatest": "Melihat teks penjelasan di bahagian atas laman yang mempunyai semakan diluluskan",
+	"approvedrevs-latestfile": "Fail terkini",
 	"apihelp-approve-description": "Luluskan atau batalkan kelulusan semakan.",
 	"apihelp-approve-param-revid": "ID semakan untuk diluluskan.",
 	"apihelp-approve-param-unapprove": "Jika ditanda, semakan akan dibatalkan kelulusan dan bukannya diluluskan.",
