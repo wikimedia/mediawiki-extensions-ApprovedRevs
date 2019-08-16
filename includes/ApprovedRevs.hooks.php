@@ -197,12 +197,12 @@ class ApprovedRevsHooks {
 		global $egApprovedRevsBlankIfUnapproved;
 		$revisionID = ApprovedRevs::getApprovedRevID( $title );
 
-		// Starting in around MW 1.24, blanking of unapproved pages
-		// seems to no longer work unless code like this is called -
-		// possibly because the cache needs to be disabled. There
-		// may be a better way to accomplish that than this, but this
-		// works, and it doesn't seem to have a noticeable negative
-		// impact, so we'll go with it for now, at least.
+		// Blanking of unapproved pages seems to not work unless code
+		// like this is called - possibly because the cache needs to be
+		// disabled. There may be a better way to accomplish that than
+		// this, but this works, and it doesn't seem to have a
+		// noticeable negative impact, so we'll go with it for now, at
+		// least.
 		if ( ! empty( $revisionID ) || $egApprovedRevsBlankIfUnapproved ) {
 			$article = new Article( $title, $revisionID );
 			// This call is necessary because it
@@ -334,15 +334,10 @@ class ApprovedRevsHooks {
 		if ( $latestID != $approvedID ) {
 			$latestLinkParams['oldid'] = $latestID;
 		}
-		if ( function_exists( 'MediaWiki\MediaWikiServices::getLinkRenderer' ) ) {
-			$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
-		} else {
-			$linkRenderer = null;
-		}
+		$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
 		$lnk = $current
 			? wfMessage( 'currentrevisionlink' )->escaped()
-			: ApprovedRevs::makeLink(
-				$linkRenderer,
+			: $linkRenderer->makeLink(
 				$title,
 				wfMessage( 'currentrevisionlink' )->text(),
 				array(),
@@ -350,8 +345,7 @@ class ApprovedRevsHooks {
 			);
 		$curdiff = $current
 			? wfMessage( 'diff' )->escaped()
-			: ApprovedRevs::makeLink(
-				$linkRenderer,
+			: $linkRenderer->makeLink(
 				$title,
 				wfMessage( 'diff' )->text(),
 				array(),
@@ -362,8 +356,7 @@ class ApprovedRevsHooks {
 			);
 		$prev = $title->getPreviousRevisionID( $revisionID );
 		$prevlink = $prev
-			? ApprovedRevs::makeLink(
-				$linkRenderer,
+			? $linkRenderer->makeLink(
 				$title,
 				wfMessage( 'previousrevision' )->text(),
 				array(),
@@ -374,8 +367,7 @@ class ApprovedRevsHooks {
 			)
 			: wfMessage( 'previousrevision' )->escaped();
 		$prevdiff = $prev
-			? ApprovedRevs::makeLink(
-				$linkRenderer,
+			? $linkRenderer->makeLink(
 				$title,
 				wfMessage( 'diff' )->text(),
 				array(),
@@ -387,8 +379,7 @@ class ApprovedRevsHooks {
 			: wfMessage( 'diff' )->escaped();
 		$nextlink = $current
 			? wfMessage( 'nextrevision' )->escaped()
-			: ApprovedRevs::makeLink(
-				$linkRenderer,
+			: $linkRenderer->makeLink(
 				$title,
 				wfMessage( 'nextrevision' )->text(),
 				array(),
@@ -399,8 +390,7 @@ class ApprovedRevsHooks {
 			);
 		$nextdiff = $current
 			? wfMessage( 'diff' )->escaped()
-			: ApprovedRevs::makeLink(
-				$linkRenderer,
+			: $linkRenderer->makeLink(
 				$title,
 				wfMessage( 'diff' )->text(),
 				array(),
@@ -414,8 +404,7 @@ class ApprovedRevsHooks {
 		$approved = ( $approvedID != null && $revisionID == $approvedID );
 		$approvedlink = $approved
 			? wfMessage( 'approvedrevs-approvedrevision' )->escaped()
-			: ApprovedRevs::makeLink(
-				$linkRenderer,
+			: $linkRenderer->makeLink(
 				$title,
 				wfMessage( 'approvedrevs-approvedrevision' )->text(),
 				array(),
@@ -423,8 +412,7 @@ class ApprovedRevsHooks {
 			);
 		$approveddiff = $approved
 			? wfMessage( 'diff' )->escaped()
-			: ApprovedRevs::makeLink(
-				$linkRenderer,
+			: $linkRenderer->makeLink(
 				$title,
 				wfMessage( 'diff' )->text(),
 				array(),
@@ -489,13 +477,8 @@ class ApprovedRevsHooks {
 			} else {
 				$text .= wfMessage( 'approvedrevs-notlatest' )->parse();
 
-				if ( function_exists( 'MediaWiki\MediaWikiServices::getLinkRenderer' ) ) {
-					$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
-				} else {
-					$linkRenderer = null;
-				}
-				$text .= ' ' . ApprovedRevs::makeLink(
-					$linkRenderer,
+				$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
+				$text .= ' ' . $linkRenderer->makeLink(
 					$title,
 					wfMessage( 'approvedrevs-viewlatestrev' )->parse(),
 					array(),

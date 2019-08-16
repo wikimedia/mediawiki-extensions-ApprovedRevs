@@ -155,19 +155,14 @@ class SpecialApprovedRevsPage extends QueryPage {
 		$user = $context->getUser();
 		$out = $context->getOutput();
 		$lang = $context->getLanguage();
-
-		if ( method_exists( $this, 'getLinkRenderer' ) ) {
-			$linkRenderer = $this->getLinkRenderer();
-		} else {
-			$linkRenderer = null;
-		}
+		$linkRenderer = $this->getLinkRenderer();
 
 		// Create page link - special handling for redirects.
 		$params = array();
 		if ( $title->isRedirect() ) {
 			$params['redirect'] = 'no';
 		}
-		$pageLink = ApprovedRevs::makeLink( $linkRenderer, $title, null, array(), $params );
+		$pageLink = $linkRenderer->makeLink( $title, null, array(), $params );
 		if ( $title->isRedirect() ) {
 			$pageLink = "<em>$pageLink</em>";
 		}

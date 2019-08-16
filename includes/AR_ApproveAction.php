@@ -57,10 +57,4 @@ class ARApproveAction extends Action {
                 $this->page->view();
 	}
 
-	/**
-	 * Implement this to support MW 1.23, which has it as an abstract
-	 * function.
-	 */
-	public function execute() { }
-
 }

@@ -58,10 +58,4 @@ class ARApproveFileAction extends Action {
 
 	}
 
-	/**
-	 * Implement this to support MW 1.23, which has it as an abstract
-	 * function.
-	 */
-	public function execute() { }
-
 }
