@@ -17,6 +17,16 @@ class ApprovedRevsHooks {
 	static $mNoSaveOccurring = false;
 
 	public static function registerExtension() {
+		global $wgHooks;
+
+		if ( class_exists( 'MediaWiki\Revision\SlotRenderingProvider' ) ) {
+			// MW 1.32+
+			$wgHooks['RevisionDataUpdates'][] = 'ApprovedRevsHooks::updateLinksAfterEdit';
+		} else {
+			// MW 1.25 - 1.31
+			$wgHooks['SecondaryDataUpdates'][] = 'ApprovedRevsHooks::updateLinksAfterEditOld';
+		}
+
 		// Backward compatibility for MW < 1.28.
 		if ( !defined( 'DB_REPLICA' ) ) {
 			define( 'DB_REPLICA', DB_SLAVE );
@@ -51,22 +61,19 @@ class ApprovedRevsHooks {
 	}
 
 	/**
-	 * Hook: ArticleEditUpdates
-	 *
-	 * Call LinksUpdate on the text of this page's approved revision,
-	 * if there is one.
+	 * Called by both updateLinksAfterEditOld() and updateLinksAfterEdit().
 	 */
-	static public function updateLinksAfterEdit( WikiPage &$wikiPage, &$editInfo, $changed ) {
-		$title = $wikiPage->getTitle();
+	static public function getUpdateForTitle( Title $title ) {
 		if ( !ApprovedRevs::pageIsApprovable( $title ) ) {
-			return true;
+			return null;
 		}
+		$wikiPage = new WikiPage( $title );
 		// If this user's revisions get approved automatically, exit
 		// now, because this will be the approved revision anyway.
 		$userID = $wikiPage->getUser();
 		$user = User::newFromId( $userID );
 		if ( self::userRevsApprovedAutomatically( $user, $title ) ) {
-			return true;
+			return null;
 		}
 
 		$content = ApprovedRevs::getApprovedContent( $title );
@@ -81,14 +88,45 @@ class ApprovedRevsHooks {
 			} else {
 				// If it's an unapproved page and there's no
 				// page blanking, exit here.
-				return true;
+				return null;
 			}
 		}
 
 		$editInfo = $wikiPage->prepareContentForEdit( $content );
-		$u = new LinksUpdate( $wikiPage->mTitle, $editInfo->output );
-		$u->doUpdate();
+		return new LinksUpdate( $wikiPage->mTitle, $editInfo->output );
+	}
 
+	/**
+	 * Hook: SecondaryDataUpdates
+	 *
+	 * Call LinksUpdate on the text of this page's approved revision,
+	 * if there is one.
+	 *
+	 * MW 1.25 - 1.31
+	 */
+	static public function updateLinksAfterEditOld( Title $title, /*Content*/ $oldContent, /*bool*/ $recursive, ParserOutput $parserOutput, &$updates ) {
+		$update = self::getUpdateForTitle( $title );
+		if ( $update !== null ) {
+			// Wipe out any existing updates.
+			$updates = array( $update );
+		}
+		return true;
+	}
+
+	/**
+	 * Hook: RevisionDataUpdates
+	 *
+	 * Call LinksUpdate on the text of this page's approved revision,
+	 * if there is one.
+	 *
+	 * MW 1.32+
+	 */
+	static public function updateLinksAfterEdit( Title $title, \MediaWiki\Revision\RenderedRevision $renderedRevision, array &$updates ) {
+		$update = self::getUpdateForTitle( $title );
+		if ( $update !== null ) {
+			// Wipe out any existing updates.
+			$updates = array( $update );
+		}
 		return true;
 	}
 
