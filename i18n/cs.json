@@ -4,7 +4,8 @@
 			"Matěj Grabovský",
 			"Mormegil",
 			"Paxt",
-			"Slepi"
+			"Slepi",
+			"SimonV"
 		]
 	},
 	"approvedrevs-desc": "Nastavuje jednu revizi stránky jako schválenou",
@@ -35,5 +36,7 @@
 	"approvedrevs-viewlatestrev": "Prohlédnout poslední revizi.",
 	"right-approverevisions": "Nastavit určitou revizi wiki stránky jako schválenou",
 	"right-viewlinktolatest": "Prohlédnout vysvětlivky v záhlaví stránek se schválenou revizí",
-	"approvedrevs-latestfile": "Poslední soubor"
+	"approvedrevs-approvedfile": "Schválený soubor",
+	"approvedrevs-latestfile": "Poslední soubor",
+	"apihelp-approve-example-1": "Schválit revizi 12345"
 }
