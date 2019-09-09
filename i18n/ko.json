@@ -48,5 +48,6 @@
 	"approvedrevs-approvedfile": "승인한 파일",
 	"approvedrevs-latestfile": "최신 파일",
 	"apihelp-approve-param-revid": "승인할 판 ID.",
-	"apihelp-approve-example-1": "12345 판 승인"
+	"apihelp-approve-example-1": "12345 판 승인",
+	"apihelp-approve-example-2": "12345 판 미승인"
 }
