@@ -39,6 +39,7 @@
 	"approvedrevs-approvethisrev": "Zatwierdź te zmiany.",
 	"approvedrevs-viewlatestrev": "Zobacz najnowszą wersję.",
 	"approvedrevs-approvedrevision": "Zatwierdzona wersja",
+	"action-approverevisions": "zatwierdzania wybranych wersji stron wiki",
 	"right-approverevisions": "Zatwierdzenie wybranych wersji stron wiki",
 	"right-viewlinktolatest": "Pokazuj tekst wyjaśniający w górnej części tych stron, które mają zatwierdzoną wersję",
 	"right-viewapprover": "Wyświetlanie tekstu pokazującego, kto zatwierdził aktualnie zatwierdzoną wersję",
