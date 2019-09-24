@@ -6,7 +6,8 @@
 			"Shirayuki",
 			"W.CC",
 			"青子守歌",
-			"Suchichi02"
+			"Suchichi02",
+			"Reiwa period"
 		]
 	},
 	"approvedrevs-desc": "ページの版のうち 1 つを承認済みにする",
@@ -30,6 +31,7 @@
 	"approvedrevs-unapprovedpages": "未承認ページ",
 	"approvedrevs-view": "リストを表示:",
 	"approvedrevs-revisionnumber": "版 $1",
+	"approvedrevs-uploaddate": "$1からのアップロード",
 	"approvedrevs-approvedby": "{{GENDER:$3|$1}} が $4 $5 に承認",
 	"approvedrevs-difffromlatest": "最新版との差分",
 	"approvedrevs-approvelatest": "最新版を承認",
@@ -37,5 +39,6 @@
 	"approvedrevs-viewlatestrev": "最新版を閲覧",
 	"approvedrevs-approvedrevision": "承認済み版",
 	"right-approverevisions": "ウィキページの特定の版を承認済みに設定",
-	"right-viewlinktolatest": "承認済み版があるページの冒頭に説明文を表示"
+	"right-viewlinktolatest": "承認済み版があるページの冒頭に説明文を表示",
+	"approvedrevs-latestfile": "最新のファイル"
 }
