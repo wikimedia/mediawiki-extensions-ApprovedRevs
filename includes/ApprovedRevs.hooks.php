@@ -559,8 +559,10 @@ class ApprovedRevsHooks {
 	 * Add a warning to the top of the 'edit' page if the approved
 	 * revision is not the same as the latest one, so that users don't
 	 * get confused, since they'll be seeing the latest one.
+	 *
+	 * @param EditPage $editPage
 	 */
-	public static function addWarningToEditPage( &$editPage ) {
+	public static function addWarningToEditPage( EditPage $editPage ) {
 		$article = $editPage->getArticle();
 		$context = $article->getContext();
 		$request = $context->getRequest();
