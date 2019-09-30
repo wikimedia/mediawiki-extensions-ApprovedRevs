@@ -377,7 +377,7 @@ class ApprovedRevsHooks {
 			? wfMessage( 'currentrevisionlink' )->escaped()
 			: $linkRenderer->makeLink(
 				$title,
-				wfMessage( 'currentrevisionlink' )->text(),
+				wfMessage( 'currentrevisionlink' )->escaped(),
 				array(),
 				$latestLinkParams + $extraParams
 			);
@@ -385,7 +385,7 @@ class ApprovedRevsHooks {
 			? wfMessage( 'diff' )->escaped()
 			: $linkRenderer->makeLink(
 				$title,
-				wfMessage( 'diff' )->text(),
+				wfMessage( 'diff' )->escaped(),
 				array(),
 				array(
 					'diff' => 'cur',
@@ -396,7 +396,7 @@ class ApprovedRevsHooks {
 		$prevlink = $prev
 			? $linkRenderer->makeLink(
 				$title,
-				wfMessage( 'previousrevision' )->text(),
+				wfMessage( 'previousrevision' )->escaped(),
 				array(),
 				array(
 					'direction' => 'prev',
@@ -407,7 +407,7 @@ class ApprovedRevsHooks {
 		$prevdiff = $prev
 			? $linkRenderer->makeLink(
 				$title,
-				wfMessage( 'diff' )->text(),
+				wfMessage( 'diff' )->escaped(),
 				array(),
 				array(
 					'diff' => 'prev',
@@ -419,7 +419,7 @@ class ApprovedRevsHooks {
 			? wfMessage( 'nextrevision' )->escaped()
 			: $linkRenderer->makeLink(
 				$title,
-				wfMessage( 'nextrevision' )->text(),
+				wfMessage( 'nextrevision' )->escaped(),
 				array(),
 				array(
 					'direction' => 'next',
@@ -430,7 +430,7 @@ class ApprovedRevsHooks {
 			? wfMessage( 'diff' )->escaped()
 			: $linkRenderer->makeLink(
 				$title,
-				wfMessage( 'diff' )->text(),
+				wfMessage( 'diff' )->escaped(),
 				array(),
 				array(
 					'diff' => 'next',
@@ -444,7 +444,7 @@ class ApprovedRevsHooks {
 			? wfMessage( 'approvedrevs-approvedrevision' )->escaped()
 			: $linkRenderer->makeLink(
 				$title,
-				wfMessage( 'approvedrevs-approvedrevision' )->text(),
+				wfMessage( 'approvedrevs-approvedrevision' )->escaped(),
 				array(),
 				$extraParams
 			);
@@ -452,7 +452,7 @@ class ApprovedRevsHooks {
 			? wfMessage( 'diff' )->escaped()
 			: $linkRenderer->makeLink(
 				$title,
-				wfMessage( 'diff' )->text(),
+				wfMessage( 'diff' )->escaped(),
 				array(),
 				array(
 					'diff' => $approvedID,
