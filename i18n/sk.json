@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Helix84"
+			"Helix84",
+			"Vlad5250"
 		]
 	},
 	"approvedrevs-desc": "Stanoviť jedinú revíziu stránky ako schválenú",
@@ -11,7 +12,7 @@
 	"approvedrevs-unapprove": "neschváliť",
 	"approvedrevs": "Schválené revízie",
 	"approvedrevs-unapprovedpages": "Neschválené stránky",
-	"approvedrevs-view": "Zobraziť:",
+	"approvedrevs-view": "Zobraziť zoznam:",
 	"approvedrevs-revisionnumber": "revízia $1",
 	"approvedrevs-approvedby": "schválil $1 $2",
 	"approvedrevs-difffromlatest": "rozdiel od najnovších",
