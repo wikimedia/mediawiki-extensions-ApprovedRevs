@@ -18,5 +18,7 @@
 	"approvedrevs-difffromlatest": "rozdiel od najnovších",
 	"approvedrevs-approvelatest": "schváliť najnovšie",
 	"approvedrevs-approvethisrev": "Schváliť túto revíziu.",
-	"approvedrevs-viewlatestrev": "Zobraziť najnovšiu revíziu."
+	"approvedrevs-viewlatestrev": "Zobraziť najnovšiu revíziu.",
+	"approvedrevs-unapprovedfiles": "Neschválené súbory",
+	"approvedrevs-approvedfile": "Schválený súbor"
 }
