@@ -6,7 +6,8 @@
 			"Guycn2",
 			"YaronSh",
 			"Erelon",
-			"Steeve815"
+			"Steeve815",
+			"דגש חזק"
 		]
 	},
 	"approvedrevs-desc": "הגדרת גרסה אחת של דף כגרסה מאושרת",
@@ -42,7 +43,10 @@
 	"approvedrevs-approvedrevision": "גרסה מאושרת",
 	"action-approverevisions": "לסמן גרסה מסוימת של דף ויקי כגרסה שאושרה",
 	"right-approverevisions": "סימון גרסאות מסוימות של דפים כגרסאות שאושרו",
+	"action-viewlinktolatest": "צפייה בהסברים בחלק העליון של דפים שיש להם גרסה מאושרת",
 	"right-viewlinktolatest": "צפייה בהסברים בחלק העליון של דפים שיש להם גרסה מאושרת",
+	"action-viewapprover": "הצג מידע על מאשר הגרסה הנוכחית",
+	"right-viewapprover": "הצג מידע על מאשר הגרסה הנוכחית",
 	"approvedrevs-invalidfiles": "קבצים עם אישורים לא תקינים",
 	"approvedrevs-approvedfiles": "כל הקבצים עם גרסה מאושרת",
 	"approvedrevs-notlatestfiles": "קבצים בהם גרסה מאושרת אינה הגרסה האחרונה",
@@ -50,6 +54,8 @@
 	"approvedrevs-approvedfile": "מסמך מאושר",
 	"approvedrevs-latestfile": "מסמך אחרון",
 	"apihelp-approve-description": "סקירת מהדורה על ידי אישור או ביטול האישור שלה.",
+	"apihelp-approve-summary": "סקור את הגרסה על ידי אישורה או ביטולה.",
+	"apihelp-approve-param-revid": "מזהה הגרסה לאישור.",
 	"apihelp-approve-example-1": "אישור גרסה 12345",
 	"apihelp-approve-example-2": "ביטול האישור של גרסה 12345"
 }
