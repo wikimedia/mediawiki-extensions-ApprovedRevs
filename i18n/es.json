@@ -62,7 +62,7 @@
 	"approvedrevs-notlatestfiles": "Archivos cuya revisión aprobada no es la más reciente",
 	"approvedrevs-unapprovedfiles": "Archivos no aprobados",
 	"approvedrevs-approvedfile": "Archivo aprobado",
-	"approvedrevs-latestfile": "Archivo más antiguo",
+	"approvedrevs-latestfile": "Archivo más reciente",
 	"apihelp-approve-param-revid": "El identificador de la revisión que se va a aprobar.",
 	"apihelp-approve-param-unapprove": "Si se aplica, la revisión anulará la aprobación en lugar de aprobarla.",
 	"apihelp-approve-example-1": "Aprobar la revisión 12345",

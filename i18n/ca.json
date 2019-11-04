@@ -39,5 +39,10 @@
 	"approvedrevs-viewlatestrev": "Mostra la revisió més recent.",
 	"approvedrevs-approvedrevision": "Revisió aprovada",
 	"right-approverevisions": "Marca com aprovada una certa revisió d'una pàgina wiki",
-	"right-viewlinktolatest": "Mostra un text explicatiu en la part superior de les pàgines que tenen una revisió aprovada"
+	"right-viewlinktolatest": "Mostra un text explicatiu en la part superior de les pàgines que tenen una revisió aprovada",
+	"approvedrevs-unapprovedfiles": "Fitxers no aprovats",
+	"approvedrevs-approvedfile": "Fitxer aprovat",
+	"approvedrevs-latestfile": "Fitxer més recent",
+	"apihelp-approve-example-1": "Aprova la revisió 12345",
+	"apihelp-approve-example-2": "Desaprova la revisió 12345"
 }
