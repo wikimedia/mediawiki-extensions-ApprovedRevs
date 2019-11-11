@@ -3,7 +3,8 @@
 		"authors": [
 			"Eitvys200",
 			"Homo",
-			"Ignas693"
+			"Ignas693",
+			"Tomasdd"
 		]
 	},
 	"approvedrevs-desc": "Nustatyti vieną puslapį su patvirtinta peržiūros",
@@ -25,7 +26,7 @@
 	"approvedrevs-approvedpages": "Visi puslapiai su patvirtinta peržiūra",
 	"approvedrevs-notlatestpages": "Puslapiai, kurių patvirtinto pakeitimo nėra jų naujausia",
 	"approvedrevs-unapprovedpages": "Nepatvirtintas puslapių",
-	"approvedrevs-view": "Žiūrėti:",
+	"approvedrevs-view": "Peržiūrėti sąrašą:",
 	"approvedrevs-revisionnumber": "versija $1",
 	"approvedrevs-approvedby": "patvirtintas  $1  dėl$2",
 	"approvedrevs-difffromlatest": "diff iš vėliau kaip",
