@@ -677,6 +677,12 @@ class ApprovedRevs {
 	 */
 	static public function getQueryInfoPageApprovals( $mode ) {
 		$approvedRevsNamespaces = ApprovedRevs::getApprovableNamespaces();
+		// Don't include the "File:" namespace in this query - file pages are not
+		// approvable. (The presence of NS_FILE instead indicates that files
+		// themselves are approvable.)
+		if ( ( $key = array_search( NS_FILE, $approvedRevsNamespaces ) ) !== false ) {
+			unset( $approvedRevsNamespaces[$key] );
+		}
 
 		$mainCondsString = "( pp_propname = 'approvedrevs' AND pp_value = 'y' " .
 			"OR pp_propname = 'approvedrevs-approver-users' " .
