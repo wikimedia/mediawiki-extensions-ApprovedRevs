@@ -2,13 +2,15 @@
 	"@metadata": {
 		"authors": [
 			"Beta16",
-			"Rippitippi"
+			"Rippitippi",
+			"Tizven"
 		]
 	},
 	"approvedrevs-desc": "Imposta una singola versione di una pagina come approvata",
 	"approvedrevs-logname": "Registro di approvazione delle versioni",
 	"approvedrevs-logdesc": "Questo è il registro delle versioni che sono state approvate.",
 	"approvedrevs-approve": "approva",
+	"approvedrevs-approver": "Questa revisione é stata approvata da $1",
 	"approvedrevs-unapprove": "non approvare",
 	"approvedrevs-approvesuccess": "Questa versione della pagina è stata impostata come quella approvata.",
 	"approvedrevs-unapprovesuccess": "Non ci sono ancora versioni approvate per questa pagina.\nAl suo posto verrà mostrata la versione più recente.",
@@ -40,6 +42,7 @@
 	"approvedrevs-notlatestfiles": "File la cui versione approvata non è la loro ultima",
 	"approvedrevs-unapprovedfiles": "File non approvate",
 	"approvedrevs-approvedfile": "File approvato",
+	"approvedrevs-latestfile": "File più recente",
 	"apihelp-approve-param-revid": "L'ID versione da approvare.",
 	"apihelp-approve-example-1": "Approva versione 12345"
 }
