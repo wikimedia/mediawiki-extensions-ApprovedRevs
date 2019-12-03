@@ -169,10 +169,10 @@ class ApprovedRevs {
 			return $title->isApprovable;
 		}
 
-		// File *pages* are not ever approvable. Files themselves can be, but
-		// checks for file approvability is handled by fileIsApprovable(). This
-		// constraint is to avoid confusion between approving file pages and
-		// approving files themselves.
+		// File *pages* are not ever approvable. Files themselves can
+		// be, but checks for file approvability are handled by
+		// fileIsApprovable(). This constraint is to avoid confusion
+		// between approving file pages and approving files themselves.
 		if ( $title->getNamespace() === NS_FILE ) {
 			$title->isApprovable = false;
 			return $title->isApprovable;
@@ -191,9 +191,9 @@ class ApprovedRevs {
 		}
 
 		// It's not in an included namespace, so check for the page
-		// properties for the parser functions - for some reason, calling the standard
-		// getProperty() function doesn't work, so we just do a DB
-		// query on the page_props table.
+		// properties for the parser functions - for some reason,
+		// calling the standard getProperty() function doesn't work, so
+		// we just do a DB query on the page_props table.
 		$dbr = wfGetDB( DB_REPLICA );
 		$res = $dbr->select( 'page_props', 'COUNT(*)',
 			array(
@@ -251,9 +251,9 @@ class ApprovedRevs {
 		}
 
 		// It's not in an included namespace, so check for the page
-		// properties for the parser functions - for some reason, calling the standard
-		// getProperty() function doesn't work, so we just do a DB
-		// query on the page_props table.
+		// properties for the parser functions - for some reason,
+		// calling the standard getProperty() function doesn't work, so
+		// we just do a DB query on the page_props table.
 		//
 		// NOTE: Checks for these propnames won't do anything until [1] is merged, but also will
 		//       not hurt anything.
@@ -274,7 +274,7 @@ class ApprovedRevs {
 			return true;
 		}
 
-		// parser function page properties not present. Check for magic word.
+		// Parser function page properties not present. Check for magic word.
 		$res = $dbr->select( 'page_props', 'COUNT(*)',
 			array(
 				'pp_page' => $title->getArticleID(),
@@ -288,10 +288,11 @@ class ApprovedRevs {
 			return true;
 		}
 
-		// if a file already has an approval, it must be considered approvable
-		// in order for the user to be able to view/modify approvals. Though
-		// this wasn't the case on versions of ApprovedRevs before v1.0, it is
-		// necessary now since approvability can change much more easily
+		// If a file already has an approval, it must be considered
+		// approvable in order for the user to be able to view/modify
+		// approvals. Though this wasn't the case on versions of
+		// ApprovedRevs before v1.0, it is necessary now since
+		// approvability can change much more easily.
 
 		// if title in approved_revs_files table
 		list( $timestamp, $sha1 ) = self::getApprovedFileInfo( $title );
@@ -378,9 +379,9 @@ class ApprovedRevs {
 	}
 
 	/**
-	 * Check if a user is allowed to approve a page based upon being listed in
-	 * the page properties approvedrevs-approver-users and
-	 * approvedrevs-approver-groups
+	 * Check if a user is allowed to approve a page based upon being listed
+	 * in the page properties approvedrevs-approver-users and
+	 * approvedrevs-approver-groups.
 	 *
 	 * @param User $user Check if this user has #approvable_by permissions on title
 	 * @param Title $title Title to check
@@ -643,10 +644,10 @@ class ApprovedRevs {
 	}
 
 	/**
-	 *  Pulls from DB table approved_revs_files which revision of a
-	 *  file, if any besides most recent, should be used as the
-	 *  approved revision.
-	 **/
+	 * Pulls from the DB table approved_revs_files which revision of a file,
+	 * if any besides the most recent, should be used as the approved
+	 * revision.
+	 */
 	public static function getApprovedFileInfo ( $fileTitle ) {
 
 		if ( isset( self::$mApprovedFileInfo[ $fileTitle->getDBkey() ] ) ) {
