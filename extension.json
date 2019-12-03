@@ -97,9 +97,6 @@
 		"ArticleFromTitle": [
 			"ApprovedRevsHooks::showApprovedRevision"
 		],
-		"ArticleAfterFetchContentObject": [
-			"ApprovedRevsHooks::showBlankIfUnapproved"
-		],
 		"DisplayOldSubtitle": [
 			"ApprovedRevsHooks::setSubtitle"
 		],

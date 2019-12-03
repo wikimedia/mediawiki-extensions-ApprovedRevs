@@ -27,6 +27,22 @@ class ApprovedRevsHooks {
 			$wgHooks['SecondaryDataUpdates'][] = 'ApprovedRevsHooks::updateLinksAfterEditOld';
 		}
 
+		// The "ArticleRevisionViewCustom" hook was added to MediaWiki
+		// in August 2018, i.e. version 1.32. However, there was a bug
+		// in its implementation that was not fixed until October 2019,
+		// which was MW 1.35 (although 1.34 had not been released yet).
+		// The fix was "back-ported" to the previous versions, but
+		// not all wikis may have gotten this fix. Just to be safe,
+		// we'll check for the absence of a method that was removed
+		// right after this fix was made.
+		if ( method_exists( 'Parser', 'serializeHalfParsedText' ) ) {
+			// MW < 1.35
+			$wgHooks['ArticleAfterFetchContentObject'][] = 'ApprovedRevsHooks::showBlankIfUnapprovedOld';
+		} else {
+			// MW 1.35+
+			$wgHooks['ArticleRevisionViewCustom'][] = 'ApprovedRevsHooks::showBlankIfUnapproved';
+		}
+
 		// Backward compatibility for MW < 1.28.
 		if ( !defined( 'DB_REPLICA' ) ) {
 			define( 'DB_REPLICA', DB_SLAVE );
@@ -259,7 +275,7 @@ class ApprovedRevsHooks {
 	 * @param Content $content
 	 * @return true
 	 */
-	public static function showBlankIfUnapproved( &$article, Content &$content ) {
+	public static function showBlankIfUnapprovedOld( &$article, Content &$content ) {
 		global $egApprovedRevsBlankIfUnapproved;
 		if ( ! $egApprovedRevsBlankIfUnapproved ) {
 			return true;
@@ -302,6 +318,51 @@ class ApprovedRevsHooks {
 		}
 
 		return true;
+	}
+
+	/**
+	 * Hook: ArticleRevisionViewCustom
+	 *
+	 * @param RevisionStoreRecord $revisionStoreRecord
+	 * @param Title $title
+	 * @param int $oldid
+	 * @param OutputPage $output
+	 */
+	public static function showBlankIfUnapproved( $revisionStoreRecord, $title, $oldid, $output ) {
+		global $egApprovedRevsBlankIfUnapproved;
+		if ( ! $egApprovedRevsBlankIfUnapproved ) {
+			return true;
+		}
+
+		if ( ! ApprovedRevs::pageIsApprovable( $title ) ) {
+			return true;
+		}
+
+		$revisionID = ApprovedRevs::getApprovedRevID( $title );
+		if ( !empty( $revisionID ) ) {
+			return true;
+		}
+
+		// If the user is looking at a specified revision of the page,
+		// always show it.
+		if ( $oldid > 0 ) {
+			return true;
+		}
+
+		// We need to do this just to check if we're in the 'view'
+		// action, not 'edit', 'history' etc.
+		$article = new Article( $title, $oldid );
+		$context = $article->getContext();
+		$request = $context->getRequest();
+		if ( ! ApprovedRevs::isDefaultPageRequest( $request ) ) {
+			return true;
+		}
+
+		// We're still here - the page should be blank.
+		ApprovedRevs::addCSS();
+
+		// Returning false sets the content to blank.
+		return false;
 	}
 
 	/**
