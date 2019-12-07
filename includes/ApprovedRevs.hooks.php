@@ -869,25 +869,16 @@ class ApprovedRevsHooks {
 		return true;
 	}
 
-	public static function describeDBSchema( $updater = null ) {
+	public static function describeDBSchema( DatabaseUpdater $updater ) {
 		$dir = dirname( __FILE__ );
 
 		// DB updates
 		// For now, there's just a single SQL file for all DB types.
-		if ( $updater === null ) {
-			global $wgExtNewTables, $wgDBtype;
-			//if ( $wgDBtype == 'mysql' ) {
-				$wgExtNewTables[] = array( 'approved_revs', "$dir/../sql/ApprovedRevs.sql" );
-				$wgExtNewTables[] = array( 'approved_revs_files', "$dir/../sql/ApprovedFiles.sql" );
-			//}
-		} else {
-			//if ( $updater->getDB()->getType() == 'mysql' ) {
-				$updater->addExtensionUpdate( array( 'addTable', 'approved_revs', "$dir/../sql/ApprovedRevs.sql", true ) );
-				$updater->addExtensionUpdate( array( 'addField', 'approved_revs', 'approver_id', "$dir/../sql/patch-approver_id.sql", true ) );
-				$updater->addExtensionUpdate( array( 'addTable', 'approved_revs_files', "$dir/../sql/ApprovedFiles.sql", true ) );
-			//}
-		}
-		return true;
+		//if ( $updater->getDB()->getType() == 'mysql' ) {
+			$updater->addExtensionUpdate( array( 'addTable', 'approved_revs', "$dir/../sql/ApprovedRevs.sql", true ) );
+			$updater->addExtensionUpdate( array( 'addField', 'approved_revs', 'approver_id', "$dir/../sql/patch-approver_id.sql", true ) );
+			$updater->addExtensionUpdate( array( 'addTable', 'approved_revs_files', "$dir/../sql/ApprovedFiles.sql", true ) );
+		//}
 	}
 
 	/**
