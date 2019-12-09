@@ -23,7 +23,7 @@ class ApprovedRevsHooks {
 			// MW 1.32+
 			$wgHooks['RevisionDataUpdates'][] = 'ApprovedRevsHooks::updateLinksAfterEdit';
 		} else {
-			// MW 1.25 - 1.31
+			// MW < 1.32
 			$wgHooks['SecondaryDataUpdates'][] = 'ApprovedRevsHooks::updateLinksAfterEditOld';
 		}
 
@@ -41,11 +41,6 @@ class ApprovedRevsHooks {
 		} else {
 			// MW 1.35+
 			$wgHooks['ArticleRevisionViewCustom'][] = 'ApprovedRevsHooks::showBlankIfUnapproved';
-		}
-
-		// Backward compatibility for MW < 1.28.
-		if ( !defined( 'DB_REPLICA' ) ) {
-			define( 'DB_REPLICA', DB_SLAVE );
 		}
 	}
 
