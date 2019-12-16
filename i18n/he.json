@@ -7,7 +7,8 @@
 			"YaronSh",
 			"Erelon",
 			"Steeve815",
-			"דגש חזק"
+			"דגש חזק",
+			"Ghsuvr"
 		]
 	},
 	"approvedrevs-desc": "הגדרת גרסה אחת של דף כגרסה מאושרת",
@@ -56,6 +57,7 @@
 	"apihelp-approve-description": "סקירת מהדורה על ידי אישור או ביטול האישור שלה.",
 	"apihelp-approve-summary": "סקור את הגרסה על ידי אישורה או ביטולה.",
 	"apihelp-approve-param-revid": "מזהה הגרסה לאישור.",
+	"apihelp-approve-param-unapprove": "אם מוגדר, הגרסה לא תאושר.",
 	"apihelp-approve-example-1": "אישור גרסה 12345",
 	"apihelp-approve-example-2": "ביטול האישור של גרסה 12345"
 }
