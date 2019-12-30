@@ -288,7 +288,7 @@ class SpecialApprovedRevsPage extends QueryPage {
 		# mode: approvedfiles
 		#
 		} elseif ( $this->mMode == 'approvedfiles' ) {
-			global $wgUser, $wgOut, $wgLang;
+			global $wgOut, $wgLang;
 
 			$additionalInfo = Html::rawElement( 'span',
 				array(

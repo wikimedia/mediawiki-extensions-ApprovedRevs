@@ -36,7 +36,7 @@ class ARApproveAction extends Action {
 			return true;
 		}
 		$revisionID = $request->getVal( 'oldid' );
-		ApprovedRevs::setApprovedRevID( $title, $revisionID );
+		ApprovedRevs::setApprovedRevID( $title, $revisionID, $user );
 
 		$out = $this->getOutput();
 		$out->addHTML( "\t\t" . Xml::element(

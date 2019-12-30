@@ -13,11 +13,10 @@
 class ApiApprove extends ApiBase {
 
 	public function execute() {
-		global $wgUser;
-
 		$params = $this->extractRequestParams();
 		$revid = (int)$params['revid'];
 		$unapprove = (bool)$params['unapprove'];
+		$user = $this->getUser();
 
 		// Get target rev and title.
 		$rev = Revision::newFromId( $revid );
@@ -27,8 +26,8 @@ class ApiApprove extends ApiBase {
 		$title = $rev->getTitle();
 
 		// Verify that user can approve.
-		if ( ! ApprovedRevs::userCanApprove( $wgUser, $title ) ) {
-			$this->dieUsage( 'You ('.$wgUser->getName() .') can\'t approve!', 'permissiondenied');
+		if ( ! ApprovedRevs::userCanApprove( $user, $title ) ) {
+			$this->dieUsage( 'You ('.$user->getName() .') can\'t approve!', 'permissiondenied');
 		}
 		// Verify that page can be approved.
 		if ( ! ApprovedRevs::pageIsApprovable( $title ) ) {
@@ -51,7 +50,7 @@ class ApiApprove extends ApiBase {
 				// This is already the approved revision - just send an empty result back.
 				$this->getResult()->addValue( null, $this->getModuleName(), array( 'result' => 'This revision was already approved!', 'title' => $title ) );
 			} else {
-				ApprovedRevs::setApprovedRevID( $title, $revid );
+				ApprovedRevs::setApprovedRevID( $title, $revid, $user );
 				$this->getResult()->addValue( null, $this->getModuleName(), array( 'result' => 'Revision was successfully approved.', 'title' => $title ) );
 
 			}

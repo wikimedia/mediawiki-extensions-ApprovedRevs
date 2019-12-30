@@ -177,7 +177,7 @@ class ApprovedRevsHooks {
 		}
 
 		// Save approval without logging.
-		ApprovedRevs::saveApprovedRevIDInDB( $title, $revision->getID(), true );
+		ApprovedRevs::saveApprovedRevIDInDB( $title, $revision->getID(), $user, true );
 		return true;
 	}
 

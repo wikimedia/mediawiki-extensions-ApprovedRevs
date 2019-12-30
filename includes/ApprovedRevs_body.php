@@ -443,12 +443,11 @@ class ApprovedRevs {
 		return false;
 	}
 
-	public static function saveApprovedRevIDInDB( $title, $rev_id, $isAutoApprove = true ) {
-		global $wgUser;
+	public static function saveApprovedRevIDInDB( $title, $rev_id, User $user, $isAutoApprove = true ) {
 		$userBit = array();
 
 		if ( !$isAutoApprove ) {
-			$userBit = array( 'approver_id' => $wgUser->getID() );
+			$userBit = array( 'approver_id' => $user->getID() );
 		}
 
 		$dbr = wfGetDB( DB_MASTER );
@@ -464,7 +463,7 @@ class ApprovedRevs {
 		}
 		// Update "cache" in memory
 		self::$mApprovedRevIDForPage[$page_id] = $rev_id;
-		self::$mApproverForPage[$page_id] = $wgUser;
+		self::$mApproverForPage[$page_id] = $user;
 	}
 
 	/**
@@ -481,8 +480,8 @@ class ApprovedRevs {
 	 * so that category information can be stored correctly, as well as
 	 * info for extensions such as Semantic MediaWiki; and logs the action.
 	 */
-	public static function setApprovedRevID( $title, $rev_id, $is_latest = false ) {
-		self::saveApprovedRevIDInDB( $title, $rev_id, false );
+	public static function setApprovedRevID( $title, $rev_id, User $user, $is_latest = false ) {
+		self::saveApprovedRevIDInDB( $title, $rev_id, $user, false );
 
 		$content = Revision::newFromTitle( $title, $rev_id )->getContent();
 		$output = null;

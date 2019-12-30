@@ -94,8 +94,9 @@ class ApproveAllPages extends Maintenance {
 			}
 
 			// Let's approve the latest revision...
+			// fixme: the user here is empty - use a system user?
 			ApprovedRevs::setApprovedRevID(
-				$title, $latestRevID, true
+				$title, $latestRevID, new User(), true
 			);
 
 			$this->output( wfTimestamp( TS_DB ) .
