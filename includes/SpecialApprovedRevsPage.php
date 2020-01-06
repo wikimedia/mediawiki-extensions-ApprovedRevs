@@ -242,7 +242,7 @@ class SpecialApprovedRevsPage extends QueryPage {
 			self::$repo = RepoGroup::singleton();
 		}
 
-		$pageLink = Linker::link( $title );
+		$pageLink = $this->getLinkRenderer()->makeLink( $title );
 
 		#
 		# mode: unapprovedfiles
