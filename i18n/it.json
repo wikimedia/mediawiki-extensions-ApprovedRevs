@@ -46,10 +46,10 @@
 	"approvedrevs-unapprovedfiles": "File non approvate",
 	"approvedrevs-approvedfile": "File approvato",
 	"approvedrevs-latestfile": "File più recente",
-	"apihelp-approve-description": "Esamina una revisione approvandola o disapprovandola.",
-	"apihelp-approve-summary": "Esamina una revisione approvandola o disapprovandola.",
+	"apihelp-approve-description": "Esamina una versione approvandola o disapprovandola.",
+	"apihelp-approve-summary": "Esamina una versione approvandola o disapprovandola.",
 	"apihelp-approve-param-revid": "L'ID versione da approvare.",
-	"apihelp-approve-param-unapprove": "Se impostato, la revisione verrà disapprovata piuttosto che approvata.",
+	"apihelp-approve-param-unapprove": "Se impostato, la versione verrà disapprovata piuttosto che approvata.",
 	"apihelp-approve-example-1": "Approva versione 12345",
-	"apihelp-approve-example-2": "Disapprova la revisione 12345"
+	"apihelp-approve-example-2": "Disapprova la versione 12345"
 }
