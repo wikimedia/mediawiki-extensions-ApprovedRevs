@@ -28,7 +28,7 @@ class ARUnapproveFileAction extends Action {
 			return true;
 		}
 
-		ApprovedRevs::unsetApprovedFileInDB( $title );
+		ApprovedRevs::unsetApprovedFileInDB( $title, $this->getUser() );
 
 		// the message depends on whether the page should display
 		// a blank right now or not

@@ -1242,7 +1242,7 @@ class ApprovedRevsHooks {
 			}
 
 			if ( ! $approvedExists ) {
-				ApprovedRevs::unsetApprovedFileInDB( $file->getTitle() );
+				ApprovedRevs::unsetApprovedFileInDB( $file->getTitle(), $user );
 			}
 
 		}

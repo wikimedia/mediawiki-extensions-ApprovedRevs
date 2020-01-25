@@ -42,7 +42,7 @@ class ApiApprove extends ApiBase {
 				// No revision - just send an empty result back.
 				$this->getResult()->addValue( null, $this->getModuleName(), array( 'result' => 'This page was already unapproved!', 'title' => $title ) );
 			} else {
-				ApprovedRevs::unsetApproval( $title );
+				ApprovedRevs::unsetApproval( $title, $user );
 				$this->getResult()->addValue( null, $this->getModuleName(), array( 'result' => 'Page now has no approved revision.', 'title' => $title ) );
 			}
 		} else { // This is a call to approve a revision.

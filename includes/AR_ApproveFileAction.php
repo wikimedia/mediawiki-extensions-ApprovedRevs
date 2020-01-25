@@ -38,7 +38,7 @@ class ARApproveFileAction extends Action {
 
 		$revisionID = $request->getVal( 'ts' );
 		ApprovedRevs::setApprovedFileInDB(
-			$title, $request->getVal( 'ts' ), $request->getVal( 'sha1' )
+			$title, $request->getVal( 'ts' ), $request->getVal( 'sha1' ), $this->getUser()
 		);
 
 		$out = $this->getOutput();

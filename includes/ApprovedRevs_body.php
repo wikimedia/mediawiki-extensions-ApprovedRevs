@@ -507,7 +507,8 @@ class ApprovedRevs {
 			'approve',
 			$title,
 			'',
-			$logParams
+			$logParams,
+			$user
 		);
 
 		Hooks::run( 'ApprovedRevsRevisionApproved', array( $output, $title, $rev_id, $content ) );
@@ -525,7 +526,7 @@ class ApprovedRevs {
 	 * information can be stored correctly, as well as info for
 	 * extensions such as Semantic MediaWiki; and logs the action.
 	 */
-	public static function unsetApproval( $title ) {
+	public static function unsetApproval( $title, User $user ) {
 		global $egApprovedRevsBlankIfUnapproved;
 
 		self::deleteRevisionApproval( $title );
@@ -541,7 +542,9 @@ class ApprovedRevs {
 		$log->addEntry(
 			'unapprove',
 			$title,
-			''
+			'',
+			[],
+			$user
 		);
 
 		Hooks::run( 'ApprovedRevsRevisionUnapproved', array( $output, $title, $content ) );
@@ -552,7 +555,7 @@ class ApprovedRevs {
 		$wgOut->addModuleStyles( 'ext.ApprovedRevs' );
 	}
 
-	public static function setApprovedFileInDB ( $title, $timestamp, $sha1 ) {
+	public static function setApprovedFileInDB ( $title, $timestamp, $sha1, User $user ) {
 
 		$parser = new Parser();
 		$parser->setTitle( $title );
@@ -604,7 +607,8 @@ class ApprovedRevs {
 			'approvefile',
 			$title,
 			'',
-			$logParams
+			$logParams,
+			$user
 		);
 
 		Hooks::run(
@@ -614,7 +618,7 @@ class ApprovedRevs {
 
 	}
 
-	public static function unsetApprovedFileInDB ( $title ) {
+	public static function unsetApprovedFileInDB ( $title, User $user ) {
 
 		$parser = new Parser();
 		$parser->setTitle( $title );
@@ -633,7 +637,9 @@ class ApprovedRevs {
 		$log->addEntry(
 			'unapprove',
 			$title,
-			''
+			'',
+			[],
+			$user
 		);
 
 		Hooks::run(
