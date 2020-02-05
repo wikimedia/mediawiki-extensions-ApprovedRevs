@@ -36,4 +36,3 @@ class SpecialApprovedRevs extends SpecialPage {
 		return 'pages';
 	}
 }
-

@@ -26,12 +26,12 @@ class ApiApprove extends ApiBase {
 		$title = $rev->getTitle();
 
 		// Verify that user can approve.
-		if ( ! ApprovedRevs::userCanApprove( $user, $title ) ) {
-			$this->dieUsage( 'You ('.$user->getName() .') can\'t approve!', 'permissiondenied');
+		if ( !ApprovedRevs::userCanApprove( $user, $title ) ) {
+			$this->dieUsage( 'You (' . $user->getName() . ') can\'t approve!', 'permissiondenied' );
 		}
 		// Verify that page can be approved.
-		if ( ! ApprovedRevs::pageIsApprovable( $title ) ) {
-			$this->dieUsage( "Page $title can't be approved!", 'badtarget');
+		if ( !ApprovedRevs::pageIsApprovable( $title ) ) {
+			$this->dieUsage( "Page $title can't be approved!", 'badtarget' );
 		}
 
 		$curApprovedRev = ApprovedRevs::getApprovedRevID( $title );
@@ -40,47 +40,46 @@ class ApiApprove extends ApiBase {
 		if ( $unapprove ) {
 			if ( empty( $curApprovedRev ) ) {
 				// No revision - just send an empty result back.
-				$this->getResult()->addValue( null, $this->getModuleName(), array( 'result' => 'This page was already unapproved!', 'title' => $title ) );
+				$this->getResult()->addValue( null, $this->getModuleName(), [ 'result' => 'This page was already unapproved!', 'title' => $title ] );
 			} else {
 				ApprovedRevs::unsetApproval( $title, $user );
-				$this->getResult()->addValue( null, $this->getModuleName(), array( 'result' => 'Page now has no approved revision.', 'title' => $title ) );
+				$this->getResult()->addValue( null, $this->getModuleName(), [ 'result' => 'Page now has no approved revision.', 'title' => $title ] );
 			}
 		} else { // This is a call to approve a revision.
 			if ( $revid == $curApprovedRev ) {
 				// This is already the approved revision - just send an empty result back.
-				$this->getResult()->addValue( null, $this->getModuleName(), array( 'result' => 'This revision was already approved!', 'title' => $title ) );
+				$this->getResult()->addValue( null, $this->getModuleName(), [ 'result' => 'This revision was already approved!', 'title' => $title ] );
 			} else {
 				ApprovedRevs::setApprovedRevID( $title, $revid, $user );
-				$this->getResult()->addValue( null, $this->getModuleName(), array( 'result' => 'Revision was successfully approved.', 'title' => $title ) );
+				$this->getResult()->addValue( null, $this->getModuleName(), [ 'result' => 'Revision was successfully approved.', 'title' => $title ] );
 
 			}
 		}
-
 	}
 
 	public function getAllowedParams() {
-		return array(
-			'revid' => array(
+		return [
+			'revid' => [
 				ApiBase::PARAM_REQUIRED => true,
 				ApiBase::PARAM_TYPE => 'integer'
-			),
-			'unapprove' => array(
+			],
+			'unapprove' => [
 				ApiBase::PARAM_REQUIRED => false,
 				ApiBase::PARAM_TYPE => 'boolean'
-			)
-		);
+			]
+		];
 	}
 
 	/**
 	 * @see ApiBase::getExamplesMessages()
 	 */
 	protected function getExamplesMessages() {
-		return array(
+		return [
 			'action=approve&revid=12345'
 				=> 'apihelp-approve-example-1',
 			'action=approve&revid=12345&unapprove=1'
 				=> 'apihelp-approve-example-2',
-		);
+		];
 	}
 
 	public function mustBePosted() {
@@ -91,7 +90,7 @@ class ApiApprove extends ApiBase {
 		return true;
 	}
 
-	/*
+	/**
 	 * CSRF Token must be POSTed
 	 * use parameter name 'token'
 	 * No need to document, this is automatically done by ApiBase

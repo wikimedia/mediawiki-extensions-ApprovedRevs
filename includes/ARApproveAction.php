@@ -23,16 +23,16 @@ class ARApproveAction extends Action {
 	 */
 	public function show() {
 		$title = $this->getTitle();
-		if ( ! ApprovedRevs::pageIsApprovable( $title ) ) {
+		if ( !ApprovedRevs::pageIsApprovable( $title ) ) {
 			return true;
 		}
 
 		$user = $this->getUser();
-		if ( ! ApprovedRevs::userCanApprove( $user, $title ) ) {
+		if ( !ApprovedRevs::userCanApprove( $user, $title ) ) {
 			return true;
 		}
 		$request = $this->getRequest();
-		if ( ! $request->getCheck( 'oldid' ) ) {
+		if ( !$request->getCheck( 'oldid' ) ) {
 			return true;
 		}
 		$revisionID = $request->getVal( 'oldid' );
@@ -41,12 +41,12 @@ class ARApproveAction extends Action {
 		$out = $this->getOutput();
 		$out->addHTML( "\t\t" . Xml::element(
 			'div',
-			array( 'class' => 'successbox' ),
+			[ 'class' => 'successbox' ],
 			wfMessage( 'approvedrevs-approvesuccess' )->text()
 		) . "\n" );
 		$out->addHTML( "\t\t" . Xml::element(
 			'p',
-			array( 'style' => 'clear: both' )
+			[ 'style' => 'clear: both' ]
 		) . "\n" );
 
 		// Seems to be needed when the latest version is approved -
@@ -54,7 +54,7 @@ class ARApproveAction extends Action {
 		$this->page->doPurge();
 
 		// Show the revision.
-                $this->page->view();
+				$this->page->view();
 	}
 
 }

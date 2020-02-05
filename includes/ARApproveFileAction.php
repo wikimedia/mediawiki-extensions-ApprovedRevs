@@ -22,17 +22,16 @@ class ARApproveFileAction extends Action {
 	 * $this->getOutput(), etc.
 	 */
 	public function show() {
-
 		$title = $this->getTitle();
-		if ( ! ApprovedRevs::fileIsApprovable( $title ) ) {
+		if ( !ApprovedRevs::fileIsApprovable( $title ) ) {
 			return true;
 		}
-		if ( ! ApprovedRevs::userCanApprove( $this->getUser(), $title ) ) {
+		if ( !ApprovedRevs::userCanApprove( $this->getUser(), $title ) ) {
 			return true;
 		}
 
 		$request = $this->getRequest();
-		if ( ! $request->getCheck( 'ts' ) || ! $request->getCheck( 'sha1' ) ) {
+		if ( !$request->getCheck( 'ts' ) || !$request->getCheck( 'sha1' ) ) {
 			throw new MWException( 'Setting a file revision as approved requires timestamp and sha1' );
 		}
 
@@ -44,18 +43,17 @@ class ARApproveFileAction extends Action {
 		$out = $this->getOutput();
 		$out->addHTML( "\t\t" . Xml::element(
 			'div',
-			array( 'class' => 'successbox' ),
+			[ 'class' => 'successbox' ],
 			wfMessage( 'approvedrevs-approvesuccess' )->text()
 		) . "\n" );
 		$out->addHTML( "\t\t" . Xml::element(
 			'p',
-			array( 'style' => 'clear: both' )
+			[ 'style' => 'clear: both' ]
 		) . "\n" );
 
 		// show the revision, instead of the history page
 		$this->page->doPurge();
 		$this->page->view();
-
 	}
 
 }

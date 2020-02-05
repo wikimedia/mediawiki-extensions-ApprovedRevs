@@ -22,9 +22,8 @@ class ARUnapproveFileAction extends Action {
 	 * $this->getOutput(), etc.
 	 */
 	public function show() {
-
 		$title = $this->getTitle();
-		if ( ! ApprovedRevs::userCanApprove( $this->getUser(), $title ) ) {
+		if ( !ApprovedRevs::userCanApprove( $this->getUser(), $title ) ) {
 			return true;
 		}
 
@@ -42,18 +41,17 @@ class ARUnapproveFileAction extends Action {
 		$out = $this->getOutput();
 		$out->addHTML( "\t\t" . Xml::element(
 			'div',
-			array( 'class' => 'successbox' ),
+			[ 'class' => 'successbox' ],
 			$successMsg
 		) . "\n" );
 		$out->addHTML( "\t\t" . Xml::element(
 			'p',
-			array( 'style' => 'clear: both' )
+			[ 'style' => 'clear: both' ]
 		) . "\n" );
 
 		// show the revision, instead of the history page
 		$this->page->doPurge();
 		$this->page->view();
-
 	}
 
 }

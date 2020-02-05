@@ -11,30 +11,30 @@
 class ApprovedRevs {
 
 	// Static arrays to prevent querying the database more than necessary.
-	static $mApprovedContentForPage = array();
-	static $mApprovedRevIDForPage = array();
-	static $mApproverForPage = array();
+	static $mApprovedContentForPage = [];
+	static $mApprovedRevIDForPage = [];
+	static $mApproverForPage = [];
 
 	/**
 	 * Array in form $mUserCanApprove["<user id>:<article id>"] = <bool>
 	 * @var array
 	 */
-	static $mUserCanApprove = array();
-	static $mApprovedFileInfo = array();
+	static $mUserCanApprove = [];
+	static $mApprovedFileInfo = [];
 
 	static $mApprovedRevsNamespaces;
 
 	/**
 	 * Get array of approvable namespaces. Handles backwards compatibility.
 	 */
-	public static function getApprovableNamespaces () {
+	public static function getApprovableNamespaces() {
 		global $egApprovedRevsNamespaces, $egApprovedRevsEnabledNamespaces;
 
 		if ( is_array( self::$mApprovedRevsNamespaces ) ) {
 			return self::$mApprovedRevsNamespaces;
 		}
 
-		self::$mApprovedRevsNamespaces = array();
+		self::$mApprovedRevsNamespaces = [];
 
 		// Definition of $egApprovedRevsNamespaces removed from Approved
 		// Revs to handle extension.json method of config settings. Now,
@@ -62,7 +62,7 @@ class ApprovedRevs {
 		if ( !isset( self::$mApproverForPage[$pageID] ) && self::pageIsApprovable( $title ) ) {
 			$dbr = wfGetDB( DB_REPLICA );
 			$approverID = $dbr->selectField( 'approved_revs', 'approver_id',
-				array( 'page_id' => $pageID ) );
+				[ 'page_id' => $pageID ] );
 			$approver = $approverID ? User::newFromID( $approverID ) : null;
 			self::$mApproverForPage[$pageID] = $approver;
 		}
@@ -83,12 +83,12 @@ class ApprovedRevs {
 			return self::$mApprovedRevIDForPage[$pageID];
 		}
 
-		if ( ! self::pageIsApprovable( $title ) ) {
+		if ( !self::pageIsApprovable( $title ) ) {
 			return null;
 		}
 
 		$dbr = wfGetDB( DB_REPLICA );
-		$revID = $dbr->selectField( 'approved_revs', 'rev_id', array( 'page_id' => $pageID ) );
+		$revID = $dbr->selectField( 'approved_revs', 'rev_id', [ 'page_id' => $pageID ] );
 		self::$mApprovedRevIDForPage[$pageID] = $revID;
 		return $revID;
 	}
@@ -98,7 +98,7 @@ class ApprovedRevs {
 	 */
 	public static function hasApprovedRevision( $title ) {
 		$revision_id = self::getApprovedRevID( $title );
-		return ( ! empty( $revision_id ) );
+		return ( !empty( $revision_id ) );
 	}
 
 	/**
@@ -179,7 +179,7 @@ class ApprovedRevs {
 		}
 
 		// Allow custom setting of whether the page is approvable.
-		if ( !Hooks::run( 'ApprovedRevsPageIsApprovable', array( $title, &$isApprovable ) ) ) {
+		if ( !Hooks::run( 'ApprovedRevsPageIsApprovable', [ $title, &$isApprovable ] ) ) {
 			$title->isApprovable = $isApprovable;
 			return $title->isApprovable;
 		}
@@ -196,12 +196,12 @@ class ApprovedRevs {
 		// we just do a DB query on the page_props table.
 		$dbr = wfGetDB( DB_REPLICA );
 		$res = $dbr->select( 'page_props', 'COUNT(*)',
-			array(
+			[
 				'pp_page' => $title->getArticleID(),
-				'pp_propname' => array(
+				'pp_propname' => [
 					'approvedrevs-approver-users', 'approvedrevs-approver-groups'
-				),
-			)
+				],
+			]
 		);
 		$row = $dbr->fetchRow( $res );
 		if ( intval( $row[0] ) > 0 ) {
@@ -211,11 +211,11 @@ class ApprovedRevs {
 
 		// parser function page properties not present. Check for magic word.
 		$res = $dbr->select( 'page_props', 'COUNT(*)',
-			array(
+			[
 				'pp_page' => $title->getArticleID(),
 				'pp_propname' => 'approvedrevs',
 				'pp_value' => 'y'
-			)
+			]
 		);
 		$row = $dbr->fetchRow( $res );
 		$isApprovable = ( $row[0] == '1' );
@@ -223,8 +223,7 @@ class ApprovedRevs {
 		return $isApprovable;
 	}
 
-	public static function fileIsApprovable ( Title $title ) {
-
+	public static function fileIsApprovable( Title $title ) {
 		// If this function was already called for this page, the value
 		// should have been stored as a field in the $title object.
 		if ( isset( $title->fileIsApprovable ) ) {
@@ -236,15 +235,14 @@ class ApprovedRevs {
 			return false;
 		}
 
-
 		// Allow custom setting of whether the page is approvable.
-		if ( !Hooks::run( 'ApprovedRevsFileIsApprovable', array( $title, &$fileIsApprovable ) ) ) {
+		if ( !Hooks::run( 'ApprovedRevsFileIsApprovable', [ $title, &$fileIsApprovable ] ) ) {
 			$title->fileIsApprovable = $fileIsApprovable;
 			return $title->fileIsApprovable;
 		}
 
 		// Check if NS_FILE is in approvable namespaces
-		$approvedRevsNamespaces = ApprovedRevs::getApprovableNamespaces();
+		$approvedRevsNamespaces = self::getApprovableNamespaces();
 		if ( in_array( NS_FILE, $approvedRevsNamespaces ) ) {
 			$title->fileIsApprovable = true;
 			return true;
@@ -260,13 +258,13 @@ class ApprovedRevs {
 		//       [1] https://gerrit.wikimedia.org/r/#/c/mediawiki/extensions/ApprovedRevs/+/429368/
 		$dbr = wfGetDB( DB_REPLICA );
 		$res = $dbr->select( 'page_props', 'COUNT(*)',
-			array(
+			[
 				'pp_page' => $title->getArticleID(),
-				'pp_propname' => array(
+				'pp_propname' => [
 					'approvedrevs-approver-users',
 					'approvedrevs-approver-groups'
-				),
-			)
+				],
+			]
 		);
 		$row = $dbr->fetchRow( $res );
 		if ( intval( $row[0] ) > 0 ) {
@@ -276,11 +274,11 @@ class ApprovedRevs {
 
 		// Parser function page properties not present. Check for magic word.
 		$res = $dbr->select( 'page_props', 'COUNT(*)',
-			array(
+			[
 				'pp_page' => $title->getArticleID(),
 				'pp_propname' => 'approvedrevs',
 				'pp_value' => 'y'
-			)
+			]
 		);
 		$row = $dbr->fetchRow( $res );
 		if ( $row[0] == '1' ) {
@@ -305,7 +303,6 @@ class ApprovedRevs {
 
 		$title->fileIsApprovable = false;
 		return false;
-
 	}
 
 	public static function checkPermission( User $user, Title $title, $permission ) {
@@ -319,7 +316,7 @@ class ApprovedRevs {
 		$userAndPageKey = $user->getId() . ':' . $title->getArticleID();
 
 		// set to null to avoid notices below
-		if ( ! isset( self::$mUserCanApprove[$userAndPageKey] ) ) {
+		if ( !isset( self::$mUserCanApprove[$userAndPageKey] ) ) {
 			self::$mUserCanApprove[$userAndPageKey] = null;
 		}
 
@@ -330,10 +327,10 @@ class ApprovedRevs {
 			return true;
 		} elseif ( self::$mUserCanApprove[$userAndPageKey] === false ) {
 			return false;
-		} elseif ( ApprovedRevs::checkPermission( $user, $title, $permission ) ) {
+		} elseif ( self::checkPermission( $user, $title, $permission ) ) {
 			self::$mUserCanApprove[$userAndPageKey] = true;
 			return true;
-		} elseif ( ApprovedRevs::checkParserFunctionPermission( $user, $title ) ) {
+		} elseif ( self::checkParserFunctionPermission( $user, $title ) ) {
 			self::$mUserCanApprove[$userAndPageKey] = true;
 			return true;
 		} else {
@@ -360,12 +357,12 @@ class ApprovedRevs {
 					// query - is there an easier way?
 					$dbr = wfGetDB( DB_REPLICA );
 					$row = $dbr->selectRow(
-						array( 'r' => 'revision', 'p' => 'page' ),
+						[ 'r' => 'revision', 'p' => 'page' ],
 						'r.rev_user_text',
-						array( 'p.page_title' => $title->getDBkey() ),
+						[ 'p.page_title' => $title->getDBkey() ],
 						null,
-						array( 'ORDER BY' => 'r.rev_id ASC' ),
-						array( 'revision' => array( 'JOIN', 'r.rev_page = p.page_id' ) )
+						[ 'ORDER BY' => 'r.rev_id ASC' ],
+						[ 'revision' => [ 'JOIN', 'r.rev_page = p.page_id' ] ]
 					);
 					if ( $row->rev_user_text == $user->getName() ) {
 						self::$mUserCanApprove[$userAndPageKey] = true;
@@ -389,7 +386,6 @@ class ApprovedRevs {
 	 * @since 1.0
 	 */
 	public static function checkParserFunctionPermission( User $user, Title $title ) {
-
 		$articleID = $title->getArticleID();
 
 		$dbr = wfGetDB( DB_REPLICA );
@@ -400,10 +396,10 @@ class ApprovedRevs {
 		$result = $dbr->selectField(
 			'page_props',
 			'pp_value',
-			array(
+			[
 				'pp_page' => $articleID,
 				'pp_propname' => "approvedrevs-approver-users"
-			),
+			],
 			__METHOD__
 		);
 		if ( $result !== false ) {
@@ -444,22 +440,22 @@ class ApprovedRevs {
 	}
 
 	public static function saveApprovedRevIDInDB( $title, $rev_id, User $user, $isAutoApprove = true ) {
-		$userBit = array();
+		$userBit = [];
 
 		if ( !$isAutoApprove ) {
-			$userBit = array( 'approver_id' => $user->getID() );
+			$userBit = [ 'approver_id' => $user->getID() ];
 		}
 
 		$dbr = wfGetDB( DB_MASTER );
 		$page_id = $title->getArticleID();
-		$old_rev_id = $dbr->selectField( 'approved_revs', 'rev_id', array( 'page_id' => $page_id ) );
+		$old_rev_id = $dbr->selectField( 'approved_revs', 'rev_id', [ 'page_id' => $page_id ] );
 		if ( $old_rev_id ) {
 			$dbr->update( 'approved_revs',
-				array_merge( array( 'rev_id' => $rev_id ), $userBit ),
-				array( 'page_id' => $page_id ) );
+				array_merge( [ 'rev_id' => $rev_id ], $userBit ),
+				[ 'page_id' => $page_id ] );
 		} else {
 			$dbr->insert( 'approved_revs',
-				array_merge( array( 'page_id' => $page_id, 'rev_id' => $rev_id ), $userBit ) );
+				array_merge( [ 'page_id' => $page_id, 'rev_id' => $rev_id ], $userBit ) );
 		}
 		// Update "cache" in memory
 		self::$mApprovedRevIDForPage[$page_id] = $rev_id;
@@ -496,13 +492,13 @@ class ApprovedRevs {
 		}
 
 		$log = new LogPage( 'approval' );
-		$rev_url = $title->getFullURL( array( 'oldid' => $rev_id ) );
+		$rev_url = $title->getFullURL( [ 'oldid' => $rev_id ] );
 		$rev_link = Xml::element(
 			'a',
-			array( 'href' => $rev_url ),
+			[ 'href' => $rev_url ],
 			$rev_id
 		);
-		$logParams = array( $rev_link );
+		$logParams = [ $rev_link ];
 		$log->addEntry(
 			'approve',
 			$title,
@@ -511,13 +507,13 @@ class ApprovedRevs {
 			$user
 		);
 
-		Hooks::run( 'ApprovedRevsRevisionApproved', array( $output, $title, $rev_id, $content ) );
+		Hooks::run( 'ApprovedRevsRevisionApproved', [ $output, $title, $rev_id, $content ] );
 	}
 
 	public static function deleteRevisionApproval( $title ) {
 		$dbr = wfGetDB( DB_MASTER );
 		$page_id = $title->getArticleID();
-		$dbr->delete( 'approved_revs', array( 'page_id' => $page_id ) );
+		$dbr->delete( 'approved_revs', [ 'page_id' => $page_id ] );
 	}
 
 	/**
@@ -547,7 +543,7 @@ class ApprovedRevs {
 			$user
 		);
 
-		Hooks::run( 'ApprovedRevsRevisionUnapproved', array( $output, $title, $content ) );
+		Hooks::run( 'ApprovedRevsRevisionUnapproved', [ $output, $title, $content ] );
 	}
 
 	public static function addCSS() {
@@ -555,8 +551,7 @@ class ApprovedRevs {
 		$wgOut->addModuleStyles( 'ext.ApprovedRevs' );
 	}
 
-	public static function setApprovedFileInDB ( $title, $timestamp, $sha1, User $user ) {
-
+	public static function setApprovedFileInDB( $title, $timestamp, $sha1, User $user ) {
 		$parser = new Parser();
 		$parser->setTitle( $title );
 
@@ -564,27 +559,27 @@ class ApprovedRevs {
 		$fileTitle = $title->getDBkey();
 		$oldFileTitle = $dbr->selectField(
 			'approved_revs_files', 'file_title',
-			array( 'file_title' => $fileTitle )
+			[ 'file_title' => $fileTitle ]
 		);
 		if ( $oldFileTitle ) {
 			$dbr->update( 'approved_revs_files',
-				array(
+				[
 					'approved_timestamp' => $timestamp,
 					'approved_sha1' => $sha1
-				), // update fields
-				array( 'file_title' => $fileTitle )
+				], // update fields
+				[ 'file_title' => $fileTitle ]
 			);
 		} else {
 			$dbr->insert( 'approved_revs_files',
-				array(
+				[
 					'file_title' => $fileTitle,
 					'approved_timestamp' => $timestamp,
 					'approved_sha1' => $sha1
-				)
+				]
 			);
 		}
 		// Update "cache" in memory
-		self::$mApprovedFileInfo[$fileTitle] = array( $timestamp, $sha1 );
+		self::$mApprovedFileInfo[$fileTitle] = [ $timestamp, $sha1 ];
 
 		$log = new LogPage( 'approval' );
 
@@ -593,16 +588,16 @@ class ApprovedRevs {
 
 		$revisionAnchorTag = Xml::element(
 			'a',
-			array(
+			[
 				'href' => $displayedFileUrl,
 				'title' => 'unique identifier: ' . $sha1
-			),
+			],
 			// There's no simple "revision ID" for file uploads. Instead
 			// uniqueness is determined by sha1, but dumping out the sha1 here
 			// would be ugly. Instead show a timestamp of the file upload.
 			wfTimestamp( TS_RFC2822, $timestamp )
 		);
-		$logParams = array( $revisionAnchorTag );
+		$logParams = [ $revisionAnchorTag ];
 		$log->addEntry(
 			'approvefile',
 			$title,
@@ -613,13 +608,11 @@ class ApprovedRevs {
 
 		Hooks::run(
 			'ApprovedRevsFileRevisionApproved',
-			array( $parser, $title, $timestamp, $sha1 )
+			[ $parser, $title, $timestamp, $sha1 ]
 		);
-
 	}
 
-	public static function unsetApprovedFileInDB ( $title, User $user ) {
-
+	public static function unsetApprovedFileInDB( $title, User $user ) {
 		$parser = new Parser();
 		$parser->setTitle( $title );
 
@@ -627,7 +620,7 @@ class ApprovedRevs {
 
 		$dbr = wfGetDB( DB_MASTER );
 		$dbr->delete( 'approved_revs_files',
-			array( 'file_title' => $fileTitle )
+			[ 'file_title' => $fileTitle ]
 		);
 		// the unapprove page method had LinksUpdate and Parser
 		// objects here, but the page text has not changed at all with
@@ -643,9 +636,8 @@ class ApprovedRevs {
 		);
 
 		Hooks::run(
-			'ApprovedRevsFileRevisionUnapproved', array( $parser, $title )
+			'ApprovedRevsFileRevisionUnapproved', [ $parser, $title ]
 		);
-
 	}
 
 	/**
@@ -653,8 +645,7 @@ class ApprovedRevs {
 	 * if any besides the most recent, should be used as the approved
 	 * revision.
 	 */
-	public static function getApprovedFileInfo ( $fileTitle ) {
-
+	public static function getApprovedFileInfo( $fileTitle ) {
 		if ( isset( self::$mApprovedFileInfo[ $fileTitle->getDBkey() ] ) ) {
 			return self::$mApprovedFileInfo[ $fileTitle->getDBkey() ];
 		}
@@ -662,27 +653,25 @@ class ApprovedRevs {
 		$dbr = wfGetDB( DB_REPLICA );
 		$row = $dbr->selectRow(
 			'approved_revs_files', // select from table
-			array( 'approved_timestamp', 'approved_sha1' ),
-			array( 'file_title' => $fileTitle->getDBkey() )
+			[ 'approved_timestamp', 'approved_sha1' ],
+			[ 'file_title' => $fileTitle->getDBkey() ]
 		);
 		if ( $row ) {
-			$return = array( $row->approved_timestamp, $row->approved_sha1 );
-		}
-		else {
-			$return = array( false, false );
+			$return = [ $row->approved_timestamp, $row->approved_sha1 ];
+		} else {
+			$return = [ false, false ];
 		}
 
 		self::$mApprovedFileInfo[ $fileTitle->getDBkey() ] = $return;
 		return $return;
-
 	}
 
 	/**
 	 * (non-PHPdoc)
 	 * @see QueryPage::getSQL()
 	 */
-	static public function getQueryInfoPageApprovals( $mode ) {
-		$approvedRevsNamespaces = ApprovedRevs::getApprovableNamespaces();
+	public static function getQueryInfoPageApprovals( $mode ) {
+		$approvedRevsNamespaces = self::getApprovableNamespaces();
 		// Don't include the "File:" namespace in this query - file pages are not
 		// approvable. (The presence of NS_FILE instead indicates that files
 		// themselves are approvable.)
@@ -705,95 +694,95 @@ class ApprovedRevs {
 		}
 
 		if ( $mode == 'all' ) {
-			return array(
-				'tables' => array(
+			return [
+				'tables' => [
 					'ar' => 'approved_revs',
 					'p' => 'page',
 					'pp' => 'page_props',
-				),
-				'fields' => array(
+				],
+				'fields' => [
 					'p.page_id AS id',
 					'ar.rev_id AS rev_id',
 					'p.page_latest AS latest_id',
-				),
-				'join_conds' => array(
-					'p' => array(
+				],
+				'join_conds' => [
+					'p' => [
 						'JOIN', 'ar.page_id=p.page_id'
-					),
-					'pp' => array(
+					],
+					'pp' => [
 						'LEFT OUTER JOIN', 'ar.page_id=pp_page'
-					),
-				),
+					],
+				],
 				'conds' => $mainCondsString,
-				'options' => array( 'DISTINCT' )
-			);
+				'options' => [ 'DISTINCT' ]
+			];
 		} elseif ( $mode == 'unapproved' ) {
-			return array(
-				'tables' => array(
+			return [
+				'tables' => [
 					'ar' => 'approved_revs',
 					'p' => 'page',
 					'pp' => 'page_props',
-				),
-				'fields' => array(
+				],
+				'fields' => [
 					'p.page_id AS id',
 					'p.page_latest AS latest_id'
-				),
-				'join_conds' => array(
-					'ar' => array(
+				],
+				'join_conds' => [
+					'ar' => [
 						'LEFT OUTER JOIN', 'p.page_id=ar.page_id'
-					),
-					'pp' => array(
+					],
+					'pp' => [
 						'LEFT OUTER JOIN', 'ar.page_id=pp_page'
-					),
-				),
+					],
+				],
 				'conds' => "ar.page_id IS NULL AND ( $mainCondsString )",
-				'options' => array( 'DISTINCT' )
-			);
+				'options' => [ 'DISTINCT' ]
+			];
 		} elseif ( $mode == 'invalid' ) {
-			return array(
-				'tables' => array(
+			return [
+				'tables' => [
 					'ar' => 'approved_revs',
 					'p' => 'page',
 					'pp' => 'page_props',
-				),
-				'fields' => array(
+				],
+				'fields' => [
 					'p.page_id AS id',
 					'p.page_latest AS latest_id'
-				),
-				'join_conds' => array(
-					'p' => array(
+				],
+				'join_conds' => [
+					'p' => [
 						'LEFT OUTER JOIN', 'p.page_id=ar.page_id'
-					),
-					'pp' => array(
+					],
+					'pp' => [
 						'LEFT OUTER JOIN', 'ar.page_id=pp_page'
-					),
-				),
+					],
+				],
 				'conds' => $mainCondsString,
-				'options' => array( 'DISTINCT' )
-			);
+				'options' => [ 'DISTINCT' ]
+			];
 		} else { // 'approved revision is not latest'
-			return array(
-				'tables' => array(
+			return [
+				'tables' => [
 					'ar' => 'approved_revs',
 					'p' => 'page',
 					'pp' => 'page_props',
-				),
-				'fields' => array(
+				],
+				'fields' => [
 					'p.page_id AS id',
 					'ar.rev_id AS rev_id',
 					'p.page_latest AS latest_id',
-				),
-				'join_conds' => array(
-					'p' => array(
+				],
+				'join_conds' => [
+					'p' => [
 						'JOIN', 'ar.page_id=p.page_id'
-					),
-					'pp' => array(
+					],
+					'pp' => [
 						'LEFT OUTER JOIN', 'ar.page_id=pp_page'
-					),
-				),
+					],
+				],
 				'conds' => "p.page_latest != ar.rev_id AND ( $mainCondsString )",
-				'options' => array( 'DISTINCT' )
-			);
+				'options' => [ 'DISTINCT' ]
+			];
 		}
 	}
 
@@ -801,28 +790,27 @@ class ApprovedRevs {
 	 * (non-PHPdoc)
 	 * @see QueryPage::getSQL()
 	 */
-	static public function getQueryInfoFileApprovals( $mode ) {
-
-		$tables = array(
+	public static function getQueryInfoFileApprovals( $mode ) {
+		$tables = [
 			'ar' => 'approved_revs_files',
 			'im' => 'image',
 			'p' => 'page',
-		);
+		];
 
-		$fields = array(
+		$fields = [
 			'im.img_name AS title',
 			'ar.approved_sha1 AS approved_sha1',
 			'ar.approved_timestamp AS approved_ts',
 			'im.img_sha1 AS latest_sha1',
 			'im.img_timestamp AS latest_ts',
-		);
+		];
 
-		$conds = array( 'p.page_namespace' => NS_FILE );
+		$conds = [ 'p.page_namespace' => NS_FILE ];
 
-		$join_conds = array(
-			'im' => array( null, 'ar.file_title=im.img_name' ),
-			'p'  => array( 'JOIN' , 'im.img_name=p.page_title' ),
-		);
+		$join_conds = [
+			'im' => [ null, 'ar.file_title=im.img_name' ],
+			'p'  => [ 'JOIN' , 'im.img_name=p.page_title' ],
+		];
 
 		$pagePropsConditions = "( (pp_propname = 'approvedrevs' AND pp_value = 'y') " .
 			"OR pp_propname = 'approvedrevs-approver-users' " .
@@ -845,13 +833,13 @@ class ApprovedRevs {
 			$join_conds['im'][0] = 'RIGHT OUTER JOIN';
 
 			$tables['pp'] = 'page_props';
-			$join_conds['pp'] = array( 'LEFT OUTER JOIN', 'p.page_id=pp_page' );
+			$join_conds['pp'] = [ 'LEFT OUTER JOIN', 'p.page_id=pp_page' ];
 
-			$approvedRevsNamespaces = ApprovedRevs::getApprovableNamespaces();
+			$approvedRevsNamespaces = self::getApprovableNamespaces();
 
 			// if all files are not approvable then need to find files matching
 			// __APPROVEDREVS__ and {{#approvable_by: ... }} permissions
-			if ( ! in_array( NS_FILE, $approvedRevsNamespaces ) ) {
+			if ( !in_array( NS_FILE, $approvedRevsNamespaces ) ) {
 				$conds[] = $pagePropsConditions;
 			}
 
@@ -865,9 +853,9 @@ class ApprovedRevs {
 			$join_conds['im'][0] = 'LEFT OUTER JOIN';
 
 			$tables['pp'] = 'page_props';
-			$join_conds['pp'] = array( 'LEFT OUTER JOIN', 'p.page_id=pp_page' );
+			$join_conds['pp'] = [ 'LEFT OUTER JOIN', 'p.page_id=pp_page' ];
 
-			$approvedRevsNamespaces = ApprovedRevs::getApprovableNamespaces();
+			$approvedRevsNamespaces = self::getApprovableNamespaces();
 
 			if ( in_array( NS_FILE, $approvedRevsNamespaces ) ) {
 
@@ -875,10 +863,9 @@ class ApprovedRevs {
 				// approvals. Below is an impossible condition that prevents any
 				// results from being returned.
 				$conds[] = 'p.page_namespace=1 AND p.page_namespace=2';
-			}
-			else {
+			} else {
 
-				$conds[] = "( pp_propname IS NULL OR NOT $pagePropsConditions )";;
+				$conds[] = "( pp_propname IS NULL OR NOT $pagePropsConditions )";
 
 			}
 
@@ -895,14 +882,13 @@ class ApprovedRevs {
 
 		}
 
-		return array(
+		return [
 			'tables' => $tables,
 			'fields' => $fields,
 			'join_conds' => $join_conds,
 			'conds' => $conds,
-			'options' => array( 'DISTINCT' ),
-		);
-
+			'options' => [ 'DISTINCT' ],
+		];
 	}
 
 }

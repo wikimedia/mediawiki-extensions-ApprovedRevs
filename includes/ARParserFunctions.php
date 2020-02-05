@@ -28,8 +28,7 @@ class ARParserFunctions {
 	 * @param array $args
 	 * @return bool
 	 */
-	public static function renderApprovableBy( Parser &$parser, PPFrame $frame, Array $args ) {
-
+	public static function renderApprovableBy( Parser &$parser, PPFrame $frame, array $args ) {
 		$parserOutput = $parser->getOutput();
 		$output = '';
 		foreach ( $args as $arg ) {
@@ -42,8 +41,7 @@ class ARParserFunctions {
 
 			if ( $argValue === '' ) {
 				continue; // no value = nothing to do
-			}
-			else {
+			} else {
 				// sanitize $argValue: explode on comma, trim each element, implode on comma again
 				$argValue = implode( ',', array_map( 'trim', explode( ',', $argValue ) ) );
 			}
@@ -53,11 +51,9 @@ class ARParserFunctions {
 				// accepting it as a delimiter anyway since characters invalid
 				// in usernames are not ideal.
 				$parserOutput->setProperty( 'approvedrevs-approver-users', $argValue );
-			}
-			elseif ( $argName === 'group' || $argName === 'groups' ) {
+			} elseif ( $argName === 'group' || $argName === 'groups' ) {
 				$parserOutput->setProperty( 'approvedrevs-approver-groups', $argValue );
-			}
-			else {
+			} else {
 				$output .= "$argName is not a valid argument. ";
 			}
 		}

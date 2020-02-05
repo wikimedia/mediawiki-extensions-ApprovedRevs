@@ -27,16 +27,15 @@
  * @ingroup Maintenance
  */
 
-
 // Allow people to have different layouts.
-if ( ! isset( $IP ) ) {
+if ( !isset( $IP ) ) {
 	$IP = __DIR__ . '/../../../';
 	if ( getenv( 'MW_INSTALL_PATH' ) ) {
 		$IP = getenv( 'MW_INSTALL_PATH' );
 	}
 }
 
-require_once( "$IP/maintenance/Maintenance.php" );
+require_once "$IP/maintenance/Maintenance.php";
 
 class ApproveAllPages extends Maintenance {
 
@@ -66,10 +65,10 @@ class ApproveAllPages extends Maintenance {
 
 		$pages = $dbr->select(
 			'page',
-			array(
+			[
 				'page_id',
 				'page_latest'
-			)
+			]
 		);
 
 		while ( $page = $pages->fetchObject() ) {
@@ -78,10 +77,10 @@ class ApproveAllPages extends Maintenance {
 			// set as well for these checks.
 			$wgTitle = $title;
 
-			if ( ! ApprovedRevs::pageIsApprovable( $title ) ) {
+			if ( !ApprovedRevs::pageIsApprovable( $title ) ) {
 				continue;
 			}
-			$approvedRevID = ApprovedRevs::getApprovedRevID( $title);
+			$approvedRevID = ApprovedRevs::getApprovedRevID( $title );
 			$latestRevID = $page->page_latest;
 			if ( $this->getOption( "force" ) ) {
 				if ( $latestRevID == $approvedRevID ) {
@@ -103,7 +102,6 @@ class ApproveAllPages extends Maintenance {
 				' Approved the last revision of page "' .
 				$title->getFullText() . "\".\n" );
 		}
-
 
 		$this->output( "\n Finished setting all current " .
 			"revisions to approved. \n" );

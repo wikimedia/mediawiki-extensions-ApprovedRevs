@@ -44,7 +44,7 @@ class ApprovedRevsHooks {
 		}
 	}
 
-	static public function userRevsApprovedAutomatically( User $user, Title $title ) {
+	public static function userRevsApprovedAutomatically( User $user, Title $title ) {
 		global $egApprovedRevsAutomaticApprovals;
 		return ( ApprovedRevs::userCanApprove( $user, $title ) && $egApprovedRevsAutomaticApprovals );
 	}
@@ -56,15 +56,15 @@ class ApprovedRevsHooks {
 	 * There doesn't seem to be an ideal MediaWiki hook to use for this
 	 * function - it currently uses 'PersonalUrls', which works.
 	 */
-	static public function removeRobotsTag( &$personal_urls, &$title ) {
+	public static function removeRobotsTag( &$personal_urls, &$title ) {
 		global $wgRequest;
 
-		if ( ! ApprovedRevs::isDefaultPageRequest( $wgRequest ) ) {
+		if ( !ApprovedRevs::isDefaultPageRequest( $wgRequest ) ) {
 			return true;
 		}
 
 		$revisionID = ApprovedRevs::getApprovedRevID( $title );
-		if ( ! empty( $revisionID ) ) {
+		if ( !empty( $revisionID ) ) {
 			global $wgOut;
 			$wgOut->setRobotPolicy( 'index,follow' );
 		}
@@ -74,7 +74,7 @@ class ApprovedRevsHooks {
 	/**
 	 * Called by both updateLinksAfterEditOld() and updateLinksAfterEdit().
 	 */
-	static public function getUpdateForTitle( Title $title ) {
+	public static function getUpdateForTitle( Title $title ) {
 		if ( !ApprovedRevs::pageIsApprovable( $title ) ) {
 			return null;
 		}
@@ -91,8 +91,7 @@ class ApprovedRevsHooks {
 
 		// If there's no approved revision, and 'blank if
 		// unapproved' is set to true, set the content to blank.
-		if ( $content == null )
-		{
+		if ( $content == null ) {
 			global $egApprovedRevsBlankIfUnapproved;
 			if ( $egApprovedRevsBlankIfUnapproved ) {
 				$content = $wikiPage->getContentHandler()->makeEmptyContent();
@@ -115,11 +114,11 @@ class ApprovedRevsHooks {
 	 *
 	 * MW 1.25 - 1.31
 	 */
-	static public function updateLinksAfterEditOld( Title $title, /*Content*/ $oldContent, /*bool*/ $recursive, ParserOutput $parserOutput, &$updates ) {
+	public static function updateLinksAfterEditOld( Title $title, /*Content*/ $oldContent, /*bool*/ $recursive, ParserOutput $parserOutput, &$updates ) {
 		$update = self::getUpdateForTitle( $title );
 		if ( $update !== null ) {
 			// Wipe out any existing updates.
-			$updates = array( $update );
+			$updates = [ $update ];
 		}
 		return true;
 	}
@@ -132,11 +131,11 @@ class ApprovedRevsHooks {
 	 *
 	 * MW 1.32+
 	 */
-	static public function updateLinksAfterEdit( Title $title, \MediaWiki\Revision\RenderedRevision $renderedRevision, array &$updates ) {
+	public static function updateLinksAfterEdit( Title $title, \MediaWiki\Revision\RenderedRevision $renderedRevision, array &$updates ) {
 		$update = self::getUpdateForTitle( $title );
 		if ( $update !== null ) {
 			// Wipe out any existing updates.
-			$updates = array( $update );
+			$updates = [ $update ];
 		}
 		return true;
 	}
@@ -151,16 +150,15 @@ class ApprovedRevsHooks {
 	 * latest revision to be the approved one - don't bother logging
 	 * the approval, though; the log is reserved for manual approvals.
 	 */
-	static public function setLatestAsApproved( WikiPage $wikipage, $user, $content,
+	public static function setLatestAsApproved( WikiPage $wikipage, $user, $content,
 		$summary, $isMinor, $isWatch, $section, $flags, $revision,
 		$status, $baseRevId ) {
-
-		if ( is_null( $revision ) ) {
+		if ( $revision === null ) {
 			return true;
 		}
 
 		$title = $wikipage->getTitle();
-		if ( ! self::userRevsApprovedAutomatically( $user, $title ) ) {
+		if ( !self::userRevsApprovedAutomatically( $user, $title ) ) {
 			return true;
 		}
 
@@ -186,11 +184,10 @@ class ApprovedRevsHooks {
 	 *
 	 * Set the text that's stored for the page for standard searches.
 	 */
-	static public function setSearchText( WikiPage $wikiPage, $user, $content,
+	public static function setSearchText( WikiPage $wikiPage, $user, $content,
 		$summary, $isMinor, $isWatch, $section, $flags, $revision,
 		$status, $baseRevId ) {
-
-		if ( is_null( $revision ) ) {
+		if ( $revision === null ) {
 			return true;
 		}
 
@@ -200,7 +197,7 @@ class ApprovedRevsHooks {
 		}
 
 		$revisionID = ApprovedRevs::getApprovedRevID( $title );
-		if ( is_null( $revisionID ) ) {
+		if ( $revisionID === null ) {
 			return true;
 		}
 
@@ -221,7 +218,7 @@ class ApprovedRevsHooks {
 	 */
 	public static function setSearchRevisionID( $title, &$id ) {
 		$revisionID = ApprovedRevs::getApprovedRevID( $title );
-		if ( !is_null( $revisionID ) ) {
+		if ( $revisionID !== null ) {
 			$id = $revisionID;
 		}
 		return true;
@@ -235,11 +232,11 @@ class ApprovedRevsHooks {
 	static function showApprovedRevision( &$title, &$article, $context ) {
 		$request = $context->getRequest();
 
-		if ( ! ApprovedRevs::isDefaultPageRequest( $request ) ) {
+		if ( !ApprovedRevs::isDefaultPageRequest( $request ) ) {
 			return true;
 		}
 
-		if ( ! ApprovedRevs::pageIsApprovable( $title ) ) {
+		if ( !ApprovedRevs::pageIsApprovable( $title ) ) {
 			return true;
 		}
 
@@ -252,7 +249,7 @@ class ApprovedRevsHooks {
 		// this, but this works, and it doesn't seem to have a
 		// noticeable negative impact, so we'll go with it for now, at
 		// least.
-		if ( ! empty( $revisionID ) || $egApprovedRevsBlankIfUnapproved ) {
+		if ( !empty( $revisionID ) || $egApprovedRevsBlankIfUnapproved ) {
 			$article = new Article( $title, $revisionID );
 			// This call is necessary because it
 			// causes $article->mRevision to get initialized,
@@ -272,12 +269,12 @@ class ApprovedRevsHooks {
 	 */
 	public static function showBlankIfUnapprovedOld( &$article, Content &$content ) {
 		global $egApprovedRevsBlankIfUnapproved;
-		if ( ! $egApprovedRevsBlankIfUnapproved ) {
+		if ( !$egApprovedRevsBlankIfUnapproved ) {
 			return true;
 		}
 
 		$title = $article->getTitle();
-		if ( ! ApprovedRevs::pageIsApprovable( $title ) ) {
+		if ( !ApprovedRevs::pageIsApprovable( $title ) ) {
 			return true;
 		}
 
@@ -298,14 +295,14 @@ class ApprovedRevsHooks {
 
 		$context = $article->getContext();
 		$request = $context->getRequest();
-		if ( ! ApprovedRevs::isDefaultPageRequest( $request ) ) {
+		if ( !ApprovedRevs::isDefaultPageRequest( $request ) ) {
 			return true;
 		}
 
 		ApprovedRevs::addCSS();
 
 		// Set the content to blank.
-		if( $content instanceof TextContent ) {
+		if ( $content instanceof TextContent ) {
 			$contentClass = get_class( $content );
 			$content = new $contentClass( '' );
 		} else {
@@ -325,11 +322,11 @@ class ApprovedRevsHooks {
 	 */
 	public static function showBlankIfUnapproved( $revisionStoreRecord, $title, $oldid, $output ) {
 		global $egApprovedRevsBlankIfUnapproved;
-		if ( ! $egApprovedRevsBlankIfUnapproved ) {
+		if ( !$egApprovedRevsBlankIfUnapproved ) {
 			return true;
 		}
 
-		if ( ! ApprovedRevs::pageIsApprovable( $title ) ) {
+		if ( !ApprovedRevs::pageIsApprovable( $title ) ) {
 			return true;
 		}
 
@@ -349,7 +346,7 @@ class ApprovedRevsHooks {
 		$article = new Article( $title, $oldid );
 		$context = $article->getContext();
 		$request = $context->getRequest();
-		if ( ! ApprovedRevs::isDefaultPageRequest( $request ) ) {
+		if ( !ApprovedRevs::isDefaultPageRequest( $request ) ) {
 			return true;
 		}
 
@@ -382,7 +379,7 @@ class ApprovedRevsHooks {
 		$unhide = $context->getRequest()->getInt( 'unhide' ) == 1;
 
 		// Cascade unhide param in links for easy deletion browsing.
-		$extraParams = array();
+		$extraParams = [];
 		if ( $unhide ) {
 			$extraParams['unhide'] = 1;
 		}
@@ -424,7 +421,7 @@ class ApprovedRevsHooks {
 		$outputPage->addSubtitle( $revisionInfo );
 
 		// Created for Approved Revs
-		$latestLinkParams = array();
+		$latestLinkParams = [];
 		if ( $latestID != $approvedID ) {
 			$latestLinkParams['oldid'] = $latestID;
 		}
@@ -434,7 +431,7 @@ class ApprovedRevsHooks {
 			: $linkRenderer->makeLink(
 				$title,
 				wfMessage( 'currentrevisionlink' )->escaped(),
-				array(),
+				[],
 				$latestLinkParams + $extraParams
 			);
 		$curdiff = $current
@@ -442,33 +439,33 @@ class ApprovedRevsHooks {
 			: $linkRenderer->makeLink(
 				$title,
 				wfMessage( 'diff' )->escaped(),
-				array(),
-				array(
+				[],
+				[
 					'diff' => 'cur',
 					'oldid' => $revisionID
-				) + $extraParams
+				] + $extraParams
 			);
 		$prev = $title->getPreviousRevisionID( $revisionID );
 		$prevlink = $prev
 			? $linkRenderer->makeLink(
 				$title,
 				wfMessage( 'previousrevision' )->escaped(),
-				array(),
-				array(
+				[],
+				[
 					'direction' => 'prev',
 					'oldid' => $revisionID
-				) + $extraParams
+				] + $extraParams
 			)
 			: wfMessage( 'previousrevision' )->escaped();
 		$prevdiff = $prev
 			? $linkRenderer->makeLink(
 				$title,
 				wfMessage( 'diff' )->escaped(),
-				array(),
-				array(
+				[],
+				[
 					'diff' => 'prev',
 					'oldid' => $revisionID
-				) + $extraParams
+				] + $extraParams
 			)
 			: wfMessage( 'diff' )->escaped();
 		$nextlink = $current
@@ -476,22 +473,22 @@ class ApprovedRevsHooks {
 			: $linkRenderer->makeLink(
 				$title,
 				wfMessage( 'nextrevision' )->escaped(),
-				array(),
-				array(
+				[],
+				[
 					'direction' => 'next',
 					'oldid' => $revisionID
-				) + $extraParams
+				] + $extraParams
 			);
 		$nextdiff = $current
 			? wfMessage( 'diff' )->escaped()
 			: $linkRenderer->makeLink(
 				$title,
 				wfMessage( 'diff' )->escaped(),
-				array(),
-				array(
+				[],
+				[
 					'diff' => 'next',
 					'oldid' => $revisionID
-				) + $extraParams
+				] + $extraParams
 			);
 
 		// Added for Approved Revs
@@ -501,7 +498,7 @@ class ApprovedRevsHooks {
 			: $linkRenderer->makeLink(
 				$title,
 				wfMessage( 'approvedrevs-approvedrevision' )->escaped(),
-				array(),
+				[],
 				$extraParams
 			);
 		$approveddiff = $approved
@@ -509,11 +506,11 @@ class ApprovedRevsHooks {
 			: $linkRenderer->makeLink(
 				$title,
 				wfMessage( 'diff' )->escaped(),
-				array(),
-				array(
+				[],
+				[
 					'diff' => $approvedID,
 					'oldid' => $revisionID
-				) + $extraParams
+				] + $extraParams
 			);
 
 		$cdel = Linker::getRevDeleteLink( $user, $revision, $title );
@@ -537,7 +534,7 @@ class ApprovedRevsHooks {
 	 */
 	static function setSubtitle( &$article, &$revisionID ) {
 		$title = $article->getTitle();
-		if ( ! ApprovedRevs::hasApprovedRevision( $title ) ) {
+		if ( !ApprovedRevs::hasApprovedRevision( $title ) ) {
 			return true;
 		}
 
@@ -565,7 +562,7 @@ class ApprovedRevsHooks {
 			if ( $revisionID == $article->getLatest() ) {
 				$text .= Xml::element(
 					'span',
-					array( 'class' => 'approvedAndLatestMsg' ),
+					[ 'class' => 'approvedAndLatestMsg' ],
 					wfMessage( 'approvedrevs-approvedandlatest' )->text()
 				);
 			} else {
@@ -575,13 +572,13 @@ class ApprovedRevsHooks {
 				$text .= ' ' . $linkRenderer->makeLink(
 					$title,
 					wfMessage( 'approvedrevs-viewlatestrev' )->parse(),
-					array(),
-					array( 'oldid' => $article->getLatest() )
+					[],
+					[ 'oldid' => $article->getLatest() ]
 				);
 
 				$text = Xml::tags(
 					'span',
-					array( 'class' => 'notLatestMsg' ),
+					[ 'class' => 'notLatestMsg' ],
 					$text
 				);
 			}
@@ -590,7 +587,7 @@ class ApprovedRevsHooks {
 		if ( ApprovedRevs::checkPermission( $user, $title, "viewapprover" ) ) {
 			$revisionUser = ApprovedRevs::getRevApprover( $title );
 			if ( $revisionUser ) {
-				$text .= Xml::openElement( 'span', array( 'class' => 'approvingUser' ) ) .
+				$text .= Xml::openElement( 'span', [ 'class' => 'approvingUser' ] ) .
 					wfMessage(
 						'approvedrevs-approver',
 						Linker::userLink( $revisionUser->getId(), $revisionUser->getName() )
@@ -631,7 +628,7 @@ class ApprovedRevsHooks {
 		$title = $article->getTitle();
 		$approvedRevID = ApprovedRevs::getApprovedRevID( $title );
 		$latestRevID = $title->getLatestRevID();
-		if ( ! empty( $approvedRevID ) && $approvedRevID != $latestRevID ) {
+		if ( !empty( $approvedRevID ) && $approvedRevID != $latestRevID ) {
 			ApprovedRevs::addCSS();
 			$out = $context->getOutput();
 			$out->wrapWikiMsg( "<p class=\"approvedRevsEditWarning\">$1</p>\n", 'approvedrevs-editwarning' );
@@ -644,16 +641,16 @@ class ApprovedRevsHooks {
 	 * 'edit with form' tab.
 	 */
 	public static function addWarningToPFForm( &$title, &$preFormHTML ) {
-		if ( $title == null || ! $title->exists() ) {
+		if ( $title == null || !$title->exists() ) {
 			return true;
 		}
 
 		$approvedRevID = ApprovedRevs::getApprovedRevID( $title );
 		$latestRevID = $title->getLatestRevID();
-		if ( ! empty( $approvedRevID ) && $approvedRevID != $latestRevID ) {
+		if ( !empty( $approvedRevID ) && $approvedRevID != $latestRevID ) {
 			ApprovedRevs::addCSS();
-			$preFormHTML .= Xml::element ( 'p',
-				array( 'style' => 'font-weight: bold' ),
+			$preFormHTML .= Xml::element( 'p',
+				[ 'style' => 'font-weight: bold' ],
 				wfMessage( 'approvedrevs-editwarning' )->text() ) . "\n";
 		}
 		return true;
@@ -680,10 +677,10 @@ class ApprovedRevsHooks {
 			// is 'edit' or 'view source', but the "action" is
 			// different.
 			if ( array_key_exists( 'edit', $contentActions ) ) {
-				$contentActions['edit']['href'] = $title->getLocalUrl( array( 'action' => 'edit' ) );
+				$contentActions['edit']['href'] = $title->getLocalUrl( [ 'action' => 'edit' ] );
 			}
 			if ( array_key_exists( 'viewsource', $contentActions ) ) {
-				$contentActions['viewsource']['href'] = $title->getLocalUrl( array( 'action' => 'edit' ) );
+				$contentActions['viewsource']['href'] = $title->getLocalUrl( [ 'action' => 'edit' ] );
 			}
 		}
 		return true;
@@ -713,9 +710,9 @@ class ApprovedRevsHooks {
 	 * revision. If it's the approved revision also add on a "star"
 	 * icon, regardless of the user.
 	 */
-	static function addApprovalLink( $historyPage, &$row , &$s, &$classes ) {
+	static function addApprovalLink( $historyPage, &$row, &$s, &$classes ) {
 		$title = $historyPage->getTitle();
-		if ( ! ApprovedRevs::pageIsApprovable( $title ) ) {
+		if ( !ApprovedRevs::pageIsApprovable( $title ) ) {
 			return true;
 		}
 
@@ -729,26 +726,25 @@ class ApprovedRevsHooks {
 			// add class to this line to highlight the approved rev with CSS
 			if ( is_array( $classes ) ) {
 				$classes[] = "approved-revision";
-			}
-			else {
-				$classes = array( "approved-revision" );
+			} else {
+				$classes = [ "approved-revision" ];
 			}
 		}
 		if ( ApprovedRevs::userCanApprove( $user, $title ) ) {
 			if ( $row->rev_id == $approvedRevID ) {
 				$url = $title->getLocalUrl(
-					array( 'action' => 'unapprove' )
+					[ 'action' => 'unapprove' ]
 				);
 				$msg = wfMessage( 'approvedrevs-unapprove' )->text();
 			} else {
 				$url = $title->getLocalUrl(
-					array( 'action' => 'approve', 'oldid' => $row->rev_id )
+					[ 'action' => 'approve', 'oldid' => $row->rev_id ]
 				);
 				$msg = wfMessage( 'approvedrevs-approve' )->text();
 			}
 			$s .= ' (' . Xml::element(
 				'a',
-				array( 'href' => $url ),
+				[ 'href' => $url ],
 				$msg
 			) . ')';
 		}
@@ -763,7 +759,7 @@ class ApprovedRevsHooks {
 	static function addApprovalDiffLink( $rev, &$links, $oldRev, $user ) {
 		$title = $rev->getTitle();
 
-		if ( ! ApprovedRevs::pageIsApprovable( $title ) ) {
+		if ( !ApprovedRevs::pageIsApprovable( $title ) ) {
 			return true;
 		}
 
@@ -774,14 +770,14 @@ class ApprovedRevsHooks {
 			// default if blank is mw-diff-tool; add that along with extension-specific class
 			$links['mw-diff-tool ext-approved-revs-approval-span'] = HTML::element(
 				'a',
-				array(
-					'href' => $title->getLocalUrl( array(
+				[
+					'href' => $title->getLocalUrl( [
 						'action' => 'approve',
 						'oldid' => $rev->getId()
-					) ),
+					] ),
 					'class' => 'ext-approved-revs-approval-link',
 					'title' => wfMessage( 'approvedrevs-approvethisrev' )->text()
-				),
+				],
 				wfMessage( 'approvedrevs-approve' )->text()
 			);
 		}
@@ -794,7 +790,7 @@ class ApprovedRevsHooks {
 	 */
 	static function setTranscludedPageRev( $parser, $title, &$skip, &$id ) {
 		$revisionID = ApprovedRevs::getApprovedRevID( $title );
-		if ( ! empty( $revisionID ) ) {
+		if ( !empty( $revisionID ) ) {
 			$id = $revisionID;
 		}
 		return true;
@@ -858,7 +854,7 @@ class ApprovedRevsHooks {
 	static function addToAdminLinks( &$admin_links_tree ) {
 		$general_section = $admin_links_tree->getSection( wfMessage( 'adminlinks_general' )->text() );
 		$extensions_row = $general_section->getRow( 'extensions' );
-		if ( is_null( $extensions_row ) ) {
+		if ( $extensions_row === null ) {
 			$extensions_row = new ALRow( 'extensions' );
 			$general_section->addRow( $extensions_row );
 		}
@@ -867,15 +863,15 @@ class ApprovedRevsHooks {
 	}
 
 	public static function describeDBSchema( DatabaseUpdater $updater ) {
-		$dir = dirname( __FILE__ );
+		$dir = __DIR__;
 
 		// DB updates
 		// For now, there's just a single SQL file for all DB types.
 		//if ( $updater->getDB()->getType() == 'mysql' ) {
-			$updater->addExtensionUpdate( array( 'addTable', 'approved_revs', "$dir/../sql/ApprovedRevs.sql", true ) );
-			$updater->addExtensionUpdate( array( 'addField', 'approved_revs', 'approver_id', "$dir/../sql/patch-approver_id.sql", true ) );
-			$updater->addExtensionUpdate( array( 'addTable', 'approved_revs_files', "$dir/../sql/ApprovedFiles.sql", true ) );
-		//}
+			$updater->addExtensionUpdate( [ 'addTable', 'approved_revs', "$dir/../sql/ApprovedRevs.sql", true ] );
+			$updater->addExtensionUpdate( [ 'addField', 'approved_revs', 'approver_id', "$dir/../sql/patch-approver_id.sql", true ] );
+			$updater->addExtensionUpdate( [ 'addTable', 'approved_revs_files', "$dir/../sql/ApprovedFiles.sql", true ] );
+		// }
 	}
 
 	/**
@@ -884,13 +880,13 @@ class ApprovedRevsHooks {
 	 * permission, and (d) either the page has no approved revision, or
 	 * the user is looking at a revision that's not the latest - the
 	 * displayed message depends on which of those cases it is.
-	 * @TODO - this should probably get split up into two methods.
+	 * @todo - this should probably get split up into two methods.
 	 *
 	 * @since 0.5.6
 	 *
 	 * @param Article $article
-	 * @param boolean $outputDone
-	 * @param boolean $useParserCache
+	 * @param bool $outputDone
+	 * @param bool $useParserCache
 	 *
 	 * @return true
 	 */
@@ -899,7 +895,7 @@ class ApprovedRevsHooks {
 
 		// For now, we only set the header if "blank if unapproved"
 		// is set.
-		if ( ! $egApprovedRevsBlankIfUnapproved ) {
+		if ( !$egApprovedRevsBlankIfUnapproved ) {
 			return true;
 		}
 
@@ -909,13 +905,13 @@ class ApprovedRevsHooks {
 		$out = $context->getOutput();
 		$request = $context->getRequest();
 
-		if ( ! ApprovedRevs::pageIsApprovable( $title ) ) {
+		if ( !ApprovedRevs::pageIsApprovable( $title ) ) {
 			return true;
 		}
 
 		// If the user isn't supposed to see these kinds of
 		// messages, exit.
-		if ( ! ApprovedRevs::checkPermission( $user, $title, "viewlinktolatest" ) ) {
+		if ( !ApprovedRevs::checkPermission( $user, $title, "viewlinktolatest" ) ) {
 			return false;
 		}
 
@@ -924,8 +920,8 @@ class ApprovedRevsHooks {
 		// or by looking at the revision that happens to be approved -
 		// don't display anything.
 		$approvedRevID = ApprovedRevs::getApprovedRevID( $title );
-		if ( ! empty( $approvedRevID ) &&
-			( ! $request->getCheck( 'oldid' ) ||
+		if ( !empty( $approvedRevID ) &&
+			( !$request->getCheck( 'oldid' ) ||
 			$request->getInt( 'oldid' ) == $approvedRevID ) ) {
 			return true;
 		}
@@ -946,14 +942,14 @@ class ApprovedRevsHooks {
 				// at all? Aren't the "approve this revision"
 				// links in the history page always good
 				// enough?
-				$out->addHTML( Xml::tags( 'span', array( 'id' => 'contentSub2' ),
+				$out->addHTML( Xml::tags( 'span', [ 'id' => 'contentSub2' ],
 					Xml::element( 'a',
-					array( 'href' => $title->getLocalUrl(
-						array(
+					[ 'href' => $title->getLocalUrl(
+						[
 							'action' => 'approve',
 							'oldid' => $request->getInt( 'oldid' )
-						)
-					) ),
+						]
+					) ],
 					wfMessage( 'approvedrevs-approvethisrev' )->text()
 				) ) );
 			}
@@ -961,11 +957,11 @@ class ApprovedRevsHooks {
 			$out->addSubtitle(
 				htmlspecialchars( wfMessage( 'approvedrevs-blankpageshown' )->text() ) . '&#160;' .
 				Xml::element( 'a',
-					array( 'href' => $title->getLocalUrl(
-						array(
+					[ 'href' => $title->getLocalUrl(
+						[
 							'oldid' => $article->getRevIdFetched()
-						)
-					) ),
+						]
+					) ],
 					wfMessage( 'approvedrevs-viewlatestrev' )->text()
 				)
 			);
@@ -994,7 +990,7 @@ class ApprovedRevsHooks {
 		}
 
 		$title = $article->getTitle();
-		if ( ! ApprovedRevs::pageIsApprovable( $title ) ) {
+		if ( !ApprovedRevs::pageIsApprovable( $title ) ) {
 			return true;
 		}
 		if ( ApprovedRevs::hasApprovedRevision( $title ) ) {
@@ -1023,14 +1019,14 @@ class ApprovedRevsHooks {
 		$context = $skin->getContext();
 		$request = $context->getRequest();
 
-		if ( ! ApprovedRevs::hasApprovedRevision( $title ) ) {
+		if ( !ApprovedRevs::hasApprovedRevision( $title ) ) {
 			// This page has no approved rev.
 			$bodyAttrs['class'] .= " approvedRevs-noapprovedrev";
 		} else {
 			// The page has an approved rev - see if this is it.
 			$approvedRevID = ApprovedRevs::getApprovedRevID( $title );
-			if ( ! empty( $approvedRevID ) &&
-				( ! $request->getCheck( 'oldid' ) ||
+			if ( !empty( $approvedRevID ) &&
+				( !$request->getCheck( 'oldid' ) ||
 				$request->getInt( 'oldid' ) == $approvedRevID ) ) {
 				// This is the approved rev.
 				$bodyAttrs['class'] .= " approvedRevs-approved";
@@ -1047,12 +1043,11 @@ class ApprovedRevsHooks {
 	 *  "approved-revision" class to the appropriate row. For users with
 	 *  approve permissions on this page add "approve" and "unapprove" links as
 	 *  required.
-	 **/
-	public static function onImagePageFileHistoryLine ( $hist, $file, &$s, &$rowClass ) {
-
+	 */
+	public static function onImagePageFileHistoryLine( $hist, $file, &$s, &$rowClass ) {
 		$fileTitle = $file->getTitle();
 
-		if ( ! ApprovedRevs::fileIsApprovable( $fileTitle ) ) {
+		if ( !ApprovedRevs::fileIsApprovable( $fileTitle ) ) {
 			return true;
 		}
 
@@ -1085,27 +1080,26 @@ class ApprovedRevsHooks {
 		if ( ApprovedRevs::userCanApprove( $user, $fileTitle ) ) {
 			if ( $rowSha1 == $approvedRevSha1 && $rowTimestamp == $approvedRevTimestamp ) {
 				$url = $fileTitle->getLocalUrl(
-					array( 'action' => 'unapprovefile' )
+					[ 'action' => 'unapprovefile' ]
 				);
 				$msg = wfMessage( 'approvedrevs-unapprove' )->text();
 			} else {
 				$url = $fileTitle->getLocalUrl(
-					array(
+					[
 						'action' => 'approvefile',
 						'ts' => $rowTimestamp,
 						'sha1' => $rowSha1
-					)
+					]
 				);
 				$msg = wfMessage( 'approvedrevs-approve' )->text();
 			}
 			$s .= '<td>' . Xml::element(
 				'a',
-				array( 'href' => $url ),
+				[ 'href' => $url ],
 				$msg
 			) . '</td>';
 		}
 		return true;
-
 	}
 
 	/**
@@ -1114,8 +1108,8 @@ class ApprovedRevsHooks {
 	 *  cases except the primary file on file pages (e.g. the big
 	 *  image in the top left on File:My File.png). To modify that
 	 *  image see self::onImagePageFindFile()
-	 **/
-	public static function modifyFileLinks ( $parser, Title $fileTitle, &$options, &$query ) {
+	 */
+	public static function modifyFileLinks( $parser, Title $fileTitle, &$options, &$query ) {
 		if ( $fileTitle->getNamespace() == NS_MEDIA ) {
 			$fileTitle = Title::makeTitle( NS_FILE, $fileTitle->getDBkey() );
 			// avoid extra queries
@@ -1142,7 +1136,7 @@ class ApprovedRevsHooks {
 
 		// no valid approved timestamp or sha1, so don't modify image
 		// or image link
-		if ( ( ! $approvedRevTimestamp ) || ( ! $approvedRevSha1 ) ) {
+		if ( ( !$approvedRevTimestamp ) || ( !$approvedRevSha1 ) ) {
 			return true;
 		}
 
@@ -1166,28 +1160,27 @@ class ApprovedRevsHooks {
 	/**
 	 *  Applicable on image pages only, this changes the primary image
 	 *  on the page from the most recent to the approved revision.
-	 **/
-	public static function onImagePageFindFile ( $imagePage, &$normalFile, &$displayFile ) {
-
+	 */
+	public static function onImagePageFindFile( $imagePage, &$normalFile, &$displayFile ) {
 		list( $approvedRevTimestamp, $approvedRevSha1 ) =
 			ApprovedRevs::getApprovedFileInfo( $imagePage->getFile()->getTitle() );
 
-		if ( ( ! $approvedRevTimestamp ) || ( ! $approvedRevSha1 ) ) {
+		if ( ( !$approvedRevTimestamp ) || ( !$approvedRevSha1 ) ) {
 			return true;
 		}
 
 		$title = $imagePage->getTitle();
 
 		$displayFile = wfFindFile(
-			$title, array( 'time' => $approvedRevTimestamp )
+			$title, [ 'time' => $approvedRevTimestamp ]
 		);
 		# If none found, try current
-		if ( ! $displayFile ) {
+		if ( !$displayFile ) {
 			wfDebug( __METHOD__ . ": {$title->getPrefixedDBkey()}: " .
 				"$approvedRevTimestamp not found, using current\n" );
 			$displayFile = wfFindFile( $title );
 			# If none found, use a valid local placeholder
-			if ( ! $displayFile ) {
+			if ( !$displayFile ) {
 				$displayFile = wfLocalFile( $title ); // fallback to current
 			}
 			$normalFile = $displayFile;
@@ -1205,15 +1198,14 @@ class ApprovedRevsHooks {
 	 *  If a file is deleted, check if the sha1 (and timestamp?) exist in the
 	 *  approved_revs_files table, and delete that row accordingly. A deleted
 	 *  version of a file should not be the approved version!
-	 **/
-	public static function onFileDeleteComplete ( File $file, $oldimage, $article, $user, $reason ) {
-
+	 */
+	public static function onFileDeleteComplete( File $file, $oldimage, $article, $user, $reason ) {
 		$dbr = wfGetDB( DB_REPLICA );
 		// check if this file has an approved revision
 		$approvedFile = $dbr->selectRow(
 			'approved_revs_files',
-			array( 'approved_timestamp', 'approved_sha1' ),
-			array( 'file_title' => $file->getTitle()->getDBkey() )
+			[ 'approved_timestamp', 'approved_sha1' ],
+			[ 'file_title' => $file->getTitle()->getDBkey() ]
 		);
 
 		// If an approved revision exists, loop through all files in
@@ -1224,7 +1216,7 @@ class ApprovedRevsHooks {
 		// approved_revs_files table, and should be deleted.
 		if ( $approvedFile ) {
 
-			$revs = array();
+			$revs = [];
 			$approvedExists = false;
 
 			$hist = $file->getHistory();
@@ -1234,14 +1226,13 @@ class ApprovedRevsHooks {
 				// different timestamps
 				if (
 					$OldLocalFile->getTimestamp() == $approvedFile->approved_timestamp
-					&& $OldLocalFile->getSha1() == $approvedFile->approved_sha1 )
-				{
+					&& $OldLocalFile->getSha1() == $approvedFile->approved_sha1 ) {
 					$approvedExists = true;
 				}
 
 			}
 
-			if ( ! $approvedExists ) {
+			if ( !$approvedExists ) {
 				ApprovedRevs::unsetApprovedFileInDB( $file->getTitle(), $user );
 			}
 

@@ -57,16 +57,16 @@
 		"ApprovedRevsMagic": "ApprovedRevs.i18n.magic.php"
 	},
 	"AutoloadClasses": {
-		"ApprovedRevs": "includes/ApprovedRevs_body.php",
-		"ApprovedRevsHooks": "includes/ApprovedRevs.hooks.php",
-		"ARParserFunctions": "includes/AR_ParserFunctions.php",
-		"SpecialApprovedRevs": "includes/SpecialApprovedRevs.php",
-		"SpecialApprovedRevsPage": "includes/SpecialApprovedRevsPage.php",
+		"ApprovedRevs": "includes/ApprovedRevs.php",
+		"ApprovedRevsHooks": "includes/ApprovedRevsHooks.php",
+		"ARParserFunctions": "includes/ARParserFunctions.php",
+		"SpecialApprovedRevs": "includes/specials/SpecialApprovedRevs.php",
+		"SpecialApprovedRevsPage": "includes/specials/SpecialApprovedRevsPage.php",
 		"ApiApprove": "includes/ApiApprove.php",
-		"ARApproveAction": "includes/AR_ApproveAction.php",
-		"ARUnapproveAction": "includes/AR_UnapproveAction.php",
-		"ARApproveFileAction": "includes/AR_ApproveFileAction.php",
-		"ARUnapproveFileAction": "includes/AR_UnapproveFileAction.php"
+		"ARApproveAction": "includes/ARApproveAction.php",
+		"ARUnapproveAction": "includes/ARUnapproveAction.php",
+		"ARApproveFileAction": "includes/ARApproveFileAction.php",
+		"ARUnapproveFileAction": "includes/ARUnapproveFileAction.php"
 	},
 	"ResourceModules": {
 		"ext.ApprovedRevs": {

@@ -3,10 +3,10 @@
  *  Magic words for extension.
  */
 
-$magicWords = array();
+$magicWords = [];
 
 /** English (English) */
-$magicWords['en'] = array(
-	'MAG_APPROVEDREVS' => array( 0, '__APPROVEDREVS__' ),
-	'approvable_by' => array( 0, 'approvable_by' ),
-);
+$magicWords['en'] = [
+	'MAG_APPROVEDREVS' => [ 0, '__APPROVEDREVS__' ],
+	'approvable_by' => [ 0, 'approvable_by' ],
+];
