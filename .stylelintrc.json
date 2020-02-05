@@ -1,0 +1,7 @@
+{
+	"extends": "stylelint-config-wikimedia",
+	"rules": {
+		"block-no-empty": null,
+		"declaration-no-important": null
+	}
+}
