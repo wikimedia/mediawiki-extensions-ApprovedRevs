@@ -263,8 +263,8 @@ class ApprovedRevsHooks {
 	/**
 	 * Hook: ArticleAfterFetchContentObject
 	 *
-	 * @param Article $article
-	 * @param Content $content
+	 * @param Article &$article
+	 * @param Content &$content
 	 * @return true
 	 */
 	public static function showBlankIfUnapprovedOld( &$article, Content &$content ) {
@@ -885,8 +885,8 @@ class ApprovedRevsHooks {
 	 * @since 0.5.6
 	 *
 	 * @param Article $article
-	 * @param bool $outputDone
-	 * @param bool $useParserCache
+	 * @param bool &$outputDone
+	 * @param bool &$useParserCache
 	 *
 	 * @return true
 	 */
