@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 /**
  * Main class for the Approved Revs extension.
  *
@@ -552,7 +554,12 @@ class ApprovedRevs {
 	}
 
 	public static function setApprovedFileInDB( $title, $timestamp, $sha1, User $user ) {
-		$parser = new Parser();
+		if ( method_exists( 'MediaWikiServices', 'getParserFactory' ) ) {
+			// MW 1.32+
+			$parser = MediaWikiServices::getInstance()->getParserFactory()->create();
+		} else {
+			$parser = new Parser();
+		}
 		$parser->setTitle( $title );
 
 		$dbr = wfGetDB( DB_MASTER );
@@ -613,7 +620,12 @@ class ApprovedRevs {
 	}
 
 	public static function unsetApprovedFileInDB( $title, User $user ) {
-		$parser = new Parser();
+		if ( method_exists( 'MediaWikiServices', 'getParserFactory' ) ) {
+			// MW 1.32+
+			$parser = MediaWikiServices::getInstance()->getParserFactory()->create();
+		} else {
+			$parser = new Parser();
+		}
 		$parser->setTitle( $title );
 
 		$fileTitle = $title->getDBkey();
