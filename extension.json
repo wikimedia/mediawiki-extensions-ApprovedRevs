@@ -61,7 +61,6 @@
 		"ApprovedRevsHooks": "includes/ApprovedRevsHooks.php",
 		"ARParserFunctions": "includes/ARParserFunctions.php",
 		"SpecialApprovedRevs": "includes/specials/SpecialApprovedRevs.php",
-		"SpecialApprovedRevsPage": "includes/specials/SpecialApprovedRevsPage.php",
 		"ApiApprove": "includes/ApiApprove.php",
 		"ARApproveAction": "includes/ARApproveAction.php",
 		"ARUnapproveAction": "includes/ARUnapproveAction.php",
