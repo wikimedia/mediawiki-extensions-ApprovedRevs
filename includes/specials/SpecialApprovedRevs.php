@@ -20,7 +20,12 @@ class SpecialApprovedRevs extends SpecialPage {
 
 		ApprovedRevs::addCSS();
 		$this->setHeaders();
-		list( $limit, $offset ) = $request->getLimitOffset();
+		if ( method_exists( $request, 'getLimitOffsetForUser' ) ) {
+			// MW 1.35+
+			list( $limit, $offset ) = $request->getLimitOffsetForUser( $this->getUser() );
+		} else {
+			list( $limit, $offset ) = $request->getLimitOffset();
+		}
 
 		$mode = $request->getVal( 'show' );
 		$rep = new SpecialApprovedRevsPage( $mode );
