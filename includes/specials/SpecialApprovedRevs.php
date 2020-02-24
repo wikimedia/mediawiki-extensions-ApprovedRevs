@@ -16,20 +16,16 @@ class SpecialApprovedRevs extends QueryPage {
 		$this->mMode = $request->getVal( 'show' );
 	}
 
-	/**
-	 * @var Array $mHeaderLinks: pairs mode with messages. E.g. mode "approvedfiles"
-	 *      used to generate a header link with query string having "show=approvedfiles"
-	 *      and link text of "All files with an approved revision" (in English).
-	 */
-	protected $mHeaderLinks = [
-
-		// for approved page revs
+	// These two arrays pair mode with messages. E.g. mode "approvedpages"
+	// is used to generate a header link with query string having "show=approvedpages"
+	// and link text of "All pages with an approved revision" (in English).
+	protected $mPageHeaderLinks = [
 		'approvedrevs-notlatestpages'     => '',
 		'approvedrevs-unapprovedpages'    => 'unapproved',
 		'approvedrevs-approvedpages'      => 'all',
 		'approvedrevs-invalidpages'       => 'invalid',
-
-		// for approved file revs
+	];
+	protected $mFileHeaderLinks = [
 		'approvedrevs-notlatestfiles'     => 'notlatestfiles',
 		'approvedrevs-unapprovedfiles'    => 'unapprovedfiles',
 		'approvedrevs-approvedfiles'      => 'approvedfiles',
@@ -47,11 +43,24 @@ class SpecialApprovedRevs extends QueryPage {
 	}
 
 	function getPageHeader() {
-		// show the names of the four lists of pages, with the one
-		// corresponding to the current "mode" not being linked
+		global $egApprovedRevsEnabledNamespaces;
+
+		// Show the page approval links, with the one
+		// corresponding to the current "mode" not being linked.
 		$navLinks = [];
-		foreach ( $this->mHeaderLinks as $msg => $mode ) {
+		foreach ( $this->mPageHeaderLinks as $msg => $mode ) {
 			$navLinks[] = $this->createHeaderLink( $msg, $mode );
+		}
+		// Also add the file approval links, but only if there have
+		// been any file approvals.
+		if ( $egApprovedRevsEnabledNamespaces[NS_FILE] ) {
+			$dbr = wfGetDB( DB_REPLICA );
+			$result = $dbr->selectField( 'approved_revs_files', 'COUNT(*)' );
+			if ( $result > 0 ) {
+				foreach ( $this->mFileHeaderLinks as $msg => $mode ) {
+					$navLinks[] = $this->createHeaderLink( $msg, $mode );
+				}
+			}
 		}
 
 		$navLine = wfMessage( 'approvedrevs-view' )->text() . ' ' . implode( ' | ', $navLinks );
@@ -87,7 +96,8 @@ class SpecialApprovedRevs extends QueryPage {
 	 * i.e. Applies mode to next/prev links when paging through list, etc.
 	 */
 	function linkParameters() {
-		// optionally could validate $this->mMode against $this->mHeaderLinks
+		// Optionally could validate $this->mMode against the two
+		// link arrays.
 		return $this->mMode == '' ? [] : [ 'show' => $this->mMode ];
 	}
 
