@@ -50,8 +50,8 @@ class SpecialApprovedRevs extends QueryPage {
 		// show the names of the four lists of pages, with the one
 		// corresponding to the current "mode" not being linked
 		$navLinks = [];
-		foreach ( $this->mHeaderLinks as $msg => $queryParam ) {
-			$navLinks[] = $this->createHeaderLink( $msg, $queryParam );
+		foreach ( $this->mHeaderLinks as $msg => $mode ) {
+			$navLinks[] = $this->createHeaderLink( $msg, $mode );
 		}
 
 		$navLine = wfMessage( 'approvedrevs-view' )->text() . ' ' . implode( ' | ', $navLinks );
@@ -63,18 +63,19 @@ class SpecialApprovedRevs extends QueryPage {
 	}
 
 	/**
-	 * Generate links for header. For current mode, generate non-link bold text.
+	 * Generate links for header. For current mode, generate non-link bold
+	 * text.
 	 */
-	public function createHeaderLink( $msg, $queryParam ) {
-		$approvedPagesTitle = SpecialPage::getTitleFor( $this->getName() );
-		if ( $this->mMode == $queryParam ) {
-			return Xml::element( 'strong',
+	public function createHeaderLink( $msg, $mode ) {
+		if ( $this->mMode == $mode ) {
+			return Html::element( 'strong',
 				null,
 				wfMessage( $msg )->text()
 			);
 		} else {
-			$show = ( $queryParam == '' ) ? [] : [ 'show' => $queryParam ];
-			return Xml::element( 'a',
+			$approvedPagesTitle = SpecialPage::getTitleFor( $this->getName() );
+			$show = ( $mode == '' ) ? [] : [ 'show' => $mode ];
+			return Html::element( 'a',
 				[ 'href' => $approvedPagesTitle->getLocalURL( $show ) ],
 				wfMessage( $msg )->text()
 			);
