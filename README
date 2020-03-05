@@ -27,7 +27,7 @@ To install the extension, place the entire 'ApprovedRevs' directory
 within your MediaWiki 'extensions' directory, then add the following
 line to your 'LocalSettings.php' file:
 
-     require_once( "$IP/extensions/ApprovedRevs/ApprovedRevs.php" );
+     wfLoadExtension( 'ApprovedRevs' );
 
 == Contact ==
 
