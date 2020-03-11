@@ -87,79 +87,33 @@
 			"ApprovedRevsHooks::setLatestAsApproved",
 			"ApprovedRevsHooks::setSearchText"
 		],
-		"SearchResultInitFromTitle": [
-			"ApprovedRevsHooks::setSearchRevisionID"
-		],
-		"PersonalUrls": [
-			"ApprovedRevsHooks::removeRobotsTag"
-		],
-		"ArticleFromTitle": [
-			"ApprovedRevsHooks::showApprovedRevision"
-		],
-		"DisplayOldSubtitle": [
-			"ApprovedRevsHooks::setSubtitle"
-		],
-		"SkinTemplateNavigation": [
-			"ApprovedRevsHooks::changeEditLink"
-		],
-		"PageHistoryBeforeList": [
-			"ApprovedRevsHooks::storeApprovedRevisionForHistoryPage"
-		],
-		"PageHistoryLineEnding": [
-			"ApprovedRevsHooks::addApprovalLink"
-		],
-		"DiffRevisionTools": [
-			"ApprovedRevsHooks::addApprovalDiffLink"
-		],
-		"BeforeParserFetchTemplateAndtitle": [
-			"ApprovedRevsHooks::setTranscludedPageRev"
-		],
-		"ArticleDeleteComplete": [
-			"ApprovedRevsHooks::deleteRevisionApproval"
-		],
-		"MagicWordwgVariableIDs": [
-			"ApprovedRevsHooks::addMagicWordVariableIDs"
-		],
-		"ParserBeforeTidy": [
-			"ApprovedRevsHooks::handleMagicWords"
-		],
-		"ParserFirstCallInit": [
-			"ApprovedRevsHooks::registerFunctions"
-		],
-		"AdminLinks": [
-			"ApprovedRevsHooks::addToAdminLinks"
-		],
-		"LoadExtensionSchemaUpdates": [
-			"ApprovedRevsHooks::describeDBSchema"
-		],
-		"EditPage::showEditForm:initial": [
-			"ApprovedRevsHooks::addWarningToEditPage"
-		],
-		"PageForms::HTMLBeforeForm": [
-			"ApprovedRevsHooks::addWarningToPFForm"
-		],
+		"SearchResultInitFromTitle": "ApprovedRevsHooks::setSearchRevisionID",
+		"PersonalUrls": "ApprovedRevsHooks::removeRobotsTag",
+		"ArticleFromTitle": "ApprovedRevsHooks::showApprovedRevision",
+		"DisplayOldSubtitle": "ApprovedRevsHooks::setSubtitle",
+		"SkinTemplateNavigation": "ApprovedRevsHooks::changeEditLink",
+		"PageHistoryBeforeList": "ApprovedRevsHooks::storeApprovedRevisionForHistoryPage",
+		"PageHistoryLineEnding": "ApprovedRevsHooks::addApprovalLink",
+		"DiffRevisionTools": "ApprovedRevsHooks::addApprovalDiffLink",
+		"BeforeParserFetchTemplateAndtitle": "ApprovedRevsHooks::setTranscludedPageRev",
+		"ArticleDeleteComplete": "ApprovedRevsHooks::deleteRevisionApproval",
+		"MagicWordwgVariableIDs": "ApprovedRevsHooks::addMagicWordVariableIDs",
+		"ParserBeforeTidy": "ApprovedRevsHooks::handleMagicWords",
+		"ParserFirstCallInit": "ApprovedRevsHooks::registerFunctions",
+		"AdminLinks": "ApprovedRevsHooks::addToAdminLinks",
+		"LoadExtensionSchemaUpdates": "ApprovedRevsHooks::describeDBSchema",
+		"EditPage::showEditForm:initial": "ApprovedRevsHooks::addWarningToEditPage",
+		"PageForms::HTMLBeforeForm": "ApprovedRevsHooks::addWarningToPFForm",
 		"ArticleViewHeader": [
 			"ApprovedRevsHooks::setArticleHeader",
 			"ApprovedRevsHooks::displayNotApprovedHeader"
 		],
-		"OutputPageBodyAttributes": [
-			"ApprovedRevsHooks::addBodyClass"
-		],
-		"ImagePageFileHistoryLine": [
-			"ApprovedRevsHooks::onImagePageFileHistoryLine"
-		],
-		"BeforeParserFetchFileAndTitle": [
-			"ApprovedRevsHooks::modifyFileLinks"
-		],
-		"ImagePageFindFile": [
-			"ApprovedRevsHooks::onImagePageFindFile"
-		],
-		"FileDeleteComplete": [
-			"ApprovedRevsHooks::onFileDeleteComplete"
-		],
-		"wgQueryPages": [
-			"ApprovedRevsHooks::onwgQueryPages"
-		]
+		"OutputPageBodyAttributes": "ApprovedRevsHooks::addBodyClass",
+		"ImagePageFileHistoryLine": "ApprovedRevsHooks::onImagePageFileHistoryLine",
+		"BeforeParserFetchFileAndTitle": "ApprovedRevsHooks::modifyFileLinks",
+		"ImagePageFindFile": "ApprovedRevsHooks::onImagePageFindFile",
+		"FileDeleteComplete": "ApprovedRevsHooks::onFileDeleteComplete",
+		"wgQueryPages": "ApprovedRevsHooks::onwgQueryPages"
 	},
 	"config": {
 		"_prefix": "eg",
