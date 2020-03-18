@@ -4,6 +4,22 @@
 			"Aefgh39622"
 		]
 	},
+	"approvedrevs-desc": "กำหนดรุ่นแก้ไขเดียวของหน้าว่าอนุมัติแล้ว",
+	"approvedrevs-logname": "ปูมการอนุมัติรุ่นแก้ไข",
+	"approvedrevs-logdesc": "นี่คือปูมรุ่นแก้ไขที่ได้รับการอนุมัติแล้ว",
 	"approvedrevs-approve": "อนุมัติ",
-	"approvedrevs-difffromlatest": "ความแตกต่างจากรุ่นล่าสุด"
+	"approvedrevs-unapprove": "เลิกอนุมัติ",
+	"approvedrevs-approvesuccess": "รุ่นแก้ไขนี้ของหน้าได้ถูกกำหนดว่าเป็นรุ่นที่ได้รับการอนุมัติแล้ว",
+	"approvedrevs-unapprovesuccess": "ไม่มีรุ่นแก้ไขที่ได้รับการอนุมัติอีกสำหรับหน้านี้\nรุ่นแก้ไขล่าสุดจะถูกแสดงแทน",
+	"approvedrevs-unapprovesuccess2": "ไม่มีรุ่นแก้ไขที่ได้รับการอนุมัติอีกสำหรับหน้านี้\nหน้าเปล่าจะถูกแสดงแทน",
+	"approvedrevs-blankpageshown": "ไม่มีรุ่นแก้ไขที่ได้รับการอนุมัติสำหรับหน้านี้",
+	"approvedrevs": "รุ่นแก้ไขที่อนุมัติแล้ว",
+	"approvedrevs-unapprovedpages": "หน้าที่ยังไม่ได้อนุมัติ",
+	"approvedrevs-view": "ดูรายการของ:",
+	"approvedrevs-revisionnumber": "รุ่นแก้ไข $1",
+	"approvedrevs-difffromlatest": "ความแตกต่างจากรุ่นล่าสุด",
+	"approvedrevs-approvelatest": "อนุมัติรุ่นล่าสุด",
+	"approvedrevs-approvethisrev": "อนุมัติรุ่นแก้ไขนี้",
+	"approvedrevs-viewlatestrev": "ดูรุ่นแก้ไขล่าสุด",
+	"approvedrevs-latestfile": "ไฟล์ล่าสุด"
 }
