@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 /**
  * Special page that displays various lists of pages that either do or do
  * not have an approved revision.
@@ -243,7 +245,12 @@ class SpecialApprovedRevs extends QueryPage {
 		$title = Title::makeTitle( NS_FILE, $result->title );
 
 		if ( !self::$repo ) {
-			self::$repo = RepoGroup::singleton();
+			if ( method_exists( MediaWikiServices::class, 'getRepoGroup' ) ) {
+				// MediaWiki 1.34+
+				self::$repo = MediaWikiServices::getInstance()->getRepoGroup();
+			} else {
+				self::$repo = RepoGroup::singleton();
+			}
 		}
 
 		$pageLink = $this->getLinkRenderer()->makeLink( $title );

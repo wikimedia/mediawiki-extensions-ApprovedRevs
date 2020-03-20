@@ -1170,25 +1170,31 @@ class ApprovedRevsHooks {
 		}
 
 		$title = $imagePage->getTitle();
+		if ( method_exists( MediaWikiServices::class, 'getRepoGroup' ) ) {
+			// MediaWiki 1.34+
+			$repo = MediaWikiServices::getInstance()->getRepoGroup();
+		} else {
+			$repo = RepoGroup::singleton();
+		}
 
-		$displayFile = wfFindFile(
+		$displayFile = $repo->findFile(
 			$title, [ 'time' => $approvedRevTimestamp ]
 		);
 		# If none found, try current
 		if ( !$displayFile ) {
 			wfDebug( __METHOD__ . ": {$title->getPrefixedDBkey()}: " .
 				"$approvedRevTimestamp not found, using current\n" );
-			$displayFile = wfFindFile( $title );
+			$displayFile = $repo->findFile( $title );
 			# If none found, use a valid local placeholder
 			if ( !$displayFile ) {
-				$displayFile = wfLocalFile( $title ); // fallback to current
+				$displayFile = $repo->getLocalRepo()->newFile( $title ); // fallback to current
 			}
 			$normalFile = $displayFile;
 		# If found, set $normalFile
 		} else {
 			wfDebug( __METHOD__ . ": {$title->getPrefixedDBkey()}: " .
 				"using timestamp $approvedRevTimestamp\n" );
-			$normalFile = wfFindFile( $title );
+			$normalFile = $repo->findFile( $title );
 		}
 
 		return true;
