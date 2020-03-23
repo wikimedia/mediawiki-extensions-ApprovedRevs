@@ -7,13 +7,15 @@
 			"W.CC",
 			"青子守歌",
 			"Suchichi02",
-			"Reiwa period"
+			"Reiwa period",
+			"Aefgh39622"
 		]
 	},
 	"approvedrevs-desc": "ページの版のうち 1 つを承認済みにする",
 	"approvedrevs-logname": "版の承認記録",
 	"approvedrevs-logdesc": "以下は、承認された版の記録です。",
 	"approvedrevs-approve": "承認",
+	"approvedrevs-approver": "この版は$1ユーザーによって承認されました。",
 	"approvedrevs-unapprove": "非承認",
 	"approvedrevs-approvesuccess": "この版を承認済み版として指定しました。",
 	"approvedrevs-unapprovesuccess": "このページには承認済み版がなくなりました。\n代わりに、最新版を表示します。",
@@ -29,6 +31,7 @@
 	"approvedrevs-approvedpages": "承認済の版があるすべてのページ",
 	"approvedrevs-notlatestpages": "承認済み版が、最新版ではないページ",
 	"approvedrevs-unapprovedpages": "未承認ページ",
+	"approvedrevs-invalidpages": "承認が無効なページ",
 	"approvedrevs-view": "リストを表示:",
 	"approvedrevs-revisionnumber": "版 $1",
 	"approvedrevs-uploaddate": "$1からのアップロード",
@@ -38,7 +41,19 @@
 	"approvedrevs-approvethisrev": "この版を承認",
 	"approvedrevs-viewlatestrev": "最新版を閲覧",
 	"approvedrevs-approvedrevision": "承認済み版",
+	"action-approverevisions": "ウィキページの特定の版を承認済みに設定",
 	"right-approverevisions": "ウィキページの特定の版を承認済みに設定",
 	"right-viewlinktolatest": "承認済み版があるページの冒頭に説明文を表示",
-	"approvedrevs-latestfile": "最新のファイル"
+	"approvedrevs-invalidfiles": "承認が無効なファイル",
+	"approvedrevs-approvedfiles": "承認済の版があるすべてのファイル",
+	"approvedrevs-notlatestfiles": "承認済み版が、最新版ではないファイル",
+	"approvedrevs-unapprovedfiles": "未承認ファイル",
+	"approvedrevs-approvedfile": "承認済みファイル",
+	"approvedrevs-latestfile": "最新のファイル",
+	"apihelp-approve-description": "版を承認または非承認して、版を審査します。",
+	"apihelp-approve-summary": "版を承認または非承認して、版を審査します。",
+	"apihelp-approve-param-revid": "承認する版ID。",
+	"apihelp-approve-param-unapprove": "設定されている場合、版は承認されるのではなく、承認が解除されます。",
+	"apihelp-approve-example-1": "12345版を承認",
+	"apihelp-approve-example-2": "12345版を非承認"
 }
