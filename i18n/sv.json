@@ -8,7 +8,8 @@
 			"Martinwiss",
 			"Tobulos1",
 			"WikiPhoenix",
-			"Mjälten"
+			"Mjälten",
+			"Technic2"
 		]
 	},
 	"approvedrevs-desc": "Sätt en enskild version av en sida till godkänd",
@@ -41,8 +42,11 @@
 	"approvedrevs-approvethisrev": "Godkänn denna versionen.",
 	"approvedrevs-viewlatestrev": "Visa den senaste versionen.",
 	"approvedrevs-approvedrevision": "Godkänd version",
+	"action-approverevisions": "sätt en revision av en wikisida som godkänd",
 	"right-approverevisions": "Sätt en viss version av en wiki-sida som godkänd",
+	"action-viewlinktolatest": "visa förklarande text på toppen av sidor som har en godkänd revision",
 	"right-viewlinktolatest": "Se förklarande text högst upp på sidor som har en godkänd version",
+	"action-viewapprover": "visa text som visar vem som godkände den nurvarande godkända versionen",
 	"right-viewapprover": "Visa text som visar vem som godkände nuvarande godkända version",
 	"approvedrevs-invalidfiles": "Filer med ogiltiga godkännanden",
 	"approvedrevs-approvedfiles": "Alla sidor med en godkänd sidversion",
@@ -50,6 +54,7 @@
 	"approvedrevs-unapprovedfiles": "Icke-godkända sidor",
 	"approvedrevs-approvedfile": "Godkänd fil",
 	"approvedrevs-latestfile": "Senaste fil",
+	"apihelp-approve-param-revid": "Revisions-IDt att godkänna.",
 	"apihelp-approve-example-1": "Godkänn sidversion 12345",
 	"apihelp-approve-example-2": "Avböj sidversion 12345"
 }
