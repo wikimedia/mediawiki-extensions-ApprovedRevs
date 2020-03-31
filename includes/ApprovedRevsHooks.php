@@ -384,7 +384,13 @@ class ApprovedRevsHooks {
 			$extraParams['unhide'] = 1;
 		}
 
-		if ( $article->mRevision && $article->mRevision->getId() === $revisionID ) {
+		if ( method_exists( 'MediaWikiServices', 'getRevisionLookup' ) ) {
+			// MW 1.31+
+			$revisionRecord = MediaWikiServices::getInstance()
+				->getRevisionLookup()
+				->getRevisionById( $revisionID );
+			$revision = new Revision( $revisionRecord );
+		} elseif ( $article->mRevision && $article->mRevision->getId() === $revisionID ) {
 			$revision = $article->mRevision;
 		} else {
 			$revision = Revision::newFromId( $revisionID );

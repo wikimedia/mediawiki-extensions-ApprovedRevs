@@ -7,6 +7,8 @@
  * @since Version 0.8
  */
 
+use MediaWiki\MediaWikiServices;
+
 /**
  * API module to review revisions
  */
@@ -19,11 +21,18 @@ class ApiApprove extends ApiBase {
 		$user = $this->getUser();
 
 		// Get target rev and title.
-		$rev = Revision::newFromId( $revid );
+		if ( method_exists( 'MediaWikiServices', 'getRevisionLookup' ) ) {
+			// MW 1.31+
+			$rev = MediaWikiServices::getInstance()
+				->getRevisionLookup()
+				->getRevisionById( $revid );
+		} else {
+			$rev = Revision::newFromId( $revid );
+		}
 		if ( !$rev ) {
 			$this->dieUsage( "Cannot find a revision with the specified ID.", 'notarget' );
 		}
-		$title = $rev->getTitle();
+		$title = Title::newFromLinkTarget( $rev->getPageAsLinkTarget() );
 
 		// Verify that user can approve.
 		if ( !ApprovedRevs::userCanApprove( $user, $title ) ) {
