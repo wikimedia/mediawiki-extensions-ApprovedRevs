@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Aefgh39622"
+			"Aefgh39622",
+			"Patsagorn Y."
 		]
 	},
 	"approvedrevs-desc": "กำหนดรุ่นแก้ไขเดียวของหน้าว่าอนุมัติแล้ว",
@@ -33,7 +34,7 @@
 	"approvedrevs-approvelatest": "อนุมัติรุ่นล่าสุด",
 	"approvedrevs-approvethisrev": "อนุมัติรุ่นแก้ไขนี้",
 	"approvedrevs-viewlatestrev": "ดูรุ่นแก้ไขล่าสุด",
-	"approvedrevs-approvedrevision": "รุ่นที่อนุมัติแล้ว",
+	"approvedrevs-approvedrevision": "รุ่นที่ตรวจสอบแล้ว",
 	"right-approverevisions": "กำหนดบางรุ่นของหน้าวิกิว่าอนุมัติแล้ว",
 	"right-viewlinktolatest": "ดูข้อความอธิบายที่ด้านบนของหน้าที่มีรุ่นที่อนุมัติแล้ว",
 	"approvedrevs-invalidfiles": "ไฟล์ที่มีการอนุมัติที่ไม่ถูกต้อง",
