@@ -21,18 +21,22 @@ class ApiApprove extends ApiBase {
 		$user = $this->getUser();
 
 		// Get target rev and title.
+		$revRecord = $rev = null;
 		if ( method_exists( 'MediaWikiServices', 'getRevisionLookup' ) ) {
 			// MW 1.31+
-			$rev = MediaWikiServices::getInstance()
+			$revRecord = MediaWikiServices::getInstance()
 				->getRevisionLookup()
 				->getRevisionById( $revid );
 		} else {
 			$rev = Revision::newFromId( $revid );
 		}
-		if ( !$rev ) {
+		if ( $revRecord !== null ) {
+			$title = Title::newFromLinkTarget( $revRecord->getPageAsLinkTarget() );
+		} elseif ( $rev !== null ) {
+			$title = $rev->getTitle();
+		} else {
 			$this->dieUsage( "Cannot find a revision with the specified ID.", 'notarget' );
 		}
-		$title = Title::newFromLinkTarget( $rev->getPageAsLinkTarget() );
 
 		// Verify that user can approve.
 		if ( !ApprovedRevs::userCanApprove( $user, $title ) ) {
