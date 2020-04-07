@@ -1,13 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"!Silent",
 			"Cainamarques",
+			"Eduardo Addad de Oliveira",
+			"Felipe L. Ewald",
 			"Giro720",
 			"Pedroca cerebral",
-			"TheGabrielZaum",
-			"!Silent",
-			"Felipe L. Ewald",
-			"Eduardo Addad de Oliveira"
+			"TheGabrielZaum"
 		]
 	},
 	"approvedrevs-desc": "Marcar como aprovada uma das revisões de uma página",
