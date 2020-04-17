@@ -42,6 +42,13 @@ class ApprovedRevsHooks {
 			// MW 1.35+
 			$wgHooks['ArticleRevisionViewCustom'][] = 'ApprovedRevsHooks::showBlankIfUnapproved';
 		}
+
+		// The "BeforeParserFetchTemplateAndtitle" hook had its capitalization
+		// fixed in MW 1.35, deprecating the old version.
+		if ( !method_exists( 'ParserOptions', 'getCurrentRevisionRecordCallback' ) ) {
+			// MW < 1.35
+			$wgHooks['BeforeParserFetchTemplateAndtitle'][] = "ApprovedRevsHooks::setTranscludedPageRev";
+		}
 	}
 
 	public static function userRevsApprovedAutomatically( User $user, Title $title ) {
