@@ -27,7 +27,10 @@
 	"approvedrevs-viewlatestrev": "Ikusi azken berrikusketa",
 	"action-approverevisions": "Jarri berrikusketa horri konkretu bat onartutako moduan",
 	"approvedrevs-invalidfiles": "Onarpen baliogabeko fitxategiak",
+	"approvedrevs-approvedfiles": "Fitxategi guztiak onartutako berrikusketarekin",
+	"approvedrevs-notlatestfiles": "Onartutako berriskusketa azken berriskusketa izan ez duen fitxategia",
 	"approvedrevs-unapprovedfiles": "Ezetsitako fitxategiak",
 	"approvedrevs-approvedfile": "Onartutako fitxategia",
-	"approvedrevs-latestfile": "Azken fitxategia"
+	"approvedrevs-latestfile": "Azken fitxategia",
+	"apihelp-approve-description": "Errepasatu berrikusketa bat hau onartzen edo gaitzesten"
 }
