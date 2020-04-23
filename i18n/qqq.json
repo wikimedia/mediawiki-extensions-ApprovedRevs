@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"BaRaN6161 TURK",
 			"EugeneZelenko",
 			"Kghbln",
 			"Nemo bis",
@@ -14,7 +15,7 @@
 	"approvedrevs-logname": "{{doc-logpage}}",
 	"approvedrevs-logdesc": "Used as heading in [[Special:Log]]/approvedrevs.",
 	"approvedrevs-approve": "Used as link text.\n\nThe URL of the link contains \"action=approve\".\n\nSee also:\n* {{msg-mw|Approvedrevs-unapprove}}\n{{Identical|Approve}}",
-	"approvedrevs-approver": "Used to show page approver.",
+	"approvedrevs-approver": "Used to show page approver.\n\n$1 - Username",
 	"approvedrevs-unapprove": "Used as link text.\n\nThe URL of the link contains \"action=unapprove\".\n\nSee also:\n* {{msg-mw|Approvedrevs-approve}}",
 	"approvedrevs-approvesuccess": "Used as success message.",
 	"approvedrevs-unapprovesuccess": "Used as success message.\n\nSee also:\n* {{msg-mw|Approvedrevs-unapprovesuccess2}}",
