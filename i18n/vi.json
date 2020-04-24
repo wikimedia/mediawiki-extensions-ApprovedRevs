@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Dinhxuanduyet",
-			"Minh Nguyen"
+			"Minh Nguyen",
+			"Phjtieudoc"
 		]
 	},
 	"approvedrevs-desc": "Thiết lập một phiên bản duy nhất của một trang đã được duyệt",
@@ -15,9 +16,10 @@
 	"approvedrevs-blankpageshown": "Không có phiên bản nào được phê duyệt cho trang này.",
 	"approvedrevs-noapprovedrevision": "Đây là phiên bản mới nhất của trang này; không có sửa đổi nào được chấp thuận nào cả.",
 	"approvedrevs": "Phiên bản được chấp nhận",
-	"approvedrevs-approvedpages": "Các trang có phiên bản đã chấp nhận",
+	"approvedrevs-approvedpages": "Tất cả trang có phiên bản được chấp nhận",
+	"approvedrevs-notlatestpages": "Trang có phiên bản được chấp nhận nhưng không phải là phiên bản mới nhất",
 	"approvedrevs-unapprovedpages": "Trang chưa được chấp nhận",
-	"approvedrevs-view": "Xem:",
+	"approvedrevs-view": "Xem danh sách:",
 	"approvedrevs-revisionnumber": "phiên bản $1",
 	"approvedrevs-approvedby": "được $1 chấp nhận vào $2",
 	"approvedrevs-difffromlatest": "so với phiên bản hiện tại",
