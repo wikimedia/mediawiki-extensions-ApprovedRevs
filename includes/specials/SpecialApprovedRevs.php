@@ -55,7 +55,10 @@ class SpecialApprovedRevs extends QueryPage {
 		}
 		// Also add the file approval links, but only if there have
 		// been any file approvals.
-		if ( $egApprovedRevsEnabledNamespaces[NS_FILE] ) {
+		if (
+			isset( $egApprovedRevsEnabledNamespaces[NS_FILE] )
+			&& $egApprovedRevsEnabledNamespaces[NS_FILE]
+		) {
 			$dbr = wfGetDB( DB_REPLICA );
 			$result = $dbr->selectField( 'approved_revs_files', 'COUNT(*)' );
 			if ( $result > 0 ) {
