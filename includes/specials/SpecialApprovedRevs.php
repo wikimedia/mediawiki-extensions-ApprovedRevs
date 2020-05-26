@@ -68,7 +68,7 @@ class SpecialApprovedRevs extends QueryPage {
 			}
 		}
 
-		$navLine = wfMessage( 'approvedrevs-view' )->text() . ' ' . implode( ' | ', $navLinks );
+		$navLine = $this->msg( 'approvedrevs-view' )->text() . ' ' . implode( ' | ', $navLinks );
 		$header = Xml::tags( 'p', null, $navLine ) . "\n";
 
 		return Xml::tags(
@@ -84,14 +84,14 @@ class SpecialApprovedRevs extends QueryPage {
 		if ( $this->mMode == $mode ) {
 			return Html::element( 'strong',
 				null,
-				wfMessage( $msg )->text()
+				$this->msg( $msg )->text()
 			);
 		} else {
 			$approvedPagesTitle = SpecialPage::getTitleFor( $this->getName() );
 			$show = ( $mode == '' ) ? [] : [ 'show' => $mode ];
 			return Html::element( 'a',
 				[ 'href' => $approvedPagesTitle->getLocalURL( $show ) ],
-				wfMessage( $msg )->text()
+				$this->msg( $msg )->text()
 			);
 		}
 	}
@@ -182,7 +182,7 @@ class SpecialApprovedRevs extends QueryPage {
 				[
 					'class' => $result->rev_id == $result->latest_id ? 'approvedRevIsLatest' : 'approvedRevNotLatest'
 				],
-				wfMessage( 'approvedrevs-revisionnumber', $result->rev_id )->text()
+				$this->msg( 'approvedrevs-revisionnumber', $result->rev_id )->text()
 			);
 
 			// Get data on the most recent approval from the
@@ -198,7 +198,7 @@ class SpecialApprovedRevs extends QueryPage {
 				$date = $lang->date( wfTimestamp( TS_MW, $row->log_timestamp ), true );
 				$time = $lang->time( wfTimestamp( TS_MW, $row->log_timestamp ), true );
 				$userLink = Linker::userLink( $row->log_user, $row->user_name );
-				$additionalInfo .= ', ' . wfMessage(
+				$additionalInfo .= ', ' . $this->msg(
 					'approvedrevs-approvedby',
 					$userLink,
 					$timestamp,
@@ -222,7 +222,7 @@ class SpecialApprovedRevs extends QueryPage {
 							'oldid' => $result->latest_id
 						]
 					) ],
-					wfMessage( 'approvedrevs-approvelatest' )->text()
+					$this->msg( 'approvedrevs-approvelatest' )->text()
 				) . ')';
 			}
 
@@ -237,7 +237,7 @@ class SpecialApprovedRevs extends QueryPage {
 						'oldid' => $result->rev_id
 					]
 				) ],
-				wfMessage( 'approvedrevs-difffromlatest' )->text()
+				$this->msg( 'approvedrevs-difffromlatest' )->text()
 			);
 
 			return "$pageLink ($diffLink)";
@@ -276,7 +276,7 @@ class SpecialApprovedRevs extends QueryPage {
 							]
 						)
 					],
-					wfMessage( 'approvedrevs-approve' )->text()
+					$this->msg( 'approvedrevs-approve' )->text()
 				) . ')';
 			} else {
 				$approveLink = '';
@@ -310,7 +310,7 @@ class SpecialApprovedRevs extends QueryPage {
 							&& $result->approved_ts == $result->latest_ts
 						) ? 'approvedRevIsLatest' : 'approvedRevNotLatest'
 				],
-				wfMessage(
+				$this->msg(
 					'approvedrevs-uploaddate',
 					wfTimestamp( TS_RFC2822, $result->approved_ts )
 				)->parse()
@@ -337,7 +337,7 @@ class SpecialApprovedRevs extends QueryPage {
 					wfTimestamp( TS_MW, $row->log_timestamp ), true
 				);
 				$userLink = Linker::userLink( $row->log_user, $row->user_name );
-				$additionalInfo .= ', ' . wfMessage(
+				$additionalInfo .= ', ' . $this->msg(
 					'approvedrevs-approvedby',
 					$userLink,
 					$timestamp,
@@ -365,11 +365,11 @@ class SpecialApprovedRevs extends QueryPage {
 
 			$approvedLink = Xml::element( 'a',
 				[ 'href' => $approved_file->getUrl() ],
-				wfMessage( 'approvedrevs-approvedfile' )->text()
+				$this->msg( 'approvedrevs-approvedfile' )->text()
 			);
 			$latestLink = Xml::element( 'a',
 				[ 'href' => $latest_file->getUrl() ],
-				wfMessage( 'approvedrevs-latestfile' )->text()
+				$this->msg( 'approvedrevs-latestfile' )->text()
 			);
 
 			return "$pageLink ($approvedLink | $latestLink)";
