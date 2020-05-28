@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Diki Ananta",
 			"Farras",
 			"IvanLanin",
 			"Kenrick95",
@@ -26,7 +27,7 @@
 	"approvedrevs-approvedpages": "Semua halaman dengan revisi yang disetujui",
 	"approvedrevs-notlatestpages": "Halaman yang revisi disetujuinya bukanlah revisi terakhir",
 	"approvedrevs-unapprovedpages": "Halaman tidak disetujui",
-	"approvedrevs-view": "Lihat:",
+	"approvedrevs-view": "Lihat daftar:",
 	"approvedrevs-revisionnumber": "revisi $1",
 	"approvedrevs-approvedby": "disetujui oleh $1 pada $2",
 	"approvedrevs-difffromlatest": "perbedaan dengan yang terbaru",
