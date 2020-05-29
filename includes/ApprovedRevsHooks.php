@@ -1254,7 +1254,7 @@ class ApprovedRevsHooks {
 	}
 
 	/**
-	 * @param $qp array
+	 * @param &$qp array
 	 * @return bool true
 	 */
 	public static function onwgQueryPages( &$qp ) {
