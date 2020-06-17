@@ -27,7 +27,7 @@
 	"approvedrevs-unapprovedpages": "Neodobrene stranice",
 	"approvedrevs-view": "Pregled:",
 	"approvedrevs-revisionnumber": "izmjena $1",
-	"approvedrevs-approvedby": "odobreno od strane $1 dana $2",
+	"approvedrevs-approvedby": "{{GENDER:$3|odobrio|odobrila}} $1 dana $4 u $5",
 	"approvedrevs-difffromlatest": "razl od posljednje",
 	"approvedrevs-approvelatest": "odobri posljednju",
 	"approvedrevs-approvethisrev": "Odobri ovu reviziju",
