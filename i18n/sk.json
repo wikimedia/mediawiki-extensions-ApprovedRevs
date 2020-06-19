@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Helix84",
+			"TomášPolonec",
 			"Vlad5250"
 		]
 	},
@@ -9,7 +10,12 @@
 	"approvedrevs-logname": "Záznam schválení revízií",
 	"approvedrevs-logdesc": "Toto je záznam revízií, ktoré boli schválené.",
 	"approvedrevs-approve": "schváliť",
+	"approvedrevs-approver": "Táto úprava bola odobrená používateľom $1.",
 	"approvedrevs-unapprove": "neschváliť",
+	"approvedrevs-approvesuccess": "Táto úprava stránky bola nastavená ako schválená verzia.",
+	"approvedrevs-unapprovesuccess": "Pre túto stránku už neexistuje schválená verzia.\nNamiesto nej sa bude zobrazovať najnovšia úprava.",
+	"approvedrevs-unapprovesuccess2": "Pre túto stránku už neexistuje schválená verzia.\nNamiesto nej sa zobrazí prázdna stránka.",
+	"approvedrevs-approveaction": "$2 nastavená ako schválená úprava pre „[[$1]]“",
 	"approvedrevs": "Schválené revízie",
 	"approvedrevs-unapprovedpages": "Neschválené stránky",
 	"approvedrevs-view": "Zobraziť zoznam:",
@@ -19,6 +25,9 @@
 	"approvedrevs-approvelatest": "schváliť najnovšie",
 	"approvedrevs-approvethisrev": "Schváliť túto revíziu.",
 	"approvedrevs-viewlatestrev": "Zobraziť najnovšiu revíziu.",
+	"approvedrevs-approvedrevision": "Schválená úprava",
 	"approvedrevs-unapprovedfiles": "Neschválené súbory",
-	"approvedrevs-approvedfile": "Schválený súbor"
+	"approvedrevs-approvedfile": "Schválený súbor",
+	"apihelp-approve-example-1": "Schváliť úpravu 12345",
+	"apihelp-approve-example-2": "Zrušiť schválenie úpravy 12345"
 }
