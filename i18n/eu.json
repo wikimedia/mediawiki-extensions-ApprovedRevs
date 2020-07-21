@@ -3,7 +3,8 @@
 		"authors": [
 			"An13sa",
 			"Joseba",
-			"Sator"
+			"Sator",
+			"Xabier Armendaritz"
 		]
 	},
 	"approvedrevs-approve": "Onartu",
@@ -21,7 +22,7 @@
 	"approvedrevs-revisionnumber": "$1 berrikusketa",
 	"approvedrevs-uploaddate": "kargatu $1 -etik",
 	"approvedrevs-approvedby": "$4 -an $5-etan onartua {{GENDER:$3|$1}} wikilariarengatik",
-	"approvedrevs-difffromlatest": "Bereiztu berrienetik hasita",
+	"approvedrevs-difffromlatest": "Desberdintasunak, bertsio berrienarekiko",
 	"approvedrevs-approvelatest": "Onartu azkena",
 	"approvedrevs-approvethisrev": "Onartu berrikuspen hau",
 	"approvedrevs-viewlatestrev": "Ikusi azken berrikusketa",
