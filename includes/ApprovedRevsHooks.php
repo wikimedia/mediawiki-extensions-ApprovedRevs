@@ -656,7 +656,7 @@ class ApprovedRevsHooks {
 		if ( !empty( $approvedRevID ) && $approvedRevID != $latestRevID ) {
 			ApprovedRevs::addCSS();
 			$preFormHTML .= Xml::element( 'p',
-				[ 'style' => 'font-weight: bold' ],
+				[ 'class' => 'approvedRevsEditWarning' ],
 				wfMessage( 'approvedrevs-editwarning' )->text() ) . "\n";
 		}
 		return true;
