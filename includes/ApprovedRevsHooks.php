@@ -42,6 +42,16 @@ class ApprovedRevsHooks {
 			// MW 1.35+
 			$wgHooks['ArticleRevisionViewCustom'][] = 'ApprovedRevsHooks::showBlankIfUnapproved';
 		}
+
+		if ( class_exists( 'MediaWiki\HookContainer\HookContainer' ) ) {
+			// MW 1.35+
+			$wgHooks['PageSaveComplete'][] = 'ApprovedRevsHooks::setLatestAsApproved';
+			$wgHooks['PageSaveComplete'][] = 'ApprovedRevsHooks::setSearchText';
+		} else {
+			// MW < 1.35
+			$wgHooks['PageContentSaveComplete'][] = 'ApprovedRevsHooks::setLatestAsApprovedOld';
+			$wgHooks['PageContentSaveComplete'][] = 'ApprovedRevsHooks::setSearchTextOld';
+		}
 	}
 
 	public static function userRevsApprovedAutomatically( User $user, Title $title ) {
@@ -149,8 +159,10 @@ class ApprovedRevsHooks {
 	 * pages are shown as blank on this wiki, automatically set this
 	 * latest revision to be the approved one - don't bother logging
 	 * the approval, though; the log is reserved for manual approvals.
+	 *
+	 * MW < 1.35
 	 */
-	public static function setLatestAsApproved( WikiPage $wikipage, $user, $content,
+	public static function setLatestAsApprovedOld( WikiPage $wikipage, $user, $content,
 		$summary, $isMinor, $isWatch, $section, $flags, $revision,
 		$status, $baseRevId ) {
 		if ( $revision === null ) {
@@ -180,14 +192,94 @@ class ApprovedRevsHooks {
 	}
 
 	/**
-	 * PageContentSaveComplete hook handler
+	 * Hook: PageSaveComplete
+	 *
+	 * If the user saving this page has approval power, and automatic
+	 * approvals are enabled, and the page is approvable, and either
+	 * (a) this page already has an approved revision, or (b) unapproved
+	 * pages are shown as blank on this wiki, automatically set this
+	 * latest revision to be the approved one - don't bother logging
+	 * the approval, though; the log is reserved for manual approvals.
+	 *
+	 * MW 1.35+
+	 */
+	public static function setLatestAsApproved( WikiPage $wikiPage,
+		MediaWiki\User\UserIdentity $user, string $summary, int $flags,
+		MediaWiki\Revision\RevisionRecord $revisionRecord,
+		MediaWiki\Storage\EditResult $editResult ) {
+		if ( $revisionRecord === null ) {
+			return true;
+		}
+
+		$title = $wikiPage->getTitle();
+		if ( !self::userRevsApprovedAutomatically( $user, $title ) ) {
+			return true;
+		}
+
+		if ( !ApprovedRevs::pageIsApprovable( $title ) ) {
+			return true;
+		}
+
+		global $egApprovedRevsBlankIfUnapproved;
+		if ( !$egApprovedRevsBlankIfUnapproved ) {
+			$approvedRevID = ApprovedRevs::getApprovedRevID( $title );
+			if ( empty( $approvedRevID ) ) {
+				return true;
+			}
+		}
+
+		// Save approval without logging.
+		ApprovedRevs::saveApprovedRevIDInDB( $title, $revisionRecord->getID(), $user, true );
+		return true;
+	}
+
+	/**
+	 * Hook: PageContentSaveComplete
 	 *
 	 * Set the text that's stored for the page for standard searches.
+	 *
+	 * MW < 1.35
 	 */
-	public static function setSearchText( WikiPage $wikiPage, $user, $content,
+	public static function setSearchTextOld( WikiPage $wikiPage, $user, $content,
 		$summary, $isMinor, $isWatch, $section, $flags, $revision,
 		$status, $baseRevId ) {
 		if ( $revision === null ) {
+			return true;
+		}
+
+		$title = $wikiPage->getTitle();
+		if ( !ApprovedRevs::pageIsApprovable( $title ) ) {
+			return true;
+		}
+
+		$revisionID = ApprovedRevs::getApprovedRevID( $title );
+		if ( $revisionID === null ) {
+			return true;
+		}
+
+		// We only need to modify the search text if the approved
+		// revision is not the latest one.
+		if ( $revisionID != $wikiPage->getLatest() ) {
+			$approvedPage = WikiPage::factory( $title );
+			$approvedContent = $approvedPage->getContent();
+			ApprovedRevs::setPageSearchText( $title, $approvedContent );
+		}
+
+		return true;
+	}
+
+	/**
+	 * Hook: PageSaveComplete
+	 *
+	 * Set the text that's stored for the page for standard searches.
+	 *
+	 * MW 1.35+
+	 */
+	public static function setSearchText( WikiPage $wikiPage,
+		MediaWiki\User\UserIdentity $user, string $summary, int $flags,
+		MediaWiki\Revision\RevisionRecord $revisionRecord,
+		MediaWiki\Storage\EditResult $editResult ) {
+		if ( $revisionRecord === null ) {
 			return true;
 		}
 

@@ -103,14 +103,25 @@ class ApprovedRevs {
 		return ( !empty( $revision_id ) );
 	}
 
+	public static function getContent( $title, $revisionID = 0 ) {
+		$revisionRecord = MediaWikiServices::getInstance()->getRevisionLookup()->getRevisionByTitle( $title, $revisionID );
+		if ( class_exists( 'MediaWiki\Revision\SlotRecord' ) ) {
+			// MW 1.32+
+			$role = MediaWiki\Revision\SlotRecord::MAIN;
+		} else {
+			// MW 1.31
+			$role = MediaWiki\Storage\SlotRecord::MAIN;
+		}
+		return $revisionRecord->getContent( $role );
+	}
+
 	/**
 	 * Returns the contents of the specified wiki page, at either the
 	 * specified revision (if there is one) or the latest revision
 	 * (otherwise).
 	 */
 	public static function getPageText( $title, $revisionID = null ) {
-		$revision = Revision::newFromTitle( $title, $revisionID );
-		return $revision->getContent()->getNativeData();
+		return self::getContent( $title, $revisionID )->getNativeData();
 	}
 
 	/**
@@ -128,7 +139,7 @@ class ApprovedRevs {
 			return null;
 		}
 
-		$content = Revision::newFromTitle( $title, $revisionID )->getContent();
+		$content = self::getContent( $title, $rev_id );
 		self::$mApprovedContentForPage[$pageID] = $content;
 
 		return $content;
@@ -536,8 +547,10 @@ class ApprovedRevs {
 
 		self::deleteRevisionApproval( $title );
 
-		$revision = Revision::newFromTitle( $title );
-		$content = $egApprovedRevsBlankIfUnapproved ? $revision->getContentHandler()->makeEmptyContent() : $revision->getContent();
+		$content = self::getContent( $title );
+		if ( $egApprovedRevsBlankIfUnapproved ) {
+			$content = $content->getContentHandler()->makeEmptyContent();
+		}
 		$output = $content->getParserOutput( $title, null, new ParserOptions() );
 		$u = new LinksUpdate( $title, $output );
 		$u->doUpdate();
