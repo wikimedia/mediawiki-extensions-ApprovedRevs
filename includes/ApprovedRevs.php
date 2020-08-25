@@ -110,7 +110,8 @@ class ApprovedRevs {
 			$role = MediaWiki\Revision\SlotRecord::MAIN;
 		} else {
 			// MW 1.31
-			$role = MediaWiki\Storage\SlotRecord::MAIN;
+			// There was no constant defined yet.
+			$role = 'main';
 		}
 		return $revisionRecord->getContent( $role );
 	}
