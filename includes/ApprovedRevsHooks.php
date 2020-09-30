@@ -1309,7 +1309,8 @@ class ApprovedRevsHooks {
 		$approvedFile = $dbr->selectRow(
 			'approved_revs_files',
 			[ 'approved_timestamp', 'approved_sha1' ],
-			[ 'file_title' => $file->getTitle()->getDBkey() ]
+			[ 'file_title' => $file->getTitle()->getDBkey() ],
+			__METHOD__
 		);
 
 		// If an approved revision exists, loop through all files in

@@ -68,7 +68,9 @@ class ApproveAllPages extends Maintenance {
 			[
 				'page_id',
 				'page_latest'
-			]
+			],
+			[],
+			__METHOD__
 		);
 
 		while ( $page = $pages->fetchObject() ) {

@@ -215,7 +215,8 @@ class ApprovedRevs {
 				'pp_propname' => [
 					'approvedrevs-approver-users', 'approvedrevs-approver-groups'
 				],
-			]
+			],
+			__METHOD__
 		);
 		$row = $dbr->fetchRow( $res );
 		if ( intval( $row[0] ) > 0 ) {
@@ -229,7 +230,8 @@ class ApprovedRevs {
 				'pp_page' => $title->getArticleID(),
 				'pp_propname' => 'approvedrevs',
 				'pp_value' => 'y'
-			]
+			],
+			__METHOD__
 		);
 		$row = $dbr->fetchRow( $res );
 		$isApprovable = ( $row[0] == '1' );
@@ -278,7 +280,8 @@ class ApprovedRevs {
 					'approvedrevs-approver-users',
 					'approvedrevs-approver-groups'
 				],
-			]
+			],
+			__METHOD__
 		);
 		$row = $dbr->fetchRow( $res );
 		if ( intval( $row[0] ) > 0 ) {
@@ -292,7 +295,8 @@ class ApprovedRevs {
 				'pp_page' => $title->getArticleID(),
 				'pp_propname' => 'approvedrevs',
 				'pp_value' => 'y'
-			]
+			],
+			__METHOD__
 		);
 		$row = $dbr->fetchRow( $res );
 		if ( $row[0] == '1' ) {
@@ -381,7 +385,7 @@ class ApprovedRevs {
 						[ 'r' => 'revision', 'p' => 'page' ],
 						'r.rev_user_text',
 						[ 'p.page_title' => $title->getDBkey() ],
-						null,
+						__METHOD__,
 						[ 'ORDER BY' => 'r.rev_id ASC' ],
 						[ 'revision' => [ 'JOIN', 'r.rev_page = p.page_id' ] ]
 					);
@@ -687,7 +691,8 @@ class ApprovedRevs {
 		$row = $dbr->selectRow(
 			'approved_revs_files', // select from table
 			[ 'approved_timestamp', 'approved_sha1' ],
-			[ 'file_title' => $fileTitle->getDBkey() ]
+			[ 'file_title' => $fileTitle->getDBkey() ],
+			__METHOD__
 		);
 		if ( $row ) {
 			$return = [ $row->approved_timestamp, $row->approved_sha1 ];
