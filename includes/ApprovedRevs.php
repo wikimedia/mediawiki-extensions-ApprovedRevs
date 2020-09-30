@@ -387,7 +387,7 @@ class ApprovedRevs {
 						[ 'p.page_title' => $title->getDBkey() ],
 						__METHOD__,
 						[ 'ORDER BY' => 'r.rev_id ASC' ],
-						[ 'revision' => [ 'JOIN', 'r.rev_page = p.page_id' ] ]
+						[ 'r' => [ 'JOIN', 'r.rev_page = p.page_id' ] ]
 					);
 					if ( $row->rev_user_text == $user->getName() ) {
 						self::$mUserCanApprove[$userAndPageKey] = true;
