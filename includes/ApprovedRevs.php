@@ -140,7 +140,7 @@ class ApprovedRevs {
 			return null;
 		}
 
-		$content = self::getContent( $title, $rev_id );
+		$content = self::getContent( $title, $revisionID );
 		self::$mApprovedContentForPage[$pageID] = $content;
 
 		return $content;
