@@ -10,7 +10,7 @@ class ARUnapproveFileAction extends Action {
 
 	/**
 	 * Return the name of the action this object responds to
-	 * @return String lowercase
+	 * @return string lowercase
 	 */
 	public function getName() {
 		return 'unapprovefile';
