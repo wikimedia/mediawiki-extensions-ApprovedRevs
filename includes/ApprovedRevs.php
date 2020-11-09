@@ -502,6 +502,11 @@ class ApprovedRevs {
 	 * info for extensions such as Semantic MediaWiki; and logs the action.
 	 */
 	public static function setApprovedRevID( $title, $rev_id, User $user, $is_latest = false ) {
+		// Don't approve it if it's already approved.
+		if ( $rev_id == self::getApprovedRevID( $title ) ) {
+			return;
+		}
+
 		self::saveApprovedRevIDInDB( $title, $rev_id, $user, false );
 
 		$content = Revision::newFromTitle( $title, $rev_id )->getContent();
