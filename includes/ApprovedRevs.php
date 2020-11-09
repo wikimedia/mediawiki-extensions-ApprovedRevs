@@ -381,15 +381,38 @@ class ApprovedRevs {
 					// We get that information via a SQL
 					// query - is there an easier way?
 					$dbr = wfGetDB( DB_REPLICA );
+					if ( $dbr->fieldExists( 'revision', 'rev_actor' ) ) {
+						// MW 1.35+
+						$tables = [ 'r' => 'revision', 'a' => 'actor' ];
+						$userIDField = 'a.actor_user';
+						$pageIDField = 'r.rev_page';
+						$revIDField = 'r.rev_id';
+						$fields = [ 'user_id' => 'a.actor_user' ];
+						$joinOn = [ 'r' => [ 'JOIN', 'r.rev_actor = a.actor_id' ] ];
+					} elseif ( $dbr->tableExists( 'revision_actor_temp' ) ) {
+						// MW 1.31+
+						$tables = [ 'ra' => 'revision_actor_temp', 'a' => 'actor' ];
+						$userIDField = 'a.actor_user';
+						$pageIDField = 'ra.revactor_page';
+						$revIDField = 'ra.revactor_rev';
+						$joinOn = [ 'ra' => [ 'JOIN', 'ra.revactor_actor = a.actor_id' ] ];
+					} else {
+						$tables = [ 'r' => 'revision' ];
+						$fields = [ 'user_id' => 'r.rev_user' ];
+						$userIDField = 'r.rev_user';
+						$pageIDField = 'r.rev_page';
+						$revIDField = 'r.rev_id';
+						$joinOn = null;
+					}
 					$row = $dbr->selectRow(
-						[ 'r' => 'revision', 'p' => 'page' ],
-						'r.rev_user_text',
-						[ 'p.page_title' => $title->getDBkey() ],
+						$tables,
+						[ 'user_id' => $userIDField ],
+						[ $pageIDField => $title->getArticleID() ],
 						__METHOD__,
-						[ 'ORDER BY' => 'r.rev_id ASC' ],
-						[ 'r' => [ 'JOIN', 'r.rev_page = p.page_id' ] ]
+						[ 'ORDER BY' => $revIDField . ' ASC', 'LIMIT' => 1 ],
+						$joinOn
 					);
-					if ( $row->rev_user_text == $user->getName() ) {
+					if ( $row->user_id == $user->getID() ) {
 						self::$mUserCanApprove[$userAndPageKey] = true;
 						return true;
 					}
