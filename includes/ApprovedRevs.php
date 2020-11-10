@@ -387,7 +387,6 @@ class ApprovedRevs {
 						$userIDField = 'a.actor_user';
 						$pageIDField = 'r.rev_page';
 						$revIDField = 'r.rev_id';
-						$fields = [ 'user_id' => 'a.actor_user' ];
 						$joinOn = [ 'r' => [ 'JOIN', 'r.rev_actor = a.actor_id' ] ];
 					} elseif ( $dbr->tableExists( 'revision_actor_temp' ) ) {
 						// MW 1.31+
@@ -398,7 +397,6 @@ class ApprovedRevs {
 						$joinOn = [ 'ra' => [ 'JOIN', 'ra.revactor_actor = a.actor_id' ] ];
 					} else {
 						$tables = [ 'r' => 'revision' ];
-						$fields = [ 'user_id' => 'r.rev_user' ];
 						$userIDField = 'r.rev_user';
 						$pageIDField = 'r.rev_page';
 						$revIDField = 'r.rev_id';
