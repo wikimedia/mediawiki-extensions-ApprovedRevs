@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Jan Myšák",
 			"Matěj Grabovský",
 			"Mormegil",
 			"Paxt",
@@ -29,13 +30,18 @@
 	"approvedrevs-unapprovedpages": "Neschválené stránky",
 	"approvedrevs-view": "Prohlédnout seznam:",
 	"approvedrevs-revisionnumber": "revize $1",
+	"approvedrevs-uploaddate": "nahrát z $1",
 	"approvedrevs-approvedby": "schváleno {{GENDER:$3|uživatelem|uživatelkou}} $1 $4 v $5",
 	"approvedrevs-difffromlatest": "rozdíl od poslední",
 	"approvedrevs-approvelatest": "schválit nejnovější",
 	"approvedrevs-approvethisrev": "Schválit tuto revizi.",
 	"approvedrevs-viewlatestrev": "Prohlédnout poslední revizi.",
+	"approvedrevs-approvedrevision": "Schválená revize",
+	"action-approverevisions": "Nastavit určitou revizi wiki stránky jako schválenou",
 	"right-approverevisions": "Nastavit určitou revizi wiki stránky jako schválenou",
+	"action-viewlinktolatest": "Prohlédnout vysvětlivky v záhlaví stránek se schválenou revizí",
 	"right-viewlinktolatest": "Prohlédnout vysvětlivky v záhlaví stránek se schválenou revizí",
+	"approvedrevs-unapprovedfiles": "Neschválené soubory",
 	"approvedrevs-approvedfile": "Schválený soubor",
 	"approvedrevs-latestfile": "Poslední soubor",
 	"apihelp-approve-param-unapprove": "Pokud je nastaveno, bude revize namísto schválení odschválena",
