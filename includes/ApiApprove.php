@@ -35,16 +35,16 @@ class ApiApprove extends ApiBase {
 		} elseif ( $rev !== null ) {
 			$title = $rev->getTitle();
 		} else {
-			$this->dieUsage( "Cannot find a revision with the specified ID.", 'notarget' );
+			$this->dieWithError( "Cannot find a revision with the specified ID.", 'notarget' );
 		}
 
 		// Verify that user can approve.
 		if ( !ApprovedRevs::userCanApprove( $user, $title ) ) {
-			$this->dieUsage( 'You (' . $user->getName() . ') can\'t approve!', 'permissiondenied' );
+			$this->dieWithError( 'You (' . $user->getName() . ') can\'t approve!', 'permissiondenied' );
 		}
 		// Verify that page can be approved.
 		if ( !ApprovedRevs::pageIsApprovable( $title ) ) {
-			$this->dieUsage( "Page $title can't be approved!", 'badtarget' );
+			$this->dieWithError( "Page $title can't be approved!", 'badtarget' );
 		}
 
 		$curApprovedRev = ApprovedRevs::getApprovedRevID( $title );
