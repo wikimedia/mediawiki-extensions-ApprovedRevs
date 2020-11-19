@@ -49,6 +49,8 @@
 	"right-viewlinktolatest": "{{doc-right|viewlinktolatest}}",
 	"action-viewapprover": "{{doc-action|viewapprover}}",
 	"right-viewapprover": "{{doc-right|viewapprover}}",
+	"grant-group-approvedrevs": "{{Related|Grant-group}}",
+	"grant-approvedrevs": "Name for grant \"approvedrevs\".\n{{Related|Grant}}",
 	"approvedrevs-invalidfiles": "Used as a '''bold''' message or a link text to files in [[Special:ApprovedRevs]].\n\nSee also:\n* {{msg-mw|Approvedrevs-view}}",
 	"approvedrevs-approvedfiles": "Used as a '''bold''' message or a link text to files in [[Special:ApprovedRevs]].\n\nThis message follows {{msg-mw|Approvedrevs-view}}.\n\nThis message is followed by a string \" | \" and {{msg-mw|Approvedrevs-notlatestfiles}}.",
 	"approvedrevs-notlatestfiles": "Used as a '''bold''' message or a link text to files in [[Special:ApprovedRevs]].\n\nThis message follows {{msg-mw|Approvedrevs-view}}, {{msg-mw|Approvedrevs-approvedfiles}} and \" | \".",

@@ -42,6 +42,8 @@
 	"right-viewlinktolatest": "View explanatory text at the top of pages that have an approved revision",
 	"action-viewapprover": "view text showing who approved the current approved revision",
 	"right-viewapprover": "View text showing who approved the current approved revision",
+	"grant-group-approvedrevs": "Approve and unapprove revisions through the ApprovedRevs extension",
+	"grant-approvedrevs": "Approve and unapprove revisions through the ApprovedRevs extension",
 	"approvedrevs-invalidfiles": "Files with invalid approvals",
 	"approvedrevs-approvedfiles": "All files with an approved revision",
 	"approvedrevs-notlatestfiles": "Files whose approved revision is not their latest",

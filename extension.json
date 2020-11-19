@@ -22,6 +22,16 @@
 			"viewlinktolatest": true
 		}
 	},
+	"GrantPermissions": {
+		"approvedrevs": {
+			"approverevisions": true,
+			"viewlinktolatest": true,
+			"viewapprover": true
+		}
+	},
+	"GrantPermissionGroups": {
+		"approvedrevs": "approvedrevs"
+	},
 	"AvailableRights": [
 		"approverevisions",
 		"viewlinktolatest",
