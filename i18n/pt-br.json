@@ -47,6 +47,8 @@
 	"right-viewlinktolatest": "Ver um texto explicativo no topo das páginas que têm uma revisão aprovada",
 	"action-viewapprover": "ver texto que mostra quem aprovou a edição aprovada atual",
 	"right-viewapprover": "Ver texto que mostra quem aprovou a edição aprovada atual",
+	"grant-group-approvedrevs": "Aprovar e desaprovar revisões por meio da extensão ApprovedRevs",
+	"grant-approvedrevs": "Aprovar e desaprovar revisões por meio da extensão ApprovedRevs",
 	"approvedrevs-invalidfiles": "Arquivos com aprovações inválidas",
 	"approvedrevs-approvedfiles": "Todos os arquivos com uma revisão aprovada",
 	"approvedrevs-notlatestfiles": "Arquivos cuja revisão aprovada não é a mais recente",

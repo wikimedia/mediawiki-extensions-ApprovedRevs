@@ -41,6 +41,8 @@
 	"right-viewlinktolatest": "'Ndruche 'u teste ca spieghe 'ngape a le pàggene ca onne 'na revisione approvate",
 	"action-viewapprover": "'ndruche 'u teste fatte assè da ce l'ave approvate 'a revisione de mò",
 	"right-viewapprover": "'Ndruche 'u teste fatte assè da ce l'ave approvate 'a revisione de mò",
+	"grant-group-approvedrevs": "Approve e non approve revisiune ausanne l'estenzione ApprovedRevs",
+	"grant-approvedrevs": "Approve e non approve revisiune ausanne l'estenzione ApprovedRevs",
 	"approvedrevs-invalidfiles": "File cu le approvazziune invalide",
 	"approvedrevs-approvedfiles": "Tutte le file cu 'na revisione approvate",
 	"approvedrevs-notlatestfiles": "File ca tènene 'a revisione approvate ca non g'è l'urteme",
