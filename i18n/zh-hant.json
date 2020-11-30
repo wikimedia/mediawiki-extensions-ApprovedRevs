@@ -46,6 +46,8 @@
 	"right-viewlinktolatest": "檢視在頁面頂端具有已批准修訂的解釋文字",
 	"action-viewapprover": "檢視顯示出批准目前修訂的人員之文字",
 	"right-viewapprover": "檢視顯示出批准目前修訂的人員之文字",
+	"grant-group-approvedrevs": "透過 ApprovedRevs 擴充套件來批准與拒絕批准修訂",
+	"grant-approvedrevs": "透過 ApprovedRevs 擴充套件來批准與拒絕批准修訂",
 	"approvedrevs-invalidfiles": "含有無效批准的檔案",
 	"approvedrevs-approvedfiles": "含有已批准修訂的所有檔案",
 	"approvedrevs-notlatestfiles": "批准的修訂並非最新檔案",
