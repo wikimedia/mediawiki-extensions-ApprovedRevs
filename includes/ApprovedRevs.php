@@ -381,20 +381,22 @@ class ApprovedRevs {
 					// We get that information via a SQL
 					// query - is there an easier way?
 					$dbr = wfGetDB( DB_REPLICA );
-					if ( $dbr->fieldExists( 'revision', 'rev_actor' ) ) {
-						// MW 1.35+
-						$tables = [ 'r' => 'revision', 'a' => 'actor' ];
-						$userIDField = 'a.actor_user';
-						$pageIDField = 'r.rev_page';
-						$revIDField = 'r.rev_id';
-						$joinOn = [ 'r' => [ 'JOIN', 'r.rev_actor = a.actor_id' ] ];
-					} elseif ( $dbr->tableExists( 'revision_actor_temp' ) ) {
+					if ( $dbr->tableExists( 'revision_actor_temp' ) ) {
 						// MW 1.31+
 						$tables = [ 'ra' => 'revision_actor_temp', 'a' => 'actor' ];
 						$userIDField = 'a.actor_user';
 						$pageIDField = 'ra.revactor_page';
 						$revIDField = 'ra.revactor_rev';
 						$joinOn = [ 'ra' => [ 'JOIN', 'ra.revactor_actor = a.actor_id' ] ];
+					} elseif ( $dbr->fieldExists( 'revision', 'rev_actor' ) ) {
+						// This table field was added in MW 1.35, but for some
+						// reason it appears to not always get populated. So,
+						// only use it if the temp table is gone.
+						$tables = [ 'r' => 'revision', 'a' => 'actor' ];
+						$userIDField = 'a.actor_user';
+						$pageIDField = 'r.rev_page';
+						$revIDField = 'r.rev_id';
+						$joinOn = [ 'r' => [ 'JOIN', 'r.rev_actor = a.actor_id' ] ];
 					} else {
 						$tables = [ 'r' => 'revision' ];
 						$userIDField = 'r.rev_user';
@@ -410,7 +412,7 @@ class ApprovedRevs {
 						[ 'ORDER BY' => $revIDField . ' ASC', 'LIMIT' => 1 ],
 						$joinOn
 					);
-					if ( $row->user_id == $user->getID() ) {
+					if ( $row->user_id !== null && $row->user_id == $user->getID() ) {
 						self::$mUserCanApprove[$userAndPageKey] = true;
 						return true;
 					}
