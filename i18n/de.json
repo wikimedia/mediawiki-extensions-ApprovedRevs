@@ -4,6 +4,7 @@
 			"Crazy1880",
 			"Kghbln",
 			"Metalhead64",
+			"Pittigrilli",
 			"Purodha"
 		]
 	},
@@ -44,6 +45,7 @@
 	"right-viewlinktolatest": "Erläuternde Hinweise im Kopfbereich der Seiten anzeigen, die eine bestätigte Version haben",
 	"action-viewapprover": "Text anzusehen, der anzeigt, wer die derzeit bestätigte Version bestätigt hat",
 	"right-viewapprover": "Text ansehen, der anzeigt, wer die derzeit bestätigte Version bestätigt hat",
+	"grant-group-approvedrevs": "Bestätige mit der ApprovedRevs-Erweiterung Überarbeitungen oder markiere sie als unbestätigt",
 	"approvedrevs-invalidfiles": "Dateien mit ungültigen Bestätigungen",
 	"approvedrevs-approvedfiles": "Alle Dateien mit einer bestätigten Version",
 	"approvedrevs-notlatestfiles": "Dateien, deren bestätigte Version nicht die aktuellste ist.",
