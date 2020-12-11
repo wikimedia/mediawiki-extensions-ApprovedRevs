@@ -14,8 +14,6 @@ use MediaWiki\MediaWikiServices;
  */
 class ApprovedRevsHooks {
 
-	static $mNoSaveOccurring = false;
-
 	public static function registerExtension() {
 		global $wgHooks;
 
