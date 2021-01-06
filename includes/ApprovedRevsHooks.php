@@ -319,7 +319,7 @@ class ApprovedRevsHooks {
 	 * the page is simply being viewed, and if no specific revision has
 	 * been requested.
 	 */
-	static function showApprovedRevision( &$title, &$article, $context ) {
+	public static function showApprovedRevision( &$title, &$article, $context ) {
 		$request = $context->getRequest();
 
 		if ( !ApprovedRevs::isDefaultPageRequest( $request ) ) {
@@ -462,7 +462,7 @@ class ApprovedRevsHooks {
 	 *
 	 * @author Eli Handel
 	 */
-	static function setOldSubtitle( $article, $revisionID ) {
+	public static function setOldSubtitle( $article, $revisionID ) {
 		$title = $article->getTitle(); # Added for ApprovedRevs - and removed hook
 		$context = $article->getContext();
 
@@ -628,7 +628,7 @@ class ApprovedRevsHooks {
 	 * either nothing or a message explaining the situation, depending
 	 * on the user's rights.
 	 */
-	static function setSubtitle( &$article, &$revisionID ) {
+	public static function setSubtitle( &$article, &$revisionID ) {
 		$title = $article->getTitle();
 		if ( !ApprovedRevs::hasApprovedRevision( $title ) ) {
 			return true;
@@ -758,7 +758,7 @@ class ApprovedRevsHooks {
 	 * 'action=edit' URL (i.e., the latest revision), no matter which
 	 * revision they're actually on.
 	 */
-	static function changeEditLink( SkinTemplate &$skinTemplate, &$links ) {
+	public static function changeEditLink( SkinTemplate &$skinTemplate, &$links ) {
 		$context = $skinTemplate->getContext();
 		$request = $context->getRequest();
 
@@ -788,7 +788,7 @@ class ApprovedRevsHooks {
 	 * can be made just once for every view of a history page, instead
 	 * of for every row.
 	 */
-	static function storeApprovedRevisionForHistoryPage( &$article ) {
+	public static function storeApprovedRevisionForHistoryPage( &$article ) {
 		// This will be null if there's no ID.
 		$approvedRevID = ApprovedRevs::getApprovedRevID( $article->getTitle() );
 		$article->getTitle()->approvedRevID = $approvedRevID;
@@ -806,7 +806,7 @@ class ApprovedRevsHooks {
 	 * revision. If it's the approved revision also add on a "star"
 	 * icon, regardless of the user.
 	 */
-	static function addApprovalLink( $historyPage, &$row, &$s, &$classes ) {
+	public static function addApprovalLink( $historyPage, &$row, &$s, &$classes ) {
 		$title = $historyPage->getTitle();
 		if ( !ApprovedRevs::pageIsApprovable( $title ) ) {
 			return true;
@@ -852,7 +852,7 @@ class ApprovedRevsHooks {
 	 * 'approve' link to the diff revision page when comparing to
 	 * previously approved revision.
 	 */
-	static function addApprovalDiffLink( $rev, &$links, $oldRev, $user ) {
+	public static function addApprovalDiffLink( $rev, &$links, $oldRev, $user ) {
 		$title = $rev->getTitle();
 
 		if ( !ApprovedRevs::pageIsApprovable( $title ) ) {
@@ -884,7 +884,7 @@ class ApprovedRevsHooks {
 	 * Use the approved revision, if it exists, for templates and other
 	 * transcluded pages.
 	 */
-	static function setTranscludedPageRev( $parser, $title, &$skip, &$id ) {
+	public static function setTranscludedPageRev( $parser, $title, &$skip, &$id ) {
 		$revisionID = ApprovedRevs::getApprovedRevID( $title );
 		if ( !empty( $revisionID ) ) {
 			$id = $revisionID;
@@ -896,7 +896,7 @@ class ApprovedRevsHooks {
 	 * Delete the approval record in the database if the page itself is
 	 * deleted.
 	 */
-	static function deleteRevisionApproval( &$article, &$user, $reason, $id ) {
+	public static function deleteRevisionApproval( &$article, &$user, $reason, $id ) {
 		ApprovedRevs::deleteRevisionApproval( $article->getTitle() );
 		return true;
 	}
@@ -904,7 +904,7 @@ class ApprovedRevsHooks {
 	/**
 	 * Register magic-word variable IDs
 	 */
-	static function addMagicWordVariableIDs( &$magicWordVariableIDs ) {
+	public static function addMagicWordVariableIDs( &$magicWordVariableIDs ) {
 		$magicWordVariableIDs[] = 'MAG_APPROVEDREVS';
 		return true;
 	}
@@ -913,7 +913,7 @@ class ApprovedRevsHooks {
 	 * Set values in the page_props table based on the presence of the
 	 * 'APPROVEDREVS' magic word in a page
 	 */
-	static function handleMagicWords( &$parser, &$text ) {
+	public static function handleMagicWords( &$parser, &$text ) {
 		if ( class_exists( MagicWordFactory::class ) ) {
 			// MW 1.32+
 			$factory = MediaWikiServices::getInstance()->getMagicWordFactory();
@@ -934,7 +934,7 @@ class ApprovedRevsHooks {
 	 * @return bool
 	 * @since 1.0
 	 */
-	static function registerFunctions( &$parser ) {
+	public static function registerFunctions( &$parser ) {
 		$parser->setFunctionHook(
 			'approvable_by',
 			'ARParserFunctions::renderApprovableBy',
@@ -947,7 +947,7 @@ class ApprovedRevsHooks {
 	 * Add a link to 'Special:ApprovedPages' to the page
 	 * 'Special:AdminLinks', defined by the Admin Links extension.
 	 */
-	static function addToAdminLinks( &$admin_links_tree ) {
+	public static function addToAdminLinks( &$admin_links_tree ) {
 		$general_section = $admin_links_tree->getSection( wfMessage( 'adminlinks_general' )->text() );
 		$extensions_row = $general_section->getRow( 'extensions' );
 		if ( $extensions_row === null ) {

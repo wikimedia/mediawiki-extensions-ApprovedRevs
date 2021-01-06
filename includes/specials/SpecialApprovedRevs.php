@@ -12,7 +12,7 @@ class SpecialApprovedRevs extends QueryPage {
 
 	protected $mMode;
 
-	function __construct() {
+	public function __construct() {
 		parent::__construct( 'ApprovedRevs' );
 		$request = $this->getRequest();
 		$this->mMode = $request->getVal( 'show' );
@@ -36,15 +36,15 @@ class SpecialApprovedRevs extends QueryPage {
 
 	protected static $repo;
 
-	function isExpensive() {
+	public function isExpensive() {
 		return false;
 	}
 
-	function isSyndicated() {
+	public function isSyndicated() {
 		return false;
 	}
 
-	function getPageHeader() {
+	protected function getPageHeader() {
 		global $egApprovedRevsEnabledNamespaces;
 
 		// Show the page approval links, with the one
@@ -100,20 +100,20 @@ class SpecialApprovedRevs extends QueryPage {
 	 * Set parameters for standard navigation links.
 	 * i.e. Applies mode to next/prev links when paging through list, etc.
 	 */
-	function linkParameters() {
+	protected function linkParameters() {
 		// Optionally could validate $this->mMode against the two
 		// link arrays.
 		return $this->mMode == '' ? [] : [ 'show' => $this->mMode ];
 	}
 
-	function getPageFooter() {
+	private function getPageFooter() {
 	}
 
 	public static function getNsConditionPart( $ns ) {
 		return 'p.page_namespace = ' . $ns;
 	}
 
-	function getQueryInfo() {
+	public function getQueryInfo() {
 		// SQL for page revision approvals versus file revision approvals is
 		// significantly different. Easier to follow if broken into two functions.
 		if ( in_array(
@@ -126,19 +126,19 @@ class SpecialApprovedRevs extends QueryPage {
 		}
 	}
 
-	function getOrder() {
+	protected function getOrder() {
 		return ' ORDER BY p.page_namespace, p.page_title ASC';
 	}
 
-	function getOrderFields() {
+	protected function getOrderFields() {
 		return [ 'p.page_namespace', 'p.page_title' ];
 	}
 
-	function sortDescending() {
+	protected function sortDescending() {
 		return false;
 	}
 
-	function formatResult( $skin, $result ) {
+	protected function formatResult( $skin, $result ) {
 		// SQL for page revision approvals versus file revision approvals is
 		// significantly different. Easier to follow if broken into two functions.
 		if ( in_array(

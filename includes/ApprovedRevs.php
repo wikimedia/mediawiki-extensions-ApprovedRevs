@@ -13,18 +13,18 @@ use MediaWiki\MediaWikiServices;
 class ApprovedRevs {
 
 	// Static arrays to prevent querying the database more than necessary.
-	static $mApprovedContentForPage = [];
-	static $mApprovedRevIDForPage = [];
-	static $mApproverForPage = [];
+	private static $mApprovedContentForPage = [];
+	private static $mApprovedRevIDForPage = [];
+	private static $mApproverForPage = [];
 
 	/**
 	 * Array in form $mUserCanApprove["<user id>:<article id>"] = <bool>
 	 * @var array
 	 */
-	static $mUserCanApprove = [];
-	static $mApprovedFileInfo = [];
+	private static $mUserCanApprove = [];
+	private static $mApprovedFileInfo = [];
 
-	static $mApprovedRevsNamespaces;
+	private static $mApprovedRevsNamespaces;
 
 	/**
 	 * Get array of approvable namespaces. Handles backwards compatibility.
@@ -514,7 +514,7 @@ class ApprovedRevs {
 	 * @param Title $title
 	 * @param Content|null $content
 	 */
-	static function setPageSearchText( $title, $content ) {
+	public static function setPageSearchText( $title, $content ) {
 		DeferredUpdates::addUpdate( new SearchUpdate( $title->getArticleID(), $title, $content ) );
 	}
 
