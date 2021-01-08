@@ -538,7 +538,7 @@ class ApprovedRevs {
 		// If the revision being approved is definitely the latest
 		// one, there's no need to call the parser on it.
 		if ( !$is_latest ) {
-			$output = $content->getParserOutput( $title, $rev_id, new ParserOptions() );
+			$output = $content->getParserOutput( $title, $rev_id, ParserOptions::newFromUser( $user ) );
 			$u = new LinksUpdate( $title, $output );
 			$u->doUpdate();
 			self::setPageSearchText( $title, $content );
@@ -584,7 +584,7 @@ class ApprovedRevs {
 		if ( $egApprovedRevsBlankIfUnapproved ) {
 			$content = $content->getContentHandler()->makeEmptyContent();
 		}
-		$output = $content->getParserOutput( $title, null, new ParserOptions() );
+		$output = $content->getParserOutput( $title, null, ParserOptions::newFromUser( $user ) );
 		$u = new LinksUpdate( $title, $output );
 		$u->doUpdate();
 		self::setPageSearchText( $title, $content );
