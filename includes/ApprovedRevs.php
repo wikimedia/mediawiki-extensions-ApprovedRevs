@@ -741,7 +741,8 @@ class ApprovedRevs {
 		// Don't include the "File:" namespace in this query - file pages are not
 		// approvable. (The presence of NS_FILE instead indicates that files
 		// themselves are approvable.)
-		if ( ( $key = array_search( NS_FILE, $approvedRevsNamespaces ) ) !== false ) {
+		$key = array_search( NS_FILE, $approvedRevsNamespaces );
+		if ( $key !== false ) {
 			unset( $approvedRevsNamespaces[$key] );
 		}
 

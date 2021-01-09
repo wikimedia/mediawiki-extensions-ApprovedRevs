@@ -73,7 +73,7 @@ class ApproveAllPages extends Maintenance {
 			__METHOD__
 		);
 
-		while ( $page = $pages->fetchObject() ) {
+		foreach ( $pages as $page ) {
 			$title = Title::newFromID( $page->page_id );
 			// Some extensions, like Page Forms, need $wgTitle
 			// set as well for these checks.
