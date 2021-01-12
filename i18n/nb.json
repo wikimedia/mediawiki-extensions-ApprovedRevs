@@ -45,6 +45,8 @@
 	"right-viewlinktolatest": "Vis forklarende tekst på toppen av sider som har en godkjent revisjon",
 	"action-viewapprover": "se teksten som viser hvem som godkjente den gjeldende godkjente revisjonen",
 	"right-viewapprover": "Se tekst som viser hvem som godkjente den gjeldende godkjente revisjonen",
+	"grant-group-approvedrevs": "Godta og fjern godtakelse av revisjoner via utvidelsen ApprovedRevs",
+	"grant-approvedrevs": "Godta og fjerne godtakelse av revisjoner via utvidelsen ApprovedRevs",
 	"approvedrevs-invalidfiles": "Filer med ugyldige godkjenninger",
 	"approvedrevs-approvedfiles": "Alle filer med en godkjent revisjon",
 	"approvedrevs-notlatestfiles": "Filer der den godkjente revisjonen ikke er den nyeste",
