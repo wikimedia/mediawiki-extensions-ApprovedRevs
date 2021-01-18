@@ -10,6 +10,7 @@
 			"Phenolla",
 			"PhiLiP",
 			"Xiaomingyan",
+			"Yining Chen",
 			"佛壁灯"
 		]
 	},
@@ -50,6 +51,8 @@
 	"right-viewlinktolatest": "查看具有已认可修订版本的页面顶端的解释性文本",
 	"action-viewapprover": "查看谁批准了当前批准的修订文本",
 	"right-viewapprover": "查看谁批准了当前批准的修订文本",
+	"grant-group-approvedrevs": "通过ApprovedRevs扩展来批准和取消批准修订",
+	"grant-approvedrevs": "通过ApprovedRevs扩展来批准和取消批准修订",
 	"approvedrevs-invalidfiles": "无效批准文件",
 	"approvedrevs-approvedfiles": "所有带认可修订版本的页面",
 	"approvedrevs-notlatestfiles": "已认可版本不是最后版本的页面",

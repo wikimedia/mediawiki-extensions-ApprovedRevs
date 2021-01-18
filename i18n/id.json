@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Akmaie Ajam",
 			"Diki Ananta",
 			"Farras",
 			"IvanLanin",
@@ -30,12 +31,15 @@
 	"approvedrevs-unapprovedpages": "Halaman tidak disetujui",
 	"approvedrevs-view": "Lihat daftar:",
 	"approvedrevs-revisionnumber": "revisi $1",
+	"approvedrevs-uploaddate": "upload dari $1",
 	"approvedrevs-approvedby": "disetujui oleh $1 pada $2",
 	"approvedrevs-difffromlatest": "perbedaan dengan yang terbaru",
 	"approvedrevs-approvelatest": "setujui yang terbaru",
 	"approvedrevs-approvethisrev": "Setujui revisi ini.",
 	"approvedrevs-viewlatestrev": "Lihat revisi terbaru.",
 	"approvedrevs-approvedrevision": "Revisi yang disetujui",
+	"action-approverevisions": "tetapkan revisi tertentu dari sebuah halaman wiki sebagai disetujui",
 	"right-approverevisions": "Tetapkan revisi tertentu dari halaman wiki sebagai disetujui",
+	"action-viewlinktolatest": "lihat penjelasan di atas halaman yang memiliki revisi disetujui",
 	"right-viewlinktolatest": "Lihat penjelasan di atas halaman yang memiliki revisi disetujui"
 }
