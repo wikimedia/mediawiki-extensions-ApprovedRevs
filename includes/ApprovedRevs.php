@@ -488,22 +488,24 @@ class ApprovedRevs {
 	}
 
 	public static function saveApprovedRevIDInDB( $title, $rev_id, User $user, $isAutoApprove = true ) {
-		$userBit = [];
+		$timestamp = date( 'Y-m-d H:i:s' );
+		$approvalInfo = [
+			'rev_id' => $rev_id,
+			'approval_date' => $timestamp
+		];
 
 		if ( !$isAutoApprove ) {
-			$userBit = [ 'approver_id' => $user->getID() ];
+			$approvalInfo['approver_id'] = $user->getID();
 		}
 
 		$dbr = wfGetDB( DB_MASTER );
 		$page_id = $title->getArticleID();
 		$old_rev_id = $dbr->selectField( 'approved_revs', 'rev_id', [ 'page_id' => $page_id ] );
 		if ( $old_rev_id ) {
-			$dbr->update( 'approved_revs',
-				array_merge( [ 'rev_id' => $rev_id ], $userBit ),
-				[ 'page_id' => $page_id ] );
+			$dbr->update( 'approved_revs', $approvalInfo, [ 'page_id' => $page_id ] );
 		} else {
-			$dbr->insert( 'approved_revs',
-				array_merge( [ 'page_id' => $page_id, 'rev_id' => $rev_id ], $userBit ) );
+			$approvalInfo['page_id'] = $page_id;
+			$dbr->insert( 'approved_revs',  $approvalInfo );
 		}
 		// Update "cache" in memory
 		self::$mApprovedRevIDForPage[$page_id] = $rev_id;

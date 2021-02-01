@@ -966,6 +966,7 @@ class ApprovedRevsHooks {
 		//if ( $updater->getDB()->getType() == 'mysql' ) {
 			$updater->addExtensionUpdate( [ 'addTable', 'approved_revs', "$dir/../sql/ApprovedRevs.sql", true ] );
 			$updater->addExtensionUpdate( [ 'addField', 'approved_revs', 'approver_id', "$dir/../sql/patch-approver_id.sql", true ] );
+			$updater->addExtensionUpdate( [ 'addField', 'approved_revs', 'approval_date', "$dir/../sql/patch-approval_date.sql", true ] );
 			$updater->addExtensionUpdate( [ 'addTable', 'approved_revs_files', "$dir/../sql/ApprovedFiles.sql", true ] );
 		// }
 	}
