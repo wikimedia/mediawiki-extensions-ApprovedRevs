@@ -14,6 +14,8 @@ use MediaWiki\MediaWikiServices;
  */
 class ApprovedRevsHooks {
 
+	private static $mApprovalMagicWords = [ 'MAG_APPROVALYEAR', 'MAG_APPROVALMONTH', 'MAG_APPROVALDAY', 'MAG_APPROVALTIMESTAMP', 'MAG_APPROVALUSER' ];
+
 	public static function registerExtension() {
 		global $wgHooks;
 
@@ -906,6 +908,7 @@ class ApprovedRevsHooks {
 	 */
 	public static function addMagicWordVariableIDs( &$magicWordVariableIDs ) {
 		$magicWordVariableIDs[] = 'MAG_APPROVEDREVS';
+		$magicWordVariableIDs = array_merge( $magicWordVariableIDs, self::$mApprovalMagicWords );
 		return true;
 	}
 
@@ -928,6 +931,48 @@ class ApprovedRevsHooks {
 	}
 
 	/**
+	 * Assign a value to our variable
+	 *
+	 * @param Parser $parser
+	 * @param array &$cache
+	 * @param string $magicWordId
+	 * @param string &$ret
+	 * @return bool
+	 */
+	public static function assignAValue( $parser, &$cache, $magicWordId, &$ret ) {
+		if ( !in_array( $magicWordId, self::$mApprovalMagicWords ) ) {
+			return false;
+		}
+
+		$approvalInfo = ARParserFunctions::getApprovalInfo( $parser->getTitle() );
+		if ( $approvalInfo == null ) {
+			return true;
+		}
+		switch ( $magicWordId ) {
+			case 'MAG_APPROVALYEAR':
+				$ret = date( 'Y', $approvalInfo[0] );
+				break;
+			case 'MAG_APPROVALMONTH':
+				$ret = date( 'm', $approvalInfo[0] );
+				break;
+			case 'MAG_APPROVALDAY':
+				$ret = date( 'd', $approvalInfo[0] );
+				break;
+			case 'MAG_APPROVALTIMESTAMP':
+				$ret = date( 'YmdHis', $approvalInfo[0] );
+				break;
+			case 'MAG_APPROVALUSER':
+				$userID = $approvalInfo[1];
+				$user = User::newFromID( $userID );
+				$ret = $user->getName();
+				break;
+			default:
+				return false;
+		}
+		return true;
+	}
+
+	/**
 	 * Register parser function(s)
 	 *
 	 * @param Parser &$parser
@@ -939,6 +984,31 @@ class ApprovedRevsHooks {
 			'approvable_by',
 			'ARParserFunctions::renderApprovableBy',
 			Parser::SFH_OBJECT_ARGS
+		);
+		$parser->setFunctionHook(
+			'MAG_APPROVALYEAR',
+			'ARParserFunctions::renderApprovalYear',
+			Parser::SFH_NO_HASH
+		);
+		$parser->setFunctionHook(
+			'MAG_APPROVALMONTH',
+			'ARParserFunctions::renderApprovalMonth',
+			Parser::SFH_NO_HASH
+		);
+		$parser->setFunctionHook(
+			'MAG_APPROVALDAY',
+			'ARParserFunctions::renderApprovalDay',
+			Parser::SFH_NO_HASH
+		);
+		$parser->setFunctionHook(
+			'MAG_APPROVALTIMESTAMP',
+			'ARParserFunctions::renderApprovalTimestamp',
+			Parser::SFH_NO_HASH
+		);
+		$parser->setFunctionHook(
+			'MAG_APPROVALUSER',
+			'ARParserFunctions::renderApprovalUser',
+			Parser::SFH_NO_HASH
 		);
 		return true;
 	}

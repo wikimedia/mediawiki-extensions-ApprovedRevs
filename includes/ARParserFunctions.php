@@ -6,22 +6,34 @@
  * @file
  * @ingroup AR
  *
- * The following parser functions are defined: #approvable_by
+ * The following parser functions are defined:
  *
- * '#approvable_by' is called as:
+ * #approvable_by - called as:
  * {{#approvable_by: users = Alice Jones, Bob Smith | groups = bureaucrat }}
  *
  * This function sets the usernames and user groups able to approve the page
  * Usernames are specified without the "User:" prefix.
  *
- * @author James Montalvo
- * @since 1.0
+ * APPROVALYEAR - called as:
+ * {{APPROVALYEAR:MyPage}}
+ *
+ * This function displays the year the page's current approved revision was
+ * approved; or blank, if there is no approved revision.
+ *
+ * APPROVALMONTH, APPROVALDAY, APPROVALTIMESTAMP, APPROVALUSER - all
+ * called in the same way as APPROVALYEAR, with a (hopefully) obvious output
+ * for each.
  */
 
 class ARParserFunctions {
 
+	private static $mAllApprovalInfo = [];
+
 	/**
 	 * Render #approvable_by parser function
+	 *
+	 * @author James Montalvo
+	 * @since 1.0
 	 *
 	 * @param Parser &$parser
 	 * @param PPFrame $frame
@@ -60,6 +72,77 @@ class ARParserFunctions {
 
 		// typically no output...allow users to stylize output themselves
 		return $output;
+	}
+
+	/**
+	 * Helper function for all the display parser functions.
+	 */
+	public static function getApprovalInfo( $title ) {
+		$pageID = $title->getArticleID();
+		if ( array_key_exists( $pageID, self::$mAllApprovalInfo ) ) {
+			return self::$mAllApprovalInfo[$pageID];
+		}
+
+		$dbw = wfGetDB( DB_REPLICA );
+		$res = $dbw->select( 'approved_revs', [ 'approver_id', 'approval_date' ], [ 'page_id' => $pageID ] );
+		if ( $res->numRows() == 0 ) {
+			return null;
+		}
+		$row = $res->fetchRow();
+		self::$mAllApprovalInfo[$pageID] = [ strtotime( $row['approval_date'] ), $row['approver_id'] ];
+		return self::$mAllApprovalInfo[$pageID];
+	}
+
+	public static function formatApprovalDate( Parser &$parser, string $pageName, $formatString ) {
+		if ( $pageName !== null && $pageName !== '' ) {
+			$title = Title::newFromText( $pageName );
+		} else {
+			$title = $parser->getTitle();
+		}
+
+		$approvalInfo = self::getApprovalInfo( $title );
+		if ( $approvalInfo == null ) {
+			return null;
+		}
+		if ( $approvalInfo[0] == null ) {
+			return null;
+		}
+		return date( $formatString, $approvalInfo[0] );
+	}
+
+	public static function renderApprovalYear( Parser &$parser, string $pageName = null ) {
+		return self::formatApprovalDate( $parser, $pageName, 'Y' );
+	}
+
+	public static function renderApprovalMonth( Parser &$parser, string $pageName = null ) {
+		return self::formatApprovalDate( $parser, $pageName, 'm' );
+	}
+
+	public static function renderApprovalDay( Parser &$parser, string $pageName = null ) {
+		return self::formatApprovalDate( $parser, $pageName, 'd' );
+	}
+
+	public static function renderApprovalTimestamp( Parser &$parser, string $pageName = null ) {
+		return self::formatApprovalDate( $parser, $pageName, 'YmdHis' );
+	}
+
+	public static function renderApprovalUser( Parser &$parser, string $pageName = null ) {
+		if ( $pageName !== null && $pageName !== '' ) {
+			$title = Title::newFromText( $pageName );
+		} else {
+			$title = $parser->getTitle();
+		}
+
+		$approvalInfo = self::getApprovalInfo( $title );
+		if ( $approvalInfo == null ) {
+			return null;
+		}
+		if ( $approvalInfo[1] == null ) {
+			return null;
+		}
+		$userID = $approvalInfo[1];
+		$user = User::newFromID( $userID );
+		return $user->getName();
 	}
 
 }

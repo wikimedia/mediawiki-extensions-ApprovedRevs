@@ -105,6 +105,7 @@
 		"ArticleDeleteComplete": "ApprovedRevsHooks::deleteRevisionApproval",
 		"MagicWordwgVariableIDs": "ApprovedRevsHooks::addMagicWordVariableIDs",
 		"ParserAfterTidy": "ApprovedRevsHooks::handleMagicWords",
+		"ParserGetVariableValueSwitch": "ApprovedRevsHooks::assignAValue",
 		"ParserFirstCallInit": "ApprovedRevsHooks::registerFunctions",
 		"AdminLinks": "ApprovedRevsHooks::addToAdminLinks",
 		"LoadExtensionSchemaUpdates": "ApprovedRevsHooks::describeDBSchema",
