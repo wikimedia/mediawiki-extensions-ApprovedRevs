@@ -1423,4 +1423,14 @@ class ApprovedRevsHooks {
 		$qp['SpecialApprovedRevsPage'] = 'ApprovedRevs';
 		return true;
 	}
+
+	public static function onMpdfGetArticle( $title, &$article ) {
+		$revisionID = ApprovedRevs::getApprovedRevID( $title );
+		if ( $revisionID === null ) {
+			return true;
+		}
+		$article = new Article( $title, $revisionID );
+		return true;
+	}
+
 }

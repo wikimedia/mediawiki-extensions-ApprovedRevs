@@ -120,7 +120,8 @@
 		"BeforeParserFetchFileAndTitle": "ApprovedRevsHooks::modifyFileLinks",
 		"ImagePageFindFile": "ApprovedRevsHooks::onImagePageFindFile",
 		"FileDeleteComplete": "ApprovedRevsHooks::onFileDeleteComplete",
-		"wgQueryPages": "ApprovedRevsHooks::onwgQueryPages"
+		"wgQueryPages": "ApprovedRevsHooks::onwgQueryPages",
+		"MpdfGetArticle": "ApprovedRevsHooks::onMpdfGetArticle"
 	},
 	"config": {
 		"_prefix": "eg",
