@@ -126,6 +126,11 @@ $specialPageAliases['nl'] = [
 	'ApprovedRevs' => [ 'GoedgekeurdePaginas', 'GoedgekeurdePagina\'s' ],
 ];
 
+/** Polish (Polski) */
+$specialPageAliases['pl'] = [
+	'ApprovedRevs' => [ 'Zatwierdzone_wersje', 'Zatwierdzone_strony', 'Niezatwierdzone_strony' ],
+];
+
 /** Brazilian Portuguese (português do Brasil) */
 $specialPageAliases['pt-br'] = [
 	'ApprovedRevs' => [ 'Revisões_aprovadas', 'Páginas_aprovadas', 'Páginas_desaprovadas' ],
