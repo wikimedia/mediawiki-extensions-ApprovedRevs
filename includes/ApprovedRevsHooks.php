@@ -942,7 +942,7 @@ class ApprovedRevsHooks {
 			$mw_hide = MagicWord::get( 'MAG_APPROVEDREVS' );
 		}
 		if ( $mw_hide->matchAndRemove( $text ) ) {
-			$parser->mOutput->setProperty( 'approvedrevs', 'y' );
+			$parser->getOutput()->setProperty( 'approvedrevs', 'y' );
 		}
 		return true;
 	}
