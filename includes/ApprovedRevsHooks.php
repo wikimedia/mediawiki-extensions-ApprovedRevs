@@ -52,6 +52,13 @@ class ApprovedRevsHooks {
 			$wgHooks['PageContentSaveComplete'][] = 'ApprovedRevsHooks::setLatestAsApprovedOld';
 			$wgHooks['PageContentSaveComplete'][] = 'ApprovedRevsHooks::setSearchTextOld';
 		}
+		if ( interface_exists( MediaWiki\Hook\BeforeParserFetchTemplateRevisionRecordHook::class ) ) {
+			// MW 1.36+
+			$wgHooks['BeforeParserFetchTemplateRevisionRecord'][] = 'ApprovedRevsHooks::setTranscludedPageRev';
+		} else {
+			// MW < 1.36
+			$wgHooks['BeforeParserFetchTemplateAndtitle'][] = 'ApprovedRevsHooks::setTranscludedPageRevOld';
+		}
 	}
 
 	public static function userRevsApprovedAutomatically( User $user, Title $title ) {
@@ -882,14 +889,24 @@ class ApprovedRevsHooks {
 		return true;
 	}
 
+	public static function setTranscludedPageRevOld( $parser, $title, &$skip, &$id ) {
+		$revisionID = ApprovedRevs::getApprovedRevID( $title );
+		if ( !empty( $revisionID ) ) {
+			$id = $revisionID;
+		}
+		return true;
+	}
+
 	/**
 	 * Use the approved revision, if it exists, for templates and other
 	 * transcluded pages.
 	 */
-	public static function setTranscludedPageRev( $parser, $title, &$skip, &$id ) {
+	public static function setTranscludedPageRev( $contextTitle, $titleTarget, &$skip, &$revRecord ) {
+		$title = Title::castFromLinkTarget( $titleTarget );
 		$revisionID = ApprovedRevs::getApprovedRevID( $title );
 		if ( !empty( $revisionID ) ) {
-			$id = $revisionID;
+			$revLookup = MediaWikiServices::getInstance()->getRevisionLookup();
+			$revRecord = $revLookup->getRevisionById( $revisionID );
 		}
 		return true;
 	}
