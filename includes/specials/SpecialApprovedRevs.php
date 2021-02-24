@@ -44,7 +44,10 @@ class SpecialApprovedRevs extends QueryPage {
 		return false;
 	}
 
-	protected function getPageHeader() {
+	/**
+	 * Change this to "protected" once support for MW < 1.35 is dropped.
+	 */
+	public function getPageHeader() {
 		global $egApprovedRevsEnabledNamespaces;
 
 		// Show the page approval links, with the one
@@ -99,14 +102,19 @@ class SpecialApprovedRevs extends QueryPage {
 	/**
 	 * Set parameters for standard navigation links.
 	 * i.e. Applies mode to next/prev links when paging through list, etc.
+	 *
+	 * Change this to "protected" once support for MW < 1.35 is dropped.
 	 */
-	protected function linkParameters() {
+	public function linkParameters() {
 		// Optionally could validate $this->mMode against the two
 		// link arrays.
 		return $this->mMode == '' ? [] : [ 'show' => $this->mMode ];
 	}
 
-	private function getPageFooter() {
+	/**
+	 * Change this to "private" once support for MW < 1.35 is dropped.
+	 */
+	public function getPageFooter() {
 	}
 
 	public static function getNsConditionPart( $ns ) {
@@ -126,19 +134,31 @@ class SpecialApprovedRevs extends QueryPage {
 		}
 	}
 
-	protected function getOrder() {
+	/**
+	 * Change this to "protected" once support for MW < 1.35 is dropped.
+	 */
+	public function getOrder() {
 		return ' ORDER BY p.page_namespace, p.page_title ASC';
 	}
 
-	protected function getOrderFields() {
+	/**
+	 * Change this to "protected" once support for MW < 1.35 is dropped.
+	 */
+	public function getOrderFields() {
 		return [ 'p.page_namespace', 'p.page_title' ];
 	}
 
-	protected function sortDescending() {
+	/**
+	 * Change this to "protected" once support for MW < 1.35 is dropped.
+	 */
+	public function sortDescending() {
 		return false;
 	}
 
-	protected function formatResult( $skin, $result ) {
+	/**
+	 * Change this to "protected" once support for MW < 1.35 is dropped.
+	 */
+	public function formatResult( $skin, $result ) {
 		// SQL for page revision approvals versus file revision approvals is
 		// significantly different. Easier to follow if broken into two functions.
 		if ( in_array(
