@@ -7,6 +7,7 @@
 			"Pols12",
 			"Sherbrooke",
 			"Thibaut120094",
+			"Verdy p",
 			"Wladek92"
 		]
 	},
@@ -40,6 +41,7 @@
 	"approvedrevs-approvelatest": "approuver la plus récente",
 	"approvedrevs-approvethisrev": "Approuver cette révision.",
 	"approvedrevs-viewlatestrev": "Voir la dernière révision.",
+	"approvedrevs-revision-nav": "($1) $2{{int:pipe-separator}}$3 ($4){{int:pipe-separator}}$5 ($6){{int:pipe-separator}}$7 ($8)",
 	"approvedrevs-approvedrevision": "Accepter la révision",
 	"action-approverevisions": "marquer une révision donnée d’une page wiki comme étant approuvée",
 	"right-approverevisions": "Marquer une révision précise d’une page comme approuvée",
