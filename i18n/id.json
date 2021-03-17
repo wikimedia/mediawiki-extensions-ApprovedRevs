@@ -4,6 +4,7 @@
 			"Akmaie Ajam",
 			"Diki Ananta",
 			"Farras",
+			"Hidayatsrf",
 			"IvanLanin",
 			"Kenrick95",
 			"Rv77ax",
@@ -41,5 +42,6 @@
 	"action-approverevisions": "tetapkan revisi tertentu dari sebuah halaman wiki sebagai disetujui",
 	"right-approverevisions": "Tetapkan revisi tertentu dari halaman wiki sebagai disetujui",
 	"action-viewlinktolatest": "lihat penjelasan di atas halaman yang memiliki revisi disetujui",
-	"right-viewlinktolatest": "Lihat penjelasan di atas halaman yang memiliki revisi disetujui"
+	"right-viewlinktolatest": "Lihat penjelasan di atas halaman yang memiliki revisi disetujui",
+	"approvedrevs-latestfile": "Berkas terkini"
 }
