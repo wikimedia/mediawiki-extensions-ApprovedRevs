@@ -580,6 +580,11 @@ class ApprovedRevs {
 	public static function unsetApproval( $title, User $user ) {
 		global $egApprovedRevsBlankIfUnapproved;
 
+		// Make sure the page actually has an approved revision.
+		if ( self::getApprovedRevID( $title ) == null ) {
+			return;
+		}
+
 		self::deleteRevisionApproval( $title );
 
 		$content = self::getContent( $title );
