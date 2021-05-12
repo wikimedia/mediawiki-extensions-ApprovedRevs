@@ -111,5 +111,5 @@ class ApproveAllPages extends Maintenance {
 
 }
 
-$maintClass = "ApproveAllPages";
+$maintClass = ApproveAllPages::class;
 require_once RUN_MAINTENANCE_IF_MAIN;
