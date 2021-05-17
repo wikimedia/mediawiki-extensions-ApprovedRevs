@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Mainframe98",
+			"Nickthijssen1994",
 			"SPQRobin",
 			"Siebrand",
 			"Xbaked potatox"
@@ -27,6 +28,7 @@
 	"approvedrevs-approvedpages": "Alle pagina's met een goedgekeurde versie",
 	"approvedrevs-notlatestpages": "Pagina's waarvan de goedgekeurde versie niet de laatste versie is",
 	"approvedrevs-unapprovedpages": "Niet-goedgekeurde pagina's",
+	"approvedrevs-invalidpages": "Pagina's met ongeldige goedkeuringen",
 	"approvedrevs-view": "Toon een lijst van:",
 	"approvedrevs-revisionnumber": "versie $1",
 	"approvedrevs-uploaddate": "Uploaden van $1",
@@ -36,8 +38,10 @@
 	"approvedrevs-approvethisrev": "Deze versie goedkeuren",
 	"approvedrevs-viewlatestrev": "Laatste versie bekijken",
 	"approvedrevs-approvedrevision": "Goedgekeurde versie",
+	"action-approverevisions": "een bepaalde revisie van een wiki pagina als goedgekeurd te markeren",
 	"right-approverevisions": "Een versie van een wikipagina markeren als goedgekeurd.",
 	"right-viewlinktolatest": "De verklarende tekst bovenaan pagina's zien die die een goedgekeurde versie hebben",
+	"approvedrevs-invalidfiles": "Bestanden met ongeldige goedkeuringen",
 	"approvedrevs-approvedfiles": "Alle bestanden met een goedgekeurde versie",
 	"approvedrevs-unapprovedfiles": "Niet-goedgekeurde bestanden",
 	"approvedrevs-approvedfile": "Goedgekeurd bestand",
