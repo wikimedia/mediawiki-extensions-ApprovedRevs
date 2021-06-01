@@ -1318,17 +1318,18 @@ class ApprovedRevsHooks {
 		list( $approvedRevTimestamp, $approvedRevSha1 ) =
 			ApprovedRevs::getApprovedFileInfo( $fileTitle );
 
-		// no valid approved timestamp or sha1, so don't modify image
-		// or image link
+		// No approved version of this file - just exit here, and
+		// possibly make it look like the file doesn't exist.
 		if ( ( !$approvedRevTimestamp ) || ( !$approvedRevSha1 ) ) {
+			global $egApprovedRevsBlankFileIfUnapproved;
+			if ( $egApprovedRevsBlankFileIfUnapproved ) {
+				$options['broken'] = true;
+			}
 			return true;
 		}
 
 		$options['time'] = wfTimestampOrNull( TS_MW, $approvedRevTimestamp );
 		$options['sha1'] = $approvedRevSha1;
-
-		// breaks the link? was in FlaggedRevs...why would we want to do this?
-		// $options['broken'] = true;
 
 		# Stabilize the file link
 		if ( $query != '' ) {

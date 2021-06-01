@@ -135,6 +135,7 @@
 		},
 		"ApprovedRevsSelfOwnedNamespaces": [],
 		"ApprovedRevsBlankIfUnapproved": false,
+		"ApprovedRevsBlankFileIfUnapproved": false,
 		"ApprovedRevsAutomaticApprovals": true,
 		"ApprovedRevsShowApproveLatest": false,
 		"ApprovedRevsShowNotApprovedMessage": false
