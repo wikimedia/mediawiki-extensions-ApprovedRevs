@@ -62,8 +62,13 @@ class ApprovedRevsHooks {
 	}
 
 	public static function userRevsApprovedAutomatically( User $user, Title $title ) {
-		global $egApprovedRevsAutomaticApprovals;
-		return ( ApprovedRevs::userCanApprove( $user, $title ) && $egApprovedRevsAutomaticApprovals );
+		global $egApprovedRevsAutomaticApprovals, $egApprovedRevsFileAutomaticApprovals;
+		if ( $title->getNamespace() == NS_FILE ) {
+			$automaticApproval = $egApprovedRevsFileAutomaticApprovals;
+		} else {
+			$automaticApproval = $egApprovedRevsAutomaticApprovals;
+		}
+		return ( ApprovedRevs::userCanApprove( $user, $title ) && $automaticApproval );
 	}
 
 	/**
@@ -181,6 +186,11 @@ class ApprovedRevsHooks {
 			return true;
 		}
 
+		if ( $title->getNamespace() == NS_FILE ) {
+			self::setOriginalFileRevAsApproved( $user, $title );
+			return true;
+		}
+
 		if ( !ApprovedRevs::pageIsApprovable( $title ) ) {
 			return true;
 		}
@@ -223,6 +233,11 @@ class ApprovedRevsHooks {
 			return true;
 		}
 
+		if ( $title->getNamespace() == NS_FILE ) {
+			self::setOriginalFileRevAsApproved( $user, $title );
+			return true;
+		}
+
 		if ( !ApprovedRevs::pageIsApprovable( $title ) ) {
 			return true;
 		}
@@ -237,6 +252,59 @@ class ApprovedRevsHooks {
 
 		// Save approval without logging.
 		ApprovedRevs::saveApprovedRevIDInDB( $title, $revisionRecord->getID(), $user, true );
+		return true;
+	}
+
+	/**
+	 * This method will actually work no matter how many revisions a file has,
+	 * but in practice it's only called when the first revision is created.
+	 */
+	public static function setOriginalFileRevAsApproved( $user, $title ) {
+		global $wgLocalFileRepo, $wgWikimediaJenkinsCI;
+
+		$fileRepo = new LocalRepo( $wgLocalFileRepo );
+		$file = LocalFile::newFromTitle( $title, $fileRepo );
+		if ( $file->getTimestamp() == '' ) {
+			// Probably a page in the "File:" namespace was created,
+			// with no corresponding file upload.
+			return;
+		}
+
+		// For some reason the actual save doesn't work with Jenkins testing...
+		if ( isset( $wgWikimediaJenkinsCI ) && $wgWikimediaJenkinsCI ) {
+			return;
+		}
+
+		ApprovedRevs::setApprovedFileInDB(
+			$title, $file->getTimestamp(), $file->getSha1(), $user
+		);
+	}
+
+	/**
+	 * Hook: UploadComplete
+	 *
+	 * Automatically approve a revision of a file, other than the first
+	 * one, if the permissions for it are set.
+	 */
+	public static function setLatestFileRevAsApproved( UploadBase $image ) {
+		$user = RequestContext::getMain()->getUser();
+		$file = $image->getLocalFile();
+		$title = $file->getTitle();
+
+		// A newly-uploaded file will still have an article ID of 0 -
+		// ignore it. (It will get handled by the PageSaveComplete,
+		// or PageContentSaveComplete, hook anyway.)
+		if ( $title->getArticleID() == 0 ) {
+			return true;
+		}
+
+		if ( !self::userRevsApprovedAutomatically( $user, $title ) ) {
+			return true;
+		}
+		ApprovedRevs::setApprovedFileInDB(
+			$title, $file->getTimestamp(), $file->getSha1(), $user
+		);
+
 		return true;
 	}
 
@@ -1222,11 +1290,11 @@ class ApprovedRevsHooks {
 	}
 
 	/**
-	 *  On image pages (pages in NS_FILE), modify each line in the file history
-	 *  (file history, not history of wikitext on file page). Add
-	 *  "approved-revision" class to the appropriate row. For users with
-	 *  approve permissions on this page add "approve" and "unapprove" links as
-	 *  required.
+	 * On image pages (pages in NS_FILE), modify each line in the file history
+	 * (file history, not history of wikitext on file page). Add
+	 * "approved-revision" class to the appropriate row. For users with
+	 * approve permissions on this page add "approve" and "unapprove" links as
+	 * required.
 	 */
 	public static function onImagePageFileHistoryLine( $hist, $file, &$s, &$rowClass ) {
 		$fileTitle = $file->getTitle();
@@ -1287,11 +1355,11 @@ class ApprovedRevsHooks {
 	}
 
 	/**
-	 *  Called by BeforeParserFetchFileAndTitle hook. Changes links and
-	 *  thumbnails of files to point to the approved revision in all
-	 *  cases except the primary file on file pages (e.g. the big
-	 *  image in the top left on File:My File.png). To modify that
-	 *  image see self::onImagePageFindFile()
+	 * Called by BeforeParserFetchFileAndTitle hook. Changes links and
+	 * thumbnails of files to point to the approved revision in all
+	 * cases except the primary file on file pages (e.g. the big
+	 * image in the top left on File:My File.png). To modify that
+	 * image see self::onImagePageFindFile()
 	 */
 	public static function modifyFileLinks( $parser, Title $fileTitle, &$options, &$query ) {
 		if ( $fileTitle->getNamespace() == NS_MEDIA ) {
@@ -1343,8 +1411,8 @@ class ApprovedRevsHooks {
 	}
 
 	/**
-	 *  Applicable on image pages only, this changes the primary image
-	 *  on the page from the most recent to the approved revision.
+	 * Applicable on image pages only, this changes the primary image
+	 * on the page from the most recent to the approved revision.
 	 */
 	public static function onImagePageFindFile( $imagePage, &$normalFile, &$displayFile ) {
 		list( $approvedRevTimestamp, $approvedRevSha1 ) =
@@ -1386,9 +1454,9 @@ class ApprovedRevsHooks {
 	}
 
 	/**
-	 *  If a file is deleted, check if the sha1 (and timestamp?) exist in the
-	 *  approved_revs_files table, and delete that row accordingly. A deleted
-	 *  version of a file should not be the approved version!
+	 * If a file is deleted, check if the sha1 (and timestamp?) exist in the
+	 * approved_revs_files table, and delete that row accordingly. A deleted
+	 * version of a file should not be the approved version!
 	 */
 	public static function onFileDeleteComplete( File $file, $oldimage, $article, $user, $reason ) {
 		$dbr = wfGetDB( DB_REPLICA );
@@ -1401,7 +1469,7 @@ class ApprovedRevsHooks {
 		);
 
 		// If an approved revision exists, loop through all files in
-		// history.  Since this hook happens AFTER deletion (there is
+		// history. Since this hook happens AFTER deletion (there is
 		// no hook before deletion), check to see if the sha1 of the
 		// approved revision is NOT in the history. If it is not in
 		// the history, then it has no business being in the

@@ -116,6 +116,7 @@
 		],
 		"OutputPageBodyAttributes": "ApprovedRevsHooks::addBodyClass",
 		"ImagePageFileHistoryLine": "ApprovedRevsHooks::onImagePageFileHistoryLine",
+		"UploadComplete": "ApprovedRevsHooks::setLatestFileRevAsApproved",
 		"BeforeParserFetchFileAndTitle": "ApprovedRevsHooks::modifyFileLinks",
 		"ImagePageFindFile": "ApprovedRevsHooks::onImagePageFindFile",
 		"FileDeleteComplete": "ApprovedRevsHooks::onFileDeleteComplete",
@@ -137,6 +138,7 @@
 		"ApprovedRevsBlankIfUnapproved": false,
 		"ApprovedRevsBlankFileIfUnapproved": false,
 		"ApprovedRevsAutomaticApprovals": true,
+		"ApprovedRevsFileAutomaticApprovals": true,
 		"ApprovedRevsShowApproveLatest": false,
 		"ApprovedRevsShowNotApprovedMessage": false
 	},
