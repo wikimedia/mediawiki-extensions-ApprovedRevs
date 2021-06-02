@@ -496,7 +496,8 @@ class ApprovedRevsHooks {
 
 		$timestamp = $revision->getTimestamp();
 
-		$latestID = $article->getLatest(); // Modified for Approved Revs
+		$wikiPage = $article->getPage();
+		$latestID = $wikiPage->getLatest();
 		$current = ( $revisionID == $latestID );
 		$approvedID = ApprovedRevs::getApprovedRevID( $title );
 		$language = $context->getLanguage();
