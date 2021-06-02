@@ -35,7 +35,6 @@ class ARApproveFileAction extends Action {
 			throw new MWException( 'Setting a file revision as approved requires timestamp and sha1' );
 		}
 
-		$revisionID = $request->getVal( 'ts' );
 		ApprovedRevs::setApprovedFileInDB(
 			$title, $request->getVal( 'ts' ), $request->getVal( 'sha1' ), $this->getUser()
 		);
