@@ -51,8 +51,14 @@ class ARUnapproveAction extends Action {
 		) . "\n" );
 
 		// Show the revision.
-		$this->page->doPurge();
-		$this->page->view();
+		if ( method_exists( $this, 'getWikiPage' ) ) {
+			// MW 1.35+
+			$this->getWikiPage()->doPurge();
+			$this->getArticle()->view();
+		} else {
+			$this->page->doPurge();
+			$this->page->view();
+		}
 	}
 
 }

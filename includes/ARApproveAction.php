@@ -49,12 +49,16 @@ class ARApproveAction extends Action {
 			[ 'style' => 'clear: both' ]
 		) . "\n" );
 
-		// Seems to be needed when the latest version is approved -
-		// at least when the Cargo extension is being used.
-		$this->page->doPurge();
-
-		// Show the revision.
-				$this->page->view();
+		// The purge seems to be needed when the latest version is
+		// approved - at least when the Cargo extension is being used.
+		if ( method_exists( $this, 'getWikiPage' ) ) {
+			// MW 1.35+
+			$this->getWikiPage()->doPurge();
+			$this->getArticle()->view();
+		} else {
+			$this->page->doPurge();
+			$this->page->view();
+		}
 	}
 
 }

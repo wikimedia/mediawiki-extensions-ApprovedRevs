@@ -50,9 +50,15 @@ class ARApproveFileAction extends Action {
 			[ 'style' => 'clear: both' ]
 		) . "\n" );
 
-		// show the revision, instead of the history page
-		$this->page->doPurge();
-		$this->page->view();
+		// Show the revision, instead of the history page.
+		if ( method_exists( $this, 'getWikiPage' ) ) {
+			// MW 1.35+
+			$this->getWikiPage()->doPurge();
+			$this->getArticle()->view();
+		} else {
+			$this->page->doPurge();
+			$this->page->view();
+		}
 	}
 
 }
