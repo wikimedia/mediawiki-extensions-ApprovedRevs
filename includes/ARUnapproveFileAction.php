@@ -50,7 +50,7 @@ class ARUnapproveFileAction extends Action {
 		) . "\n" );
 
 		// show the revision, instead of the history page
-		$this->page->doPurge();
+		$this->getWikiPage()->doPurge();
 		$this->page->view();
 	}
 

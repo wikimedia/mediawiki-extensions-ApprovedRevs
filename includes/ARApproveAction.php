@@ -51,10 +51,10 @@ class ARApproveAction extends Action {
 
 		// Seems to be needed when the latest version is approved -
 		// at least when the Cargo extension is being used.
-		$this->page->doPurge();
+		$this->getWikiPage()->doPurge();
 
 		// Show the revision.
-				$this->page->view();
+		$this->page->view();
 	}
 
 }
