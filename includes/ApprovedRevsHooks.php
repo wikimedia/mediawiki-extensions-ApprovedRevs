@@ -719,7 +719,7 @@ class ApprovedRevsHooks {
 			// disable caching, to avoid the wiki getting the
 			// contents from the cache, and thus getting the
 			// approved contents instead.
-			if ( $revisionID == $article->getLatest() ) {
+			if ( $revisionID == $article->getPage()->getLatest() ) {
 				global $wgEnableParserCache;
 				$wgEnableParserCache = false;
 			}
@@ -733,7 +733,7 @@ class ApprovedRevsHooks {
 
 		$user = $context->getUser();
 		if ( ApprovedRevs::checkPermission( $user, $title, "viewlinktolatest" ) ) {
-			if ( $revisionID == $article->getLatest() ) {
+			if ( $revisionID == $article->getPage()->getLatest() ) {
 				$text .= Xml::element(
 					'span',
 					[ 'class' => 'approvedAndLatestMsg' ],
