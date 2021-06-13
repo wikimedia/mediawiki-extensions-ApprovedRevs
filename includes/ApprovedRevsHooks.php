@@ -679,7 +679,7 @@ class ApprovedRevsHooks {
 					$title,
 					wfMessage( 'approvedrevs-viewlatestrev' )->parse(),
 					[],
-					[ 'oldid' => $article->getLatest() ]
+					[ 'oldid' => $article->getPage()->getLatest() ]
 				);
 
 				$text = Xml::tags(
