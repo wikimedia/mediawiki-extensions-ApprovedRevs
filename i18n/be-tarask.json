@@ -3,6 +3,7 @@
 		"authors": [
 			"EugeneZelenko",
 			"Jim-by",
+			"Nerogaf",
 			"Red Winged Duck",
 			"Wizardist"
 		]
@@ -44,6 +45,7 @@
 	"right-viewlinktolatest": "прагляд тлумачальнага тэксту ў версе старонак, якія маюць зацьверджаныя вэрсіі",
 	"action-viewapprover": "прагляд тэксту, які паказвае, хто зацьвердзіў цяперашнюю вэрсію",
 	"right-viewapprover": "Прагляд тэксту, які паказвае, хто зацьвердзіў цяперашнюю зацьверджаную вэрсію",
+	"grant-group-approvedrevs": "Ўхваліць і не ўхваліць зьмены праз пашырэньне УхваленыяРэвс",
 	"approvedrevs-invalidfiles": "Файлы зь няслушнымі ўхваленьнямі",
 	"approvedrevs-approvedfiles": "Усе файлы з зацьверджанымі вэрсіямі",
 	"approvedrevs-notlatestfiles": "Файлы, зацьверджаныя вэрсіі якіх не зьяўляюцца апошнімі",
