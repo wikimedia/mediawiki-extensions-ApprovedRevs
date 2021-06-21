@@ -542,7 +542,6 @@ class ApprovedRevsHooks {
 	public static function setOldSubtitle( $article, $revisionID ) {
 		$title = $article->getTitle(); # Added for ApprovedRevs - and removed hook
 		$context = $article->getContext();
-		$revisionLookup = MediaWikiServices::getInstance()->getRevisionLookup();
 
 		$unhide = $context->getRequest()->getInt( 'unhide' ) == 1;
 
@@ -552,15 +551,9 @@ class ApprovedRevsHooks {
 			$extraParams['unhide'] = 1;
 		}
 
-		if ( method_exists( 'MediaWikiServices', 'getRevisionLookup' ) ) {
-			// MW 1.31+
-			$revisionRecord = $revisionLookup->getRevisionById( $revisionID );
-			$revision = new Revision( $revisionRecord );
-		} elseif ( $article->mRevision && $article->mRevision->getId() === $revisionID ) {
-			$revision = $article->mRevision;
-		} else {
-			$revision = Revision::newFromId( $revisionID );
-		}
+		$revisionLookup = MediaWikiServices::getInstance()->getRevisionLookup();
+		$revisionRecord = $revisionLookup->getRevisionById( $revisionID );
+		$revision = new Revision( $revisionRecord );
 
 		$timestamp = $revision->getTimestamp();
 
