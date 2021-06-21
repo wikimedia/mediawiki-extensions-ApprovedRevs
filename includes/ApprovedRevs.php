@@ -472,9 +472,16 @@ class ApprovedRevs {
 		);
 		if ( $result !== false ) {
 
+			if ( method_exists( MediaWikiServices::class, 'getUserGroupManager' ) ) {
+				// MW 1.35+
+				$groups = MediaWikiServices::getInstance()->getUserGroupManager()
+					->getUserGroups( $user );
+			} else {
+				$groups = $user->getGroups();
+			}
 			// intersect groups that can approve with user's group
 			$userGroupsWithApprove = array_intersect(
-				explode( ',', $result ), $user->getGroups()
+				explode( ',', $result ), $groups
 			);
 
 			// if user has any groups in list of approver groups, allow approval
