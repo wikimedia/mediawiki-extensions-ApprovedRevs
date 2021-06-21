@@ -59,6 +59,13 @@ class ApprovedRevsHooks {
 			// MW < 1.36
 			$wgHooks['BeforeParserFetchTemplateAndtitle'][] = 'ApprovedRevsHooks::setTranscludedPageRevOld';
 		}
+
+		if ( method_exists( 'MediaWiki\HookContainer\HookRunner', 'onDiffTools' ) ) {
+			// MW 1.35+
+			$wgHooks['DiffTools'][] = 'ApprovedRevsHooks::addApprovalDiffLink';
+		} else {
+			$wgHooks['DiffRevisionTools'][] = 'ApprovedRevsHooks::addApprovalDiffLinkOld';
+		}
 	}
 
 	public static function userRevsApprovedAutomatically( User $user, Title $title ) {
@@ -422,7 +429,12 @@ class ApprovedRevsHooks {
 			// causes $article->mRevision to get initialized,
 			// which in turn allows "edit section" links to show
 			// up if the approved revision is also the latest.
-			$article->getRevisionFetched();
+			if ( is_callable( [ $article, 'fetchRevisionRecord' ] ) ) {
+				// This method became public in MW 1.35.
+				$article->fetchRevisionRecord();
+			} else {
+				$article->getRevisionFetched();
+			}
 		}
 		return true;
 	}
@@ -553,9 +565,7 @@ class ApprovedRevsHooks {
 
 		$revisionLookup = MediaWikiServices::getInstance()->getRevisionLookup();
 		$revisionRecord = $revisionLookup->getRevisionById( $revisionID );
-		$revision = new Revision( $revisionRecord );
-
-		$timestamp = $revision->getTimestamp();
+		$timestamp = $revisionRecord->getTimestamp();
 
 		$wikiPage = $article->getPage();
 		$latestID = $wikiPage->getLatest();
@@ -570,18 +580,20 @@ class ApprovedRevsHooks {
 
 		// Show the user links if they're allowed to see them.
 		// If hidden, then show them only if requested...
-		$userlinks = Linker::revUserTools( $revision, !$unhide );
+		$userlinks = Linker::revUserTools( $revisionRecord, !$unhide );
 
 		$infomsg = $current && !wfMessage( 'revision-info-current' )->isDisabled()
 			? 'revision-info-current'
 			: 'revision-info';
 
 		$outputPage = $context->getOutput();
+		$revUser = $revisionRecord->getUser();
+		$userText = $revUser ? $revUser->getName() : '';
 		$revisionInfo = "<div id=\"mw-{$infomsg}\">" .
 			$context->msg( $infomsg, $td )
 				->rawParams( $userlinks )
-				->params( $revision->getId(), $tddate, $tdtime, $revision->getUserText() )
-				->rawParams( Linker::revComment( $revision, true, true ) )
+				->params( $revisionID, $tddate, $tdtime, $userText )
+				->rawParams( Linker::revComment( $revisionRecord, true, true ) )
 				->parse() .
 			"</div>";
 		$outputPage->addSubtitle( $revisionInfo );
@@ -611,7 +623,6 @@ class ApprovedRevsHooks {
 					'oldid' => $revisionID
 				] + $extraParams
 			);
-		$revisionRecord = $revisionLookup->getRevisionById( $revisionID );
 		$prev = $revisionLookup->getPreviousRevision( $revisionRecord );
 		$prevlink = $prev
 			? $linkRenderer->makeLink(
@@ -680,7 +691,7 @@ class ApprovedRevsHooks {
 				] + $extraParams
 			);
 
-		$cdel = Linker::getRevDeleteLink( $user, $revision, $title );
+		$cdel = Linker::getRevDeleteLink( $user, $revisionRecord, $title );
 		if ( $cdel !== '' ) {
 			$cdel .= ' ';
 		}
@@ -923,7 +934,7 @@ class ApprovedRevsHooks {
 	 * 'approve' link to the diff revision page when comparing to
 	 * previously approved revision.
 	 */
-	public static function addApprovalDiffLink( $rev, &$links, $oldRev, $user ) {
+	public static function addApprovalDiffLinkOld( $rev, &$links, $oldRev, $user ) {
 		$title = $rev->getTitle();
 
 		if ( !ApprovedRevs::pageIsApprovable( $title ) ) {
@@ -941,6 +952,34 @@ class ApprovedRevsHooks {
 					'href' => $title->getLocalUrl( [
 						'action' => 'approve',
 						'oldid' => $rev->getId()
+					] ),
+					'class' => 'ext-approved-revs-approval-link',
+					'title' => wfMessage( 'approvedrevs-approvethisrev' )->text()
+				],
+				wfMessage( 'approvedrevs-approve' )->text()
+			);
+		}
+		return true;
+	}
+
+	public static function addApprovalDiffLink( MediaWiki\Revision\RevisionRecord $newRevision, array &$links, ?MediaWiki\Revision\RevisionRecord $prevRevision, MediaWiki\User\UserIdentity $userIdentity ) {
+		$title = Title::castFromPageIdentity( $newRevision->getPage() );
+
+		if ( !ApprovedRevs::pageIsApprovable( $title ) ) {
+			return true;
+		}
+
+		$approvedRevID = ApprovedRevs::getApprovedRevID( $title );
+
+		if ( ApprovedRevs::userCanApprove( $userIdentity, $title ) && $prevRevision->getID() == $approvedRevID ) {
+			// array key is class applied to <span> wrapping around link
+			// default if blank is mw-diff-tool; add that along with extension-specific class
+			$links['mw-diff-tool ext-approved-revs-approval-span'] = HTML::element(
+				'a',
+				[
+					'href' => $title->getLocalUrl( [
+						'action' => 'approve',
+						'oldid' => $newRevision->getId()
 					] ),
 					'class' => 'ext-approved-revs-approval-link',
 					'title' => wfMessage( 'approvedrevs-approvethisrev' )->text()

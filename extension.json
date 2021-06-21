@@ -100,7 +100,6 @@
 		"SkinTemplateNavigation": "ApprovedRevsHooks::changeEditLink",
 		"PageHistoryBeforeList": "ApprovedRevsHooks::storeApprovedRevisionForHistoryPage",
 		"PageHistoryLineEnding": "ApprovedRevsHooks::addApprovalLink",
-		"DiffRevisionTools": "ApprovedRevsHooks::addApprovalDiffLink",
 		"ArticleDeleteComplete": "ApprovedRevsHooks::deleteRevisionApproval",
 		"MagicWordwgVariableIDs": "ApprovedRevsHooks::addMagicWordVariableIDs",
 		"ParserAfterTidy": "ApprovedRevsHooks::handleMagicWords",

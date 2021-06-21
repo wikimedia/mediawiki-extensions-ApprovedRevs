@@ -534,7 +534,7 @@ class ApprovedRevs {
 
 		self::saveApprovedRevIDInDB( $title, $rev_id, $user, false );
 
-		$content = Revision::newFromTitle( $title, $rev_id )->getContent();
+		$content = self::getContent( $title, $rev_id );
 		$output = null;
 
 		// If the revision being approved is definitely the latest
