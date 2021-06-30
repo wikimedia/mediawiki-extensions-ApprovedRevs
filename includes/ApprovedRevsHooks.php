@@ -963,9 +963,9 @@ class ApprovedRevsHooks {
 	}
 
 	public static function addApprovalDiffLink( MediaWiki\Revision\RevisionRecord $newRevision, array &$links, ?MediaWiki\Revision\RevisionRecord $prevRevision, MediaWiki\User\UserIdentity $userIdentity ) {
-		$title = Title::castFromPageIdentity( $newRevision->getPage() );
+		$title = Title::castFromLinkTarget( $newRevision->getPageAsLinkTarget() );
 
-		if ( !ApprovedRevs::pageIsApprovable( $title ) ) {
+		if ( $title === null || !ApprovedRevs::pageIsApprovable( $title ) ) {
 			return true;
 		}
 
