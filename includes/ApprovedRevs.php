@@ -621,7 +621,7 @@ class ApprovedRevs {
 	}
 
 	public static function setApprovedFileInDB( $title, $timestamp, $sha1, User $user ) {
-		if ( method_exists( 'MediaWikiServices', 'getParserFactory' ) ) {
+		if ( method_exists( MediaWikiServices::class, 'getParserFactory' ) ) {
 			// MW 1.32+
 			$parser = MediaWikiServices::getInstance()->getParserFactory()->create();
 		} else {
@@ -687,7 +687,7 @@ class ApprovedRevs {
 	}
 
 	public static function unsetApprovedFileInDB( $title, User $user ) {
-		if ( method_exists( 'MediaWikiServices', 'getParserFactory' ) ) {
+		if ( method_exists( MediaWikiServices::class, 'getParserFactory' ) ) {
 			// MW 1.32+
 			$parser = MediaWikiServices::getInstance()->getParserFactory()->create();
 		} else {
