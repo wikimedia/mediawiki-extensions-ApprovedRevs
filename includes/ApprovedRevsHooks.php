@@ -1064,18 +1064,20 @@ class ApprovedRevsHooks {
 	 * Assign a value to our variable
 	 *
 	 * @param Parser $parser
-	 * @param array &$cache
+	 * @param array &$variableCache
 	 * @param string $magicWordId
 	 * @param string &$ret
 	 * @return bool
 	 */
-	public static function assignAValue( $parser, &$cache, $magicWordId, &$ret ) {
+	public static function assignAValue( $parser, &$variableCache, $magicWordId, &$ret ) {
 		if ( !in_array( $magicWordId, self::$mApprovalMagicWords ) ) {
 			return false;
 		}
 
 		$approvalInfo = ARParserFunctions::getApprovalInfo( $parser->getTitle() );
 		if ( $approvalInfo == null ) {
+			$variableCache[$magicWordId] = '';
+			$ret = '';
 			return true;
 		}
 		switch ( $magicWordId ) {
@@ -1099,6 +1101,8 @@ class ApprovedRevsHooks {
 			default:
 				return false;
 		}
+
+		$variableCache[$magicWordId] = $ret;
 		return true;
 	}
 
