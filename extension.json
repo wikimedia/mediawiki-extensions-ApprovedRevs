@@ -101,7 +101,6 @@
 		"PageHistoryBeforeList": "ApprovedRevsHooks::storeApprovedRevisionForHistoryPage",
 		"PageHistoryLineEnding": "ApprovedRevsHooks::addApprovalLink",
 		"ArticleDeleteComplete": "ApprovedRevsHooks::deleteRevisionApproval",
-		"MagicWordwgVariableIDs": "ApprovedRevsHooks::addMagicWordVariableIDs",
 		"ParserAfterTidy": "ApprovedRevsHooks::handleMagicWords",
 		"ParserGetVariableValueSwitch": "ApprovedRevsHooks::assignAValue",
 		"ParserFirstCallInit": "ApprovedRevsHooks::registerFunctions",

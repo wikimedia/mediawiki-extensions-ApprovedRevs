@@ -66,6 +66,12 @@ class ApprovedRevsHooks {
 		} else {
 			$wgHooks['DiffRevisionTools'][] = 'ApprovedRevsHooks::addApprovalDiffLinkOld';
 		}
+		if ( interface_exists( MediaWiki\Hook\GetMagicVariableIDsHook::class ) ) {
+			// MW 1.35+
+			$wgHooks['GetMagicVariableIDs'][] = 'ApprovedRevsHooks::addMagicWordVariableIDs';
+		} else {
+			$wgHooks['MagicWordwgVariableIDs'][] = 'ApprovedRevsHooks::addMagicWordVariableIDsOld';
+		}
 	}
 
 	public static function userRevsApprovedAutomatically( User $user, Title $title ) {
@@ -1025,6 +1031,12 @@ class ApprovedRevsHooks {
 	 * Register magic-word variable IDs
 	 */
 	public static function addMagicWordVariableIDs( &$magicWordVariableIDs ) {
+		$magicWordVariableIDs[] = 'MAG_APPROVEDREVS';
+		$magicWordVariableIDs = array_merge( $magicWordVariableIDs, self::$mApprovalMagicWords );
+		return true;
+	}
+
+	public static function addMagicWordVariableIDsOld( &$magicWordVariableIDs ) {
 		$magicWordVariableIDs[] = 'MAG_APPROVEDREVS';
 		$magicWordVariableIDs = array_merge( $magicWordVariableIDs, self::$mApprovalMagicWords );
 		return true;
