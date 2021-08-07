@@ -714,9 +714,16 @@ class ApprovedRevs {
 			$user
 		);
 
+		// Delete from the in-memory cache as well.
+		self::clearApprovedFileInfo( $title );
+
 		Hooks::run(
 			'ApprovedRevsFileRevisionUnapproved', [ $parser, $title ]
 		);
+	}
+
+	public static function clearApprovedFileInfo( Title $fileTitle ) {
+		unset( self::$mApprovedFileInfo[ $fileTitle->getDBkey() ] );
 	}
 
 	/**
