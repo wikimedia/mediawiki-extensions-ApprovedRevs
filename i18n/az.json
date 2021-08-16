@@ -6,7 +6,12 @@
 			"Vago"
 		]
 	},
+	"approvedrevs-desc": "Səhifənin tək bir versiyasını təsdiqlə",
+	"approvedrevs-logname": "Versiya təsdiq gündəliyi",
+	"approvedrevs-logdesc": "Bu təsdiqlənmiş versiyalar qeydləridir.",
 	"approvedrevs-approve": "təsdiq etmək",
+	"approvedrevs-approver": "Bu versiya $1 tərəfindən təsdiqlənib.",
 	"approvedrevs-unapprove": "təsdiq etmənin ləğvi",
+	"approvedrevs-approvesuccess": "Səhifənin bu versiyası təsdiqlənmiş olaraq təyin olunub.",
 	"approvedrevs-view": "Siyahısına baxın:"
 }
