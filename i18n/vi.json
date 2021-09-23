@@ -3,6 +3,7 @@
 		"authors": [
 			"Dinhxuanduyet",
 			"Minh Nguyen",
+			"NguoiDungKhongDinhDanh",
 			"Phjtieudoc"
 		]
 	},
@@ -21,6 +22,7 @@
 	"approvedrevs-unapprovedpages": "Trang chưa được chấp nhận",
 	"approvedrevs-view": "Xem danh sách:",
 	"approvedrevs-revisionnumber": "phiên bản $1",
+	"approvedrevs-uploaddate": "tải lên từ $1",
 	"approvedrevs-approvedby": "được $1 chấp nhận vào $2",
 	"approvedrevs-difffromlatest": "so với phiên bản hiện tại",
 	"approvedrevs-approvelatest": "chấp nhận mới nhất",
