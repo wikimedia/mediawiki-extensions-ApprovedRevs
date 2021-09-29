@@ -820,7 +820,7 @@ class ApprovedRevs {
 						'LEFT OUTER JOIN', 'p.page_id=ar.page_id'
 					],
 					'pp' => [
-						'LEFT OUTER JOIN', 'ar.page_id=pp_page'
+						'LEFT OUTER JOIN', 'p.page_id=pp_page'
 					],
 				],
 				'conds' => "ar.page_id IS NULL AND ( $mainCondsString )",
