@@ -51,7 +51,7 @@ class ARUnapproveAction extends Action {
 		) . "\n" );
 
 		// Show the revision.
-		$this->page->doPurge();
+		$this->getWikiPage()->doPurge();
 		$this->page->view();
 	}
 
