@@ -437,7 +437,15 @@ class ApprovedRevs {
 		);
 		if ( $result !== false ) {
 			// if user listed as an approver, allow approval
-			$approverUsers = array_map( 'User::getCanonicalName', explode( ',', $result ) );
+			if ( method_exists( 'MediaWiki\User\UserNameUtils', 'getCanonical' ) ) {
+				// MW 1.35+
+				$userNameUtils = MediaWikiServices::getInstance()->getUserNameUtils();
+				$approverUsers = array_map( static function ( $name ) use ( $userNameUtils ) {
+					return $userNameUtils->getCanonical( $name, UserNameUtils::RIGOR_USABLE );
+				}, explode( ',', $result ) );
+			} else {
+				$approverUsers = array_map( 'User::getCanonicalName', explode( ',', $result ) );
+			}
 			if ( in_array( $user->getName(), $approverUsers ) ) {
 				return true;
 			}
