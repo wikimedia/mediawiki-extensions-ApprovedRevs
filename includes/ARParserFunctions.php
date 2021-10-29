@@ -83,15 +83,15 @@ class ARParserFunctions {
 			return self::$mAllApprovalInfo[$pageID];
 		}
 
-		$dbw = wfGetDB( DB_REPLICA );
+		$dbr = wfGetDB( DB_REPLICA );
 
 		// There is no consistency between the structures of these two
 		// DB tables, unfortunately.
 		if ( $title->getNamespace() == NS_FILE ) {
 			$pageName = $title->getText();
-			$res = $dbw->select( 'approved_revs_files', [ 'approved_timestamp' ], [ 'file_title' => $pageName ] );
+			$res = $dbr->select( 'approved_revs_files', [ 'approved_timestamp' ], [ 'file_title' => $pageName ] );
 		} else {
-			$res = $dbw->select( 'approved_revs', [ 'approver_id', 'approval_date' ], [ 'page_id' => $pageID ] );
+			$res = $dbr->select( 'approved_revs', [ 'approver_id', 'approval_date' ], [ 'page_id' => $pageID ] );
 		}
 
 		if ( $res->numRows() == 0 ) {

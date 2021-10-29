@@ -505,14 +505,14 @@ class ApprovedRevs {
 			$approvalInfo['approver_id'] = $user->getID();
 		}
 
-		$dbr = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_MASTER );
 		$page_id = $title->getArticleID();
-		$old_rev_id = $dbr->selectField( 'approved_revs', 'rev_id', [ 'page_id' => $page_id ] );
+		$old_rev_id = $dbw->selectField( 'approved_revs', 'rev_id', [ 'page_id' => $page_id ] );
 		if ( $old_rev_id ) {
-			$dbr->update( 'approved_revs', $approvalInfo, [ 'page_id' => $page_id ] );
+			$dbw->update( 'approved_revs', $approvalInfo, [ 'page_id' => $page_id ] );
 		} else {
 			$approvalInfo['page_id'] = $page_id;
-			$dbr->insert( 'approved_revs',  $approvalInfo );
+			$dbw->insert( 'approved_revs',  $approvalInfo );
 		}
 		// Update "cache" in memory
 		self::$mApprovedRevIDForPage[$page_id] = $rev_id;
@@ -573,9 +573,9 @@ class ApprovedRevs {
 	}
 
 	public static function deleteRevisionApproval( $title ) {
-		$dbr = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_MASTER );
 		$page_id = $title->getArticleID();
-		$dbr->delete( 'approved_revs', [ 'page_id' => $page_id ] );
+		$dbw->delete( 'approved_revs', [ 'page_id' => $page_id ] );
 	}
 
 	/**
@@ -629,14 +629,14 @@ class ApprovedRevs {
 		}
 		$parser->setTitle( $title );
 
-		$dbr = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_MASTER );
 		$fileTitle = $title->getDBkey();
-		$oldFileTitle = $dbr->selectField(
+		$oldFileTitle = $dbw->selectField(
 			'approved_revs_files', 'file_title',
 			[ 'file_title' => $fileTitle ]
 		);
 		if ( $oldFileTitle ) {
-			$dbr->update( 'approved_revs_files',
+			$dbw->update( 'approved_revs_files',
 				[
 					'approved_timestamp' => $timestamp,
 					'approved_sha1' => $sha1
@@ -644,7 +644,7 @@ class ApprovedRevs {
 				[ 'file_title' => $fileTitle ]
 			);
 		} else {
-			$dbr->insert( 'approved_revs_files',
+			$dbw->insert( 'approved_revs_files',
 				[
 					'file_title' => $fileTitle,
 					'approved_timestamp' => $timestamp,
@@ -697,8 +697,8 @@ class ApprovedRevs {
 
 		$fileTitle = $title->getDBkey();
 
-		$dbr = wfGetDB( DB_MASTER );
-		$dbr->delete( 'approved_revs_files',
+		$dbw = wfGetDB( DB_MASTER );
+		$dbw->delete( 'approved_revs_files',
 			[ 'file_title' => $fileTitle ]
 		);
 		// the unapprove page method had LinksUpdate and Parser
