@@ -19,14 +19,6 @@ class ApprovedRevsHooks {
 	public static function registerExtension() {
 		global $wgHooks;
 
-		if ( class_exists( 'MediaWiki\Revision\SlotRenderingProvider' ) ) {
-			// MW 1.32+
-			$wgHooks['RevisionDataUpdates'][] = 'ApprovedRevsHooks::updateLinksAfterEdit';
-		} else {
-			// MW < 1.32
-			$wgHooks['SecondaryDataUpdates'][] = 'ApprovedRevsHooks::updateLinksAfterEditOld';
-		}
-
 		// The "ArticleRevisionViewCustom" hook was added to MediaWiki
 		// in August 2018, i.e. version 1.32. However, there was a bug
 		// in its implementation that was not fixed until October 2019,
@@ -142,29 +134,10 @@ class ApprovedRevsHooks {
 	}
 
 	/**
-	 * Hook: SecondaryDataUpdates
-	 *
-	 * Call LinksUpdate on the text of this page's approved revision,
-	 * if there is one.
-	 *
-	 * MW 1.25 - 1.31
-	 */
-	public static function updateLinksAfterEditOld( Title $title, /*Content*/ $oldContent, /*bool*/ $recursive, ParserOutput $parserOutput, &$updates ) {
-		$update = self::getUpdateForTitle( $title );
-		if ( $update !== null ) {
-			// Wipe out any existing updates.
-			$updates = [ $update ];
-		}
-		return true;
-	}
-
-	/**
 	 * Hook: RevisionDataUpdates
 	 *
 	 * Call LinksUpdate on the text of this page's approved revision,
 	 * if there is one.
-	 *
-	 * MW 1.32+
 	 */
 	public static function updateLinksAfterEdit( Title $title, \MediaWiki\Revision\RenderedRevision $renderedRevision, array &$updates ) {
 		$update = self::getUpdateForTitle( $title );
@@ -1047,13 +1020,8 @@ class ApprovedRevsHooks {
 	 * 'APPROVEDREVS' magic word in a page
 	 */
 	public static function handleMagicWords( &$parser, &$text ) {
-		if ( class_exists( MagicWordFactory::class ) ) {
-			// MW 1.32+
-			$factory = MediaWikiServices::getInstance()->getMagicWordFactory();
-			$mw_hide = $factory->get( 'MAG_APPROVEDREVS' );
-		} else {
-			$mw_hide = MagicWord::get( 'MAG_APPROVEDREVS' );
-		}
+		$factory = MediaWikiServices::getInstance()->getMagicWordFactory();
+		$mw_hide = $factory->get( 'MAG_APPROVEDREVS' );
 		if ( $mw_hide->matchAndRemove( $text ) ) {
 			$parser->getOutput()->setProperty( 'approvedrevs', 'y' );
 		}

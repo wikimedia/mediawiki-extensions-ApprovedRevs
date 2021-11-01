@@ -1,6 +1,6 @@
 {
 	"name": "Approved Revs",
-	"version": "1.6",
+	"version": "1.7-alpha",
 	"author": [
 		"Yaron Koren",
 		"..."
@@ -10,7 +10,7 @@
 	"license-name": "GPL-2.0-or-later",
 	"type": "hook",
 	"requires": {
-		"MediaWiki": ">= 1.31.0"
+		"MediaWiki": ">= 1.32.0"
 	},
 	"callback": "ApprovedRevsHooks::registerExtension",
 	"GroupPermissions": {
@@ -93,6 +93,7 @@
 		"unapprovefile": "ARUnapproveFileAction"
 	},
 	"Hooks": {
+		"RevisionDataUpdates": "ApprovedRevsHooks::updateLinksAfterEdit",
 		"SearchResultInitFromTitle": "ApprovedRevsHooks::setSearchRevisionID",
 		"PersonalUrls": "ApprovedRevsHooks::removeRobotsTag",
 		"ArticleFromTitle": "ApprovedRevsHooks::showApprovedRevision",

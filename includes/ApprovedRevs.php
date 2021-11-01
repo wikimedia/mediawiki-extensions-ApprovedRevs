@@ -105,15 +105,7 @@ class ApprovedRevs {
 
 	public static function getContent( $title, $revisionID = 0 ) {
 		$revisionRecord = MediaWikiServices::getInstance()->getRevisionLookup()->getRevisionByTitle( $title, $revisionID );
-		if ( class_exists( 'MediaWiki\Revision\SlotRecord' ) ) {
-			// MW 1.32+
-			$role = MediaWiki\Revision\SlotRecord::MAIN;
-		} else {
-			// MW 1.31
-			// There was no constant defined yet.
-			$role = 'main';
-		}
-		return $revisionRecord->getContent( $role );
+		return $revisionRecord->getContent( MediaWiki\Revision\SlotRecord::MAIN );
 	}
 
 	/**
@@ -614,12 +606,7 @@ class ApprovedRevs {
 	}
 
 	public static function setApprovedFileInDB( $title, $timestamp, $sha1, User $user ) {
-		if ( method_exists( MediaWikiServices::class, 'getParserFactory' ) ) {
-			// MW 1.32+
-			$parser = MediaWikiServices::getInstance()->getParserFactory()->create();
-		} else {
-			$parser = new Parser();
-		}
+		$parser = MediaWikiServices::getInstance()->getParserFactory()->create();
 		$parser->setTitle( $title );
 
 		$dbw = wfGetDB( DB_MASTER );
@@ -680,12 +667,7 @@ class ApprovedRevs {
 	}
 
 	public static function unsetApprovedFileInDB( $title, User $user ) {
-		if ( method_exists( MediaWikiServices::class, 'getParserFactory' ) ) {
-			// MW 1.32+
-			$parser = MediaWikiServices::getInstance()->getParserFactory()->create();
-		} else {
-			$parser = new Parser();
-		}
+		$parser = MediaWikiServices::getInstance()->getParserFactory()->create();
 		$parser->setTitle( $title );
 
 		$fileTitle = $title->getDBkey();
