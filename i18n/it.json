@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Ajeje Brazorf",
 			"Beta16",
 			"Dansita",
 			"Rippitippi",
@@ -43,7 +44,7 @@
 	"approvedrevs-invalidfiles": "File con approvazioni non valide",
 	"approvedrevs-approvedfiles": "Tutti i file con una versione approvata",
 	"approvedrevs-notlatestfiles": "File la cui versione approvata non è la loro ultima",
-	"approvedrevs-unapprovedfiles": "File non approvate",
+	"approvedrevs-unapprovedfiles": "File non approvati",
 	"approvedrevs-approvedfile": "File approvato",
 	"approvedrevs-latestfile": "File più recente",
 	"apihelp-approve-description": "Esamina una versione approvandola o disapprovandola.",
