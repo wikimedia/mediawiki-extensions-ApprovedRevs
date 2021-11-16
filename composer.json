@@ -1,4 +1,24 @@
 {
+	"name": "mediawiki/approved-revs",
+	"type": "mediawiki-extension",
+	"description": "Allows administrators to mark a certain revision of a page as \"approved\".",
+	"homepage": "https://www.mediawiki.org/wiki/Extension:Approved_Revs",
+	"license": "GPL-2.0-or-later",
+	"authors": [
+		{
+			"name": "Yaron Koren",
+			"role": "Author"
+		}
+	],
+	"keywords": [
+		"MediaWiki"
+	],
+	"support": {
+		"issues": "https://phabricator.wikimedia.org/tag/mediawiki-extensions-approved-revs/"
+	},
+	"require": {
+		"composer/installers": ">=1.0.1"
+	},
 	"require-dev": {
 		"mediawiki/mediawiki-codesniffer": "38.0.0",
 		"mediawiki/minus-x": "1.1.1",
