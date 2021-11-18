@@ -559,7 +559,16 @@ class ApprovedRevsHooks {
 
 		// Show the user links if they're allowed to see them.
 		// If hidden, then show them only if requested...
-		$userlinks = Linker::revUserTools( $revisionRecord, !$unhide );
+		// In MW 1.35, revUserTools() changed from taking in a Revision
+		// to taking in a RevisionRecord object (with support for
+		// Revision kept until MW 1.36).
+		if ( class_exists( 'MediaWiki\HookContainer\HookContainer' ) ) {
+			// MW 1.35+
+			$userlinks = Linker::revUserTools( $revisionRecord, !$unhide );
+		} else {
+			$revision = new Revision( $revisionRecord );
+			$userlinks = Linker::revUserTools( $revision, !$unhide );
+		}
 
 		$infomsg = $current && !wfMessage( 'revision-info-current' )->isDisabled()
 			? 'revision-info-current'
