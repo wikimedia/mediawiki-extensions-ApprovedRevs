@@ -559,16 +559,17 @@ class ApprovedRevsHooks {
 
 		// Show the user links if they're allowed to see them.
 		// If hidden, then show them only if requested...
-		// In MW 1.35, revUserTools() changed from taking in a Revision
-		// to taking in a RevisionRecord object (with support for
-		// Revision kept until MW 1.36).
+		// In MW 1.35, various Linker class methods changed from taking
+		// in a Revision to taking in a RevisionRecord object (with
+		// support for Revision kept until MW 1.36). Let's create a
+		// variable that could be either.
 		if ( class_exists( 'MediaWiki\HookContainer\HookContainer' ) ) {
 			// MW 1.35+
-			$userlinks = Linker::revUserTools( $revisionRecord, !$unhide );
+			$rev = $revisionRecord;
 		} else {
-			$revision = new Revision( $revisionRecord );
-			$userlinks = Linker::revUserTools( $revision, !$unhide );
+			$rev = new Revision( $revisionRecord );
 		}
+		$userlinks = Linker::revUserTools( $rev, !$unhide );
 
 		$infomsg = $current && !wfMessage( 'revision-info-current' )->isDisabled()
 			? 'revision-info-current'
@@ -581,7 +582,7 @@ class ApprovedRevsHooks {
 			$context->msg( $infomsg, $td )
 				->rawParams( $userlinks )
 				->params( $revisionID, $tddate, $tdtime, $userText )
-				->rawParams( Linker::revComment( $revisionRecord, true, true ) )
+				->rawParams( Linker::revComment( $rev, true, true ) )
 				->parse() .
 			"</div>";
 		$outputPage->addSubtitle( $revisionInfo );
@@ -679,7 +680,7 @@ class ApprovedRevsHooks {
 				] + $extraParams
 			);
 
-		$cdel = Linker::getRevDeleteLink( $user, $revisionRecord, $title );
+		$cdel = Linker::getRevDeleteLink( $user, $rev, $title );
 		if ( $cdel !== '' ) {
 			$cdel .= ' ';
 		}
