@@ -775,6 +775,8 @@ class ApprovedRevs {
 					'p.page_id AS id',
 					'ar.rev_id AS rev_id',
 					'p.page_latest AS latest_id',
+					'p.page_namespace',
+					'p.page_title',
 				],
 				'join_conds' => [
 					'p' => [
@@ -796,7 +798,9 @@ class ApprovedRevs {
 				],
 				'fields' => [
 					'p.page_id AS id',
-					'p.page_latest AS latest_id'
+					'p.page_latest AS latest_id',
+					'p.page_namespace',
+					'p.page_title',
 				],
 				'join_conds' => [
 					'ar' => [
@@ -818,7 +822,9 @@ class ApprovedRevs {
 				],
 				'fields' => [
 					'p.page_id AS id',
-					'p.page_latest AS latest_id'
+					'p.page_latest AS latest_id',
+					'p.page_namespace',
+					'p.page_title',
 				],
 				'join_conds' => [
 					'p' => [
@@ -842,6 +848,8 @@ class ApprovedRevs {
 					'p.page_id AS id',
 					'ar.rev_id AS rev_id',
 					'p.page_latest AS latest_id',
+					'p.page_namespace',
+					'p.page_title',
 				],
 				'join_conds' => [
 					'p' => [
