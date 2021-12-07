@@ -10,7 +10,8 @@
 			"Vlad5250",
 			"Vox",
 			"Ата",
-			"Тест"
+			"Тест",
+			"DDPAT"
 		]
 	},
 	"approvedrevs-desc": "Встановити єдиний перегляд сторінки як затверджуючий",
@@ -43,6 +44,7 @@
 	"approvedrevs-approvelatest": "затвердити останній",
 	"approvedrevs-approvethisrev": "Затвердити цю версію.",
 	"approvedrevs-viewlatestrev": "Перегляд останньої версії.",
+	"approvedrevs-revision-nav": "($1) $2{{int:pipe-separator}}$3 ($4){{int:pipe-separator}}$5 ($6){{int:pipe-separator}}$7 ($8)",
 	"approvedrevs-approvedrevision": "Затверджена версія",
 	"action-approverevisions": "встановлення певних версій сторінок затвердженими",
 	"right-approverevisions": "Встановлення певних версій сторінок затвердженими",
@@ -50,6 +52,8 @@
 	"right-viewlinktolatest": "Перегляд пояснювального тексту у верхній частині сторінок, які мають затверджену версію",
 	"action-viewapprover": "перегляд тексту, який повідомляє, хто затвердив поточну затверджену версію",
 	"right-viewapprover": "Перегляд тексту, який повідомляє, хто затвердив поточну затверджену версію",
+	"grant-group-approvedrevs": "Затверджувати чи знімати затвердження версії з допомогою розширення ApprovedRevs",
+	"grant-approvedrevs": "Затверджувати чи знімати затвердження версії з допомогою розширення ApprovedRevs",
 	"approvedrevs-invalidfiles": "Файли з недійсними затвердженнями",
 	"approvedrevs-approvedfiles": "Усі файли, що мають затверджені версії.",
 	"approvedrevs-notlatestfiles": "Файли, чиї затверджені версії не є останніми",

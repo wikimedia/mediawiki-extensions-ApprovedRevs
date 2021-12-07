@@ -8,7 +8,8 @@
 			"Sherbrooke",
 			"Thibaut120094",
 			"Verdy p",
-			"Wladek92"
+			"Wladek92",
+			"McDutchie"
 		]
 	},
 	"approvedrevs-desc": "Marquer une seule révision d’une page comme approuvée",
@@ -21,7 +22,7 @@
 	"approvedrevs-unapprovesuccess": "Il n’y a plus de version approuvée de cette page.\nÀ la place, la version la plus récente sera affichée.",
 	"approvedrevs-unapprovesuccess2": "Il n’y a plus de version approuvée de cette page.\nÀ la place, une page vide sera affichée.",
 	"approvedrevs-approveaction": "a marqué $2 comme la version approuvée de « [[$1]] »",
-	"approvedrevs-approvefileaction": "marquer le téléversement du $2 en tant que version approuvée pour « [[$1]] »",
+	"approvedrevs-approvefileaction": "a marqué le téléversement du $2 en tant que version approuvée pour « [[$1]] »",
 	"approvedrevs-unapproveaction": "a annulé le marquage d’une version approuvée pour « [[$1]] »",
 	"approvedrevs-notlatest": "Ceci est la révision approuvée de cette page. Ce n’est pas la plus récente.",
 	"approvedrevs-approvedandlatest": "Ceci est la version approuvée de la page et aussi la plus récente.",

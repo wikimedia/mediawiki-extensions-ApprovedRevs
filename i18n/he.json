@@ -8,7 +8,8 @@
 			"Inkbug",
 			"Steeve815",
 			"YaronSh",
-			"דגש חזק"
+			"דגש חזק",
+			"דגש"
 		]
 	},
 	"approvedrevs-desc": "הגדרת גרסה אחת של דף כגרסה מאושרת",
@@ -48,6 +49,8 @@
 	"right-viewlinktolatest": "צפייה בהסברים בחלק העליון של דפים שיש להם גרסה מאושרת",
 	"action-viewapprover": "הצג מידע על מאשר הגרסה הנוכחית",
 	"right-viewapprover": "הצג מידע על מאשר הגרסה הנוכחית",
+	"grant-group-approvedrevs": "ניתן לאשר ולדחות גרסאות דרך הרחבת ApprovedRevs",
+	"grant-approvedrevs": "ניתן לאשר ולדחות גרסאות דרך הרחבת ApprovedRevs",
 	"approvedrevs-invalidfiles": "קבצים עם אישורים לא תקינים",
 	"approvedrevs-approvedfiles": "כל הקבצים עם גרסה מאושרת",
 	"approvedrevs-notlatestfiles": "קבצים בהם גרסה מאושרת אינה הגרסה האחרונה",
