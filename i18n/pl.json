@@ -6,7 +6,9 @@
 			"Rail",
 			"Railfail536",
 			"Sp5uhe",
-			"Woytecr"
+			"Woytecr",
+			"Msz2001",
+			"SemanticPioneer"
 		]
 	},
 	"approvedrevs-desc": "Pozwala na zatwierdzenie pojedynczej wersji strony",
@@ -19,6 +21,7 @@
 	"approvedrevs-unapprovesuccess": "Dla tej strony brak jest wersji zatwierdzonej.\nW zamian prezentowana będzie ostatnia wersja.",
 	"approvedrevs-unapprovesuccess2": "Nie ma już zatwierdzonej wersji tej strony.\nW zamian zostanie wyświetlona pusta strona.",
 	"approvedrevs-approveaction": "zatwierdził wersję $2 strony „[[$1]]”",
+	"approvedrevs-approvefileaction": "Ustawiono $2 jako zatwierdzoną wersję dla „[[$1]]”",
 	"approvedrevs-unapproveaction": "usunął zatwierdzenie strony „[[$1]]”",
 	"approvedrevs-notlatest": "To jest zatwierdzona wersja strony. To nie jest ostatnia jej wersja.",
 	"approvedrevs-approvedandlatest": "To jest nie tylko zatwierdzona wersja strony, ale również ostatnia jej wersja.",
@@ -26,9 +29,9 @@
 	"approvedrevs-noapprovedrevision": "To jest najnowsza wersja tej strony; nie ma przejrzanej wersji.",
 	"approvedrevs-editwarning": "Zauważ, że edytujesz ostatnią wersję strony. Wersję, która nie została zatwierdzona i nie jest pokazywana domyślnie.",
 	"approvedrevs": "Zatwierdzone wersje",
-	"approvedrevs-approvedpages": "Wszystkich stron z zatwierdzoną wersją",
-	"approvedrevs-notlatestpages": "Stron, których zatwierdzona wersja nie jest ich ostatnią",
-	"approvedrevs-unapprovedpages": "Niezatwierdzonych stron",
+	"approvedrevs-approvedpages": "Wszystkie strony z zatwierdzoną wersją",
+	"approvedrevs-notlatestpages": "Strony, których zatwierdzona wersja nie jest ich ostatnią",
+	"approvedrevs-unapprovedpages": "Niezatwierdzone strony",
 	"approvedrevs-invalidpages": "Strony z nieprawidłowymi zatwierdzeniami",
 	"approvedrevs-view": "Zobacz listę:",
 	"approvedrevs-revisionnumber": "wersja $1",
@@ -41,12 +44,20 @@
 	"approvedrevs-approvedrevision": "Zatwierdzona wersja",
 	"action-approverevisions": "zatwierdzania wybranych wersji stron wiki",
 	"right-approverevisions": "Zatwierdzenie wybranych wersji stron wiki",
+	"action-viewlinktolatest": "wyświetlania tekstu wyjaśniającego na górze stron, które mają zatwierdzoną wersję",
 	"right-viewlinktolatest": "Pokazuj tekst wyjaśniający w górnej części tych stron, które mają zatwierdzoną wersję",
+	"action-viewapprover": "wyświetlania tekstu wskazującego, kto zatwierdził bieżącą zatwierdzoną wersję",
 	"right-viewapprover": "Wyświetlanie tekstu pokazującego, kto zatwierdził aktualnie zatwierdzoną wersję",
 	"approvedrevs-invalidfiles": "Pliki z nieprawidłowymi zatwierdzeniami",
 	"approvedrevs-approvedfiles": "Wszystkie pliki z zatwierdzoną wersją",
 	"approvedrevs-notlatestfiles": "Pliki, których zatwierdzona wersja nie jest najnowsza",
 	"approvedrevs-unapprovedfiles": "Niezatwierdzone pliki",
 	"approvedrevs-approvedfile": "Zatwierdzony plik",
-	"approvedrevs-latestfile": "Najnowszy plik"
+	"approvedrevs-latestfile": "Najnowszy plik",
+	"apihelp-approve-description": "Przejrzyj wersję oznaczając ją jako zatwierdzoną lub niezatwierdzoną.",
+	"apihelp-approve-summary": "Przejrzyj wersję oznaczając ją jako zatwierdzoną lub niezatwierdzoną.",
+	"apihelp-approve-param-revid": "ID wersji do zatwierdzenia.",
+	"apihelp-approve-param-unapprove": "Jeśli ustawione, wersja zostanie oznaczona jako niezatwierdzona (zamiast zatwierdzona).",
+	"apihelp-approve-example-1": "Zatwierdź wersję 12345",
+	"apihelp-approve-example-2": "Wycofaj zatwierdzenie wersji 12345"
 }

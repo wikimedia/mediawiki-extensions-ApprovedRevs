@@ -11,7 +11,8 @@
 			"Stryn",
 			"Surjection",
 			"Valtlait",
-			"VezonThunder"
+			"VezonThunder",
+			"Rönttönen"
 		]
 	},
 	"approvedrevs-desc": "Aseta yksittäinen sivuversio hyväksytyksi",
@@ -36,6 +37,7 @@
 	"approvedrevs-unapprovedpages": "Hyväksymättömät sivut",
 	"approvedrevs-view": "Katso listaa:",
 	"approvedrevs-revisionnumber": "versio $1",
+	"approvedrevs-uploaddate": "Lähetä alkaen $1",
 	"approvedrevs-approvedby": "hyväksynyt {{GENDER:$3|$1}} $4 kello $5",
 	"approvedrevs-difffromlatest": "ero nykyiseen",
 	"approvedrevs-approvelatest": "hyväksy viimeisin",

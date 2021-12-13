@@ -10,7 +10,8 @@
 			"Vlad5250",
 			"Vox",
 			"Ата",
-			"Тест"
+			"Тест",
+			"DDPAT"
 		]
 	},
 	"approvedrevs-desc": "Встановити єдиний перегляд сторінки як затверджуючий",
@@ -43,6 +44,7 @@
 	"approvedrevs-approvelatest": "затвердити останній",
 	"approvedrevs-approvethisrev": "Затвердити цю версію.",
 	"approvedrevs-viewlatestrev": "Перегляд останньої версії.",
+	"approvedrevs-revision-nav": "($1) $2{{int:pipe-separator}}$3 ($4){{int:pipe-separator}}$5 ($6){{int:pipe-separator}}$7 ($8)",
 	"approvedrevs-approvedrevision": "Затверджена версія",
 	"action-approverevisions": "встановлення певних версій сторінок затвердженими",
 	"right-approverevisions": "Встановлення певних версій сторінок затвердженими",
