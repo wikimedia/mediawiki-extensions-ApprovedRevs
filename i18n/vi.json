@@ -30,5 +30,8 @@
 	"approvedrevs-viewlatestrev": "Xem phiên bản gần đây nhất.",
 	"approvedrevs-approvedrevision": "Sửa đổi đã được phê duyệt",
 	"right-approverevisions": "Đặt một phiên bản của trang wiki là phiên bản chấp nhận",
-	"right-viewlinktolatest": "Xem văn bản giải thích ở đầu các trang có phiên bản chấp nhận"
+	"right-viewlinktolatest": "Xem văn bản giải thích ở đầu các trang có phiên bản chấp nhận",
+	"approvedrevs-latestfile": "Các tập tin mới nhất",
+	"apihelp-approve-description": "Duyệt một phiên bản bằng cách chấp nhận hoặc từ chối nó.",
+	"apihelp-approve-summary": "Duyệt một phiên bản bằng cách chấp nhận hoặc từ chối nó."
 }
