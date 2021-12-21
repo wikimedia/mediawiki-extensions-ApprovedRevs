@@ -1,6 +1,14 @@
 <?php
 
+use MediaWiki\Hook\BeforeParserFetchTemplateRevisionRecordHook;
+use MediaWiki\Hook\GetMagicVariableIDsHook;
+use MediaWiki\HookContainer\HookContainer;
+use MediaWiki\HookContainer\HookRunner;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Revision\RenderedRevision;
+use MediaWiki\Revision\RevisionRecord;
+use MediaWiki\Storage\EditResult;
+use MediaWiki\User\UserIdentity;
 
 /**
  * Functions for the Approved Revs extension called by hooks in the MediaWiki
@@ -14,7 +22,13 @@ use MediaWiki\MediaWikiServices;
  */
 class ApprovedRevsHooks {
 
-	private static $mApprovalMagicWords = [ 'MAG_APPROVALYEAR', 'MAG_APPROVALMONTH', 'MAG_APPROVALDAY', 'MAG_APPROVALTIMESTAMP', 'MAG_APPROVALUSER' ];
+	private static $mApprovalMagicWords = [
+		'MAG_APPROVALYEAR',
+		'MAG_APPROVALMONTH',
+		'MAG_APPROVALDAY',
+		'MAG_APPROVALTIMESTAMP',
+		'MAG_APPROVALUSER'
+	];
 
 	public static function registerExtension() {
 		global $wgHooks;
@@ -27,7 +41,7 @@ class ApprovedRevsHooks {
 		// not all wikis may have gotten this fix. Just to be safe,
 		// we'll check for the absence of a method that was removed
 		// right after this fix was made.
-		if ( method_exists( 'Parser', 'serializeHalfParsedText' ) ) {
+		if ( method_exists( Parser::class, 'serializeHalfParsedText' ) ) {
 			// MW < 1.35
 			$wgHooks['ArticleAfterFetchContentObject'][] = 'ApprovedRevsHooks::showBlankIfUnapprovedOld';
 		} else {
@@ -35,7 +49,7 @@ class ApprovedRevsHooks {
 			$wgHooks['ArticleRevisionViewCustom'][] = 'ApprovedRevsHooks::showBlankIfUnapproved';
 		}
 
-		if ( class_exists( 'MediaWiki\HookContainer\HookContainer' ) ) {
+		if ( class_exists( HookContainer::class ) ) {
 			// MW 1.35+
 			$wgHooks['PageSaveComplete'][] = 'ApprovedRevsHooks::setLatestAsApproved';
 			$wgHooks['PageSaveComplete'][] = 'ApprovedRevsHooks::setSearchText';
@@ -44,7 +58,7 @@ class ApprovedRevsHooks {
 			$wgHooks['PageContentSaveComplete'][] = 'ApprovedRevsHooks::setLatestAsApprovedOld';
 			$wgHooks['PageContentSaveComplete'][] = 'ApprovedRevsHooks::setSearchTextOld';
 		}
-		if ( interface_exists( MediaWiki\Hook\BeforeParserFetchTemplateRevisionRecordHook::class ) ) {
+		if ( interface_exists( BeforeParserFetchTemplateRevisionRecordHook::class ) ) {
 			// MW 1.36+
 			$wgHooks['BeforeParserFetchTemplateRevisionRecord'][] = 'ApprovedRevsHooks::setTranscludedPageRev';
 		} else {
@@ -52,13 +66,13 @@ class ApprovedRevsHooks {
 			$wgHooks['BeforeParserFetchTemplateAndtitle'][] = 'ApprovedRevsHooks::setTranscludedPageRevOld';
 		}
 
-		if ( method_exists( 'MediaWiki\HookContainer\HookRunner', 'onDiffTools' ) ) {
+		if ( method_exists( HookRunner::class, 'onDiffTools' ) ) {
 			// MW 1.35+
 			$wgHooks['DiffTools'][] = 'ApprovedRevsHooks::addApprovalDiffLink';
 		} else {
 			$wgHooks['DiffRevisionTools'][] = 'ApprovedRevsHooks::addApprovalDiffLinkOld';
 		}
-		if ( interface_exists( MediaWiki\Hook\GetMagicVariableIDsHook::class ) ) {
+		if ( interface_exists( GetMagicVariableIDsHook::class ) ) {
 			// MW 1.35+
 			$wgHooks['GetMagicVariableIDs'][] = 'ApprovedRevsHooks::addMagicWordVariableIDs';
 		} else {
@@ -139,7 +153,11 @@ class ApprovedRevsHooks {
 	 * Call LinksUpdate on the text of this page's approved revision,
 	 * if there is one.
 	 */
-	public static function updateLinksAfterEdit( Title $title, \MediaWiki\Revision\RenderedRevision $renderedRevision, array &$updates ) {
+	public static function updateLinksAfterEdit(
+		Title $title,
+		RenderedRevision $renderedRevision,
+		array &$updates
+	) {
 		$update = self::getUpdateForTitle( $title );
 		if ( $update !== null ) {
 			// Wipe out any existing updates.
@@ -160,9 +178,10 @@ class ApprovedRevsHooks {
 	 *
 	 * MW < 1.35
 	 */
-	public static function setLatestAsApprovedOld( WikiPage $wikipage, $user, $content,
-		$summary, $isMinor, $isWatch, $section, $flags, $revision,
-		$status, $baseRevId ) {
+	public static function setLatestAsApprovedOld(
+		WikiPage $wikipage,
+		$user, $content, $summary, $isMinor, $isWatch, $section, $flags, $revision, $status, $baseRevId
+	) {
 		if ( $revision === null ) {
 			return true;
 		}
@@ -206,10 +225,14 @@ class ApprovedRevsHooks {
 	 *
 	 * MW 1.35+
 	 */
-	public static function setLatestAsApproved( WikiPage $wikiPage,
-		MediaWiki\User\UserIdentity $user, string $summary, int $flags,
-		MediaWiki\Revision\RevisionRecord $revisionRecord,
-		MediaWiki\Storage\EditResult $editResult ) {
+	public static function setLatestAsApproved(
+		WikiPage $wikiPage,
+		UserIdentity $user,
+		string $summary,
+		int $flags,
+		RevisionRecord $revisionRecord,
+		EditResult $editResult
+	) {
 		if ( $revisionRecord === null ) {
 			return true;
 		}
@@ -336,10 +359,14 @@ class ApprovedRevsHooks {
 	 *
 	 * MW 1.35+
 	 */
-	public static function setSearchText( WikiPage $wikiPage,
-		MediaWiki\User\UserIdentity $user, string $summary, int $flags,
-		MediaWiki\Revision\RevisionRecord $revisionRecord,
-		MediaWiki\Storage\EditResult $editResult ) {
+	public static function setSearchText(
+		WikiPage $wikiPage,
+		UserIdentity $user,
+		string $summary,
+		int $flags,
+		RevisionRecord $revisionRecord,
+		EditResult $editResult
+	) {
 		if ( $revisionRecord === null ) {
 			return true;
 		}
@@ -563,7 +590,7 @@ class ApprovedRevsHooks {
 		// in a Revision to taking in a RevisionRecord object (with
 		// support for Revision kept until MW 1.36). Let's create a
 		// variable that could be either.
-		if ( class_exists( 'MediaWiki\HookContainer\HookContainer' ) ) {
+		if ( class_exists( HookContainer::class ) ) {
 			// MW 1.35+
 			$rev = $revisionRecord;
 		} else {
@@ -951,7 +978,12 @@ class ApprovedRevsHooks {
 		return true;
 	}
 
-	public static function addApprovalDiffLink( MediaWiki\Revision\RevisionRecord $newRevision, array &$links, ?MediaWiki\Revision\RevisionRecord $prevRevision, MediaWiki\User\UserIdentity $userIdentity ) {
+	public static function addApprovalDiffLink(
+		RevisionRecord $newRevision,
+		array &$links,
+		?RevisionRecord $prevRevision,
+		UserIdentity $userIdentity
+	) {
 		$title = Title::castFromLinkTarget( $newRevision->getPageAsLinkTarget() );
 
 		if ( $title === null || !ApprovedRevs::pageIsApprovable( $title ) ) {
