@@ -79,7 +79,7 @@ class ApprovedRevsHooks {
 			// MW 1.35+
 			$wgHooks['GetMagicVariableIDs'][] = 'ApprovedRevsHooks::addMagicWordVariableIDs';
 		} else {
-			$wgHooks['MagicWordwgVariableIDs'][] = 'ApprovedRevsHooks::addMagicWordVariableIDsOld';
+			$wgHooks['MagicWordwgVariableIDs'][] = 'ApprovedRevsHooks::addMagicWordVariableIDs';
 		}
 		if ( interface_exists( PageDeleteCompleteHook::class ) ) {
 			// MW 1.37+
@@ -1072,15 +1072,12 @@ class ApprovedRevsHooks {
 	}
 
 	/**
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/MagicWordwgVariableIDs
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/GetMagicVariableIDs
+	 *
 	 * Register magic-word variable IDs
 	 */
 	public static function addMagicWordVariableIDs( &$magicWordVariableIDs ) {
-		$magicWordVariableIDs[] = 'MAG_APPROVEDREVS';
-		$magicWordVariableIDs = array_merge( $magicWordVariableIDs, self::$mApprovalMagicWords );
-		return true;
-	}
-
-	public static function addMagicWordVariableIDsOld( &$magicWordVariableIDs ) {
 		$magicWordVariableIDs[] = 'MAG_APPROVEDREVS';
 		$magicWordVariableIDs = array_merge( $magicWordVariableIDs, self::$mApprovalMagicWords );
 		return true;
