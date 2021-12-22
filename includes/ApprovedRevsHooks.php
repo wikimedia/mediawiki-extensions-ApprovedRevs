@@ -4,6 +4,7 @@ use MediaWiki\Hook\BeforeParserFetchTemplateRevisionRecordHook;
 use MediaWiki\Hook\GetMagicVariableIDsHook;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\HookContainer\HookRunner;
+use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\Hook\PageDeleteCompleteHook;
 use MediaWiki\Page\ProperPageIdentity;
@@ -63,10 +64,12 @@ class ApprovedRevsHooks {
 		}
 		if ( interface_exists( BeforeParserFetchTemplateRevisionRecordHook::class ) ) {
 			// MW 1.36+
-			$wgHooks['BeforeParserFetchTemplateRevisionRecord'][] = 'ApprovedRevsHooks::setTranscludedPageRev';
+			$wgHooks['BeforeParserFetchTemplateRevisionRecord'][]
+				= 'ApprovedRevsHooks::setTranscludedPageRev';
 		} else {
 			// MW < 1.36
-			$wgHooks['BeforeParserFetchTemplateAndtitle'][] = 'ApprovedRevsHooks::setTranscludedPageRevOld';
+			$wgHooks['BeforeParserFetchTemplateAndtitle'][]
+				= 'ApprovedRevsHooks::setTranscludedPageRevOld';
 		}
 
 		if ( method_exists( HookRunner::class, 'onDiffTools' ) ) {
@@ -1020,6 +1023,9 @@ class ApprovedRevsHooks {
 		return true;
 	}
 
+	/**
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/BeforeParserFetchTemplateAndtitle
+	 */
 	public static function setTranscludedPageRevOld( $parser, $title, &$skip, &$id ) {
 		$revisionID = ApprovedRevs::getApprovedRevID( $title );
 		if ( !empty( $revisionID ) ) {
@@ -1029,10 +1035,17 @@ class ApprovedRevsHooks {
 	}
 
 	/**
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/BeforeParserFetchTemplateRevisionRecord
+	 *
 	 * Use the approved revision, if it exists, for templates and other
 	 * transcluded pages.
 	 */
-	public static function setTranscludedPageRev( $contextTitle, $titleTarget, &$skip, &$revRecord ) {
+	public static function setTranscludedPageRev(
+		?LinkTarget $contextTitle,
+		LinkTarget $titleTarget,
+		bool &$skip,
+		?RevisionRecord &$revRecord
+	) {
 		$title = Title::castFromLinkTarget( $titleTarget );
 		$revisionID = ApprovedRevs::getApprovedRevID( $title );
 		if ( !empty( $revisionID ) ) {
