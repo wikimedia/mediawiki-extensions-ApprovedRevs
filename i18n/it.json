@@ -5,7 +5,8 @@
 			"Dansita",
 			"Rippitippi",
 			"Tizven",
-			"Ajeje Brazorf"
+			"Ajeje Brazorf",
+			"Gianfranco"
 		]
 	},
 	"approvedrevs-desc": "Imposta una singola versione di una pagina come approvata",
@@ -18,6 +19,7 @@
 	"approvedrevs-unapprovesuccess": "Non ci sono ancora versioni approvate per questa pagina.\nAl suo posto verrà mostrata la versione più recente.",
 	"approvedrevs-unapprovesuccess2": "Non ci sono ancora versioni approvate per questa pagina.\nAl suo posto verrà mostrata una pagina vuota.",
 	"approvedrevs-approveaction": "impostare $2 come la versione approvata per \"[[$1]]\"",
+	"approvedrevs-approvefileaction": "imposta il caricamento da $2 come revisione approvata per \"[[$1]]\"",
 	"approvedrevs-unapproveaction": "rimuovi l'impostazione della versione approvata per \"[[$1]]\"",
 	"approvedrevs-notlatest": "Questa è la versione approvata di questa pagina, non è la più recente.",
 	"approvedrevs-approvedandlatest": "Questa è la versione approvata di questa pagina, oltre ad essere la più recente.",
