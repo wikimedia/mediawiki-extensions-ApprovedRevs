@@ -46,13 +46,15 @@ class ARParserFunctions {
 		foreach ( $args as $arg ) {
 			$argInfo = explode( '=', $frame->expand( $arg ), 2 );
 			if ( count( $argInfo ) < 2 ) {
-				continue; // no equals-sign, not a valid arg
+				// no equals-sign, not a valid arg
+				continue;
 			}
 			$argName = strtolower( trim( $argInfo[0] ) );
 			$argValue = trim( $argInfo[1] );
 
 			if ( $argValue === '' ) {
-				continue; // no value = nothing to do
+				// no value = nothing to do
+				continue;
 			} else {
 				// sanitize $argValue: explode on comma, trim each element, implode on comma again
 				$argValue = implode( ',', array_map( 'trim', explode( ',', $argValue ) ) );

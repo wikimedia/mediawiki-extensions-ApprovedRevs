@@ -558,7 +558,7 @@ class ApprovedRevsHooks {
 	 * @author Eli Handel
 	 */
 	public static function setOldSubtitle( $article, $revisionID ) {
-		$title = $article->getTitle(); # Added for ApprovedRevs - and removed hook
+		$title = $article->getTitle();
 		$context = $article->getContext();
 
 		$unhide = $context->getRequest()->getInt( 'unhide' ) == 1;
@@ -1178,10 +1178,18 @@ class ApprovedRevsHooks {
 		// DB updates
 		// For now, there's just a single SQL file for all DB types.
 		//if ( $updater->getDB()->getType() == 'mysql' ) {
-			$updater->addExtensionUpdate( [ 'addTable', 'approved_revs', "$dir/../sql/ApprovedRevs.sql", true ] );
-			$updater->addExtensionUpdate( [ 'addField', 'approved_revs', 'approver_id', "$dir/../sql/patch-approver_id.sql", true ] );
-			$updater->addExtensionUpdate( [ 'addField', 'approved_revs', 'approval_date', "$dir/../sql/patch-approval_date.sql", true ] );
-			$updater->addExtensionUpdate( [ 'addTable', 'approved_revs_files', "$dir/../sql/ApprovedFiles.sql", true ] );
+		$updater->addExtensionUpdate( [
+			'addTable', 'approved_revs', "$dir/../sql/ApprovedRevs.sql", true
+		] );
+		$updater->addExtensionUpdate( [
+			'addField', 'approved_revs', 'approver_id', "$dir/../sql/patch-approver_id.sql", true
+		] );
+		$updater->addExtensionUpdate( [
+			'addField', 'approved_revs', 'approval_date', "$dir/../sql/patch-approval_date.sql", true
+		] );
+		$updater->addExtensionUpdate( [
+			'addTable', 'approved_revs_files', "$dir/../sql/ApprovedFiles.sql", true
+		] );
 		// }
 	}
 
@@ -1497,9 +1505,10 @@ class ApprovedRevsHooks {
 			wfDebug( __METHOD__ . ": {$title->getPrefixedDBkey()}: " .
 				"$approvedRevTimestamp not found, using current\n" );
 			$displayFile = $repo->findFile( $title );
-			# If none found, use a valid local placeholder
+			// If still none found, use a valid local placeholder.
 			if ( !$displayFile ) {
-				$displayFile = $repo->getLocalRepo()->newFile( $title ); // fallback to current
+				// fallback to current
+				$displayFile = $repo->getLocalRepo()->newFile( $title );
 			}
 			$normalFile = $displayFile;
 		# If found, set $normalFile

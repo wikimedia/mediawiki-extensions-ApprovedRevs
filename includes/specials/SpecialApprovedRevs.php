@@ -18,9 +18,11 @@ class SpecialApprovedRevs extends QueryPage {
 		$this->mMode = $request->getVal( 'show' );
 	}
 
-	// These two arrays pair mode with messages. E.g. mode "approvedpages"
-	// is used to generate a header link with query string having "show=approvedpages"
-	// and link text of "All pages with an approved revision" (in English).
+	/**
+	 * These two arrays pair mode with messages. E.g. mode "approvedpages"
+	 *  is used to generate a header link with query string having "show=approvedpages"
+	 * and link text of "All pages with an approved revision" (in English).
+	 */
 	protected $mPageHeaderLinks = [
 		'approvedrevs-notlatestpages'     => '',
 		'approvedrevs-unapprovedpages'    => 'unapproved',
@@ -249,7 +251,8 @@ class SpecialApprovedRevs extends QueryPage {
 			return $line;
 		} elseif ( $this->mMode == 'invalid' ) {
 			return $pageLink;
-		} else { // approved revision is not latest
+		} else {
+			// approved revision is not latest
 			$diffLink = Xml::element( 'a',
 				[ 'href' => $title->getLocalUrl(
 					[
@@ -321,8 +324,6 @@ class SpecialApprovedRevs extends QueryPage {
 		# mode: approvedfiles
 		#
 		} elseif ( $this->mMode == 'approvedfiles' ) {
-			global $wgOut, $wgLang;
-
 			$additionalInfo = Html::rawElement( 'span',
 				[
 					'class' =>
@@ -338,7 +339,7 @@ class SpecialApprovedRevs extends QueryPage {
 
 			// Get data on the most recent approval from the
 			// 'approval' log, and display it if it's there.
-			$loglist = new LogEventsList( $skin, $wgOut );
+			$loglist = new LogEventsList( $skin, $this->getOutput() );
 			$pager = new LogPager( $loglist, 'approval', '', $title );
 			$pager->mLimit = 1;
 			$pager->doQuery();
@@ -347,13 +348,14 @@ class SpecialApprovedRevs extends QueryPage {
 			$row = $result->fetchObject();
 
 			if ( !empty( $row ) ) {
-				$timestamp = $wgLang->timeanddate(
+				$lang = $this->getLanguage();
+				$timestamp = $lang->timeanddate(
 					wfTimestamp( TS_MW, $row->log_timestamp ), true
 				);
-				$date = $wgLang->date(
+				$date = $lang->date(
 					wfTimestamp( TS_MW, $row->log_timestamp ), true
 				);
-				$time = $wgLang->time(
+				$time = $lang->time(
 					wfTimestamp( TS_MW, $row->log_timestamp ), true
 				);
 				$userLink = Linker::userLink( $row->log_user, $row->user_name );

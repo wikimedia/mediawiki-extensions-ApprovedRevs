@@ -43,21 +43,23 @@ class ApiApprove extends ApiBase {
 		if ( $unapprove ) {
 			if ( empty( $curApprovedRev ) ) {
 				// No revision - just send an empty result back.
-				$this->getResult()->addValue( null, $this->getModuleName(), [ 'result' => 'This page was already unapproved!', 'title' => $title ] );
+				$resultText = 'This page was already unapproved!';
 			} else {
 				ApprovedRevs::unsetApproval( $title, $user );
-				$this->getResult()->addValue( null, $this->getModuleName(), [ 'result' => 'Page now has no approved revision.', 'title' => $title ] );
+				$resultText = 'Page now has no approved revision.';
 			}
-		} else { // This is a call to approve a revision.
+		} else {
+			// This is a call to approve a revision.
 			if ( $revid == $curApprovedRev ) {
 				// This is already the approved revision - just send an empty result back.
-				$this->getResult()->addValue( null, $this->getModuleName(), [ 'result' => 'This revision was already approved!', 'title' => $title ] );
+				$resultText = 'This revision was already approved!';
 			} else {
 				ApprovedRevs::setApprovedRevID( $title, $revid, $user );
-				$this->getResult()->addValue( null, $this->getModuleName(), [ 'result' => 'Revision was successfully approved.', 'title' => $title ] );
-
+				$resultText = 'Revision was successfully approved.';
 			}
 		}
+		$this->getResult()->addValue( null, $this->getModuleName(),
+			[ 'result' => $resultText, 'title' => $title ] );
 	}
 
 	public function getAllowedParams() {

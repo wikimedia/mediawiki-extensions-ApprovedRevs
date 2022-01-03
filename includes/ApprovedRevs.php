@@ -12,7 +12,9 @@ use MediaWiki\MediaWikiServices;
  */
 class ApprovedRevs {
 
-	// Static arrays to prevent querying the database more than necessary.
+	/**
+	 * Static arrays to prevent querying the database more than necessary.
+	 */
 	private static $mApprovedContentForPage = [];
 	private static $mApprovedRevIDForPage = [];
 	private static $mApproverForPage = [];
@@ -45,7 +47,8 @@ class ApprovedRevs {
 		// providing backwards-compatibility was determined, instead notify user
 		// that $egApprovedRevsNamespaces is obsolete.
 		if ( isset( $egApprovedRevsNamespaces ) ) {
-			throw new MWException( '$egApprovedRevsNamespaces is no longer supported - please use $egApprovedRevsEnabledNamespaces (which has a different format) instead' );
+			throw new MWException( '$egApprovedRevsNamespaces is no longer supported - ' .
+				'please use $egApprovedRevsEnabledNamespaces (which has a different format) instead' );
 		}
 
 		// since extension.json values have to be strings, convert to int
@@ -104,7 +107,8 @@ class ApprovedRevs {
 	}
 
 	public static function getContent( $title, $revisionID = 0 ) {
-		$revisionRecord = MediaWikiServices::getInstance()->getRevisionLookup()->getRevisionByTitle( $title, $revisionID );
+		$revisionRecord = MediaWikiServices::getInstance()->getRevisionLookup()
+			->getRevisionByTitle( $title, $revisionID );
 		return $revisionRecord->getContent( MediaWiki\Revision\SlotRecord::MAIN );
 	}
 
@@ -628,7 +632,7 @@ class ApprovedRevs {
 				[
 					'approved_timestamp' => $timestamp,
 					'approved_sha1' => $sha1
-				], // update fields
+				],
 				[ 'file_title' => $fileTitle ]
 			);
 		} else {
@@ -721,7 +725,7 @@ class ApprovedRevs {
 
 		$dbr = wfGetDB( DB_REPLICA );
 		$row = $dbr->selectRow(
-			'approved_revs_files', // select from table
+			'approved_revs_files',
 			[ 'approved_timestamp', 'approved_sha1' ],
 			[ 'file_title' => $fileTitle->getDBkey() ],
 			__METHOD__
@@ -758,9 +762,11 @@ class ApprovedRevs {
 		}
 		if ( count( $approvedRevsNamespaces ) > 0 ) {
 			if ( $mode == 'invalid' ) {
-				$mainCondsString .= " AND ( p.page_namespace NOT IN ( " . implode( ',', $approvedRevsNamespaces ) . " ) )";
+				$mainCondsString .= " AND ( p.page_namespace NOT IN ( " .
+					implode( ',', $approvedRevsNamespaces ) . " ) )";
 			} else {
-				$mainCondsString .= " OR ( p.page_namespace IN ( " . implode( ',', $approvedRevsNamespaces ) . " ) )";
+				$mainCondsString .= " OR ( p.page_namespace IN ( " .
+					implode( ',', $approvedRevsNamespaces ) . " ) )";
 			}
 		}
 
@@ -837,7 +843,8 @@ class ApprovedRevs {
 				'conds' => $mainCondsString,
 				'options' => [ 'DISTINCT' ]
 			];
-		} else { // 'approved revision is not latest'
+		} else {
+			// 'approved revision is not latest'
 			return [
 				'tables' => [
 					'ar' => 'approved_revs',
