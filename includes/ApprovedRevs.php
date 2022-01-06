@@ -1,6 +1,9 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Permissions\PermissionManager;
+use MediaWiki\Revision\SlotRecord;
+use MediaWiki\User\UserNameUtils;
 
 /**
  * Main class for the Approved Revs extension.
@@ -109,7 +112,7 @@ class ApprovedRevs {
 	public static function getContent( $title, $revisionID = 0 ) {
 		$revisionRecord = MediaWikiServices::getInstance()->getRevisionLookup()
 			->getRevisionByTitle( $title, $revisionID );
-		return $revisionRecord->getContent( MediaWiki\Revision\SlotRecord::MAIN );
+		return $revisionRecord->getContent( SlotRecord::MAIN );
 	}
 
 	/**
@@ -320,7 +323,7 @@ class ApprovedRevs {
 	}
 
 	public static function checkPermission( User $user, Title $title, $permission ) {
-		if ( method_exists( 'MediaWiki\Permissions\PermissionManager', 'userHasRight' ) ) {
+		if ( method_exists( PermissionManager::class, 'userHasRight' ) ) {
 			// MW 1.34+
 			$permissionManager = MediaWikiServices::getInstance()->getPermissionManager();
 			return ( $permissionManager->userCan( $permission, $user, $title ) ||
@@ -441,7 +444,7 @@ class ApprovedRevs {
 		);
 		if ( $result !== false ) {
 			// if user listed as an approver, allow approval
-			if ( method_exists( 'MediaWiki\User\UserNameUtils', 'getCanonical' ) ) {
+			if ( method_exists( UserNameUtils::class, 'getCanonical' ) ) {
 				// MW 1.35+
 				$userNameUtils = MediaWikiServices::getInstance()->getUserNameUtils();
 				$approverUsers = array_map( static function ( $name ) use ( $userNameUtils ) {
