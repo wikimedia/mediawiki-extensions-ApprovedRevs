@@ -8,7 +8,8 @@
 			"Papapep",
 			"Pitort",
 			"SMP",
-			"Toniher"
+			"Toniher",
+			"Alan Mena"
 		]
 	},
 	"approvedrevs-desc": "Estableix una única revisió d'una pàgina com aprovada",
@@ -33,6 +34,7 @@
 	"approvedrevs-unapprovedpages": "Pàgines no aprovades",
 	"approvedrevs-view": "Mostrar la llista de:",
 	"approvedrevs-revisionnumber": "revisió $1",
+	"approvedrevs-uploaddate": "penja des de $1",
 	"approvedrevs-approvedby": "aprovat per $1 el $2",
 	"approvedrevs-difffromlatest": "difereix del darrer",
 	"approvedrevs-approvelatest": "aprova la darrera",
