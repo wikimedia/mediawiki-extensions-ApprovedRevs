@@ -101,7 +101,6 @@
 		"SkinTemplateNavigation": "ApprovedRevsHooks::changeEditLink",
 		"PageHistoryBeforeList": "ApprovedRevsHooks::storeApprovedRevisionForHistoryPage",
 		"PageHistoryLineEnding": "ApprovedRevsHooks::addApprovalLink",
-		"ArticleDeleteComplete": "ApprovedRevsHooks::deleteRevisionApproval",
 		"ParserAfterTidy": "ApprovedRevsHooks::handleMagicWords",
 		"ParserGetVariableValueSwitch": "ApprovedRevsHooks::assignAValue",
 		"ParserFirstCallInit": "ApprovedRevsHooks::registerFunctions",

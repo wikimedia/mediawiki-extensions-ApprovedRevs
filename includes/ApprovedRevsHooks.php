@@ -5,6 +5,9 @@ use MediaWiki\Hook\GetMagicVariableIDsHook;
 use MediaWiki\HookContainer\HookContainer;
 use MediaWiki\HookContainer\HookRunner;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Page\Hook\PageDeleteCompleteHook;
+use MediaWiki\Page\ProperPageIdentity;
+use MediaWiki\Permissions\Authority;
 use MediaWiki\Revision\RenderedRevision;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Storage\EditResult;
@@ -77,6 +80,12 @@ class ApprovedRevsHooks {
 			$wgHooks['GetMagicVariableIDs'][] = 'ApprovedRevsHooks::addMagicWordVariableIDs';
 		} else {
 			$wgHooks['MagicWordwgVariableIDs'][] = 'ApprovedRevsHooks::addMagicWordVariableIDsOld';
+		}
+		if ( interface_exists( PageDeleteCompleteHook::class ) ) {
+			// MW 1.37+
+			$wgHooks['PageDeleteComplete'][] = "ApprovedRevsHooks::deleteRevisionApproval";
+		} else {
+			$wgHooks['ArticleDeleteComplete'][] = "ApprovedRevsHooks::deleteRevisionApprovalOld";
 		}
 	}
 
@@ -1034,10 +1043,30 @@ class ApprovedRevsHooks {
 	}
 
 	/**
+	 * Hook: PageDeleteComplete
+	 *
 	 * Delete the approval record in the database if the page itself is
 	 * deleted.
+	 *
+	 * MW 1.37+
 	 */
-	public static function deleteRevisionApproval( &$article, &$user, $reason, $id ) {
+	public static function deleteRevisionApproval(
+		ProperPageIdentity $page, Authority $deleter, string $reason, int $pageID,
+		RevisionRecord $deletedRev, ManualLogEntry $logEntry, int $archivedRevisionCount
+	) {
+		ApprovedRevs::deleteRevisionApproval( $page->getTitle() );
+		return true;
+	}
+
+	/**
+	 * Hook: ArticleDeleteComplete
+	 *
+	 * Delete the approval record in the database if the page itself is
+	 * deleted.
+	 *
+	 * MW < 1.37
+	 */
+	public static function deleteRevisionApprovalOld( &$article, &$user, $reason, $id ) {
 		ApprovedRevs::deleteRevisionApproval( $article->getTitle() );
 		return true;
 	}
