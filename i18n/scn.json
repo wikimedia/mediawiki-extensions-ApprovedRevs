@@ -4,8 +4,11 @@
 			"Ajeje Brazorf"
 		]
 	},
+	"approvedrevs-approve": "appruva",
+	"approvedrevs": "Virsioni appruvati",
 	"approvedrevs-view": "Talìa elencu di:",
 	"approvedrevs-revisionnumber": "virsioni $1",
 	"approvedrevs-viewlatestrev": "Talìa la virsioni cchiù ricenti.",
+	"approvedrevs-approvedrevision": "Virsioni appruvata",
 	"approvedrevs-latestfile": "File cchiù ricenti"
 }
