@@ -208,7 +208,7 @@ class ApprovedRevs {
 		// calling the standard getProperty() function doesn't work, so
 		// we just do a DB query on the page_props table.
 		$dbr = wfGetDB( DB_REPLICA );
-		$res = $dbr->select( 'page_props', 'COUNT(*)',
+		$count = $dbr->selectField( 'page_props', 'COUNT(*)',
 			[
 				'pp_page' => $title->getArticleID(),
 				'pp_propname' => [
@@ -217,14 +217,13 @@ class ApprovedRevs {
 			],
 			__METHOD__
 		);
-		$row = $dbr->fetchRow( $res );
-		if ( intval( $row[0] ) > 0 ) {
+		if ( $count > 0 ) {
 			$title->isApprovable = true;
 			return $title->isApprovable;
 		}
 
 		// parser function page properties not present. Check for magic word.
-		$res = $dbr->select( 'page_props', 'COUNT(*)',
+		$count = $dbr->selectField( 'page_props', 'COUNT(*)',
 			[
 				'pp_page' => $title->getArticleID(),
 				'pp_propname' => 'approvedrevs',
@@ -232,8 +231,7 @@ class ApprovedRevs {
 			],
 			__METHOD__
 		);
-		$row = $dbr->fetchRow( $res );
-		$isApprovable = ( $row[0] == '1' );
+		$isApprovable = ( $count == '1' );
 		$title->isApprovable = $isApprovable;
 		return $isApprovable;
 	}
@@ -272,7 +270,7 @@ class ApprovedRevs {
 		//       not hurt anything.
 		//       [1] https://gerrit.wikimedia.org/r/#/c/mediawiki/extensions/ApprovedRevs/+/429368/
 		$dbr = wfGetDB( DB_REPLICA );
-		$res = $dbr->select( 'page_props', 'COUNT(*)',
+		$count = $dbr->selectField( 'page_props', 'COUNT(*)',
 			[
 				'pp_page' => $title->getArticleID(),
 				'pp_propname' => [
@@ -282,14 +280,13 @@ class ApprovedRevs {
 			],
 			__METHOD__
 		);
-		$row = $dbr->fetchRow( $res );
-		if ( intval( $row[0] ) > 0 ) {
+		if ( $count > 0 ) {
 			$title->fileIsApprovable = true;
 			return true;
 		}
 
 		// Parser function page properties not present. Check for magic word.
-		$res = $dbr->select( 'page_props', 'COUNT(*)',
+		$count = $dbr->selectField( 'page_props', 'COUNT(*)',
 			[
 				'pp_page' => $title->getArticleID(),
 				'pp_propname' => 'approvedrevs',
@@ -297,8 +294,7 @@ class ApprovedRevs {
 			],
 			__METHOD__
 		);
-		$row = $dbr->fetchRow( $res );
-		if ( $row[0] == '1' ) {
+		if ( $count == '1' ) {
 			$title->fileIsApprovable = true;
 			return true;
 		}
