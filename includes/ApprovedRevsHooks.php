@@ -1104,7 +1104,13 @@ class ApprovedRevsHooks {
 		$factory = MediaWikiServices::getInstance()->getMagicWordFactory();
 		$mw_hide = $factory->get( 'MAG_APPROVEDREVS' );
 		if ( $mw_hide->matchAndRemove( $text ) ) {
-			$parser->getOutput()->setProperty( 'approvedrevs', 'y' );
+			$parserOutput = $parser->getOutput();
+			if ( method_exists( $parserOutput, 'setPageProperty' ) ) {
+				// MW 1.38
+				$parserOutput->setPageProperty( 'approvedrevs', 'y' );
+			} else {
+				$parserOutput->setProperty( 'approvedrevs', 'y' );
+			}
 		}
 		return true;
 	}

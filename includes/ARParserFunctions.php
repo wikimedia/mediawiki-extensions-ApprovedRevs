@@ -64,9 +64,19 @@ class ARParserFunctions {
 				// Note: comma is a valid username character, but we're
 				// accepting it as a delimiter anyway since characters invalid
 				// in usernames are not ideal.
-				$parserOutput->setProperty( 'approvedrevs-approver-users', $argValue );
+				if ( method_exists( $parserOutput, 'setPageProperty' ) ) {
+					// MW 1.38
+					$parserOutput->setPageProperty( 'approvedrevs-approver-users', $argValue );
+				} else {
+					$parserOutput->setProperty( 'approvedrevs-approver-users', $argValue );
+				}
 			} elseif ( $argName === 'group' || $argName === 'groups' ) {
-				$parserOutput->setProperty( 'approvedrevs-approver-groups', $argValue );
+				if ( method_exists( $parserOutput, 'setPageProperty' ) ) {
+					// MW 1.38
+					$parserOutput->setPageProperty( 'approvedrevs-approver-groups', $argValue );
+				} else {
+					$parserOutput->setProperty( 'approvedrevs-approver-groups', $argValue );
+				}
 			} else {
 				$output .= "$argName is not a valid argument. ";
 			}
