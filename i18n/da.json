@@ -25,6 +25,7 @@
 	"approvedrevs-approvelatest": "godkend seneste",
 	"approvedrevs-approvethisrev": "Godkend denne version.",
 	"approvedrevs-viewlatestrev": "Vis den seneste revision.",
+	"approvedrevs-invalidfiles": "Filer med ugyldige godkendelser",
 	"approvedrevs-unapprovedfiles": "Ikke-godkendte filer",
 	"approvedrevs-approvedfile": "Godkendt fil",
 	"approvedrevs-latestfile": "Seneste fil"
