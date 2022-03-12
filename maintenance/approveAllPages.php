@@ -5,7 +5,7 @@
  * approvable namespace, and do not already have an approved revision.
  *
  * Usage:
- *  no parameters
+ *  php approveAllPages.php [--force] [--namespaces namespaceList] [--username username]
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,6 +26,7 @@
  * @author Yaron Koren
  * @ingroup Maintenance
  */
+use MediaWiki\MediaWikiServices;
 
 // Allow people to have different layouts.
 if ( !isset( $IP ) ) {
@@ -51,6 +52,9 @@ class ApproveAllPages extends Maintenance {
 		$this->addOption( 'namespaces', 'Limit to this comma-separated list of namespace numbers.',
 			false, true );
 
+		$this->addOption(
+			"username", "The username to use for all the approval actions."
+		);
 		if ( method_exists( $this, 'requireExtension' ) ) {
 			$this->requireExtension( 'Approved Revs' );
 		}
@@ -108,10 +112,20 @@ class ApproveAllPages extends Maintenance {
 				}
 			}
 
+			if ( $this->hasOption( 'username' ) ) {
+				$username = $this->getOption( 'username' );
+				$user = MediaWikiServices::getInstance()->getUserFactory()->newFromName( $username );
+				if ( $user == null || !$user->isRegistered() ) {
+					print "Error: \"$username\" is not a valid username.\n";
+					return;
+				}
+			} else {
+				$user = new User();
+			}
+
 			// Let's approve the latest revision...
-			// fixme: the user here is empty - use a system user?
 			ApprovedRevs::setApprovedRevID(
-				$title, $latestRevID, new User(), true
+				$title, $latestRevID, $user, true
 			);
 
 			$this->output( wfTimestamp( TS_DB ) .
