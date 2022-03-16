@@ -11,7 +11,8 @@
 			"Mjbmr",
 			"Reza1615",
 			"Rtemis",
-			"Taha"
+			"Taha",
+			"Beginneruser"
 		]
 	},
 	"approvedrevs-desc": "یک نسخه از یک صفحه را به عنوان تأییدشده علامت بزنید.",
@@ -31,7 +32,7 @@
 	"approvedrevs-noapprovedrevision": "این آخرین نسخهٔ این صفحه است؛ نسخهٔ تأییدشده‌ای ندارد.",
 	"approvedrevs-editwarning": "توجه‌کنید که شما در حال ویرایش آخرین نسخهٔ این صفحه هستید که با نسخهٔ تأیید شده‌ای که به صورت پیش‌فرض نمایش می‌شود تفاوت دارد.",
 	"approvedrevs": "نسخه‌های تأییدشده",
-	"approvedrevs-approvedpages": "تمام صفحات دارای نسخهٔ تأییدشده",
+	"approvedrevs-approvedpages": "تمام صفحه‌ها دارای نسخهٔ تأییدشده",
 	"approvedrevs-notlatestpages": "صفحاتی که نسخهٔ تأییدشدهٔ آن‌ها آخرین نیست",
 	"approvedrevs-unapprovedpages": "صفحه‌های تاییدنشده",
 	"approvedrevs-invalidpages": "صفحه‌های دارای تأییدهای نامعتبر",
