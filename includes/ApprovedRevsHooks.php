@@ -955,16 +955,18 @@ class ApprovedRevsHooks {
 	 * @param array &$cache
 	 * @param string $magicWordId
 	 * @param string &$ret
-	 * @return bool
+	 * @return void
 	 */
 	public static function assignAValue( $parser, &$cache, $magicWordId, &$ret ) {
 		if ( !in_array( $magicWordId, self::$mApprovalMagicWords ) ) {
-			return false;
+			return;
 		}
 
 		$approvalInfo = ARParserFunctions::getApprovalInfo( $parser->getTitle() );
 		if ( $approvalInfo == null ) {
-			return true;
+			$cache[$magicWordId] = '';
+			$ret = '';
+			return;
 		}
 		switch ( $magicWordId ) {
 			case 'MAG_APPROVALYEAR':
@@ -985,9 +987,10 @@ class ApprovedRevsHooks {
 				$ret = $user->getName();
 				break;
 			default:
-				return false;
+				return;
 		}
-		return true;
+
+		$cache[$magicWordId] = $ret;
 	}
 
 	/**
