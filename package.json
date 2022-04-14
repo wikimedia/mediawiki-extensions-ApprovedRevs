@@ -1,4 +1,5 @@
 {
+	"name": "ApprovedRevs",
 	"private": true,
 	"scripts": {
 		"test": "grunt test"
