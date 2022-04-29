@@ -36,8 +36,6 @@ class SpecialApprovedRevs extends QueryPage {
 		'approvedrevs-invalidfiles'       => 'invalidfiles',
 	];
 
-	protected static $repo;
-
 	public function isExpensive() {
 		return false;
 	}
@@ -270,15 +268,6 @@ class SpecialApprovedRevs extends QueryPage {
 	public function formatResultFileApprovals( $skin, $result ) {
 		$title = Title::makeTitle( NS_FILE, $result->title );
 
-		if ( !self::$repo ) {
-			if ( method_exists( MediaWikiServices::class, 'getRepoGroup' ) ) {
-				// MediaWiki 1.34+
-				self::$repo = MediaWikiServices::getInstance()->getRepoGroup();
-			} else {
-				self::$repo = RepoGroup::singleton();
-			}
-		}
-
 		$pageLink = $this->getLinkRenderer()->makeLink( $title );
 
 		#
@@ -375,12 +364,12 @@ class SpecialApprovedRevs extends QueryPage {
 		# mode: notlatestfiles
 		#
 		} elseif ( $this->mMode == 'notlatestfiles' ) {
-
-			$approved_file = self::$repo->findFileFromKey(
+			$repoGroup = MediaWikiServices::getInstance()->getRepoGroup();
+			$approved_file = $repoGroup->findFileFromKey(
 				$result->approved_sha1,
 				[ 'time' => $result->approved_ts ]
 			);
-			$latest_file = self::$repo->findFileFromKey(
+			$latest_file = $repoGroup->findFileFromKey(
 				$result->latest_sha1,
 				[ 'time' => $result->latest_ts ]
 			);

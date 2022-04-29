@@ -1,7 +1,6 @@
 <?php
 
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Permissions\PermissionManager;
 use MediaWiki\Revision\SlotRecord;
 use MediaWiki\User\UserNameUtils;
 
@@ -319,14 +318,9 @@ class ApprovedRevs {
 	}
 
 	public static function checkPermission( User $user, Title $title, $permission ) {
-		if ( method_exists( PermissionManager::class, 'userHasRight' ) ) {
-			// MW 1.34+
-			$permissionManager = MediaWikiServices::getInstance()->getPermissionManager();
-			return ( $permissionManager->userCan( $permission, $user, $title ) ||
-				$permissionManager->userHasRight( $user, $permission ) );
-		} else {
-			return ( $title->userCan( $permission, $user ) || $user->isAllowed( $permission ) );
-		}
+		$permissionManager = MediaWikiServices::getInstance()->getPermissionManager();
+		return ( $permissionManager->userCan( $permission, $user, $title ) ||
+			$permissionManager->userHasRight( $user, $permission ) );
 	}
 
 	public static function userCanApprove( User $user, Title $title ) {

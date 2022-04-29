@@ -1533,17 +1533,12 @@ class ApprovedRevsHooks {
 			return true;
 		}
 
+		$repo = MediaWikiServices::getInstance()->getRepoGroup();
 		$title = $imagePage->getTitle();
-		if ( method_exists( MediaWikiServices::class, 'getRepoGroup' ) ) {
-			// MediaWiki 1.34+
-			$repo = MediaWikiServices::getInstance()->getRepoGroup();
-		} else {
-			$repo = RepoGroup::singleton();
-		}
-
 		$displayFile = $repo->findFile(
 			$title, [ 'time' => $approvedRevTimestamp ]
 		);
+
 		# If none found, try current
 		if ( !$displayFile ) {
 			wfDebug( __METHOD__ . ": {$title->getPrefixedDBkey()}: " .
