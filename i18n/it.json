@@ -6,7 +6,8 @@
 			"Dansita",
 			"Gianfranco",
 			"Rippitippi",
-			"Tizven"
+			"Tizven",
+			"GpieroMW"
 		]
 	},
 	"approvedrevs-desc": "Imposta una singola versione di una pagina come approvata",
@@ -42,7 +43,10 @@
 	"approvedrevs-approvedrevision": "Versione approvata",
 	"action-approverevisions": "Imposta una versione di una pagina wiki come approvata",
 	"right-approverevisions": "Imposta una versione di una pagina wiki come approvata",
+	"action-viewlinktolatest": "visualizza del testo esplicativo nella parte superiore delle pagine che hanno una versione approvata",
 	"right-viewlinktolatest": "Visualizza del testo esplicativo nella parte superiore delle pagine che hanno una versione approvata",
+	"action-viewapprover": "vedere il testo che mostra chi ha approvato la versione corrente",
+	"right-viewapprover": "Vedere il testo che mostra chi ha approvato la versione corrente",
 	"approvedrevs-invalidfiles": "File con approvazioni non valide",
 	"approvedrevs-approvedfiles": "Tutti i file con una versione approvata",
 	"approvedrevs-notlatestfiles": "File la cui versione approvata non è la loro ultima",
