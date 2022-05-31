@@ -3,7 +3,8 @@
 		"authors": [
 			"Fohanno",
 			"Fulup",
-			"Y-M D"
+			"Y-M D",
+			"Huñvreüs"
 		]
 	},
 	"approvedrevs-desc": "Na verkañ nemet un adweladenn eus ur bajenn evel aprouet",
@@ -26,7 +27,7 @@
 	"approvedrevs-notlatestpages": "Pajennoù n'eo ket an adweladennoù aprouet evito ar stumm nevesañ anezho.",
 	"approvedrevs-unapprovedpages": "Pajennoù n'int ket bet aprouet",
 	"approvedrevs-invalidpages": "Pajennoù direizh o aprouadennoù",
-	"approvedrevs-view": "Gwelet :",
+	"approvedrevs-view": "Gwelet roll eus :",
 	"approvedrevs-revisionnumber": "Adweladenn $1",
 	"approvedrevs-approvedby": "aprouet gant $1 d'an $2",
 	"approvedrevs-difffromlatest": "diforc'h e-keñver ar stumm a-vremañ",
