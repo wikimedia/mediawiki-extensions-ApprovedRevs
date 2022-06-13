@@ -24,12 +24,12 @@
 	"approvedrevs-approvelatest": "одобряване на най-новата",
 	"approvedrevs-approvethisrev": "Одобряване на версията.",
 	"approvedrevs-viewlatestrev": "Преглед на най-новата версия.",
-	"approvedrevs-approvedrevision": "Одобрена редакция",
+	"approvedrevs-approvedrevision": "Одобрена версия",
 	"approvedrevs-invalidfiles": "Файлове с невалидни одобрявания",
 	"approvedrevs-approvedfiles": "Всички файлове с одобрена версия",
 	"approvedrevs-unapprovedfiles": "Неодобрени файлове",
 	"approvedrevs-approvedfile": "Одобрен файл",
 	"approvedrevs-latestfile": "Най-нов файл",
 	"apihelp-approve-param-unapprove": "Ако е зададено, редакцията ще бъде неодобрена вместо одобрена.",
-	"apihelp-approve-example-1": "Одобряване на редакцията 12345"
+	"apihelp-approve-example-1": "Одобряване на версия 12345"
 }
