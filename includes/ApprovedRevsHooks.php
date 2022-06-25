@@ -131,7 +131,12 @@ class ApprovedRevsHooks {
 		if ( !ApprovedRevs::pageIsApprovable( $title ) ) {
 			return null;
 		}
-		$wikiPage = new WikiPage( $title );
+		if ( method_exists( MediaWikiServices::class, 'getWikiPageFactory' ) ) {
+			// MediaWiki 1.36+
+			$wikiPage = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title );
+		} else {
+			$wikiPage = new WikiPage( $title );
+		}
 		// If this user's revisions get approved automatically, exit
 		// now, because this will be the approved revision anyway.
 		$userID = $wikiPage->getUser();
@@ -356,7 +361,12 @@ class ApprovedRevsHooks {
 		// We only need to modify the search text if the approved
 		// revision is not the latest one.
 		if ( $revisionID != $wikiPage->getLatest() ) {
-			$approvedPage = WikiPage::factory( $title );
+			if ( method_exists( MediaWikiServices::class, 'getWikiPageFactory' ) ) {
+				// MediaWiki 1.36+
+				$approvedPage = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title );
+			} else {
+				$approvedPage = WikiPage::factory( $title );
+			}
 			$approvedContent = $approvedPage->getContent();
 			ApprovedRevs::setPageSearchText( $title, $approvedContent );
 		}
@@ -396,7 +406,12 @@ class ApprovedRevsHooks {
 		// We only need to modify the search text if the approved
 		// revision is not the latest one.
 		if ( $revisionID != $wikiPage->getLatest() ) {
-			$approvedPage = WikiPage::factory( $title );
+			if ( method_exists( MediaWikiServices::class, 'getWikiPageFactory' ) ) {
+				// MediaWiki 1.36+
+				$approvedPage = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title );
+			} else {
+				$approvedPage = WikiPage::factory( $title );
+			}
 			$approvedContent = $approvedPage->getContent();
 			ApprovedRevs::setPageSearchText( $title, $approvedContent );
 		}
@@ -1480,14 +1495,26 @@ class ApprovedRevsHooks {
 
 			// Media link redirects don't get caught by the normal
 			// redirect check, so this extra check is required
-			$fileWikiPage = WikiPage::newFromID( $fileTitle->getArticleID() );
+			if ( method_exists( MediaWikiServices::class, 'getWikiPageFactory' ) ) {
+				// MediaWiki 1.36+
+				$fileWikiPage = MediaWikiServices::getInstance()->getWikiPageFactory()
+					->newFromID( $fileTitle->getArticleID() );
+			} else {
+				$fileWikiPage = WikiPage::newFromID( $fileTitle->getArticleID() );
+			}
 			if ( $fileWikiPage && $fileWikiPage->getRedirectTarget() ) {
 				$fileTitle = $fileWikiPage->getTitle();
 			}
 		}
 
 		if ( $fileTitle->isRedirect() ) {
-			$page = WikiPage::newFromID( $fileTitle->getArticleID() );
+			if ( method_exists( MediaWikiServices::class, 'getWikiPageFactory' ) ) {
+				// MediaWiki 1.36+
+				$page = MediaWikiServices::getInstance()->getWikiPageFactory()
+					->newFromID( $fileTitle->getArticleID() );
+			} else {
+				$page = WikiPage::newFromID( $fileTitle->getArticleID() );
+			}
 			$fileTitle = $page->getRedirectTarget();
 			// avoid extra queries
 			$fileTitle->resetArticleId( $fileTitle->getArticleID() );
