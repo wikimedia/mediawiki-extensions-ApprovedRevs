@@ -98,7 +98,7 @@
 		"PersonalUrls": "ApprovedRevsHooks::removeRobotsTag",
 		"ArticleFromTitle": "ApprovedRevsHooks::showApprovedRevision",
 		"DisplayOldSubtitle": "ApprovedRevsHooks::setSubtitle",
-		"SkinTemplateNavigation": "ApprovedRevsHooks::changeEditLink",
+		"SkinTemplateNavigation::Universal": "ApprovedRevsHooks::changeEditLink",
 		"PageHistoryBeforeList": "ApprovedRevsHooks::storeApprovedRevisionForHistoryPage",
 		"PageHistoryLineEnding": "ApprovedRevsHooks::addApprovalLink",
 		"ParserAfterTidy": "ApprovedRevsHooks::handleMagicWords",
