@@ -4,6 +4,9 @@
 			"Yupik"
 		]
 	},
+	"approvedrevs-approve": "priim",
 	"approvedrevs-view": "Čuäʹjet liist:",
-	"approvedrevs-latestfile": "Ođđsumus teâttõs"
+	"approvedrevs-approvethisrev": "Priim tän versio.",
+	"approvedrevs-latestfile": "Ođđsumus teâttõs",
+	"apihelp-approve-example-1": "Priim versio 12345"
 }
