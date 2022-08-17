@@ -6,6 +6,7 @@
 	},
 	"approvedrevs-approve": "priim",
 	"approvedrevs-view": "Čuäʹjet liist:",
+	"approvedrevs-revisionnumber": "versio $1",
 	"approvedrevs-approvethisrev": "Priim tän versio.",
 	"approvedrevs-latestfile": "Ođđsumus teâttõs",
 	"apihelp-approve-example-1": "Priim versio 12345"
