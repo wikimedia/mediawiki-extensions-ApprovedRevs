@@ -29,6 +29,7 @@
 	"approvedrevs-view": "Pogl. spisak:",
 	"approvedrevs-revisionnumber": "izmjena $1",
 	"approvedrevs-uploaddate": "otpremanje od $1",
+	"approvedrevs-approvedby": "{{GENDER:$3|odobrio|odobrila}} $1 dana $4 u $5",
 	"approvedrevs-difffromlatest": "razl. od posljed.",
 	"approvedrevs-approvelatest": "odobri najnoviju",
 	"approvedrevs-approvethisrev": "Odobri ovu reviziju.",
