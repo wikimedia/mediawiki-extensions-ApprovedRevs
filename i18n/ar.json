@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Dr-Taher",
 			"Meno25",
 			"Moemin05",
 			"ديفيد",
@@ -44,6 +45,8 @@
 	"right-viewlinktolatest": "عرض نص توضيحي أعلى الصفحات التي لديها مراجعة معتمدة",
 	"action-viewapprover": "عرض نص يوضح من وافق على المراجعة المعتمدة الحالية",
 	"right-viewapprover": "عرض نص يوضح من وافق على المراجعة المعتمدة الحالية",
+	"grant-group-approvedrevs": "الموافقة على المراجعات وعدم الموافقة عليها من خلال ملحق ApprovedRevs",
+	"grant-approvedrevs": "الموافقة على المراجعات وعدم الموافقة عليها من خلال ملحق ApprovedRevs",
 	"approvedrevs-invalidfiles": "الملفات ذات الموافقات غير الصحيحة",
 	"approvedrevs-approvedfiles": "كل الملفات ذات مراجعة معتمدة",
 	"approvedrevs-notlatestfiles": "الملفات التي لم تكن مراجعتها المعتمدة هي الأخيرة",
