@@ -13,7 +13,7 @@
 		]
 	},
 	"approvedrevs-desc": "Marquer une seule révision d’une page comme approuvée",
-	"approvedrevs-logname": "Journal des approbations de version",
+	"approvedrevs-logname": "Journal des approbations de révision",
 	"approvedrevs-logdesc": "Ceci est le journal des versions qui ont été marquées comme approuvées.",
 	"approvedrevs-approve": "approuver",
 	"approvedrevs-approver": "Cette version a été approuvée par $1.",
@@ -58,7 +58,7 @@
 	"approvedrevs-latestfile": "Dernier fichier",
 	"apihelp-approve-description": "Relire une version en l’approuvant ou en la désapprouvant.",
 	"apihelp-approve-summary": "Relire une version en l’approuvant ou la désapprouvant.",
-	"apihelp-approve-param-revid": "L’ID de version à approuver.",
+	"apihelp-approve-param-revid": "L’identifiant de révision à approuver.",
 	"apihelp-approve-param-unapprove": "Si positionné, la version sera désapprouvée plutôt qu’approuvée.",
 	"apihelp-approve-example-1": "Approuver la version 12345",
 	"apihelp-approve-example-2": "Désapprouver la version 12345"
