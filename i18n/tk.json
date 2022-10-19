@@ -1,0 +1,31 @@
+{
+	"@metadata": {
+		"authors": [
+			"TayfunEt."
+		]
+	},
+	"approvedrevs": "Makullanan wersiýalar",
+	"approvedrevs-approvedpages": "Makullanan wersiýa bilen ähli sahypalar",
+	"approvedrevs-notlatestpages": "Makullanan wersiýasy iň soňky däl",
+	"approvedrevs-unapprovedpages": "Makullanmadyk sahypalar",
+	"approvedrevs-invalidpages": "Nädogry tassyklamalar bilen sahypalar",
+	"approvedrevs-view": "Sanawy gör:",
+	"approvedrevs-revisionnumber": "wersiýa $1",
+	"approvedrevs-difffromlatest": "iň soňkusyndan tapawutlanýar",
+	"approvedrevs-approvelatest": "iň soňky tassykla",
+	"approvedrevs-approvethisrev": "Bu wersiýany tassyklaň.",
+	"approvedrevs-viewlatestrev": "Iň soňky wersiýany görüň.",
+	"approvedrevs-approvedrevision": "Makullanan wersiýa",
+	"action-approverevisions": "tassyklanylyşy ýaly wiki sahypasynyň belli bir wersiýasyny düzüň",
+	"right-approverevisions": "Wiki sahypasynyň tassyklanylyşy ýaly belli bir wersiýasyny düzüň",
+	"action-viewlinktolatest": "tassyklanan wersiýasy bolan sahypalaryň ýokarsynda düşündiriş tekstini görüň",
+	"right-viewlinktolatest": "Makullanan wersiýasy bolan sahypalaryň ýokarsynda düşündiriş tekstini görüň",
+	"action-viewapprover": "häzirki tassyklanan wersiýany kimiň tassyklandygyny görkezýän teksti görüň",
+	"right-viewapprover": "Häzirki tassyklanan wersiýany kimiň tassyklandygyny görkezýän teksti görüň",
+	"approvedrevs-invalidfiles": "Nädogry tassyklamalar bilen faýllar",
+	"approvedrevs-approvedfiles": "Makullanan wersiýa bilen ähli faýllar",
+	"approvedrevs-notlatestfiles": "Makullanan wersiýasy iň soňky däl",
+	"approvedrevs-unapprovedfiles": "Makullanmadyk faýllar",
+	"approvedrevs-approvedfile": "Makullanan faýl",
+	"approvedrevs-latestfile": "Iň soňky faýl"
+}
