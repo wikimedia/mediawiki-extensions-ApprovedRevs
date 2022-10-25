@@ -9,8 +9,13 @@
 		]
 	},
 	"approvedrevs-approve": "одобри",
+	"approvedrevs-approver": "Ову измену је одобрио $1.",
 	"approvedrevs-unapprovesuccess": "Више не постоји одобрена верзија ове странице.\nУместо тога биће приказана најновија измена.",
 	"approvedrevs-unapprovesuccess2": "Више не постоји одобрена верзија ове странице.\nУместо тога биће приказана празна страница.",
+	"approvedrevs-notlatest": "Ово је одобрена верзија ове странице; није најновија верзија.",
+	"approvedrevs-approvedandlatest": "Ово је одобрена верзија ове странице, а уједно је и најновија верзија.",
+	"approvedrevs-blankpageshown": "Нема одобрених измена за ову страницу.",
+	"approvedrevs-noapprovedrevision": "Ово је најновија верзија ове странице; нема одобрених измена.",
 	"approvedrevs": "Одобрене измене",
 	"approvedrevs-approvedpages": "Све странице са одобреном изменом",
 	"approvedrevs-notlatestpages": "Странице чија одобрена измена није најновија",
