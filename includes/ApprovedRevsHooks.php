@@ -107,16 +107,16 @@ class ApprovedRevsHooks {
 	 * so that search engines won't index them - remove those if this is
 	 * the approved revision.
 	 * There doesn't seem to be an ideal MediaWiki hook to use for this
-	 * function - it currently uses 'PersonalUrls', which works.
+	 * function - it currently uses 'ParserBeforeInternalParse', which works.
 	 */
-	public static function removeRobotsTag( &$personal_urls, &$title ) {
+	public static function removeRobotsTag( Parser &$parser, &$text, &$strip_state ) {
 		global $wgRequest;
 
 		if ( !ApprovedRevs::isDefaultPageRequest( $wgRequest ) ) {
 			return true;
 		}
 
-		$revisionID = ApprovedRevs::getApprovedRevID( $title );
+		$revisionID = ApprovedRevs::getApprovedRevID( $parser->getTitle() );
 		if ( !empty( $revisionID ) ) {
 			global $wgOut;
 			$wgOut->setRobotPolicy( 'index,follow' );

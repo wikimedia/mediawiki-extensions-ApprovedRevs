@@ -95,7 +95,7 @@
 	"Hooks": {
 		"RevisionDataUpdates": "ApprovedRevsHooks::updateLinksAfterEdit",
 		"SearchResultInitFromTitle": "ApprovedRevsHooks::setSearchRevisionID",
-		"PersonalUrls": "ApprovedRevsHooks::removeRobotsTag",
+		"ParserBeforeInternalParse": "ApprovedRevsHooks::removeRobotsTag",
 		"ArticleFromTitle": "ApprovedRevsHooks::showApprovedRevision",
 		"DisplayOldSubtitle": "ApprovedRevsHooks::setSubtitle",
 		"SkinTemplateNavigation::Universal": "ApprovedRevsHooks::changeEditLink",
