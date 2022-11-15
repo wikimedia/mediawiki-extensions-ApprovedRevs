@@ -24,6 +24,7 @@
 	"approvedrevs-approvedpages": "Vse strani z odobrenimi redakcijami",
 	"approvedrevs-notlatestpages": "Strani, katerih odobrena redakcija ni njihova najnovejša",
 	"approvedrevs-unapprovedpages": "Neodobrene strani",
+	"approvedrevs-invalidpages": "Strani z neveljavnimi odobritvami",
 	"approvedrevs-view": "Ogled seznama:",
 	"approvedrevs-revisionnumber": "redakcija $1",
 	"approvedrevs-approvedby": "odobril(-a) $1 dne $2",
@@ -33,5 +34,11 @@
 	"approvedrevs-viewlatestrev": "Ogled najnovejše redakcije.",
 	"approvedrevs-approvedrevision": "Odobrena redakcija",
 	"right-approverevisions": "Označevanje določenih redakcij wikistrani kot odobrene",
-	"right-viewlinktolatest": "Ogled pojasnjevalnega besedila na vrhu strani, ki imajo odobrene redakcije"
+	"right-viewlinktolatest": "Ogled pojasnjevalnega besedila na vrhu strani, ki imajo odobrene redakcije",
+	"approvedrevs-invalidfiles": "Datoteke z neveljavnimi odobritvami",
+	"approvedrevs-approvedfiles": "Vse datoteke z odobreno redakcijo",
+	"approvedrevs-notlatestfiles": "Datoteke, pri katerih odobrena redakcija ni zadnja",
+	"approvedrevs-unapprovedfiles": "Neodobrene datoteke",
+	"approvedrevs-approvedfile": "Odobrena datoteka",
+	"approvedrevs-latestfile": "Zadnja datoteka"
 }
