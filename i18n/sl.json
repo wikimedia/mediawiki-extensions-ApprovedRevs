@@ -30,7 +30,7 @@
 	"approvedrevs-view": "Ogled seznama:",
 	"approvedrevs-revisionnumber": "redakcija $1",
 	"approvedrevs-uploaddate": "nalaganje od $1",
-	"approvedrevs-approvedby": "{{GENDER:$3|odobril $1|odobrila $1|odobril_a $1}} dne $4 ob $2",
+	"approvedrevs-approvedby": "{{GENDER:$3|odobril|odobrila|odobril_a}} {{GENDER:$3|$1}} dne $4 ob $5",
 	"approvedrevs-difffromlatest": "primerjava z najnovejšo",
 	"approvedrevs-approvelatest": "odobri najnovejšo",
 	"approvedrevs-approvethisrev": "Odobri to redakcijo.",

@@ -47,6 +47,8 @@
 	"right-viewlinktolatest": "Visualizza del testo esplicativo nella parte superiore delle pagine che hanno una versione approvata",
 	"action-viewapprover": "visualizzare il testo mostrato a chi ha approvato la versione attuale",
 	"right-viewapprover": "Visualizza il testo mostrato a chi ha approvato la versione attuale",
+	"grant-group-approvedrevs": "Approvare e annullare l'approvazione delle versioni tramite l'estensione ApprovedRevs",
+	"grant-approvedrevs": "Approvare e annullare l'approvazione delle versioni tramite l'estensione ApprovedRevs",
 	"approvedrevs-invalidfiles": "File con approvazioni non valide",
 	"approvedrevs-approvedfiles": "Tutti i file con una versione approvata",
 	"approvedrevs-notlatestfiles": "File la cui versione approvata non è la loro ultima",
