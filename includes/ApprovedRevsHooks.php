@@ -632,11 +632,18 @@ class ApprovedRevsHooks {
 		$outputPage = $context->getOutput();
 		$revUser = $revisionRecord->getUser();
 		$userText = $revUser ? $revUser->getName() : '';
+		if ( method_exists( MediaWikiServices::class, 'getCommentFormatter' ) ) {
+			// MW 1.38+
+			$comment = MediaWikiServices::getInstance()->getCommentFormatter()
+				->formatRevision( $rev, $user, true, true );
+		} else {
+			$comment = Linker::revComment( $rev, true, true );
+		}
 		$revisionInfo = "<div id=\"mw-{$infomsg}\">" .
 			$context->msg( $infomsg, $td )
 				->rawParams( $userlinks )
 				->params( $revisionID, $tddate, $tdtime, $userText )
-				->rawParams( Linker::revComment( $rev, true, true ) )
+				->rawParams( $comment )
 				->parse() .
 			"</div>";
 		$outputPage->addSubtitle( $revisionInfo );
