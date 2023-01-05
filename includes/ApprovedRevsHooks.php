@@ -1020,7 +1020,7 @@ class ApprovedRevsHooks {
 	) {
 		$title = Title::castFromLinkTarget( $newRevision->getPageAsLinkTarget() );
 
-		if ( $title === null || !ApprovedRevs::pageIsApprovable( $title ) ) {
+		if ( $prevRevision === null || $title === null || !ApprovedRevs::pageIsApprovable( $title ) ) {
 			return true;
 		}
 
