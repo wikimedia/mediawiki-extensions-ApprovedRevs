@@ -33,7 +33,7 @@
 	"approvedrevs-approvedpages": "כל הדפים עם גרסה מאושרת",
 	"approvedrevs-notlatestpages": "דפים שהגרסה המאושרת שלהם אינה הגרסה העדכנית ביותר",
 	"approvedrevs-unapprovedpages": "דפים לא מאושרים",
-	"approvedrevs-invalidpages": "עמודים עם אישורים שגויים",
+	"approvedrevs-invalidpages": "דפים עם אישורים שגויים",
 	"approvedrevs-view": "הצגת רשימה של:",
 	"approvedrevs-revisionnumber": "גרסה $1",
 	"approvedrevs-uploaddate": "העלאה מ-$1",
