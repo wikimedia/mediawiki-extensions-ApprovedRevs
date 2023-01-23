@@ -125,9 +125,9 @@ class ApprovedRevsHooks {
 	}
 
 	/**
-	 * Called by both updateLinksAfterEditOld() and updateLinksAfterEdit().
+	 * Called by updateLinksAfterEdit().
 	 */
-	public static function getUpdateForTitle( Title $title ) {
+	public static function getUpdateForTitle( Title $title, $revision ) {
 		if ( !ApprovedRevs::pageIsApprovable( $title ) ) {
 			return null;
 		}
@@ -160,8 +160,8 @@ class ApprovedRevsHooks {
 			}
 		}
 
-		$editInfo = $wikiPage->prepareContentForEdit( $content );
-		return new LinksUpdate( $wikiPage->mTitle, $editInfo->output );
+		$editInfo = $wikiPage->prepareContentForEdit( $content, $revision, $user );
+		return new LinksUpdate( $title, $editInfo->output );
 	}
 
 	/**
@@ -175,7 +175,7 @@ class ApprovedRevsHooks {
 		RenderedRevision $renderedRevision,
 		array &$updates
 	) {
-		$update = self::getUpdateForTitle( $title );
+		$update = self::getUpdateForTitle( $title, $renderedRevision->getRevision() );
 		if ( $update !== null ) {
 			// Wipe out any existing updates.
 			$updates = [ $update ];
