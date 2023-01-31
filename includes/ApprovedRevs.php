@@ -120,7 +120,7 @@ class ApprovedRevs {
 	 * (otherwise).
 	 */
 	public static function getPageText( $title, $revisionID = null ) {
-		return self::getContent( $title, $revisionID )->getNativeData();
+		return self::getContent( $title, $revisionID )->getText();
 	}
 
 	/**
