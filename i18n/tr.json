@@ -8,7 +8,10 @@
 			"Khutuck",
 			"Rapsar",
 			"Srhat",
-			"Stultiwikia"
+			"Stultiwikia",
+			"MuratTheTurkish",
+			"Sayginer",
+			"Sezgin İbiş"
 		]
 	},
 	"approvedrevs-desc": "Bir sayfanın belirli bir revizyonunu onaylanmış olarak ayarla",
@@ -54,8 +57,8 @@
 	"approvedrevs-unapprovedfiles": "Onaylanmamış dosyalar",
 	"approvedrevs-approvedfile": "Onaylanmış dosya",
 	"approvedrevs-latestfile": "En son dosya",
-	"apihelp-approve-description": "Bir revizyonu onaylayarak veya onaylayarak gözden geçirin.",
-	"apihelp-approve-summary": "Bir revizyonu onaylayarak veya onaylayarak gözden geçirin.",
+	"apihelp-approve-description": "Bir sürümü onaylayarak veya onayı kaldırarak gözden geçirin.",
+	"apihelp-approve-summary": "Bir sürümü onaylayarak veya onayı kaldırarak gözden geçirin.",
 	"apihelp-approve-param-revid": "Onaylanacak revizyon kimliği.",
 	"apihelp-approve-param-unapprove": "Ayarlanırsa, revizyon onaylanmak yerine onaylanmayacaktır.",
 	"apihelp-approve-example-1": "12345 Revizyonunu Onayla",
