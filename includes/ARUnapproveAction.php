@@ -34,21 +34,13 @@ class ARUnapproveAction extends Action {
 		// a blank right now or not
 		global $egApprovedRevsBlankIfUnapproved;
 		if ( $egApprovedRevsBlankIfUnapproved ) {
-			$successMsg = wfMessage( 'approvedrevs-unapprovesuccess2' )->text();
+			$successMsg = wfMessage( 'approvedrevs-unapprovesuccess2' )->escaped();
 		} else {
-			$successMsg = wfMessage( 'approvedrevs-unapprovesuccess' )->text();
+			$successMsg = wfMessage( 'approvedrevs-unapprovesuccess' )->escaped();
 		}
 
 		$out = $this->getOutput();
-		$out->addHTML( "\t\t" . Xml::element(
-			'div',
-			[ 'class' => 'successbox' ],
-			$successMsg
-		) . "\n" );
-		$out->addHTML( "\t\t" . Xml::element(
-			'p',
-			[ 'style' => 'clear: both' ]
-		) . "\n" );
+		$out->addHTML( Html::successBox( $successMsg ) );
 
 		// Show the revision.
 		if ( method_exists( $this, 'getWikiPage' ) ) {

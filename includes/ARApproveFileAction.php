@@ -40,15 +40,7 @@ class ARApproveFileAction extends Action {
 		);
 
 		$out = $this->getOutput();
-		$out->addHTML( "\t\t" . Xml::element(
-			'div',
-			[ 'class' => 'successbox' ],
-			wfMessage( 'approvedrevs-approvesuccess' )->text()
-		) . "\n" );
-		$out->addHTML( "\t\t" . Xml::element(
-			'p',
-			[ 'style' => 'clear: both' ]
-		) . "\n" );
+		$out->addHTML( Html::successBox( wfMessage( 'approvedrevs-approvesuccess' )->escaped() ) );
 
 		// Show the revision, instead of the history page.
 		if ( method_exists( $this, 'getWikiPage' ) ) {

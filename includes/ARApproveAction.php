@@ -39,15 +39,7 @@ class ARApproveAction extends Action {
 		ApprovedRevs::setApprovedRevID( $title, $revisionID, $user );
 
 		$out = $this->getOutput();
-		$out->addHTML( "\t\t" . Xml::element(
-			'div',
-			[ 'class' => 'successbox' ],
-			wfMessage( 'approvedrevs-approvesuccess' )->text()
-		) . "\n" );
-		$out->addHTML( "\t\t" . Xml::element(
-			'p',
-			[ 'style' => 'clear: both' ]
-		) . "\n" );
+		$out->addHTML( Html::successBox( wfMessage( 'approvedrevs-approvesuccess' )->escaped() ) );
 
 		// The purge seems to be needed when the latest version is
 		// approved - at least when the Cargo extension is being used.
