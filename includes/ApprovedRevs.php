@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Content\Renderer\ContentParseParams;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Revision\SlotRecord;
 use MediaWiki\User\UserNameUtils;
@@ -537,7 +538,8 @@ class ApprovedRevs {
 		// If the revision being approved is definitely the latest
 		// one, there's no need to call the parser on it.
 		if ( !$is_latest ) {
-			$output = $content->getParserOutput( $title, $rev_id, ParserOptions::newFromUser( $user ) );
+			$contentHandler = $content->getContentHandler();
+			$output = self::getParserOutput( $contentHandler, $content, $title, $rev_id, $user );
 			$u = new LinksUpdate( $title, $output );
 			$u->doUpdate();
 			self::setPageSearchText( $title, $content );
@@ -585,10 +587,11 @@ class ApprovedRevs {
 		self::deleteRevisionApproval( $title );
 
 		$content = self::getContent( $title );
+		$contentHandler = $content->getContentHandler();
 		if ( $egApprovedRevsBlankIfUnapproved ) {
-			$content = $content->getContentHandler()->makeEmptyContent();
+			$content = $contentHandler->makeEmptyContent();
 		}
-		$output = $content->getParserOutput( $title, null, ParserOptions::newFromUser( $user ) );
+		$output = self::getParserOutput( $contentHandler, $content, $title, null, $user );
 		$u = new LinksUpdate( $title, $output );
 		$u->doUpdate();
 		self::setPageSearchText( $title, $content );
@@ -603,6 +606,17 @@ class ApprovedRevs {
 		);
 
 		Hooks::run( 'ApprovedRevsRevisionUnapproved', [ $output, $title, $content ] );
+	}
+
+	public static function getParserOutput( $contentHandler, $content, $title, $revID, $user ) {
+		$parserOptions = ParserOptions::newFromUser( $user );
+		if ( method_exists( $contentHandler, 'getParserOutput' ) ) {
+			// MW 1.38+
+			$contentParseParams = new ContentParseParams( $title, $revID, $parserOptions );
+			return $contentHandler->getParserOutput( $content, $contentParseParams );
+		} else {
+			return $content->getParserOutput( $title, $revID, $parserOptions );
+		}
 	}
 
 	public static function addCSS() {
