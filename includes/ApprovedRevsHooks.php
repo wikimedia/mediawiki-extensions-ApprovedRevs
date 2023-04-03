@@ -34,8 +34,8 @@ class ApprovedRevsHooks {
 		'MAG_APPROVALUSER'
 	];
 
-	public static function registerExtension() {
-		global $wgHooks;
+	public static function initialize() {
+		$hookContainer = MediaWikiServices::getInstance()->getHookContainer();
 
 		// The "ArticleRevisionViewCustom" hook was added to MediaWiki
 		// in August 2018, i.e. version 1.32. However, there was a bug
@@ -47,48 +47,48 @@ class ApprovedRevsHooks {
 		// right after this fix was made.
 		if ( method_exists( Parser::class, 'serializeHalfParsedText' ) ) {
 			// MW < 1.35
-			$wgHooks['ArticleAfterFetchContentObject'][] = 'ApprovedRevsHooks::showBlankIfUnapprovedOld';
+			$hookContainer->register( 'ArticleAfterFetchContentObject', 'ApprovedRevsHooks::showBlankIfUnapprovedOld' );
 		} else {
 			// MW 1.35+
-			$wgHooks['ArticleRevisionViewCustom'][] = 'ApprovedRevsHooks::showBlankIfUnapproved';
+			$hookContainer->register( 'ArticleRevisionViewCustom', 'ApprovedRevsHooks::showBlankIfUnapproved' );
 		}
 
 		if ( class_exists( HookContainer::class ) ) {
 			// MW 1.35+
-			$wgHooks['PageSaveComplete'][] = 'ApprovedRevsHooks::setLatestAsApproved';
-			$wgHooks['PageSaveComplete'][] = 'ApprovedRevsHooks::setSearchText';
+			$hookContainer->register( 'PageSaveComplete', 'ApprovedRevsHooks::setLatestAsApproved' );
+			$hookContainer->register( 'PageSaveComplete', 'ApprovedRevsHooks::setSearchText' );
 		} else {
 			// MW < 1.35
-			$wgHooks['PageContentSaveComplete'][] = 'ApprovedRevsHooks::setLatestAsApprovedOld';
-			$wgHooks['PageContentSaveComplete'][] = 'ApprovedRevsHooks::setSearchTextOld';
+			$hookContainer->register( 'PageContentSaveComplete', 'ApprovedRevsHooks::setLatestAsApprovedOld' );
+			$hookContainer->register( 'PageContentSaveComplete', 'ApprovedRevsHooks::setSearchTextOld' );
 		}
 		if ( interface_exists( BeforeParserFetchTemplateRevisionRecordHook::class ) ) {
 			// MW 1.36+
-			$wgHooks['BeforeParserFetchTemplateRevisionRecord'][]
-				= 'ApprovedRevsHooks::setTranscludedPageRev';
+			$hookContainer->register( 'BeforeParserFetchTemplateRevisionRecord',
+				'ApprovedRevsHooks::setTranscludedPageRev' );
 		} else {
 			// MW < 1.36
-			$wgHooks['BeforeParserFetchTemplateAndtitle'][]
-				= 'ApprovedRevsHooks::setTranscludedPageRevOld';
+			$hookContainer->register( 'BeforeParserFetchTemplateAndtitle',
+				'ApprovedRevsHooks::setTranscludedPageRevOld' );
 		}
 
 		if ( method_exists( HookRunner::class, 'onDiffTools' ) ) {
 			// MW 1.35+
-			$wgHooks['DiffTools'][] = 'ApprovedRevsHooks::addApprovalDiffLink';
+			$hookContainer->register( 'DiffTools', 'ApprovedRevsHooks::addApprovalDiffLink' );
 		} else {
-			$wgHooks['DiffRevisionTools'][] = 'ApprovedRevsHooks::addApprovalDiffLinkOld';
+			$hookContainer->register( 'DiffRevisionTools', 'ApprovedRevsHooks::addApprovalDiffLinkOld' );
 		}
 		if ( interface_exists( GetMagicVariableIDsHook::class ) ) {
 			// MW 1.35+
-			$wgHooks['GetMagicVariableIDs'][] = 'ApprovedRevsHooks::addMagicWordVariableIDs';
+			$hookContainer->register( 'GetMagicVariableIDs', 'ApprovedRevsHooks::addMagicWordVariableIDs' );
 		} else {
-			$wgHooks['MagicWordwgVariableIDs'][] = 'ApprovedRevsHooks::addMagicWordVariableIDs';
+			$hookContainer->register( 'MagicWordwgVariableIDs', 'ApprovedRevsHooks::addMagicWordVariableIDs' );
 		}
 		if ( interface_exists( PageDeleteCompleteHook::class ) ) {
 			// MW 1.37+
-			$wgHooks['PageDeleteComplete'][] = "ApprovedRevsHooks::deleteRevisionApproval";
+			$hookContainer->register( 'PageDeleteComplete', 'ApprovedRevsHooks::deleteRevisionApproval' );
 		} else {
-			$wgHooks['ArticleDeleteComplete'][] = "ApprovedRevsHooks::deleteRevisionApprovalOld";
+			$hookContainer->register( 'ArticleDeleteComplete', 'ApprovedRevsHooks::deleteRevisionApprovalOld' );
 		}
 	}
 
