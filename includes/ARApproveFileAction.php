@@ -43,14 +43,8 @@ class ARApproveFileAction extends Action {
 		$out->addHTML( Html::successBox( wfMessage( 'approvedrevs-approvesuccess' )->escaped() ) );
 
 		// Show the revision, instead of the history page.
-		if ( method_exists( $this, 'getWikiPage' ) ) {
-			// MW 1.35+
-			$this->getWikiPage()->doPurge();
-			$this->getArticle()->view();
-		} else {
-			$this->page->doPurge();
-			$this->page->view();
-		}
+		$this->getWikiPage()->doPurge();
+		$this->getArticle()->view();
 	}
 
 }

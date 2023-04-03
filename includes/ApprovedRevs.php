@@ -434,16 +434,11 @@ class ApprovedRevs {
 			__METHOD__
 		);
 		if ( $result !== false ) {
-			// if user listed as an approver, allow approval
-			if ( method_exists( UserNameUtils::class, 'getCanonical' ) ) {
-				// MW 1.35+
-				$userNameUtils = MediaWikiServices::getInstance()->getUserNameUtils();
-				$approverUsers = array_map( static function ( $name ) use ( $userNameUtils ) {
-					return $userNameUtils->getCanonical( $name, UserNameUtils::RIGOR_USABLE );
-				}, explode( ',', $result ) );
-			} else {
-				$approverUsers = array_map( 'User::getCanonicalName', explode( ',', $result ) );
-			}
+			// If user is listed as an approver, allow approval.
+			$userNameUtils = MediaWikiServices::getInstance()->getUserNameUtils();
+			$approverUsers = array_map( static function ( $name ) use ( $userNameUtils ) {
+				return $userNameUtils->getCanonical( $name, UserNameUtils::RIGOR_USABLE );
+			}, explode( ',', $result ) );
 			if ( in_array( $user->getName(), $approverUsers ) ) {
 				return true;
 			}
@@ -462,14 +457,8 @@ class ApprovedRevs {
 			__METHOD__
 		);
 		if ( $result !== false ) {
-
-			if ( method_exists( MediaWikiServices::class, 'getUserGroupManager' ) ) {
-				// MW 1.35+
-				$groups = MediaWikiServices::getInstance()->getUserGroupManager()
-					->getUserGroups( $user );
-			} else {
-				$groups = $user->getGroups();
-			}
+			$groups = MediaWikiServices::getInstance()->getUserGroupManager()
+				->getUserGroups( $user );
 			// intersect groups that can approve with user's group
 			$userGroupsWithApprove = array_intersect(
 				explode( ',', $result ), $groups

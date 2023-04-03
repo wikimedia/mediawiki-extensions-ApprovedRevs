@@ -1,9 +1,6 @@
 <?php
 
 use MediaWiki\Hook\BeforeParserFetchTemplateRevisionRecordHook;
-use MediaWiki\Hook\GetMagicVariableIDsHook;
-use MediaWiki\HookContainer\HookContainer;
-use MediaWiki\HookContainer\HookRunner;
 use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\Hook\PageDeleteCompleteHook;
@@ -37,31 +34,6 @@ class ApprovedRevsHooks {
 	public static function initialize() {
 		$hookContainer = MediaWikiServices::getInstance()->getHookContainer();
 
-		// The "ArticleRevisionViewCustom" hook was added to MediaWiki
-		// in August 2018, i.e. version 1.32. However, there was a bug
-		// in its implementation that was not fixed until October 2019,
-		// which was MW 1.35 (although 1.34 had not been released yet).
-		// The fix was "back-ported" to the previous versions, but
-		// not all wikis may have gotten this fix. Just to be safe,
-		// we'll check for the absence of a method that was removed
-		// right after this fix was made.
-		if ( method_exists( Parser::class, 'serializeHalfParsedText' ) ) {
-			// MW < 1.35
-			$hookContainer->register( 'ArticleAfterFetchContentObject', 'ApprovedRevsHooks::showBlankIfUnapprovedOld' );
-		} else {
-			// MW 1.35+
-			$hookContainer->register( 'ArticleRevisionViewCustom', 'ApprovedRevsHooks::showBlankIfUnapproved' );
-		}
-
-		if ( class_exists( HookContainer::class ) ) {
-			// MW 1.35+
-			$hookContainer->register( 'PageSaveComplete', 'ApprovedRevsHooks::setLatestAsApproved' );
-			$hookContainer->register( 'PageSaveComplete', 'ApprovedRevsHooks::setSearchText' );
-		} else {
-			// MW < 1.35
-			$hookContainer->register( 'PageContentSaveComplete', 'ApprovedRevsHooks::setLatestAsApprovedOld' );
-			$hookContainer->register( 'PageContentSaveComplete', 'ApprovedRevsHooks::setSearchTextOld' );
-		}
 		if ( interface_exists( BeforeParserFetchTemplateRevisionRecordHook::class ) ) {
 			// MW 1.36+
 			$hookContainer->register( 'BeforeParserFetchTemplateRevisionRecord',
@@ -72,18 +44,6 @@ class ApprovedRevsHooks {
 				'ApprovedRevsHooks::setTranscludedPageRevOld' );
 		}
 
-		if ( method_exists( HookRunner::class, 'onDiffTools' ) ) {
-			// MW 1.35+
-			$hookContainer->register( 'DiffTools', 'ApprovedRevsHooks::addApprovalDiffLink' );
-		} else {
-			$hookContainer->register( 'DiffRevisionTools', 'ApprovedRevsHooks::addApprovalDiffLinkOld' );
-		}
-		if ( interface_exists( GetMagicVariableIDsHook::class ) ) {
-			// MW 1.35+
-			$hookContainer->register( 'GetMagicVariableIDs', 'ApprovedRevsHooks::addMagicWordVariableIDs' );
-		} else {
-			$hookContainer->register( 'MagicWordwgVariableIDs', 'ApprovedRevsHooks::addMagicWordVariableIDs' );
-		}
 		if ( interface_exists( PageDeleteCompleteHook::class ) ) {
 			// MW 1.37+
 			$hookContainer->register( 'PageDeleteComplete', 'ApprovedRevsHooks::deleteRevisionApproval' );
@@ -184,53 +144,6 @@ class ApprovedRevsHooks {
 	}
 
 	/**
-	 * Hook: PageContentSaveComplete
-	 *
-	 * If the user saving this page has approval power, and automatic
-	 * approvals are enabled, and the page is approvable, and either
-	 * (a) this page already has an approved revision, or (b) unapproved
-	 * pages are shown as blank on this wiki, automatically set this
-	 * latest revision to be the approved one - don't bother logging
-	 * the approval, though; the log is reserved for manual approvals.
-	 *
-	 * MW < 1.35
-	 */
-	public static function setLatestAsApprovedOld(
-		WikiPage $wikipage,
-		$user, $content, $summary, $isMinor, $isWatch, $section, $flags, $revision, $status, $baseRevId
-	) {
-		if ( $revision === null ) {
-			return true;
-		}
-
-		$title = $wikipage->getTitle();
-		if ( !self::userRevsApprovedAutomatically( $user, $title ) ) {
-			return true;
-		}
-
-		if ( $title->getNamespace() == NS_FILE ) {
-			self::setOriginalFileRevAsApproved( $user, $title );
-			return true;
-		}
-
-		if ( !ApprovedRevs::pageIsApprovable( $title ) ) {
-			return true;
-		}
-
-		global $egApprovedRevsBlankIfUnapproved;
-		if ( !$egApprovedRevsBlankIfUnapproved ) {
-			$approvedRevID = ApprovedRevs::getApprovedRevID( $title );
-			if ( empty( $approvedRevID ) ) {
-				return true;
-			}
-		}
-
-		// Save approval without logging.
-		ApprovedRevs::saveApprovedRevIDInDB( $title, $revision->getID(), $user, true );
-		return true;
-	}
-
-	/**
 	 * Hook: PageSaveComplete
 	 *
 	 * If the user saving this page has approval power, and automatic
@@ -239,8 +152,6 @@ class ApprovedRevsHooks {
 	 * pages are shown as blank on this wiki, automatically set this
 	 * latest revision to be the approved one - don't bother logging
 	 * the approval, though; the log is reserved for manual approvals.
-	 *
-	 * MW 1.35+
 	 */
 	public static function setLatestAsApproved(
 		WikiPage $wikiPage,
@@ -335,51 +246,9 @@ class ApprovedRevsHooks {
 	}
 
 	/**
-	 * Hook: PageContentSaveComplete
-	 *
-	 * Set the text that's stored for the page for standard searches.
-	 *
-	 * MW < 1.35
-	 */
-	public static function setSearchTextOld( WikiPage $wikiPage, $user, $content,
-		$summary, $isMinor, $isWatch, $section, $flags, $revision,
-		$status, $baseRevId ) {
-		if ( $revision === null ) {
-			return true;
-		}
-
-		$title = $wikiPage->getTitle();
-		if ( !ApprovedRevs::pageIsApprovable( $title ) ) {
-			return true;
-		}
-
-		$revisionID = ApprovedRevs::getApprovedRevID( $title );
-		if ( $revisionID === null ) {
-			return true;
-		}
-
-		// We only need to modify the search text if the approved
-		// revision is not the latest one.
-		if ( $revisionID != $wikiPage->getLatest() ) {
-			if ( method_exists( MediaWikiServices::class, 'getWikiPageFactory' ) ) {
-				// MediaWiki 1.36+
-				$approvedPage = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title );
-			} else {
-				$approvedPage = WikiPage::factory( $title );
-			}
-			$approvedContent = $approvedPage->getContent();
-			ApprovedRevs::setPageSearchText( $title, $approvedContent );
-		}
-
-		return true;
-	}
-
-	/**
 	 * Hook: PageSaveComplete
 	 *
 	 * Set the text that's stored for the page for standard searches.
-	 *
-	 * MW 1.35+
 	 */
 	public static function setSearchText(
 		WikiPage $wikiPage,
@@ -462,65 +331,8 @@ class ApprovedRevsHooks {
 			// causes $article->mRevision to get initialized,
 			// which in turn allows "edit section" links to show
 			// up if the approved revision is also the latest.
-			if ( is_callable( [ $article, 'fetchRevisionRecord' ] ) ) {
-				// This method became public in MW 1.35.
-				$article->fetchRevisionRecord();
-			} else {
-				$article->getRevisionFetched();
-			}
+			$article->fetchRevisionRecord();
 		}
-		return true;
-	}
-
-	/**
-	 * Hook: ArticleAfterFetchContentObject
-	 *
-	 * @param Article &$article
-	 * @param Content &$content
-	 * @return true
-	 */
-	public static function showBlankIfUnapprovedOld( &$article, Content &$content ) {
-		global $egApprovedRevsBlankIfUnapproved;
-		if ( !$egApprovedRevsBlankIfUnapproved ) {
-			return true;
-		}
-
-		$title = $article->getTitle();
-		if ( !ApprovedRevs::pageIsApprovable( $title ) ) {
-			return true;
-		}
-
-		$revisionID = ApprovedRevs::getApprovedRevID( $title );
-		if ( !empty( $revisionID ) ) {
-			return true;
-		}
-
-		// Disable the cache for every page, if users aren't meant
-		// to see pages with no approved revision, and this page
-		// has no approved revision. This looks extreme - but
-		// there doesn't seem to be any other way to distinguish
-		// between a user looking at the main view of page, and a
-		// user specifically looking at the latest revision of the
-		// page (which we don't want to show as blank).
-		global $wgEnableParserCache;
-		$wgEnableParserCache = false;
-
-		$context = $article->getContext();
-		$request = $context->getRequest();
-		if ( !ApprovedRevs::isDefaultPageRequest( $request ) ) {
-			return true;
-		}
-
-		ApprovedRevs::addCSS();
-
-		// Set the content to blank.
-		if ( $content instanceof TextContent ) {
-			$contentClass = get_class( $content );
-			$content = new $contentClass( '' );
-		} else {
-			$content = '';
-		}
-
 		return true;
 	}
 
@@ -597,8 +409,8 @@ class ApprovedRevsHooks {
 		}
 
 		$revisionLookup = MediaWikiServices::getInstance()->getRevisionLookup();
-		$revisionRecord = $revisionLookup->getRevisionById( $revisionID );
-		$timestamp = $revisionRecord->getTimestamp();
+		$rev = $revisionLookup->getRevisionById( $revisionID );
+		$timestamp = $rev->getTimestamp();
 
 		$wikiPage = $article->getPage();
 		$latestID = $wikiPage->getLatest();
@@ -612,17 +424,7 @@ class ApprovedRevsHooks {
 		$tdtime = $language->userTime( $timestamp, $user );
 
 		// Show the user links if they're allowed to see them.
-		// If hidden, then show them only if requested...
-		// In MW 1.35, various Linker class methods changed from taking
-		// in a Revision to taking in a RevisionRecord object (with
-		// support for Revision kept until MW 1.36). Let's create a
-		// variable that could be either.
-		if ( class_exists( HookContainer::class ) ) {
-			// MW 1.35+
-			$rev = $revisionRecord;
-		} else {
-			$rev = new Revision( $revisionRecord );
-		}
+		// If hidden, then show them only if requested.
 		$userlinks = Linker::revUserTools( $rev, !$unhide );
 
 		$infomsg = $current && !wfMessage( 'revision-info-current' )->isDisabled()
@@ -630,7 +432,7 @@ class ApprovedRevsHooks {
 			: 'revision-info';
 
 		$outputPage = $context->getOutput();
-		$revUser = $revisionRecord->getUser();
+		$revUser = $rev->getUser();
 		$userText = $revUser ? $revUser->getName() : '';
 		if ( method_exists( MediaWikiServices::class, 'getCommentFormatter' ) ) {
 			// MW 1.38+
@@ -673,7 +475,7 @@ class ApprovedRevsHooks {
 					'oldid' => $revisionID
 				] + $extraParams
 			);
-		$prev = $revisionLookup->getPreviousRevision( $revisionRecord );
+		$prev = $revisionLookup->getPreviousRevision( $rev );
 		$prevlink = $prev
 			? $linkRenderer->makeLink(
 				$title,
@@ -975,39 +777,6 @@ class ApprovedRevsHooks {
 				[ 'href' => $url ],
 				$msg
 			) . ')';
-		}
-		return true;
-	}
-
-	/**
-	 * If the user is allowed to make revision approvals, add an
-	 * 'approve' link to the diff revision page when comparing to
-	 * previously approved revision.
-	 */
-	public static function addApprovalDiffLinkOld( $rev, &$links, $oldRev, $user ) {
-		$title = $rev->getTitle();
-
-		if ( !ApprovedRevs::pageIsApprovable( $title ) ) {
-			return true;
-		}
-
-		$approvedRevID = ApprovedRevs::getApprovedRevID( $title );
-
-		if ( ApprovedRevs::userCanApprove( $user, $title ) && $oldRev->getID() == $approvedRevID ) {
-			// array key is class applied to <span> wrapping around link
-			// default if blank is mw-diff-tool; add that along with extension-specific class
-			$links['mw-diff-tool ext-approved-revs-approval-span'] = HTML::element(
-				'a',
-				[
-					'href' => $title->getLocalUrl( [
-						'action' => 'approve',
-						'oldid' => $rev->getId()
-					] ),
-					'class' => 'ext-approved-revs-approval-link',
-					'title' => wfMessage( 'approvedrevs-approvethisrev' )->text()
-				],
-				wfMessage( 'approvedrevs-approve' )->text()
-			);
 		}
 		return true;
 	}
