@@ -73,7 +73,7 @@ class ApprovedRevsHooks {
 		global $wgRequest;
 
 		if ( !ApprovedRevs::isDefaultPageRequest( $wgRequest ) ) {
-			return true;
+			return;
 		}
 
 		$revisionID = ApprovedRevs::getApprovedRevID( $parser->getTitle() );
@@ -81,7 +81,6 @@ class ApprovedRevsHooks {
 			global $wgOut;
 			$wgOut->setRobotPolicy( 'index,follow' );
 		}
-		return true;
 	}
 
 	/**
@@ -140,7 +139,6 @@ class ApprovedRevsHooks {
 			// Wipe out any existing updates.
 			$updates = [ $update ];
 		}
-		return true;
 	}
 
 	/**
@@ -162,34 +160,33 @@ class ApprovedRevsHooks {
 		EditResult $editResult
 	) {
 		if ( $revisionRecord === null ) {
-			return true;
+			return;
 		}
 
 		$title = $wikiPage->getTitle();
 		if ( !self::userRevsApprovedAutomatically( $user, $title ) ) {
-			return true;
+			return;
 		}
 
 		if ( $title->getNamespace() == NS_FILE ) {
 			self::setOriginalFileRevAsApproved( $user, $title );
-			return true;
+			return;
 		}
 
 		if ( !ApprovedRevs::pageIsApprovable( $title ) ) {
-			return true;
+			return;
 		}
 
 		global $egApprovedRevsBlankIfUnapproved;
 		if ( !$egApprovedRevsBlankIfUnapproved ) {
 			$approvedRevID = ApprovedRevs::getApprovedRevID( $title );
 			if ( empty( $approvedRevID ) ) {
-				return true;
+				return;
 			}
 		}
 
 		// Save approval without logging.
 		ApprovedRevs::saveApprovedRevIDInDB( $title, $revisionRecord->getID(), $user, true );
-		return true;
 	}
 
 	/**
@@ -232,17 +229,15 @@ class ApprovedRevsHooks {
 		// ignore it. (It will get handled by the PageSaveComplete,
 		// or PageContentSaveComplete, hook anyway.)
 		if ( $title->getArticleID() == 0 ) {
-			return true;
+			return;
 		}
 
 		if ( !self::userRevsApprovedAutomatically( $user, $title ) ) {
-			return true;
+			return;
 		}
 		ApprovedRevs::setApprovedFileInDB(
 			$title, $file->getTimestamp(), $file->getSha1(), $user
 		);
-
-		return true;
 	}
 
 	/**
@@ -259,17 +254,17 @@ class ApprovedRevsHooks {
 		EditResult $editResult
 	) {
 		if ( $revisionRecord === null ) {
-			return true;
+			return;
 		}
 
 		$title = $wikiPage->getTitle();
 		if ( !ApprovedRevs::pageIsApprovable( $title ) ) {
-			return true;
+			return;
 		}
 
 		$revisionID = ApprovedRevs::getApprovedRevID( $title );
 		if ( $revisionID === null ) {
-			return true;
+			return;
 		}
 
 		// We only need to modify the search text if the approved
@@ -284,8 +279,6 @@ class ApprovedRevsHooks {
 			$approvedContent = $approvedPage->getContent();
 			ApprovedRevs::setPageSearchText( $title, $approvedContent );
 		}
-
-		return true;
 	}
 
 	/**
@@ -297,10 +290,11 @@ class ApprovedRevsHooks {
 		if ( $revisionID !== null ) {
 			$id = $revisionID;
 		}
-		return true;
 	}
 
 	/**
+	 * Hook: ArticleFromTitle
+	 *
 	 * Return the approved revision of the page, if there is one, and if
 	 * the page is simply being viewed, and if no specific revision has
 	 * been requested.
@@ -309,11 +303,11 @@ class ApprovedRevsHooks {
 		$request = $context->getRequest();
 
 		if ( !ApprovedRevs::isDefaultPageRequest( $request ) ) {
-			return true;
+			return;
 		}
 
 		if ( !ApprovedRevs::pageIsApprovable( $title ) ) {
-			return true;
+			return;
 		}
 
 		global $egApprovedRevsBlankIfUnapproved;
@@ -333,7 +327,6 @@ class ApprovedRevsHooks {
 			// up if the approved revision is also the latest.
 			$article->fetchRevisionRecord();
 		}
-		return true;
 	}
 
 	/**
@@ -639,6 +632,8 @@ class ApprovedRevsHooks {
 	}
 
 	/**
+	 * Hook: EditPage::showEditForm:initial
+	 *
 	 * Add a warning to the top of the 'edit' page if the approved
 	 * revision is not the same as the latest one, so that users don't
 	 * get confused, since they'll be seeing the latest one.
@@ -652,7 +647,7 @@ class ApprovedRevsHooks {
 
 		// Only show the warning if it's not an old revision.
 		if ( $request->getCheck( 'oldid' ) ) {
-			return true;
+			return;
 		}
 
 		$title = $article->getTitle();
@@ -663,10 +658,11 @@ class ApprovedRevsHooks {
 			$out = $context->getOutput();
 			$out->wrapWikiMsg( "<p class=\"approvedRevsEditWarning\">$1</p>\n", 'approvedrevs-editwarning' );
 		}
-		return true;
 	}
 
 	/**
+	 * Hook: PageForms::HTMLBeforeForm
+	 *
 	 * Same as addWarningToEditPage(), but for the Page Forms
 	 * 'edit with form' tab.
 	 */
@@ -683,10 +679,11 @@ class ApprovedRevsHooks {
 				[ 'class' => 'approvedRevsEditWarning' ],
 				wfMessage( 'approvedrevs-editwarning' )->text() ) . "\n";
 		}
-		return true;
 	}
 
 	/**
+	 * Hook: SkinTemplateNavigation::Universal
+	 *
 	 * If user is looking at a revision through a main 'view' URL (no
 	 * revision specified), have the 'edit' tab link to the basic
 	 * 'action=edit' URL (i.e., the latest revision), no matter which
@@ -697,7 +694,7 @@ class ApprovedRevsHooks {
 		$request = $context->getRequest();
 
 		if ( $request->getCheck( 'oldid' ) ) {
-			return true;
+			return;
 		}
 
 		$title = $skinTemplate->getTitle();
@@ -713,10 +710,11 @@ class ApprovedRevsHooks {
 				$contentActions['viewsource']['href'] = $title->getLocalUrl( [ 'action' => 'edit' ] );
 			}
 		}
-		return true;
 	}
 
 	/**
+	 * Hook: PageHistoryBeforeList
+	 *
 	 * Store the approved revision ID, if any, directly in the object
 	 * for this article - this is called so that a query to the database
 	 * can be made just once for every view of a history page, instead
@@ -729,11 +727,11 @@ class ApprovedRevsHooks {
 
 		// allows highlighting approved revision in history
 		ApprovedRevs::addCSS();
-
-		return true;
 	}
 
 	/**
+	 * Hook: PageHistoryLineEnding
+	 *
 	 * If the user is allowed to make revision approvals, add either an
 	 * 'approve' or 'unapprove' link to the end of this row in the page
 	 * history, depending on whether or not this is already the approved
@@ -743,7 +741,7 @@ class ApprovedRevsHooks {
 	public static function addApprovalLink( $historyPage, &$row, &$s, &$classes ) {
 		$title = $historyPage->getTitle();
 		if ( !ApprovedRevs::pageIsApprovable( $title ) ) {
-			return true;
+			return;
 		}
 
 		$context = $historyPage->getContext();
@@ -778,7 +776,6 @@ class ApprovedRevsHooks {
 				$msg
 			) . ')';
 		}
-		return true;
 	}
 
 	public static function addApprovalDiffLink(
@@ -790,7 +787,7 @@ class ApprovedRevsHooks {
 		$title = Title::castFromLinkTarget( $newRevision->getPageAsLinkTarget() );
 
 		if ( $prevRevision === null || $title === null || !ApprovedRevs::pageIsApprovable( $title ) ) {
-			return true;
+			return;
 		}
 
 		$approvedRevID = ApprovedRevs::getApprovedRevID( $title );
@@ -811,7 +808,6 @@ class ApprovedRevsHooks {
 				wfMessage( 'approvedrevs-approve' )->text()
 			);
 		}
-		return true;
 	}
 
 	/**
@@ -822,7 +818,6 @@ class ApprovedRevsHooks {
 		if ( !empty( $revisionID ) ) {
 			$id = $revisionID;
 		}
-		return true;
 	}
 
 	/**
@@ -843,7 +838,6 @@ class ApprovedRevsHooks {
 			$revLookup = MediaWikiServices::getInstance()->getRevisionLookup();
 			$revRecord = $revLookup->getRevisionById( $revisionID );
 		}
-		return true;
 	}
 
 	/**
@@ -859,7 +853,6 @@ class ApprovedRevsHooks {
 		RevisionRecord $deletedRev, ManualLogEntry $logEntry, int $archivedRevisionCount
 	) {
 		ApprovedRevs::deleteRevisionApproval( $page->getTitle() );
-		return true;
 	}
 
 	/**
@@ -872,11 +865,9 @@ class ApprovedRevsHooks {
 	 */
 	public static function deleteRevisionApprovalOld( &$article, &$user, $reason, $id ) {
 		ApprovedRevs::deleteRevisionApproval( $article->getTitle() );
-		return true;
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/MagicWordwgVariableIDs
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/GetMagicVariableIDs
 	 *
 	 * Register magic-word variable IDs
@@ -884,10 +875,11 @@ class ApprovedRevsHooks {
 	public static function addMagicWordVariableIDs( &$magicWordVariableIDs ) {
 		$magicWordVariableIDs[] = 'MAG_APPROVEDREVS';
 		$magicWordVariableIDs = array_merge( $magicWordVariableIDs, self::$mApprovalMagicWords );
-		return true;
 	}
 
 	/**
+	 * Hook: ParserAfterTidy
+	 *
 	 * Set values in the page_props table based on the presence of the
 	 * 'APPROVEDREVS' magic word in a page
 	 */
@@ -903,11 +895,12 @@ class ApprovedRevsHooks {
 				$parserOutput->setProperty( 'approvedrevs', 'y' );
 			}
 		}
-		return true;
 	}
 
 	/**
-	 * Assign a value to our variable
+	 * Hook: ParserGetVariableValueSwitch
+	 *
+	 * Assign a value to our variable.
 	 *
 	 * @param Parser $parser
 	 * @param array &$variableCache
@@ -952,6 +945,8 @@ class ApprovedRevsHooks {
 	}
 
 	/**
+	 * Hook: ParserFirstCallInit
+	 *
 	 * Register parser function(s)
 	 *
 	 * @param Parser &$parser
@@ -989,7 +984,6 @@ class ApprovedRevsHooks {
 			'ARParserFunctions::renderApprovalUser',
 			Parser::SFH_NO_HASH
 		);
-		return true;
 	}
 
 	/**
@@ -1004,7 +998,6 @@ class ApprovedRevsHooks {
 			$general_section->addRow( $extensions_row );
 		}
 		$extensions_row->addItem( ALItem::newFromSpecialPage( 'ApprovedRevs' ) );
-		return true;
 	}
 
 	public static function describeDBSchema( DatabaseUpdater $updater ) {
@@ -1029,6 +1022,8 @@ class ApprovedRevsHooks {
 	}
 
 	/**
+	 * Hook: ArticleViewHeader
+	 *
 	 * Display a message to the user if (a) "blank if unapproved" is set,
 	 * (b) the page is approvable, (c) the user has 'viewlinktolatest'
 	 * permission, and (d) either the page has no approved revision, or
@@ -1041,8 +1036,6 @@ class ApprovedRevsHooks {
 	 * @param Article $article
 	 * @param bool &$outputDone
 	 * @param bool &$useParserCache
-	 *
-	 * @return true
 	 */
 	public static function setArticleHeader( Article $article, &$outputDone, &$useParserCache ) {
 		global $egApprovedRevsBlankIfUnapproved;
@@ -1050,7 +1043,7 @@ class ApprovedRevsHooks {
 		// For now, we only set the header if "blank if unapproved"
 		// is set.
 		if ( !$egApprovedRevsBlankIfUnapproved ) {
-			return true;
+			return;
 		}
 
 		$title = $article->getTitle();
@@ -1060,13 +1053,13 @@ class ApprovedRevsHooks {
 		$request = $context->getRequest();
 
 		if ( !ApprovedRevs::pageIsApprovable( $title ) ) {
-			return true;
+			return;
 		}
 
 		// If the user isn't supposed to see these kinds of
 		// messages, exit.
 		if ( !ApprovedRevs::checkPermission( $user, $title, "viewlinktolatest" ) ) {
-			return false;
+			return;
 		}
 
 		// If there's an approved revision for this page, and the
@@ -1077,7 +1070,7 @@ class ApprovedRevsHooks {
 		if ( !empty( $approvedRevID ) &&
 			( !$request->getCheck( 'oldid' ) ||
 			$request->getInt( 'oldid' ) == $approvedRevID ) ) {
-			return true;
+			return;
 		}
 
 		// Disable caching, so that if it's a specific ID being shown
@@ -1122,11 +1115,11 @@ class ApprovedRevsHooks {
 		}
 
 		$out->addHTML( '</span>' );
-
-		return true;
 	}
 
 	/**
+	 * Hook: ArticleViewHeader
+	 *
 	 * If this page is approvable, but has no approved revision, display
 	 * a header message stating that, if the setting to display this
 	 * message is activated.
@@ -1134,21 +1127,21 @@ class ApprovedRevsHooks {
 	public static function displayNotApprovedHeader( Article $article, &$outputDone, &$useParserCache ) {
 		global $egApprovedRevsShowNotApprovedMessage;
 		if ( !$egApprovedRevsShowNotApprovedMessage ) {
-			return true;
+			return;
 		}
 
 		// If we're looking at an old revision of the page, no need to
 		// display anything.
 		if ( $article->mOldId !== 0 ) {
-			return true;
+			return;
 		}
 
 		$title = $article->getTitle();
 		if ( !ApprovedRevs::pageIsApprovable( $title ) ) {
-			return true;
+			return;
 		}
 		if ( ApprovedRevs::hasApprovedRevision( $title ) ) {
-			return true;
+			return;
 		}
 
 		$text = wfMessage( 'approvedrevs-noapprovedrevision' )->text();
@@ -1160,8 +1153,6 @@ class ApprovedRevsHooks {
 		} else {
 			$out->setSubtitle( $text );
 		}
-
-		return true;
 	}
 
 	/**
@@ -1192,6 +1183,8 @@ class ApprovedRevsHooks {
 	}
 
 	/**
+	 * Hook: ImagePageFileHistoryLine
+	 *
 	 * On image pages (pages in NS_FILE), modify each line in the file history
 	 * (file history, not history of wikitext on file page). Add
 	 * "approved-revision" class to the appropriate row. For users with
@@ -1202,7 +1195,7 @@ class ApprovedRevsHooks {
 		$fileTitle = $file->getTitle();
 
 		if ( !ApprovedRevs::fileIsApprovable( $fileTitle ) ) {
-			return true;
+			return;
 		}
 
 		$rowTimestamp = $file->getTimestamp();
@@ -1253,7 +1246,6 @@ class ApprovedRevsHooks {
 				$msg
 			) . '</td>';
 		}
-		return true;
 	}
 
 	/**
@@ -1320,11 +1312,11 @@ class ApprovedRevsHooks {
 		$query .= "filetimestamp=" . urlencode(
 			wfTimestamp( TS_MW, $approvedRevTimestamp )
 		);
-
-		return true;
 	}
 
 	/**
+	 * Hook: ImagePageFindFile
+	 *
 	 * Applicable on image pages only, this changes the primary image
 	 * on the page from the most recent to the approved revision.
 	 */
@@ -1333,7 +1325,7 @@ class ApprovedRevsHooks {
 			ApprovedRevs::getApprovedFileInfo( $imagePage->getFile()->getTitle() );
 
 		if ( ( !$approvedRevTimestamp ) || ( !$approvedRevSha1 ) ) {
-			return true;
+			return;
 		}
 
 		$repo = MediaWikiServices::getInstance()->getRepoGroup();
@@ -1359,11 +1351,11 @@ class ApprovedRevsHooks {
 				"using timestamp $approvedRevTimestamp\n" );
 			$normalFile = $repo->findFile( $title );
 		}
-
-		return true;
 	}
 
 	/**
+	 * Hook: FileDeleteComplete
+	 *
 	 * If a file is deleted, check if the sha1 (and timestamp?) exist in the
 	 * approved_revs_files table, and delete that row accordingly. A deleted
 	 * version of a file should not be the approved version!
@@ -1407,8 +1399,6 @@ class ApprovedRevsHooks {
 			}
 
 		}
-
-		return true;
 	}
 
 	/**
@@ -1417,16 +1407,14 @@ class ApprovedRevsHooks {
 	 */
 	public static function onwgQueryPages( &$qp ) {
 		$qp['SpecialApprovedRevsPage'] = 'ApprovedRevs';
-		return true;
 	}
 
 	public static function onMpdfGetArticle( $title, &$article ) {
 		$revisionID = ApprovedRevs::getApprovedRevID( $title );
 		if ( $revisionID === null ) {
-			return true;
+			return;
 		}
 		$article = new Article( $title, $revisionID );
-		return true;
 	}
 
 }
