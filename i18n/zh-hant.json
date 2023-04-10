@@ -6,13 +6,14 @@
 			"LNDDYL",
 			"Oapbtommy",
 			"Wehwei",
+			"Winston Sung",
 			"烈羽"
 		]
 	},
 	"approvedrevs-desc": "對頁面的單一修訂設定為批准",
 	"approvedrevs-logname": "修訂批准日誌",
 	"approvedrevs-logdesc": "這是已獲批准的修訂的日誌。",
-	"approvedrevs-approve": "批准",
+	"approvedrevs-approve": "核准",
 	"approvedrevs-approver": "此修訂由 $1 批准。",
 	"approvedrevs-unapprove": "不批准",
 	"approvedrevs-approvesuccess": "此頁面修訂已被設為批准的版本。",
