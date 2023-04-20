@@ -27,6 +27,7 @@
 	"approvedrevs-approvedpages": "Visi puslapiai su patvirtinta peržiūra",
 	"approvedrevs-notlatestpages": "Puslapiai, kurių patvirtinto pakeitimo nėra jų naujausia",
 	"approvedrevs-unapprovedpages": "Nepatvirtintas puslapių",
+	"approvedrevs-invalidpages": "Puslapiai su negalimais patvirtinimais",
 	"approvedrevs-view": "Peržiūrėti sąrašą:",
 	"approvedrevs-revisionnumber": "versija $1",
 	"approvedrevs-approvedby": "patvirtintas  $1  dėl$2",
@@ -36,5 +37,9 @@
 	"approvedrevs-viewlatestrev": "Peržiūrėti naujausių peržiūrėjimo.",
 	"approvedrevs-approvedrevision": "Patvirtinta peržiūra",
 	"right-approverevisions": "Nustatyti vieną puslapį su patvirtinta peržiūros",
-	"right-viewlinktolatest": "Peržiūrėti paaiškinamasis tekstas viršuje, puslapiai, kurie patvirtintų peržiūros"
+	"right-viewlinktolatest": "Peržiūrėti paaiškinamasis tekstas viršuje, puslapiai, kurie patvirtintų peržiūros",
+	"approvedrevs-invalidfiles": "Failai su negalimais patvirtinimais",
+	"approvedrevs-unapprovedfiles": "Nepatvirtinti failai",
+	"approvedrevs-approvedfile": "Patvirtintas failas",
+	"approvedrevs-latestfile": "Naujausias failas"
 }
