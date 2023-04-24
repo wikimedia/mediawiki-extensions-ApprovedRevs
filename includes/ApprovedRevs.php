@@ -64,17 +64,24 @@ class ApprovedRevs {
 	/**
 	 * Gets the approved revision User for this page, or null if there isn't
 	 * one.
+	 *
+	 * @param Title $title The page title
+	 * @return User|null The approver
 	 */
 	public static function getRevApprover( $title ) {
+		if ( self::pageIsApprovable( $title ) ) {
+			return null;
+		}
+
 		$pageID = $title->getArticleID();
-		if ( !isset( self::$mApproverForPage[$pageID] ) && self::pageIsApprovable( $title ) ) {
+		if ( !isset( self::$mApproverForPage[$pageID] ) ) {
 			$dbr = wfGetDB( DB_REPLICA );
 			$approverID = $dbr->selectField( 'approved_revs', 'approver_id',
 				[ 'page_id' => $pageID ] );
 			$approver = $approverID ? User::newFromID( $approverID ) : null;
 			self::$mApproverForPage[$pageID] = $approver;
 		}
-		return $approver;
+		return self::$mApproverForPage[$pageID];
 	}
 
 	/**
