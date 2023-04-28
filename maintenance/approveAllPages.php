@@ -48,6 +48,8 @@ class ApproveAllPages extends Maintenance {
 			"force", "Approve the latest version, even if an earlier "
 			. "revision of the page has already been approved."
 		);
+		$this->addOption( 'namespaces', 'Limit to this comma-separated list of namespace numbers.',
+			false, true );
 
 		if ( method_exists( $this, 'requireExtension' ) ) {
 			$this->requireExtension( 'Approved Revs' );
@@ -57,6 +59,12 @@ class ApproveAllPages extends Maintenance {
 	public function execute() {
 		global $wgTitle;
 		global $wgEnotifWatchlist;
+
+		if ( $this->hasOption( 'namespaces' ) ) {
+			$allowedNamespaces = explode( ',', $this->getOption( 'namespaces' ) );
+		} else {
+			$allowedNamespaces = null;
+		}
 
 		// Don't send out any notifications about people's watch lists.
 		$wgEnotifWatchlist = false;
@@ -78,6 +86,12 @@ class ApproveAllPages extends Maintenance {
 			// Some extensions, like Page Forms, need $wgTitle
 			// set as well for these checks.
 			$wgTitle = $title;
+
+			if ( $allowedNamespaces !== null ) {
+				if ( !in_array( $title->getNamespace(), $allowedNamespaces ) ) {
+					continue;
+				}
+			}
 
 			if ( !ApprovedRevs::pageIsApprovable( $title ) ) {
 				continue;
@@ -105,8 +119,13 @@ class ApproveAllPages extends Maintenance {
 				$title->getFullText() . "\".\n" );
 		}
 
-		$this->output( "\n Finished setting all current " .
-			"revisions to approved. \n" );
+		if ( $allowedNamespaces == null ) {
+			$this->output( "\n Finished setting all current " .
+				"revisions to approved. \n" );
+		} else {
+			$this->output( "\n Finished setting specified " .
+				"revisions to approved. \n" );
+		}
 	}
 
 }
