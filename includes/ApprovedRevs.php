@@ -199,7 +199,9 @@ class ApprovedRevs {
 		}
 
 		// Allow custom setting of whether the page is approvable.
-		if ( !Hooks::run( 'ApprovedRevsPageIsApprovable', [ $title, &$isApprovable ] ) ) {
+		if ( !MediaWikiServices::getInstance()->getHookContainer()
+			->run( 'ApprovedRevsPageIsApprovable', [ $title, &$isApprovable ] )
+		) {
 			$title->isApprovable = $isApprovable;
 			return $title->isApprovable;
 		}
@@ -256,7 +258,9 @@ class ApprovedRevs {
 		}
 
 		// Allow custom setting of whether the page is approvable.
-		if ( !Hooks::run( 'ApprovedRevsFileIsApprovable', [ $title, &$fileIsApprovable ] ) ) {
+		if ( !MediaWikiServices::getInstance()->getHookContainer()
+			->run( 'ApprovedRevsFileIsApprovable', [ $title, &$fileIsApprovable ] )
+		) {
 			$title->fileIsApprovable = $fileIsApprovable;
 			return $title->fileIsApprovable;
 		}
@@ -557,7 +561,8 @@ class ApprovedRevs {
 			$user
 		);
 
-		Hooks::run( 'ApprovedRevsRevisionApproved', [ $output, $title, $rev_id, $content ] );
+		MediaWikiServices::getInstance()->getHookContainer()
+			->run( 'ApprovedRevsRevisionApproved', [ $output, $title, $rev_id, $content ] );
 	}
 
 	public static function deleteRevisionApproval( $title ) {
@@ -604,7 +609,8 @@ class ApprovedRevs {
 			$user
 		);
 
-		Hooks::run( 'ApprovedRevsRevisionUnapproved', [ $output, $title, $content ] );
+		MediaWikiServices::getInstance()->getHookContainer()
+			->run( 'ApprovedRevsRevisionUnapproved', [ $output, $title, $content ] );
 	}
 
 	public static function getParserOutput( $contentHandler, $content, $title, $revID, $user ) {
@@ -678,7 +684,7 @@ class ApprovedRevs {
 			$user
 		);
 
-		Hooks::run(
+		MediaWikiServices::getInstance()->getHookContainer()->run(
 			'ApprovedRevsFileRevisionApproved',
 			[ $parser, $title, $timestamp, $sha1 ]
 		);
@@ -710,7 +716,7 @@ class ApprovedRevs {
 		// Delete from the in-memory cache as well.
 		self::clearApprovedFileInfo( $title );
 
-		Hooks::run(
+		MediaWikiServices::getInstance()->getHookContainer()->run(
 			'ApprovedRevsFileRevisionUnapproved', [ $parser, $title ]
 		);
 	}
