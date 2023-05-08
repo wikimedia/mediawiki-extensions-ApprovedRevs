@@ -30,6 +30,7 @@
 	"approvedrevs-invalidpages": "Puslapiai su negalimais patvirtinimais",
 	"approvedrevs-view": "Peržiūrėti sąrašą:",
 	"approvedrevs-revisionnumber": "versija $1",
+	"approvedrevs-uploaddate": "įkelta iš $1",
 	"approvedrevs-approvedby": "patvirtintas  $1  dėl$2",
 	"approvedrevs-difffromlatest": "diff iš vėliau kaip",
 	"approvedrevs-approvelatest": "patvirtinti naujausią",
