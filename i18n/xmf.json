@@ -4,6 +4,16 @@
 			"Narazeni"
 		]
 	},
+	"approvedrevs": "გინოჯინელი ვერსიეფი",
+	"approvedrevs-approvedpages": "არძა ხასჷლა გინოჯინელი ვერსიათ",
+	"approvedrevs-notlatestpages": "ხასჷლეფი, ნამუეფიშ გინოჯინელი ვერსიეფი ბოლო ვა რენ",
+	"approvedrevs-unapprovedpages": "უგნუჯინუ ხასჷლეფი",
+	"approvedrevs-revisionnumber": "ვერსია $1",
+	"approvedrevs-difffromlatest": "გინორთი ბოლოწკჷმა",
+	"approvedrevs-approvelatest": "ბოლოშ გინოჯინა",
+	"approvedrevs-approvethisrev": "ათე ვერსიაშ გინოჯინა.",
+	"approvedrevs-viewlatestrev": "ბოლო ვერსიაშ ძირაფა.",
+	"approvedrevs-approvedrevision": "გინოჯინელი ვერსია",
 	"approvedrevs-unapprovedfiles": "ვარებული ფაილეფი",
 	"approvedrevs-approvedfile": "მეღებული ფაილი",
 	"approvedrevs-latestfile": "უახალაში ფაილი"
