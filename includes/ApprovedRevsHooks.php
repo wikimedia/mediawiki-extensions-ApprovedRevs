@@ -706,6 +706,9 @@ class ApprovedRevsHooks {
 			if ( array_key_exists( 'edit', $contentActions ) ) {
 				$contentActions['edit']['href'] = $title->getLocalUrl( [ 'action' => 'edit' ] );
 			}
+			if ( array_key_exists( 've-edit', $contentActions ) ) {
+				$contentActions['ve-edit']['href'] = $title->getLocalUrl( [ 'veaction' => 'edit' ] );
+			}
 			if ( array_key_exists( 'viewsource', $contentActions ) ) {
 				$contentActions['viewsource']['href'] = $title->getLocalUrl( [ 'action' => 'edit' ] );
 			}
