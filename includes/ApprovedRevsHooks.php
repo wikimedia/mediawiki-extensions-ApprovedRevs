@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\Hook\BeforeParserFetchTemplateRevisionRecordHook;
+use MediaWiki\Html\Html;
 use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\Hook\PageDeleteCompleteHook;
@@ -632,32 +633,47 @@ class ApprovedRevsHooks {
 	}
 
 	/**
-	 * Hook: EditPage::showEditForm:initial
+	 * Hook: TitleGetEditNotices
 	 *
-	 * Add a warning to the top of the 'edit' page if the approved
-	 * revision is not the same as the latest one, so that users don't
+	 * Add an edit notice if the approved revision
+	 * is not the same as the latest one, so that users don't
 	 * get confused, since they'll be seeing the latest one.
+	 * Also add an edit notice if the user can't automatically
+	 * approve.
 	 *
-	 * @param EditPage $editPage
+	 * @param Title $title
+	 * @param int $oldid
+	 * @param array &$notices
 	 */
-	public static function addWarningToEditPage( EditPage $editPage ) {
+	public static function addEditNotice( Title $title, $oldid, array &$notices ) {
+		$editPage = new EditPage( new Article( $title, $oldid ) );
+		$editPage->oldid = $oldid;
 		$article = $editPage->getArticle();
 		$context = $article->getContext();
 		$request = $context->getRequest();
-
-		// Only show the warning if it's not an old revision.
-		if ( $request->getCheck( 'oldid' ) ) {
-			return;
-		}
-
-		$title = $article->getTitle();
+		$user = $context->getUser();
 		$approvedRevID = ApprovedRevs::getApprovedRevID( $title );
 		$latestRevID = $title->getLatestRevID();
-		if ( !empty( $approvedRevID ) && $approvedRevID != $latestRevID ) {
-			ApprovedRevs::addCSS();
-			$out = $context->getOutput();
-			$out->wrapWikiMsg( "<p class=\"approvedRevsEditWarning\">$1</p>\n", 'approvedrevs-editwarning' );
+
+		if ( empty( $approvedRevID ) ) {
+			return true;
 		}
+
+		if ( $approvedRevID != $latestRevID && !$request->getCheck( 'oldid' ) ) {
+			$notices['approvedrevs-editwarning'] = Html::warningBox( $context->msg( 'approvedrevs-editwarning',
+				$title->getFullURL( [
+					'diff' => $latestRevID,
+					'oldid' => $approvedRevID,
+				] )
+			)->parse() );
+		}
+
+		if ( !self::userRevsApprovedAutomatically( $user, $title ) ) {
+			$notices['approvedrevs-editwarning-pending'] =
+				Html::warningBox( $context->msg( 'approvedrevs-editwarning-pending' )->escaped() );
+		}
+
+		return true;
 	}
 
 	/**

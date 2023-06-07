@@ -115,7 +115,7 @@
 		"ParserFirstCallInit": "ApprovedRevsHooks::registerFunctions",
 		"AdminLinks": "ApprovedRevsHooks::addToAdminLinks",
 		"LoadExtensionSchemaUpdates": "ApprovedRevsHooks::describeDBSchema",
-		"EditPage::showEditForm:initial": "ApprovedRevsHooks::addWarningToEditPage",
+		"TitleGetEditNotices": "ApprovedRevsHooks::addEditNotice",
 		"PageForms::HTMLBeforeForm": "ApprovedRevsHooks::addWarningToPFForm",
 		"ArticleViewHeader": [
 			"ApprovedRevsHooks::setArticleHeader",
