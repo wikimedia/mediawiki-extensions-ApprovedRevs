@@ -711,6 +711,7 @@ class ApprovedRevsHooks {
 			}
 			if ( array_key_exists( 'viewsource', $contentActions ) ) {
 				$contentActions['viewsource']['href'] = $title->getLocalUrl( [ 'action' => 'edit' ] );
+			$skinTemplate->getOutput()->addJsConfigVars( 'wgEditLatestRevision', true );
 			}
 		}
 	}
