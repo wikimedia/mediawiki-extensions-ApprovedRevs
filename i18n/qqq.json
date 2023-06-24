@@ -58,7 +58,6 @@
 	"approvedrevs-unapprovedfiles": "Used as a '''bold''' message or a link text to files in [[Special:ApprovedRevs]].\n\nThis message follows {{msg-mw|Approvedrevs-notlatestfiles}} and \" | \".\n\nSee also:\n* {{msg-mw|Approvedrevs-view}}",
 	"approvedrevs-approvedfile": "Used to link directly to the approved file.",
 	"approvedrevs-latestfile": "Used to show a link to the most recently uploaded file",
-	"apihelp-approve-description": "{{doc-apihelp-description|approve}}",
 	"apihelp-approve-summary": "{{doc-apihelp-summary|approve}}",
 	"apihelp-approve-param-revid": "{{doc-apihelp-param|approve|revid}}",
 	"apihelp-approve-param-unapprove": "{{doc-apihelp-param|approve|unapprove}}",
