@@ -804,7 +804,7 @@ class ApprovedRevs {
 						'LEFT OUTER JOIN', 'ar.page_id=pp_page'
 					],
 				],
-				'conds' => $mainCondsString,
+				'conds' => [ $mainCondsString ],
 				'options' => [ 'DISTINCT' ]
 			];
 		} elseif ( $mode == 'unapproved' ) {
@@ -828,7 +828,7 @@ class ApprovedRevs {
 						'LEFT OUTER JOIN', 'p.page_id=pp_page'
 					],
 				],
-				'conds' => "ar.page_id IS NULL AND ( $mainCondsString )",
+				'conds' => [ 'ar.page_id IS NULL', $mainCondsString ],
 				'options' => [ 'DISTINCT' ]
 			];
 		} elseif ( $mode == 'invalid' ) {
@@ -852,7 +852,7 @@ class ApprovedRevs {
 						'LEFT OUTER JOIN', 'ar.page_id=pp_page'
 					],
 				],
-				'conds' => $mainCondsString,
+				'conds' => [ $mainCondsString ],
 				'options' => [ 'DISTINCT' ]
 			];
 		} else {
@@ -878,7 +878,7 @@ class ApprovedRevs {
 						'LEFT OUTER JOIN', 'ar.page_id=pp_page'
 					],
 				],
-				'conds' => "p.page_latest != ar.rev_id AND ( $mainCondsString )",
+				'conds' => [ 'p.page_latest != ar.rev_id', $mainCondsString ],
 				'options' => [ 'DISTINCT' ]
 			];
 		}

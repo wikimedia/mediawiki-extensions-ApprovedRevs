@@ -124,10 +124,24 @@ class SpecialApprovedRevs extends QueryPage {
 			$this->mMode,
 			[ 'notlatestfiles', 'unapprovedfiles', 'approvedfiles', 'invalidfiles' ]
 		) ) {
-			return ApprovedRevs::getQueryInfoFileApprovals( $this->mMode );
+			$query = ApprovedRevs::getQueryInfoFileApprovals( $this->mMode );
 		} else {
-			return ApprovedRevs::getQueryInfoPageApprovals( $this->mMode );
+			$query = ApprovedRevs::getQueryInfoPageApprovals( $this->mMode );
 		}
+		if ( in_array( $this->mMode, [ 'all', 'approvedfiles' ] ) ) {
+			$query['tables'] = array_merge( $query['tables'], [ 'logging', 'actor' ] );
+			$query['fields'] = array_merge( $query['fields'], [
+				'log_user' => 'actor_user',
+				'log_user_name' => 'actor_name',
+				'log_timestamp',
+			] );
+			$query['join_conds'] += [
+				'logging' => [ 'LEFT OUTER JOIN', 'p.page_id=log_page' ],
+				'actor' => [ 'JOIN', 'log_actor=actor_id' ],
+			];
+			$query['conds']['log_type'] = 'approval';
+		}
+		return $query;
 	}
 
 	protected function getOrder() {
@@ -189,24 +203,16 @@ class SpecialApprovedRevs extends QueryPage {
 				$this->msg( 'approvedrevs-revisionnumber', $result->rev_id )->text()
 			);
 
-			// Get data on the most recent approval from the
-			// 'approval' log, and display it if it's there.
-			$loglist = new LogEventsList( $out->getSkin(), $out );
-			$pager = new LogPager( $loglist, 'approval', '', $title->getText() );
-			$pager->mLimit = 1;
-			$pager->doQuery();
-			$row = $pager->mResult->fetchObject();
-
-			if ( !empty( $row ) ) {
-				$timestamp = $lang->timeanddate( wfTimestamp( TS_MW, $row->log_timestamp ), true );
-				$date = $lang->date( wfTimestamp( TS_MW, $row->log_timestamp ), true );
-				$time = $lang->time( wfTimestamp( TS_MW, $row->log_timestamp ), true );
-				$userLink = Linker::userLink( $row->log_user, $row->user_name );
+			if ( isset( $result->log_timestamp ) ) {
+				$timestamp = $lang->timeanddate( wfTimestamp( TS_MW, $result->log_timestamp ), true );
+				$date = $lang->date( wfTimestamp( TS_MW, $result->log_timestamp ), true );
+				$time = $lang->time( wfTimestamp( TS_MW, $result->log_timestamp ), true );
+				$userLink = Linker::userLink( $result->log_user, $result->log_user_name );
 				$additionalInfo .= ', ' . $this->msg(
 					'approvedrevs-approvedby',
 					$userLink,
 					$timestamp,
-					$row->user_name,
+					$result->log_user_name,
 					$date,
 					$time
 				)->text();
@@ -310,33 +316,23 @@ class SpecialApprovedRevs extends QueryPage {
 				)->parse()
 			);
 
-			// Get data on the most recent approval from the
-			// 'approval' log, and display it if it's there.
-			$loglist = new LogEventsList( $skin, $this->getOutput() );
-			$pager = new LogPager( $loglist, 'approval', '', $title );
-			$pager->mLimit = 1;
-			$pager->doQuery();
-
-			$result = $pager->getResult();
-			$row = $result->fetchObject();
-
-			if ( !empty( $row ) ) {
+			if ( isset( $result->log_timestamp ) ) {
 				$lang = $this->getLanguage();
 				$timestamp = $lang->timeanddate(
-					wfTimestamp( TS_MW, $row->log_timestamp ), true
+					wfTimestamp( TS_MW, $result->log_timestamp ), true
 				);
 				$date = $lang->date(
-					wfTimestamp( TS_MW, $row->log_timestamp ), true
+					wfTimestamp( TS_MW, $result->log_timestamp ), true
 				);
 				$time = $lang->time(
-					wfTimestamp( TS_MW, $row->log_timestamp ), true
+					wfTimestamp( TS_MW, $result->log_timestamp ), true
 				);
-				$userLink = Linker::userLink( $row->log_user, $row->user_name );
+				$userLink = Linker::userLink( $result->log_user, $result->log_user_name );
 				$additionalInfo .= ', ' . $this->msg(
 					'approvedrevs-approvedby',
 					$userLink,
 					$timestamp,
-					$row->user_name,
+					$result->log_user_name,
 					$date,
 					$time
 				)->text();
