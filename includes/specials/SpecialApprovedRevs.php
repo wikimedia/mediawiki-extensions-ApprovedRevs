@@ -204,9 +204,10 @@ class SpecialApprovedRevs extends QueryPage {
 			);
 
 			if ( isset( $result->log_timestamp ) ) {
-				$timestamp = $lang->timeanddate( wfTimestamp( TS_MW, $result->log_timestamp ), true );
-				$date = $lang->date( wfTimestamp( TS_MW, $result->log_timestamp ), true );
-				$time = $lang->time( wfTimestamp( TS_MW, $result->log_timestamp ), true );
+				$timestampInteger = wfTimestamp( TS_MW, $result->log_timestamp );
+				$timestamp = $lang->timeanddate( $timestampInteger, true );
+				$date = $lang->date( $timestampInteger, true );
+				$time = $lang->time( $timestampInteger, true );
 				$userLink = Linker::userLink( $result->log_user, $result->log_user_name );
 				$additionalInfo .= ', ' . $this->msg(
 					'approvedrevs-approvedby',
@@ -318,15 +319,10 @@ class SpecialApprovedRevs extends QueryPage {
 
 			if ( isset( $result->log_timestamp ) ) {
 				$lang = $this->getLanguage();
-				$timestamp = $lang->timeanddate(
-					wfTimestamp( TS_MW, $result->log_timestamp ), true
-				);
-				$date = $lang->date(
-					wfTimestamp( TS_MW, $result->log_timestamp ), true
-				);
-				$time = $lang->time(
-					wfTimestamp( TS_MW, $result->log_timestamp ), true
-				);
+				$timestampInteger = wfTimestamp( TS_MW, $result->log_timestamp );
+				$timestamp = $lang->timeanddate( $timestampInteger, true );
+				$date = $lang->date( $timestampInteger, true );
+				$time = $lang->time( $timestampInteger, true );
 				$userLink = Linker::userLink( $result->log_user, $result->log_user_name );
 				$additionalInfo .= ', ' . $this->msg(
 					'approvedrevs-approvedby',
