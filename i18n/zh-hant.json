@@ -55,7 +55,6 @@
 	"approvedrevs-unapprovedfiles": "未核准的檔案",
 	"approvedrevs-approvedfile": "核准的檔案",
 	"approvedrevs-latestfile": "最新檔案",
-	"apihelp-approve-description": "透過批准或取消批准來檢閱修訂內容。",
 	"apihelp-approve-summary": "透過批准或取消批准來檢閱修訂內容",
 	"apihelp-approve-param-revid": "可批准的修訂 ID。",
 	"apihelp-approve-param-unapprove": "若設定的話，修訂將會被取消批准而非通過。",

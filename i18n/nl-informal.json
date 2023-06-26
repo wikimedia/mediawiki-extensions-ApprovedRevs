@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
+			"McDutchie",
 			"Siebrand"
 		]
 	},
-	"approvedrevs-editwarning": "Je bewerkt de meest recente versie van deze pagina die nog niet goedgekeurd is en standaard niet wordt weergegeven."
+	"approvedrevs-editwarning": "'''Let op:''' je bewerkt nu de meest recente versie van deze pagina. Dit is niet de goedgekeurde versie die standaard wordt weergegeven. ([$1 verschillen tonen])"
 }

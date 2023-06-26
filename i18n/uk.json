@@ -61,7 +61,6 @@
 	"approvedrevs-unapprovedfiles": "Незатверджені файли",
 	"approvedrevs-approvedfile": "Затверджений файл",
 	"approvedrevs-latestfile": "Найпізніший файл",
-	"apihelp-approve-description": "Перевірити версію, затвердивши її або знявши затвердження.",
 	"apihelp-approve-summary": "Перевірити версію, затвердивши її або знявши затвердження.",
 	"apihelp-approve-param-revid": "Ідентифікатор версії, яку треба затвердити.",
 	"apihelp-approve-param-unapprove": "Якщо встановлено, з версії буде знято затвердження, замість того, щоб затвердити її.",

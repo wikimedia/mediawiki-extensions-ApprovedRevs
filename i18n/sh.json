@@ -47,7 +47,6 @@
 	"approvedrevs-unapprovedfiles": "Neodobrene datoteke",
 	"approvedrevs-approvedfile": "Odobrena datoteka",
 	"approvedrevs-latestfile": "Najnovija datoteka",
-	"apihelp-approve-description": "Pregledajte reviziju i odobrite je ili oduzmite odobrenje.",
 	"apihelp-approve-summary": "Pregledajte reviziju i odobrite je ili oduzmite odobrenje.",
 	"apihelp-approve-param-revid": "Naznaka revizije što se odobruje.",
 	"apihelp-approve-param-unapprove": "Ako je dano, revizija će biti neodobrena umjesto odobrena."

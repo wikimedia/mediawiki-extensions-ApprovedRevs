@@ -49,7 +49,6 @@
 	"approvedrevs-unapprovedfiles": "File none approvate",
 	"approvedrevs-approvedfile": "File approvate",
 	"approvedrevs-latestfile": "Urteme file",
-	"apihelp-approve-description": "Revide 'na revisione pe dicere sìne o none.",
 	"apihelp-approve-summary": "Revide 'na revisione pe dicere sìne o none.",
 	"apihelp-approve-param-revid": "L'ID da revisione da approvà.",
 	"apihelp-approve-param-unapprove": "Ce ste, 'a revisione adda essere none approvate pe farle addevendà approvate.",

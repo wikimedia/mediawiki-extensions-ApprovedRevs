@@ -60,7 +60,6 @@
 	"approvedrevs-unapprovedfiles": "承認されたことがないファイル",
 	"approvedrevs-approvedfile": "承認済みのファイル",
 	"approvedrevs-latestfile": "最新版のファイル",
-	"apihelp-approve-description": "版を承認するか承認を取り消すことで版を評価します。",
 	"apihelp-approve-summary": "版を承認するか承認を取り消すことで版を評価します。",
 	"apihelp-approve-param-revid": "承認する版ID。",
 	"apihelp-approve-param-unapprove": "このパラメーターが設定されている場合、版を承認するのではなく承認を取り消します。",

@@ -57,7 +57,6 @@
 	"approvedrevs-unapprovedfiles": "پرونده‌های تأیید نشده",
 	"approvedrevs-approvedfile": "پروندهٔ تأیید شده",
 	"approvedrevs-latestfile": "آخرین پرونده",
-	"apihelp-approve-description": "بازبینی یک نسخه را با تأیید یا رد آن انجام دهید.",
 	"apihelp-approve-summary": "بازبینی یک نسخه را با تأیید یا رد آن انجام دهید.",
 	"apihelp-approve-example-1": "نسخهٔ ۱۲۳۴۵ را تأیید کنید",
 	"apihelp-approve-example-2": "نسخهٔ ۱۲۳۴۵ را رد کنید"

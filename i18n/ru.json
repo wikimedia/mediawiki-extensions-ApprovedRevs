@@ -59,7 +59,6 @@
 	"approvedrevs-unapprovedfiles": "Неутверждённые файлы",
 	"approvedrevs-approvedfile": "Утвержденный файл",
 	"approvedrevs-latestfile": "Последний файл",
-	"apihelp-approve-description": "Проверка версии посредством подтверждения или неподтверждения её.",
 	"apihelp-approve-summary": "Проверка версии посредством подтверждения или неподтверждения её.",
 	"apihelp-approve-param-revid": "Идентификатор версии, для которого необходимо одобрить.",
 	"apihelp-approve-param-unapprove": "Если задано, версия будет не подтверждена.",

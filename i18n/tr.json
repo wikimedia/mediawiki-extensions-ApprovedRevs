@@ -59,7 +59,6 @@
 	"approvedrevs-unapprovedfiles": "Onaylanmamış dosyalar",
 	"approvedrevs-approvedfile": "Onaylanmış dosya",
 	"approvedrevs-latestfile": "En son dosya",
-	"apihelp-approve-description": "Bir sürümü onaylayarak veya onayı kaldırarak gözden geçirin.",
 	"apihelp-approve-summary": "Bir sürümü onaylayarak veya onayı kaldırarak gözden geçirin.",
 	"apihelp-approve-param-revid": "Onaylanacak revizyon kimliği.",
 	"apihelp-approve-param-unapprove": "Ayarlanırsa, revizyon onaylanmak yerine onaylanmayacaktır.",

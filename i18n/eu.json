@@ -33,6 +33,5 @@
 	"approvedrevs-notlatestfiles": "Onartutako berriskusketa azken berriskusketa izan ez duen fitxategia",
 	"approvedrevs-unapprovedfiles": "Ezetsitako fitxategiak",
 	"approvedrevs-approvedfile": "Onartutako fitxategia",
-	"approvedrevs-latestfile": "Azken fitxategia",
-	"apihelp-approve-description": "Errepasatu berrikusketa bat hau onartzen edo gaitzesten"
+	"approvedrevs-latestfile": "Azken fitxategia"
 }

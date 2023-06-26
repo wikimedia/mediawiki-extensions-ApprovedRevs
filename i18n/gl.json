@@ -40,7 +40,6 @@
 	"right-viewlinktolatest": "Ollar o texto explicativo ao comezo das páxinas que posúen unha revisión aprobada",
 	"approvedrevs-approvedfile": "Ficheiro aprobado",
 	"approvedrevs-latestfile": "Ficheiro máis recente",
-	"apihelp-approve-description": "Revisar unha revisión aprobándoa ou desaprobándoa.",
 	"apihelp-approve-summary": "Revisar unha revisión aprobándoa ou desaprobándoa.",
 	"apihelp-approve-param-revid": "O identificador da revisión a aprobar.",
 	"apihelp-approve-param-unapprove": "Se se aplica, a revisión será desaprobada no canto de aprobala.",

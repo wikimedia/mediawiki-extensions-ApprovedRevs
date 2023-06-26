@@ -56,7 +56,6 @@
 	"approvedrevs-unapprovedfiles": "Niezatwierdzone pliki",
 	"approvedrevs-approvedfile": "Zatwierdzony plik",
 	"approvedrevs-latestfile": "Najnowszy plik",
-	"apihelp-approve-description": "Przejrzyj wersję oznaczając ją jako zatwierdzoną lub niezatwierdzoną.",
 	"apihelp-approve-summary": "Przejrzyj wersję oznaczając ją jako zatwierdzoną lub niezatwierdzoną.",
 	"apihelp-approve-param-revid": "ID wersji do zatwierdzenia.",
 	"apihelp-approve-param-unapprove": "Jeśli ustawione, wersja zostanie oznaczona jako niezatwierdzona (zamiast zatwierdzona).",

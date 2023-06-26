@@ -5,6 +5,7 @@
 			"Hhaboh162002",
 			"Meno25",
 			"Moemin05",
+			"أيوب",
 			"ديفيد",
 			"روخو"
 		]
@@ -25,7 +26,7 @@
 	"approvedrevs-approvedandlatest": "هذه هي المراجعة المعتمدة من هذه الصفحة، وهي أيضًا أحدث مراجعة.",
 	"approvedrevs-blankpageshown": "لم يجري اعتماد أية مراجعات لهذه الصفحة.",
 	"approvedrevs-noapprovedrevision": "هذه هي أحدث مراجعة لهذه الصفحة؛ أي لا يوجد لها مراجعات معتمدة.",
-	"approvedrevs-editwarning": "يرجى ملاحظة أنك تعدّل الآن أحدث مراجعة لهذه الصفحة، وهي ليست المراجعة المعتمدة التي تعرض بصفة افتراضية.",
+	"approvedrevs-editwarning": "'''يرجى ملاحظة''' أنك تعدّل الآن أحدث مراجعة لهذه الصفحة، وهي ليست المراجعة المعتمدة التي تعرض بصفة افتراضية ([$1 طالع الفرق]).",
 	"approvedrevs": "المراجعات المعتمدة",
 	"approvedrevs-approvedpages": "كافة الصفحات التي يوجد لها مراجعة معتمدة",
 	"approvedrevs-notlatestpages": "صفحات مراجعاتها المعتمدة ليست هي آخر مراجعاتها",
@@ -55,7 +56,6 @@
 	"approvedrevs-unapprovedfiles": "ملفات ألغي اعتماد مراجعاتها",
 	"approvedrevs-approvedfile": "ملف معتمد",
 	"approvedrevs-latestfile": "أحدث ملف",
-	"apihelp-approve-description": "مراجعة مراجعة بالموافقة أو إلغاء الموافقة عليها.",
 	"apihelp-approve-summary": "مراجعة مراجعة بالموافقة أو إلغاء الموافقة عليها.",
 	"apihelp-approve-param-revid": "معرف المراجعة للموافقة عليها.",
 	"apihelp-approve-param-unapprove": "في حالة التعيين، سيلغى اعتماد المراجعة لا اعتمادها.",

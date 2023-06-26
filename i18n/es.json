@@ -73,7 +73,6 @@
 	"approvedrevs-unapprovedfiles": "Archivos no aprobados",
 	"approvedrevs-approvedfile": "Archivo aprobado",
 	"approvedrevs-latestfile": "Archivo más reciente",
-	"apihelp-approve-description": "Revisa una revisión aprobándola o desaprobándola.",
 	"apihelp-approve-summary": "Revisa una revisión aprobándola o desaprobándola.",
 	"apihelp-approve-param-revid": "El identificador de la revisión que se va a aprobar.",
 	"apihelp-approve-param-unapprove": "Si se aplica, la revisión anulará la aprobación en lugar de aprobarla.",

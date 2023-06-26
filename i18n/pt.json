@@ -53,7 +53,6 @@
 	"approvedrevs-unapprovedfiles": "Ficheiros não aprovados",
 	"approvedrevs-approvedfile": "Ficheiro aprovado",
 	"approvedrevs-latestfile": "Ficheiro mais recente",
-	"apihelp-approve-description": "Rever uma edição, aprovando-a ou anulando a sua aprovação.",
 	"apihelp-approve-summary": "Rever uma edição, aprovando-a ou anulando a sua aprovação.",
 	"apihelp-approve-param-revid": "O identificador da edição que será aprovada.",
 	"apihelp-approve-param-unapprove": "Se definido, a edição terá a sua aprovação anulada em vez de aprovada.",

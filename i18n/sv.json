@@ -57,7 +57,6 @@
 	"approvedrevs-unapprovedfiles": "Icke-godkända sidor",
 	"approvedrevs-approvedfile": "Godkänd fil",
 	"approvedrevs-latestfile": "Senaste fil",
-	"apihelp-approve-description": "Granska en revidering genom att godkänna eller avgodkänna den.",
 	"apihelp-approve-summary": "Granska en revidering genom att godkänna eller avgodkänna den.",
 	"apihelp-approve-param-revid": "Revisions-IDt att godkänna.",
 	"apihelp-approve-param-unapprove": "Om inställd kommer revideringen att avgodkännas istället för att godkännas.",

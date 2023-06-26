@@ -47,7 +47,6 @@
 	"approvedrevs-unapprovedfiles": "Ficheros non aprobaos",
 	"approvedrevs-approvedfile": "Ficheru aprobáu",
 	"approvedrevs-latestfile": "Últimu ficheru",
-	"apihelp-approve-description": "Revisar una revisión aprobándola o desaprobándola.",
 	"apihelp-approve-summary": "Revisar una revisión aprobándola desaprobándola.",
 	"apihelp-approve-param-revid": "L'identificador de la revisión a aprobar.",
 	"apihelp-approve-param-unapprove": "Si se marca, la revisión refugaráse, en llugar d'aprobase.",

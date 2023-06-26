@@ -49,7 +49,6 @@
 	"approvedrevs-unapprovedfiles": "Ne aprobitaj dosieroj",
 	"approvedrevs-approvedfile": "Aprobita dosiero",
 	"approvedrevs-latestfile": "Laste alŝutita dosiero",
-	"apihelp-approve-description": "Revizii version per aprobado aŭ malaprobado.",
 	"apihelp-approve-summary": "Revizii version per aprobado aŭ malaprobado.",
 	"apihelp-approve-param-revid": "Numero de aprobota versio.",
 	"apihelp-approve-param-unapprove": "Se ĝi estas ŝaltita, versio estas malaprobota, ne aprobota.",

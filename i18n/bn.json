@@ -5,11 +5,13 @@
 			"Aftabuzzaman",
 			"Bellayet",
 			"Wikitanvir",
+			"Yahya",
 			"আফতাবুজ্জামান"
 		]
 	},
 	"approvedrevs-approve": "অনুমোদন",
 	"approvedrevs-unapprove": "অনুনমোদন",
+	"approvedrevs-editwarning-pending": "একজন অনুমোদিত ব্যবহারকারী এটি অনুমোদন করলেই আপনার পরিবর্তন পাঠকদের কাছে প্রদর্শিত হবে।",
 	"approvedrevs": "গ্রহণকৃত সংস্করণ",
 	"approvedrevs-approvedpages": "গ্রহণকৃত সংস্করণসহ সকল পাতা",
 	"approvedrevs-notlatestpages": "যেসকল পাতার গ্রহণকৃত সংস্করণসমূহ তাদের সাম্প্রতিকতম নয় সেই পাতাগুলি",
