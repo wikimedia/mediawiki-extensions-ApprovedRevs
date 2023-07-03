@@ -26,6 +26,7 @@
 	"approvedrevs-blankpageshown": "Ingen sideversjoner har blitt godkjent for denne siden.",
 	"approvedrevs-noapprovedrevision": "Dette er sidens siste sideversjon, det finnes ingen godkjent versjon",
 	"approvedrevs-editwarning": "'''Merk''' at du nå redigerer den nyeste versjonen av denne siden, som ikke er den godkjente versjonen som vises som standard ($1 se diff).",
+	"approvedrevs-editwarning-pending": "Dine endringer vises til lesere når en autorisert bruker godkjenner dem.",
 	"approvedrevs": "Godkjente sideversjoner",
 	"approvedrevs-approvedpages": "Alle sider med godkjente sideversjoner",
 	"approvedrevs-notlatestpages": "Sider der den godkjente sideversjonen ikke er deres nyeste.",

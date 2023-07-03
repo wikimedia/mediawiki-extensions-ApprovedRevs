@@ -17,7 +17,7 @@
 	"approvedrevs-notlatest": "See on selle lehekülje heakskiidetud redaktsioon, mitte kõige viimane.",
 	"approvedrevs-approvedandlatest": "See on selle lehekülje heakskiidetud redaktsioon, ühtlasi ka kõige viimane.",
 	"approvedrevs-blankpageshown": "Ühtki selle lehekülje redaktsiooni pole heaks kiidetud.",
-	"approvedrevs-editwarning": "Pane tähele, et redigeerid nüüd selle lehekülje viimast redaktsiooni, mitte heakskiidetud redaktsiooni, mida vaikimisi näidatakse.",
+	"approvedrevs-editwarning": "'''Pane tähele''', et redigeerid nüüd selle lehekülje viimast redaktsiooni, mitte heakskiidetud redaktsiooni, mida vaikimisi näidatakse ([$1 vaata erinevust]).",
 	"approvedrevs": "Heakskiidetud redaktsioonid",
 	"approvedrevs-approvedpages": "Kõik heakskiidetud redaktsiooniga leheküljed",
 	"approvedrevs-notlatestpages": "Leheküljed, mille heakskiidetud redaktsioon pole ühtlasi viimane",

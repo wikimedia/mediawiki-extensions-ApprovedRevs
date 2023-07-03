@@ -3,6 +3,7 @@
 		"authors": [
 			"Aefgh39622",
 			"Iwai.masaharu",
+			"Kokage si",
 			"LaMagiaaa",
 			"Ohgi",
 			"RYOUMA1117",
@@ -31,7 +32,7 @@
 	"approvedrevs-approvedandlatest": "これは、このページの承認済み版であり、最新版でもあります。",
 	"approvedrevs-blankpageshown": "このページには、承認済み版がありません。",
 	"approvedrevs-noapprovedrevision": "このページの最新版です。このページには承認済の版はありません。",
-	"approvedrevs-editwarning": "現在編集しているのはこのページの最新版であり、既定で表示される承認済み版とは異なることにご注意ください。",
+	"approvedrevs-editwarning": "現在編集しているのはこのページの最新版であり、既定で表示される承認済み版とは異なることに'''ご注意ください''' ([$1 差分を見る])。",
 	"approvedrevs": "承認済み版",
 	"approvedrevs-approvedpages": "承認されたことがあるすべてのページ",
 	"approvedrevs-notlatestpages": "最新版が承認されていないページ",
