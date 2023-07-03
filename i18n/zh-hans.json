@@ -12,7 +12,9 @@
 			"Xiaomingyan",
 			"佛壁灯",
 			"Yining Chen",
-			"沈澄心"
+			"沈澄心",
+			"Func",
+			"GuoPC"
 		]
 	},
 	"approvedrevs-desc": "将页面的单个修订设置为已批准",
@@ -39,7 +41,7 @@
 	"approvedrevs-invalidpages": "带无效批准的页面",
 	"approvedrevs-view": "查看列表：",
 	"approvedrevs-revisionnumber": "修订版本$1",
-	"approvedrevs-uploaddate": "由$1上传",
+	"approvedrevs-uploaddate": "于$1上传",
 	"approvedrevs-approvedby": "由{{GENDER:$3|$1}}于$4 $5批准",
 	"approvedrevs-difffromlatest": "与最新版本的差异",
 	"approvedrevs-approvelatest": "批准最新版本",
@@ -53,7 +55,7 @@
 	"action-viewapprover": "查看显示批准当前已批准版本的人员的文字",
 	"right-viewapprover": "查看显示批准当前已批准版本的人员的文字",
 	"approvedrevs-invalidfiles": "带无效批准的文件",
-	"approvedrevs-approvedfiles": "所有带已批准版本的页面",
+	"approvedrevs-approvedfiles": "所有带已批准版本的文件",
 	"approvedrevs-notlatestfiles": "已批准版本不是最新版本的页面",
 	"approvedrevs-unapprovedfiles": "未批准文件",
 	"approvedrevs-approvedfile": "已批准文件",
