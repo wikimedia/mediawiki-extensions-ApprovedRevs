@@ -106,17 +106,6 @@ class SpecialApprovedRevs extends QueryPage {
 		return $this->mMode == '' ? [] : [ 'show' => $this->mMode ];
 	}
 
-	/**
-	 * @todo - remove this? It's no longer in use in the QueryPage class, as of
-	 * at least MW 1.39.
-	 */
-	private function getPageFooter() {
-	}
-
-	public static function getNsConditionPart( $ns ) {
-		return 'p.page_namespace = ' . $ns;
-	}
-
 	public function getQueryInfo() {
 		// SQL for page revision approvals versus file revision approvals is
 		// significantly different. Easier to follow if broken into two functions.
@@ -142,10 +131,6 @@ class SpecialApprovedRevs extends QueryPage {
 			$query['conds']['log_type'] = 'approval';
 		}
 		return $query;
-	}
-
-	protected function getOrder() {
-		return ' ORDER BY p.page_namespace, p.page_title ASC';
 	}
 
 	protected function getOrderFields() {
