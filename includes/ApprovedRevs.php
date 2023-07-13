@@ -508,6 +508,10 @@ class ApprovedRevs {
 		// Update "cache" in memory
 		self::$mApprovedRevIDForPage[$page_id] = $rev_id;
 		self::$mApproverForPage[$page_id] = $user;
+
+		$content = self::getContent( $title, $rev_id );
+		MediaWikiServices::getInstance()->getHookContainer()
+			->run( 'ApprovedRevsRevisionApproved', [ $output, $title, $rev_id, $content ] );
 	}
 
 	/**
@@ -532,12 +536,10 @@ class ApprovedRevs {
 
 		self::saveApprovedRevIDInDB( $title, $rev_id, $user, false );
 
-		$content = self::getContent( $title, $rev_id );
-		$output = null;
-
 		// If the revision being approved is definitely the latest
 		// one, there's no need to call the parser on it.
 		if ( !$is_latest ) {
+			$content = self::getContent( $title, $rev_id );
 			$contentHandler = $content->getContentHandler();
 			$output = self::getParserOutput( $contentHandler, $content, $title, $rev_id, $user );
 			$u = new LinksUpdate( $title, $output );
@@ -560,18 +562,18 @@ class ApprovedRevs {
 			$logParams,
 			$user
 		);
-
-		MediaWikiServices::getInstance()->getHookContainer()
-			->run( 'ApprovedRevsRevisionApproved', [ $output, $title, $rev_id, $content ] );
 	}
 
-	public static function deleteRevisionApproval( $title ) {
+	public static function deleteRevisionApproval( $title, $content = null ) {
 		$dbw = wfGetDB( DB_MASTER );
 		$page_id = $title->getArticleID();
 		$dbw->delete( 'approved_revs', [ 'page_id' => $page_id ] );
 		unset( self::$mApprovedContentForPage[ $page_id ] );
 		unset( self::$mApprovedRevIDForPage[ $page_id ] );
 		unset( self::$mApproverForPage[ $page_id ] );
+
+		MediaWikiServices::getInstance()->getHookContainer()
+			->run( 'ApprovedRevsRevisionUnapproved', [ $output = null, $title, $content ] );
 	}
 
 	/**
@@ -588,8 +590,6 @@ class ApprovedRevs {
 			return;
 		}
 
-		self::deleteRevisionApproval( $title );
-
 		$content = self::getContent( $title );
 		$contentHandler = $content->getContentHandler();
 		if ( $egApprovedRevsBlankIfUnapproved ) {
@@ -600,6 +600,8 @@ class ApprovedRevs {
 		$u->doUpdate();
 		self::setPageSearchText( $title, $content );
 
+		self::deleteRevisionApproval( $title, $content );
+
 		$log = new LogPage( 'approval' );
 		$log->addEntry(
 			'unapprove',
@@ -608,9 +610,6 @@ class ApprovedRevs {
 			[],
 			$user
 		);
-
-		MediaWikiServices::getInstance()->getHookContainer()
-			->run( 'ApprovedRevsRevisionUnapproved', [ $output, $title, $content ] );
 	}
 
 	public static function getParserOutput( $contentHandler, $content, $title, $revID, $user ) {
