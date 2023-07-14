@@ -872,7 +872,7 @@ class ApprovedRevsHooks {
 		ProperPageIdentity $page, Authority $deleter, string $reason, int $pageID,
 		RevisionRecord $deletedRev, ManualLogEntry $logEntry, int $archivedRevisionCount
 	) {
-		ApprovedRevs::deleteRevisionApproval( $page->getTitle() );
+		ApprovedRevs::unsetApprovalInDB( $page->getTitle() );
 	}
 
 	/**
@@ -884,7 +884,7 @@ class ApprovedRevsHooks {
 	 * MW < 1.37
 	 */
 	public static function deleteRevisionApprovalOld( &$article, &$user, $reason, $id ) {
-		ApprovedRevs::deleteRevisionApproval( $article->getTitle() );
+		ApprovedRevs::unsetApprovalInDB( $article->getTitle() );
 	}
 
 	/**

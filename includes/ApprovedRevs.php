@@ -564,7 +564,7 @@ class ApprovedRevs {
 		);
 	}
 
-	public static function deleteRevisionApproval( $title, $content = null ) {
+	public static function unsetApprovalInDB( $title, $content = null ) {
 		$dbw = wfGetDB( DB_MASTER );
 		$page_id = $title->getArticleID();
 		$dbw->delete( 'approved_revs', [ 'page_id' => $page_id ] );
@@ -600,7 +600,7 @@ class ApprovedRevs {
 		$u->doUpdate();
 		self::setPageSearchText( $title, $content );
 
-		self::deleteRevisionApproval( $title, $content );
+		self::unsetApprovalInDB( $title, $content );
 
 		$log = new LogPage( 'approval' );
 		$log->addEntry(
