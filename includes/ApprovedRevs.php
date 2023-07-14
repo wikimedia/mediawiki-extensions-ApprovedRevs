@@ -511,7 +511,7 @@ class ApprovedRevs {
 
 		$content = self::getContent( $title, $rev_id );
 		MediaWikiServices::getInstance()->getHookContainer()
-			->run( 'ApprovedRevsRevisionApproved', [ $output, $title, $rev_id, $content ] );
+			->run( 'ApprovedRevsRevisionApproved', [ $output = null, $title, $rev_id, $content ] );
 	}
 
 	/**
