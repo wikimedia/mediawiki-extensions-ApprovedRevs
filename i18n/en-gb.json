@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Piano1forte2"
+		]
+	},
+	"approvedrevs-approveaction": "set $2 as the approved revision for '[[$1]]'",
+	"approvedrevs-approvefileaction": "set the upload from $2 as the approved revision for '[[$1]]'",
+	"approvedrevs-unapproveaction": "unset approved revision for '[[$1]]'"
+}
