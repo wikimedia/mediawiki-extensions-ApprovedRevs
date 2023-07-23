@@ -1,7 +1,6 @@
 <?php
 
 use MediaWiki\Hook\BeforeParserFetchTemplateRevisionRecordHook;
-use MediaWiki\Html\Html;
 use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\Hook\PageDeleteCompleteHook;
@@ -660,17 +659,34 @@ class ApprovedRevsHooks {
 		}
 
 		if ( $approvedRevID != $latestRevID && !$request->getCheck( 'oldid' ) ) {
-			$notices['approvedrevs-editwarning'] = Html::warningBox( $context->msg( 'approvedrevs-editwarning',
-				$title->getFullURL( [
-					'diff' => $latestRevID,
-					'oldid' => $approvedRevID,
-				] )
-			)->parse() );
+			// MediaWiki 1.40+
+			if ( class_exists( 'MediaWiki\Html\Html' ) ) {
+				$notices['approvedrevs-editwarning'] = MediaWiki\Html\Html::warningBox(
+					$context->msg( 'approvedrevs-editwarning',
+					$title->getFullURL( [
+						'diff' => $latestRevID,
+						'oldid' => $approvedRevID,
+					] )
+				)->parse() );
+			} else {
+				$notices['approvedrevs-editwarning'] = Html::warningBox(
+					$context->msg( 'approvedrevs-editwarning',
+					$title->getFullURL( [
+						'diff' => $latestRevID,
+						'oldid' => $approvedRevID,
+					] )
+				)->parse() );
+			}
 		}
 
 		if ( !self::userRevsApprovedAutomatically( $user, $title ) ) {
-			$notices['approvedrevs-editwarning-pending'] =
-				Html::warningBox( $context->msg( 'approvedrevs-editwarning-pending' )->escaped() );
+			if ( class_exists( 'MediaWiki\Html\Html' ) ) {
+				$notices['approvedrevs-editwarning-pending'] =
+					MediaWiki\Html\Html::warningBox( $context->msg( 'approvedrevs-editwarning-pending' )->escaped() );
+			} else {
+				$notices['approvedrevs-editwarning-pending'] =
+					Html::warningBox( $context->msg( 'approvedrevs-editwarning-pending' )->escaped() );
+			}
 		}
 
 		return true;
