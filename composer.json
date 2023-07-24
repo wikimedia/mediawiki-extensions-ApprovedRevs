@@ -16,9 +16,6 @@
 	"support": {
 		"issues": "https://phabricator.wikimedia.org/tag/mediawiki-extensions-approved-revs/"
 	},
-	"require": {
-		"composer/installers": ">=1.0.1"
-	},
 	"require-dev": {
 		"mediawiki/mediawiki-codesniffer": "41.0.0",
 		"mediawiki/minus-x": "1.1.1",
