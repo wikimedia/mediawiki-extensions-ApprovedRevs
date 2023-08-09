@@ -190,6 +190,53 @@ class ApprovedRevsHooks {
 	}
 
 	/**
+	 * Hook: PageMoveComplete
+	 *
+	 * Automatically approve a page move (which, like an edit, also counts
+	 * as a revision) if the user has auto-approve rights, and the revision
+	 * right before this one was approved - we do this so that page moves
+	 * don't lead to unnecessary approval work for anyone.
+	 */
+	public static function setPageMoveAsApproved(
+		LinkTarget $old,
+		LinkTarget $new,
+		UserIdentity $user,
+		int $pageid,
+		int $redirid,
+		string $reason,
+		RevisionRecord $revision
+	) {
+		if ( $revision === null ) {
+			return;
+		}
+
+		$approvedRevID = ApprovedRevs::getApprovedRevID( $new );
+		if ( empty( $approvedRevID ) ) {
+			return;
+		}
+
+		$revID = $revision->getID();
+
+		// We need to know if the revision before this current move
+		// was approved - unfortunately, there's no convenient function
+		// to determine that, so we do a DB query.
+		$dbr = wfGetDB( DB_REPLICA );
+		$lastPreMoveRevID = $dbr->selectField(
+			[ 'page', 'revision' ],
+			'MAX(rev_id)',
+			"rev_page = $pageid AND rev_id < $revID",
+			__METHOD__
+		);
+
+		if ( $approvedRevID !== $lastPreMoveRevID ) {
+			return;
+		}
+
+		// Save approval without logging.
+		ApprovedRevs::saveApprovedRevIDInDB( $new, $revID, $user, true );
+	}
+
+	/**
 	 * This method will actually work no matter how many revisions a file has,
 	 * but in practice it's only called when the first revision is created.
 	 */

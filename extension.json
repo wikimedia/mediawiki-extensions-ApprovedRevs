@@ -99,6 +99,7 @@
 			"ApprovedRevsHooks::setLatestAsApproved",
 			"ApprovedRevsHooks::setSearchText"
 		],
+		"PageMoveComplete": "ApprovedRevsHooks::setPageMoveAsApproved",
 		"RevisionDataUpdates": "ApprovedRevsHooks::updateLinksAfterEdit",
 		"SearchResultInitFromTitle": "ApprovedRevsHooks::setSearchRevisionID",
 		"ParserBeforeInternalParse": "ApprovedRevsHooks::removeRobotsTag",
