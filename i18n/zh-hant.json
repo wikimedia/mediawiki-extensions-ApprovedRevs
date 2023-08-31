@@ -7,6 +7,7 @@
 			"Oapbtommy",
 			"Wehwei",
 			"Winston Sung",
+			"沈澄心",
 			"烈羽"
 		]
 	},
@@ -26,7 +27,8 @@
 	"approvedrevs-approvedandlatest": "這是此頁批准，以及是最近的修訂。",
 	"approvedrevs-blankpageshown": "此頁面沒有批准的修訂。",
 	"approvedrevs-noapprovedrevision": "這是此頁面最近一次修訂；沒有已批准修訂。",
-	"approvedrevs-editwarning": "請注意您現在正編輯此頁面的最新修訂，而非按照預設條件所顯示出的批准。",
+	"approvedrevs-editwarning": "請注意您現在正編輯此頁面的最新修訂，而非按照預設條件所顯示出的已批准修訂。（[$1 查看差異]）",
+	"approvedrevs-editwarning-pending": "您的變更會在授權用戶批准後向讀者顯示。",
 	"approvedrevs": "批准的修訂",
 	"approvedrevs-approvedpages": "含有已批准修訂的所有頁面",
 	"approvedrevs-notlatestpages": "批准的修訂並非最新頁面",

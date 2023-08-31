@@ -34,6 +34,7 @@
 	"approvedrevs-blankpageshown": "此页面没有版本获批准。",
 	"approvedrevs-noapprovedrevision": "这是此页面的最新版本；没有已批准版本。",
 	"approvedrevs-editwarning": "'''请注意'''，您现在正在编辑此页面的最新版本，这不是默认显示的已批准版本（[$1 查看差异]）。",
+	"approvedrevs-editwarning-pending": "您的更改会在授权用户批准后向读者显示。",
 	"approvedrevs": "已批准版本",
 	"approvedrevs-approvedpages": "所有带已批准版本的页面",
 	"approvedrevs-notlatestpages": "已批准版本不是最新版本的页面",
