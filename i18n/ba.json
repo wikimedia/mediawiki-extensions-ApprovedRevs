@@ -27,17 +27,17 @@
 	"approvedrevs-noapprovedrevision": "Был ошо биттең һуңғы өлгөһө; уның раҫланған өлгөһө юҡ.",
 	"approvedrevs-editwarning": "Иғтибар итегеҙ, һеҙ хәҙер был биттең һуңғы өлгөһөн мөхәррирләйһегеҙ, әммә ул раҫланмаған, программа көйләүе буйынса күренмәй ([$1 айырма]).",
 	"approvedrevs": "Раҫланған өлгөләр",
-	"approvedrevs-approvedpages": "Раҫланған версиялары булған биттәр",
+	"approvedrevs-approvedpages": "Раҫланған өлгөләре булған барлыҡ биттәр",
 	"approvedrevs-notlatestpages": "Раҫланған өлгөләр һуңғыһы булмаған биттәр.",
 	"approvedrevs-unapprovedpages": "Раҫланмаған биттәр",
 	"approvedrevs-view": "Исемлекте ҡарап сығырға:",
 	"approvedrevs-revisionnumber": "$1 өлгөһө",
-	"approvedrevs-approvedby": "$2 $1 тарафынан раҫланған",
+	"approvedrevs-approvedby": "$4 $5 раҫланған",
 	"approvedrevs-difffromlatest": "һуңғы менән айырма",
-	"approvedrevs-approvelatest": "иң һуңғыһын раҫларға",
+	"approvedrevs-approvelatest": "һуңғыһын раҫларға",
 	"approvedrevs-approvethisrev": "Был өлгөнө раҫларға.",
-	"approvedrevs-viewlatestrev": "Иң һуңғы өлгөнө ҡарау",
+	"approvedrevs-viewlatestrev": "Һуңғы өлгөнө ҡарау.",
 	"approvedrevs-approvedrevision": "Раҫланған өлгө",
 	"right-approverevisions": "Вики-биттәрҙең ҡайһы бер өлгөләрен раҫланған тип билдәләү",
-	"right-viewlinktolatest": "Раҫланған өлгөләре булған биттәрҙең өҫкө өлөшөндә аңлатманы ҡарау"
+	"right-viewlinktolatest": "Раҫланған өлгөләре булған биттәрҙең өҫкө өлөшөндәге аңлатманы ҡарау"
 }
