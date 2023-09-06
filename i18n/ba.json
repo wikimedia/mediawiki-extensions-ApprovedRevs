@@ -32,7 +32,7 @@
 	"approvedrevs-unapprovedpages": "Раҫланмаған биттәр",
 	"approvedrevs-view": "Исемлекте ҡарап сығырға:",
 	"approvedrevs-revisionnumber": "$1 өлгөһө",
-	"approvedrevs-approvedby": "$4 $5 раҫланған",
+	"approvedrevs-approvedby": "{{GENDER:$3|$1}} $4 $5 раҫланған",
 	"approvedrevs-difffromlatest": "һуңғы менән айырма",
 	"approvedrevs-approvelatest": "һуңғыһын раҫларға",
 	"approvedrevs-approvethisrev": "Был өлгөнө раҫларға.",
