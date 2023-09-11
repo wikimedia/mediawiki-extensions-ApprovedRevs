@@ -3,6 +3,7 @@
 		"authors": [
 			"BaRaN6161 TURK",
 			"Emperyan",
+			"Hedda",
 			"Incelemeelemani",
 			"Joseph",
 			"Khutuck",
@@ -30,7 +31,7 @@
 	"approvedrevs-approvedandlatest": "Bu revizyon, sayfanın hem onaylanmış hem de en son revizyonudur.",
 	"approvedrevs-blankpageshown": "Bu sayfa için onaylanmış sürüm yok.",
 	"approvedrevs-noapprovedrevision": "Bu sayfanın en son revizyonu budur; onaylanmış bir revizyonu yoktur.",
-	"approvedrevs-editwarning": "Lütfen dikkat: Şu an onaylanmış revizyonu değil, son revizyonu değişmektesiniz.",
+	"approvedrevs-editwarning": "'''Lütfen dikkat''': şu anda bu sayfanın varsayılan olarak gösterilen onaylı olmayan en son sürümünü düzenlediğinizi unutmayın ([$1 farkı görüntüle]).",
 	"approvedrevs": "Onaylanan revizyonlar",
 	"approvedrevs-approvedpages": "Onaylanmış revizyon olan bütün sayfalar",
 	"approvedrevs-notlatestpages": "Bu sayfanın onaylanmış revizyonudur; en son revizyon değildir.",
