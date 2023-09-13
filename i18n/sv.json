@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Ainali",
+			"André Costa (WMSE)",
 			"Cohan",
 			"LittleGun",
 			"Lokal Profil",
@@ -28,7 +29,7 @@
 	"approvedrevs-approvedandlatest": "Detta är den godkända version av denna sida, samt den senaste.",
 	"approvedrevs-blankpageshown": "Ingen version har godkänts för denna sida.",
 	"approvedrevs-noapprovedrevision": "Det här är sidans senaste version, det finns ingen godkänd version.",
-	"approvedrevs-editwarning": "Observera att du nu redigerar den senaste versionen av denna sida, vilket inte är den godkända vilken visas som standard.",
+	"approvedrevs-editwarning": "'''Observera''' att du nu redigerar den senaste versionen av denna sida, vilket inte är den godkända som visas som standard ([$1 visa skillnad]).",
 	"approvedrevs": "Godkända versioner",
 	"approvedrevs-approvedpages": "Alla sidor med en godkänd version",
 	"approvedrevs-notlatestpages": "Sidor vars godkända version inte är den senaste.",
