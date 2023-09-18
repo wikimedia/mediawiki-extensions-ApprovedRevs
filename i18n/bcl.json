@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Geopoet"
 		]
 	},
@@ -19,7 +20,7 @@
 	"approvedrevs-blankpageshown": "Mayong rebisyon an pinag-aprubaran na para sa pahinang ini.",
 	"approvedrevs-noapprovedrevision": "Ini iyo an pinakahuring rebisyon kaining pahina; ini dae nagkaigwa nin aprubadong rebisyon.",
 	"approvedrevs-editwarning": "Pakigiromdoma na ika ngunyan nagliliwat kan pinakahuring rebisyon kaining pahina, na bako man an aprubado na ipinapahiling bilang panugmad.",
-	"approvedrevs": "Aprubadong mga  rebisyon",
+	"approvedrevs": "Aprubadong mga rebisyon",
 	"approvedrevs-approvedpages": "Gabos na mga pahina na igwang aprubadong rebisyon",
 	"approvedrevs-notlatestpages": "Mga pahina na an aprubadong rebisyon bakong pinakahurihon",
 	"approvedrevs-unapprovedpages": "Bakong aprubadong mga pahina",

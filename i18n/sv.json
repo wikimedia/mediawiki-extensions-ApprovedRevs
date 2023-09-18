@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Ainali",
+			"Amire80",
 			"André Costa (WMSE)",
 			"Cohan",
 			"LittleGun",
@@ -24,7 +25,7 @@
 	"approvedrevs-unapprovesuccess2": "Det finns inte längre en godkänd version av den här sidan. \nIstället kommer en tom sida att visas.",
 	"approvedrevs-approveaction": "sätt $2 som den godkända versionen av \"[[$1]]\"",
 	"approvedrevs-approvefileaction": "sätt uppladdningen från $2 som den godkända revideringen av \"[[$1]]\"",
-	"approvedrevs-unapproveaction": "ångra godkänd version för  \"[[$1]]\"",
+	"approvedrevs-unapproveaction": "ångra godkänd version för \"[[$1]]\"",
 	"approvedrevs-notlatest": "Detta är den godkända version av denna sida; det är inte den senaste.",
 	"approvedrevs-approvedandlatest": "Detta är den godkända version av denna sida, samt den senaste.",
 	"approvedrevs-blankpageshown": "Ingen version har godkänts för denna sida.",

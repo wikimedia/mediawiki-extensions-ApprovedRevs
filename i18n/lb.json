@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Les Meloures",
 			"Robby",
 			"Soued031"
@@ -13,7 +14,7 @@
 	"approvedrevs-approver": "Dës Versioun gouf vum $1 approuvéiert.",
 	"approvedrevs-unapprove": "Zoustëmmung zréckzéien",
 	"approvedrevs-approvesuccess": "Dës Versioun vun der Säit gouf als nogekuckte Versioun fräiginn.",
-	"approvedrevs-unapprovesuccess": "Et gëtt vun dëser Säit  keng nogekuckte Versioun méi.\nDofir gëtt déi rezentst Versioun gewisen.",
+	"approvedrevs-unapprovesuccess": "Et gëtt vun dëser Säit keng nogekuckte Versioun méi.\nDofir gëtt déi rezentst Versioun gewisen.",
 	"approvedrevs-unapprovesuccess2": "Et gëtt vun dëser Säit keng nogekuckte Versioun méi.\nAplaz, gëtt eng eidel Säit gewisen.",
 	"approvedrevs-approveaction": "$2 als nogekuckt Versioun fir \"[[$1]]\" festleeën",
 	"approvedrevs-unapproveaction": "nogekuckt Versioun fir \"[[$1]]\" zréckzéien",

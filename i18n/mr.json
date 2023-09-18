@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Sureshkhole",
 			"V.narsikar"
 		]
@@ -19,7 +20,7 @@
 	"approvedrevs-unapproveaction": "\"[[$1]]\" ची प्रंमाणित आवृत्ती अस्थापित (अनसेट) करा",
 	"approvedrevs-notlatest": "ही या पानाची प्रमाणित आवृत्ती आहे;ही नविनतम नाही.",
 	"approvedrevs-approvedandlatest": "ही या पानाची प्रमाणित आवृत्ती आहे,तसेच सर्वात नविन आवृत्तीही आहे.",
-	"approvedrevs-blankpageshown": "या पानासाठी कोणतीही आवृत्ती प्रमाणित  नाही.",
+	"approvedrevs-blankpageshown": "या पानासाठी कोणतीही आवृत्ती प्रमाणित नाही.",
 	"approvedrevs-noapprovedrevision": "ही या पानाची नविनतम आवृत्ती आहे; त्या पानास कोणतीही प्रमाणित आवृत्ती नाही.",
 	"approvedrevs-editwarning": "कृपया नोंद घ्या कि आपण सध्या या पानाची अद्यतन आवृत्ती संपादित करीत आहात,डिफॉल्टने दाखविल्याप्रमाणे ती अप्रमाणित आहे.",
 	"approvedrevs": "प्रमाणित/पारीत झालेल्या आवृत्त्या",

@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Eitvys200",
 			"Homo",
 			"Ignas693",
@@ -31,7 +32,7 @@
 	"approvedrevs-view": "Peržiūrėti sąrašą:",
 	"approvedrevs-revisionnumber": "versija $1",
 	"approvedrevs-uploaddate": "įkelta iš $1",
-	"approvedrevs-approvedby": "patvirtintas  $1  dėl$2",
+	"approvedrevs-approvedby": "patvirtintas $1 dėl$2",
 	"approvedrevs-difffromlatest": "diff iš vėliau kaip",
 	"approvedrevs-approvelatest": "patvirtinti naujausią",
 	"approvedrevs-approvethisrev": "Patvirtinti šios peržiūros.",

@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"Chaduvari",
 			"Kiranmayee",
 			"Ravichandra",
@@ -15,7 +16,7 @@
 	"approvedrevs-approvesuccess": "ఈ పేజీ యొక్క ఈ కూర్పు ఆమోదింపబడిన కూర్పుగా సెట్ చేసి ఉంది.",
 	"approvedrevs-unapprovesuccess": "ఇక ఈ పేజీకి ఆమోదించబడిన కూర్పేదీ లేదు.\nదాని బదులు, ఇట్టీవలి కూర్పును చూపిస్తాం.",
 	"approvedrevs-unapprovesuccess2": "ఇక ఈ పేజీకి ఆమోదించబడిన కూర్పేదీ లేదు.\nదాని బదులు, ఖాళీ పేజీని చూపిస్తాం.",
-	"approvedrevs-approveaction": "\"[[$1]]\" కోసం $2  ను ఆమోదించబడిన కూర్పుగా చూపించు",
+	"approvedrevs-approveaction": "\"[[$1]]\" కోసం $2 ను ఆమోదించబడిన కూర్పుగా చూపించు",
 	"approvedrevs-unapproveaction": "\"[[$1]]\" కోసం సెట్ చేసిన ఆమోదించబడిన కూర్పును తీసెయ్యి",
 	"approvedrevs-notlatest": "ఇది ఈ పేజీ యొక్క ఆమోదించబడిన కూర్పు; ఇది అన్నిటి కంటే కొత్త కూర్పు కాదు.",
 	"approvedrevs-approvedandlatest": "ఇది ఈ పేజీ యొక్క ఆమోదించబడిన కూర్పు, అన్నిటి కంటే కొత్త కూర్పు కూడా.",
