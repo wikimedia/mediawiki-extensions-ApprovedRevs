@@ -12,7 +12,9 @@
 			"Stryn",
 			"Surjection",
 			"Valtlait",
-			"VezonThunder"
+			"VezonThunder",
+			"Amire80",
+			"Valtlai"
 		]
 	},
 	"approvedrevs-desc": "Aseta yksittäinen sivuversio hyväksytyksi",
@@ -26,7 +28,7 @@
 	"approvedrevs-unapprovesuccess2": "Tästä sivusta ei enää ole hyväksyttyä versiota.\nSellaisen sijaan esitetään tyhjä sivu.",
 	"approvedrevs-approveaction": "asetti version $2 sivun ”[[$1]]” hyväksytyksi versioksi",
 	"approvedrevs-unapproveaction": "perui sivun ”[[$1]]” hyväksytyn version",
-	"approvedrevs-notlatest": "Tämä on  tämän sivun hyväksytty versio; se ei ole viimeisin.",
+	"approvedrevs-notlatest": "Tämä on tämän sivun hyväksytty versio; se ei ole viimeisin.",
 	"approvedrevs-approvedandlatest": "Tämä on tämän sivun hyväksytty ja samalla viimeisin versio.",
 	"approvedrevs-blankpageshown": "Tästä sivusta ei ole hyväksyttyä versiota.",
 	"approvedrevs-noapprovedrevision": "Tämä on sivun viimeisin versio. Hyväksyttyä versiota ei ole.",
