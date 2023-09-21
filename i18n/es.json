@@ -20,6 +20,7 @@
 			"Mashandy",
 			"McDutchie",
 			"Mor",
+			"No se",
 			"Ryo567",
 			"Themasterriot",
 			"Tiberius1701",
@@ -28,7 +29,7 @@
 			"Whovian Biologist"
 		]
 	},
-	"approvedrevs-desc": "Establecer una revisión única de una página como aprovada",
+	"approvedrevs-desc": "Establecer una revisión única de una página como aprobada",
 	"approvedrevs-logname": "Registro de revisiones aprobadas",
 	"approvedrevs-logdesc": "Este es el registro de las revisiones que han sido aprobadas.",
 	"approvedrevs-approve": "aprobar",
