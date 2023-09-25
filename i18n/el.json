@@ -5,7 +5,10 @@
 			"Glavkos",
 			"Nikosgranturismogt",
 			"Protnet",
-			"Περίεργος"
+			"Περίεργος",
+			"Amire80",
+			"MDShanks",
+			"NikosLikomitros"
 		]
 	},
 	"approvedrevs-desc": "Καθορίζει μια ενιαία αναθεώρηση μιας σελίδας όπως έχει εγκριθεί",
@@ -17,7 +20,7 @@
 	"approvedrevs-approvesuccess": "Αυτή η αναθεώρηση της σελίδας έχει οριστεί ως η εγκεκριμένη έκδοση.",
 	"approvedrevs-unapprovesuccess": "Δεν υπάρχει πλέον μια εγκεκριμένη έκδοση για αυτή τη σελίδα.\nΣε αντικατάσταση, θα εμφανιστεί η πιο πρόσφατη αναθεώρηση.",
 	"approvedrevs-unapprovesuccess2": "Δεν υπάρχει πλέον εγκεκριμένη έκδοση για αυτή τη σελίδα.\nΑντί για αυτό, θα εμφανίζεται μια κενή σελίδα.",
-	"approvedrevs-approveaction": "Ορίστε  $2 ως την εγκεκριμένη αναθεώρηση για \"[[$1]]\"",
+	"approvedrevs-approveaction": "Ορίστε $2 ως την εγκεκριμένη αναθεώρηση για \"[[$1]]\"",
 	"approvedrevs-unapproveaction": "Ακυρώστε την εγκεκριμένη θεώρηση για [[$1]]",
 	"approvedrevs-notlatest": "Αυτή είναι η εγκεκριμένη αναθεώρηση αυτής της σελίδας· δεν είναι η πιο πρόσφατη.",
 	"approvedrevs-approvedandlatest": "Αυτή είναι η εγκεκριμένη αναθεώρηση αυτής της σελίδας, καθώς και η πιο πρόσφατη.",
@@ -32,7 +35,7 @@
 	"approvedrevs-view": "Προβολή λίστα του:",
 	"approvedrevs-revisionnumber": "αναθεώρηση $1",
 	"approvedrevs-uploaddate": "ανέβασμα από $1",
-	"approvedrevs-approvedby": "εγκρίθηκε από $1 στη  $2",
+	"approvedrevs-approvedby": "εγκρίθηκε από $1 στη $2",
 	"approvedrevs-difffromlatest": "diff από το τελευταίο",
 	"approvedrevs-approvelatest": "εγκρίνετε την πιο πρόσφατη",
 	"approvedrevs-approvethisrev": "Εγκρίνετε αυτή την αναθεώρηση.",

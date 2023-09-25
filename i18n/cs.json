@@ -8,7 +8,8 @@
 			"Slepi",
 			"Jan Myšák",
 			"Matěj Suchánek",
-			"Petr Urbanec"
+			"Petr Urbanec",
+			"Amire80"
 		]
 	},
 	"approvedrevs-desc": "Nastavuje jednu revizi stránky jako schválenou",
@@ -20,7 +21,7 @@
 	"approvedrevs-approvesuccess": "Tato stránková revize byla nastavena jako schválená verze.",
 	"approvedrevs-unapprovesuccess": "Pro tuto stránku neexistuje schválená verze.\nMísto ní se zobrazí poslední revize.",
 	"approvedrevs-unapprovesuccess2": "Pro tuto stránku již neexistuje schválená verze.\nMísto ní se zobrazí prázdná stránka.",
-	"approvedrevs-approveaction": "Jako schválená revize pro  \"[[$1]]\" nastavena $2",
+	"approvedrevs-approveaction": "Jako schválená revize pro \"[[$1]]\" nastavena $2",
 	"approvedrevs-approvefileaction": "nastavil soubor nahraný $2 jako schválenou revizi pro „[[$1]]“",
 	"approvedrevs-unapproveaction": "zrušena schválená revize pro \"[[$1]]\"",
 	"approvedrevs-notlatest": "Toto je schválená revize této stránky, nikoli nejnovější.",
