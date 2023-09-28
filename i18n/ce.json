@@ -11,5 +11,10 @@
 	"approvedrevs-notlatest": "ХӀара агӀонан чӀагӀйина верси йу. Кхин йолуш йу мелла а керла версеш.",
 	"approvedrevs-view": "Хьажа:",
 	"approvedrevs-revisionnumber": "верси $1",
-	"approvedrevs-approvedrevision": "Бакъйина верси"
+	"approvedrevs-uploaddate": "$1 тӀера верси",
+	"approvedrevs-approvedby": "$1 $2 бакъдина",
+	"approvedrevs-approvedrevision": "Бакъйина верси",
+	"approvedrevs-latestfile": "ТӀаьххьара файл",
+	"apihelp-approve-example-1": "12345 Редакци бакъйе",
+	"apihelp-approve-example-2": "12345 Редакци бакъ майе"
 }
