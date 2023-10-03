@@ -6,10 +6,25 @@
 			"Умар"
 		]
 	},
+	"approvedrevs-logname": "Версеш бакъйеш тептар",
 	"approvedrevs-approve": "бакъдар",
 	"approvedrevs-unapprove": "бакъйар дIадаккхар",
 	"approvedrevs-notlatest": "ХӀара агӀонан чӀагӀйина верси йу. Кхин йолуш йу мелла а керла версеш.",
+	"approvedrevs-noapprovedrevision": "ХӀара тӀаьххьара верси йу кху агӀонан; цуьнан чӀагӀйина верси йац.",
+	"approvedrevs": "Бакъйина версеш",
+	"approvedrevs-unapprovedpages": "ЧӀагӀйина йоцу агӀонаш",
+	"approvedrevs-invalidpages": "Нийса чӀагӀйина йоцу агӀонаш",
 	"approvedrevs-view": "Хьажа:",
 	"approvedrevs-revisionnumber": "верси $1",
-	"approvedrevs-approvedrevision": "Бакъйина верси"
+	"approvedrevs-uploaddate": "$1 тӀера верси",
+	"approvedrevs-approvedby": "$1 $2 бакъдина",
+	"approvedrevs-approvelatest": "чӀагӀйе тӀаьххьарниг",
+	"approvedrevs-approvethisrev": "ЧӀагӀйе хӀара верси.",
+	"approvedrevs-viewlatestrev": "ТӀаьххьара версега хьажар.",
+	"approvedrevs-approvedrevision": "Бакъйина верси",
+	"approvedrevs-unapprovedfiles": "ЧӀагӀйина йоцу файлаш",
+	"approvedrevs-approvedfile": "ЧӀагӀйина файл",
+	"approvedrevs-latestfile": "ТӀаьххьара файл",
+	"apihelp-approve-example-1": "12345 Редакци бакъйе",
+	"apihelp-approve-example-2": "12345 Редакци бакъ майе"
 }
