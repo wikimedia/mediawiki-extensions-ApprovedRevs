@@ -26,7 +26,8 @@
 			"Tiberius1701",
 			"Translationista",
 			"VegaDark",
-			"Whovian Biologist"
+			"Whovian Biologist",
+			"Shyla summers"
 		]
 	},
 	"approvedrevs-desc": "Establecer una revisión única de una página como aprobada",
@@ -46,6 +47,7 @@
 	"approvedrevs-blankpageshown": "No se ha aprobado ninguna revisión de esta página.",
 	"approvedrevs-noapprovedrevision": "Esta es la última revisión de esta página, No tiene ninguna revisión aprobada.",
 	"approvedrevs-editwarning": "'''Ten en cuenta''' que ahora estás editando la última revisión de esta página, que no es la aprobada que se muestra de forma predeterminada ([$1 view diff])..",
+	"approvedrevs-editwarning-pending": "Sus cambios se mostrarán a los lectores cuando un usuario autorizado los apruebe.",
 	"approvedrevs": "Revisiones aprobadas",
 	"approvedrevs-approvedpages": "Todas las páginas con una revisión aprobada",
 	"approvedrevs-notlatestpages": "Páginas cuya revisión aprobada no es la más reciente",
