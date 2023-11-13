@@ -13,6 +13,7 @@
 			"Siglite3",
 			"Suchichi02",
 			"W.CC",
+			"もなー(偽物)",
 			"青子守歌"
 		]
 	},
@@ -33,6 +34,7 @@
 	"approvedrevs-blankpageshown": "このページには、承認済み版がありません。",
 	"approvedrevs-noapprovedrevision": "このページの最新版です。このページには承認済の版はありません。",
 	"approvedrevs-editwarning": "現在編集しているのはこのページの最新版であり、既定で表示される承認済み版とは異なることに'''ご注意ください''' ([$1 差分を見る])。",
+	"approvedrevs-editwarning-pending": "承認済みの利用者が変更を承認すると、変更内容が公開されます。",
 	"approvedrevs": "承認済み版",
 	"approvedrevs-approvedpages": "承認されたことがあるすべてのページ",
 	"approvedrevs-notlatestpages": "最新版が承認されていないページ",
