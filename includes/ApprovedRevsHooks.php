@@ -241,7 +241,7 @@ class ApprovedRevsHooks {
 	 * but in practice it's only called when the first revision is created.
 	 */
 	public static function setOriginalFileRevAsApproved( $user, $title ) {
-		global $wgLocalFileRepo, $wgWikimediaJenkinsCI;
+		global $wgLocalFileRepo;
 
 		$fileRepo = new LocalRepo( $wgLocalFileRepo );
 		$file = LocalFile::newFromTitle( $title, $fileRepo );
@@ -251,8 +251,8 @@ class ApprovedRevsHooks {
 			return;
 		}
 
-		// For some reason the actual save doesn't work with Jenkins testing...
-		if ( isset( $wgWikimediaJenkinsCI ) && $wgWikimediaJenkinsCI ) {
+		if ( defined( 'MW_QUIBBLE_CI' ) ) {
+			// FIXME: The actual save doesn't work in CI...
 			return;
 		}
 
