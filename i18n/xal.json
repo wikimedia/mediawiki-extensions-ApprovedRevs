@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Алия"
+		]
+	},
+	"approvedrevs-approve": "зөвшәрх",
+	"approvedrevs-approver": "Эн хүвлврнь $1 {{GENDER:$1|кергләчәр}} сәәшәгдсн бәәнә.",
+	"approvedrevs-unapprove": "зөвшәрлиг тәәлх",
+	"approvedrevs-approvesuccess": "Эн халхин хүвлвриг зөвшәргдсн гиҗ темдглв"
+}
