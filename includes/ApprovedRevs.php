@@ -21,6 +21,8 @@ class ApprovedRevs {
 	private static $mApprovedContentForPage = [];
 	private static $mApprovedRevIDForPage = [];
 	private static $mApproverForPage = [];
+	private static $mApprovablePages = [];
+	private static $mApprovableFiles = [];
 
 	/**
 	 * Array in form $mUserCanApprove["<user id>:<article id>"] = <bool>
@@ -178,15 +180,17 @@ class ApprovedRevs {
 	 * object, to speed up processing if it's called more than once.
 	 */
 	public static function pageIsApprovable( Title $title ) {
+		$articleID = $title->getArticleID();
+
 		// If this function was already called for this page, the value
-		// should have been stored as a field in the $title object.
-		if ( isset( $title->isApprovable ) ) {
-			return $title->isApprovable;
+		// should have been stored.
+		if ( array_key_exists( $articleID, self::$mApprovablePages ) ) {
+			return self::$mApprovablePages[$articleID];
 		}
 
 		if ( !$title->exists() ) {
-			$title->isApprovable = false;
-			return $title->isApprovable;
+			self::$mApprovablePages[$articleID] = false;
+			return false;
 		}
 
 		// File *pages* are not ever approvable. Files themselves can
@@ -194,22 +198,22 @@ class ApprovedRevs {
 		// fileIsApprovable(). This constraint is to avoid confusion
 		// between approving file pages and approving files themselves.
 		if ( $title->getNamespace() === NS_FILE ) {
-			$title->isApprovable = false;
-			return $title->isApprovable;
+			self::$mApprovablePages[$articleID] = false;
+			return false;
 		}
 
 		// Allow custom setting of whether the page is approvable.
 		if ( !MediaWikiServices::getInstance()->getHookContainer()
 			->run( 'ApprovedRevsPageIsApprovable', [ $title, &$isApprovable ] )
 		) {
-			$title->isApprovable = $isApprovable;
-			return $title->isApprovable;
+			self::$mApprovablePages[$articleID] = $isApprovable;
+			return $isApprovable;
 		}
 
 		// Check the namespace.
 		if ( in_array( $title->getNamespace(), self::getApprovableNamespaces() ) ) {
-			$title->isApprovable = true;
-			return $title->isApprovable;
+			self::$mApprovablePages[$articleID] = true;
+			return true;
 		}
 
 		// It's not in an included namespace, so check for the page
@@ -219,7 +223,7 @@ class ApprovedRevs {
 		$dbr = wfGetDB( DB_REPLICA );
 		$count = $dbr->selectField( 'page_props', 'COUNT(*)',
 			[
-				'pp_page' => $title->getArticleID(),
+				'pp_page' => $articleID,
 				'pp_propname' => [
 					'approvedrevs-approver-users', 'approvedrevs-approver-groups'
 				],
@@ -227,33 +231,35 @@ class ApprovedRevs {
 			__METHOD__
 		);
 		if ( $count > 0 ) {
-			$title->isApprovable = true;
-			return $title->isApprovable;
+			self::$mApprovablePages[$articleID] = true;
+			return true;
 		}
 
 		// parser function page properties not present. Check for magic word.
 		$count = $dbr->selectField( 'page_props', 'COUNT(*)',
 			[
-				'pp_page' => $title->getArticleID(),
+				'pp_page' => $articleID,
 				'pp_propname' => 'approvedrevs',
 				'pp_value' => 'y'
 			],
 			__METHOD__
 		);
 		$isApprovable = ( $count == '1' );
-		$title->isApprovable = $isApprovable;
+		self::$mApprovablePages[$articleID] = $isApprovable;
 		return $isApprovable;
 	}
 
 	public static function fileIsApprovable( Title $title ) {
+		$articleID = $title->getArticleID();
+
 		// If this function was already called for this page, the value
-		// should have been stored as a field in the $title object.
-		if ( isset( $title->fileIsApprovable ) ) {
-			return $title->fileIsApprovable;
+		// should have been stored.
+		if ( array_key_exists( $articleID, self::$mApprovableFiles ) ) {
+			return self::$mApprovableFiles[$articleID];
 		}
 
 		if ( !$title->exists() ) {
-			$title->fileIsApprovable = false;
+			self::$mApprovableFiles[$articleID] = false;
 			return false;
 		}
 
@@ -261,14 +267,14 @@ class ApprovedRevs {
 		if ( !MediaWikiServices::getInstance()->getHookContainer()
 			->run( 'ApprovedRevsFileIsApprovable', [ $title, &$fileIsApprovable ] )
 		) {
-			$title->fileIsApprovable = $fileIsApprovable;
-			return $title->fileIsApprovable;
+			self::$mApprovableFiles[$articleID] = $fileIsApprovable;
+			return $fileIsApprovable;
 		}
 
 		// Check if NS_FILE is in approvable namespaces
 		$approvedRevsNamespaces = self::getApprovableNamespaces();
 		if ( in_array( NS_FILE, $approvedRevsNamespaces ) ) {
-			$title->fileIsApprovable = true;
+			self::$mApprovableFiles[$articleID] = true;
 			return true;
 		}
 
@@ -283,7 +289,7 @@ class ApprovedRevs {
 		$dbr = wfGetDB( DB_REPLICA );
 		$count = $dbr->selectField( 'page_props', 'COUNT(*)',
 			[
-				'pp_page' => $title->getArticleID(),
+				'pp_page' => $articleID,
 				'pp_propname' => [
 					'approvedrevs-approver-users',
 					'approvedrevs-approver-groups'
@@ -292,21 +298,21 @@ class ApprovedRevs {
 			__METHOD__
 		);
 		if ( $count > 0 ) {
-			$title->fileIsApprovable = true;
+			self::$mApprovableFiles[$articleID] = true;
 			return true;
 		}
 
 		// Parser function page properties not present. Check for magic word.
 		$count = $dbr->selectField( 'page_props', 'COUNT(*)',
 			[
-				'pp_page' => $title->getArticleID(),
+				'pp_page' => $articleID,
 				'pp_propname' => 'approvedrevs',
 				'pp_value' => 'y'
 			],
 			__METHOD__
 		);
 		if ( $count == '1' ) {
-			$title->fileIsApprovable = true;
+			self::$mApprovableFiles[$articleID] = true;
 			return true;
 		}
 
@@ -321,11 +327,11 @@ class ApprovedRevs {
 		if ( $timestamp !== false ) {
 			// only approvable because it already has an approved rev, not
 			// because it is in ApprovedRevs::$permissions
-			$title->fileIsApprovable = true;
+			self::$mApprovableFiles[$articleID] = true;
 			return true;
 		}
 
-		$title->fileIsApprovable = false;
+		self::$mApprovableFiles[$articleID] = false;
 		return false;
 	}
 
