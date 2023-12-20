@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Adriendelucca",
 			"Fohanno",
 			"Fulup",
 			"Huñvreüs",
@@ -29,6 +30,7 @@
 	"approvedrevs-invalidpages": "Pajennoù direizh o aprouadennoù",
 	"approvedrevs-view": "Gwelet roll eus :",
 	"approvedrevs-revisionnumber": "Adweladenn $1",
+	"approvedrevs-uploaddate": "enporzhiañ adalek $1",
 	"approvedrevs-approvedby": "aprouet gant $1 d'an $2",
 	"approvedrevs-difffromlatest": "diforc'h e-keñver ar stumm a-vremañ",
 	"approvedrevs-approvelatest": "Aprouiñ an hini diwezhañ",
