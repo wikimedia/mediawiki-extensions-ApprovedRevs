@@ -20,7 +20,7 @@ class SpecialApprovedRevs extends QueryPage {
 
 	/**
 	 * These two arrays pair mode with messages. E.g. mode "approvedpages"
-	 *  is used to generate a header link with query string having "show=approvedpages"
+	 * is used to generate a header link with query string having "show=approvedpages"
 	 * and link text of "All pages with an approved revision" (in English).
 	 */
 	protected $mPageHeaderLinks = [
@@ -166,7 +166,6 @@ class SpecialApprovedRevs extends QueryPage {
 
 		$context = $skin->getContext();
 		$user = $context->getUser();
-		$out = $context->getOutput();
 		$lang = $context->getLanguage();
 		$linkRenderer = $this->getLinkRenderer();
 
