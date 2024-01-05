@@ -329,6 +329,8 @@ class ApprovedRevsHooks {
 	}
 
 	/**
+	 * Hook: SearchResultInitFromTitle
+	 *
 	 * Sets the correct page revision to display the "text snippet" for
 	 * a search result.
 	 */
@@ -989,7 +991,6 @@ class ApprovedRevsHooks {
 	 * @param array &$variableCache
 	 * @param string $magicWordId
 	 * @param string &$ret
-	 * @return void
 	 */
 	public static function assignAValue( $parser, &$variableCache, $magicWordId, &$ret ) {
 		if ( !in_array( $magicWordId, self::$mApprovalMagicWords ) ) {
@@ -1030,10 +1031,9 @@ class ApprovedRevsHooks {
 	/**
 	 * Hook: ParserFirstCallInit
 	 *
-	 * Register parser function(s)
+	 * Register parser function(s).
 	 *
 	 * @param Parser &$parser
-	 * @return bool
 	 * @since 1.0
 	 */
 	public static function registerFunctions( &$parser ) {
@@ -1070,8 +1070,10 @@ class ApprovedRevsHooks {
 	}
 
 	/**
-	 * Add a link to 'Special:ApprovedPages' to the page
-	 * 'Special:AdminLinks', defined by the Admin Links extension.
+	 * Hook: AdminLinks
+	 *
+	 * Add a link to Special:ApprovedPages to the page
+	 * Special:AdminLinks, defined by the Admin Links extension.
 	 */
 	public static function addToAdminLinks( &$admin_links_tree ) {
 		$general_section = $admin_links_tree->getSection( wfMessage( 'adminlinks_general' )->text() );
@@ -1332,11 +1334,12 @@ class ApprovedRevsHooks {
 	}
 
 	/**
-	 * Called by BeforeParserFetchFileAndTitle hook. Changes links and
-	 * thumbnails of files to point to the approved revision in all
-	 * cases except the primary file on file pages (e.g. the big
-	 * image in the top left on File:My File.png). To modify that
-	 * image see self::onImagePageFindFile()
+	 * Hook: BeforeParserFetchFileAndTitle
+	 *
+	 * Changes links and thumbnails of files to point to the approved
+	 * revision in all cases except the primary file on file pages (e.g.
+	 * the big image in the top left on File:My File.png). To modify that
+	 * image, see self::onImagePageFindFile().
 	 */
 	public static function modifyFileLinks( $parser, Title $fileTitle, &$options, &$query ) {
 		if ( $fileTitle->getNamespace() == NS_MEDIA ) {
@@ -1485,8 +1488,9 @@ class ApprovedRevsHooks {
 	}
 
 	/**
+	 * Hook: wgQueryPages
+	 *
 	 * @param array &$qp
-	 * @return bool true
 	 */
 	public static function onwgQueryPages( &$qp ) {
 		$qp['SpecialApprovedRevsPage'] = 'ApprovedRevs';
