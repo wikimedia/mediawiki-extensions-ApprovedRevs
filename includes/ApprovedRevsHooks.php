@@ -1,9 +1,7 @@
 <?php
 
-use MediaWiki\Hook\BeforeParserFetchTemplateRevisionRecordHook;
 use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MediaWikiServices;
-use MediaWiki\Page\Hook\PageDeleteCompleteHook;
 use MediaWiki\Page\ProperPageIdentity;
 use MediaWiki\Permissions\Authority;
 use MediaWiki\Revision\RenderedRevision;
@@ -30,27 +28,6 @@ class ApprovedRevsHooks {
 		'MAG_APPROVALTIMESTAMP',
 		'MAG_APPROVALUSER'
 	];
-
-	public static function initialize() {
-		$hookContainer = MediaWikiServices::getInstance()->getHookContainer();
-
-		if ( interface_exists( BeforeParserFetchTemplateRevisionRecordHook::class ) ) {
-			// MW 1.36+
-			$hookContainer->register( 'BeforeParserFetchTemplateRevisionRecord',
-				'ApprovedRevsHooks::setTranscludedPageRev' );
-		} else {
-			// MW < 1.36
-			$hookContainer->register( 'BeforeParserFetchTemplateAndtitle',
-				'ApprovedRevsHooks::setTranscludedPageRevOld' );
-		}
-
-		if ( interface_exists( PageDeleteCompleteHook::class ) ) {
-			// MW 1.37+
-			$hookContainer->register( 'PageDeleteComplete', 'ApprovedRevsHooks::deleteRevisionApproval' );
-		} else {
-			$hookContainer->register( 'ArticleDeleteComplete', 'ApprovedRevsHooks::deleteRevisionApprovalOld' );
-		}
-	}
 
 	public static function userRevsApprovedAutomatically( User $user, Title $title ) {
 		global $egApprovedRevsAutomaticApprovals, $egApprovedRevsFileAutomaticApprovals;
@@ -90,12 +67,8 @@ class ApprovedRevsHooks {
 		if ( !ApprovedRevs::pageIsApprovable( $title ) ) {
 			return null;
 		}
-		if ( method_exists( MediaWikiServices::class, 'getWikiPageFactory' ) ) {
-			// MediaWiki 1.36+
-			$wikiPage = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title );
-		} else {
-			$wikiPage = new WikiPage( $title );
-		}
+
+		$wikiPage = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title );
 		// If this user's revisions get approved automatically, exit
 		// now, because this will be the approved revision anyway.
 		$userID = $wikiPage->getUser();
@@ -317,12 +290,7 @@ class ApprovedRevsHooks {
 		// We only need to modify the search text if the approved
 		// revision is not the latest one.
 		if ( $revisionID != $wikiPage->getLatest() ) {
-			if ( method_exists( MediaWikiServices::class, 'getWikiPageFactory' ) ) {
-				// MediaWiki 1.36+
-				$approvedPage = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title );
-			} else {
-				$approvedPage = WikiPage::factory( $title );
-			}
+			$approvedPage = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title );
 			$approvedContent = $approvedPage->getContent();
 			ApprovedRevs::setPageSearchText( $title, $approvedContent );
 		}
@@ -896,16 +864,6 @@ class ApprovedRevsHooks {
 	}
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/BeforeParserFetchTemplateAndtitle
-	 */
-	public static function setTranscludedPageRevOld( $parser, $title, &$skip, &$id ) {
-		$revisionID = ApprovedRevs::getApprovedRevID( $title );
-		if ( !empty( $revisionID ) ) {
-			$id = $revisionID;
-		}
-	}
-
-	/**
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/BeforeParserFetchTemplateRevisionRecord
 	 *
 	 * Use the approved revision, if it exists, for templates and other
@@ -930,26 +888,12 @@ class ApprovedRevsHooks {
 	 *
 	 * Delete the approval record in the database if the page itself is
 	 * deleted.
-	 *
-	 * MW 1.37+
 	 */
 	public static function deleteRevisionApproval(
 		ProperPageIdentity $page, Authority $deleter, string $reason, int $pageID,
 		RevisionRecord $deletedRev, ManualLogEntry $logEntry, int $archivedRevisionCount
 	) {
 		ApprovedRevs::unsetApprovalInDB( $page->getTitle() );
-	}
-
-	/**
-	 * Hook: ArticleDeleteComplete
-	 *
-	 * Delete the approval record in the database if the page itself is
-	 * deleted.
-	 *
-	 * MW < 1.37
-	 */
-	public static function deleteRevisionApprovalOld( &$article, &$user, $reason, $id ) {
-		ApprovedRevs::unsetApprovalInDB( $article->getTitle() );
 	}
 
 	/**
@@ -1349,26 +1293,16 @@ class ApprovedRevsHooks {
 
 			// Media link redirects don't get caught by the normal
 			// redirect check, so this extra check is required
-			if ( method_exists( MediaWikiServices::class, 'getWikiPageFactory' ) ) {
-				// MediaWiki 1.36+
-				$fileWikiPage = MediaWikiServices::getInstance()->getWikiPageFactory()
-					->newFromID( $fileTitle->getArticleID() );
-			} else {
-				$fileWikiPage = WikiPage::newFromID( $fileTitle->getArticleID() );
-			}
+			$fileWikiPage = MediaWikiServices::getInstance()->getWikiPageFactory()
+				->newFromID( $fileTitle->getArticleID() );
 			if ( $fileWikiPage && $fileWikiPage->getRedirectTarget() ) {
 				$fileTitle = $fileWikiPage->getTitle();
 			}
 		}
 
 		if ( $fileTitle->isRedirect() ) {
-			if ( method_exists( MediaWikiServices::class, 'getWikiPageFactory' ) ) {
-				// MediaWiki 1.36+
-				$page = MediaWikiServices::getInstance()->getWikiPageFactory()
-					->newFromID( $fileTitle->getArticleID() );
-			} else {
-				$page = WikiPage::newFromID( $fileTitle->getArticleID() );
-			}
+			$page = MediaWikiServices::getInstance()->getWikiPageFactory()
+				->newFromID( $fileTitle->getArticleID() );
 			$fileTitle = $page->getRedirectTarget();
 			// avoid extra queries
 			$fileTitle->resetArticleId( $fileTitle->getArticleID() );

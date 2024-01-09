@@ -1,6 +1,6 @@
 {
 	"name": "Approved Revs",
-	"version": "1.9.1",
+	"version": "2.0-alpha",
 	"author": [
 		"Yaron Koren",
 		"..."
@@ -10,11 +10,8 @@
 	"license-name": "GPL-2.0-or-later",
 	"type": "hook",
 	"requires": {
-		"MediaWiki": ">= 1.35.0"
+		"MediaWiki": ">= 1.37.0"
 	},
-	"ExtensionFunctions": [
-		"ApprovedRevsHooks::initialize"
-	],
 	"GroupPermissions": {
 		"sysop": {
 			"viewapprover": true,
@@ -109,7 +106,9 @@
 		"SkinTemplateNavigation::Universal": "ApprovedRevsHooks::changeEditLink",
 		"PageHistoryBeforeList": "ApprovedRevsHooks::storeApprovedRevisionForHistoryPage",
 		"PageHistoryLineEnding": "ApprovedRevsHooks::addApprovalLink",
+		"PageDeleteComplete": "ApprovedRevsHooks::deleteRevisionApproval",
 		"DiffTools": "ApprovedRevsHooks::addApprovalDiffLink",
+		"BeforeParserFetchTemplateRevisionRecord": "ApprovedRevsHooks::setTranscludedPageRev",
 		"GetMagicVariableIDs": "ApprovedRevsHooks::addMagicWordVariableIDs",
 		"ParserAfterTidy": "ApprovedRevsHooks::handleMagicWords",
 		"ParserGetVariableValueSwitch": "ApprovedRevsHooks::assignAValue",

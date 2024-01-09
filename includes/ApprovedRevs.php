@@ -502,7 +502,7 @@ class ApprovedRevs {
 			$approvalInfo['approver_id'] = $user->getID();
 		}
 
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 		$page_id = $title->getArticleID();
 		$old_rev_id = $dbw->selectField( 'approved_revs', 'rev_id', [ 'page_id' => $page_id ] );
 		if ( $old_rev_id ) {
@@ -571,7 +571,7 @@ class ApprovedRevs {
 	}
 
 	public static function unsetApprovalInDB( $title, $content = null ) {
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 		$page_id = $title->getArticleID();
 		$dbw->delete( 'approved_revs', [ 'page_id' => $page_id ] );
 		unset( self::$mApprovedContentForPage[ $page_id ] );
@@ -638,7 +638,7 @@ class ApprovedRevs {
 		$parser = MediaWikiServices::getInstance()->getParserFactory()->create();
 		$parser->setTitle( $title );
 
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 		$fileTitle = $title->getDBkey();
 		$oldFileTitle = $dbw->selectField(
 			'approved_revs_files', 'file_title',
@@ -701,7 +701,7 @@ class ApprovedRevs {
 
 		$fileTitle = $title->getDBkey();
 
-		$dbw = wfGetDB( DB_MASTER );
+		$dbw = wfGetDB( DB_PRIMARY );
 		$dbw->delete( 'approved_revs_files',
 			[ 'file_title' => $fileTitle ]
 		);
