@@ -509,7 +509,7 @@ class ApprovedRevs {
 			$dbw->update( 'approved_revs', $approvalInfo, [ 'page_id' => $page_id ] );
 		} else {
 			$approvalInfo['page_id'] = $page_id;
-			$dbw->insert( 'approved_revs',  $approvalInfo );
+			$dbw->insert( 'approved_revs', $approvalInfo );
 		}
 		// Update "cache" in memory
 		self::$mApprovedRevIDForPage[$page_id] = $rev_id;
@@ -912,7 +912,7 @@ class ApprovedRevs {
 
 		$join_conds = [
 			'im' => [ null, 'ar.file_title=im.img_name' ],
-			'p'  => [ 'JOIN' , 'im.img_name=p.page_title' ],
+			'p' => [ 'JOIN', 'im.img_name=p.page_title' ],
 		];
 
 		$pagePropsConditions = "( (pp_propname = 'approvedrevs' AND pp_value = 'y') " .
