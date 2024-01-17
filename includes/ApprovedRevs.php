@@ -77,7 +77,7 @@ class ApprovedRevs {
 
 		$pageID = $title->getArticleID();
 		if ( !isset( self::$mApproverForPage[$pageID] ) ) {
-			$dbr = wfGetDB( DB_REPLICA );
+			$dbr = self::getReadDB();
 			$approverID = $dbr->selectField( 'approved_revs', 'approver_id',
 				[ 'page_id' => $pageID ] );
 			$approver = $approverID ? User::newFromID( $approverID ) : null;
@@ -104,7 +104,7 @@ class ApprovedRevs {
 			return null;
 		}
 
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = self::getReadDB();
 		$revID = $dbr->selectField( 'approved_revs', 'rev_id', [ 'page_id' => $pageID ] );
 		self::$mApprovedRevIDForPage[$pageID] = $revID;
 		return $revID;
@@ -173,6 +173,26 @@ class ApprovedRevs {
 		return true;
 	}
 
+	public static function getReadDB() {
+		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
+		if ( method_exists( $lbFactory, 'getReplicaDatabase' ) ) {
+			// MW 1.40+
+			return $lbFactory->getReplicaDatabase();
+		} else {
+			return $lbFactory->getMainLB()->getMaintenanceConnectionRef( DB_REPLICA );
+		}
+	}
+
+	public static function getWriteDB() {
+		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
+		if ( method_exists( $lbFactory, 'getPrimaryDatabase' ) ) {
+			// MW 1.40+
+			return $lbFactory->getPrimaryDatabase();
+		} else {
+			return $lbFactory->getMainLB()->getMaintenanceConnectionRef( DB_PRIMARY );
+		}
+	}
+
 	/**
 	 * Returns whether this page can be approved - either because it's in
 	 * a supported namespace, or because it's been specially marked as
@@ -220,7 +240,7 @@ class ApprovedRevs {
 		// properties for the parser functions - for some reason,
 		// calling the standard getProperty() function doesn't work, so
 		// we just do a DB query on the page_props table.
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = self::getReadDB();
 		$count = $dbr->selectField( 'page_props', 'COUNT(*)',
 			[
 				'pp_page' => $articleID,
@@ -286,7 +306,7 @@ class ApprovedRevs {
 		// NOTE: Checks for these propnames won't do anything until [1] is merged, but also will
 		//       not hurt anything.
 		//       [1] https://gerrit.wikimedia.org/r/#/c/mediawiki/extensions/ApprovedRevs/+/429368/
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = self::getReadDB();
 		$count = $dbr->selectField( 'page_props', 'COUNT(*)',
 			[
 				'pp_page' => $articleID,
@@ -387,7 +407,7 @@ class ApprovedRevs {
 					// if they created the page.
 					// We get that information via a SQL
 					// query - is there an easier way?
-					$dbr = wfGetDB( DB_REPLICA );
+					$dbr = self::getReadDB();
 					if ( $dbr->tableExists( 'revision_actor_temp' ) ) {
 						$tables = [ 'ra' => 'revision_actor_temp', 'a' => 'actor' ];
 						$userIDField = 'a.actor_user';
@@ -436,7 +456,7 @@ class ApprovedRevs {
 	public static function checkParserFunctionPermission( User $user, Title $title ) {
 		$articleID = $title->getArticleID();
 
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = self::getReadDB();
 
 		// First check:
 		// Users
@@ -502,7 +522,7 @@ class ApprovedRevs {
 			$approvalInfo['approver_id'] = $user->getID();
 		}
 
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = self::getWriteDB();
 		$page_id = $title->getArticleID();
 		$old_rev_id = $dbw->selectField( 'approved_revs', 'rev_id', [ 'page_id' => $page_id ] );
 		if ( $old_rev_id ) {
@@ -571,7 +591,7 @@ class ApprovedRevs {
 	}
 
 	public static function unsetApprovalInDB( $title, $content = null ) {
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = self::getWriteDB();
 		$page_id = $title->getArticleID();
 		$dbw->delete( 'approved_revs', [ 'page_id' => $page_id ] );
 		unset( self::$mApprovedContentForPage[ $page_id ] );
@@ -638,7 +658,7 @@ class ApprovedRevs {
 		$parser = MediaWikiServices::getInstance()->getParserFactory()->create();
 		$parser->setTitle( $title );
 
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = self::getWriteDB();
 		$fileTitle = $title->getDBkey();
 		$oldFileTitle = $dbw->selectField(
 			'approved_revs_files', 'file_title',
@@ -701,7 +721,7 @@ class ApprovedRevs {
 
 		$fileTitle = $title->getDBkey();
 
-		$dbw = wfGetDB( DB_PRIMARY );
+		$dbw = self::getWriteDB();
 		$dbw->delete( 'approved_revs_files',
 			[ 'file_title' => $fileTitle ]
 		);
@@ -740,7 +760,7 @@ class ApprovedRevs {
 			return self::$mApprovedFileInfo[ $fileTitle->getDBkey() ];
 		}
 
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = self::getReadDB();
 		$row = $dbr->selectRow(
 			'approved_revs_files',
 			[ 'approved_timestamp', 'approved_sha1' ],

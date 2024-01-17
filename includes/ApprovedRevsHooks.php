@@ -193,7 +193,7 @@ class ApprovedRevsHooks {
 		// We need to know if the revision before this current move
 		// was approved - unfortunately, there's no convenient function
 		// to determine that, so we do a DB query.
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = ApprovedRevs::getReadDB();
 		$lastPreMoveRevID = $dbr->selectField(
 			[ 'page', 'revision' ],
 			'MAX(rev_id)',
@@ -1381,7 +1381,7 @@ class ApprovedRevsHooks {
 	 * version of a file should not be the approved version!
 	 */
 	public static function onFileDeleteComplete( File $file, $oldimage, $article, $user, $reason ) {
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = ApprovedRevs::getReadDB();
 		// check if this file has an approved revision
 		$approvedFile = $dbr->selectRow(
 			'approved_revs_files',

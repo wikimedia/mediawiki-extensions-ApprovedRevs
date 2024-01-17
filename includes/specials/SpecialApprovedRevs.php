@@ -59,7 +59,7 @@ class SpecialApprovedRevs extends QueryPage {
 			isset( $egApprovedRevsEnabledNamespaces[NS_FILE] )
 			&& $egApprovedRevsEnabledNamespaces[NS_FILE]
 		) {
-			$dbr = wfGetDB( DB_REPLICA );
+			$dbr = ApprovedRevs::getReadDB();
 			$result = $dbr->selectField( 'approved_revs_files', 'COUNT(*)' );
 			if ( $result > 0 ) {
 				foreach ( $this->mFileHeaderLinks as $msg => $mode ) {

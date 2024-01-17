@@ -65,7 +65,7 @@ class ApproveAllFiles extends Maintenance {
 		// Don't send out any notifications about people's watch lists.
 		$wgEnotifWatchlist = false;
 
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = ApprovedRevs::getReadDB();
 
 		$pages = $dbr->select(
 			'page',

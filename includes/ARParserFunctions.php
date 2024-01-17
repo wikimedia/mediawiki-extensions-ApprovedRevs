@@ -95,7 +95,7 @@ class ARParserFunctions {
 			return self::$mAllApprovalInfo[$pageID];
 		}
 
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = ApprovedRevs::getReadDB();
 
 		// There is no consistency between the structures of these two
 		// DB tables, unfortunately.
