@@ -179,7 +179,7 @@ class ApprovedRevs {
 			// MW 1.40+
 			return $lbFactory->getReplicaDatabase();
 		} else {
-			return $lbFactory->getMainLB()->getMaintenanceConnectionRef( DB_REPLICA );
+			return $lbFactory->getMainLB()->getConnection( DB_REPLICA );
 		}
 	}
 
@@ -189,7 +189,7 @@ class ApprovedRevs {
 			// MW 1.40+
 			return $lbFactory->getPrimaryDatabase();
 		} else {
-			return $lbFactory->getMainLB()->getMaintenanceConnectionRef( DB_PRIMARY );
+			return $lbFactory->getMainLB()->getConnection( DB_PRIMARY );
 		}
 	}
 
@@ -407,7 +407,11 @@ class ApprovedRevs {
 					// if they created the page.
 					// We get that information via a SQL
 					// query - is there an easier way?
-					$dbr = self::getReadDB();
+
+					// We can't just call self::getReadDB() here, because of
+					// the tableExists() call.
+					$lb = MediaWikiServices::getInstance()->getDBLoadBalancer();
+					$dbr = $lb->getConnectionRef( DB_REPLICA );
 					if ( $dbr->tableExists( 'revision_actor_temp' ) ) {
 						$tables = [ 'ra' => 'revision_actor_temp', 'a' => 'actor' ];
 						$userIDField = 'a.actor_user';
