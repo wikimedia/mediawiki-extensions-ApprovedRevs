@@ -11,7 +11,8 @@
 			"Mjälten",
 			"Technic2",
 			"Tobulos1",
-			"WikiPhoenix"
+			"WikiPhoenix",
+			"Kakan spelar"
 		]
 	},
 	"approvedrevs-desc": "Sätt en enskild version av en sida till godkänd",
@@ -31,6 +32,7 @@
 	"approvedrevs-blankpageshown": "Ingen version har godkänts för denna sida.",
 	"approvedrevs-noapprovedrevision": "Det här är sidans senaste version, det finns ingen godkänd version.",
 	"approvedrevs-editwarning": "'''Observera''' att du nu redigerar den senaste versionen av denna sida, vilket inte är den godkända som visas som standard ([$1 visa skillnad]).",
+	"approvedrevs-editwarning-pending": "Dina ändringar kommer att visas för läsarna när en auktoriserad användare godkänner dem.",
 	"approvedrevs": "Godkända versioner",
 	"approvedrevs-approvedpages": "Alla sidor med en godkänd version",
 	"approvedrevs-notlatestpages": "Sidor vars godkända version inte är den senaste.",
