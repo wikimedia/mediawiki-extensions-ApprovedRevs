@@ -9,11 +9,12 @@
 			"Sagan",
 			"З. ӘЙЛЕ",
 			"Ләйсән",
-			"Рустам Нурыев"
+			"Рустам Нурыев",
+			"Bashkorttan"
 		]
 	},
 	"approvedrevs-desc": "Биттең бер өлгөһөн раҫланған тип билдәләү",
-	"approvedrevs-logname": "Өлгөләрҙе раҫлау яҙмалары журналы",
+	"approvedrevs-logname": "Өлгөләрҙе раҫлау журналы",
 	"approvedrevs-logdesc": "Был — биттәрҙең раҫланған өлгөләре журналы.",
 	"approvedrevs-approve": "раҫларға",
 	"approvedrevs-unapprove": "раҫлауҙы алырға",
