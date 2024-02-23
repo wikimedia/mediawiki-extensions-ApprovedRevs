@@ -302,10 +302,6 @@ class ApprovedRevs {
 		// properties for the parser functions - for some reason,
 		// calling the standard getProperty() function doesn't work, so
 		// we just do a DB query on the page_props table.
-		//
-		// NOTE: Checks for these propnames won't do anything until [1] is merged, but also will
-		//       not hurt anything.
-		//       [1] https://gerrit.wikimedia.org/r/#/c/mediawiki/extensions/ApprovedRevs/+/429368/
 		$dbr = self::getReadDB();
 		$count = $dbr->selectField( 'page_props', 'COUNT(*)',
 			[
