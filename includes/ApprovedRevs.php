@@ -339,7 +339,7 @@ class ApprovedRevs {
 		// approvability can change much more easily.
 
 		// if title in approved_revs_files table
-		list( $timestamp, $sha1 ) = self::getApprovedFileInfo( $title );
+		[ $timestamp, $sha1 ] = self::getApprovedFileInfo( $title );
 		if ( $timestamp !== false ) {
 			// only approvable because it already has an approved rev, not
 			// because it is in ApprovedRevs::$permissions

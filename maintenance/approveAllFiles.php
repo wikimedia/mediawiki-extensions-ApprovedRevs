@@ -87,7 +87,7 @@ class ApproveAllFiles extends Maintenance {
 				continue;
 			}
 
-			list( $approvedTimestamp, $approvedSha1 ) = ApprovedRevs::getApprovedFileInfo( $title );
+			[ $approvedTimestamp, $approvedSha1 ] = ApprovedRevs::getApprovedFileInfo( $title );
 			$fileTimestamp = $file->getTimestamp();
 			$fileSha1 = $file->getSha1();
 			if ( $this->getOption( "force" ) ) {

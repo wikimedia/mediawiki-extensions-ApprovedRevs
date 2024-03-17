@@ -760,7 +760,7 @@ class ApprovedRevsHooks {
 			}
 			if ( array_key_exists( 'viewsource', $contentActions ) ) {
 				$contentActions['viewsource']['href'] = $title->getLocalUrl( [ 'action' => 'edit' ] );
-			$skinTemplate->getOutput()->addJsConfigVars( 'wgEditLatestRevision', true );
+				$skinTemplate->getOutput()->addJsConfigVars( 'wgEditLatestRevision', true );
 			}
 		}
 	}
@@ -1230,7 +1230,7 @@ class ApprovedRevsHooks {
 		$rowTimestamp = $file->getTimestamp();
 		$rowSha1 = $file->getSha1();
 
-		list( $approvedRevTimestamp, $approvedRevSha1 ) =
+		[ $approvedRevTimestamp, $approvedRevSha1 ] =
 			ApprovedRevs::getApprovedFileInfo( $file->getTitle() );
 
 		ApprovedRevs::addCSS();
@@ -1309,7 +1309,7 @@ class ApprovedRevsHooks {
 		}
 
 		# Tell Parser what file version to use
-		list( $approvedRevTimestamp, $approvedRevSha1 ) =
+		[ $approvedRevTimestamp, $approvedRevSha1 ] =
 			ApprovedRevs::getApprovedFileInfo( $fileTitle );
 
 		// No approved version of this file - just exit here, and
@@ -1341,7 +1341,7 @@ class ApprovedRevsHooks {
 	 * on the page from the most recent to the approved revision.
 	 */
 	public static function onImagePageFindFile( $imagePage, &$normalFile, &$displayFile ) {
-		list( $approvedRevTimestamp, $approvedRevSha1 ) =
+		[ $approvedRevTimestamp, $approvedRevSha1 ] =
 			ApprovedRevs::getApprovedFileInfo( $imagePage->getFile()->getTitle() );
 
 		if ( ( !$approvedRevTimestamp ) || ( !$approvedRevSha1 ) ) {
