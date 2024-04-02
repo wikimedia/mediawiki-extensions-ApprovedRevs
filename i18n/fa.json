@@ -21,7 +21,7 @@
 	"approvedrevs-approve": "تصویب",
 	"approvedrevs-approver": "این بازنگری توسط $1 تأیید شد.",
 	"approvedrevs-unapprove": "واگردانی تصویب",
-	"approvedrevs-approvesuccess": "این نسخه از صفحه به عنوان نسخهٔ تأییدشده علامت خورده‌است.",
+	"approvedrevs-approvesuccess": "این نسخه از صفحه به عنوان نسخهٔ تأییدشده علامت خورده است.",
 	"approvedrevs-unapprovesuccess": "هیچ نسخهٔ تائیدشده‌ای از این صفحه وجود ندارد.\nدر عوض، تازه‌ترین نسخه نشان‌داده خواهد شد.",
 	"approvedrevs-unapprovesuccess2": "هیچ نسخهٔ تائیدشده‌ای از این صفحه وجود ندارد.\nدر عوض، یک صفحهٔ خالی نشان‌داده خواهد شد.",
 	"approvedrevs-approveaction": "$2 را به عنوان نسخهٔ تأییدشده برای «[[$1]]» علامت بزن.",
