@@ -32,7 +32,7 @@
 	"approvedrevs-approvedandlatest": "Tämä on tämän sivun hyväksytty ja samalla viimeisin versio.",
 	"approvedrevs-blankpageshown": "Tästä sivusta ei ole hyväksyttyä versiota.",
 	"approvedrevs-noapprovedrevision": "Tämä on sivun viimeisin versio. Hyväksyttyä versiota ei ole.",
-	"approvedrevs-editwarning": "Huomaa, että muokkaat nyt sivun viimeisintä versiota, joka ei ole oletuksena esitetty hyväksytty versio.",
+	"approvedrevs-editwarning": "'''Huomaa''', että muokkaat nyt sivun viimeisintä versiota, joka ei ole oletuksena esitetty hyväksytty versio ([$1 näytä ero]).",
 	"approvedrevs": "Hyväksytyt versiot",
 	"approvedrevs-approvedpages": "Kaikki sivut, joista on hyväksytyt versiot",
 	"approvedrevs-notlatestpages": "Sivut, joiden hyväksytty versio ei ole viimeisin",
