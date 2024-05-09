@@ -444,13 +444,8 @@ class ApprovedRevsHooks {
 		$outputPage = $context->getOutput();
 		$revUser = $rev->getUser();
 		$userText = $revUser ? $revUser->getName() : '';
-		if ( method_exists( MediaWikiServices::class, 'getCommentFormatter' ) ) {
-			// MW 1.38+
-			$comment = MediaWikiServices::getInstance()->getCommentFormatter()
-				->formatRevision( $rev, $user, true, true );
-		} else {
-			$comment = Linker::revComment( $rev, true, true );
-		}
+		$comment = MediaWikiServices::getInstance()->getCommentFormatter()
+			->formatRevision( $rev, $user, true, true );
 		$revisionInfo = "<div id=\"mw-{$infomsg}\">" .
 			$context->msg( $infomsg, $td )
 				->rawParams( $userlinks )
@@ -917,12 +912,7 @@ class ApprovedRevsHooks {
 		$mw_hide = $factory->get( 'MAG_APPROVEDREVS' );
 		if ( $mw_hide->matchAndRemove( $text ) ) {
 			$parserOutput = $parser->getOutput();
-			if ( method_exists( $parserOutput, 'setPageProperty' ) ) {
-				// MW 1.38
-				$parserOutput->setPageProperty( 'approvedrevs', 'y' );
-			} else {
-				$parserOutput->setProperty( 'approvedrevs', 'y' );
-			}
+			$parserOutput->setPageProperty( 'approvedrevs', 'y' );
 		}
 	}
 

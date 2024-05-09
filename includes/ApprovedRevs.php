@@ -640,13 +640,8 @@ class ApprovedRevs {
 
 	public static function getParserOutput( $contentHandler, $content, $title, $revID, $user ) {
 		$parserOptions = ParserOptions::newFromUser( $user );
-		if ( method_exists( $contentHandler, 'getParserOutput' ) ) {
-			// MW 1.38+
-			$contentParseParams = new ContentParseParams( $title, $revID, $parserOptions );
-			return $contentHandler->getParserOutput( $content, $contentParseParams );
-		} else {
-			return $content->getParserOutput( $title, $revID, $parserOptions );
-		}
+		$contentParseParams = new ContentParseParams( $title, $revID, $parserOptions );
+		return $contentHandler->getParserOutput( $content, $contentParseParams );
 	}
 
 	public static function addCSS() {
