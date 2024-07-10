@@ -568,7 +568,9 @@ class ApprovedRevs {
 			$content = self::getContent( $title, $rev_id );
 			$contentHandler = $content->getContentHandler();
 			$output = self::getParserOutput( $contentHandler, $content, $title, $rev_id, $user );
-			$u = new LinksUpdate( $title, $output );
+			$luClass = class_exists( 'LinksUpdate' ) ? LinksUpdate::class :
+				MediaWiki\Deferred\LinksUpdate\LinksUpdate::class;
+			$u = new $luClass( $title, $output );
 			$u->doUpdate();
 			self::setPageSearchText( $title, $content );
 		}
@@ -622,7 +624,9 @@ class ApprovedRevs {
 			$content = $contentHandler->makeEmptyContent();
 		}
 		$output = self::getParserOutput( $contentHandler, $content, $title, null, $user );
-		$u = new LinksUpdate( $title, $output );
+		$luClass = class_exists( 'LinksUpdate' ) ? LinksUpdate::class :
+			MediaWiki\Deferred\LinksUpdate\LinksUpdate::class;
+		$u = new $luClass( $title, $output );
 		$u->doUpdate();
 		self::setPageSearchText( $title, $content );
 

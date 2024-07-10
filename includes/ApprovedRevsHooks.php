@@ -93,7 +93,9 @@ class ApprovedRevsHooks {
 		}
 
 		$editInfo = $wikiPage->prepareContentForEdit( $content, null, $user );
-		return new LinksUpdate( $title, $editInfo->output );
+		$luClass = class_exists( 'LinksUpdate' ) ? LinksUpdate::class :
+			MediaWiki\Deferred\LinksUpdate\LinksUpdate::class;
+		return new $luClass( $title, $editInfo->output );
 	}
 
 	/**
