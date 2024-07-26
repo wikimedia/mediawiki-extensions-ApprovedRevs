@@ -26,7 +26,7 @@
 	"approvedrevs-approvedandlatest": "Dit is de goedgekeurde versie van deze pagina. Er is geen nieuwere versie.",
 	"approvedrevs-blankpageshown": "Deze pagina heeft geen goedgekeurde versie.",
 	"approvedrevs-noapprovedrevision": "Dit is de meest recente versie van deze pagina. Er is geen goedgekeurde versie.",
-	"approvedrevs-editwarning": "'''Let op:''' u bewerkt nu de meest recente versie van deze pagina. Dit is niet de goedgekeurde versie die standaard wordt weergegeven. ([$1 verschillen tonen])",
+	"approvedrevs-editwarning": "'''Let op:''' u bewerkt nu de meest recente versie van deze pagina. Dit is niet de goedgekeurde versie die standaard wordt weergegeven. ([$1 verschillen weergeven])",
 	"approvedrevs-editwarning-pending": "Uw wijzigingen worden aan de lezers getoond zodra een geautoriseerde gebruiker ze goedkeurt.",
 	"approvedrevs": "Goedgekeurde versies",
 	"approvedrevs-approvedpages": "Alle pagina's met een goedgekeurde versie",
