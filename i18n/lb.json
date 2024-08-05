@@ -4,11 +4,12 @@
 			"Les Meloures",
 			"Robby",
 			"Soued031",
-			"Amire80"
+			"Amire80",
+			"Volvox"
 		]
 	},
 	"approvedrevs-desc": "Eng eenzel Versioun vun enger Säit als nogekuckt markéieren",
-	"approvedrevs-logname": "Logbuch vun den nogekuckte Säiten déi fräigi sinn",
+	"approvedrevs-logname": "Logbuch vun den nogekuckte Säiten, déi fräigi sinn",
 	"approvedrevs-logdesc": "Dëst ass d'Logbuch vun de Versiounen déi nogekuckt sinn.",
 	"approvedrevs-approve": "zoustëmmen",
 	"approvedrevs-approver": "Dës Versioun gouf vum $1 approuvéiert.",
@@ -25,7 +26,7 @@
 	"approvedrevs-editwarning": "Informatioun: Dir ännert déi lescht Versioun vun dëser Säit, déi net déi nogekuckten ass déi standardméisseg gewise gëtt.",
 	"approvedrevs": "Nogekuckte Versiounen",
 	"approvedrevs-approvedpages": "All Säite mat enger nogekuckter Versioun",
-	"approvedrevs-notlatestpages": "Säiten deenen hir nogekuckt Versioun net déi rezentst ass",
+	"approvedrevs-notlatestpages": "Säiten, deenen hir nogekuckt Versioun net déi rezentst ass",
 	"approvedrevs-unapprovedpages": "Net nogekuckt Säiten",
 	"approvedrevs-view": "Lescht weise vun:",
 	"approvedrevs-revisionnumber": "Versioun $1",
