@@ -763,23 +763,6 @@ class ApprovedRevsHooks {
 	}
 
 	/**
-	 * Hook: PageHistoryBeforeList
-	 *
-	 * Store the approved revision ID, if any, directly in the object
-	 * for this article - this is called so that a query to the database
-	 * can be made just once for every view of a history page, instead
-	 * of for every row.
-	 */
-	public static function storeApprovedRevisionForHistoryPage( &$article ) {
-		// This will be null if there's no ID.
-		$approvedRevID = ApprovedRevs::getApprovedRevID( $article->getTitle() );
-		$article->getTitle()->approvedRevID = $approvedRevID;
-
-		// allows highlighting approved revision in history
-		ApprovedRevs::addCSS();
-	}
-
-	/**
 	 * Hook: PageHistoryLineEnding
 	 *
 	 * If the user is allowed to make revision approvals, add either an
@@ -797,7 +780,7 @@ class ApprovedRevsHooks {
 		$context = $historyPage->getContext();
 		$user = $context->getUser();
 
-		$approvedRevID = $title->approvedRevID;
+		$approvedRevID = ApprovedRevs::getApprovedRevID( $title );
 		if ( $row->rev_id == $approvedRevID ) {
 			$s .= ' &#9733;';
 
@@ -807,6 +790,9 @@ class ApprovedRevsHooks {
 			} else {
 				$classes = [ "approved-revision" ];
 			}
+
+			// We also need to add the CSS.
+			ApprovedRevs::addCSS();
 		}
 		if ( ApprovedRevs::userCanApprove( $user, $title ) ) {
 			if ( $row->rev_id == $approvedRevID ) {

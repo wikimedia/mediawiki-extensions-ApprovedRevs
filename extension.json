@@ -104,7 +104,6 @@
 		"ArticleRevisionViewCustom": "ApprovedRevsHooks::showBlankIfUnapproved",
 		"DisplayOldSubtitle": "ApprovedRevsHooks::setSubtitle",
 		"SkinTemplateNavigation::Universal": "ApprovedRevsHooks::changeEditLink",
-		"PageHistoryBeforeList": "ApprovedRevsHooks::storeApprovedRevisionForHistoryPage",
 		"PageHistoryLineEnding": "ApprovedRevsHooks::addApprovalLink",
 		"PageDeleteComplete": "ApprovedRevsHooks::deleteRevisionApproval",
 		"DiffTools": "ApprovedRevsHooks::addApprovalDiffLink",
