@@ -11,6 +11,7 @@
 		<exclude name="MediaWiki.NamingConventions.ValidGlobalName.allowedPrefix" />
 		<exclude name="MediaWiki.Usage.DeprecatedGlobalVariables.Deprecated$wgTitle" />
 		<exclude name="MediaWiki.Usage.ExtendClassUsage.FunctionConfigUsage" />
+		<exclude name="MediaWiki.Usage.NullableType.ExplicitNullableTypes" />
 	</rule>
 	<file>.</file>
 	<arg name="extensions" value="php"/>
