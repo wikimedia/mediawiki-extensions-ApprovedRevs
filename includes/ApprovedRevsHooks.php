@@ -46,7 +46,7 @@ class ApprovedRevsHooks {
 	 * There doesn't seem to be an ideal MediaWiki hook to use for this
 	 * function - it currently uses 'ParserBeforeInternalParse', which works.
 	 */
-	public static function removeRobotsTag( Parser &$parser, &$text, &$strip_state ) {
+	public static function removeRobotsTag( Parser $parser, $text, $strip_state ) {
 		global $wgRequest;
 
 		if ( !ApprovedRevs::isDefaultPageRequest( $wgRequest ) ) {
@@ -318,7 +318,7 @@ class ApprovedRevsHooks {
 	 * the page is simply being viewed, and if no specific revision has
 	 * been requested.
 	 */
-	public static function showApprovedRevision( &$title, &$article, $context ) {
+	public static function showApprovedRevision( $title, &$article, $context ) {
 		$request = $context->getRequest();
 
 		if ( !ApprovedRevs::isDefaultPageRequest( $request ) ) {
@@ -569,7 +569,7 @@ class ApprovedRevsHooks {
 	 * either nothing or a message explaining the situation, depending
 	 * on the user's rights.
 	 */
-	public static function setSubtitle( &$article, &$revisionID ) {
+	public static function setSubtitle( $article, $revisionID ) {
 		$title = $article->getTitle();
 		if ( !ApprovedRevs::hasApprovedRevision( $title ) ) {
 			return true;
@@ -712,7 +712,7 @@ class ApprovedRevsHooks {
 	 * Same as addWarningToEditPage(), but for the Page Forms
 	 * 'edit with form' tab.
 	 */
-	public static function addWarningToPFForm( &$title, &$preFormHTML ) {
+	public static function addWarningToPFForm( $title, &$preFormHTML ) {
 		if ( $title == null || !$title->exists() ) {
 			return true;
 		}
@@ -735,7 +735,7 @@ class ApprovedRevsHooks {
 	 * 'action=edit' URL (i.e., the latest revision), no matter which
 	 * revision they're actually on.
 	 */
-	public static function changeEditLink( SkinTemplate &$skinTemplate, &$links ) {
+	public static function changeEditLink( SkinTemplate $skinTemplate, &$links ) {
 		$context = $skinTemplate->getContext();
 		$request = $context->getRequest();
 
@@ -771,7 +771,7 @@ class ApprovedRevsHooks {
 	 * revision. If it's the approved revision also add on a "star"
 	 * icon, regardless of the user.
 	 */
-	public static function addApprovalLink( $historyPage, &$row, &$s, &$classes ) {
+	public static function addApprovalLink( $historyPage, $row, &$s, &$classes ) {
 		$title = $historyPage->getTitle();
 		if ( !ApprovedRevs::pageIsApprovable( $title ) ) {
 			return;
@@ -895,7 +895,7 @@ class ApprovedRevsHooks {
 	 * Set values in the page_props table based on the presence of the
 	 * 'APPROVEDREVS' magic word in a page
 	 */
-	public static function handleMagicWords( &$parser, &$text ) {
+	public static function handleMagicWords( $parser, &$text ) {
 		$factory = MediaWikiServices::getInstance()->getMagicWordFactory();
 		$mw_hide = $factory->get( 'MAG_APPROVEDREVS' );
 		if ( $mw_hide->matchAndRemove( $text ) ) {
@@ -955,10 +955,10 @@ class ApprovedRevsHooks {
 	 *
 	 * Register parser function(s).
 	 *
-	 * @param Parser &$parser
+	 * @param Parser $parser
 	 * @since 1.0
 	 */
-	public static function registerFunctions( &$parser ) {
+	public static function registerFunctions( $parser ) {
 		$parser->setFunctionHook(
 			'approvable_by',
 			'ARParserFunctions::renderApprovableBy',

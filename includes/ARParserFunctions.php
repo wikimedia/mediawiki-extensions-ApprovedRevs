@@ -35,12 +35,12 @@ class ARParserFunctions {
 	 * @author James Montalvo
 	 * @since 1.0
 	 *
-	 * @param Parser &$parser
+	 * @param Parser $parser
 	 * @param PPFrame $frame
 	 * @param array $args
 	 * @return bool
 	 */
-	public static function renderApprovableBy( Parser &$parser, PPFrame $frame, array $args ) {
+	public static function renderApprovableBy( Parser $parser, PPFrame $frame, array $args ) {
 		$parserOutput = $parser->getOutput();
 		$output = '';
 		foreach ( $args as $arg ) {
@@ -108,7 +108,7 @@ class ARParserFunctions {
 		return self::$mAllApprovalInfo[$pageID];
 	}
 
-	public static function formatApprovalDate( Parser &$parser, string $pageName, $formatString ) {
+	public static function formatApprovalDate( Parser $parser, string $pageName, $formatString ) {
 		if ( $pageName !== null && $pageName !== '' ) {
 			$title = Title::newFromText( $pageName );
 		} else {
@@ -125,23 +125,23 @@ class ARParserFunctions {
 		return date( $formatString, $approvalInfo[0] );
 	}
 
-	public static function renderApprovalYear( Parser &$parser, ?string $pageName = null ) {
+	public static function renderApprovalYear( Parser $parser, ?string $pageName = null ) {
 		return self::formatApprovalDate( $parser, $pageName, 'Y' );
 	}
 
-	public static function renderApprovalMonth( Parser &$parser, ?string $pageName = null ) {
+	public static function renderApprovalMonth( Parser $parser, ?string $pageName = null ) {
 		return self::formatApprovalDate( $parser, $pageName, 'm' );
 	}
 
-	public static function renderApprovalDay( Parser &$parser, ?string $pageName = null ) {
+	public static function renderApprovalDay( Parser $parser, ?string $pageName = null ) {
 		return self::formatApprovalDate( $parser, $pageName, 'd' );
 	}
 
-	public static function renderApprovalTimestamp( Parser &$parser, ?string $pageName = null ) {
+	public static function renderApprovalTimestamp( Parser $parser, ?string $pageName = null ) {
 		return self::formatApprovalDate( $parser, $pageName, 'YmdHis' );
 	}
 
-	public static function renderApprovalUser( Parser &$parser, ?string $pageName = null ) {
+	public static function renderApprovalUser( Parser $parser, ?string $pageName = null ) {
 		if ( $pageName !== null && $pageName !== '' ) {
 			$title = Title::newFromText( $pageName );
 		} else {
