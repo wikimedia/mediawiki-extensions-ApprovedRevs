@@ -71,7 +71,7 @@ class ApprovedRevs {
 	 * @return User|null The approver
 	 */
 	public static function getRevApprover( $title ) {
-		if ( self::pageIsApprovable( $title ) ) {
+		if ( !self::pageIsApprovable( $title ) ) {
 			return null;
 		}
 
