@@ -39,14 +39,17 @@ class SpecialApprovedRevs extends QueryPage {
 		'approvedrevs-invalidfiles'       => 'invalidfiles',
 	];
 
+	/** @inheritDoc */
 	public function isExpensive() {
 		return false;
 	}
 
+	/** @inheritDoc */
 	public function isSyndicated() {
 		return false;
 	}
 
+	/** @inheritDoc */
 	protected function getPageHeader() {
 		global $egApprovedRevsEnabledNamespaces;
 
@@ -82,6 +85,10 @@ class SpecialApprovedRevs extends QueryPage {
 	/**
 	 * Generate links for header. For current mode, generate non-link bold
 	 * text.
+	 *
+	 * @param string $msg
+	 * @param string $mode
+	 * @return string
 	 */
 	public function createHeaderLink( $msg, $mode ) {
 		if ( $this->mMode == $mode ) {
@@ -102,6 +109,8 @@ class SpecialApprovedRevs extends QueryPage {
 	/**
 	 * Set parameters for standard navigation links.
 	 * i.e. Applies mode to next/prev links when paging through list, etc.
+	 *
+	 * @return array
 	 */
 	protected function linkParameters() {
 		// Optionally could validate $this->mMode against the two
@@ -109,6 +118,7 @@ class SpecialApprovedRevs extends QueryPage {
 		return $this->mMode == '' ? [] : [ 'show' => $this->mMode ];
 	}
 
+	/** @inheritDoc */
 	public function getQueryInfo() {
 		// SQL for page revision approvals versus file revision approvals is
 		// significantly different. Easier to follow if broken into two functions.
@@ -136,6 +146,7 @@ class SpecialApprovedRevs extends QueryPage {
 		return $query;
 	}
 
+	/** @inheritDoc */
 	protected function getOrderFields() {
 		return [ 'p.page_namespace', 'p.page_title' ];
 	}
@@ -144,6 +155,7 @@ class SpecialApprovedRevs extends QueryPage {
 		return false;
 	}
 
+	/** @inheritDoc */
 	protected function formatResult( $skin, $result ) {
 		// SQL for page revision approvals versus file revision approvals is
 		// significantly different. Easier to follow if broken into two functions.
@@ -157,6 +169,11 @@ class SpecialApprovedRevs extends QueryPage {
 		}
 	}
 
+	/**
+	 * @param Skin $skin
+	 * @param stdClass $result
+	 * @return string|false
+	 */
 	public function formatResultPageApprovals( $skin, $result ) {
 		$title = Title::newFromId( $result->id );
 		if ( $title === null ) {
@@ -243,6 +260,11 @@ class SpecialApprovedRevs extends QueryPage {
 		}
 	}
 
+	/**
+	 * @param Skin $skin
+	 * @param stdClass $result
+	 * @return string|void
+	 */
 	public function formatResultFileApprovals( $skin, $result ) {
 		$title = Title::makeTitle( NS_FILE, $result->title );
 
@@ -350,6 +372,7 @@ class SpecialApprovedRevs extends QueryPage {
 		}
 	}
 
+	/** @inheritDoc */
 	protected function getGroupName() {
 		return 'pages';
 	}

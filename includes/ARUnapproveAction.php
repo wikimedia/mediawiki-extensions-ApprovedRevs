@@ -20,6 +20,8 @@ class ARUnapproveAction extends Action {
 	 * The main action entry point. Do all output for display and send it
 	 * to the context output.
 	 * $this->getOutput(), etc.
+	 *
+	 * @return true|void
 	 */
 	public function show() {
 		$user = $this->getUser();

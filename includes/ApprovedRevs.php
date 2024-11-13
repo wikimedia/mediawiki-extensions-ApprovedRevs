@@ -1,9 +1,14 @@
 <?php
 
 use MediaWiki\Content\Renderer\ContentParseParams;
+use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Page\PageReference;
 use MediaWiki\Revision\SlotRecord;
+use MediaWiki\User\UserIdentity;
 use MediaWiki\User\UserNameUtils;
+use Wikimedia\Rdbms\IDatabase;
+use Wikimedia\Rdbms\IReadableDatabase;
 
 /**
  * Main class for the Approved Revs extension.
@@ -22,7 +27,7 @@ class ApprovedRevs {
 	private static $mApprovedContentForPage = [];
 	/** @var array<int,?int> */
 	private static $mApprovedRevIDForPage = [];
-	/** @var array<int,?User> */
+	/** @var array<int,?UserIdentity> */
 	private static $mApproverForPage = [];
 	/** @var array<int,bool> */
 	private static $mApprovablePages = [];
@@ -42,6 +47,8 @@ class ApprovedRevs {
 
 	/**
 	 * Get array of approvable namespaces. Handles backwards compatibility.
+	 *
+	 * @return int[]
 	 */
 	public static function getApprovableNamespaces() {
 		global $egApprovedRevsNamespaces, $egApprovedRevsEnabledNamespaces;
@@ -75,7 +82,7 @@ class ApprovedRevs {
 	 * one.
 	 *
 	 * @param Title $title The page title
-	 * @return User|null The approver
+	 * @return ?UserIdentity
 	 */
 	public static function getRevApprover( $title ) {
 		if ( !self::pageIsApprovable( $title ) ) {
@@ -96,6 +103,9 @@ class ApprovedRevs {
 	/**
 	 * Gets the approved revision ID for this page, or null if there isn't
 	 * one.
+	 *
+	 * @param ?Title $title
+	 * @return int|null
 	 */
 	public static function getApprovedRevID( $title ) {
 		if ( $title == null ) {
@@ -119,12 +129,20 @@ class ApprovedRevs {
 
 	/**
 	 * Returns whether or not this page has a revision ID.
+	 *
+	 * @param ?Title $title
+	 * @return bool
 	 */
 	public static function hasApprovedRevision( $title ) {
 		$revision_id = self::getApprovedRevID( $title );
 		return ( !empty( $revision_id ) );
 	}
 
+	/**
+	 * @param LinkTarget $title
+	 * @param int $revisionID
+	 * @return ?Content
+	 */
 	public static function getContent( $title, $revisionID = 0 ) {
 		$revisionRecord = MediaWikiServices::getInstance()->getRevisionLookup()
 			->getRevisionByTitle( $title, $revisionID );
@@ -135,6 +153,10 @@ class ApprovedRevs {
 	 * Returns the contents of the specified wiki page, at either the
 	 * specified revision (if there is one) or the latest revision
 	 * (otherwise).
+	 *
+	 * @param LinkTarget $title
+	 * @param int|null $revisionID
+	 * @return string
 	 */
 	public static function getPageText( $title, $revisionID = null ) {
 		return self::getContent( $title, $revisionID )->getText();
@@ -143,6 +165,9 @@ class ApprovedRevs {
 	/**
 	 * Returns the content of the approved revision of this page, or null
 	 * if there isn't one.
+	 *
+	 * @param Title $title
+	 * @return ?Content
 	 */
 	public static function getApprovedContent( $title ) {
 		$pageID = $title->getArticleID();
@@ -165,6 +190,9 @@ class ApprovedRevs {
 	 * Helper function - returns whether the user is currently requesting
 	 * a page via the simple URL for it - not specfying a version number,
 	 * not editing the page, etc.
+	 *
+	 * @param WebRequest $request
+	 * @return bool
 	 */
 	public static function isDefaultPageRequest( $request ) {
 		if ( $request->getCheck( 'oldid' ) ) {
@@ -180,6 +208,9 @@ class ApprovedRevs {
 		return true;
 	}
 
+	/**
+	 * @return IReadableDatabase
+	 */
 	public static function getReadDB() {
 		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 		if ( method_exists( $lbFactory, 'getReplicaDatabase' ) ) {
@@ -190,6 +221,9 @@ class ApprovedRevs {
 		}
 	}
 
+	/**
+	 * @return IDatabase
+	 */
 	public static function getWriteDB() {
 		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
 		if ( method_exists( $lbFactory, 'getPrimaryDatabase' ) ) {
@@ -205,6 +239,9 @@ class ApprovedRevs {
 	 * a supported namespace, or because it's been specially marked as
 	 * approvable. Also stores the boolean answer as a field in the page
 	 * object, to speed up processing if it's called more than once.
+	 *
+	 * @param Title $title
+	 * @return bool
 	 */
 	public static function pageIsApprovable( Title $title ) {
 		$articleID = $title->getArticleID();
@@ -276,6 +313,10 @@ class ApprovedRevs {
 		return $isApprovable;
 	}
 
+	/**
+	 * @param Title $title
+	 * @return bool
+	 */
 	public static function fileIsApprovable( Title $title ) {
 		$articleID = $title->getArticleID();
 
@@ -358,12 +399,23 @@ class ApprovedRevs {
 		return false;
 	}
 
+	/**
+	 * @param User $user
+	 * @param Title $title
+	 * @param string $permission
+	 * @return bool
+	 */
 	public static function checkPermission( User $user, Title $title, $permission ) {
 		$permissionManager = MediaWikiServices::getInstance()->getPermissionManager();
 		return ( $permissionManager->userCan( $permission, $user, $title ) ||
 			$permissionManager->userHasRight( $user, $permission ) );
 	}
 
+	/**
+	 * @param User $user
+	 * @param Title $title
+	 * @return bool
+	 */
 	public static function userCanApprove( User $user, Title $title ) {
 		global $egApprovedRevsSelfOwnedNamespaces;
 		$permission = 'approverevisions';
@@ -518,7 +570,13 @@ class ApprovedRevs {
 		return false;
 	}
 
-	public static function saveApprovedRevIDInDB( $title, $rev_id, User $user, $isAutoApprove = true ) {
+	/**
+	 * @param Title $title
+	 * @param int $rev_id
+	 * @param UserIdentity $user
+	 * @param bool $isAutoApprove
+	 */
+	public static function saveApprovedRevIDInDB( $title, $rev_id, UserIdentity $user, $isAutoApprove = true ) {
 		$timestamp = date( 'Y-m-d H:i:s' );
 		$approvalInfo = [
 			'rev_id' => $rev_id,
@@ -560,6 +618,11 @@ class ApprovedRevs {
 	 * approved_revs DB table; calls a "links update" on this revision
 	 * so that category information can be stored correctly, as well as
 	 * info for extensions such as Semantic MediaWiki; and logs the action.
+	 *
+	 * @param Title $title
+	 * @param int $rev_id
+	 * @param User $user
+	 * @param bool $is_latest
 	 */
 	public static function setApprovedRevID( $title, $rev_id, User $user, $is_latest = false ) {
 		// Don't approve it if it's already approved.
@@ -599,6 +662,10 @@ class ApprovedRevs {
 		);
 	}
 
+	/**
+	 * @param Title $title
+	 * @param Content|null $content
+	 */
 	public static function unsetApprovalInDB( $title, $content = null ) {
 		$dbw = self::getWriteDB();
 		$page_id = $title->getArticleID();
@@ -616,6 +683,9 @@ class ApprovedRevs {
 	 * table; calls a "links update" on this page so that category
 	 * information can be stored correctly, as well as info for
 	 * extensions such as Semantic MediaWiki; and logs the action.
+	 *
+	 * @param Title $title
+	 * @param User $user
 	 */
 	public static function unsetApproval( $title, User $user ) {
 		global $egApprovedRevsBlankIfUnapproved;
@@ -649,6 +719,14 @@ class ApprovedRevs {
 		);
 	}
 
+	/**
+	 * @param ContentHandler $contentHandler
+	 * @param Content $content
+	 * @param PageReference $title
+	 * @param int $revID
+	 * @param UserIdentity $user
+	 * @return ParserOutput
+	 */
 	public static function getParserOutput( $contentHandler, $content, $title, $revID, $user ) {
 		$parserOptions = ParserOptions::newFromUser( $user );
 		$contentParseParams = new ContentParseParams( $title, $revID, $parserOptions );
@@ -660,7 +738,13 @@ class ApprovedRevs {
 		$wgOut->addModuleStyles( 'ext.ApprovedRevs' );
 	}
 
-	public static function setApprovedFileInDB( $title, $timestamp, $sha1, User $user ) {
+	/**
+	 * @param Title $title
+	 * @param string $timestamp
+	 * @param string $sha1
+	 * @param UserIdentity $user
+	 */
+	public static function setApprovedFileInDB( $title, $timestamp, $sha1, UserIdentity $user ) {
 		$parser = MediaWikiServices::getInstance()->getParserFactory()->create();
 		$parser->setTitle( $title );
 
@@ -721,6 +805,10 @@ class ApprovedRevs {
 		);
 	}
 
+	/**
+	 * @param Title $title
+	 * @param User $user
+	 */
 	public static function unsetApprovedFileInDB( $title, User $user ) {
 		$parser = MediaWikiServices::getInstance()->getParserFactory()->create();
 		$parser->setTitle( $title );
@@ -760,6 +848,9 @@ class ApprovedRevs {
 	 * Pulls from the DB table approved_revs_files which revision of a file,
 	 * if any besides the most recent, should be used as the approved
 	 * revision.
+	 *
+	 * @param LinkTarget $fileTitle
+	 * @return array{string|false, string|false}
 	 */
 	public static function getApprovedFileInfo( $fileTitle ) {
 		if ( isset( self::$mApprovedFileInfo[ $fileTitle->getDBkey() ] ) ) {
@@ -784,8 +875,8 @@ class ApprovedRevs {
 	}
 
 	/**
-	 * (non-PHPdoc)
-	 * @see QueryPage::getSQL()
+	 * @param string $mode
+	 * @return array
 	 */
 	public static function getQueryInfoPageApprovals( $mode ) {
 		$approvedRevsNamespaces = self::getApprovableNamespaces();
@@ -916,8 +1007,8 @@ class ApprovedRevs {
 	}
 
 	/**
-	 * (non-PHPdoc)
-	 * @see QueryPage::getSQL()
+	 * @param string $mode
+	 * @return array
 	 */
 	public static function getQueryInfoFileApprovals( $mode ) {
 		$tables = [

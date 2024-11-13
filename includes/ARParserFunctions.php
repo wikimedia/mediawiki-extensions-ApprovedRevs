@@ -39,7 +39,7 @@ class ARParserFunctions {
 	 * @param Parser $parser
 	 * @param PPFrame $frame
 	 * @param array $args
-	 * @return bool
+	 * @return string
 	 */
 	public static function renderApprovableBy( Parser $parser, PPFrame $frame, array $args ) {
 		$parserOutput = $parser->getOutput();
@@ -79,6 +79,9 @@ class ARParserFunctions {
 
 	/**
 	 * Helper function for all the display parser functions.
+	 *
+	 * @param Title $title
+	 * @return array{?int, ?int}|null
 	 */
 	public static function getApprovalInfo( $title ) {
 		$pageID = $title->getArticleID();
@@ -109,8 +112,14 @@ class ARParserFunctions {
 		return self::$mAllApprovalInfo[$pageID];
 	}
 
+	/**
+	 * @param Parser $parser
+	 * @param string $pageName
+	 * @param string $formatString
+	 * @return string|null
+	 */
 	public static function formatApprovalDate( Parser $parser, string $pageName, $formatString ) {
-		if ( $pageName !== null && $pageName !== '' ) {
+		if ( $pageName !== '' ) {
 			$title = Title::newFromText( $pageName );
 		} else {
 			$title = $parser->getTitle();
@@ -126,22 +135,37 @@ class ARParserFunctions {
 		return date( $formatString, $approvalInfo[0] );
 	}
 
+	/**
+	 * @return string|null
+	 */
 	public static function renderApprovalYear( Parser $parser, ?string $pageName = null ) {
 		return self::formatApprovalDate( $parser, $pageName, 'Y' );
 	}
 
+	/**
+	 * @return string|null
+	 */
 	public static function renderApprovalMonth( Parser $parser, ?string $pageName = null ) {
 		return self::formatApprovalDate( $parser, $pageName, 'm' );
 	}
 
+	/**
+	 * @return string|null
+	 */
 	public static function renderApprovalDay( Parser $parser, ?string $pageName = null ) {
 		return self::formatApprovalDate( $parser, $pageName, 'd' );
 	}
 
+	/**
+	 * @return string|null
+	 */
 	public static function renderApprovalTimestamp( Parser $parser, ?string $pageName = null ) {
 		return self::formatApprovalDate( $parser, $pageName, 'YmdHis' );
 	}
 
+	/**
+	 * @return string|null
+	 */
 	public static function renderApprovalUser( Parser $parser, ?string $pageName = null ) {
 		if ( $pageName !== null && $pageName !== '' ) {
 			$title = Title::newFromText( $pageName );

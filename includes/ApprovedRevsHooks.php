@@ -6,6 +6,7 @@ use MediaWiki\Page\ProperPageIdentity;
 use MediaWiki\Permissions\Authority;
 use MediaWiki\Revision\RenderedRevision;
 use MediaWiki\Revision\RevisionRecord;
+use MediaWiki\Revision\RevisionStoreRecord;
 use MediaWiki\Storage\EditResult;
 use MediaWiki\User\UserIdentity;
 
@@ -30,6 +31,9 @@ class ApprovedRevsHooks {
 		'MAG_APPROVALUSER'
 	];
 
+	/**
+	 * @return bool
+	 */
 	public static function userRevsApprovedAutomatically( User $user, Title $title ) {
 		global $egApprovedRevsAutomaticApprovals, $egApprovedRevsFileAutomaticApprovals;
 		if ( $title->getNamespace() == NS_FILE ) {
@@ -46,6 +50,11 @@ class ApprovedRevsHooks {
 	 * the approved revision.
 	 * There doesn't seem to be an ideal MediaWiki hook to use for this
 	 * function - it currently uses 'ParserBeforeInternalParse', which works.
+	 *
+	 * @param Parser $parser
+	 * @param string $text
+	 * @param StripState $strip_state
+	 * @return void
 	 */
 	public static function removeRobotsTag( Parser $parser, $text, $strip_state ) {
 		global $wgRequest;
@@ -63,6 +72,8 @@ class ApprovedRevsHooks {
 
 	/**
 	 * Called by updateLinksAfterEdit().
+	 *
+	 * @return ?\MediaWiki\Deferred\LinksUpdate\LinksUpdate
 	 */
 	public static function getUpdateForTitle( Title $title ) {
 		if ( !ApprovedRevs::pageIsApprovable( $title ) ) {
@@ -172,6 +183,8 @@ class ApprovedRevsHooks {
 	 * as a revision) if the user has auto-approve rights, and the revision
 	 * right before this one was approved - we do this so that page moves
 	 * don't lead to unnecessary approval work for anyone.
+	 *
+	 * @return void
 	 */
 	public static function setPageMoveAsApproved(
 		LinkTarget $old,
@@ -215,6 +228,10 @@ class ApprovedRevsHooks {
 	/**
 	 * This method will actually work no matter how many revisions a file has,
 	 * but in practice it's only called when the first revision is created.
+	 *
+	 * @param UserIdentity $user
+	 * @param Title $title
+	 * @return void
 	 */
 	public static function setOriginalFileRevAsApproved( $user, $title ) {
 		global $wgLocalFileRepo;
@@ -267,6 +284,8 @@ class ApprovedRevsHooks {
 	 * Hook: PageSaveComplete
 	 *
 	 * Set the text that's stored for the page for standard searches.
+	 *
+	 * @return void
 	 */
 	public static function setSearchText(
 		WikiPage $wikiPage,
@@ -304,6 +323,10 @@ class ApprovedRevsHooks {
 	 *
 	 * Sets the correct page revision to display the "text snippet" for
 	 * a search result.
+	 *
+	 * @param Title $title
+	 * @param int|bool &$id
+	 * @return void
 	 */
 	public static function setSearchRevisionID( $title, &$id ) {
 		$revisionID = ApprovedRevs::getApprovedRevID( $title );
@@ -318,6 +341,11 @@ class ApprovedRevsHooks {
 	 * Return the approved revision of the page, if there is one, and if
 	 * the page is simply being viewed, and if no specific revision has
 	 * been requested.
+	 *
+	 * @param Title $title
+	 * @param Article &$article
+	 * @param IContextSource $context
+	 * @return void
 	 */
 	public static function showApprovedRevision( $title, &$article, $context ) {
 		$request = $context->getRequest();
@@ -356,6 +384,7 @@ class ApprovedRevsHooks {
 	 * @param Title $title
 	 * @param int $oldid
 	 * @param OutputPage $output
+	 * @return bool
 	 */
 	public static function showBlankIfUnapproved( $revisionStoreRecord, $title, $oldid, $output ) {
 		global $egApprovedRevsBlankIfUnapproved;
@@ -408,6 +437,10 @@ class ApprovedRevsHooks {
 	 * the approved one).
 	 *
 	 * @author Eli Handel
+	 *
+	 * @param Article $article
+	 * @param int $revisionID
+	 * @return void
 	 */
 	public static function setOldSubtitle( $article, $revisionID ) {
 		$title = $article->getTitle();
@@ -569,6 +602,10 @@ class ApprovedRevsHooks {
 	 * subtitle shown for all non-latest revisions, and replace it with
 	 * either nothing or a message explaining the situation, depending
 	 * on the user's rights.
+	 *
+	 * @param Article $article
+	 * @param int $revisionID
+	 * @return bool
 	 */
 	public static function setSubtitle( $article, $revisionID ) {
 		$title = $article->getTitle();
@@ -658,6 +695,7 @@ class ApprovedRevsHooks {
 	 * @param Title $title
 	 * @param int $oldid
 	 * @param array &$notices
+	 * @return true
 	 */
 	public static function addEditNotice( Title $title, $oldid, array &$notices ) {
 		$editPage = new EditPage( new Article( $title, $oldid ) );
@@ -712,6 +750,10 @@ class ApprovedRevsHooks {
 	 *
 	 * Same as addWarningToEditPage(), but for the Page Forms
 	 * 'edit with form' tab.
+	 *
+	 * @param ?Title $title
+	 * @param string &$preFormHTML
+	 * @return true|void
 	 */
 	public static function addWarningToPFForm( $title, &$preFormHTML ) {
 		if ( $title == null || !$title->exists() ) {
@@ -735,6 +777,10 @@ class ApprovedRevsHooks {
 	 * revision specified), have the 'edit' tab link to the basic
 	 * 'action=edit' URL (i.e., the latest revision), no matter which
 	 * revision they're actually on.
+	 *
+	 * @param SkinTemplate $skinTemplate
+	 * @param array &$links
+	 * @return void
 	 */
 	public static function changeEditLink( SkinTemplate $skinTemplate, &$links ) {
 		$context = $skinTemplate->getContext();
@@ -771,6 +817,12 @@ class ApprovedRevsHooks {
 	 * history, depending on whether or not this is already the approved
 	 * revision. If it's the approved revision also add on a "star"
 	 * icon, regardless of the user.
+	 *
+	 * @param HistoryPager $historyPage
+	 * @param stdClass $row
+	 * @param string &$s
+	 * @param string[] &$classes
+	 * @return void
 	 */
 	public static function addApprovalLink( $historyPage, $row, &$s, &$classes ) {
 		$title = $historyPage->getTitle();
@@ -852,6 +904,8 @@ class ApprovedRevsHooks {
 	 *
 	 * Use the approved revision, if it exists, for templates and other
 	 * transcluded pages.
+	 *
+	 * @return void
 	 */
 	public static function setTranscludedPageRev(
 		?LinkTarget $contextTitle,
@@ -872,6 +926,8 @@ class ApprovedRevsHooks {
 	 *
 	 * Delete the approval record in the database if the page itself is
 	 * deleted.
+	 *
+	 * @return void
 	 */
 	public static function deleteRevisionApproval(
 		ProperPageIdentity $page, Authority $deleter, string $reason, int $pageID,
@@ -884,6 +940,9 @@ class ApprovedRevsHooks {
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/GetMagicVariableIDs
 	 *
 	 * Register magic-word variable IDs
+	 *
+	 * @param string[] &$magicWordVariableIDs
+	 * @return void
 	 */
 	public static function addMagicWordVariableIDs( &$magicWordVariableIDs ) {
 		$magicWordVariableIDs[] = 'MAG_APPROVEDREVS';
@@ -895,6 +954,10 @@ class ApprovedRevsHooks {
 	 *
 	 * Set values in the page_props table based on the presence of the
 	 * 'APPROVEDREVS' magic word in a page
+	 *
+	 * @param Parser $parser
+	 * @param string &$text
+	 * @return void
 	 */
 	public static function handleMagicWords( $parser, &$text ) {
 		$factory = MediaWikiServices::getInstance()->getMagicWordFactory();
@@ -914,6 +977,7 @@ class ApprovedRevsHooks {
 	 * @param array &$variableCache
 	 * @param string $magicWordId
 	 * @param string &$ret
+	 * @return void
 	 */
 	public static function assignAValue( $parser, &$variableCache, $magicWordId, &$ret ) {
 		if ( !in_array( $magicWordId, self::$mApprovalMagicWords ) ) {
@@ -957,6 +1021,7 @@ class ApprovedRevsHooks {
 	 * Register parser function(s).
 	 *
 	 * @param Parser $parser
+	 * @return void
 	 * @since 1.0
 	 */
 	public static function registerFunctions( $parser ) {
@@ -997,6 +1062,9 @@ class ApprovedRevsHooks {
 	 *
 	 * Add a link to Special:ApprovedPages to the page
 	 * Special:AdminLinks, defined by the Admin Links extension.
+	 *
+	 * @param ALTree &$admin_links_tree
+	 * @return void
 	 */
 	public static function addToAdminLinks( &$admin_links_tree ) {
 		$general_section = $admin_links_tree->getSection( wfMessage( 'adminlinks_general' )->text() );
@@ -1008,6 +1076,10 @@ class ApprovedRevsHooks {
 		$extensions_row->addItem( ALItem::newFromSpecialPage( 'ApprovedRevs' ) );
 	}
 
+	/**
+	 * @param DatabaseUpdater $updater
+	 * @return void
+	 */
 	public static function describeDBSchema( DatabaseUpdater $updater ) {
 		$dir = __DIR__;
 
@@ -1044,6 +1116,7 @@ class ApprovedRevsHooks {
 	 * @param Article $article
 	 * @param bool &$outputDone
 	 * @param bool &$useParserCache
+	 * @return void
 	 */
 	public static function setArticleHeader( Article $article, &$outputDone, &$useParserCache ) {
 		global $egApprovedRevsBlankIfUnapproved;
@@ -1131,6 +1204,11 @@ class ApprovedRevsHooks {
 	 * If this page is approvable, but has no approved revision, display
 	 * a header message stating that, if the setting to display this
 	 * message is activated.
+	 *
+	 * @param Article $article
+	 * @param bool|ParserOutput|null &$outputDone
+	 * @param bool &$useParserCache
+	 * @return void
 	 */
 	public static function displayNotApprovedHeader( Article $article, &$outputDone, &$useParserCache ) {
 		global $egApprovedRevsShowNotApprovedMessage;
@@ -1166,6 +1244,11 @@ class ApprovedRevsHooks {
 	/**
 	 * Add a class to the <body> tag indicating the approval status
 	 * of this page, so it can be styled accordingly.
+	 *
+	 * @param OutputPage $out
+	 * @param Skin $skin
+	 * @param string[] &$bodyAttrs
+	 * @return void
 	 */
 	public static function addBodyClass( $out, $skin, &$bodyAttrs ) {
 		$title = $skin->getTitle();
@@ -1198,6 +1281,12 @@ class ApprovedRevsHooks {
 	 * "approved-revision" class to the appropriate row. For users with
 	 * approve permissions on this page add "approve" and "unapprove" links as
 	 * required.
+	 *
+	 * @param ImageHistoryList $hist
+	 * @param File $file
+	 * @param string &$s
+	 * @param string|null &$rowClass
+	 * @return void
 	 */
 	public static function onImagePageFileHistoryLine( $hist, $file, &$s, &$rowClass ) {
 		$fileTitle = $file->getTitle();
@@ -1263,6 +1352,12 @@ class ApprovedRevsHooks {
 	 * revision in all cases except the primary file on file pages (e.g.
 	 * the big image in the top left on File:My File.png). To modify that
 	 * image, see self::onImagePageFindFile().
+	 *
+	 * @param Parser $parser
+	 * @param Title $fileTitle
+	 * @param array &$options
+	 * @param string &$query
+	 * @return true|void
 	 */
 	public static function modifyFileLinks( $parser, Title $fileTitle, &$options, &$query ) {
 		if ( $fileTitle->getNamespace() == NS_MEDIA ) {
@@ -1318,6 +1413,11 @@ class ApprovedRevsHooks {
 	 *
 	 * Applicable on image pages only, this changes the primary image
 	 * on the page from the most recent to the approved revision.
+	 *
+	 * @param ImagePage $imagePage
+	 * @param File|false &$normalFile
+	 * @param File|false &$displayFile
+	 * @return void
 	 */
 	public static function onImagePageFindFile( $imagePage, &$normalFile, &$displayFile ) {
 		[ $approvedRevTimestamp, $approvedRevSha1 ] =
@@ -1358,6 +1458,13 @@ class ApprovedRevsHooks {
 	 * If a file is deleted, check if the sha1 (and timestamp?) exist in the
 	 * approved_revs_files table, and delete that row accordingly. A deleted
 	 * version of a file should not be the approved version!
+	 *
+	 * @param LocalFile $file
+	 * @param string|null $oldimage
+	 * @param WikiFilePage|null $article
+	 * @param User $user
+	 * @param string $reason
+	 * @return void
 	 */
 	public static function onFileDeleteComplete( File $file, $oldimage, $article, $user, $reason ) {
 		$dbr = ApprovedRevs::getReadDB();
@@ -1409,6 +1516,11 @@ class ApprovedRevsHooks {
 		$qp['SpecialApprovedRevsPage'] = 'ApprovedRevs';
 	}
 
+	/**
+	 * @param Title $title
+	 * @param Article &$article
+	 * @return void
+	 */
 	public static function onMpdfGetArticle( $title, &$article ) {
 		$revisionID = ApprovedRevs::getApprovedRevID( $title );
 		if ( $revisionID === null ) {

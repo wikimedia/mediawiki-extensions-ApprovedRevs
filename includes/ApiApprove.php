@@ -62,6 +62,7 @@ class ApiApprove extends ApiBase {
 			[ 'result' => $resultText, 'title' => $title ] );
 	}
 
+	/** @inheritDoc */
 	public function getAllowedParams() {
 		return [
 			'revid' => [
@@ -75,9 +76,7 @@ class ApiApprove extends ApiBase {
 		];
 	}
 
-	/**
-	 * @see ApiBase::getExamplesMessages()
-	 */
+	/** @inheritDoc */
 	protected function getExamplesMessages() {
 		return [
 			'action=approve&revid=12345'
@@ -87,10 +86,12 @@ class ApiApprove extends ApiBase {
 		];
 	}
 
+	/** @inheritDoc */
 	public function mustBePosted() {
 		return true;
 	}
 
+	/** @inheritDoc */
 	public function isWriteMode() {
 		return true;
 	}
@@ -98,13 +99,11 @@ class ApiApprove extends ApiBase {
 	/**
 	 * CSRF Token must be POSTed
 	 * use parameter name 'token'
-	 * No need to document, this is automatically done by ApiBase
+	 *
+	 * @inheritDoc
 	 */
 	public function needsToken() {
 		return 'csrf';
 	}
 
-	public function getTokenSalt() {
-		return 'e-ar';
-	}
 }
