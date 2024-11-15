@@ -21,6 +21,7 @@ use MediaWiki\User\UserIdentity;
  */
 class ApprovedRevsHooks {
 
+	/** @var string[] */
 	private static $mApprovalMagicWords = [
 		'MAG_APPROVALYEAR',
 		'MAG_APPROVALMONTH',

@@ -61,6 +61,7 @@ class ApproveAllPages extends Maintenance {
 	}
 
 	public function execute() {
+		// phpcs:ignore MediaWiki.Usage.DeprecatedGlobalVariables.Deprecated$wgTitle
 		global $wgTitle;
 		global $wgEnotifWatchlist;
 

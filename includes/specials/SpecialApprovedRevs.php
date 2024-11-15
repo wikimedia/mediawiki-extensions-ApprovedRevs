@@ -10,6 +10,7 @@ use MediaWiki\MediaWikiServices;
  */
 class SpecialApprovedRevs extends QueryPage {
 
+	/** @var string|null */
 	protected $mMode;
 
 	public function __construct() {
@@ -22,6 +23,7 @@ class SpecialApprovedRevs extends QueryPage {
 	 * These two arrays pair mode with messages. E.g. mode "approvedpages"
 	 * is used to generate a header link with query string having "show=approvedpages"
 	 * and link text of "All pages with an approved revision" (in English).
+	 * @var array<string,string>
 	 */
 	protected $mPageHeaderLinks = [
 		'approvedrevs-notlatestpages'     => '',
@@ -29,6 +31,7 @@ class SpecialApprovedRevs extends QueryPage {
 		'approvedrevs-approvedpages'      => 'all',
 		'approvedrevs-invalidpages'       => 'invalid',
 	];
+	/** @var array<string,string> */
 	protected $mFileHeaderLinks = [
 		'approvedrevs-notlatestfiles'     => 'notlatestfiles',
 		'approvedrevs-unapprovedfiles'    => 'unapprovedfiles',

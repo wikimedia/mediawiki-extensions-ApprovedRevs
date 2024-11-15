@@ -27,6 +27,7 @@
 
 class ARParserFunctions {
 
+	/** @var array<int,array{?int, ?int}> */
 	private static $mAllApprovalInfo = [];
 
 	/**

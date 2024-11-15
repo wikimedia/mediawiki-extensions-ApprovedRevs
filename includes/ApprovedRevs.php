@@ -17,20 +17,27 @@ class ApprovedRevs {
 
 	/**
 	 * Static arrays to prevent querying the database more than necessary.
+	 * @var array<int,?Content>
 	 */
 	private static $mApprovedContentForPage = [];
+	/** @var array<int,?int> */
 	private static $mApprovedRevIDForPage = [];
+	/** @var array<int,?User> */
 	private static $mApproverForPage = [];
+	/** @var array<int,bool> */
 	private static $mApprovablePages = [];
+	/** @var array<int,bool> */
 	private static $mApprovableFiles = [];
 
 	/**
 	 * Array in form $mUserCanApprove["<user id>:<article id>"] = <bool>
-	 * @var array
+	 * @var array<string,?bool>
 	 */
 	private static $mUserCanApprove = [];
+	/** @var array<string,array{string|false, string|false}> */
 	private static $mApprovedFileInfo = [];
 
+	/** @var int[] */
 	private static $mApprovedRevsNamespaces;
 
 	/**
