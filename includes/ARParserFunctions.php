@@ -125,23 +125,23 @@ class ARParserFunctions {
 		return date( $formatString, $approvalInfo[0] );
 	}
 
-	public static function renderApprovalYear( Parser &$parser, string $pageName = null ) {
+	public static function renderApprovalYear( Parser &$parser, ?string $pageName = null ) {
 		return self::formatApprovalDate( $parser, $pageName, 'Y' );
 	}
 
-	public static function renderApprovalMonth( Parser &$parser, string $pageName = null ) {
+	public static function renderApprovalMonth( Parser &$parser, ?string $pageName = null ) {
 		return self::formatApprovalDate( $parser, $pageName, 'm' );
 	}
 
-	public static function renderApprovalDay( Parser &$parser, string $pageName = null ) {
+	public static function renderApprovalDay( Parser &$parser, ?string $pageName = null ) {
 		return self::formatApprovalDate( $parser, $pageName, 'd' );
 	}
 
-	public static function renderApprovalTimestamp( Parser &$parser, string $pageName = null ) {
+	public static function renderApprovalTimestamp( Parser &$parser, ?string $pageName = null ) {
 		return self::formatApprovalDate( $parser, $pageName, 'YmdHis' );
 	}
 
-	public static function renderApprovalUser( Parser &$parser, string $pageName = null ) {
+	public static function renderApprovalUser( Parser &$parser, ?string $pageName = null ) {
 		if ( $pageName !== null && $pageName !== '' ) {
 			$title = Title::newFromText( $pageName );
 		} else {
