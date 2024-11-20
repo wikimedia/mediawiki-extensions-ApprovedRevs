@@ -92,12 +92,9 @@
 		"unapprovefile": "ARUnapproveFileAction"
 	},
 	"Hooks": {
-		"PageSaveComplete": [
-			"ApprovedRevsHooks::setLatestAsApproved",
-			"ApprovedRevsHooks::setSearchText"
-		],
+		"PageSaveComplete": "ApprovedRevsHooks::onPageSaveComplete",
 		"PageMoveComplete": "ApprovedRevsHooks::setPageMoveAsApproved",
-		"RevisionDataUpdates": "ApprovedRevsHooks::updateLinksAfterEdit",
+		"RevisionDataUpdates": "ApprovedRevsHooks::onRevisionDataUpdates",
 		"SearchResultInitFromTitle": "ApprovedRevsHooks::setSearchRevisionID",
 		"ParserBeforeInternalParse": "ApprovedRevsHooks::removeRobotsTag",
 		"ArticleFromTitle": "ApprovedRevsHooks::showApprovedRevision",

@@ -113,24 +113,29 @@ class ApprovedRevsHooks {
 	/**
 	 * Hook: RevisionDataUpdates
 	 *
-	 * Call LinksUpdate on the text of this page's approved revision,
-	 * if there is one.
+	 * Call LinksUpdate on the text of this page's approved revision if there is one,
+	 * instead of on the latest one.
+	 *
+	 * Note that core's SearchUpdate is not part of this hook, and is taken care
+	 * of separately:
+	 * - after edits, from onPageSaveComplete
+	 * - when approving, from ApprovedRevs::setApprovedRevID
+	 * - when unapproving, from ApprovedRevs::unsetApproval
 	 */
-	public static function updateLinksAfterEdit(
+	public static function onRevisionDataUpdates(
 		Title $title,
 		RenderedRevision $renderedRevision,
 		array &$updates
 	) {
 		$update = self::getUpdateForTitle( $title );
 		if ( $update !== null ) {
-			// Wipe out any existing updates.
+			// Wipe out the default LinksUpdate.
+			// FIXME: This may cancel updates added by other extensions.
 			$updates = [ $update ];
 		}
 	}
 
 	/**
-	 * Hook: PageSaveComplete
-	 *
 	 * If the user saving this page has approval power, and automatic
 	 * approvals are enabled, and the page is approvable, and either
 	 * (a) this page already has an approved revision, or (b) unapproved
@@ -143,13 +148,8 @@ class ApprovedRevsHooks {
 		UserIdentity $user,
 		string $summary,
 		int $flags,
-		RevisionRecord $revisionRecord,
-		EditResult $editResult
+		RevisionRecord $revisionRecord
 	) {
-		if ( $revisionRecord === null ) {
-			return;
-		}
-
 		$title = $wikiPage->getTitle();
 		if ( !self::userRevsApprovedAutomatically( $user, $title ) ) {
 			return;
@@ -283,11 +283,9 @@ class ApprovedRevsHooks {
 	/**
 	 * Hook: PageSaveComplete
 	 *
-	 * Set the text that's stored for the page for standard searches.
-	 *
 	 * @return void
 	 */
-	public static function setSearchText(
+	public static function onPageSaveComplete(
 		WikiPage $wikiPage,
 		UserIdentity $user,
 		string $summary,
@@ -295,15 +293,16 @@ class ApprovedRevsHooks {
 		RevisionRecord $revisionRecord,
 		EditResult $editResult
 	) {
-		if ( $revisionRecord === null ) {
-			return;
-		}
+		self::setLatestAsApproved(
+			$wikiPage,
+			$user,
+			$summary,
+			$flags,
+			$revisionRecord
+		);
 
+		// Set the text that's stored for the page for standard searches.
 		$title = $wikiPage->getTitle();
-		if ( !ApprovedRevs::pageIsApprovable( $title ) ) {
-			return;
-		}
-
 		$revisionID = ApprovedRevs::getApprovedRevID( $title );
 		if ( $revisionID === null ) {
 			return;
