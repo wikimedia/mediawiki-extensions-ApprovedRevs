@@ -4,6 +4,7 @@ use MediaWiki\Content\Renderer\ContentParseParams;
 use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\PageReference;
+use MediaWiki\Revision\MutableRevisionRecord;
 use MediaWiki\Revision\SlotRecord;
 use MediaWiki\User\UserIdentity;
 use MediaWiki\User\UserNameUtils;
@@ -147,19 +148,6 @@ class ApprovedRevs {
 		$revisionRecord = MediaWikiServices::getInstance()->getRevisionLookup()
 			->getRevisionByTitle( $title, $revisionID );
 		return $revisionRecord->getContent( SlotRecord::MAIN );
-	}
-
-	/**
-	 * Returns the contents of the specified wiki page, at either the
-	 * specified revision (if there is one) or the latest revision
-	 * (otherwise).
-	 *
-	 * @param LinkTarget $title
-	 * @param int|null $revisionID
-	 * @return string
-	 */
-	public static function getPageText( $title, $revisionID = null ) {
-		return self::getContent( $title, $revisionID )->getText();
 	}
 
 	/**
@@ -606,11 +594,50 @@ class ApprovedRevs {
 	}
 
 	/**
-	 * @param Title $title
-	 * @param Content|null $content
+	 * Use the approved revision (instead of latest revision) to run page updates.
+	 *
+	 * These are normally run by MediaWiki core after each edit. When the latest
+	 * edit is auto-approved, this is fine. Otherwise, we use this method after
+	 * edit/approve/unapprove actions to re-run LinksUpdate and SearchUpdate in
+	 * context of the approved revision.
+	 *
+	 * @param Title|PageIdentity $title
+	 * @param int $approvedRevID
 	 */
-	public static function setPageSearchText( $title, $content ) {
-		DeferredUpdates::addUpdate( new SearchUpdate( $title->getArticleID(), $title, $content ) );
+	public static function doPageUpdates( $title, $approvedRevID ) {
+		global $egApprovedRevsBlankIfUnapproved;
+
+		$wikiPage = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title );
+		$revRecord = MediaWikiServices::getInstance()->getRevisionLookup()
+			->getRevisionByTitle( $title, $approvedRevID );
+
+		if ( !$wikiPage || !$revRecord ) {
+			// Race condition, page/rev was deleted or moved?
+			// Ignore, we will respond again to the delete/move action.
+			return;
+		}
+		$user = $revRecord->getUser();
+		if ( !$user ) {
+			// Can't index the revision if was RevDel'ed.
+			return;
+		}
+
+		if ( $egApprovedRevsBlankIfUnapproved ) {
+			// For LinksUpdate, we don't need to handle content blanking here because
+			// WikiPage::doEditUpdates eventually calls onRevisionDataUpdates, which
+			// we handle already. This is for core's SearchUpdate instead, which runs
+			// after and separate from the updates exposed to onRevisionDataUpdates.
+			$mutableRev = MutableRevisionRecord::newFromParentRevision( $revRecord );
+			$mutableRev->setUser( $user );
+			$mutableRev->setId( $revRecord->getId() );
+			$mutableRev->setContent(
+				SlotRecord::MAIN,
+				$wikiPage->getContentHandler()->makeEmptyContent()
+			);
+			$revRecord = $mutableRev;
+		}
+
+		$wikiPage->doEditUpdates( $revRecord, $user );
 	}
 
 	/**
@@ -635,14 +662,7 @@ class ApprovedRevs {
 		// If the revision being approved is definitely the latest
 		// one, there's no need to call the parser on it.
 		if ( !$is_latest ) {
-			$content = self::getContent( $title, $rev_id );
-			$contentHandler = $content->getContentHandler();
-			$output = self::getParserOutput( $contentHandler, $content, $title, $rev_id, $user );
-			$luClass = class_exists( 'LinksUpdate' ) ? LinksUpdate::class :
-				MediaWiki\Deferred\LinksUpdate\LinksUpdate::class;
-			$u = new $luClass( $title, $output );
-			$u->doUpdate();
-			self::setPageSearchText( $title, $content );
+			self::doPageUpdates( $title, $rev_id );
 		}
 
 		$log = new LogPage( 'approval' );
@@ -688,25 +708,15 @@ class ApprovedRevs {
 	 * @param User $user
 	 */
 	public static function unsetApproval( $title, User $user ) {
-		global $egApprovedRevsBlankIfUnapproved;
-
 		// Make sure the page actually has an approved revision.
-		if ( self::getApprovedRevID( $title ) == null ) {
+		$revId = self::getApprovedRevID( $title );
+		if ( !$revId ) {
 			return;
 		}
 
-		$content = self::getContent( $title );
-		$contentHandler = $content->getContentHandler();
-		if ( $egApprovedRevsBlankIfUnapproved ) {
-			$content = $contentHandler->makeEmptyContent();
-		}
-		$output = self::getParserOutput( $contentHandler, $content, $title, null, $user );
-		$luClass = class_exists( 'LinksUpdate' ) ? LinksUpdate::class :
-			MediaWiki\Deferred\LinksUpdate\LinksUpdate::class;
-		$u = new $luClass( $title, $output );
-		$u->doUpdate();
-		self::setPageSearchText( $title, $content );
+		self::doPageUpdates( $title, $revId );
 
+		$content = self::getContent( $title );
 		self::unsetApprovalInDB( $title, $content );
 
 		$log = new LogPage( 'approval' );

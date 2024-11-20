@@ -117,7 +117,7 @@ class ApprovedRevsHooks {
 	 * instead of on the latest one.
 	 *
 	 * Note that core's SearchUpdate is not part of this hook, and is taken care
-	 * of separately:
+	 * of separately (via ApprovedRevs::doPageUpdates()) as called:
 	 * - after edits, from onPageSaveComplete
 	 * - when approving, from ApprovedRevs::setApprovedRevID
 	 * - when unapproving, from ApprovedRevs::unsetApproval
@@ -302,18 +302,12 @@ class ApprovedRevsHooks {
 		);
 
 		// Set the text that's stored for the page for standard searches.
-		$title = $wikiPage->getTitle();
-		$revisionID = ApprovedRevs::getApprovedRevID( $title );
-		if ( $revisionID === null ) {
-			return;
-		}
-
 		// We only need to modify the search text if the approved
 		// revision is not the latest one.
-		if ( $revisionID != $wikiPage->getLatest() ) {
-			$approvedPage = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $title );
-			$approvedContent = $approvedPage->getContent();
-			ApprovedRevs::setPageSearchText( $title, $approvedContent );
+		$title = $wikiPage->getTitle();
+		$revisionID = ApprovedRevs::getApprovedRevID( $title );
+		if ( $revisionID !== null && $revisionID != $wikiPage->getLatest() ) {
+			ApprovedRevs::doPageUpdates( $title, $revisionID );
 		}
 	}
 
