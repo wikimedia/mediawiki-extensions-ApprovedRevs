@@ -27,6 +27,7 @@
 	"approvedrevs-blankpageshown": "لم يجري اعتماد أية مراجعات لهذه الصفحة.",
 	"approvedrevs-noapprovedrevision": "هذه هي أحدث مراجعة لهذه الصفحة؛ أي لا يوجد لها مراجعات معتمدة.",
 	"approvedrevs-editwarning": "'''يرجى ملاحظة''' أنك تعدّل الآن أحدث مراجعة لهذه الصفحة، وهي ليست المراجعة المعتمدة التي تعرض بصفة افتراضية ([$1 طالع الفرق]).",
+	"approvedrevs-editwarning-pending": "سيتم عرض تغييراتك للقراء بمجرد موافقة المستخدم المعتمد عليها.",
 	"approvedrevs": "المراجعات المعتمدة",
 	"approvedrevs-approvedpages": "كافة الصفحات التي يوجد لها مراجعة معتمدة",
 	"approvedrevs-notlatestpages": "صفحات مراجعاتها المعتمدة ليست هي آخر مراجعاتها",
