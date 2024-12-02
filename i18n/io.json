@@ -6,5 +6,6 @@
 	},
 	"approvedrevs-approve": "aprobar",
 	"approvedrevs-revisionnumber": "revizuro $1",
+	"action-viewapprover": "vidar la texto, montranta quon aprobis la nuna revizo aprobita",
 	"approvedrevs-notlatestfiles": "Arkivi quin lua revizo aprobita ne esas la lasta"
 }
