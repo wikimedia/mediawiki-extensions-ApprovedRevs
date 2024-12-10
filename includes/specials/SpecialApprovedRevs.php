@@ -135,13 +135,14 @@ class SpecialApprovedRevs extends QueryPage {
 			$query['fields'] = array_merge( $query['fields'], [
 				'log_user' => 'actor_user',
 				'log_user_name' => 'actor_name',
-				'log_timestamp',
+				'log_timestamp' => 'MAX(log_timestamp)',
 			] );
 			$query['join_conds'] += [
 				'logging' => [ 'LEFT OUTER JOIN', 'p.page_id=log_page' ],
 				'actor' => [ 'JOIN', 'log_actor=actor_id' ],
 			];
 			$query['conds']['log_type'] = 'approval';
+			$query['options']['GROUP BY'][] = 'page_title';
 		}
 		return $query;
 	}
