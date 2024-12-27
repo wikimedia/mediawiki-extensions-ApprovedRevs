@@ -624,9 +624,10 @@ class ApprovedRevs {
 
 		if ( $egApprovedRevsBlankIfUnapproved ) {
 			// For LinksUpdate, we don't need to handle content blanking here because
-			// WikiPage::doEditUpdates eventually calls onRevisionDataUpdates, which
-			// we handle already. This is for core's SearchUpdate instead, which runs
-			// after and separate from the updates exposed to onRevisionDataUpdates.
+			// DerivedPageDataUpdater::doUpdates() eventually calls the
+			// RevisionDataUpdates hook, which we handle already. This is for core's
+			// SearchUpdate instead, which runs after, and separately from, the
+			// updates exposed to RevisionDataUpdates.
 			$mutableRev = MutableRevisionRecord::newFromParentRevision( $revRecord );
 			$mutableRev->setUser( $user );
 			$mutableRev->setId( $revRecord->getId() );
@@ -637,7 +638,10 @@ class ApprovedRevs {
 			$revRecord = $mutableRev;
 		}
 
-		$wikiPage->doEditUpdates( $revRecord, $user );
+		$pageDataUpdater = MediaWikiServices::getInstance()->getPageUpdaterFactory()
+			->newDerivedPageDataUpdater( $wikiPage );
+		$pageDataUpdater->prepareUpdate( $revRecord );
+		$pageDataUpdater->doUpdates();
 	}
 
 	/**
