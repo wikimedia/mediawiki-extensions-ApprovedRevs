@@ -66,7 +66,13 @@ class ApprovedRevsHooks {
 		$revisionID = ApprovedRevs::getApprovedRevID( $parser->getTitle() );
 		if ( !empty( $revisionID ) ) {
 			global $wgOut;
-			$wgOut->setRobotPolicy( 'index,follow' );
+			if ( method_exists( $wgOut, 'getMetadata' ) ) {
+				// MW 1.43+
+				$wgOut->getMetadata()->setIndexPolicy( 'index' );
+				$wgOut->setFollowPolicy( 'follow' );
+			} else {
+				$wgOut->setRobotPolicy( 'index,follow' );
+			}
 		}
 	}
 
