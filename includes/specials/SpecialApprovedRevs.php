@@ -69,7 +69,7 @@ class SpecialApprovedRevs extends QueryPage {
 			&& $egApprovedRevsEnabledNamespaces[NS_FILE]
 		) {
 			$dbr = ApprovedRevs::getReadDB();
-			$result = $dbr->selectField( 'approved_revs_files', 'COUNT(*)' );
+			$result = $dbr->selectField( 'approved_revs_files', 'COUNT(*)', '', __METHOD__ );
 			if ( $result > 0 ) {
 				foreach ( $this->mFileHeaderLinks as $msg => $mode ) {
 					$navLinks[] = $this->createHeaderLink( $msg, $mode );

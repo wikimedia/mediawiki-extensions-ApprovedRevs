@@ -124,7 +124,12 @@ class ApprovedRevs {
 		}
 
 		$dbr = self::getReadDB();
-		$revID = $dbr->selectField( 'approved_revs', 'rev_id', [ 'page_id' => $pageID ] );
+		$revID = $dbr->selectField(
+			'approved_revs',
+			'rev_id',
+			[ 'page_id' => $pageID ],
+			__METHOD__
+		);
 		self::$mApprovedRevIDForPage[$pageID] = $revID;
 		return $revID;
 	}
