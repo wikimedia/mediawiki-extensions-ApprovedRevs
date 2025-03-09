@@ -6,6 +6,8 @@
  * @ingroup ApprovedRevs
  */
 
+use MediaWiki\Html\Html;
+
 class ARApproveAction extends Action {
 
 	/**

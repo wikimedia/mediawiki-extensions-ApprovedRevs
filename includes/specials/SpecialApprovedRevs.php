@@ -1,6 +1,9 @@
 <?php
 
+use MediaWiki\Html\Html;
+use MediaWiki\Lineker\Linker;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Title\Title;
 
 /**
  * Special page that displays various lists of pages that either do or do
@@ -99,6 +102,7 @@ class SpecialApprovedRevs extends QueryPage {
 		} else {
 			$approvedPagesTitle = SpecialPage::getTitleFor( $this->getName() );
 			$show = ( $mode == '' ) ? [] : [ 'show' => $mode ];
+
 			return Html::element( 'a',
 				[ 'href' => $approvedPagesTitle->getLocalURL( $show ) ],
 				$this->msg( $msg )->text()

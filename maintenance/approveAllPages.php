@@ -26,7 +26,9 @@
  * @author Yaron Koren
  * @ingroup Maintenance
  */
+
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Title\Title;
 
 // Allow people to have different layouts.
 if ( !isset( $IP ) ) {

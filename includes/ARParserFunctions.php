@@ -25,6 +25,8 @@
  * for each.
  */
 
+use MediaWiki\Title\Title;
+
 class ARParserFunctions {
 
 	/** @var array<int,array{?int, ?int}> */

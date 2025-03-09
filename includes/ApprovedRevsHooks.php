@@ -1,5 +1,8 @@
 <?php
 
+use MediaWiki\EditPage\EditPage;
+use MediaWiki\Html\Html;
+use MediaWiki\Linker\Linker;
 use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\ProperPageIdentity;
@@ -8,6 +11,7 @@ use MediaWiki\Revision\RenderedRevision;
 use MediaWiki\Revision\RevisionRecord;
 use MediaWiki\Revision\RevisionStoreRecord;
 use MediaWiki\Storage\EditResult;
+use MediaWiki\Title\Title;
 use MediaWiki\User\UserIdentity;
 
 /**
@@ -32,6 +36,8 @@ class ApprovedRevsHooks {
 	];
 
 	/**
+	 * @param User $user
+	 * @param Title $title
 	 * @return bool
 	 */
 	public static function userRevsApprovedAutomatically( User $user, Title $title ) {
@@ -79,6 +85,7 @@ class ApprovedRevsHooks {
 	/**
 	 * Called by updateLinksAfterEdit().
 	 *
+	 * @param Title $title
 	 * @return ?\MediaWiki\Deferred\LinksUpdate\LinksUpdate
 	 */
 	public static function getUpdateForTitle( Title $title ) {
@@ -127,6 +134,10 @@ class ApprovedRevsHooks {
 	 * - after edits, from onPageSaveComplete
 	 * - when approving, from ApprovedRevs::setApprovedRevID
 	 * - when unapproving, from ApprovedRevs::unsetApproval
+	 *
+	 * @param Title $title
+	 * @param RenderedRevision $renderedRevision
+	 * @param array &$updates
 	 */
 	public static function onRevisionDataUpdates(
 		Title $title,
@@ -711,34 +722,18 @@ class ApprovedRevsHooks {
 		}
 
 		if ( $approvedRevID != $latestRevID && !$request->getCheck( 'oldid' ) ) {
-			// MediaWiki 1.40+
-			if ( class_exists( 'MediaWiki\Html\Html' ) ) {
-				$notices['approvedrevs-editwarning'] = MediaWiki\Html\Html::warningBox(
-					$context->msg( 'approvedrevs-editwarning',
-					$title->getFullURL( [
-						'diff' => $latestRevID,
-						'oldid' => $approvedRevID,
-					] )
-				)->parse() );
-			} else {
-				$notices['approvedrevs-editwarning'] = Html::warningBox(
-					$context->msg( 'approvedrevs-editwarning',
-					$title->getFullURL( [
-						'diff' => $latestRevID,
-						'oldid' => $approvedRevID,
-					] )
-				)->parse() );
-			}
+			$notices['approvedrevs-editwarning'] = Html::warningBox(
+				$context->msg( 'approvedrevs-editwarning',
+				$title->getFullURL( [
+					'diff' => $latestRevID,
+					'oldid' => $approvedRevID,
+				] )
+			)->parse() );
 		}
 
 		if ( !self::userRevsApprovedAutomatically( $user, $title ) ) {
-			if ( class_exists( 'MediaWiki\Html\Html' ) ) {
-				$notices['approvedrevs-editwarning-pending'] =
-					MediaWiki\Html\Html::warningBox( $context->msg( 'approvedrevs-editwarning-pending' )->escaped() );
-			} else {
-				$notices['approvedrevs-editwarning-pending'] =
-					Html::warningBox( $context->msg( 'approvedrevs-editwarning-pending' )->escaped() );
-			}
+			$notices['approvedrevs-editwarning-pending'] =
+				Html::warningBox( $context->msg( 'approvedrevs-editwarning-pending' )->escaped() );
 		}
 
 		return true;
@@ -883,7 +878,7 @@ class ApprovedRevsHooks {
 		if ( ApprovedRevs::userCanApprove( $userIdentity, $title ) && $prevRevision->getID() == $approvedRevID ) {
 			// array key is class applied to <span> wrapping around link
 			// default if blank is mw-diff-tool; add that along with extension-specific class
-			$links['mw-diff-tool ext-approved-revs-approval-span'] = HTML::element(
+			$links['mw-diff-tool ext-approved-revs-approval-span'] = Html::element(
 				'a',
 				[
 					'href' => $title->getLocalUrl( [

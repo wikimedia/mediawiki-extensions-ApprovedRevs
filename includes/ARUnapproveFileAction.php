@@ -1,10 +1,13 @@
 <?php
+
 /**
  * Handles the 'unapprovefile' action.
  *
  * @author James Montalvo
  * @ingroup ApprovedRevs
  */
+
+use MediaWiki\Html\Html;
 
 class ARUnapproveFileAction extends Action {
 

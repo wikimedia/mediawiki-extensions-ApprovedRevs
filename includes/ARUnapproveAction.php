@@ -1,10 +1,13 @@
 <?php
+
 /**
  * Handles the 'unapprove' action.
  *
  * @author Yaron Koren
  * @ingroup ApprovedRevs
  */
+
+use MediaWiki\Html\Html;
 
 class ARUnapproveAction extends Action {
 
