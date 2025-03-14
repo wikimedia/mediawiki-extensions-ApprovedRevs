@@ -927,7 +927,8 @@ class ApprovedRevsHooks {
 		ProperPageIdentity $page, Authority $deleter, string $reason, int $pageID,
 		RevisionRecord $deletedRev, ManualLogEntry $logEntry, int $archivedRevisionCount
 	) {
-		ApprovedRevs::unsetApprovalInDB( $page->getTitle() );
+		$title = Title::castFromPageIdentity( $page );
+		ApprovedRevs::unsetApprovalInDB( $title );
 	}
 
 	/**
