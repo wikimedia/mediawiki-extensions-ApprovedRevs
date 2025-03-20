@@ -153,6 +153,9 @@ class ApprovedRevs {
 	public static function getContent( $title, $revisionID = 0 ) {
 		$revisionRecord = MediaWikiServices::getInstance()->getRevisionLookup()
 			->getRevisionByTitle( $title, $revisionID );
+		if ( !$revisionRecord ) {
+			return null;
+		}
 		return $revisionRecord->getContent( SlotRecord::MAIN );
 	}
 
