@@ -641,6 +641,7 @@ class ApprovedRevs {
 
 		$pageDataUpdater = MediaWikiServices::getInstance()->getPageUpdaterFactory()
 			->newDerivedPageDataUpdater( $wikiPage );
+		$pageDataUpdater->grabCurrentRevision();
 		$pageDataUpdater->prepareUpdate( $revRecord );
 		$pageDataUpdater->doUpdates();
 	}
