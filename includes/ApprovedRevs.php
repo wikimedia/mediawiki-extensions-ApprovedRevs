@@ -451,11 +451,7 @@ class ApprovedRevs {
 					// if they created the page.
 					// We get that information via a SQL
 					// query - is there an easier way?
-
-					// We can't just call self::getReadDB() here, because of
-					// the tableExists() call.
-					$lb = MediaWikiServices::getInstance()->getDBLoadBalancer();
-					$dbr = $lb->getConnectionRef( DB_REPLICA );
+					$dbr = self::getReadDB();
 					if ( $dbr->tableExists( 'revision_actor_temp' ) ) {
 						$tables = [ 'ra' => 'revision_actor_temp', 'a' => 'actor' ];
 						$userIDField = 'a.actor_user';
