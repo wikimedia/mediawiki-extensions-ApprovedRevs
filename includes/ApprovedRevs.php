@@ -53,24 +53,13 @@ class ApprovedRevs {
 	 * @return int[]
 	 */
 	public static function getApprovableNamespaces() {
-		global $egApprovedRevsNamespaces, $egApprovedRevsEnabledNamespaces;
+		global $egApprovedRevsEnabledNamespaces;
 
 		if ( is_array( self::$mApprovedRevsNamespaces ) ) {
 			return self::$mApprovedRevsNamespaces;
 		}
 
 		self::$mApprovedRevsNamespaces = [];
-
-		// Definition of $egApprovedRevsNamespaces removed from Approved
-		// Revs to handle extension.json method of config settings. Now,
-		// if $egApprovedRevsNamespaces is defined, then it must have been
-		// defined by the user in LocalSettings.php. Since no good method of
-		// providing backwards-compatibility was determined, instead notify user
-		// that $egApprovedRevsNamespaces is obsolete.
-		if ( isset( $egApprovedRevsNamespaces ) ) {
-			throw new MWException( '$egApprovedRevsNamespaces is no longer supported - ' .
-				'please use $egApprovedRevsEnabledNamespaces (which has a different format) instead' );
-		}
 
 		// since extension.json values have to be strings, convert to int
 		// changes [ "0" => true, "10" => false, "14" => true ] to [0, 14]
