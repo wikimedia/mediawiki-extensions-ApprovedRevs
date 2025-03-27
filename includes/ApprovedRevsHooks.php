@@ -1132,6 +1132,10 @@ class ApprovedRevsHooks {
 			return;
 		}
 
+		// Disable caching, so that if it's a specific ID being shown
+		// that happens to be the latest, it doesn't show a blank page.
+		$useParserCache = false;
+
 		// If the user isn't supposed to see these kinds of
 		// messages, exit.
 		if ( !ApprovedRevs::checkPermission( $user, $title, "viewlinktolatest" ) ) {
@@ -1149,9 +1153,6 @@ class ApprovedRevsHooks {
 			return;
 		}
 
-		// Disable caching, so that if it's a specific ID being shown
-		// that happens to be the latest, it doesn't show a blank page.
-		$useParserCache = false;
 		$out->addHTML( '<span style="margin-left: 10.75px">' );
 
 		// If the user is looking at a specific revision, show an
