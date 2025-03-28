@@ -11,6 +11,7 @@ use MediaWiki\User\UserIdentity;
 use MediaWiki\User\UserNameUtils;
 use Wikimedia\Rdbms\IDatabase;
 use Wikimedia\Rdbms\IReadableDatabase;
+use Wikimedia\Rdbms\SelectQueryBuilder;
 
 /**
  * Main class for the Approved Revs extension.
@@ -83,9 +84,18 @@ class ApprovedRevs {
 		$pageID = $title->getArticleID();
 		if ( !isset( self::$mApproverForPage[$pageID] ) ) {
 			$dbr = self::getReadDB();
-			$approverID = $dbr->selectField( 'approved_revs', 'approver_id',
-				[ 'page_id' => $pageID ] );
-			$approver = $approverID ? User::newFromID( $approverID ) : null;
+			$approverID = $dbr->newSelectQueryBuilder()
+				->from( 'approved_revs' )
+				->select( 'approver_id' )
+				->where( [ 'page_id' => $pageID ] )
+				->caller( __METHOD__ )
+				->fetchField();
+			$approver = null;
+			if ( $approverID ) {
+				$approver = MediaWikiServices::getInstance()
+					->getUserFactory()
+					->newFromId( (int)$approverID );
+			}
 			self::$mApproverForPage[$pageID] = $approver;
 		}
 		return self::$mApproverForPage[$pageID];
@@ -113,12 +123,12 @@ class ApprovedRevs {
 		}
 
 		$dbr = self::getReadDB();
-		$revID = $dbr->selectField(
-			'approved_revs',
-			'rev_id',
-			[ 'page_id' => $pageID ],
-			__METHOD__
-		);
+		$revID = $dbr->newSelectQueryBuilder()
+			->from( 'approved_revs' )
+			->select( 'rev_id' )
+			->where( [ 'page_id' => $pageID ] )
+			->caller( __METHOD__ )
+			->fetchField();
 		self::$mApprovedRevIDForPage[$pageID] = $revID;
 		return $revID;
 	}
@@ -245,6 +255,7 @@ class ApprovedRevs {
 		}
 
 		// Allow custom setting of whether the page is approvable.
+		$isApprovable = false;
 		if ( !MediaWikiServices::getInstance()->getHookContainer()
 			->run( 'ApprovedRevsPageIsApprovable', [ $title, &$isApprovable ] )
 		) {
@@ -263,29 +274,33 @@ class ApprovedRevs {
 		// calling the standard getProperty() function doesn't work, so
 		// we just do a DB query on the page_props table.
 		$dbr = self::getReadDB();
-		$count = $dbr->selectField( 'page_props', 'COUNT(*)',
-			[
+		$count = $dbr->newSelectQueryBuilder()
+			->from( 'page_props' )
+			->select( 'COUNT(*)' )
+			->where( [
 				'pp_page' => $articleID,
 				'pp_propname' => [
 					'approvedrevs-approver-users', 'approvedrevs-approver-groups'
 				],
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->fetchField();
 		if ( $count > 0 ) {
 			self::$mApprovablePages[$articleID] = true;
 			return true;
 		}
 
 		// parser function page properties not present. Check for magic word.
-		$count = $dbr->selectField( 'page_props', 'COUNT(*)',
-			[
+		$count = $dbr->newSelectQueryBuilder()
+			->from( 'page_props' )
+			->select( 'COUNT(*)' )
+			->where( [
 				'pp_page' => $articleID,
 				'pp_propname' => 'approvedrevs',
 				'pp_value' => 'y'
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->fetchField();
 		$isApprovable = ( $count == '1' );
 		self::$mApprovablePages[$articleID] = $isApprovable;
 		return $isApprovable;
@@ -310,6 +325,7 @@ class ApprovedRevs {
 		}
 
 		// Allow custom setting of whether the page is approvable.
+		$fileIsApprovable = false;
 		if ( !MediaWikiServices::getInstance()->getHookContainer()
 			->run( 'ApprovedRevsFileIsApprovable', [ $title, &$fileIsApprovable ] )
 		) {
@@ -329,30 +345,34 @@ class ApprovedRevs {
 		// calling the standard getProperty() function doesn't work, so
 		// we just do a DB query on the page_props table.
 		$dbr = self::getReadDB();
-		$count = $dbr->selectField( 'page_props', 'COUNT(*)',
-			[
+		$count = $dbr->newSelectQueryBuilder()
+			->from( 'page_props' )
+			->select( 'COUNT(*)' )
+			->where( [
 				'pp_page' => $articleID,
 				'pp_propname' => [
 					'approvedrevs-approver-users',
 					'approvedrevs-approver-groups'
 				],
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->fetchField();
 		if ( $count > 0 ) {
 			self::$mApprovableFiles[$articleID] = true;
 			return true;
 		}
 
 		// Parser function page properties not present. Check for magic word.
-		$count = $dbr->selectField( 'page_props', 'COUNT(*)',
-			[
+		$count = $dbr->newSelectQueryBuilder()
+			->from( 'page_props' )
+			->select( 'COUNT(*)' )
+			->where( [
 				'pp_page' => $articleID,
 				'pp_propname' => 'approvedrevs',
 				'pp_value' => 'y'
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->fetchField();
 		if ( $count == '1' ) {
 			self::$mApprovableFiles[$articleID] = true;
 			return true;
@@ -446,7 +466,8 @@ class ApprovedRevs {
 						$userIDField = 'a.actor_user';
 						$pageIDField = 'ra.revactor_page';
 						$revIDField = 'ra.revactor_rev';
-						$joinOn = [ 'ra' => [ 'JOIN', 'ra.revactor_actor = a.actor_id' ] ];
+						$joinTable = 'ra';
+						$joinConds = 'ra.revactor_actor = a.actor_id';
 					} else {
 						// The "rev_actor" table field was added in MW 1.35, but for
 						// some reason it appears to not always get populated. So,
@@ -455,16 +476,18 @@ class ApprovedRevs {
 						$userIDField = 'a.actor_user';
 						$pageIDField = 'r.rev_page';
 						$revIDField = 'r.rev_id';
-						$joinOn = [ 'r' => [ 'JOIN', 'r.rev_actor = a.actor_id' ] ];
+						$joinTable = 'r';
+						$joinConds = 'r.rev_actor = a.actor_id';
 					}
-					$row = $dbr->selectRow(
-						$tables,
-						[ 'user_id' => $userIDField ],
-						[ $pageIDField => $title->getArticleID() ],
-						__METHOD__,
-						[ 'ORDER BY' => $revIDField . ' ASC', 'LIMIT' => 1 ],
-						$joinOn
-					);
+					$row = $dbr->newSelectQueryBuilder()
+						->tables( $tables )
+						->field( $userIDField, 'user_id' )
+						->where( [ $pageIDField => $title->getArticleID() ] )
+						->orderBy( $revIDField, SelectQueryBuilder::SORT_ASC )
+						->limit( 1 )
+						->join( $joinTable, null, $joinConds )
+						->caller( __METHOD__ )
+						->fetchRow();
 					if ( $row->user_id !== null && $row->user_id == $user->getID() ) {
 						self::$mUserCanApprove[$userAndPageKey] = true;
 						return true;
@@ -494,15 +517,15 @@ class ApprovedRevs {
 		// First check:
 		// Users
 
-		$result = $dbr->selectField(
-			'page_props',
-			'pp_value',
-			[
+		$result = $dbr->newSelectQueryBuilder()
+			->from( 'page_props' )
+			->select( 'pp_value' )
+			->where( [
 				'pp_page' => $articleID,
 				'pp_propname' => "approvedrevs-approver-users"
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->fetchField();
 		if ( $result !== false ) {
 			// If user is listed as an approver, allow approval.
 			$userNameUtils = MediaWikiServices::getInstance()->getUserNameUtils();
@@ -517,15 +540,15 @@ class ApprovedRevs {
 		// Second check:
 		// Groups
 
-		$result = $dbr->selectField(
-			'page_props',
-			'pp_value',
-			[
+		$result = $dbr->newSelectQueryBuilder()
+			->from( 'page_props' )
+			->select( 'pp_value' )
+			->where( [
 				'pp_page' => $articleID,
 				'pp_propname' => "approvedrevs-approver-groups"
-			],
-			__METHOD__
-		);
+			] )
+			->caller( __METHOD__ )
+			->fetchField();
 		if ( $result !== false ) {
 			$groups = MediaWikiServices::getInstance()->getUserGroupManager()
 				->getUserGroups( $user );
@@ -576,7 +599,7 @@ class ApprovedRevs {
 
 		$content = self::getContent( $title, $rev_id );
 		MediaWikiServices::getInstance()->getHookContainer()
-			->run( 'ApprovedRevsRevisionApproved', [ $output = null, $title, $rev_id, $content ] );
+			->run( 'ApprovedRevsRevisionApproved', [ null, $title, $rev_id, $content ] );
 	}
 
 	/**
@@ -817,9 +840,11 @@ class ApprovedRevs {
 		$fileTitle = $title->getDBkey();
 
 		$dbw = self::getWriteDB();
-		$dbw->delete( 'approved_revs_files',
-			[ 'file_title' => $fileTitle ]
-		);
+		$dbw->newDeleteQueryBuilder()
+			->table( 'approved_revs_files' )
+			->where( [ 'file_title' => $fileTitle ] )
+			->caller( __METHOD__ )
+			->execute();
 		// the unapprove page method had LinksUpdate and Parser
 		// objects here, but the page text has not changed at all with
 		// a file approval, so I don't think those are necessary.
@@ -859,12 +884,12 @@ class ApprovedRevs {
 		}
 
 		$dbr = self::getReadDB();
-		$row = $dbr->selectRow(
-			'approved_revs_files',
-			[ 'approved_timestamp', 'approved_sha1' ],
-			[ 'file_title' => $fileTitle->getDBkey() ],
-			__METHOD__
-		);
+		$row = $dbr->newSelectQueryBuilder()
+			->from( 'approved_revs_files' )
+			->select( [ 'approved_timestamp', 'approved_sha1' ] )
+			->where( [ 'file_title' => $fileTitle->getDBkey() ] )
+			->caller( __METHOD__ )
+			->fetchRow();
 		if ( $row ) {
 			$return = [ $row->approved_timestamp, $row->approved_sha1 ];
 		} else {
@@ -1111,5 +1136,4 @@ class ApprovedRevs {
 			'options' => [ 'DISTINCT' ],
 		];
 	}
-
 }
