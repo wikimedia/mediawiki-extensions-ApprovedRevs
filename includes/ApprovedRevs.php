@@ -462,22 +462,22 @@ class ApprovedRevs {
 					// query - is there an easier way?
 					$dbr = self::getReadDB();
 					if ( $dbr->tableExists( 'revision_actor_temp' ) ) {
-						$tables = [ 'ra' => 'revision_actor_temp', 'a' => 'actor' ];
-						$userIDField = 'a.actor_user';
-						$pageIDField = 'ra.revactor_page';
-						$revIDField = 'ra.revactor_rev';
-						$joinTable = 'ra';
-						$joinConds = 'ra.revactor_actor = a.actor_id';
+						$tables = [ 'actor' ];
+						$userIDField = 'actor_user';
+						$pageIDField = 'revactor_page';
+						$revIDField = 'revactor_rev';
+						$joinTable = 'revision_actor_temp';
+						$joinConds = 'revactor_actor = actor_id';
 					} else {
 						// The "rev_actor" table field was added in MW 1.35, but for
 						// some reason it appears to not always get populated. So,
 						// only use it if the temp table is gone.
-						$tables = [ 'r' => 'revision', 'a' => 'actor' ];
-						$userIDField = 'a.actor_user';
-						$pageIDField = 'r.rev_page';
-						$revIDField = 'r.rev_id';
-						$joinTable = 'r';
-						$joinConds = 'r.rev_actor = a.actor_id';
+						$tables = [ 'actor' ];
+						$userIDField = 'actor_user';
+						$pageIDField = 'rev_page';
+						$revIDField = 'rev_id';
+						$joinTable = 'revision';
+						$joinConds = 'rev_actor = actor_id';
 					}
 					$row = $dbr->newSelectQueryBuilder()
 						->tables( $tables )
