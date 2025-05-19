@@ -624,12 +624,13 @@ class ApprovedRevsHooks {
 		if ( ApprovedRevs::checkPermission( $user, $title, "viewapprover" ) ) {
 			$revisionUser = ApprovedRevs::getRevApprover( $title );
 			if ( $revisionUser ) {
-				$text .= Xml::openElement( 'span', [ 'class' => 'approvingUser' ] ) .
-					wfMessage(
-						'approvedrevs-approver',
+				$text .= Html::rawElement(
+					'span',
+					[ 'class' => 'approvingUser' ],
+					wfMessage( 'approvedrevs-approver' )->rawParams(
 						Linker::userLink( $revisionUser->getId(), $revisionUser->getName() )
-					)->text() .
-					Xml::closeElement( 'span' );
+					)->escaped()
+				);
 			}
 		}
 
@@ -1151,7 +1152,7 @@ class ApprovedRevsHooks {
 			return;
 		}
 
-		$text = wfMessage( 'approvedrevs-noapprovedrevision' )->text();
+		$text = wfMessage( 'approvedrevs-noapprovedrevision' )->escaped();
 
 		$context = $article->getContext();
 		$out = $context->getOutput();
@@ -1226,7 +1227,7 @@ class ApprovedRevsHooks {
 			$rowClass .= "approved-revision";
 
 			$pattern = "/<td[^>]+filehistory-selected+[^>]+>/";
-			$replace = "$0 &#9733; " . wfMessage( 'approvedrevs-approvedrevision' )->text() . "<br />";
+			$replace = "$0 &#9733; " . wfMessage( 'approvedrevs-approvedrevision' )->escaped() . "<br />";
 			$s = preg_replace( $pattern, $replace, $s );
 		}
 
