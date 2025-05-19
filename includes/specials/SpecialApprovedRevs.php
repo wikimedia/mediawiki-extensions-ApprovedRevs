@@ -1,7 +1,7 @@
 <?php
 
 use MediaWiki\Html\Html;
-use MediaWiki\Lineker\Linker;
+use MediaWiki\Linker\Linker;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 
@@ -77,7 +77,7 @@ class SpecialApprovedRevs extends QueryPage {
 			}
 		}
 
-		$navLine = $this->msg( 'approvedrevs-view' )->text() . ' ' . implode( ' | ', $navLinks );
+		$navLine = $this->msg( 'approvedrevs-view' )->escaped() . ' ' . implode( ' | ', $navLinks );
 		$header = Xml::tags( 'p', null, $navLine ) . "\n";
 
 		return Xml::tags(
@@ -218,14 +218,15 @@ class SpecialApprovedRevs extends QueryPage {
 				$date = $lang->date( $timestampInteger, true );
 				$time = $lang->time( $timestampInteger, true );
 				$userLink = Linker::userLink( $result->log_user, $result->log_user_name );
-				$additionalInfo .= ', ' . $this->msg(
-					'approvedrevs-approvedby',
-					$userLink,
-					$timestamp,
-					$result->log_user_name,
-					$date,
-					$time
-				)->text();
+				$additionalInfo .= ', ' . $this->msg( 'approvedrevs-approvedby' )
+					->rawParams( $userLink )
+					->params(
+						$timestamp,
+						$result->log_user_name,
+						$date,
+						$time
+					)
+					->escaped();
 			}
 
 			return "$pageLink ($additionalInfo)";
@@ -338,14 +339,15 @@ class SpecialApprovedRevs extends QueryPage {
 				$date = $lang->date( $timestampInteger, true );
 				$time = $lang->time( $timestampInteger, true );
 				$userLink = Linker::userLink( $result->log_user, $result->log_user_name );
-				$additionalInfo .= ', ' . $this->msg(
-					'approvedrevs-approvedby',
-					$userLink,
-					$timestamp,
-					$result->log_user_name,
-					$date,
-					$time
-				)->text();
+				$additionalInfo .= ', ' . $this->msg( 'approvedrevs-approvedby' )
+					->rawParams( $userLink )
+					->params(
+						$timestamp,
+						$result->log_user_name,
+						$date,
+						$time
+					)
+					->escaped();
 			}
 
 			return "$pageLink ($additionalInfo)";
