@@ -920,7 +920,7 @@ class ApprovedRevsHooks {
 	 * Hook: PageDeleteComplete
 	 *
 	 * Delete the approval record in the database if the page itself is
-	 * deleted.
+	 * deleted (and it has an approved revision).
 	 *
 	 * @return void
 	 */
@@ -929,7 +929,9 @@ class ApprovedRevsHooks {
 		RevisionRecord $deletedRev, ManualLogEntry $logEntry, int $archivedRevisionCount
 	) {
 		$title = Title::castFromPageIdentity( $page );
-		ApprovedRevs::unsetApprovalInDB( $title );
+		if ( ApprovedRevs::hasApprovedRevision( $title ) ) {
+			ApprovedRevs::unsetApprovalInDB( $title );
+		}
 	}
 
 	/**
