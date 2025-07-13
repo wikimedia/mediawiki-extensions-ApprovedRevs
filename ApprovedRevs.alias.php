@@ -156,12 +156,17 @@ $specialPageAliases['vi'] = [
 	'ApprovedRevs' => [ 'Phiên_bản_chấp_nhận', 'Trang_chấp_nhận' ],
 ];
 
-/** Simplified Chinese (中文（简体）‎) */
+/** Chinese (中文) */
+$specialPageAliases['zh'] = [
+	'ApprovedRevs' => [ 'ApprovedRevs' ],
+];
+
+/** Simplified Chinese (中文（简体）) */
 $specialPageAliases['zh-hans'] = [
 	'ApprovedRevs' => [ '已认可版本', '已认可页面', '未认可页面' ],
 ];
 
-/** Traditional Chinese (中文（繁體）‎) */
+/** Traditional Chinese (中文（繁體）) */
 $specialPageAliases['zh-hant'] = [
 	'ApprovedRevs' => [ '已通過修訂', '已通過頁面', '未通過頁面' ],
 ];
