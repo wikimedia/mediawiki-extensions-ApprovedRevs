@@ -6,7 +6,9 @@
 			"Умар"
 		]
 	},
+	"approvedrevs-desc": "АгӀонан цхьаъ верси тӀечӀагӀйина санна хӀоттор",
 	"approvedrevs-logname": "Версеш бакъйеш журнал",
+	"approvedrevs-logdesc": "ХӀара тӀечӀагӀдинчу агӀонан версийн журнал ду.",
 	"approvedrevs-approve": "бакъдар",
 	"approvedrevs-approver": "ХӀара верси тӀеэцна {{GENDER:$1|декъашхочо}} $1.",
 	"approvedrevs-unapprove": "бакъйар дIадаккхар",
@@ -39,9 +41,20 @@
 	"action-approverevisions": "вики-агӀонан билггал йолу верси хӀоттайе, тӀечӀагӀдина ма-хиллара",
 	"right-approverevisions": "Вики-агӀонийн цхьайолу версеш тӀечӀагӀйина хилар билгалдаккхар",
 	"action-viewlinktolatest": "Хьажа агӀонийн лакхахь йолчу тидаран тексте, цу тӀехь тӀечӀагӀйина версеш йу",
+	"right-viewlinktolatest": "Хьажа агӀонийн лакхахь йолчу тидаран тексте, цу тӀехь тӀечӀагӀйина версеш йу",
+	"action-viewapprover": "хьажа тексте, гойтуш хьан тӀечӀагӀйина карарчу хенахь тӀечӀагӀйина верси",
+	"right-viewapprover": "хьажа тексте, гойтуш хьан тӀечӀагӀйина карарчу хенахь тӀечӀагӀйина верси",
+	"grant-group-approvedrevs": "ApprovedRevs шордарца хийцамаш тӀечӀагӀбар  а, йухатохар а",
+	"grant-approvedrevs": "ApprovedRevs шордарца хийцамаш тӀечӀагӀбар  а, йухатохар а",
+	"approvedrevs-invalidfiles": "Нийса доцу тӀечӀагӀдар долу файлаш",
+	"approvedrevs-approvedfiles": "ТӀечӀагӀйина версеш йолу массо а файлаш",
+	"approvedrevs-notlatestfiles": "ТӀечӀагӀйина версеш тӀаьххьара йоцу файлаш",
 	"approvedrevs-unapprovedfiles": "ЧӀагӀйина йоцу файлаш",
 	"approvedrevs-approvedfile": "ТӀечӀагӀйина файл",
 	"approvedrevs-latestfile": "ТӀаьххьара файл",
+	"apihelp-approve-summary": "Верси тӀечӀагӀйеш йа тӀечӀагӀ ца йеш таллар.",
+	"apihelp-approve-param-revid": "ТӀечӀагӀдар оьшуш йолу версин ID.",
+	"apihelp-approve-param-unapprove": "Нагахь санна хӀоттийна хилча, верси тӀечӀагӀйийр йац.",
 	"apihelp-approve-example-1": "12345 Редакци бакъйе",
 	"apihelp-approve-example-2": "12345 Редакци бакъ майе"
 }
