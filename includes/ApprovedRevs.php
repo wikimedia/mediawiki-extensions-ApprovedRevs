@@ -450,8 +450,9 @@ class ApprovedRevs {
 				if ( $namespace == NS_USER ) {
 					// If the page is in the 'User:'
 					// namespace, this user can approve
-					// revisions if it's their user page.
-					if ( $title->getText() == $user->getName() ) {
+					// revisions if it's their user page,
+					// or a subpage of it.
+					if ( $title->getRootText() == $user->getName() ) {
 						self::$mUserCanApprove[$userAndPageKey] = true;
 						return true;
 					}
