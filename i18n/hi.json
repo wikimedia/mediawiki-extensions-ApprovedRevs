@@ -2,14 +2,30 @@
 	"@metadata": {
 		"authors": [
 			"Ansumang",
-			"Siddhartha Ghai"
+			"Siddhartha Ghai",
+			"Saurmandal"
 		]
 	},
 	"approvedrevs-logname": "अवतरण अनुमोदन लॉग",
 	"approvedrevs-approve": "अनुमोदित करें",
 	"approvedrevs-unapprove": "अनुमोदन रद्द करें",
 	"approvedrevs": "अनुमोदित अवतरण",
-	"approvedrevs-view": "देखें:",
+	"approvedrevs-view": "सूची देखें:",
 	"approvedrevs-revisionnumber": "अवतरण $1",
-	"approvedrevs-approvethisrev": "इस अवतरण को अनुमोदीत करें।"
+	"approvedrevs-uploaddate": "$1 का अपलोड",
+	"approvedrevs-approvethisrev": "इस अवतरण को अनुमोदीत करें।",
+	"action-approverevisions": "किसी विकि पृष्ठ के किसी विशिष्ट अवतरण को स्वीकृत चिह्नित करने",
+	"right-approverevisions": "किसी विकि पृष्ठ के किसी विशिष्ट अवतरण को स्वीकृत चिह्नित करना",
+	"action-viewlinktolatest": "स्वीकृत अवतरण वाले पृष्ठों के ऊपर व्याख्यात्मक टेक्स्ट देखने",
+	"right-viewlinktolatest": "स्वीकृत अवतरण वाले पृष्ठों के ऊपर व्याख्यात्मक टेक्स्ट देखना",
+	"action-viewapprover": "वर्तमान अवतरण किसने स्वीकृत किया था यह दर्शाने वाला टेक्स्ट देखने",
+	"right-viewapprover": "वर्तमान अवतरण किसने स्वीकृत किया था यह दर्शाने वाला टेक्स्ट देखना",
+	"grant-group-approvedrevs": "वर्तमान अवतरण किसने स्वीकृत किया था यह दर्शाने वाला टेक्स्ट देखन",
+	"grant-approvedrevs": "ApprovedRevs एक्सटेंशन की मदद से अवतरण स्वीकार और अस्वीकार करना",
+	"approvedrevs-invalidfiles": "अमान्य स्वीकृतियों वाली फ़ाइलें",
+	"approvedrevs-approvedfiles": "स्वीकृत अवतरणों वाली सभी फ़ाइलें",
+	"approvedrevs-notlatestfiles": "फ़ाइलें जिनके स्वीकृत संस्करण उनके नवीनतम संस्करण नहीं हैं",
+	"approvedrevs-unapprovedfiles": "अस्वीकृत फ़ाइलें",
+	"approvedrevs-approvedfile": "स्वीकृत फ़ाइलें",
+	"approvedrevs-latestfile": "नवीनतम फ़ाइल"
 }
