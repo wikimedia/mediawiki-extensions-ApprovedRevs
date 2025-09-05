@@ -5,7 +5,7 @@
 	</rule>
 	<rule ref="MediaWiki.NamingConventions.ValidGlobalName">
 		<properties>
-			<property name="allowedPrefixes" type="array" value="eg,wg" />
+			<property name="allowedPrefixes[]" value="eg,wg" />
 		</properties>
 	</rule>
 	<file>.</file>
