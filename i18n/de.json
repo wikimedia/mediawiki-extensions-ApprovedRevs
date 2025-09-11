@@ -25,7 +25,7 @@
 	"approvedrevs-approvedandlatest": "Dies ist die bestätigte sowie die neueste Version dieser Seite.",
 	"approvedrevs-blankpageshown": "Keine Version dieser Seite ist bestätigt worden.",
 	"approvedrevs-noapprovedrevision": "Dies ist die aktuellste Version dieser Seite. Sie hat keine bestätigte Version.",
-	"approvedrevs-editwarning": "'''Beachte bitte''', dass du gerade die neueste Version dieser Seite bearbeitest. Sie entspricht nicht der bestätigten Version, die standardmäßig angezeigt wird ([$1 Versionsunterschied]).",
+	"approvedrevs-editwarning": "'''{{#FORMAL:Beachte|Beachten Sie}} bitte''', dass du gerade die neueste Version dieser Seite {{#FORMAL:bearbeitest|bearbeiten}}. Sie entspricht nicht der bestätigten Version, die standardmäßig angezeigt wird ([$1 Versionsunterschied]).",
 	"approvedrevs-editwarning-pending": "Deine Änderungen werden den Lesern angezeigt, sobald ein autorisierter Benutzer sie genehmigt.",
 	"approvedrevs": "Bestätigte Versionen",
 	"approvedrevs-approvedpages": "Alle Seiten mit bestätigten Versionen",
