@@ -78,7 +78,7 @@
 	},
 	"ResourceModules": {
 		"ext.ApprovedRevs": {
-			"styles": "resources/ApprovedRevs.css"
+			"styles": "resources/ApprovedRevs.less"
 		}
 	},
 	"ResourceFileModulePaths": {
