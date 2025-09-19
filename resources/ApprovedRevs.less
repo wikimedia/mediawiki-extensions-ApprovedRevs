@@ -1,6 +1,9 @@
 /**
  * CSS definitions for the Approved Revs extension
  */
+
+@import "mediawiki.skin.variables.less";
+
 p.approvedRevsEditWarning {
 	font-weight: bold;
 }
@@ -26,22 +29,22 @@ span.approvingUser {
  * Highlight approved rev in revision history
  **/
 .approved-revision {
-	background-color: #d5fdf4 !important;
+	background-color: @background-color-success-subtle !important;
 }
 
 li.approved-revision {
-	border-color: #00af89 !important;
+	border: solid @border-color-success 1px !important;
 }
 
 tr.approved-revision td {
-	border-top: solid #00af89 2px !important;
-	border-bottom: solid #00af89 2px !important;
+	border-top: solid @border-color-success 2px !important;
+	border-bottom: solid @border-color-success 2px !important;
 }
 
 tr.approved-revision td:first-child {
-	border-left: solid #00af89 2px !important;
+	border-left: solid @border-color-success 2px !important;
 }
 
 tr.approved-revision td:last-child {
-	border-right: solid #00af89 2px !important;
+	border-right: solid @border-color-success 2px !important;
 }
