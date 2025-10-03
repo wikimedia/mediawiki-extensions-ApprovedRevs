@@ -18,7 +18,8 @@
 	"approvedrevs-approvesuccess": "Phiên bản này của trang đã được thiết lập là phiên bản đã được chấp thuận.",
 	"approvedrevs-unapprovesuccess": "Không còn phiên bản nào được chấp thuận cho trang này.\nThay vào đó, phiên bản gần đây nhất sẽ được hiển thị.",
 	"approvedrevs-unapprovesuccess2": "Không còn phiên bản nào được chấp thuận cho trang này.\nThay vào đó, một trang trống sẽ được hiển thị.",
-	"approvedrevs-approveaction": "đặt $2 là phiên bản được chấp thuận của “[[$1]]”",
+	"approvedrevs-approveaction": "thiết lập $2 là phiên bản được chấp thuận của “[[$1]]”",
+	"approvedrevs-approvefileaction": "thiết lập tập tin tải lên vào $2 là phiên bản được chấp thuận của \"[[$1]]\"",
 	"approvedrevs-unapproveaction": "bỏ chấp thuận phiên bản cho “[[$1]]”",
 	"approvedrevs-notlatest": "Đây là phiên bản được chấp thuận của trang này; đây không phải là phiên bản gần đây nhất.",
 	"approvedrevs-approvedandlatest": "Đây là phiên bản được chấp thuận của trang này, cũng như là phiên bản gần đây nhất.",
@@ -39,7 +40,9 @@
 	"approvedrevs-approvethisrev": "Chấp thuận phiên bản này.",
 	"approvedrevs-viewlatestrev": "Xem phiên bản gần đây nhất.",
 	"approvedrevs-approvedrevision": "Sửa đổi đã được chấp thuận",
-	"right-approverevisions": "Đặt một phiên bản của trang wiki là được chấp thuận",
+	"action-approverevisions": "thiết lập một phiên bản nhất định của một trang wiki là được chấp thuận",
+	"right-approverevisions": "Thiết lập một phiên bản của trang wiki là được chấp thuận",
+	"action-viewlinktolatest": "xem văn bản giải thích ở đầu các trang có phiên bản được chấp thuận",
 	"right-viewlinktolatest": "Xem văn bản giải thích ở đầu các trang có phiên bản được chấp thuận",
 	"grant-group-approvedrevs": "Chấp thuận và bỏ chấp thuận các phiên bản thông qua phần mở rộng ApprovedRevs",
 	"grant-approvedrevs": "Chấp thuận và bỏ chấp thuận các phiên bản thông qua phần mở rộng ApprovedRevs",
@@ -48,5 +51,6 @@
 	"approvedrevs-approvedfile": "Tập tin được chấp thuận",
 	"approvedrevs-latestfile": "Tập tin mới nhất",
 	"apihelp-approve-summary": "Duyệt một phiên bản bằng cách chấp thuận hoặc từ chối nó.",
+	"apihelp-approve-example-1": "Chấp thuận phiên bản 12345",
 	"apihelp-approve-example-2": "Bỏ chấp thuận phiên bản 12345"
 }
