@@ -1,6 +1,6 @@
 {
 	"name": "Approved Revs",
-	"version": "2.2.2",
+	"version": "2.3-alpha",
 	"author": [
 		"Yaron Koren",
 		"..."
@@ -54,7 +54,8 @@
 		"ApprovedRevs": "SpecialApprovedRevs"
 	},
 	"APIModules": {
-		"approve": "ApiApprove"
+		"approve": "ApiApprove",
+		"approvedrev": "ApiApprovedRev"
 	},
 	"MessagesDirs": {
 		"ApprovedRevs": [
@@ -71,6 +72,7 @@
 		"ARParserFunctions": "includes/ARParserFunctions.php",
 		"SpecialApprovedRevs": "includes/specials/SpecialApprovedRevs.php",
 		"ApiApprove": "includes/ApiApprove.php",
+		"ApiApprovedRev": "includes/ApiApprovedRev.php",
 		"ARApproveAction": "includes/ARApproveAction.php",
 		"ARUnapproveAction": "includes/ARUnapproveAction.php",
 		"ARApproveFileAction": "includes/ARApproveFileAction.php",

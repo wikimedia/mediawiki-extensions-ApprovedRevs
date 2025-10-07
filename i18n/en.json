@@ -55,5 +55,8 @@
 	"apihelp-approve-param-revid": "The revision ID for which to approve.",
 	"apihelp-approve-param-unapprove": "If set, revision will be unapproved rather than approved.",
 	"apihelp-approve-example-1": "Approve Revision 12345",
-	"apihelp-approve-example-2": "Unapprove Revision 12345"
+	"apihelp-approve-example-2": "Unapprove Revision 12345",
+	"apihelp-approvedrev-summary": "Fetch the ID for the approved revision of a page, if any.",
+	"apihelp-approvedrev-param-pageid": "The page ID.",
+	"apihelp-approvedrev-example-1": "67890"
 }

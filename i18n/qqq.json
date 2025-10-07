@@ -62,5 +62,8 @@
 	"apihelp-approve-param-revid": "{{doc-apihelp-param|approve|revid}}",
 	"apihelp-approve-param-unapprove": "{{doc-apihelp-param|approve|unapprove}}",
 	"apihelp-approve-example-1": "{{doc-apihelp-example|approve}}",
-	"apihelp-approve-example-2": "{{doc-apihelp-example|approve}}"
+	"apihelp-approve-example-2": "{{doc-apihelp-example|approve}}",
+	"apihelp-approvedrev-summary": "{{doc-apihelp-summary|approvedrev}}",
+	"apihelp-approvedrev-param-pageid": "{{doc-apihelp-param|approvedrev|pageid}}",
+	"apihelp-approvedrev-example-1": "{{doc-apihelp-example|approvedrev}}"
 }
