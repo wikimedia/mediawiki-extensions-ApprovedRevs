@@ -59,5 +59,7 @@
 	"apihelp-approve-param-revid": "L'ID versione da approvare.",
 	"apihelp-approve-param-unapprove": "Se impostato, la versione verrà disapprovata piuttosto che approvata.",
 	"apihelp-approve-example-1": "Approva versione 12345",
-	"apihelp-approve-example-2": "Disapprova la versione 12345"
+	"apihelp-approve-example-2": "Disapprova la versione 12345",
+	"apihelp-approvedrev-summary": "Recupera l'ID della versione approvata di una pagina, se esiste.",
+	"apihelp-approvedrev-param-pageid": "L'ID della pagina."
 }
