@@ -61,5 +61,7 @@
 	"apihelp-approve-param-revid": "معرف المراجعة للموافقة عليها.",
 	"apihelp-approve-param-unapprove": "في حالة التعيين، سيلغى اعتماد المراجعة لا اعتمادها.",
 	"apihelp-approve-example-1": "اعتماد المراجعة 12345",
-	"apihelp-approve-example-2": "إلغاء اعتماد المراجعة 12345"
+	"apihelp-approve-example-2": "إلغاء اعتماد المراجعة 12345",
+	"apihelp-approvedrev-summary": "احصل على معرف المراجعة المعتمدة للصفحة، إن وجدت.",
+	"apihelp-approvedrev-param-pageid": "معرف الصفحة."
 }
