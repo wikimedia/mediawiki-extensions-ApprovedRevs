@@ -55,5 +55,7 @@
 	"apihelp-approve-param-revid": "Назнака на преработката што се одобрува.",
 	"apihelp-approve-param-unapprove": "Ако е зададено, преработката ќе биде неодобрена наместо одобрена.",
 	"apihelp-approve-example-1": "Одобри ја преработката 12345",
-	"apihelp-approve-example-2": "Одземи одобрување на преработката 12345"
+	"apihelp-approve-example-2": "Одземи одобрување на преработката 12345",
+	"apihelp-approvedrev-summary": "Дај ја назнаката за одобрената преработка на страница, ако ја има.",
+	"apihelp-approvedrev-param-pageid": "Назнака на страницата."
 }

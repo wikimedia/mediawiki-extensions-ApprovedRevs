@@ -54,5 +54,7 @@
 	"apihelp-approve-param-revid": "Le ID del version a approbar.",
 	"apihelp-approve-param-unapprove": "Si definite, le version essera disapprobate, non approbate.",
 	"apihelp-approve-example-1": "Approbar version 12345",
-	"apihelp-approve-example-2": "Disapprobar version 12345"
+	"apihelp-approve-example-2": "Disapprobar version 12345",
+	"apihelp-approvedrev-summary": "Obtener le ID del version approbate de un pagina, si existe.",
+	"apihelp-approvedrev-param-pageid": "Le ID del pagina."
 }

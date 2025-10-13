@@ -60,5 +60,7 @@
 	"apihelp-approve-param-revid": "De ID van de te keuren versie.",
 	"apihelp-approve-param-unapprove": "Is dit ingesteld, dan wordt de versie af- in plaats van goedgekeurd.",
 	"apihelp-approve-example-1": "Versie 12345 goedkeuren",
-	"apihelp-approve-example-2": "Versie 12345 weer afkeuren"
+	"apihelp-approve-example-2": "Versie 12345 weer afkeuren",
+	"apihelp-approvedrev-summary": "De ID van de goedgekeurde versie van een pagina ophalen, als er een is.",
+	"apihelp-approvedrev-param-pageid": "De pagina-ID."
 }
