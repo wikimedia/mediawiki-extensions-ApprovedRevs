@@ -68,5 +68,7 @@
 	"apihelp-approve-param-revid": "要核准的修订ID。",
 	"apihelp-approve-param-unapprove": "若设置，修订会被取消核准而不是核准。",
 	"apihelp-approve-example-1": "核准修订12345",
-	"apihelp-approve-example-2": "取消核准修订12345"
+	"apihelp-approve-example-2": "取消核准修订12345",
+	"apihelp-approvedrev-summary": "如果存在，获取页面已核准修订的ID。",
+	"apihelp-approvedrev-param-pageid": "页面ID。"
 }
