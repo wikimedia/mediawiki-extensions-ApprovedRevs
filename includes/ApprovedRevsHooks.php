@@ -759,9 +759,14 @@ class ApprovedRevsHooks {
 		$latestRevID = $title->getLatestRevID();
 		if ( !empty( $approvedRevID ) && $approvedRevID != $latestRevID ) {
 			ApprovedRevs::addCSS();
-			$preFormHTML .= Xml::element( 'p',
-				[ 'class' => 'approvedRevsEditWarning' ],
-				wfMessage( 'approvedrevs-editwarning' )->text() ) . "\n";
+			$preFormHTML .= Html::warningBox(
+				wfMessage( 'approvedrevs-editwarning',
+					$title->getFullURL( [
+						'diff' => $latestRevID,
+						'oldid' => $approvedRevID,
+					] )
+				)->parse()
+			) . "\n";
 		}
 	}
 
