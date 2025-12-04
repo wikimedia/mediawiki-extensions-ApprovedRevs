@@ -61,5 +61,7 @@
 	"apihelp-approve-param-revid": "可批准的修訂 ID。",
 	"apihelp-approve-param-unapprove": "若設定的話，修訂將會被取消批准而非通過。",
 	"apihelp-approve-example-1": "批准修訂 12345",
-	"apihelp-approve-example-2": "取消批准修訂 12345"
+	"apihelp-approve-example-2": "取消批准修訂 12345",
+	"apihelp-approvedrev-summary": "取得頁面已批准修訂的 ID（如有）。",
+	"apihelp-approvedrev-param-pageid": "頁面 ID。"
 }
