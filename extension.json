@@ -108,7 +108,7 @@
 		"DiffTools": "ApprovedRevsHooks::addApprovalDiffLink",
 		"BeforeParserFetchTemplateRevisionRecord": "ApprovedRevsHooks::setTranscludedPageRev",
 		"GetMagicVariableIDs": "ApprovedRevsHooks::addMagicWordVariableIDs",
-		"ParserAfterTidy": "ApprovedRevsHooks::handleMagicWords",
+		"InternalParseBeforeLinks": "ApprovedRevsHooks::handleMagicWords",
 		"ParserGetVariableValueSwitch": "ApprovedRevsHooks::assignAValue",
 		"ParserFirstCallInit": "ApprovedRevsHooks::registerFunctions",
 		"AdminLinks": "ApprovedRevsHooks::addToAdminLinks",
