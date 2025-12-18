@@ -953,16 +953,17 @@ class ApprovedRevsHooks {
 	}
 
 	/**
-	 * Hook: ParserAfterTidy
+	 * Hook: InternalParseBeforeLinks
 	 *
 	 * Set values in the page_props table based on the presence of the
 	 * 'APPROVEDREVS' magic word in a page
 	 *
 	 * @param Parser $parser
 	 * @param string &$text
+	 * @param StripState $stripState
 	 * @return void
 	 */
-	public static function handleMagicWords( $parser, &$text ) {
+	public static function handleMagicWords( $parser, &$text, $stripState ) {
 		$factory = MediaWikiServices::getInstance()->getMagicWordFactory();
 		$mw_hide = $factory->get( 'MAG_APPROVEDREVS' );
 		if ( $mw_hide->matchAndRemove( $text ) ) {
