@@ -1,6 +1,7 @@
 <?php
 
 use MediaWiki\Content\Renderer\ContentParseParams;
+use MediaWiki\Html\Html;
 use MediaWiki\Linker\LinkTarget;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Page\PageReference;
@@ -682,7 +683,7 @@ class ApprovedRevs {
 
 		$log = new LogPage( 'approval' );
 		$rev_url = $title->getFullURL( [ 'oldid' => $rev_id ] );
-		$rev_link = Xml::element(
+		$rev_link = Html::element(
 			'a',
 			[ 'href' => $rev_url ],
 			$rev_id
@@ -804,7 +805,7 @@ class ApprovedRevs {
 		$imagepage = ImagePage::newFromID( $title->getArticleID() );
 		$displayedFileUrl = $imagepage->getDisplayedFile()->getFullURL();
 
-		$revisionAnchorTag = Xml::element(
+		$revisionAnchorTag = Html::element(
 			'a',
 			[
 				'href' => $displayedFileUrl,

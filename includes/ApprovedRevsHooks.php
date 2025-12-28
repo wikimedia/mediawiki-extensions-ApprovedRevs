@@ -646,7 +646,7 @@ class ApprovedRevsHooks {
 		$user = $context->getUser();
 		if ( ApprovedRevs::checkPermission( $user, $title, "viewlinktolatest" ) ) {
 			if ( $revisionID == $article->getPage()->getLatest() ) {
-				$text .= Xml::element(
+				$text .= Html::element(
 					'span',
 					[ 'class' => 'approvedAndLatestMsg' ],
 					wfMessage( 'approvedrevs-approvedandlatest' )->text()
@@ -662,7 +662,7 @@ class ApprovedRevsHooks {
 					[ 'oldid' => $article->getPage()->getLatest() ]
 				);
 
-				$text = Xml::tags(
+				$text = Html::rawElement(
 					'span',
 					[ 'class' => 'notLatestMsg' ],
 					$text
@@ -860,7 +860,7 @@ class ApprovedRevsHooks {
 				);
 				$msg = wfMessage( 'approvedrevs-approve' )->text();
 			}
-			$s .= ' (' . Xml::element(
+			$s .= ' (' . Html::element(
 				'a',
 				[ 'href' => $url ],
 				$msg
@@ -1176,8 +1176,8 @@ class ApprovedRevsHooks {
 				// at all? Aren't the "approve this revision"
 				// links in the history page always good
 				// enough?
-				$out->addHTML( Xml::tags( 'span', [ 'id' => 'contentSub2' ],
-					Xml::element( 'a',
+				$out->addHTML( Html::rawElement( 'span', [ 'id' => 'contentSub2' ],
+					Html::element( 'a',
 					[ 'href' => $title->getLocalUrl(
 						[
 							'action' => 'approve',
@@ -1190,7 +1190,7 @@ class ApprovedRevsHooks {
 		} else {
 			$out->addSubtitle(
 				htmlspecialchars( wfMessage( 'approvedrevs-blankpageshown' )->text() ) . '&#160;' .
-				Xml::element( 'a',
+				Html::element( 'a',
 					[ 'href' => $title->getLocalUrl(
 						[
 							'oldid' => $article->getRevIdFetched()
@@ -1343,7 +1343,7 @@ class ApprovedRevsHooks {
 				);
 				$msg = wfMessage( 'approvedrevs-approve' )->text();
 			}
-			$s .= '<td>' . Xml::element(
+			$s .= '<td>' . Html::element(
 				'a',
 				[ 'href' => $url ],
 				$msg
