@@ -11,7 +11,8 @@
 			"Mjälten",
 			"Technic2",
 			"Tobulos1",
-			"WikiPhoenix"
+			"WikiPhoenix",
+			"Stefan2255"
 		]
 	},
 	"approvedrevs-desc": "Sätt en enskild version av en sida till godkänd",
@@ -64,5 +65,7 @@
 	"apihelp-approve-param-revid": "Revisions-IDt att godkänna.",
 	"apihelp-approve-param-unapprove": "Om inställd kommer revideringen att avgodkännas istället för att godkännas.",
 	"apihelp-approve-example-1": "Godkänn sidversion 12345",
-	"apihelp-approve-example-2": "Avböj sidversion 12345"
+	"apihelp-approve-example-2": "Avböj sidversion 12345",
+	"apihelp-approvedrev-summary": "Hämta ID för den godkända versionen av en sida, om sådan finns.",
+	"apihelp-approvedrev-param-pageid": "Sid-ID:t."
 }
