@@ -95,7 +95,7 @@ class ARParserFunctions {
 
 		// There is no consistency between the structures of these two
 		// DB tables, unfortunately.
-		if ( $title->getNamespace() == NS_FILE ) {
+		if ( $title->inNamespace( NS_FILE ) ) {
 			$pageName = $title->getText();
 			$res = $dbr->select( 'approved_revs_files', [ 'approved_timestamp' ], [ 'file_title' => $pageName ] );
 		} else {
@@ -106,7 +106,7 @@ class ARParserFunctions {
 			return null;
 		}
 		$row = $res->fetchRow();
-		if ( $title->getNamespace() == NS_FILE ) {
+		if ( $title->inNamespace( NS_FILE ) ) {
 			self::$mAllApprovalInfo[$pageId] = [ strtotime( $row['approved_timestamp'] ), null ];
 		} else {
 			self::$mAllApprovalInfo[$pageId] = [ strtotime( $row['approval_date'] ), $row['approver_id'] ];

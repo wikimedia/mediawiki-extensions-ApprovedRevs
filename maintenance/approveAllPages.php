@@ -94,10 +94,10 @@ class ApproveAllPages extends Maintenance {
 			// set as well for these checks.
 			$wgTitle = $title;
 
-			if ( $allowedNamespaces !== null ) {
-				if ( !in_array( $title->getNamespace(), $allowedNamespaces ) ) {
-					continue;
-				}
+			if ( $allowedNamespaces !== null &&
+				!$title->inNamespaces( $allowedNamespaces )
+			) {
+				continue;
 			}
 
 			if ( !ApprovedRevs::pageIsApprovable( $title ) ) {

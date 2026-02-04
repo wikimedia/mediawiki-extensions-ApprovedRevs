@@ -24,7 +24,7 @@ class ApiApprove extends ApiBase {
 		// Get target rev and title.
 		$revRecord = MediaWikiServices::getInstance()->getRevisionLookup()->getRevisionById( $revid );
 		if ( $revRecord !== null ) {
-			$title = Title::newFromLinkTarget( $revRecord->getPageAsLinkTarget() );
+			$title = Title::newFromPageIdentity( $revRecord->getPage() );
 		} else {
 			$this->dieWithError( "Cannot find a revision with the specified ID.", 'notarget' );
 		}
@@ -42,7 +42,7 @@ class ApiApprove extends ApiBase {
 
 		// Handle a call to approve or unapprove.
 		if ( $unapprove ) {
-			if ( empty( $curApprovedRev ) ) {
+			if ( !$curApprovedRev ) {
 				// No revision - just send an empty result back.
 				$resultText = 'This page was already unapproved!';
 			} else {

@@ -306,7 +306,6 @@ class SpecialApprovedRevs extends QueryPage {
 		# mode: invalidfiles
 		#
 		} elseif ( $this->mMode == 'invalidfiles' ) {
-
 			if ( !ApprovedRevs::fileIsApprovable( $title ) ) {
 				// if showing invalid files only, don't show files
 				// that have real approvability
