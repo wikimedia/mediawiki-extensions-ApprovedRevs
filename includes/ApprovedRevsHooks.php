@@ -285,7 +285,7 @@ class ApprovedRevsHooks {
 		// A newly-uploaded file will still have an article ID of 0 -
 		// ignore it. (It will get handled by the PageSaveComplete,
 		// or PageContentSaveComplete, hook anyway.)
-		if ( $title->getArticleID() == 0 ) {
+		if ( $title->getId() == 0 ) {
 			return;
 		}
 
@@ -1366,12 +1366,12 @@ class ApprovedRevsHooks {
 		if ( $fileTitle->getNamespace() == NS_MEDIA ) {
 			$fileTitle = Title::makeTitle( NS_FILE, $fileTitle->getDBkey() );
 			// avoid extra queries
-			$fileTitle->resetArticleId( $fileTitle->getArticleID() );
+			$fileTitle->resetArticleId( $fileTitle->getId() );
 
 			// Media link redirects don't get caught by the normal
 			// redirect check, so this extra check is required
 			$fileWikiPage = MediaWikiServices::getInstance()->getWikiPageFactory()
-				->newFromID( $fileTitle->getArticleID() );
+				->newFromID( $fileTitle->getId() );
 			if ( $fileWikiPage && $fileWikiPage->getRedirectTarget() ) {
 				$fileTitle = $fileWikiPage->getTitle();
 			}
@@ -1379,10 +1379,10 @@ class ApprovedRevsHooks {
 
 		if ( $fileTitle->isRedirect() ) {
 			$page = MediaWikiServices::getInstance()->getWikiPageFactory()
-				->newFromID( $fileTitle->getArticleID() );
+				->newFromID( $fileTitle->getId() );
 			$fileTitle = $page->getRedirectTarget();
 			// avoid extra queries
-			$fileTitle->resetArticleId( $fileTitle->getArticleID() );
+			$fileTitle->resetArticleId( $fileTitle->getId() );
 		}
 
 		# Tell Parser what file version to use

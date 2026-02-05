@@ -82,13 +82,13 @@ class ApprovedRevs {
 			return null;
 		}
 
-		$pageID = $title->getArticleID();
-		if ( !isset( self::$mApproverForPage[$pageID] ) ) {
+		$pageId = $title->getId();
+		if ( !isset( self::$mApproverForPage[$pageId] ) ) {
 			$dbr = self::getReadDB();
 			$approverID = $dbr->newSelectQueryBuilder()
 				->from( 'approved_revs' )
 				->select( 'approver_id' )
-				->where( [ 'page_id' => $pageID ] )
+				->where( [ 'page_id' => $pageId ] )
 				->caller( __METHOD__ )
 				->fetchField();
 			$approver = null;
@@ -97,9 +97,9 @@ class ApprovedRevs {
 					->getUserFactory()
 					->newFromId( (int)$approverID );
 			}
-			self::$mApproverForPage[$pageID] = $approver;
+			self::$mApproverForPage[$pageId] = $approver;
 		}
-		return self::$mApproverForPage[$pageID];
+		return self::$mApproverForPage[$pageId];
 	}
 
 	/**
@@ -110,13 +110,13 @@ class ApprovedRevs {
 	 * @return int|null
 	 */
 	public static function getApprovedRevID( $title ) {
-		if ( $title == null ) {
+		if ( !$title || !$title->canExist() ) {
 			return null;
 		}
 
-		$pageID = $title->getArticleID();
-		if ( array_key_exists( $pageID, self::$mApprovedRevIDForPage ) ) {
-			return self::$mApprovedRevIDForPage[$pageID];
+		$pageId = $title->getId();
+		if ( array_key_exists( $pageId, self::$mApprovedRevIDForPage ) ) {
+			return self::$mApprovedRevIDForPage[$pageId];
 		}
 
 		if ( !self::pageIsApprovable( $title ) ) {
@@ -127,10 +127,10 @@ class ApprovedRevs {
 		$revID = $dbr->newSelectQueryBuilder()
 			->from( 'approved_revs' )
 			->select( 'rev_id' )
-			->where( [ 'page_id' => $pageID ] )
+			->where( [ 'page_id' => $pageId ] )
 			->caller( __METHOD__ )
 			->fetchField();
-		self::$mApprovedRevIDForPage[$pageID] = $revID;
+		self::$mApprovedRevIDForPage[$pageId] = $revID;
 		return $revID;
 	}
 
@@ -167,9 +167,9 @@ class ApprovedRevs {
 	 * @return ?Content
 	 */
 	public static function getApprovedContent( $title ) {
-		$pageID = $title->getArticleID();
-		if ( array_key_exists( $pageID, self::$mApprovedContentForPage ) ) {
-			return self::$mApprovedContentForPage[$pageID];
+		$pageId = $title->getId();
+		if ( array_key_exists( $pageId, self::$mApprovedContentForPage ) ) {
+			return self::$mApprovedContentForPage[$pageId];
 		}
 
 		$revisionID = self::getApprovedRevID( $title );
@@ -178,7 +178,7 @@ class ApprovedRevs {
 		}
 
 		$content = self::getContent( $title, $revisionID );
-		self::$mApprovedContentForPage[$pageID] = $content;
+		self::$mApprovedContentForPage[$pageId] = $content;
 
 		return $content;
 	}
@@ -233,16 +233,16 @@ class ApprovedRevs {
 	 * @return bool
 	 */
 	public static function pageIsApprovable( Title $title ) {
-		$articleID = $title->getArticleID();
+		$pageId = $title->getId();
 
 		// If this function was already called for this page, the value
 		// should have been stored.
-		if ( array_key_exists( $articleID, self::$mApprovablePages ) ) {
-			return self::$mApprovablePages[$articleID];
+		if ( array_key_exists( $pageId, self::$mApprovablePages ) ) {
+			return self::$mApprovablePages[$pageId];
 		}
 
 		if ( !$title->exists() ) {
-			self::$mApprovablePages[$articleID] = false;
+			self::$mApprovablePages[$pageId] = false;
 			return false;
 		}
 
@@ -251,7 +251,7 @@ class ApprovedRevs {
 		// fileIsApprovable(). This constraint is to avoid confusion
 		// between approving file pages and approving files themselves.
 		if ( $title->getNamespace() === NS_FILE ) {
-			self::$mApprovablePages[$articleID] = false;
+			self::$mApprovablePages[$pageId] = false;
 			return false;
 		}
 
@@ -260,13 +260,13 @@ class ApprovedRevs {
 		if ( !MediaWikiServices::getInstance()->getHookContainer()
 			->run( 'ApprovedRevsPageIsApprovable', [ $title, &$isApprovable ] )
 		) {
-			self::$mApprovablePages[$articleID] = $isApprovable;
+			self::$mApprovablePages[$pageId] = $isApprovable;
 			return $isApprovable;
 		}
 
 		// Check the namespace.
 		if ( in_array( $title->getNamespace(), self::getApprovableNamespaces() ) ) {
-			self::$mApprovablePages[$articleID] = true;
+			self::$mApprovablePages[$pageId] = true;
 			return true;
 		}
 
@@ -279,7 +279,7 @@ class ApprovedRevs {
 			->from( 'page_props' )
 			->select( 'COUNT(*)' )
 			->where( [
-				'pp_page' => $articleID,
+				'pp_page' => $pageId,
 				'pp_propname' => [
 					'approvedrevs-approver-users', 'approvedrevs-approver-groups'
 				],
@@ -287,7 +287,7 @@ class ApprovedRevs {
 			->caller( __METHOD__ )
 			->fetchField();
 		if ( $count > 0 ) {
-			self::$mApprovablePages[$articleID] = true;
+			self::$mApprovablePages[$pageId] = true;
 			return true;
 		}
 
@@ -296,14 +296,14 @@ class ApprovedRevs {
 			->from( 'page_props' )
 			->select( 'COUNT(*)' )
 			->where( [
-				'pp_page' => $articleID,
+				'pp_page' => $pageId,
 				'pp_propname' => 'approvedrevs',
 				'pp_value' => 'y'
 			] )
 			->caller( __METHOD__ )
 			->fetchField();
 		$isApprovable = ( $count == '1' );
-		self::$mApprovablePages[$articleID] = $isApprovable;
+		self::$mApprovablePages[$pageId] = $isApprovable;
 		return $isApprovable;
 	}
 
@@ -312,16 +312,16 @@ class ApprovedRevs {
 	 * @return bool
 	 */
 	public static function fileIsApprovable( Title $title ) {
-		$articleID = $title->getArticleID();
+		$pageId = $title->getId();
 
 		// If this function was already called for this page, the value
 		// should have been stored.
-		if ( array_key_exists( $articleID, self::$mApprovableFiles ) ) {
-			return self::$mApprovableFiles[$articleID];
+		if ( array_key_exists( $pageId, self::$mApprovableFiles ) ) {
+			return self::$mApprovableFiles[$pageId];
 		}
 
 		if ( !$title->exists() ) {
-			self::$mApprovableFiles[$articleID] = false;
+			self::$mApprovableFiles[$pageId] = false;
 			return false;
 		}
 
@@ -330,14 +330,14 @@ class ApprovedRevs {
 		if ( !MediaWikiServices::getInstance()->getHookContainer()
 			->run( 'ApprovedRevsFileIsApprovable', [ $title, &$fileIsApprovable ] )
 		) {
-			self::$mApprovableFiles[$articleID] = $fileIsApprovable;
+			self::$mApprovableFiles[$pageId] = $fileIsApprovable;
 			return $fileIsApprovable;
 		}
 
 		// Check if NS_FILE is in approvable namespaces
 		$approvedRevsNamespaces = self::getApprovableNamespaces();
 		if ( in_array( NS_FILE, $approvedRevsNamespaces ) ) {
-			self::$mApprovableFiles[$articleID] = true;
+			self::$mApprovableFiles[$pageId] = true;
 			return true;
 		}
 
@@ -350,7 +350,7 @@ class ApprovedRevs {
 			->from( 'page_props' )
 			->select( 'COUNT(*)' )
 			->where( [
-				'pp_page' => $articleID,
+				'pp_page' => $pageId,
 				'pp_propname' => [
 					'approvedrevs-approver-users',
 					'approvedrevs-approver-groups'
@@ -359,7 +359,7 @@ class ApprovedRevs {
 			->caller( __METHOD__ )
 			->fetchField();
 		if ( $count > 0 ) {
-			self::$mApprovableFiles[$articleID] = true;
+			self::$mApprovableFiles[$pageId] = true;
 			return true;
 		}
 
@@ -368,14 +368,14 @@ class ApprovedRevs {
 			->from( 'page_props' )
 			->select( 'COUNT(*)' )
 			->where( [
-				'pp_page' => $articleID,
+				'pp_page' => $pageId,
 				'pp_propname' => 'approvedrevs',
 				'pp_value' => 'y'
 			] )
 			->caller( __METHOD__ )
 			->fetchField();
 		if ( $count == '1' ) {
-			self::$mApprovableFiles[$articleID] = true;
+			self::$mApprovableFiles[$pageId] = true;
 			return true;
 		}
 
@@ -390,11 +390,11 @@ class ApprovedRevs {
 		if ( $timestamp !== false ) {
 			// only approvable because it already has an approved rev, not
 			// because it is in ApprovedRevs::$permissions
-			self::$mApprovableFiles[$articleID] = true;
+			self::$mApprovableFiles[$pageId] = true;
 			return true;
 		}
 
-		self::$mApprovableFiles[$articleID] = false;
+		self::$mApprovableFiles[$pageId] = false;
 		return false;
 	}
 
@@ -419,7 +419,7 @@ class ApprovedRevs {
 		global $egApprovedRevsSelfOwnedNamespaces;
 		$permission = 'approverevisions';
 
-		$userAndPageKey = $user->getId() . ':' . $title->getArticleID();
+		$userAndPageKey = $user->getId() . ':' . $title->getId();
 
 		// set to null to avoid notices below
 		if ( !isset( self::$mUserCanApprove[$userAndPageKey] ) ) {
@@ -484,7 +484,7 @@ class ApprovedRevs {
 					$row = $dbr->newSelectQueryBuilder()
 						->tables( $tables )
 						->field( $userIDField, 'user_id' )
-						->where( [ $pageIDField => $title->getArticleID() ] )
+						->where( [ $pageIDField => $title->getId() ] )
 						->orderBy( $revIDField, SelectQueryBuilder::SORT_ASC )
 						->limit( 1 )
 						->join( $joinTable, null, $joinConds )
@@ -512,7 +512,7 @@ class ApprovedRevs {
 	 * @since 1.0
 	 */
 	public static function checkParserFunctionPermission( User $user, Title $title ) {
-		$articleID = $title->getArticleID();
+		$pageId = $title->getId();
 
 		$dbr = self::getReadDB();
 
@@ -523,7 +523,7 @@ class ApprovedRevs {
 			->from( 'page_props' )
 			->select( 'pp_value' )
 			->where( [
-				'pp_page' => $articleID,
+				'pp_page' => $pageId,
 				'pp_propname' => "approvedrevs-approver-users"
 			] )
 			->caller( __METHOD__ )
@@ -546,7 +546,7 @@ class ApprovedRevs {
 			->from( 'page_props' )
 			->select( 'pp_value' )
 			->where( [
-				'pp_page' => $articleID,
+				'pp_page' => $pageId,
 				'pp_propname' => "approvedrevs-approver-groups"
 			] )
 			->caller( __METHOD__ )
@@ -587,17 +587,17 @@ class ApprovedRevs {
 		}
 
 		$dbw = self::getWriteDB();
-		$page_id = $title->getArticleID();
-		$old_rev_id = $dbw->selectField( 'approved_revs', 'rev_id', [ 'page_id' => $page_id ] );
+		$pageId = $title->getId();
+		$old_rev_id = $dbw->selectField( 'approved_revs', 'rev_id', [ 'page_id' => $pageId ] );
 		if ( $old_rev_id ) {
-			$dbw->update( 'approved_revs', $approvalInfo, [ 'page_id' => $page_id ] );
+			$dbw->update( 'approved_revs', $approvalInfo, [ 'page_id' => $pageId ] );
 		} else {
-			$approvalInfo['page_id'] = $page_id;
+			$approvalInfo['page_id'] = $pageId;
 			$dbw->insert( 'approved_revs', $approvalInfo );
 		}
 		// Update "cache" in memory
-		self::$mApprovedRevIDForPage[$page_id] = $rev_id;
-		self::$mApproverForPage[$page_id] = $user;
+		self::$mApprovedRevIDForPage[$pageId] = $rev_id;
+		self::$mApproverForPage[$pageId] = $user;
 
 		$content = self::getContent( $title, $rev_id );
 		MediaWikiServices::getInstance()->getHookContainer()
@@ -704,11 +704,11 @@ class ApprovedRevs {
 	 */
 	public static function unsetApprovalInDB( $title, $content = null ) {
 		$dbw = self::getWriteDB();
-		$page_id = $title->getArticleID();
-		$dbw->delete( 'approved_revs', [ 'page_id' => $page_id ] );
-		unset( self::$mApprovedContentForPage[ $page_id ] );
-		unset( self::$mApprovedRevIDForPage[ $page_id ] );
-		unset( self::$mApproverForPage[ $page_id ] );
+		$pageId = $title->getId();
+		$dbw->delete( 'approved_revs', [ 'page_id' => $pageId ] );
+		unset( self::$mApprovedContentForPage[$pageId] );
+		unset( self::$mApprovedRevIDForPage[$pageId] );
+		unset( self::$mApproverForPage[$pageId] );
 
 		MediaWikiServices::getInstance()->getHookContainer()
 			->run( 'ApprovedRevsRevisionUnapproved', [ $output = null, $title, $content ] );
@@ -802,7 +802,7 @@ class ApprovedRevs {
 
 		$log = new LogPage( 'approval' );
 
-		$imagepage = ImagePage::newFromID( $title->getArticleID() );
+		$imagepage = ImagePage::newFromID( $title->getId() );
 		$displayedFileUrl = $imagepage->getDisplayedFile()->getFullURL();
 
 		$revisionAnchorTag = Html::element(

@@ -86,9 +86,9 @@ class ARParserFunctions {
 	 * @return array{?int, ?int}|null
 	 */
 	public static function getApprovalInfo( $title ) {
-		$pageID = $title->getArticleID();
-		if ( array_key_exists( $pageID, self::$mAllApprovalInfo ) ) {
-			return self::$mAllApprovalInfo[$pageID];
+		$pageId = $title->getId();
+		if ( array_key_exists( $pageId, self::$mAllApprovalInfo ) ) {
+			return self::$mAllApprovalInfo[$pageId];
 		}
 
 		$dbr = ApprovedRevs::getReadDB();
@@ -99,7 +99,7 @@ class ARParserFunctions {
 			$pageName = $title->getText();
 			$res = $dbr->select( 'approved_revs_files', [ 'approved_timestamp' ], [ 'file_title' => $pageName ] );
 		} else {
-			$res = $dbr->select( 'approved_revs', [ 'approver_id', 'approval_date' ], [ 'page_id' => $pageID ] );
+			$res = $dbr->select( 'approved_revs', [ 'approver_id', 'approval_date' ], [ 'page_id' => $pageId ] );
 		}
 
 		if ( $res->numRows() == 0 ) {
@@ -107,11 +107,11 @@ class ARParserFunctions {
 		}
 		$row = $res->fetchRow();
 		if ( $title->getNamespace() == NS_FILE ) {
-			self::$mAllApprovalInfo[$pageID] = [ strtotime( $row['approved_timestamp'] ), null ];
+			self::$mAllApprovalInfo[$pageId] = [ strtotime( $row['approved_timestamp'] ), null ];
 		} else {
-			self::$mAllApprovalInfo[$pageID] = [ strtotime( $row['approval_date'] ), $row['approver_id'] ];
+			self::$mAllApprovalInfo[$pageId] = [ strtotime( $row['approval_date'] ), $row['approver_id'] ];
 		}
-		return self::$mAllApprovalInfo[$pageID];
+		return self::$mAllApprovalInfo[$pageId];
 	}
 
 	/**
