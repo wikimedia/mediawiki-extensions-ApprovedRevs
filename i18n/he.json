@@ -9,7 +9,8 @@
 			"Steeve815",
 			"YaronSh",
 			"דגש",
-			"דגש חזק"
+			"דגש חזק",
+			"Neriah"
 		]
 	},
 	"approvedrevs-desc": "הגדרת גרסה אחת של דף כגרסה מאושרת",
@@ -62,5 +63,6 @@
 	"apihelp-approve-param-revid": "מזהה הגרסה לאישור.",
 	"apihelp-approve-param-unapprove": "אם מוגדר, הגרסה לא תאושר.",
 	"apihelp-approve-example-1": "אישור גרסה 12345",
-	"apihelp-approve-example-2": "ביטול האישור של גרסה 12345"
+	"apihelp-approve-example-2": "ביטול האישור של גרסה 12345",
+	"apihelp-approvedrev-param-pageid": "מזהה הדף."
 }
