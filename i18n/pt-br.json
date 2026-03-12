@@ -64,5 +64,7 @@
 	"apihelp-approve-param-revid": "A ID de revisão para a qual deve aprovar.",
 	"apihelp-approve-param-unapprove": "Se configurado, a revisão não será aprovada em vez de aprovada.",
 	"apihelp-approve-example-1": "Aprovar a revisão 12345",
-	"apihelp-approve-example-2": "Anular a aprovação da revisão 12345"
+	"apihelp-approve-example-2": "Anular a aprovação da revisão 12345",
+	"apihelp-approvedrev-summary": "Obter o ID da revisão aprovada de uma página, se houver.",
+	"apihelp-approvedrev-param-pageid": "O ID da página."
 }
