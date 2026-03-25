@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Winston Sung"
+			"Winston Sung",
+			"Aca"
 		]
 	},
 	"approvedrevs-desc": "Postavljanje jedne jedinstvene revizije stranicate kao odobrene",
@@ -25,7 +26,7 @@
 	"approvedrevs-approvedpages": "Sve stranice s odobrenom izmjenom",
 	"approvedrevs-notlatestpages": "Stranice čije odobrene revizije nisu najnovije",
 	"approvedrevs-unapprovedpages": "Neodobrene stranice",
-	"approvedrevs-invalidpages": "Stranice s nevažećim odobravanjima",
+	"approvedrevs-invalidpages": "Stranice s neispravnim odobrenjima",
 	"approvedrevs-view": "Pogl. spisak:",
 	"approvedrevs-revisionnumber": "izmjena $1",
 	"approvedrevs-uploaddate": "otpremanje od $1",
@@ -41,7 +42,7 @@
 	"right-viewlinktolatest": "Vidi tekst objašnjenja na vrhu stranica koje imaju odobrenu reviziju",
 	"action-viewapprover": "vidi tekst koji pokazuje tko je odobrio trenutnu odobrenu reviziju",
 	"right-viewapprover": "Pogledajte tekst koji pokazuje tko je odobrio trenutnu odobrenu reviziju",
-	"approvedrevs-invalidfiles": "Datoteke s nevažećim odobravanjima",
+	"approvedrevs-invalidfiles": "Datoteke s neispravnim odobrenjima",
 	"approvedrevs-approvedfiles": "Sve datoteke s odobrenom izmjenom",
 	"approvedrevs-notlatestfiles": "Datoteke čije odobrene revizije nisu najnovije",
 	"approvedrevs-unapprovedfiles": "Neodobrene datoteke",
