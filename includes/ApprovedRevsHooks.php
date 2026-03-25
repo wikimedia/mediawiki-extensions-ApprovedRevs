@@ -1,5 +1,6 @@
 <?php
 
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Deferred\LinksUpdate\LinksUpdate;
 use MediaWiki\EditPage\EditPage;
 use MediaWiki\Html\Html;
@@ -64,9 +65,8 @@ class ApprovedRevsHooks {
 	 * @return void
 	 */
 	public static function removeRobotsTag( Parser $parser, $text, $strip_state ) {
-		global $wgRequest;
-
-		if ( !ApprovedRevs::isDefaultPageRequest( $wgRequest ) ) {
+		$request = RequestContext::getMain()->getRequest();
+		if ( !ApprovedRevs::isDefaultPageRequest( $request ) ) {
 			return;
 		}
 
