@@ -27,7 +27,7 @@
 	"approvedrevs-notlatestpages": "Stranice čije odobrene revizije nisu najnovije",
 	"approvedrevs-unapprovedpages": "Neodobrene stranice",
 	"approvedrevs-invalidpages": "Stranice s neispravnim odobrenjima",
-	"approvedrevs-view": "Pogl. spisak:",
+	"approvedrevs-view": "Prikaži listu:",
 	"approvedrevs-revisionnumber": "izmjena $1",
 	"approvedrevs-uploaddate": "otpremanje od $1",
 	"approvedrevs-approvedby": "{{GENDER:$3|odobrio|odobrila}} $1 dana $4 u $5",
@@ -49,6 +49,6 @@
 	"approvedrevs-approvedfile": "Odobrena datoteka",
 	"approvedrevs-latestfile": "Najnovija datoteka",
 	"apihelp-approve-summary": "Pregledajte reviziju i odobrite je ili oduzmite odobrenje.",
-	"apihelp-approve-param-revid": "Naznaka revizije što se odobruje.",
+	"apihelp-approve-param-revid": "ID izmjene koju treba odobriti.",
 	"apihelp-approve-param-unapprove": "Ako je dano, revizija će biti neodobrena umjesto odobrena."
 }
