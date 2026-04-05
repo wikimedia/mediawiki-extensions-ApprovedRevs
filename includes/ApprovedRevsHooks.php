@@ -2,7 +2,6 @@
 
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Deferred\LinksUpdate\LinksUpdate;
-use MediaWiki\EditPage\EditPage;
 use MediaWiki\Html\Html;
 use MediaWiki\Linker\Linker;
 use MediaWiki\Linker\LinkTarget;
@@ -710,9 +709,7 @@ class ApprovedRevsHooks {
 	 * @return true
 	 */
 	public static function addEditNotice( Title $title, $oldid, array &$notices ) {
-		$editPage = new EditPage( new Article( $title, $oldid ) );
-		$editPage->oldid = $oldid;
-		$article = $editPage->getArticle();
+		$article = new Article( $title, $oldid );
 		$context = $article->getContext();
 		$request = $context->getRequest();
 		$user = $context->getUser();
