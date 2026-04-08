@@ -69,7 +69,7 @@ class ApprovedRevsHooks {
 		}
 
 		$revisionID = ApprovedRevs::getApprovedRevID( $parser->getPage() );
-		if ( !$revisionID ) {
+		if ( $revisionID ) {
 			global $wgOut;
 			if ( method_exists( $wgOut, 'getMetadata' ) ) {
 				// MW 1.43+
@@ -367,7 +367,7 @@ class ApprovedRevsHooks {
 		// this, but this works, and it doesn't seem to have a
 		// noticeable negative impact, so we'll go with it for now, at
 		// least.
-		if ( !$revisionID || $egApprovedRevsBlankIfUnapproved ) {
+		if ( $revisionID || $egApprovedRevsBlankIfUnapproved ) {
 			$article = new Article( $title, $revisionID );
 			// This call is necessary because it
 			// causes $article->mRevision to get initialized,
@@ -730,7 +730,7 @@ class ApprovedRevsHooks {
 
 		$approvedRevID = ApprovedRevs::getApprovedRevID( $title );
 		$latestRevID = $title->getLatestRevID();
-		if ( !$approvedRevID && $approvedRevID != $latestRevID ) {
+		if ( $approvedRevID && $approvedRevID != $latestRevID ) {
 			ApprovedRevs::addCSS();
 			$preFormHTML .= Html::warningBox(
 				wfMessage( 'approvedrevs-editwarning',
