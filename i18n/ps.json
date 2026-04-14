@@ -4,5 +4,12 @@
 			"شاه زمان پټان"
 		]
 	},
+	"approvedrevs-desc": "د يو مخ يوگړې بياليدنه د منل‌شوې په توگه واوڼئ",
+	"approvedrevs-logname": "د بياليدنې د منلو يادښت",
+	"approvedrevs-logdesc": "دا د هغه بياليدنو يادښت دی چې منل شوې دي.",
+	"approvedrevs-approve": "منل‌",
+	"approvedrevs-approver": "دا بياليدنه د $1 له خوا ومنل شوه.",
+	"approvedrevs-unapprove": "نه‌منل",
+	"approvedrevs-approvesuccess": "د مخ دا بياليدنه د منل‌شوې بلبڼې په توگه اوڼل شوې ده.",
 	"approvedrevs-view": "لړليک کتل د:"
 }
