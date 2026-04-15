@@ -33,7 +33,7 @@
 	"approvedrevs-notlatestpages": "Pagina's waarvan de goedgekeurde versie niet de laatste is",
 	"approvedrevs-unapprovedpages": "Niet-goedgekeurde pagina's",
 	"approvedrevs-invalidpages": "Pagina's met ongeldige goedkeuringen",
-	"approvedrevs-view": "Toon een lijst van:",
+	"approvedrevs-view": "Lijst weergeven van:",
 	"approvedrevs-revisionnumber": "versie $1",
 	"approvedrevs-uploaddate": "Uploaden van $1",
 	"approvedrevs-approvedby": "goedgekeurd door {{GENDER:$3|$1}} op $4 om $5",
