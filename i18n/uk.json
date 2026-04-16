@@ -67,5 +67,6 @@
 	"apihelp-approve-param-revid": "Ідентифікатор версії, яку треба затвердити.",
 	"apihelp-approve-param-unapprove": "Якщо встановлено, з версії буде знято затвердження, замість того, щоб затвердити її.",
 	"apihelp-approve-example-1": "Затвердити версію 12345",
-	"apihelp-approve-example-2": "Зняти затвердження версії 12345"
+	"apihelp-approve-example-2": "Зняти затвердження версії 12345",
+	"apihelp-approvedrev-param-pageid": "Ідентифікатор сторінки."
 }
