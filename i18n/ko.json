@@ -5,7 +5,8 @@
 			"Priviet",
 			"Revi",
 			"Ykhwong",
-			"아라"
+			"아라",
+			"Tensama0415"
 		]
 	},
 	"approvedrevs-desc": "승인한 문서의 판 하나를 설정합니다",
@@ -23,7 +24,7 @@
 	"approvedrevs-approvedandlatest": "이 문서의 승인한 판은 최신 판입니다.",
 	"approvedrevs-blankpageshown": "이 문서의 승인한 판이 없습니다.",
 	"approvedrevs-noapprovedrevision": "이 문서의 최신 판입니다; 승인된 판이 없습니다.",
-	"approvedrevs-editwarning": "현재 편집하고 있는 문서는 이 문서의 최신 판이며, 기본으로 보이는 승인된 판과는 다름에 주의하세요.",
+	"approvedrevs-editwarning": "'''참고''' 현재 편집하고 있는 문서는 이 문서의 최신 판이며, 기본으로 보이는 승인된 판과는 다름에 주의하세요 ([$1 차이 보기]).",
 	"approvedrevs": "승인한 판",
 	"approvedrevs-approvedpages": "승인한 판이 있는 모든 문서",
 	"approvedrevs-notlatestpages": "승인한 판이 최신 판이 아닌 문서",
