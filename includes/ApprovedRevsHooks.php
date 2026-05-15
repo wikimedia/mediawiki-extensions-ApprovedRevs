@@ -367,7 +367,8 @@ class ApprovedRevsHooks {
 		// this, but this works, and it doesn't seem to have a
 		// noticeable negative impact, so we'll go with it for now, at
 		// least.
-		if ( $revisionID || $egApprovedRevsBlankIfUnapproved ) {
+		$latestRevID = $title->getLatestRevID();
+		if ( ( $revisionID && $revisionID != $latestRevID ) || ( !$revisionID && $egApprovedRevsBlankIfUnapproved ) ) {
 			$article = new Article( $title, $revisionID );
 			// This call is necessary because it
 			// causes $article->mRevision to get initialized,
