@@ -39,7 +39,7 @@ class ARApproveAction extends Action {
 		if ( !$request->getCheck( 'oldid' ) ) {
 			return true;
 		}
-		$revisionID = $request->getVal( 'oldid' );
+		$revisionID = $request->getInt( 'oldid' );
 		ApprovedRevs::setApprovedRevID( $title, $revisionID, $user );
 
 		$out = $this->getOutput();

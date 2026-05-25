@@ -25,6 +25,7 @@
  * for each.
  */
 
+use MediaWiki\Page\PageIdentity;
 use MediaWiki\Title\Title;
 
 class ARParserFunctions {
@@ -82,7 +83,7 @@ class ARParserFunctions {
 	/**
 	 * Helper function for all the display parser functions.
 	 *
-	 * @param Title $title
+	 * @param PageIdentity $title
 	 * @return array{?int, ?int}|null
 	 */
 	public static function getApprovalInfo( $title ) {
@@ -97,9 +98,11 @@ class ARParserFunctions {
 		// DB tables, unfortunately.
 		if ( $title->inNamespace( NS_FILE ) ) {
 			$pageName = $title->getText();
-			$res = $dbr->select( 'approved_revs_files', [ 'approved_timestamp' ], [ 'file_title' => $pageName ] );
+			$res = $dbr->select( 'approved_revs_files', [ 'approved_timestamp' ],
+				[ 'file_title' => $pageName ], __METHOD__ );
 		} else {
-			$res = $dbr->select( 'approved_revs', [ 'approver_id', 'approval_date' ], [ 'page_id' => $pageId ] );
+			$res = $dbr->select( 'approved_revs', [ 'approver_id', 'approval_date' ],
+				[ 'page_id' => $pageId ], __METHOD__ );
 		}
 
 		if ( $res->numRows() == 0 ) {
@@ -116,11 +119,11 @@ class ARParserFunctions {
 
 	/**
 	 * @param Parser $parser
-	 * @param string $pageName
+	 * @param ?string $pageName
 	 * @param string $formatString
 	 * @return string|null
 	 */
-	public static function formatApprovalDate( Parser $parser, string $pageName, $formatString ) {
+	public static function formatApprovalDate( Parser $parser, ?string $pageName, $formatString ) {
 		if ( $pageName !== '' ) {
 			$title = Title::newFromText( $pageName );
 		} else {

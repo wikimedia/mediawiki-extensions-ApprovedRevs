@@ -38,11 +38,11 @@ class ApprovedRevsHooks {
 	];
 
 	/**
-	 * @param User $user
+	 * @param UserIdentity $user
 	 * @param Title $title
 	 * @return bool
 	 */
-	public static function userRevsApprovedAutomatically( User $user, Title $title ) {
+	public static function userRevsApprovedAutomatically( UserIdentity $user, Title $title ) {
 		global $egApprovedRevsAutomaticApprovals, $egApprovedRevsFileAutomaticApprovals;
 		$automaticApproval = $title->inNamespace( NS_FILE ) ?
 			$egApprovedRevsFileAutomaticApprovals :
@@ -208,7 +208,8 @@ class ApprovedRevsHooks {
 		string $reason,
 		RevisionRecord $revision
 	) {
-		$approvedRevID = ApprovedRevs::getApprovedRevID( $new );
+		$title = Title::newFromLinkTarget( $new );
+		$approvedRevID = ApprovedRevs::getApprovedRevID( $title );
 		if ( !$approvedRevID ) {
 			return;
 		}
@@ -231,7 +232,7 @@ class ApprovedRevsHooks {
 		}
 
 		// Save approval without logging.
-		ApprovedRevs::saveApprovedRevIDInDB( $new, $revID, $user, true );
+		ApprovedRevs::saveApprovedRevIDInDB( $title, $revID, $user, true );
 	}
 
 	/**

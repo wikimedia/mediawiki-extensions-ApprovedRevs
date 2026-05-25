@@ -6,11 +6,8 @@ $cfg['suppress_issue_types'] = array_merge(
 	$cfg['suppress_issue_types'],
 	[
 		// Suppress issue types that currently exist in the codebase.
-		'PhanParamTooFewInPHPDoc',
-		'PhanTypeMismatchArgument',
 		'PhanTypeMismatchArgumentNullable',
 		'PhanTypeMismatchArgumentNullableInternal',
-		'PhanTypeMismatchArgumentSuperType',
 		'PhanUndeclaredClassMethod',
 		'PhanUndeclaredMethod',
 		'PhanUndeclaredTypeParameter',

@@ -68,7 +68,7 @@ class ApproveAllPages extends Maintenance {
 		global $wgEnotifWatchlist;
 
 		if ( $this->hasOption( 'namespaces' ) ) {
-			$allowedNamespaces = explode( ',', $this->getOption( 'namespaces' ) );
+			$allowedNamespaces = array_map( 'intval', explode( ',', $this->getOption( 'namespaces' ) ) );
 		} else {
 			$allowedNamespaces = null;
 		}
