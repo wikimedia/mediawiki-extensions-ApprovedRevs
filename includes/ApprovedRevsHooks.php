@@ -393,7 +393,7 @@ class ApprovedRevsHooks {
 			// If the user is looking at a specified revision of the page, always show it.
 			$oldid ||
 			!ApprovedRevs::pageIsApprovable( $title ) ||
-			!ApprovedRevs::getApprovedRevID( $title )
+			ApprovedRevs::getApprovedRevID( $title )
 		) {
 			return;
 		}
