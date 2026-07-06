@@ -217,7 +217,11 @@ class SpecialApprovedRevs extends QueryPage {
 				$timestamp = $lang->timeanddate( $timestampInteger, true );
 				$date = $lang->date( $timestampInteger, true );
 				$time = $lang->time( $timestampInteger, true );
-				$userLink = Linker::userLink( $result->log_user, $result->log_user_name );
+				if ( $result->log_user ) {
+					$userLink = Linker::userLink( $result->log_user, $result->log_user_name );
+				} else {
+					$userLink = $result->log_user_name;
+				}
 				$additionalInfo .= ', ' . $this->msg( 'approvedrevs-approvedby' )
 					->rawParams( $userLink )
 					->params(
@@ -337,7 +341,11 @@ class SpecialApprovedRevs extends QueryPage {
 				$timestamp = $lang->timeanddate( $timestampInteger, true );
 				$date = $lang->date( $timestampInteger, true );
 				$time = $lang->time( $timestampInteger, true );
-				$userLink = Linker::userLink( $result->log_user, $result->log_user_name );
+				if ( $result->log_user ) {
+					$userLink = Linker::userLink( $result->log_user, $result->log_user_name );
+				} else {
+					$userLink = $result->log_user_name;
+				}
 				$additionalInfo .= ', ' . $this->msg( 'approvedrevs-approvedby' )
 					->rawParams( $userLink )
 					->params(
