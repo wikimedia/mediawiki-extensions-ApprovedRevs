@@ -120,7 +120,7 @@ class ApprovedRevs {
 		}
 
 		$dbr = self::getReadDB();
-		$revID = $dbr->newSelectQueryBuilder()
+		$revID = (int)$dbr->newSelectQueryBuilder()
 			->from( 'approved_revs' )
 			->select( 'rev_id' )
 			->where( [ 'page_id' => $pageId ] )
