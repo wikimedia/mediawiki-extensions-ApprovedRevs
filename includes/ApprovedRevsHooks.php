@@ -589,6 +589,8 @@ class ApprovedRevsHooks {
 	}
 
 	/**
+	 * Hook: DisplayOldSubtitle
+	 *
 	 * If user is viewing the page via its main URL, and what they're
 	 * seeing is the approved revision of the page, remove the standard
 	 * subtitle shown for all non-latest revisions, and replace it with
@@ -669,6 +671,38 @@ class ApprovedRevsHooks {
 		}
 
 		return false;
+	}
+
+	/**
+	 * Hook: OutputPageParserOutput
+	 *
+	 * Only a little bit of a @hack, hopefully.
+	 * The setSubtitle() function is called by the DisplayOldSubtitle hook,
+	 * which is only called when viewing the non-latest revision. We use
+	 * a different hook, OutputPageParserOutput, to set the subtitle
+	 * when viewing the latest revision (if that revision is approved).
+	 *
+	 * @param OutputPage $out
+	 * @param ParserOutput $parserOutput
+	 * @return void
+	 */
+	public static function setSubtitleWhenLatestIsApproved( OutputPage $out, ParserOutput $parserOutput ) {
+		$context = $out->getContext();
+		$action = $context->getActionName();
+		if ( $action !== 'view' ) {
+			return;
+		}
+		$title = $out->getTitle();
+		$revisionID = ApprovedRevs::getApprovedRevID( $title );
+		if ( !$revisionID ) {
+			return;
+		}
+		$article = Article::newFromTitle( $title, $context );
+		if ( $revisionID !== $article->getPage()->getLatest() ) {
+			return;
+		}
+
+		self::setSubtitle( $article, $revisionID );
 	}
 
 	/**
