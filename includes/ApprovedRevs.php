@@ -629,7 +629,12 @@ class ApprovedRevs {
 
 		$pageDataUpdater = MediaWikiServices::getInstance()->getPageUpdaterFactory()
 			->newDerivedPageDataUpdater( $wikiPage );
-		$pageDataUpdater->grabCurrentRevision();
+		if ( method_exists( $pageDataUpdater, 'grabLatestRevision' ) ) {
+			// MW 1.46+
+			$pageDataUpdater->grabLatestRevision();
+		} else {
+			$pageDataUpdater->grabCurrentRevision();
+		}
 		$pageDataUpdater->prepareUpdate( $revRecord );
 		$pageDataUpdater->doUpdates();
 	}
