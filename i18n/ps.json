@@ -11,5 +11,13 @@
 	"approvedrevs-approver": "دا بياليدنه د $1 له خوا ومنل شوه.",
 	"approvedrevs-unapprove": "نه‌منل",
 	"approvedrevs-approvesuccess": "د مخ دا بياليدنه د منل‌شوې بلبڼې په توگه اوڼل شوې ده.",
-	"approvedrevs-view": "لړليک کتل د:"
+	"approvedrevs-view": "لړليک کتل د:",
+	"approvedrevs-unapprovedfiles": "نامنل‌شوې دوتنې",
+	"approvedrevs-approvedfile": "منل‌شوې دوتنې",
+	"approvedrevs-latestfile": "وروستۍ دوتنه",
+	"apihelp-approve-summary": "د يوې بياليدنې بياکتنه د منلو يا نه منلو له لارې وکړئ.",
+	"apihelp-approve-param-revid": "د هغه بياليدنې پېژند چې بايد ومنل شي.",
+	"apihelp-approve-param-unapprove": "که ټاکل شوی وي؛ نو بياليدنه به د منلو پرځای تر ډېره ونه منل شي.",
+	"apihelp-approve-example-1": "۱۲۳۴۵ بياليدنه منل",
+	"apihelp-approve-example-2": "۱۲۳۴۵ بياليدنه نه‌منل"
 }
