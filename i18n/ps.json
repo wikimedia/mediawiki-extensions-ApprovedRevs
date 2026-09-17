@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"شاه زمان پټان"
+			"شاه زمان پټان",
+			"باران"
 		]
 	},
 	"approvedrevs-desc": "د يو مخ يوگړې بياليدنه د منل‌شوې په توگه واوڼئ",
@@ -11,6 +12,17 @@
 	"approvedrevs-approver": "دا بياليدنه د $1 له خوا ومنل شوه.",
 	"approvedrevs-unapprove": "نه‌منل",
 	"approvedrevs-approvesuccess": "د مخ دا بياليدنه د منل‌شوې بلبڼې په توگه اوڼل شوې ده.",
+	"approvedrevs-unapprovesuccess": "نور د دې مخ هېڅ منل‌شوې بل‌بڼه نشته.\nپرځای به يې تر ټولو وروستۍ بياليدنه وښودل شي.",
+	"approvedrevs-unapprovesuccess2": "نور د دې مخ هېڅ منل‌شوې بل‌بڼه نشته.\nپرځای به يې يو تش مخ وښودل شي.",
+	"approvedrevs-approveaction": "د \"[[$1]]\" لپاره $2 د منل‌شوې بياليدنې په توگه وټاکئ",
+	"approvedrevs-approvefileaction": "د \"[[$1]]\" لپاره $2 څخه راپورته‌کول د منل‌شوې بياليدنې په توگه وټاکئ",
+	"approvedrevs-unapproveaction": "د \"[[$1]]\" لپاره منل‌شوې بياليدنه ناټاکل",
+	"approvedrevs-notlatest": "دا دې مخ منل‌شوې بياليدنه ده؛ دا ترټولو وروستۍ بڼه نه ده.",
+	"approvedrevs-approvedandlatest": "دا دې مخ منل‌شوې بياليدنه ده؛ او همدارنگه دا ترټولو وروستۍ بڼه ده.",
+	"approvedrevs-blankpageshown": "د دې مخ هېڅ بياليدنه منل شوې نه ده.",
+	"approvedrevs-noapprovedrevision": "دا دې مخ تر ټولو وروستۍ بياليدنه ده؛ دا هېڅ منل‌شوې بياليدنه نلري.",
+	"approvedrevs-editwarning": "'''مهرباني وکړئ په ياد ولرئ''' چې تاسو وسمهال د دې مخ وروستۍ بياليدنه سموئ؛ او د هغه منل‌شوې بياليدنې سره توپير لري چې په تلواله ډول ښودل کېږي ([$1 توپير کتل]).",
+	"approvedrevs-editwarning-pending": "ستاسو بدلونونه به هغه وخت لوستونکو ته ښکاره شي چې يو تاييدشوی کارن يې ومني.",
 	"approvedrevs": "منل شوې بياليدنې",
 	"approvedrevs-approvedpages": "منل‌شوې بياليدنې سره ټول مخونه",
 	"approvedrevs-notlatestpages": "هغه مخونه چې منل‌شوې بياليدنه يې وروستۍ نه ده",
@@ -23,6 +35,19 @@
 	"approvedrevs-difffromlatest": "له وروستي سره توپير",
 	"approvedrevs-approvelatest": "وروستۍ منل",
 	"approvedrevs-approvethisrev": "دا بياليدنه منل.",
+	"approvedrevs-viewlatestrev": "تر ټولو وروستۍ بياليدنه کتل.",
+	"approvedrevs-approvedrevision": "منل‌شوې بياليدنه",
+	"action-approverevisions": "د ويکي مخ يو ټاکلې بياليدنه د منل‌شوې په توگه وټاکئ",
+	"right-approverevisions": "د ويکي مخ يو ټاکلې بياليدنه د منل‌شوې په توگه وټاکئ",
+	"action-viewlinktolatest": "د هغه مخونو په سرکې څرگندوونکی ليک وگورئ چې منل‌شوې بياليدنه لري",
+	"right-viewlinktolatest": "د هغه مخونو په سرکې څرگندوونکی ليک وگورئ چې منل‌شوې بياليدنه لري",
+	"action-viewapprover": "هغه ليک وگورئ چې د اوسنۍ منل‌شوې بياليدنې منونکی ښيي",
+	"right-viewapprover": "هغه ليک وگورئ چې د اوسنۍ منل‌شوې بياليدنې منونکی ښيي",
+	"grant-group-approvedrevs": "د بياليدنو‌منلو شاتاړي له لارې د بياليدنو منل او نامنل",
+	"grant-approvedrevs": "د بياليدنو‌منلو شاتاړي له لارې د بياليدنو منل او نامنل",
+	"approvedrevs-invalidfiles": "هغه دوتنې چې ناسمې مننې لري",
+	"approvedrevs-approvedfiles": "له منل‌شوې بياليدنې سره ټولې دوتنې",
+	"approvedrevs-notlatestfiles": "هغه دوتنې چې منل‌شوې بياليدنه يې وروستۍ نه ده",
 	"approvedrevs-unapprovedfiles": "نامنل‌شوې دوتنې",
 	"approvedrevs-approvedfile": "منل‌شوې دوتنې",
 	"approvedrevs-latestfile": "وروستۍ دوتنه",
@@ -31,5 +56,6 @@
 	"apihelp-approve-param-unapprove": "که ټاکل شوی وي؛ نو بياليدنه به د منلو پرځای تر ډېره ونه منل شي.",
 	"apihelp-approve-example-1": "۱۲۳۴۵ بياليدنه منل",
 	"apihelp-approve-example-2": "۱۲۳۴۵ بياليدنه نه‌منل",
+	"apihelp-approvedrev-summary": "د شتون په صورت کې د يو منل‌شوي مخ بياليدنې لپاره پېژند ترلاسه کړئ.",
 	"apihelp-approvedrev-param-pageid": "د مخ پېژند."
 }
