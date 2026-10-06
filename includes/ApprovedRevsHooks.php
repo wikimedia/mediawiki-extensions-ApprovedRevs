@@ -1384,9 +1384,12 @@ class ApprovedRevsHooks {
 		if ( $fileTitle->isRedirect() ) {
 			$page = MediaWikiServices::getInstance()->getWikiPageFactory()
 				->newFromID( $fileTitle->getId() );
-			$fileTitle = $page->getRedirectTarget();
-			// avoid extra queries
-			$fileTitle->resetArticleId( $fileTitle->getId() );
+			$redirectTarget = $page ? $page->getRedirectTarget() : null;
+			if ( $redirectTarget ) {
+				$fileTitle = $redirectTarget;
+				// avoid extra queries
+				$fileTitle->resetArticleId( $fileTitle->getId() );
+			}
 		}
 
 		# Tell Parser what file version to use
