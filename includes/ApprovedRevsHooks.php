@@ -1521,7 +1521,7 @@ class ApprovedRevsHooks {
 	 * @param array &$qp
 	 */
 	public static function onwgQueryPages( &$qp ) {
-		$qp['SpecialApprovedRevsPage'] = 'ApprovedRevs';
+		$qp[] = [ SpecialApprovedRevs::class, 'ApprovedRevs' ];
 	}
 
 	/**
