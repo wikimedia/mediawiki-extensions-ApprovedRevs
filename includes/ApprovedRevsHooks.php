@@ -1476,7 +1476,7 @@ class ApprovedRevsHooks {
 	 * @param string $reason
 	 * @return void
 	 */
-	public static function onFileDeleteComplete( File $file, $oldimage, $article, $user, $reason ) {
+	public static function onFileDeleteComplete( $file, $oldimage, $article, $user, $reason ) {
 		$dbr = ApprovedRevs::getReadDB();
 		// check if this file has an approved revision
 		$approvedFile = $dbr->selectRow(
